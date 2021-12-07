@@ -1,3 +1,10 @@
+---
+layout: default
+title: Identifier requirements
+nav_order: 2
+parent: General reference
+---
+
 # Identifier requirements
 
 Firebolt identifiers can refer to the following items:

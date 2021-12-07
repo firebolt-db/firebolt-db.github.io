@@ -1,3 +1,11 @@
+---
+layout: default
+title: Array functions
+nav_order: 1
+parent: Semi-structured data functions
+grand_parent: SQL functions reference
+---
+
 # Array Functions
 
 This page describes the functions for working with arrays.
@@ -20,14 +28,14 @@ ALL_MATCH(<func>, <arr>)
 **Examples**
 
 ```sql
-SELECT 
+SELECT
     ALL_MATCH(x -> x > 0, [1,2,3,9]) AS res;
 ```
 
 **Returns**: `1`
 
 ```
-SELECT 
+SELECT
     ALL_MATCH(x -> x > 10, [1,2,3,9]) AS res;
 ```
 
@@ -51,7 +59,7 @@ Returns `1` if at least one of the elements of an array matches the results of t
 **Examples**
 
 ```sql
-SELECT 
+SELECT
     ANY_MATCH(x -> x > 3, [1,2,3,9]) AS res;
 ```
 
@@ -105,7 +113,7 @@ ARRAY_COUNT(<func>, <arr>)
 The example below searches through the array for any elements that are greater than 3. Only one number that matches this criteria is found, so the function returns `1`
 
 ```sql
-SELECT 
+SELECT
     ARRAY_COUNT(x -> x > 3, [1,2,3,9]) AS res;
 ```
 
@@ -250,14 +258,14 @@ ARRAY_FILL(<func>, <arr>)
 **Examples**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_FILL(x -> x < 0,[1,2,3,9]) AS res;
 ```
 
 **Returns**: 1,1,1,1
 
 ```sql
-SELECT 
+SELECT
     ARRAY_FILL(x -> x > 0,[1,2,3,9]) AS res;
 ```
 
@@ -306,7 +314,7 @@ ARRAY_FIRST_INDEX(<func>, <arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_FIRST_INDEX(x -> x > 2,[1,2,3,9]) AS res;
 ```
 
@@ -356,7 +364,7 @@ ARRAY_JOIN(<arr>[, <delimiter>])
 In the example below, the three elements are joined with no delimiter.
 
 ```sql
-SELECT 
+SELECT
     ARRAY_JOIN(['1', '2', '3']) AS res;
 ```
 
@@ -365,7 +373,7 @@ SELECT
 In this example below, we are providing a comma delimiter.
 
 ```
-SELECT 
+SELECT
     ARRAY_JOIN(['a', 'b', 'c'], ',') AS res;
 ```
 
@@ -388,7 +396,7 @@ ARRAY_MAX(<arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_MAX([1,2,3,4]) AS res;
 ```
 
@@ -411,7 +419,7 @@ ARRAY_MIN(<arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_MIN([1,2,3,4]) AS res;
 ```
 
@@ -437,7 +445,7 @@ ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_REPLACE_BACKWARDS(x -> x > 2,[1,2,3,9]) AS res;
 ```
 
@@ -460,7 +468,7 @@ ARRAY_REVERSE(<arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_REVERSE([1, 2, 3, 6]) AS res
 ```
 
@@ -486,7 +494,7 @@ ARRAY_SORT([<func>,] <arr>)
 **Examples**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_SORT([4,1,3,2]) AS res;
 ```
 
@@ -495,7 +503,7 @@ SELECT
 In this example below, the modulus operator is used to calculate the remainder on any odd numbers. Therefore `ARRAY_ SORT` puts the higher (odd) numbers last in the results.
 
 ```sql
-SELECT 
+SELECT
     ARRAY_SORT(x -> x % 2, [4,1,3,2]) AS res;
 ```
 
@@ -521,7 +529,7 @@ ARRAY_SUM([<func>,] <arr>)
 This example below uses a function to first add 1 to all elements before calculating the sum:
 
 ```sql
-SELECT 
+SELECT
     ARRAY_SUM(x -> x + 1,[4,1,3,2]) AS res;
 ```
 
@@ -530,7 +538,7 @@ SELECT
 In this example below, no function to change the array elements is given.
 
 ```sql
-SELECT 
+SELECT
     ARRAY_SUM([4,1,3,2]) AS res;
 ```
 
@@ -553,7 +561,7 @@ ARRAY_UNIQ(<arr> [, ...n])
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ARRAY_UNIQ([1, 2, 4, 5]) AS res;
 ```
 
@@ -566,12 +574,12 @@ When using multiple arrays, `ARRAY_UNIQ` evaluates all the elements at a specifi
 For example, two arrays \[1,1,1,1] and \[1,1,1,2] would be evaluated as individual tuples (1,1), (1,1), (1,1), and (1,2). There are 2 unique tuples, so `ARRAY_UNIQ` would return a value of 2.
 
 ```
-SELECT 
+SELECT
     ARRAY_UNIQ
         (
-        [1,1,1,1], 
+        [1,1,1,1],
         [1,1,1,2]
-        ) 
+        )
         AS res;
 ```
 
@@ -580,12 +588,12 @@ SELECT
 In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').&#x20;
 
 ```
-SELECT 
+SELECT
     ARRAY_UNIQ
         (
-        ['apple','apple','apple','apple'], 
+        ['apple','apple','apple','apple'],
         ['pie','pie','jack','jack']
-        ) 
+        )
         AS res;
 ```
 
@@ -646,7 +654,7 @@ SELECT CONTAINS([1, 2, 3], 3) AS res;
 `CONTAINS` returns a `0` result when single character or substring matches only part of a longer string.
 
 ```
-SELECT 
+SELECT
     CONTAINS(['a', 'b', 'cookie'], 'c') AS res;
 ```
 
@@ -670,7 +678,7 @@ ELEMENT_AT(<arr>, <index>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     ELEMENT_AT([1,2,3,4],2) AS res;
 ```
 
@@ -703,7 +711,7 @@ FILTER(<func>, <arr> [, ...n] )
 In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.
 
 ```
-SELECT 
+SELECT
     FILTER(x -> x = 'a' ,['a','b','c','d'])
 ```
 
@@ -762,7 +770,7 @@ INDEX_OF(<arr>, <x>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     INDEX_OF([1, 3, 5, 7], 5) AS res;
 ```
 
@@ -785,7 +793,7 @@ LENGTH(<arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     LENGTH([1, 2, 3, 4]) AS res;
 ```
 
@@ -819,7 +827,7 @@ Assume we have the following `prices` table:
 Running the following query:
 
 ```sql
-SELECT 
+SELECT
     NEST(price) as arr from prices;
 ```
 
@@ -843,7 +851,7 @@ REDUCE(<agg_function>, <arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     REDUCE('max', [1, 2, 3, 6]) AS res;
 ```
 
@@ -868,7 +876,7 @@ SLICE(<arr>, <offset>[, <length>])
 **Example**
 
 ```sql
-SELECT 
+SELECT
     SLICE([1, 2, NULL, 4, 5], 2, 3) AS res
 ```
 
@@ -894,7 +902,7 @@ TRANSFORM(<func>, <arr>)
 **Example**
 
 ```sql
-SELECT 
+SELECT
     TRANSFORM(x -> x * 2,[1,2,3,9]) AS res;
 ```
 

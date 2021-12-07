@@ -1,3 +1,10 @@
+---
+layout: default
+title: Aggregation functions
+nav_order: 1
+parent: SQL functions reference
+---
+
 # Aggregation functions
 
 This page describes the aggregation functions supported in Firebolt.

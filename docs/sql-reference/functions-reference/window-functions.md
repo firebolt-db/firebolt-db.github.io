@@ -1,3 +1,11 @@
+---
+layout: default
+title: Window functions
+nav_order: 7
+
+parent: SQL functions reference
+---
+
 # Window Functions
 
 A window function performs a calculation across a set of table rows. Unlike regular aggregate functions, the use of a window function does not cause rows to become grouped into a single output row but allows the rows to retain their separate identities.
@@ -35,7 +43,7 @@ SELECT
 	Test_score,
 	AVG(Test_score) OVER (PARTITION BY Grade_level) AS average_for_grade
 FROM
-	class_test 
+	class_test
 ```
 
 **Results**
@@ -199,7 +207,7 @@ Returns the value of the input expression at the given offset before the current
 **Syntax**
 
 ```sql
-LAG ( <exp> [, <offset> [, <default> ]] ) 
+LAG ( <exp> [, <offset> [, <default> ]] )
     OVER ( [ PARTITION BY <exp> ] ORDER BY <exp> [ { ASC | DESC } ] )
 ```
 
@@ -263,7 +271,7 @@ Returns values from the row after the current row within the requested window.
 **Syntax**
 
 ```sql
-LEAD ( <val> [, <offset> [, <default> ] ) 
+LEAD ( <val> [, <offset> [, <default> ] )
     OVER ( [ PARTITION BY <exp> ] ORDER BY <exp> [ { ASC | DESC } ] )
 ```
 
@@ -285,7 +293,7 @@ SELECT
 	LEAD(First_name, -1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_left,
 	LEAD(First_name, 1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_right
 FROM
-	class_test; 
+	class_test;
 ```
 
 **Returns:**
@@ -586,7 +594,7 @@ The example below shows how many vaccinated students are in the same grade level
 
 ```sql
 SELECT
-	First_name, 
+	First_name,
 	SUM(Vaccinated) OVER (PARTITION BY Grade_level ) AS Vaccinated_Students
 FROM
 	class_test

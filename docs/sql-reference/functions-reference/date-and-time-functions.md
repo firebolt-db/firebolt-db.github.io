@@ -1,3 +1,10 @@
+---
+layout: default
+title: Date and time functions
+nav_order: 3
+parent: SQL functions reference
+---
+
 # Date and time functions
 
 This page describes the date and time functions and [format expressions](date-and-time-functions.md#date-format-expressions) supported in Firebolt.
@@ -365,7 +372,7 @@ Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 **Example**
 
 ```sql
-SELECT 
+SELECT
     FROM_UNIXTIME(1493971667);
 ```
 
@@ -384,7 +391,7 @@ Returns the current date and time.
 **Example**
 
 ```
-SELECT 
+SELECT
     NOW()
 ```
 
@@ -403,7 +410,7 @@ Returns the current timezone of the request execution
 **Example**
 
 ```
-SELECT 
+SELECT
     TIMEZONE()
 ```
 
@@ -622,8 +629,8 @@ Converts a date or timestamp to a number representing the week. This function de
 For Sunday, Jan. 1,  2017:&#x20;
 
 ```sql
-SELECT 
-    TO_WEEK(CAST('2017/01/01' AS DATE)) 
+SELECT
+    TO_WEEK(CAST('2017/01/01' AS DATE))
 ```
 
 **Returns**: `1`
@@ -631,7 +638,7 @@ SELECT
 For Monday, Jan. 1, 2018:&#x20;
 
 ```
-SELECT 
+SELECT
     TO_WEEK(CAST('2018/01/01' AS DATE))
 ```
 
@@ -682,7 +689,7 @@ FROM
 Where `ship_date` is a column of type `TEXT` with values in the format _YYYY/MM/DD** **_**.**
 
 ```sql
-SELECT 
+SELECT
     TO_WEEKISO(CAST(ship_date AS DATE))
 FROM
     fct_orders;

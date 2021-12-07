@@ -1,3 +1,10 @@
+---
+layout: default
+title: String functions
+nav_order: 6
+parent: SQL functions reference
+---
+
 # String functions
 
 This page describes the string functions supported in Firebolt.

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Numeric functions
+nav_order: 4
+parent: SQL functions reference
+---
+
 # Numeric functions
 
 This page describes the numeric functions supported in Firebolt.

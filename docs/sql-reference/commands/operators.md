@@ -1,3 +1,10 @@
+---
+layout: default
+title: Operators
+nav_order: 2
+parent: SQL commands reference
+---
+
 # Operators
 
 This section describes the operators supported in Firebolt.

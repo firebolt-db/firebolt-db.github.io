@@ -1,4 +1,11 @@
-# Query syntax
+---
+layout: default
+title: SELECT query
+nav_order: 1
+parent: SQL commands reference
+---
+
+# SELECT query syntax
 
 Firebolt supports performing standard `SELECT` statements with the following syntax:
 

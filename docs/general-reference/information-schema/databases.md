@@ -1,3 +1,11 @@
+---
+layout: default
+title: Databases
+nav_order: 1
+parent: Information schema and usage views
+grand_parent: General reference
+---
+
 # Databases
 
 This information schema view contains a row per database in your Firebolt account.

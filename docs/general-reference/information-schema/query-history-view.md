@@ -1,13 +1,21 @@
+---
+layout: default
+title: Query history
+nav_order: 5
+parent: Information schema and usage views
+grand_parent: General reference
+---
+
 # Query history
 
 The `query_history` view can be used to explore Firebolt's query history in your account.\
 The view is available in all databases and can be queried, for example, as follows:
 
 ```sql
-SELECT 
-    * 
-FROM 
-    catalog.query_history 
+SELECT
+    *
+FROM
+    catalog.query_history
 LIMIT 100;
 ```
 

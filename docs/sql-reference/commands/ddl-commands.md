@@ -1,3 +1,10 @@
+---
+layout: default
+title: DDL commands
+nav_order: 4
+parent: SQL commands reference
+---
+
 # DDL commands
 
 Firebolt supports these DDL (data definition language) commands so that you can create, manipulate, and modify objects in your tables.

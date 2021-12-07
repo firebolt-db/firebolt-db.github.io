@@ -1,3 +1,11 @@
+---
+layout: default
+title: Tables
+nav_order: 2
+parent: Information schema and usage views
+grand_parent: General reference
+---
+
 # Tables
 
 This information schema view contains a row per table in the current database.

@@ -1,8 +1,11 @@
 ---
-description: This page describes Firebolt's supported DML commands
+layout: default
+title: DML commands
+nav_order: 3
+parent: SQL commands reference
 ---
 
-# DML commands
+# Data manipulation language (DML) statements
 
 ## INSERT INTO
 

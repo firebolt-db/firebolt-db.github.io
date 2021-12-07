@@ -1,3 +1,11 @@
+---
+layout: default
+title: Columns
+nav_order: 3
+parent: Information schema and usage views
+grand_parent: General reference
+---
+
 # Columns
 
 This information schema view contains a row per table column in the current database.
@@ -5,9 +13,9 @@ This information schema view contains a row per table column in the current data
 The view is available in all databases and can be queried as follows:
 
 ```sql
-SELECT 
-    * 
-FROM 
+SELECT
+    *
+FROM
     information_schema.columns;
 ```
 

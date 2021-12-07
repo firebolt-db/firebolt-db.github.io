@@ -1,4 +1,12 @@
-# JSON Functions
+---
+layout: default
+title: JSON functions
+nav_order: 1
+parent: Semi-structured data functions
+grand_parent: SQL functions reference
+---
+
+# JSON functions
 
 This page describes the functions used for JSON manipulation using ​Firebolt​. You can use JSON functions to extract values and objects from a JSON document .
 

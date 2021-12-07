@@ -1,3 +1,11 @@
+---
+layout: default
+title: Semi-structured data functions
+nav_order: 5
+parent: SQL functions reference
+has_children: true
+---
+
 # Semi-structured data functions
 
 Firebolt supports loading and manipulating semi-structured data such as JSON. This, and similar formats \(e.g. Avro, Parquet\) can contain compound types such as arrays, maps, and structs. Firebolt uses its native `ARRAY` type to model and query such semi-structured data.
@@ -7,4 +15,3 @@ The raw JSON input can be transformed into Firebolt's arrays during ingestion, o
 * [Array functions](array-functions.md) - used for the manipulation and querying of array typed columns, such as [transformation](array-functions.md#transform), [filtering](array-functions.md#filter), and [un-nesting](array-functions.md#array_unnest) - an operation that converts the array to a regular column.
 * [Aggregate array functions](aggregate-array-functions.md) - these functions work on array-typed columns, but instead of being applied row by row, they combine the results or all the array belonging to the groups defined by the `GROUP BY` clause.
 * [JSON functions](json-functions.md) - these function extract and transform raw JSON into Firebolt native types, or JSON sub-objects. They are used either during the ELT process or applied to columns storing JSON objects as plain `TEXT`         
-

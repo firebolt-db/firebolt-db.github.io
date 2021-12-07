@@ -1,3 +1,11 @@
+---
+layout: default
+title: Running queries
+nav_order: 4
+parent: Information schema and usage views
+grand_parent: General reference
+---
+
 # Running queries
 
 The `running_queries` view can be used to explore Firebolt's running queries in your account.\

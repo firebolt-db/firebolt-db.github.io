@@ -1,3 +1,10 @@
+---
+layout: default
+title: Data types
+nav_order: 1
+parent: General reference
+---
+
 # Data types
 
 The following table describes all available data types in Firebolt:

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Conditional and miscellaneous functions
+nav_order: 2
+parent: SQL functions reference
+---
+
 # Conditional and miscellaneous functions
 
 This page describes the conditional and miscellaneous functions supported in Firebolt.

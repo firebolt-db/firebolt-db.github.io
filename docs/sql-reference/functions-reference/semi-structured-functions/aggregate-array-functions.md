@@ -1,3 +1,11 @@
+---
+layout: default
+title: Aggregate array functions
+nav_order: 2
+parent: Semi-structured data functions
+grand_parent: SQL functions reference
+---
+
 # Aggregate array functions
 
 Aggregate semi-structured functions work globally on all the arrays in a given column expression, instead of a row-by-row application.
