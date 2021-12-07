@@ -1,3 +1,11 @@
+---
+layout: default
+title: Tableau
+nav_order: 3
+parent: Business intelligence
+grand_parent: Integrations
+---
+
 # Connecting to Tableau (Desktop)
 
 This topic describes the steps for setting up the Tableau (Desktop) connection to Firebolt.

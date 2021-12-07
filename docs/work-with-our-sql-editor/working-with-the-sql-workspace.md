@@ -1,3 +1,10 @@
+---
+layout: default
+title: Working with the SQL workspace
+nav_order: 4
+has_children: true
+---
+
 # Working with the SQL workspace
 
 The Firebolt Manager has a SQL workspace that you use to edit, run, and save SQL scripts and view query results. Each database in Firebolt has a SQL workspace. When you open the SQL workspace for a database, you see the saved scripts and state for that particular database.

@@ -1,3 +1,11 @@
+---
+layout: default
+title: Airflow
+nav_order: 1
+parent: Other integrations
+grand_parent: Integrations
+---
+
 # Connecting to Airflow
 
 {: .note}
@@ -9,19 +17,19 @@ Download Firebolt’s JDBC driver from [here](../connecting-via-jdbc.md#download
 
 Put the JDBC jar file in the server which runs Airflow (we have placed it under `/airflow/jdbc`).
 
-## Step 2: Setup the JDBC connection in Airflow
+## Step 2: Set up the JDBC connection in Airflow
 
-### Pre-requisites
+### Prerequisites
 
 Make sure you have:
 
 1. The name of the database you would like to connect to in Firebolt.
 2. The username and password used to log into Firebolt.
-3. Airflow version 1.10.12 and above.
+3. Airflow version 1.10.12 or later.
 
 ### Configuring the Connection
 
-* Open Airflow UI. In the **Admin** tab click on **Connections.**
+* Open Airflow UI. In the **Admin** tab click on **Connections**.
 * Click **+** to create a new connection to Firebolt.
 *   Configure the following parameters:
 

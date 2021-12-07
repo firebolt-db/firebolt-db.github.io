@@ -1,3 +1,10 @@
+---
+layout: default
+title: Connecting programmatically
+nav_order: 3
+parent: Developing with Firebolt
+---
+
 # Connecting to your database programmatically
 
 This section explains how to connect to your database programmatically. If you are using an application like DBeaver that manages your client connections for you, then you can skip this section and move directly to this [guide](../integrations/other-integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.md).

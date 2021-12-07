@@ -1,3 +1,10 @@
+---
+layout: default
+title: Loading data
+nav_order: 5
+has_children: true
+---
+
 # Loading data
 
 Loading data into Firebolt is very simple - you can try it in our [getting started tutorial](../). The process is composed of the following steps:

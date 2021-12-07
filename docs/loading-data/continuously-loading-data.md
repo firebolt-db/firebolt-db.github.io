@@ -1,3 +1,10 @@
+---
+layout: default
+title: Continuously loading data
+nav_order: 3
+parent: Loading data
+---
+
 # Continuously loading data tutorial
 
 This tutorial describes the steps for continuously loading data into Firebolt. In order to continuously load the data into Firebolt, we need to schedule the loading workflow. In order to achieve that, in this guide, we are using Apache Airflow which is a platform that enables to programmatically schedule and monitor workflows.

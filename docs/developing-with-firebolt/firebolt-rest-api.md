@@ -1,14 +1,21 @@
+---
+layout: default
+title: REST API
+nav_order: 1
+parent: Developing with Firebolt
+---
+
 # Firebolt REST API
 
 The Firebolt REST API provides endpoints that enable you to interact with Firebolt programmatically. This topic provides commands for common tasks using the REST API, including authentication, working with engines, and executing queries.
 
 ## In this topic
 
-* [Use tokens for authentication](connecting-via-rest-api.md#use-tokens-for-authentication)
-* [Start, stop, and restart engines](connecting-via-rest-api.md#start-stop-and-restart-engines)
-* [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine)
-* [Ingest data](connecting-via-rest-api.md#ingest-data)
-* [Run queries](connecting-via-rest-api.md#run-queries)
+* [Use tokens for authentication](#use-tokens-for-authentication)
+* [Start, stop, and restart engines](#start-stop-and-restart-engines)
+* [Get the URL of an engine](#get-the-url-of-an-engine)
+* [Ingest data](#ingest-data)
+* [Run queries](#run-queries)
 
 ## Use tokens for authentication
 

@@ -1,3 +1,10 @@
+---
+layout: default
+title: Keyboard shortcuts
+nav_order: 1
+parent: Working with the SQL workspace
+---
+
 # Keyboard shortcuts for SQL workspace
 
 Firebolt supports the following keyboard shortcuts in the SQL workspace.
@@ -73,4 +80,3 @@ Firebolt supports the following keyboard shortcuts in the SQL workspace.
 | selectNextBefore | Ctrl-Alt-Shift-Left |
 | selectNextAfter | Ctrl-Alt-Shift-Right |
 | findAll | Ctrl-Alt-K |
-

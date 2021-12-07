@@ -1,12 +1,18 @@
+---
+layout: default
+title: Working with external tables
+nav_order: 1
+parent: Loading data
+---
+
 # Working with external tables
 
 Loading data into Firebolt is done using EXTERNAL TABLEs. Those tables are different from [fact and dimension tables](../concepts/working-with-tables.md) since the data is stored externally in Amazon S3 and not inside the database. Using external tables, Firebolt can access files stored in your S3 bucket with ease and allow you to load those files into Firebolt.
 
-{: .note}
-External tables in Firebolt can be used to run any SQL query against the external data. However, it is **recommended** to use them **for data ingestion workloads only**. Analytic queries on external tables can run successfully but are expected to be relatively slow compared to fact or dimension tables.
+In order to create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
 
-In order to create an external table - run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command.  
-Once you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
+{: .note}
+You can run a query over an external table in Firebolt to return query results directly from external data. A direct query like this over an external table will be significantly slower than the same query run over the same data in a fact or dimension table. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement. 
 
 ## Workflows
 

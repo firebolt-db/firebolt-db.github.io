@@ -1,3 +1,10 @@
+---
+layout: default
+title: Using the JDBC driver
+nav_order: 4
+parent: Integrations
+---
+
 # Connecting apps and services using the JDBC driver
 
 Firebolt provides a JDBC driver (Type 4) that can be used with most applications and tools that support JDBC for connecting to a database server. The driver is provided as a JAR file and requires Java 1.8 (or higher).

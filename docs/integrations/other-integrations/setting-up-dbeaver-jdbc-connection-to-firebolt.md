@@ -1,3 +1,11 @@
+---
+layout: default
+title: DBeaver
+nav_order: 2
+parent: Other integrations
+grand_parent: Integrations
+---
+
 # Connecting to DBeaver
 
 DBeaver is a free open-source administration tool used to simplify working across a range of different database types. DBeaver can connect to Firebolt databases using our JDBC driver.

@@ -1,3 +1,11 @@
+---
+layout: default
+title: dbt
+nav_order: 2
+parent: Data integration and transformation
+grand_parent: Integrations
+---
+
 # Connecting with dbt
 
 [dbt](https://www.getdbt.com) (data build tool) is a modern development framework that enables data analysts and data engineers to transform data by writing select statements. dbt handles turning these select statements into tables and views.

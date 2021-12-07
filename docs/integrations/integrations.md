@@ -1,10 +1,11 @@
 ---
-description: >-
-  Learn how Firebolt supports a growing network of external tools to meet your
-  demands.
+layout: default
+title: Integrations
+nav_order: 6
+has_children: true
 ---
 
-# Integration overview
+# Integrations
 
 Firebolt is working with an expanding roster of services and applications to utilize our optimized performance speed.
 
