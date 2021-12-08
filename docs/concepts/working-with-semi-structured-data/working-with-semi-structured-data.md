@@ -11,7 +11,7 @@ Semi-structured data is any data that does not adhere to a strict tabular schema
 
 The prototypical example of such a data format is JSON, but many other serialization formats such as Avro, Parquet, and ORC support similar features.
 
-For reference see [semi-structured data functions](../../sql-reference/functions-reference/semi-structured-functions/)
+For reference see [semi-structured data functions](../../sql-reference/functions-reference/semi-structured-functions/semi-structured-data-functions.html/)
 
 Arrays are the building blocks of how Firebolt represent semi-structured data, among others, they are used to represent:
 

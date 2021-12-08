@@ -18,7 +18,7 @@ Those building blocks are called indexes. Using them wisely not only guarantees 
 
 ## Primary indexes
 
-The primary indexes are the main sort key of the table. They will be built with the table using the [CREATE FACT/DIMENSION TABLE syntax](../sql-reference/commands/ddl-commands.md#create-fact-dimension-table) and will be used as the main tool for data pruning and data distribution.
+The primary indexes are the main sort key of the table. They will be built with the table using the [CREATE FACT/DIMENSION TABLE syntax](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table) and will be used as the main tool for data pruning and data distribution.
 
 By using the primary index, Firebolt will read ranges of data from each F3 file. This will reduce the I/O needed to be read, and increase performance dramatically.
 
@@ -31,7 +31,7 @@ The columns we set in the primary index and their order is a key factor for the 
 
 ## Get sub-second query response time using aggregating indexes
 
-Firebolt incorporates many building blocks to guarantee fast query response times. One of these building blocks is a type of index called an [aggregating index](../sql-reference/commands/ddl-commands.md#create-and-generate-aggregating-index).
+Firebolt incorporates many building blocks to guarantee fast query response times. One of these building blocks is a type of index called an [aggregating index](../sql-reference/commands/ddl-commands.md#create-aggregating-index).
 
 The aggregating index enables you to take a subset of a table's columns and configure aggregations on top of those columns. Many aggregations are supported from the simple `sum`, `max`, `min` to more complex ones such as `count` and `count (distinct)`. The index is automatically updated and aggregating as new data streams into the table without having to scan the entire table every time since the index is stateful and consistent.
 
@@ -47,11 +47,11 @@ You can create as many aggregating indexes as you like. Since the indexes are co
 
 ### Prerequisites
 
-To configure an aggregating index, first, you need to [create a Fact table](../sql-reference/commands/ddl-commands.md#create-fact-dimension-table).
+To configure an aggregating index, first, you need to [create a Fact table](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table).
 
 ### Create and generate an aggregating index
 
-Use the [CREATE & GENERATE AGGERGATING INDEX syntax](../sql-reference/commands/ddl-commands.md#create-an-aggregating-index-on-a-populated-table) to create and generate an aggregating index that includes the keys and the functions per parameter that you usually query.
+Use the [CREATE & GENERATE AGGERGATING INDEX syntax](../sql-reference/commands/ddl-commands.md#create-aggregating-index) to create and generate an aggregating index that includes the keys and the functions per parameter that you usually query.
 
 **Example: Implementing an aggregating index for common queries**
 
@@ -98,7 +98,7 @@ The order of the fields is important. Firebolt will create the primary index on 
 Firebolt supports accelerating your joins by creating join indexes. Queries with joins might be resource-consuming and if not done efficiently - joins can take a significant amount of time to complete which makes them unusable to the user. Using Firebolt’s join indexing saves time searching data in the disk and loading it into memory. It’s already there, indexed by the required join key, and waits to be queried.
 
 **Warning!**
-Join indexes are not updated automatically in an engine when new data is ingested into a dimension table or a partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results. For more information, see [#refresh-join-index](../sql-reference/commands/ddl-commands.md#refresh-join-index "mention").
+Join indexes are not updated automatically in an engine when new data is ingested into a dimension table or a partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results. For more information, see [REFRESH JOIN INDEX](../sql-reference/commands/ddl-commands.md#refresh-join-index "mention").
 
 ### When to use join index
 

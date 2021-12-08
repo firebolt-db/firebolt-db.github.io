@@ -8,9 +8,9 @@ has_toc: true
 
 In this tutorial, you:
 
-1. [Create your first database](./#create-your-first-database)
-2. [Import data to Firebolt](./#import-data-into-firebolt)
-3. [Configure an aggregating index](./#configure-an-aggregating-index)
+1. [Create your first database](./getting-started.html#create-your-first-database)
+2. [Import data to Firebolt](./getting-started.html#import-data-into-firebolt)
+3. [Configure an aggregating index](./getting-started.html#configure-an-aggregating-index)
 
 
 {: .note}

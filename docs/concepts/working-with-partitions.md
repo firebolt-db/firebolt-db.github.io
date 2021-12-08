@@ -34,7 +34,7 @@ If you choose to use partitions for boosting performance, set your partition key
 
 In both cases, the recommendation is not to use long text columns as your partition key.
 
-Partitioning your table is done as part of the [CREATE FACT TABLE DDL](../sql-reference/commands/ddl-commands.md#create-fact-dimension-table) using the [PARTITION BY](../sql-reference/commands/ddl-commands.md#partition-by) specifier.
+Partitioning your table is done as part of the [CREATE FACT TABLE DDL](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table) using the [PARTITION BY](../sql-reference/commands/ddl-commands.md#partition-by) specifier.
 
 ## Working with partitions
 

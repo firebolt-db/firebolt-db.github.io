@@ -17,7 +17,7 @@ Array literals are also supported, so for example, the following is a valid SQL:
 SELECT [1,2,3,4]
 ```
 
-Throughout this page we will use the table presented in the [overview page](./) and assume its name is **visits**, the relevant columns are presented here for convenience.
+Throughout this page we will use the table presented in the [overview page](./working-with-semi-structured-data.html) and assume its name is **visits**, the relevant columns are presented here for convenience.
 
 | id INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
 | :--- | :--- | :--- | :--- |

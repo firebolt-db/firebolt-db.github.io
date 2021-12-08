@@ -55,7 +55,7 @@ Recall that the target table named "Visits" should look as follows:
 
 ## Extracting top-level scalars and arrays
 
-For the top-level keys: "id", "Duration", and "tags" the task is straightforward using [JSON\_EXTRACT](../../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json_extract) function. This function accepts three parameters:
+For the top-level keys: "id", "Duration", and "tags" the task is straightforward using [JSON\_EXTRACT](../../sql-reference/functions-reference/semi-structured-functions/json-functions.html#json_extract) function. This function accepts three parameters:
 
 
 Although "StartTime" is also a scalar field, since there is no native DATETIME type in JSON type system it will require an additional step
@@ -63,7 +63,7 @@ Although "StartTime" is also a scalar field, since there is no native DATETIME t
 
 1. An expression containing a JSON string
 2. A [JSON Pointer](ingesting-semi-structured-data.md) specifying the location in the JSON object from where the value will be extracted,
-3. A type specifier indicating Firebolt's SQL type that will be returned from the function. This type should correspond to the JSON type found under the key pointed by the JSON Pointer. For a detailed discussion of JSON to SQL type mapping see the [Type Parameters](../../sql-reference/functions-reference/semi-structured-functions/json-functions.md#type-parameters) section in the [JSON Functions](../../sql-reference/functions-reference/semi-structured-functions/json-functions.md) reference.
+3. A type specifier indicating Firebolt's SQL type that will be returned from the function. This type should correspond to the JSON type found under the key pointed by the JSON Pointer. For a detailed discussion of JSON to SQL type mapping see the [Type Parameters](../../sql-reference/functions-reference/semi-structured-functions/json-functions.html#type-parameters) section in the [JSON Functions](../../sql-reference/functions-reference/semi-structured-functions/json-functions.md) reference.
 
 Note that our native support for arrays makes the extraction of `tags` as simple as other scalar types. Putting those concepts in action will result in the following query that will return the expected tabular representation:
 

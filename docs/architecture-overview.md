@@ -24,7 +24,7 @@ Unlike the multi-tenant services layer, the compute and storage layers in Firebo
 
 ## Compute Layer
 
-The compute layer runs [Firebolt engines](working-with-engines/). Engines are compute clusters that run database workloads. Each engine is an isolated cluster. Within each cluster, engine instances store data and indexes in the local solid state drive (SSD), which acts as the local cache. The engine loads data from the storage layer into SSD at query runtime based on the query configuration.
+The compute layer runs [Firebolt engines](./working-with-engines/working-with-engines.html). Engines are compute clusters that run database workloads. Each engine is an isolated cluster. Within each cluster, engine instances store data and indexes in the local solid state drive (SSD), which acts as the local cache. The engine loads data from the storage layer into SSD at query runtime based on the query configuration.
 
 A benefit of the decoupled storage and compute architecture is that multiple engines can be assigned to the same database. This allows for granular control over which hardware is assigned to which tasks. Each engine can have a different configuration and size depending on the workloads. Engines can work in parallel or separately, and you can share them with different people in your organization.
 
