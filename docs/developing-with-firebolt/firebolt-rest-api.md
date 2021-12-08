@@ -70,7 +70,7 @@ curl --request POST 'https://api.app.firebolt.io/auth/v1/refresh' \
 
 ## Start, stop, and restart engines
 
-An engine in Firebolt is a cluster of nodes that do the work when you run SQL queries. You can use the REST API to start, stop, and restart engines. To perform these operations on an engine, you must have the unique engine ID and the engine must be stopped. The operation to get this ID is shown first, followed by start, stop, and restart operations. For more information about engines, see [Working with engines](../../working-with-engines/).
+An engine in Firebolt is a cluster of nodes that do the work when you run SQL queries. You can use the REST API to start, stop, and restart engines. To perform these operations on an engine, you must have the unique engine ID and the engine must be stopped. The operation to get this ID is shown first, followed by start, stop, and restart operations. For more information about engines, see [Working with engines](../working-with-engines/understanding-engine-fundamentals.html).
 
 ### Get an engine ID
 
@@ -264,7 +264,7 @@ curl --request POST 'https://api.app.firebolt.io/core/v1/account/engines/ENGINE_
 
 ## Get the URL of an engine
 
-Some Firebolt REST API operations require the URL of the engine to run the request. You can get the URL of an engine in any state, but the engine must be running to accept requests at its URL. Commands to start, stop, and restart and engine use the engine ID instead of the URL. For more information about starting, stopping, and restarting engines using the Firebolt REST API, see [Start, stop, and restart engines](connecting-via-rest-api.md#start-stop-and-restart-engines) above.
+Some Firebolt REST API operations require the URL of the engine to run the request. You can get the URL of an engine in any state, but the engine must be running to accept requests at its URL. Commands to start, stop, and restart and engine use the engine ID instead of the URL. For more information about starting, stopping, and restarting engines using the Firebolt REST API, see [Start, stop, and restart engines](./#start-stop-and-restart-engines) above.
 
 The examples below show you how to get the URL of the default engine by providing the database name, and how to get it using the engine name.
 
@@ -314,8 +314,8 @@ This returns (`...` indicates areas of JSON omitted from this example):
 
 Ingesting data using the Firebolt REST API requires the following steps:
 
-1. [Create an external table](connecting-via-rest-api.md#create-an-external-table)
-2. [Create a fact table and impo](connecting-via-rest-api.md#create-a-fact-table-and-import-data)[rt data](connecting-via-rest-api.md#create-a-fact-table-and-import-data)
+1. [Create an external table](./firebolt-rest-api.html/#create-an-external-table)
+2. [Create a fact table and import data](./firebolt-rest-api.html/#create-a-fact-table-and-import-data)
 
 ### Create an external table
 
@@ -363,7 +363,7 @@ echo "CREATE_FACT_TABLE_SCRIPT" | curl \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value returned by the command shown in [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
+* `YOUR_ENGINE_URL` is the value returned by the command shown in [Get the URL of an engine](./#get-the-url-of-an-engine).
 * `YOUR_DATABASE_NAME` is the name of the database.
 * `CREATE_FACT_TABLE_SCRIPT` is a SQL script similar to the following:
 
@@ -380,10 +380,10 @@ In the above script, replace the following:
 
 * `<fact_table>` is the name of the fact table to create.
 * `<column_name> <column_type>` are columns and corresponding data type specifications.
-* `<column_list>` is a list of column names separated by commas (for example, `column1, column2`) to be used for the primary index. For more information, see [Primary indexes](../../concepts/get-instant-query-response-time.md#primary-indexes).
+* `<column_list>` is a list of column names separated by commas (for example, `column1, column2`) to be used for the primary index. For more information, see [Primary indexes](../concepts/get-instant-query-response-time.md#primary-indexes).
 
 {: .note}
-Before importing the data to the fact table, consider creating an aggregating index to boost performance even further. You can also create the aggregating index later. For more information, see [Aggregating indexes](../../concepts/get-instant-query-response-time.md#get-sub-second-query-response-time-using-aggregating-indexes).
+Before importing the data to the fact table, consider creating an aggregating index to boost performance even further. You can also create the aggregating index later. For more information, see [Aggregating indexes](../concepts/get-instant-query-response-time.md#get-sub-second-query-response-time-using-aggregating-indexes).
 
 
 **Import data into the fact table**
@@ -424,7 +424,7 @@ echo "SELECT_QUERY" | curl \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value of `engine_url` returned by the command shown in [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
+* `YOUR_ENGINE_URL` is the value of `engine_url` returned by the command shown in [Get the URL of an engine](#get-the-url-of-an-engine).
 * `YOUR_DATABASE_NAME` is the name of the database.
 * `SELECT_QUERY` is the query to run. You can separate multiple queries using a semicolon (`;`) as shown in the example below.
 
@@ -446,5 +446,5 @@ curl --request POST 'https://YOUR_ENGINE_URL/cancel?query_id=YOUR_QUERY_ID;' \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value of `engine_url` returned by the command shown in [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
-* `YOUR_QUERY_ID` is the ID of the query you need to cancel. You can get a query ID using the [running queries view](../../general-reference/information-schema/running-queries.md).
+* `YOUR_ENGINE_URL` is the value of `engine_url` returned by the command shown in [Get the URL of an engine](#get-the-url-of-an-engine).
+* `YOUR_QUERY_ID` is the ID of the query you need to cancel. You can get a query ID using the [running queries view](../general-reference/information-schema/running-queries.md).

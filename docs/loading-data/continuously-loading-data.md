@@ -15,8 +15,8 @@ Before we start, make sure you have the following in-place:
 
 1. An active Firebolt account.
 2. Apache Airflow up and running.
-3. A database. Follow the [create your first database](../#create-your-first-database) section in the [getting started tutorial](../).
-4. An external table. Follow [step 1 - create an external table](../#step-1-create-an-external-table) in the [getting started tutorial](../).
+3. A database. Follow the [create your first database](../getting-started.html#create-your-first-database) section in the [getting started tutorial](../getting-started.html).
+4. An external table. Follow [step 1 - create an external table](../getting-started.html#step-1-create-an-external-table) in the [getting started tutorial](../getting-started.html).
 5. A fact or dimension table to load your data into. In this tutorial, we have chosen to create a fact table. Continuously loading data into a dimension table is similar. On top of the columns required in the table's schema - make sure to add the following columns as well: `SOURCE_FILE_NAME` of type`TEXT`, and`SOURCE_FILE_TIMESTAMP` of type `TIMESTAMP`. Run the following command on the database created in step 1 in order to create the fact table required for this tutorial:
 
 ```sql

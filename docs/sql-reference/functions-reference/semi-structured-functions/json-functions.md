@@ -160,8 +160,8 @@ SELECT
 
 Returns a string representation of a JSON array pointed by the supplied JSON pointer.
 
-This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](https://app.gitbook.com/@firebolt/s/documentation-dev/\~/drafts/-MPiM8b7cHe\_PO5iU\_Ok/v/ariel%2Fjson-functions/sql-functions-reference/semi-structured-functions#transform).
-
+This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](./array-functions#transform).
+http://localhost:4000/firebolt-doc-staging/sql-reference/functions-reference/semi-structured-functions/array-functions#transform
 **Syntax**
 
 ```sql

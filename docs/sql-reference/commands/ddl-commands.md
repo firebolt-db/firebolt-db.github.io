@@ -189,7 +189,7 @@ TYPE = (<type> [typeOptions])
 | `<column_type>`                                 | Specifies the data type for the column.                                                                         |
 | `<partition_column_name>`                       | [Extract partition data](ddl-commands.md#extract-partition-data)                                                |
 | `CREDENTIALS`                                   | [CREDENTIALS](ddl-commands.md#credentials)                                                                      |
-| `URL` and `OBJECT_PATTERN`                      | [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object\_pattern)                                                |
+| `URL` and `OBJECT_PATTERN`                      | [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object_pattern)                                                |
 | `TYPE`                                          | [TYPE](ddl-commands.md#type)                                                                                    |
 | `COMPRESSION`                                   | [COMPRESSION](ddl-commands.md#compression)                                                                      |
 
@@ -464,7 +464,7 @@ CREDENTIALS = ( AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' 
 META_STORE = (TYPE='Glue' DATABASE_NAME=<db_name> TABLE_NAME=<table_name>)
 ```
 
-To access Glue, make sure to allow the following actions in the AWS permissions olicy:
+To access Glue, make sure to allow the following actions in the AWS permissions Policy:
 
 * `"s3:GetObject"`
 * `"s3:GetObjectVersion"`
@@ -472,7 +472,7 @@ To access Glue, make sure to allow the following actions in the AWS permissions 
 * `"s3:ListBucket"`
 * `"glue:GetTables"`
 
-Click [here](https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated\_glue\_policy.txt) to download a templated policy you can use. Make sure to replace:
+Click [here](https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated_glue_policy.txt) to download a templated policy you can use. Make sure to replace:
 
 * `<bucket>`and`<prefix>`with the actual AWS S3 bucket name path and prefix where the AWS Glue data is stored.
 * `<db_name>`with the name of the AWS Glue database.
@@ -499,7 +499,7 @@ META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
 
 Creates a new FACT/DIMENSION table in the current database.
 
-Firebolt also supports creating a table as select (also referred to as CTAS) - read more [here](ddl-commands.md#ctas-create-fact-dimension-table-as-select).
+Firebolt also supports creating a table as select (also referred to as CTAS) - read more [here](ddl-commands#ctas---create-fact--dimension-table-as-select).
 
 **Fact table syntax**
 
@@ -539,7 +539,7 @@ All identifiers are case insensitive unless double-quotes are used. For more inf
 
 #### Read more on
 
-1. [Column constraints & default expression](ddl-commands.md#column-constraints-and-default-expression)
+1. [Column constraints & default expression](ddl-commands.md#column-constraints--default-expression)
 2. [PRIMARY INDEX specifier](ddl-commands.md#primary-index)
 3. [PARTITION BY specifier](ddl-commands.md#partition-by)
 
@@ -723,7 +723,7 @@ CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_n
 | `<dimension_column>`       | The column name which is being loaded into memory from the dimension table. More than one column can be specified. |
 
 {: .note}
-For better performance, whenever possible, use the [UNIQUE](ddl-commands.md#column-constraints-and-default-expression) column attribute in the dimension table definition for the column that is used as the join key in queries.  the join index is loaded into engine RAM, make sure to choose only the subset of dimension table columns that appear in queries that use the join.
+For better performance, whenever possible, use the [UNIQUE](ddl-commands.md#column-constraints--default-expression) column attribute in the dimension table definition for the column that is used as the join key in queries.  the join index is loaded into engine RAM, make sure to choose only the subset of dimension table columns that appear in queries that use the join.
 
 **Example: Create join index with specific columns**
 
@@ -747,8 +747,8 @@ CREATE JOIN INDEX my_dim_join_idx ON my_dim
 
 Creating an aggregating index can be done as follows:
 
-1. For an empty table - use the following [syntax](ddl-commands.md#create-an-aggregating-index-on-an-empty-table).
-2. For a table already populated with data - use the following [syntax](ddl-commands.md#create-an-aggregating-index-on-a-populated-table).
+1. For an empty table - use the following [syntax](ddl-commands.md#syntax-for-aggregating-index-on-an-empty-table).
+2. For a table already populated with data - use the following [syntax](ddl-commands.md#syntax-for-aggregating-index-on-a-populated-table).
 
 #### Syntax for aggregating index on an empty table
 

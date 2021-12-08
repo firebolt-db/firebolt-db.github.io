@@ -12,11 +12,11 @@ Loading data into Firebolt is done using EXTERNAL TABLEs. Those tables are diffe
 In order to create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
 
 {: .note}
-You can run a query over an external table in Firebolt to return query results directly from external data. A direct query like this over an external table will be significantly slower than the same query run over the same data in a fact or dimension table. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement. 
+You can run a query over an external table in Firebolt to return query results directly from external data. A direct query like this over an external table will be significantly slower than the same query run over the same data in a fact or dimension table. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement.
 
 ## Workflows
 
-1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [getting started tutorial](../).
+1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [getting started tutorial](../getting-started.html).
 2. For a workflow that demonstrates continuously loading data into Firebolt, see the [continuously loading data tutorial](continuously-loading-data.md).
 
 ## Supported file formats

@@ -111,4 +111,4 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 Loading your data into Firebolt begins by creating an external table - full syntax can be found [here](../sql-reference/commands/ddl-commands.md#create-external-table).  
 Make sure to specify both the role's ARN and the external ID you've recorded during [step 2](configuring-aws-role-to-access-amazon-s3.md#Step-2:-Create-the-IAM-role-in-AWS) in the external table's [CREDENTIALS](../sql-reference/commands/ddl-commands.md#credentials) specifier.
 
-Keep on reading in our [getting started tutorial](../) for the full data load flow.
+Keep on reading in our [getting started tutorial](../getting-started.html) for the full data load flow.

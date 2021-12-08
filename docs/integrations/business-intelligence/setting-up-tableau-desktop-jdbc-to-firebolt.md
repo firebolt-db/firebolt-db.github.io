@@ -21,7 +21,7 @@ Put the JDBC jar file in the Tableau JDBC driver folder:
 
 ## Step 2: Install the latest Firebolt TACO file
 
-Download Firebolt’s packaged connector file for Tableau (with a .taco filename extension) from [here](https://firebolt-publishing-public.s3.amazonaws.com/repo/Tableau/firebolt\_connector.taco).
+Download Firebolt’s packaged connector file for Tableau (with a .taco filename extension) from [here](https://firebolt-publishing-public.s3.amazonaws.com/repo/Tableau/firebolt_connector.taco).
 
 Copy the packaged connector file into your `My Tableau Repository/Connectors directory`:
 
