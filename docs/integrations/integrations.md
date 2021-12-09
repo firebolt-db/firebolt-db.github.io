@@ -27,10 +27,10 @@ Most integrated services require the same parameters from Firebolt to establish 
 * **Password**: The password used to create your Firebolt account.
 * **Database**: The name of your database. From the Database view on the Firebolt Manager, your database name can be found as indicated below:
 
-![](https://lh5.googleusercontent.com/b7IPgWDrK\_9\_3T6KwvB7Vf4QTEd1nyCjxx9FQ-9Gu9Jvdp5Q0Gy7FHkpIHlUkLUKPRbb1Uu4eB00jCmagCNprfqu6NqbaGR\_4DOgaHQkPlpH4MiG5pMTC5F-rFwYWsXmy02yLg8B)
+![](../assets/images/db_name_location.png)
 
 *   **Engine**: The engine being used to query your database. Some services will automatically use your default engine unless directed to use another.
 
     From the Database view on the Firebolt Manager, the engine names can be found in the image below:
 
-![](https://lh6.googleusercontent.com/1MnS5EWLlVqO2h5Atq7UoMZ6TEuyhxcttId3GVGy55Tn-1QZTOuNU2KCbwr5iZIn0zJ7OCmlVPNDnjOwW\_TFqa9uuBIiWb2E0uM3JakaIosHUiuHG7Y3hGdIrw-F80SIfsG2XCOo)
+![](../assets/images/engine_name_location.png)

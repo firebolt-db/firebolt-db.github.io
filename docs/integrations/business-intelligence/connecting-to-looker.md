@@ -46,7 +46,7 @@ If you use a functions such as `CAST `or `UPPER` that transform predicates, Fire
 
 For this reason, avoid using transformations in the LookML [sql ](https://docs.looker.com/reference/field-params/sql)parameter for a Looker dimension, especially for dimensions that exist within Firebolt fact tables and are included in the primary indexes of those tables. An example of such a transformation is shown below.
 
-![Anti-pattern showing transformation within a dimension in Looker](../../.gitbook/assets/looker\_no\_transform.png)
+![Anti-pattern showing transformation within a dimension in Looker](../assets/images/looker_no_transform.png)
 
 If you need a transformation for an analytical use case, consider creating a virtual column in the fact table. The virtual column can receive a value that you transform from the original column when you ingest with `INSERT INTO`. You can then specify the virtual column in the primary index and also specify the virtual column in the LookML sql parameter for the Looker dimension.
 
@@ -56,7 +56,7 @@ As indicated above, by defining indexes in Firebolt on columns that you use as d
 
 The example below shows a LookML `always_filter` defined for the `report_date` column in the Firebolt fact table named `campaign_fact`. In Firebolt, this fact table has a primary index definition that includes the `campaign_fact` column.
 
-![A Looker always\_filter created for a primary index column](../../.gitbook/assets/Looker\_always\_filter.png)
+![A Looker always\_filter created for a primary index column](../../assets/images/Looker_always_filter.png)
 
 ### Use join indexes <a href="use-join-indexes" id="use-join-indexes"></a>
 

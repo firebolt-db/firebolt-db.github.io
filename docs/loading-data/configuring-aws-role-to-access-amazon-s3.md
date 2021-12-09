@@ -83,7 +83,7 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Roles**, and then choose **Create role**.
 
-   ![](../.gitbook/assets/create_role.png)
+   ![](../assets/images/create_role.png)
 
 3. Select **Another AWS account** as the trusted entity type.
 4. In the **Account ID** field, enter your Firebolt **AWS Account ID**. Users with Account Admin privileges can view this value in the [Account & Billing window](https://app.firebolt.io/account-info).
@@ -104,7 +104,7 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 4. In the summary section, locate the **Maximum session duration** field. Click **Edit**
 5. Choose _12 hours_ from the list, and then click **Save changes.**
 
-![](../.gitbook/assets/set_max_session_duration.png)
+![](../assets/images/set_max_session_duration.png)
 
 ## Step 4: Use the AWS Role for loading your data into Firebolt
 

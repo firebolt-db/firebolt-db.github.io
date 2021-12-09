@@ -38,8 +38,8 @@ Copy the packaged connector file into your `My Tableau Repository/Connectors dir
 
 ### Configuring the Connection
 
-1. In Tableau's UI under connections click **More:** ![](../../.gitbook/assets/screen-shot-2021-03-22-at-16.53.10.png)
-2. Search for "Connector by Firebolt" in the list of connectors and click on it. The following popup appears: ![](../../.gitbook/assets/screen-shot-2021-03-22-at-16.55.34.png)
+1. In Tableau's UI under connections click **More:** ![](../assets/images/screen-shot-2021-03-22-at-16.53.10.png)
+2. Search for "Connector by Firebolt" in the list of connectors and click on it. The following popup appears: ![](../assets/images/screen-shot-2021-03-22-at-16.55.34.png)
 3.  Fill in the following parameters and click sign-in:
 
     | Parameter  | Description                                                                                                  | Value                  |

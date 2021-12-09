@@ -146,7 +146,7 @@ CREATE FACT TABLE IF NOT EXISTS lineitem
 
 When successful, the table appears in the object panel of the database, similar to the following:
 
-![](assets/images/2021-09-13_9-38-23.png)
+![](firebolt-doc-staging/assets/images/2021-09-13_9-38-23.png)
 
 You can now use the `INSERT INTO` command to copy the data from the external table into the fact table as follows:
 

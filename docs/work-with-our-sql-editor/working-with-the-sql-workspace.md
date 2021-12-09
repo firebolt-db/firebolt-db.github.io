@@ -17,7 +17,7 @@ You can launch the SQL workspace for a database either from the left navigation 
 
 1.  Choose the **>\_** icon from the left navigation pane.
 
-    ![](../.gitbook/assets/work-with-our-sql-editor-select-editor-from-nav.png)
+    ![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-select-editor-from-nav.png)
 
     The workspace for the database that you last worked with opens, and the database is selected from the list.
 2. To switch to the workspace for a different database, choose it from the **Select a database** list.
@@ -26,7 +26,7 @@ You can launch the SQL workspace for a database either from the left navigation 
 
 *   From the Databases list, hover over the **Database name** and then choose the **>\_** icon.
 
-    ![](../.gitbook/assets/work-with-our-sql-editor-select-editor-from-db.png)
+    ![](../docs/assets/images/gitbook/assets/work-with-our-sql-editor-select-editor-from-db.png)
 
 ## Quick tour
 
@@ -36,7 +36,7 @@ The SQL workspace is organized into three panes.
 * The center pane is the SQL editor. Use it to edit scripts, save them, and run scripts. When you run a script, results are shown in the bottom part of the pane.
 * The right pane is an object viewer that shows you the tables, views, and indexes in your database. You must start an engine before objects are visible. You can select an object to view its attributes. For example, you can select a table from the list of tables to view columns and data types.
 
-![](../.gitbook/assets/work-with-our-sql-editor-select-editor-quicktour.png)
+![](../assets/images/work-with-our-sql-editor-select-editor-quicktour.png)
 
 ## Editing SQL scripts
 
@@ -50,19 +50,19 @@ As you enter your code in a script tab, Firebolt suggests keywords and object na
 
 You can click the keyboard icon to view available keyboard shortcuts, or you can view a full list on our [keyboard shortcuts page](keyboard-shortcuts-for-sql-workspace.md). You can also select an item from the list to perform that action.
 
-![](<../.gitbook/assets/work-with-our-sql-editor-select-editor-keyboard-shortcuts (1) (1) (6) (7) (8) (8) (4) (9).png>)
+![](../assets/images/work-with-our-sql-editor-select-editor-keyboard-shortcuts.png>)
 
 ### Using query templates
 
 Query templates are available for common tasks, such as creating fact or dimension tables. Place the cursor in the editor where you want to insert code, choose the **\</>** icon, and then select a query template from the list.
 
-![](../.gitbook/assets/work-with-our-sql-editor-select-editor-templates.png)
+![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-select-editor-templates.png)
 
 ### Using the CREATE EXTERNAL TABLE template to import data
 
 To create an external table, which is the first step for ingesting data into Firebolt, choose the **Import Data** button from the object pane or choose the download icon and then choose **Import data** as shown in the example below.
 
-![](../.gitbook/assets/work-with-our-sql-editor-import-data.png)
+![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-import-data.png)
 
 Firebolt creates a new tab with a `CREATE EXTERNAL TABLE` statement.
 
@@ -77,12 +77,12 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
 1.  Choose the vertical ellipses next to the script name and then select **Save script**.
 
-    ![](<../.gitbook/assets/work-with-our-sql-editor-save-script (1).png>)
+    ![](../assets/images/work-with-our-sql-editor-save-script.png>)
 2.  Type a new name for the script and then press ENTER.
 
     The script appears in the **Database scripts** list.
 
-    ![](<../.gitbook/assets/work-with-our-sql-editor-select-editor-db-scripts-list (1).png>)
+    ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png>)
 
 **To rename a script**
 
@@ -95,7 +95,7 @@ When you rename an unsaved script, Firebolt saves it.
 
 *   Choose the vertical ellipses next to the script name and then choose **Export script**.
 
-    ![](../.gitbook/assets/Screen_Shot\_2021-05-04\_at\_18\_42\_02.png)
+    ![](/firebolt-doc-staging/assets/images/Screen_Shot\_2021-05-04\_at\_18\_42\_02.png)
 
     Firebolt downloads the file to your browser's default download directory using the file pattern _Yourscriptname_**.sql**.
 
@@ -103,7 +103,7 @@ When you rename an unsaved script, Firebolt saves it.
 
 1.  Choose the arrow icon and then choose **Import script**.
 
-    ![](../.gitbook/assets/work-with-our-sql-editor-import-script.png)
+    ![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-import-script.png)
 2.  Browse your computer for a file and select it, or drag and drop a file to upload it.
 
     Firebolt creates a new tab with the contents of the script you imported.
@@ -126,21 +126,21 @@ You can run all statements in a script or select snippets of SQL to run.
 
 After you run a script or query statement, results appear below the script editor, along with statistics about query execution.
 
-![](../.gitbook/assets/Workspace_statistics.PNG)
+![](/firebolt-doc-staging/assets/images/Workspace_statistics.PNG)
 
 When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table.
 
-![](<../.gitbook/assets/table_hot_query_run (1).png>)
+![](/firebolt-doc-staging/assets/images/table_hot_query_run.png>)
 
 From left to right, these icons represent the following:
 
 | Icon                                      | Name              | Description                                                                                                                        |
 | ----------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| ![](../.gitbook/assets/Row_count.png)     | **Row count**     | The total number of rows returned by a query.                                                                                      |
-| ![](../.gitbook/assets/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query.                                                                                         |
-| ![](../.gitbook/assets/Scanned_bytes.png) | **Scanned Bytes** | The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage. |
-| ![](../.gitbook/assets/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second.                                                                                             |
-| ![](../.gitbook/assets/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
+| ![](/firebolt-doc-staging/assets/images/Row_count.png)     | **Row count**     | The total number of rows returned by a query.                                                                                      |
+| ![](/firebolt-doc-staging/assets/images/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query.                                                                                         |
+| ![](/firebolt-doc-staging/assets/images/Scanned_bytes.png) | **Scanned Bytes** | The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage. |
+| ![](/firebolt-doc-staging/assets/images/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second.                                                                                             |
+| ![](/firebolt-doc-staging/assets/images/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
 
 {: .note}
 Warm data is read from engine cache, and can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 storage. A high percentage of **Warm data** indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../concepts/get-instant-query-response-time.md) or by [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache.
@@ -151,7 +151,7 @@ While viewing query results, you can choose to view a selection of prepared stat
 
 To view query statistics, choose the expansion arrow to the left of a result table header row.
 
-![](../.gitbook/assets/column_statistics.png)
+![](/firebolt-doc-staging/assets/images/column_statistics.png)
 
 Each column expands to show statistics on a new row located just below the header. The statistics shown in each cell depend on the column’s [data type](../general-reference/data-types.md).
 
@@ -166,7 +166,7 @@ Each column expands to show statistics on a new row located just below the heade
 
 You can view additional statistics and visualizations by selecting the expand icon that appears when you mouse over the bottom right of the statistics row cell. This opens up a side panel with a dashboard of more statistics detailing the selected column.
 
-![](../.gitbook/assets/2021-09-09\_12-25-02.png)
+![](/firebolt-doc-staging/assets/images/2021-09-09\_12-25-02.png)
 
 ### Viewing multi-statement script results
 
@@ -174,4 +174,4 @@ When you run a script that has multiple SQL statements with result sets (`SELECT
 
 To view the results table for a result set, choose the table icon corresponding to the numbered result set you want to view, or choose the expansion arrow next to the **Statement** and then choose **Open table** as shown in the example below.
 
-![](<../.gitbook/assets/work-with-our-sql-editor-multi-select-query-results (1).png>)
+![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-multi-select-query-results.png>)

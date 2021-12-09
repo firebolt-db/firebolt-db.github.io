@@ -93,15 +93,15 @@ Airflow scheduler can run each DAG according to a predefined schedule. The sched
 
 * In Airflow's UI, go to the **DAGs** tab. Locate your DAG in the list (in our case we should look for `'firebolt_continuous_load_dag'`):
 
-![](<../.gitbook/assets/Screen Shot 2021-01-12 at 11.15.25.png>)
+![](../assets/images/Screen Shot 2021-01-12 at 11.15.25.png>)
 
 * Turn the DAG on so it runs automatically every minute.
 
-![](<../.gitbook/assets/screen-shot-2021-01-12-at-11.14.01 (1).png>)
+![](../assets/images/screen-shot-2021-01-12-at-11.14.01.png>)
 
 * Once the DAG has started to run, click on it's `Run Id` under the `Last Run` column to move to the graph view and track its progress.
 * In the DAG's graph view, the task should appear in green to confirm the DAG was completed successfully. Click on the task `'data_load'`:
 
-![](<../.gitbook/assets/Screen Shot 2021-01-12 at 11.20.02.png>)
+![](../assets/images/Screen Shot 2021-01-12 at 11.20.02.png>)
 
 * Click on **View Logs** to inspect the logs.
