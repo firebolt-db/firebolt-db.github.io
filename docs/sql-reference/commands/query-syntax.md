@@ -43,7 +43,7 @@ WITH <subquery_table_name> [ <column_name> [, ...n] ] AS <subquery>
 ```
 
 | Component               | Description                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------ |
+| :----------------------- | :------------------------------------------------------------------------------------ |
 | `<subquery_table_name>` | A unique name for a temp table                                                       |
 | `<column_name>`         | An optional list of one or more column names. Columns should be separated by commas. |
 | `<subquery>`            | Any query statement                                                                  |
@@ -83,7 +83,7 @@ FROM <from_item> [, ...n]
 ```
 
 | Component     | Description                                                           |
-| ------------- | --------------------------------------------------------------------- |
+| :------------- | :--------------------------------------------------------------------- |
 | `<from_item>` | Indicates the table or tables from which the data is to be retrieved. |
 
 **Example**
@@ -140,9 +140,9 @@ FROM <from_item> UNNEST <expr>
 ```
 
 | Component     | Description                                                                                                               | Valid values and syntax                |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
 | `<from_item>` | The table containing the array column that you want to use to create a new table                                          |                                        |
-| `<expr>`      | <p>Indicates the array or array column to unnest from.</p><p>Can be either an array literal or an array typed column.</p> | Any valid array literal or column name |
+| `<expr>`      | Indicates the array or array column to unnest from.  Can be either an array literal or an array typed column. | Any valid array literal or column name |
 
 **Example**
 
@@ -159,7 +159,7 @@ CREATE FACT TABLE table_with_arrays
 Assume the table was populated and contains the following values:
 
 | product | cost     |
-| ------- | -------- |
+| :------- | :-------- |
 | apple   | \[2,5]   |
 | Orange  | \[3,6,7] |
 
@@ -177,7 +177,7 @@ FROM
 Returns the following result:
 
 | product | cost |
-| ------- | ---- |
+| :------- | :---- |
 | apple   | 2    |
 | apple   | 5    |
 | Orange  | 3    |
@@ -195,7 +195,7 @@ WHERE <condition>
 ```
 
 | Component     | Description                            | Valid values and syntax       |
-| ------------- | -------------------------------------- | ----------------------------- |
+| :------------- | :-------------------------------------- | :----------------------------- |
 | `<condition>` | Indicates the conditions of the query. | Any valid boolean expression. |
 
 **Example**
@@ -257,8 +257,8 @@ GROUP BY <grouping_element> [, ...n]
 ```
 
 | Component            | Description                                                                                                                                                                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<grouping_element>` | <p>Indicates the condition by which the results should be grouped.</p><p>The number of <code>&#x3C;grouping_elements></code> must match the number of columns specified in the <code>SELECT</code> statement, not counting aggregations.</p> |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<grouping_element>` | Indicates the condition by which the results should be grouped. <br><br> The number of `<grouping_elements>` must match the number of columns specified in the `SELECT` statement, not counting aggregations. |
 
 In the following example, the results that are retrieved are grouped by the `product_name` and then by the `product_id` columns.
 
@@ -316,7 +316,7 @@ HAVING <condition> [, ...n]
 ```
 
 | Component     | Description                                                              |
-| ------------- | ------------------------------------------------------------------------ |
+| :------------- | :------------------------------------------------------------------------ |
 | `<condition>` | Indicates the boolean condition by which the results should be filtered. |
 
 ## UNION \[ALL]
@@ -335,7 +335,7 @@ When including multiple clauses, the same number of columns must be selected by 
 ```
 
 | Component        | Description                                                  |
-| ---------------- | ------------------------------------------------------------ |
+| :---------------- | :------------------------------------------------------------ |
 | `<select_expr1>` | A `SELECT`statement.                                         |
 | `<select_expr2>` | A second `SELECT` statement to be combined with the first.   |
 
@@ -352,10 +352,10 @@ ORDER BY <expression> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...]
 ```
 
 | Component                      | Description                                                                                                                                                                                                  |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<expression>`                 | Each expression may specify output columns from `SELECT` or an ordinal number for an output column by position, starting at one.                                                                             |
-| `[ ASC \| DESC ]`              | Indicates whether the sort should be in ascending or descending order.                                                                                                                                       |
-| `[ NULLS FIRST \| NULLS LAST]` | <p>Indicates whether null values should be included at the beginning or end of the result.</p><p>The default null ordering is <code>NULLS LAST</code>, regardless of ascending or descending sort order.</p> |
+| `[ ASC | DESC ]`              | Indicates whether the sort should be in ascending or descending order.                                                                                                                                       |
+| `[ NULLS FIRST | NULLS LAST]` | Indicates whether null values should be included at the beginning or end of the result. <br> <br> The default null ordering is `NULLS LAST`, regardless of ascending or descending sort order. |
 
 ## LIMIT
 
@@ -368,7 +368,7 @@ LIMIT <count>
 ```
 
 | Component | Description                                          | Valid values and syntax |
-| --------- | ---------------------------------------------------- | ----------------------- |
+| :--------- | :---------------------------------------------------- | :----------------------- |
 | `<count>` | Indicates the number of rows that should be returned | An integer              |
 
 ## LIMIT\_DISTINCT
@@ -384,9 +384,9 @@ LIMIT_DISTINCT <returned_values> [OFFSET <offset_value>] BY <expr> [, <expr2> [,
 ```
 
 | Component                    | Description                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :---------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<returned_values>`          | The number of rows to return for each distinct value, as defined by the `expr`                                                                                                                                                                                                                                                                     |
-| `<offset_value>`             | <p>The number of rows that should be skipped from the beginning of the block before returning rows for <code>&#x3C;returned_values></code>. </p><p></p><p>If the <code>&#x3C;offset_value></code> exceeds the number of rows in the data block, no rows are returned. The <code>&#x3C;offset_value></code> is restricted to be greater than 0.</p> |
+| `<offset_value>`             | The number of rows that should be skipped from the beginning of the block before returning rows for `<returned_values>`. <br><br> If the `<offset_value>` exceeds the number of rows in the data block, no rows are returned. The `<offset_value>` is restricted to be greater than 0. |
 | `<expr> [, <expr2> [,...n]]` | The expression(s) to define the distinct value that will be limited by `LIMIT_DISTINCT`. Multiple expressions can be used.                                                                                                                                                                                                                         |
 
 **Examples**
@@ -509,7 +509,7 @@ The `OFFSET` clause omits a specified number of rows from the beginning of the r
 ```
 
 | Component         | Description                                                            | Valid values and syntax |
-| ----------------- | ---------------------------------------------------------------------- | ----------------------- |
+| :----------------- | :---------------------------------------------------------------------- | :----------------------- |
 | `<limit_number>`  | Indicates the number of rows to be returned                            | An integer              |
 | `<offset_number>` | Indicates the start row number                                         | An integer              |
 | `<fetch_count>`   | Fetch with count specifies the number of rows to fetch from the offset | An integer              |

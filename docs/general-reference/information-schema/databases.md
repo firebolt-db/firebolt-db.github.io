@@ -24,9 +24,9 @@ FROM
 |                                  |               |                                                                   |
 | -------------------------------- | ------------- | ----------------------------------------------------------------- |
 | **Name**                         | **Data Type** | **Description**                                                   |
-| catalog\_name                    | `TEXT`        | Name of the catalog. Firebolt provides a single ‘default’ catalog |
-| schema\_name                     | `TEXT`        | Name of the database                                              |
-| default\_character\_set\_catalog | `TEXT`        | Not applicable for Firebolt                                       |
-| default\_character\_set\_schema  | `TEXT`        | Not applicable for Firebolt                                       |
-| default\_character\_set\_name    | `TEXT`        | Not applicable for Firebolt                                       |
-| sql\_path                        | `TEXT`        | Not applicable for Firebolt                                       |
+| catalog_name                    | `TEXT`        | Name of the catalog. Firebolt provides a single ‘default’ catalog |
+| schema_name                     | `TEXT`        | Name of the database                                              |
+| default_character_set_catalog | `TEXT`        | Not applicable for Firebolt                                       |
+| default_character_set_schema  | `TEXT`        | Not applicable for Firebolt                                       |
+| default_character_set_name    | `TEXT`        | Not applicable for Firebolt                                       |
+| sql_path                        | `TEXT`        | Not applicable for Firebolt                                       |

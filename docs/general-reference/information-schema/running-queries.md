@@ -22,8 +22,6 @@ LIMIT
 
 The `running_queries` view contains the following columns:
 
-|                 |                                                               |
-| --------------- | ------------------------------------------------------------- |
 | **Column Name** | **Description**                                               |
 | ENGINE\_NAME    | The name of the engine that was used to execute the query     |
 | ENGINE\_ID      | The id of the engine that was used to execute the query       |

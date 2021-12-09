@@ -78,6 +78,7 @@ Let's see how we represent the above semi-structured "schema" in a Firebolt tabl
 
 Combining the above will result in the following table - note that the headings specify the column name and type
 
+
 | id INT | StartTime DATETIME | Duration INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2020-01-06 17:00:00 | 450 | \["summer-sale","sports"\] | \["agent", "platform", "resolution"\] | \["Mozilla/5.0", "Windows NT 6.1", "1024x4069"\] |

@@ -17,7 +17,7 @@ This section describes the operators supported in Firebolt.
 > When performing arithmetic, the number of leading digits in the output is the product of the leading digits in both inputs. This means that if either or both of the input numbers are larger than 6, then those numbers are first truncated and then the arithmetic is performed.
 
 | Operator | Operator description                             | Example             | Result |
-| -------- | ------------------------------------------------ | ------------------- | ------ |
+| :-------- | :------------------------------------------------ | :------------------- | :------ |
 | +        | addition                                         | `SELECT 2 + 3;`     | 5      |
 | -        | subtraction                                      | `SELECT 2 - 3;`     | -1     |
 | \*       | multiplication                                   | `SELECT 2 * 3;`     | 6      |
@@ -35,7 +35,7 @@ WHERE Price >= Number;
 ```
 
 | Operator | Example | Explanation                      |
-| -------- | ------- | -------------------------------- |
+| :-------- | :------- | :-------------------------------- |
 | =        | `a=b`   | a is equal to b.                 |
 | <=       | `a<=b`  | a is less than or equal to b.    |
 | !=       | `a!=b`  | a is not equal to b.             |
@@ -65,7 +65,7 @@ SELECT 'This' || ' is' || ' a' || ' double pipe' || ' concantenation.' AS Concat
 Boolean operators return the result of a Boolean operation between one or more expressions.
 
 | Operator | Example   | Explanation                   |
-| -------- | --------- | ----------------------------- |
+| :-------- | :--------- | :----------------------------- |
 | AND      | `x AND y` | True if both x and y are true |
 | NOT      | `NOT x`   | True if x is false            |
 | X OR Y   | `x OR y`  | True if either x or y is true |
@@ -83,7 +83,7 @@ Use the interval operator to add or subtract a period of time to/from a `DATE`, 
 ```
 
 |               |                                                                                                                                                                                                                                                             |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Component     | Description                                                                                                                                                                                                                                                 |
 | `<quantity>`  | An integer. Multiple `<quantities>` and `<date_units>` can be used in the same `INTERVAL` command if they are separated by spaces.                                                                                                                          |
 | `<date_unit>` | A date measurement including any of the following: `millennium`, `century`, `decade`, `year`, `month`, `week`, `day`, `hour`, `minute`, `second`, `millisecond`, `microsecond `or their plural forms.  If unspecified, `<date_unit>` defaults to `second`.  |
@@ -112,10 +112,10 @@ Values can be converted from one [data type](../../general-reference/data-types.
 ```
 
 |           |                                                                                                                                                                            |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Component | Description                                                                                                                                                                |
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
-| `<type>`  | The target [data type](broken-reference) (case-insensitive).                                                                                                               |
+| `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                                               |
 
 **Usage example**
 
@@ -130,9 +130,9 @@ SELECT col_a::BIGINT;
 Subqueries are queries contained within other queries. They are typically used to return entries based on the existence or absence of a condition, as part of a `WHERE` clause. This section describes subquery operators supported in Firebolt.
 
 | Operator     | Explanation                                                                                                                                        |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `EXISTS`     | The `EXISTS` operator is used to check for the existence of any record in a subquery. It returns TRUE if the subquery returns one or more records. |
-| `NOT EXISTS` | The NOT EXISTS operator returns TRUE if the underlying subquery returns no record.                                                                 |
+| `NOT EXISTS` | The `NOT EXISTS` operator returns TRUE if the underlying subquery returns no record.                                                                 |
 | `IN`         | The `IN` operator is used to check whether a value matches any value in a list.                                                                    |
 | `NOT IN`     | Retrieve all entries from the value list that don't match the required value.                                                                      |
 

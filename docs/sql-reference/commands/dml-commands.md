@@ -22,10 +22,10 @@ INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
 ```
 
 | Parameter                                                                                                                | Description                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| :------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
 | `<table_name>`                                                                                                           | The target table where values are to be inserted.                                                                                    |
 | `(<col1>[, <col2>][, ...])]`                                                                                             | A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
-| <p><code>&#x3C;select_statement></code></p><p>--OR--</p><p><code>VALUES ([&#x3C;val1>[, &#x3C;val2>][, ...])]</code></p> | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.                         |
+| `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.                         |
 
 **Example: extracting partition values using the INSERT INTO command**
 

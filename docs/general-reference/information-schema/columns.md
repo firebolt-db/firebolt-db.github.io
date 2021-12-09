@@ -21,47 +21,45 @@ FROM
 
 ## View columns
 
-|                            |               |                                                                                |
-| -------------------------- | ------------- | ------------------------------------------------------------------------------ |
 | **Column Name**            | **Data Type** | **Description**                                                                |
-| table\_catalog             | `TEXT`        | Name of the catalog. Firebolt provides a single ‘default’ catalog              |
-| table\_schema              | `TEXT`        | Name of the database containing the table                                      |
-| table\_name                | `TEXT`        | Name of the table                                                              |
-| column\_name               | `TEXT`        | Name of the column                                                             |
-| is\_nullable               | `TEXT`        | ‘YES’ if the column may contain NULL, ‘NO’ otherwise                           |
-| data\_type                 | `TEXT`        | The data type of the column                                                    |
-| is\_in\_partition\_expr    | `TEXT`        | ‘YES’ if the column is part of the partition by expression and ‘NO’ otherwise. |
-| is\_in\_primary\_index     | `TEXT`        | ‘YES’ if the column is part of the primary index and ‘NO’ otherwise.           |
-| character\_maximum\_length | `INT`         | Not applicable for Firebolt                                                    |
-| character\_octet\_length   | `INT`         | Not applicable for Firebolt                                                    |
-| numeric\_precision\_radix  | `INT`         | Not applicable for Firebolt                                                    |
-| interval\_type             | `TEXT`        | Not applicable for Firebolt                                                    |
-| interval\_precision        | `INT`         | Not applicable for Firebolt                                                    |
-| character\_set\_catalog    | `TEXT`        | Not applicable for Firebolt                                                    |
-| character\_set\_schema     | `TEXT`        | Not applicable for Firebolt                                                    |
-| character\_set\_name       | `TEXT`        | Not applicable for Firebolt                                                    |
-| collation\_catalog         | `TEXT`        | Not applicable for Firebolt                                                    |
-| collation\_schema          | `TEXT`        | Not applicable for Firebolt                                                    |
-| collation\_name            | `TEXT`        | Not applicable for Firebolt                                                    |
-| domain\_catalog            | `TEXT`        | Not applicable for Firebolt                                                    |
-| domain\_schema             | `TEXT`        | Not applicable for Firebolt                                                    |
-| domain\_name               | `TEXT`        | Not applicable for Firebolt                                                    |
-| udt\_catalog               | `TEXT`        | Not applicable for Firebolt                                                    |
-| udt\_schema                | `TEXT`        | Not applicable for Firebolt                                                    |
-| udt\_name                  | `TEXT`        | Not applicable for Firebolt                                                    |
-| scope\_catalog             | `TEXT`        | Not applicable for Firebolt                                                    |
-| scope\_schema              | `TEXT`        | Not applicable for Firebolt                                                    |
-| scope\_name                | `TEXT`        | Not applicable for Firebolt                                                    |
-| maximum\_cardinality       | `INT`         | Not applicable for Firebolt                                                    |
-| dtd\_identifier            | `TEXT`        | Not applicable for Firebolt                                                    |
-| is\_self\_referencing      | `TEXT`        | Not applicable for Firebolt                                                    |
-| is\_identity               | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_generation       | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_start            | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_increment        | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_maximum          | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_minimum          | `TEXT`        | Not applicable for Firebolt                                                    |
-| identity\_cycle            | `TEXT`        | Not applicable for Firebolt                                                    |
-| is\_generated              | `TEXT`        | Not applicable for Firebolt                                                    |
-| generation\_expression     | `TEXT`        | Not applicable for Firebolt                                                    |
-| is\_updatable              | `TEXT`        | Not applicable for Firebolt                                                    |
+| table_catalog             | `TEXT`        | Name of the catalog. Firebolt provides a single ‘default’ catalog              |
+| table_schema              | `TEXT`        | Name of the database containing the table                                      |
+| table_name                | `TEXT`        | Name of the table                                                              |
+| column_name               | `TEXT`        | Name of the column                                                             |
+| is_nullable               | `TEXT`        | ‘YES’ if the column may contain NULL, ‘NO’ otherwise                           |
+| data_type                 | `TEXT`        | The data type of the column                                                    |
+| is_in_partition_expr    | `TEXT`        | ‘YES’ if the column is part of the partition by expression and ‘NO’ otherwise. |
+| is_in_primary_index     | `TEXT`        | ‘YES’ if the column is part of the primary index and ‘NO’ otherwise.           |
+| character_maximum_length | `INT`         | Not applicable for Firebolt                                                    |
+| character_octet_length   | `INT`         | Not applicable for Firebolt                                                    |
+| numeric_precision_radix  | `INT`         | Not applicable for Firebolt                                                    |
+| interval_type             | `TEXT`        | Not applicable for Firebolt                                                    |
+| interval_precision        | `INT`         | Not applicable for Firebolt                                                    |
+| character_set_catalog    | `TEXT`        | Not applicable for Firebolt                                                    |
+| character_set_schema     | `TEXT`        | Not applicable for Firebolt                                                    |
+| character_set_name       | `TEXT`        | Not applicable for Firebolt                                                    |
+| collation_catalog         | `TEXT`        | Not applicable for Firebolt                                                    |
+| collation_schema          | `TEXT`        | Not applicable for Firebolt                                                    |
+| collation_name            | `TEXT`        | Not applicable for Firebolt                                                    |
+| domain_catalog            | `TEXT`        | Not applicable for Firebolt                                                    |
+| domain_schema             | `TEXT`        | Not applicable for Firebolt                                                    |
+| domain_name               | `TEXT`        | Not applicable for Firebolt                                                    |
+| udt_catalog               | `TEXT`        | Not applicable for Firebolt                                                    |
+| udt_schema                | `TEXT`        | Not applicable for Firebolt                                                    |
+| udt_name                  | `TEXT`        | Not applicable for Firebolt                                                    |
+| scope_catalog             | `TEXT`        | Not applicable for Firebolt                                                    |
+| scope_schema              | `TEXT`        | Not applicable for Firebolt                                                    |
+| scope_name                | `TEXT`        | Not applicable for Firebolt                                                    |
+| maximum_cardinality       | `INT`         | Not applicable for Firebolt                                                    |
+| dtd_identifier            | `TEXT`        | Not applicable for Firebolt                                                    |
+| is_self_referencing      | `TEXT`        | Not applicable for Firebolt                                                    |
+| is_identity               | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_generation       | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_start            | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_increment        | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_maximum          | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_minimum          | `TEXT`        | Not applicable for Firebolt                                                    |
+| identity_cycle            | `TEXT`        | Not applicable for Firebolt                                                    |
+| is_generated              | `TEXT`        | Not applicable for Firebolt                                                    |
+| generation_expression     | `TEXT`        | Not applicable for Firebolt                                                    |
+| is_updatable              | `TEXT`        | Not applicable for Firebolt                                                    |
