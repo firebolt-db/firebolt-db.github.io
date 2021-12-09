@@ -17,7 +17,7 @@ You can launch the SQL workspace for a database either from the left navigation 
 
 1.  Choose the **>\_** icon from the left navigation pane.
 
-    ![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-select-editor-from-nav.png)
+    ![](../assets/images/work-with-our-sql-editor-select-editor-from-nav.png)
 
     The workspace for the database that you last worked with opens, and the database is selected from the list.
 2. To switch to the workspace for a different database, choose it from the **Select a database** list.
@@ -26,7 +26,7 @@ You can launch the SQL workspace for a database either from the left navigation 
 
 *   From the Databases list, hover over the **Database name** and then choose the **>\_** icon.
 
-    ![](../docs/assets/images/gitbook/assets/work-with-our-sql-editor-select-editor-from-db.png)
+    ![](../assets/images/work-with-our-sql-editor-select-editor-from-db.png)
 
 ## Quick tour
 
@@ -50,13 +50,13 @@ As you enter your code in a script tab, Firebolt suggests keywords and object na
 
 You can click the keyboard icon to view available keyboard shortcuts, or you can view a full list on our [keyboard shortcuts page](keyboard-shortcuts-for-sql-workspace.md). You can also select an item from the list to perform that action.
 
-![](../assets/images/work-with-our-sql-editor-select-editor-keyboard-shortcuts.png>)
+![](../assets/images/work-with-our-sql-editor-select-editor-keyboard-shortcuts.png)
 
 ### Using query templates
 
 Query templates are available for common tasks, such as creating fact or dimension tables. Place the cursor in the editor where you want to insert code, choose the **\</>** icon, and then select a query template from the list.
 
-![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-select-editor-templates.png)
+![](../assets/images/work-with-our-sql-editor-select-editor-templates.png)
 
 ### Using the CREATE EXTERNAL TABLE template to import data
 
@@ -77,12 +77,12 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
 1.  Choose the vertical ellipses next to the script name and then select **Save script**.
 
-    ![](../assets/images/work-with-our-sql-editor-save-script.png>)
+    ![](../assets/images/work-with-our-sql-editor-save-script.png)
 2.  Type a new name for the script and then press ENTER.
 
     The script appears in the **Database scripts** list.
 
-    ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png>)
+    ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png)
 
 **To rename a script**
 
@@ -95,7 +95,7 @@ When you rename an unsaved script, Firebolt saves it.
 
 *   Choose the vertical ellipses next to the script name and then choose **Export script**.
 
-    ![](/firebolt-doc-staging/assets/images/Screen_Shot\_2021-05-04\_at\_18\_42\_02.png)
+    ![](../assets/images/Screen_Shot_2021-05-04_at_18_42_02.png)
 
     Firebolt downloads the file to your browser's default download directory using the file pattern _Yourscriptname_**.sql**.
 
@@ -103,7 +103,7 @@ When you rename an unsaved script, Firebolt saves it.
 
 1.  Choose the arrow icon and then choose **Import script**.
 
-    ![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-import-script.png)
+    ![](../assets/images/work-with-our-sql-editor-import-script.png)
 2.  Browse your computer for a file and select it, or drag and drop a file to upload it.
 
     Firebolt creates a new tab with the contents of the script you imported.
@@ -126,7 +126,7 @@ You can run all statements in a script or select snippets of SQL to run.
 
 After you run a script or query statement, results appear below the script editor, along with statistics about query execution.
 
-![](/firebolt-doc-staging/assets/images/Workspace_statistics.PNG)
+![](../assets/images/workspace_statistics.png)
 
 When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table.
 
@@ -151,7 +151,7 @@ While viewing query results, you can choose to view a selection of prepared stat
 
 To view query statistics, choose the expansion arrow to the left of a result table header row.
 
-![](/firebolt-doc-staging/assets/images/column_statistics.png)
+![](../assets/images/column_statistics.png)
 
 Each column expands to show statistics on a new row located just below the header. The statistics shown in each cell depend on the column’s [data type](../general-reference/data-types.md).
 
@@ -166,7 +166,7 @@ Each column expands to show statistics on a new row located just below the heade
 
 You can view additional statistics and visualizations by selecting the expand icon that appears when you mouse over the bottom right of the statistics row cell. This opens up a side panel with a dashboard of more statistics detailing the selected column.
 
-![](/firebolt-doc-staging/assets/images/2021-09-09\_12-25-02.png)
+![](../assets/images/2021-09-09_12-25-02.png)
 
 ### Viewing multi-statement script results
 
@@ -174,4 +174,4 @@ When you run a script that has multiple SQL statements with result sets (`SELECT
 
 To view the results table for a result set, choose the table icon corresponding to the numbered result set you want to view, or choose the expansion arrow next to the **Statement** and then choose **Open table** as shown in the example below.
 
-![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-multi-select-query-results.png>)
+![](../assets/images/work-with-our-sql-editor-multi-select-query-results.png)

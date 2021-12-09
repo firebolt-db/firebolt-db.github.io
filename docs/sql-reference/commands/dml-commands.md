@@ -104,7 +104,7 @@ SELECT * FROM catalog.running_queries
 
 You should see results similar to this:
 
-![](../../.gitbook/assets/running\_queries.png)
+![](../../assets/images/running_queries.png)
 
 If you see your `INSERT INTO` statement under the `QUERY_TEXT` column, then that means the operation is still running. You should wait for it to finish before attempting any other steps.
 

@@ -71,14 +71,14 @@ You can save it as a Python file, and place it under your dags folder to run it 
 
 * In Airflow's UI, go to the **DAGs** tab. Locate your DAG in the list (in our case we should look for `'firebolt_dag'`:
 
-![](../../.gitbook/assets/screen-shot-2020-10-26-at-17.31.32.png)
+![](../../assets/images/screen-shot-2020-10-26-at-17.31.32.png)
 
 * Click on the trigger button under Links to manually trigger the DAG. Once the DAG has started to run, click on it's Run Id to move to the graph view to track its progress. In our DAG we have a single step called `'firebolt_sql_task'`.
 
-![](../../.gitbook/assets/dag\_runs\_list.png)
+![](../../assets/images/dag_runs_list.png)
 
 * In the DAG's graph view, the task should appear in green to confirm the DAG was completed successfully. Click on the task `'firebolt_sql_task'`:
 
-![](../../.gitbook/assets/dag\_graph\_view.png)
+![](../../assets/images/dag_graph_view.png)
 
 * Click on **View Logs** to inspect the logs.

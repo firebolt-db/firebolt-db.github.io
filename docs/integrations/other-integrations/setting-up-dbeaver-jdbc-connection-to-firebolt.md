@@ -18,7 +18,7 @@ DBeaver is a free open-source administration tool used to simplify working acros
 
 3\. Select **New** to add a new driver:&#x20;
 
-![](../../.gitbook/assets/2021-11-11\_11-15-21.png)
+![](../../assets/images/2021-11-11_11-15-21.png)
 
 4\. In order to add the driver, fill in the following parameters:
 
@@ -46,7 +46,7 @@ DBeaver is a free open-source administration tool used to simplify working acros
 
 5\. Select **Test Connection** (make sure to start your database before you start the test). A successful connection test looks as follows:&#x20;
 
-![](../../.gitbook/assets/spaces\_B1jjxQcP0FkZQXohz645\_uploads\_git-blob-3b1fcec277e06d2551e18f70c242a7e47e61a5fa\_dbeaver\_connection\_test.png)
+![](../../assets/images/dbeaver_connection_test.png)
 
 6\. Select **Finish. **
 
@@ -54,6 +54,6 @@ DBeaver is a free open-source administration tool used to simplify working acros
 
 1. In the database navigator, right-click on the database connection and select **SQL Editor**. If a pop-up window appears, select **New Script**:&#x20;
 
-![](../../.gitbook/assets/dbeaver\_new\_script.png)
+![](../../assets/images/dbeaver_new_script.png)
 
 2\. The SQL editor should now open and you can run your queries.
