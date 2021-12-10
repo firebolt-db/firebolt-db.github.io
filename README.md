@@ -1,1 +1,0 @@
-# firebolt-doc-staging
