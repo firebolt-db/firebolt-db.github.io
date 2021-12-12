@@ -5,208 +5,188 @@ nav_order: 2
 has_toc: true
 ---
 # Getting started tutorial
+{:.no_toc}
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firbolt, and run fundamenatl analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
 
-In this tutorial, you:
-
-1. [Create your first database](./getting-started.html#create-your-first-database)
-2. [Import data to Firebolt](./getting-started.html#import-data-into-firebolt)
-3. [Configure an aggregating index](./getting-started.html#configure-an-aggregating-index)
-
-
-To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one and see Firebolt in action.
+1. Topic toC
+{:toc}
 
 ## Create your first database
+To start working with data, you first create a database and a *Firebolt engine*. An engine represents the compute resources that are attached to a database for a certain workload. A database always has one *general purpose engine* that can write to the Firebolt file format (F3) for data ingestion and run analytics queries. We use that single-engine set up in this tutorial, but many databases are set up with additional *analytics engines* engines that are configured to optimize different query workloads. For more information, see [Working-with-engines](/working-with-engines/working-with-engines.md).
 
-To start working with your data, you will need to create a new database and engine.
+**To create a database and engine**
+1. From the **Databases** page, choose **New Database**.
+2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.
+3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *<your_db_name>***_general_purpose**.
+4. Choose **Create database**.  
+![](assets/images/2021-09-13_9-33-35.png)  
+Firebolt adds your database to the **Databases** page.
 
 
-**Note**
+## Run your first query
+Before we ingest the sample data and run a query over it, we'll go to the SQL workspace for the database and run a simple query to demonstrate how to start an engine. For more information about the SQL workspace, see [Working with the SQL workspace](/work-with-our-sql-editor/working-with-the-sql-workspace.md).
 
-A *Firebolt engine* represents the compute resources that are attached to a database for a certain workload. You can choose different engine types based on the workflow you plan on managing. Engines can be scaled up and down even after you’ve set up the initial configuration.
+**To open your database, start an engine, and run a query**
+1. From the **Database** page, find the database that you created in the list, and then choose the **Open in SQL workspace icon** (**>_**) next to the **Database name**.  
 
-
-### Step 1: Create a new database and engine
-
-From the **Databases** page, click **+ New DataBase**. Name your database _**Tutorial**_. Select `us-east-1` as the Database region.
-
-![](assets/images/2021-09-13_9-33-35.png)
-
-Firebolt provides you by default with a general purpose engine optimized for data ingestion and analytic queries. You can edit the specifications of this engine. For this tutorial, we keep the provided engine as it is.
-
-Click on **Create Database** to create both the database and engine.
-
-### Step 2: Start the engine
-
-From the **Database** page, locate the _**Tutorial\_general\_purpose**_ engine next to your _**Tutorial**_ database, and click on **Start** to start the engine. Once your engine is ready, the status changes to **On**.
-
-### Step 3: Query the database
-
-Go to the **SQL Workspace** page. You will be asked to choose a database:
-
-![](assets/images/select_db.png)
-
-Choose the _**Tutorial**_ database from the list. The _**Tutorial\_general\_purpose**_ engine will be used to run the queries on your database. You can always see the engine being used to run your workload in the SQL workspace:
-
-![](assets/images/2021-09-13_9-35-31.png)
-
-Click **Run Script** in order to run the following SQL command:
-
+2. In the **Script 1** tab, type the simple query below that returns a list of databases in your account.  
 ```sql
 SHOW DATABASES;
-```
+```  
 
-Firebolt returns a list of databases.
+3. Choose **Run script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, ***Tutorial_general_purpose***.  
+![](assets/images/2021-09-13_9-35-31.png)  
 
-## Import data into Firebolt
+4. When Firebolt prompts you to start the engine, choose **Start engine**.
 
-To work with Firebolt, you need to connect to your data sources and ingest that data.\
-Follow these steps to ingest your data into Firebolt:
+## Ingest data
+Ingesting data into Firebolt is a three-step process. You:
 
-### Step 1: Create an external table
+1. Create an external table.  
 
-You will now connect to a public S3 bucket (data source) that contains your parquet files. As part of this tutorial, you will use the Firebolt demo bucket, which contains tables from the TPC-H benchmark.
+2. Create a fact or dimension table.  
 
-First, you will create an _external_ table.
+3. Run an `INSERT INTO` command from the external table to the fact or dimension table.
 
-An external table is a virtual table that directly connects to an external data source from your data lake, such as an S3 bucket, without having to load the data into a Firebolt table. Connecting to an external source to view this table is the first building block in the data load (_ingestion_) process.
+### Create an external table
+An *external table* is a special, virtual table that serves as a connector to your data source. After the external table is created, you ingest data by running an `INSERT INTO` command from that external table into a *fact table* or *dimension table*. The `INSERT INTO` command must run on a general purpose engine. After the data is available in fact and dimension tables, you can run analytics queries over those tables using any engine. Although it's possible, we don't recommend running analytics queries on external tables. For more information, see [CREATE EXTERNAL TABLE](/sql-reference/ddl-commands.md#create-external-table)
 
-Once you connect to an external table from Firebolt and create _fact and dimension tables_, you can then copy the external table data to those fact and dimension tables within the database in order to work with the data.
+**To create an external table**
+1. Choose the plus symbol (+) next to Script 1 to create a new script tab, **Script 2**, in the SQL workspace.
 
-To do this, copy and paste the following command to the script editor in the **SQL Workspace** page (make sure the _**Tutorial**_ database is selected and you run your workload on the _**Tutorial\_general\_purpose**_ engine):
-
+2. Copy and paste the query below into the **Script 2** tab.
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS ex_lineitem
-(       l_orderkey              LONG,
-        l_partkey               LONG,
-        l_suppkey               LONG,
-        l_linenumber            INT,
-        l_quantity              LONG,
-        l_extendedprice         LONG,
-        l_discount              LONG,
-        l_tax                   LONG,
-        l_returnflag            TEXT,
-        l_linestatus            TEXT,
-        l_shipdate              TEXT,
-        l_commitdate            TEXT,
-        l_receiptdate           TEXT,
-        l_shipinstruct          TEXT,
-        l_shipmode              TEXT,
-        l_comment               TEXT
+CREATE EXTERNAL TABLE IF NOT EXISTS ex_lineitem (
+-- Column definitions map to data fields
+-- in the source data file and are specified
+-- as sources in the INSERT INTO statement for ingestion.
+  l_orderkey              LONG,
+  l_partkey               LONG,
+  l_suppkey               LONG,
+  l_linenumber            INT,
+  l_quantity              LONG,
+  l_extendedprice         LONG,
+  l_discount              LONG,
+  l_tax                   LONG,
+  l_returnflag            TEXT,
+  l_linestatus            TEXT,
+  l_shipdate              TEXT,
+  l_commitdate            TEXT,
+  l_receiptdate           TEXT,
+  l_shipinstruct          TEXT,
+  l_shipmode              TEXT,
+  l_comment               TEXT
 )
+-- The URL specifies the data source in S3.
+-- All files in the location that match the OBJECT_PATTERN
+-- will be processed during ingestion.
 URL = 's3://firebolt-publishing-public/samples/tpc-h/parquet/lineitem/'
+-- These credentials specify a role or AWS key credentials
+-- with permission to read from the S3 location.
+-- These credentials are commented out for this tutorial because the bucket
+-- is publicly accessible.
 -- CREDENTIALS = ( AWS_KEY_ID = '******' AWS_SECRET_KEY = '******' )
 OBJECT_PATTERN = '*.parquet'
 TYPE = (PARQUET);
-```
+```  
 
-**Note**
+3. Choose **Run script**.  
+Firebolt creates the external table. When finished, the external table `ex_lineitem` appears on the object panel of the database.  
+![](assets/images/2021-09-13_9-36-53.png)  
 
-The Firebolt demo S3 bucket is configured to be accessed publicly, so we do not need to use the`CREDENTIALS`parameter. When you are accessing private data, you will need to use the relevant credentials.
+4. Choose the vertical ellipses next to Script 2, choose Save script, enter a name (for example, *MyExTableScript*) and then press ENTER to save the script.
 
+### Create a fact table
+In this step, you create a Firebolt fact table called `lineitem`, which you use in the next step as the target for an `INSERT INTO` command.
 
-The external table `ex_lineitem` appears on the object panel of the database.
+Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
 
-![](assets/images/2021-09-13_9-36-53.png)
+**To create a fact table**
+1. Create a new script tab.  
 
-### Step 2: Import data into Firebolt
-
-In this step, you will create a Firebolt fact table called `lineitem` and then load it with data (_data ingestion_) in order to work with the data from the `ex_lineitem` _external table_.
-
-
-**Notice**
-
-In Firebolt, data is stored in either fact or dimension tables. Therefore, to make imported data available for querying, one of these tables must first be created.
-
-
-For the fact table, as part of the `CREATE` script, we will declare (`l_orderkey, l_linenumber`) as its _primary index_. This tells Firebolt that the data should be sorted and indexed according to the (`l_orderkey, l_linenumber`) combination of fields. This optimizes range queries with the `l_orderkey, l_linenumber columns`. Primary indexes are mandatory for fact tables. Read our [guide on tables](concepts/working-with-tables.md#primary-index) for more help on creating primary indexes.
-
-To do this, run the following command:
-
+2. Copy and paste the query below into the script tab.  
 ```sql
-CREATE FACT TABLE IF NOT EXISTS lineitem
-(       l_orderkey              LONG,
-        l_partkey               LONG,
-        l_suppkey               LONG,
-        l_linenumber            INT,
-        l_quantity              LONG,
-        l_extendedprice         LONG,
-        l_discount              LONG,
-        l_tax                   LONG,
-        l_returnflag            TEXT,
-        l_linestatus            TEXT,
-        l_shipdate              TEXT,
-        l_commitdate            TEXT,
-        l_receiptdate           TEXT,
-        l_shipinstruct          TEXT,
-        l_shipmode              TEXT,
-        l_comment               TEXT
-) PRIMARY INDEX l_orderkey, l_linenumber;
-```
+CREATE FACT TABLE IF NOT EXISTS lineitem ()
+-- In this example, these fact table columns
+-- map directly to the external table columns.
+  l_orderkey              LONG,
+  l_partkey               LONG,
+  l_suppkey               LONG,
+  l_linenumber            INT,
+  l_quantity              LONG,
+  l_extendedprice         LONG,
+  l_discount              LONG,
+  l_tax                   LONG,
+  l_returnflag            TEXT,
+  l_linestatus            TEXT,
+  l_shipdate              TEXT,
+  l_commitdate            TEXT,
+  l_receiptdate           TEXT,
+  l_shipinstruct          TEXT,
+  l_shipmode              TEXT,
+  l_comment               TEXT
+)
+PRIMARY INDEX
+  l_orderkey,
+  l_linenumber;
+```  
 
-When successful, the table appears in the object panel of the database, similar to the following:
-
+3. Choose **Run script**.  
+Firebolt creates the fact table. When finished, the table `lineitem` appears on the object panel of the database.  
 ![](/assets/images/2021-09-13_9-38-23.png)
 
-You can now use the `INSERT INTO` command to copy the data from the external table into the fact table as follows:
+### Use INSERT INTO to ingest data
+You can now use the `INSERT INTO` command to copy the data from the external table into the fact table. During the INSERT INTO operation, Firebolt ingests the data from your source into Firebolt.
 
+**To run an `INSERT INTO` command that ingests data**
+1. Create a new script tab.
+2. Copy and paste the query below into the script tab.  
 ```sql
-INSERT INTO lineitem
-SELECT *
-FROM   ex_lineitem;
+INSERT INTO
+  lineitem
+SELECT
+  *
+FROM
+  ex_lineitem;
 ```
-
-Following is how it should look when you run the query:
-
-![](assets/images/2021-09-13_9-41-38.png)
-
-When the import is completed, the Status column changes to `success`, as follows:
-
+3. Choose **Run script**.  
+The query results pane indicates a **Status** of **Running** as shown below.  
+![](assets/images/2021-09-13_9-41-38.png)  
+The **Status** changes to **Success** when the ingestion is complete as shown below.
 ![](assets/images/2021-09-13_9-51-18.png)
 
-Now, query the data in the `lineitem` table to verify that the fact table was created successfully:
+## Query the ingested data
+Now that the data has been ingested into the `lineitem` table, you can run analytics queries over the table that benefit from the speed and efficiency of Firebolt.
+
+To verify that you inserted the data into the table, run a simple `SELECT` query like the one below.
 
 ```sql
-SELECT * FROM lineitem LIMIT 1000;
+SELECT
+  *
+FROM
+  lineitem
+LIMIT
+  1000;
 ```
-
-Following is how it should look when you run the query:
-
+The values shown in the query results pane should be similar to those shown below.
 ![](assets/images/2021-09-13_9-52-07.png)
 
-## Configure an aggregating index
+### Configure an aggregating index
 
-For this portion of the tutorial, you will create an _aggregating index_.
+An aggregating index enables you to take a subset of a table's columns and configure aggregations on top of those columns. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
 
-The aggregating index enables you to take a subset of a table's columns and configure aggregations on top of those columns. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). The index is automatically updated and aggregating as new data streams into the table without having to scan the entire table every time since the index is stateful and consistent.
+From the `lineitem` fact table you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. To help you speed up queries with these aggregations on this table, you can use the following statement in a script to create an aggregating index.
 
-The index is configured per table so when the table is queried, Firebolt's query optimizer searches the table's indexes for the index (or indexes) which has the potential for providing the most optimized query response time. When using the index - Instead of calculating the aggregation on the entire table and scanning all the rows, the aggregation is already pre-calculated in the aggregating index. No need to scan the entire table to perform the calculation.
+```sql
+CREATE AND GENERATE AGGREGATING INDEX
+  agg_lineitem
+ON lineitem (
+  l_suppkey,
+  l_partkey,
+  SUM(l_quantity),
+  SUM(l_extendedprice),
+  AVG(l_discount)
+  );
+```
 
-
-From the _lineitem_ fact table you created in the previous step, let's assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`.
-
-To help you speed up your queries on this database, you will create a relevant aggregating index.
-
-1.  Copy the following script:
-
-    ```sql
-    CREATE AGGREGATING INDEX agg_lineitem ON lineitem
-    (
-      l_suppkey,
-      l_partkey,
-      SUM(l_quantity),
-      SUM(l_extendedprice),
-      AVG(l_discount)
-    );
-    ```
-2. Paste it to the script editor in the **SQL Workspace** page (make sure the _**Tutorial**_ database is selected and you run your workload on the _**Tutorial\_general\_purpose**_ engine). When successful, a confirmation message appears below the editor.
-3.  Now populate the index with values by running the GENERATE command. Use the following script:
-
-    ```
-    GENERATE AGGREGATING INDEX agg_lineitem;
-    ```
-
-    When successful, a confirmation message appears below the editor.
-
-From now on, every query for data from the *lineitem* table that combines any of these fields and aggregations will now use the index you just created instead of the full table in order to run the query and retrieve a response. Read more about aggregating indexes [here](concepts/get-instant-query-response-time.md#get-sub-second-query-response-time-using-aggregating-indexes).
-
-**Congratulations! You can now use Firebolt to run queries on the demo database!**
+If you run this script, you see the `agg_lineitem` index listed in the object pane. With the index created, queries over the `lineitem` table that combine any of these fields and aggregations now use the index instead of reading the entire table.
