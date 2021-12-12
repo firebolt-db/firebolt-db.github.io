@@ -65,17 +65,18 @@ Returns: `2019-08-04`
 Returns: `2019-07-27`
 
 #### Working with dates outside the allowed range
+{:.no_toc}
 Arithmetic, conditional, and comparative operations are not supported for date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned.  
 
 The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.  
 
-`CAST ('1970-02-02' AS DATE) - 365`
+`CAST ('1970-02-02' AS DATE) - 365`  
 Returns `1970-01-31`  
 
-`CAST ('2105-02-012' AS DATE) + 365`
+`CAST ('2105-02-012' AS DATE) + 365`  
 Returns `2105-12-31`  
 
-If you work with dates outside the supported range, we recommend that you use a string datatype such as `TEXT`. For example, the following query returns all rows with the date 1921-12-31.
+If you work with dates outside the supported range, we recommend that you use a string datatype such as `TEXT`. For example, the following query returns all rows with the date `1921-12-31`.
 
 ```sql
 SELECT
@@ -86,7 +87,7 @@ WHERE
   date_as_text = '1921-12-31';
 ```
 
-The example below selects all rows where the `date_as_text` column specifies a date after 1921-12-31.
+The example below selects all rows where the `date_as_text` column specifies a date after `1921-12-31`.
 
 ```sql
 SELECT
