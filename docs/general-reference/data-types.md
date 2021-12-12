@@ -6,24 +6,124 @@ parent: General reference
 ---
 
 # Data types
+{:.no_toc}
 <!--This needs to be changed pronto -->
-The following table describes all available data types in Firebolt:
+This topic lists the data types available in Firebolt.
 
-| **Category**        | **Type**           | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Numeric**         | `INT`              | A whole number ranging from -2,147,483,648 to 2,147,483,647. `INT` data types require 4 bytes of storage. <br> <br>Synonym for `INTEGER`. |
-|                     | `INTEGER`          | Synonym for `INT`.  |
-|                     | `BIGINT`           | A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage. <br> <br>Synonym for `LONG`|
-|                     | `LONG`             | Synonym for `BIGINT`. |
-|                     | `FLOAT`            | A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. `FLOAT` data types require 4 bytes of storage. |
-|                     | `DOUBLE`           | A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes.<br> <br> Synonym for `DOUBLE PRECISION` |
-|                     | `DOUBLE PRECISION` | Synonym for `DOUBLE`  |
-| **String**          | `VARCHAR`          | A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns.<br> <br> Firebolt supports UTF-8 escape sequences.Synonym for `TEXT`, `STRING` |
-|                     | `TEXT`             | Synonym for `VARCHAR`, `STRING` |
-|                     | `STRING`           | Synonym for `VARCHAR`, `TEXT`  |
-| **Date & Time**     | `DATE` |                                            |
-|                     | `DATE` (cont.)     | A year, month and day in the  format '*YYYY-MM-DD'.* This value is stored as a 4-byte unsigned Unix timestamp. The minimum `DATE` value is `1970-02-01`. The maximum `DATE` value is `2105-12-31`. It does not specify a time zone. <br> <br> Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.<br><br> `CAST(‘2019-07-31' AS DATE) + 4`<br>Returns <code>2019-08-04</code><br>`CAST(‘2019-07-31' AS DATE) - 4`<br> <br> Returns `2019-07-27` <br> <br> **Caution** Arithmetic, conditional, and comparative operations are not supported on date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned.<br><br>The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.<br><br>`CAST ('1970-02-02' AS DATE) - 365`<br>Returns `1970-01-31`<br><br>`CAST ('2105-02-012' AS DATE) + 365`<br>Returns `2105-12-31`<br>If you work with dates outside the supported range, we recommend that you use a string datatype such as `TEXT`. For example, the following query returns all rows with the date `1921-12-31`. `SELECT *<br> FROM <br>tab1text <br> WHERE <br> date_as_text = '1921-12-31';` <br> The example below selects all rows where the <code>date_as_text</code> column specifies a date after <code>1921-12-31</code>.<br><br><code>SELECT *</code><br><code>FROM</code><br><code>tab1text</code><br><code>WHERE</code><br><code>date_as_text > '1921-12-31';</code><br><br>The example below generates a count of how many rows in <code>date_as_text</code> are from each month of the year. It uses <a href="../sql-reference/functions-reference/string-functions.md#substr"><code>SUBSTR</code></a> to extract the month value from the date string, and then it groups the count by month.<br><br><code>SELECT COUNT(*), SUBSTR(date_as_text,6,2)</code><br><code>FROM</code><br><code>tab1text</code><br><code>GROUP BY</code><br><code>SUBSTR(date_as_text,6,2);</code></p> |
-|                     | `TIMESTAMP`        | <p>A year, month, day, hour, minute and second in the format '<em>YYYY-MM-DD hh:mm:ss'</em>. This value is stored as an unsigned Unix timestamp with 4 bytes. </p><p></p><p>Same range as <code>DATE</code> type.</p><p>Minimal value: 0000-00-00 00:00:00.</p><p></p><p>To change the default time zone in Firebolt:</p><p><code>SET DEFAULT_TIMEZONE = "Pacific Standard Time"</code></p><p></p><p>This is a synonym for <code>DATETIME</code></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                     | `DATETIME`         | Synonym for `TIMESTAMP`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Boolean**         | `BOOLEAN`          | Accepts the following values: `true`, `false`, `1`, `0`. Stores the values as 1/0 respectively.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Semi-Structured** | `ARRAY`            | <p>Represents dense or sparse arrays. An array can contain all data types including nested arrays (array with arrays).</p><p>A column whose type is ARRAY cannot be nullable, however the elements of an ARRAY can. Therefore the following is an illegal declaration:</p><p><code>nullArray ARRAY(INT) NULL</code></p><p>But this one is valid:</p><p><code>nullElements ARRAY(INT NULL)</code></p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-|                     |                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+* Topic ToC
+{:toc}
+
+
+## Numeric
+
+### `INT`
+A whole number ranging from -2,147,483,648 to 2,147,483,647. `INT` data types require 4 bytes of storage.
+Synonym for `INTEGER`.
+
+### `INTEGER`
+Synonym for `INT`.
+
+### `BIGINT`
+A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage.
+Synonym for `LONG`.
+
+### `LONG`
+Synonym for `BIGINT`.
+
+### `FLOAT`
+A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. `FLOAT` data types require 4 bytes of storage.
+
+### `DOUBLE`
+A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes. Synonym for `DOUBLE PRECISION`.
+
+### `DOUBLE PRECISION`
+Synonym for `DOUBLE`.
+
+## String
+
+### `VARCHAR`
+A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns. Firebolt supports UTF-8 escape sequences. Synonym for `TEXT` and `STRING`.
+
+### `TEXT`
+Synonym for `VARCHAR` and `STRING`.
+
+### `STRING`
+Synonym for `VARCHAR` and `TEXT`.
+
+## Date and time
+
+### `DATE`
+A year, month and day in the format *YYYY-MM-DD*. This value is stored as a 4-byte unsigned Unix timestamp. The minimum `DATE` value is `1970-01-01`. The maximum `DATE` value is `2105-12-31`. It does not specify a time zone.
+
+Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.
+
+`CAST(‘2019-07-31' AS DATE) + 4`
+
+Returns: `2019-08-04`
+
+`CAST(‘2019-07-31' AS DATE) - 4`
+Returns: `2019-07-27`
+
+#### Working with dates outside the allowed range
+Arithmetic, conditional, and comparative operations are not supported for date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned.  
+
+The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.  
+
+`CAST ('1970-02-02' AS DATE) - 365`
+Returns `1970-01-31`  
+
+`CAST ('2105-02-012' AS DATE) + 365`
+Returns `2105-12-31`  
+
+If you work with dates outside the supported range, we recommend that you use a string datatype such as `TEXT`. For example, the following query returns all rows with the date 1921-12-31.
+
+```sql
+SELECT
+  *
+FROM
+  tab1text
+WHERE
+  date_as_text = '1921-12-31';
+```
+
+The example below selects all rows where the `date_as_text` column specifies a date after 1921-12-31.
+
+```sql
+SELECT
+  *
+FROM
+  tab1text
+WHERE
+  date_as_text > '1921-12-31';
+```
+
+The example below generates a count of how many rows in `date_as_text` are from each month of the year. It uses `SUBSTR` to extract the month value from the date string, and then it groups the count by month.
+
+```sql
+SELECT
+  COUNT(), SUBSTR(date_as_text,6,2)
+FROM
+  tab1text
+GROUP BY
+  SUBSTR(date_as_text,6,2);
+```
+
+## Boolean
+
+### `BOOLEAN`
+Accepts `true`, `false`, `1` and `0`. Stores the values as `1` or `0` respectively.
+
+## Semi-structured
+
+### `ARRAY`
+Represents dense or sparse arrays. An array can contain all data types including nested arrays (array with arrays).
+
+A column whose type is `ARRAY` can't be nullable, but the elements of an `ARRAY` are nullable.
+
+For example, the following is an illegal type definition:
+
+`array_with_null ARRAY(INT) NULL`
+
+This, on the other hand, is a valid definition:
+
+`nullElements ARRAY(INT NULL)`
