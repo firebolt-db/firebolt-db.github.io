@@ -6,7 +6,7 @@ has_toc: true
 ---
 # Getting started tutorial
 {:.no_toc}
-This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firbolt, and run fundamenatl analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamenatl analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
 
 1. Topic toC
 {:toc}
@@ -17,7 +17,7 @@ To start working with data, you first create a database and a *Firebolt engine*.
 **To create a database and engine**
 1. From the **Databases** page, choose **New Database**.
 2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.
-3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *<your_db_name>***_general_purpose**.
+3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *&#8249;your_db_name&#8250;_general_purpose*.
 4. Choose **Create database**.  
 ![](assets/images/2021-09-13_9-33-35.png)  
 Firebolt adds your database to the **Databases** page.
