@@ -48,8 +48,8 @@ ALTER ENGINE <engine_name> SET
 | Parameter                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Mandatory? Y/N |
 | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
 | `<engine_name>`                                             | Name of the engine to be altered.                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Y              |
-| `SCALE =`<br><br> `<scale>` | Valid scale numbers include any `INT` between 1 to 128.<br> <br> `ABORT` is an optional parameter (default=false):<br> <br> `ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br> `ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted. | N              |
-| `SPEC =` <br> `<spec>`   | Indicates the EC2 instance type, for example, 'm5.xlarge'<br><br>`ABORT` is an optional parameter (default=false) <br><br>`ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br>`ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.          | N              |
+| `SCALE = <scale>` | Valid scale numbers include any `INT` between 1 to 128.<br> <br> `ABORT` is an optional parameter (default=false):<br> <br> `ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br> `ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted. | N              |
+| `SPEC = <spec>`   | Indicates the EC2 instance type, for example, 'm5.xlarge'<br><br>`ABORT` is an optional parameter (default=false) <br><br>`ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br>`ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.          | N              |
 | `AUTO_STOP = <minutes>`                                     | The number of minutes after which the engine automatically stops, where 0 indicates that `AUTO_STOP` is disabled.                                                                                                                                                                                                                                                                                                                                                                     | N              |
 | `RENAME TO <new_name>`                                      | Indicates the new name for the engine.<br> <br>For example: `RENAME TO new_engine_name`                                                                                                                                                                                                                                                                                                                                                                         | N              |
 | `WARMUP =<warmup_method>`                                   | The warmup method that should be used, the following options are supported:<br><br> `MINIMAL` On-demand loading (both indexes and tables' data).<br><br>`PRELOAD_INDEXES` Load indexes only (default).<br><br>`PRELOAD_ALL_DATA` Full data auto-load (both indexes and table data - full warmup).                                                                                                                                  | N              |
@@ -595,7 +595,7 @@ Once we've created the table, we can manipulate the values with different INSERT
 | `INSERT INTO t1 (col1,col2,col4,col5) VALUES (1,1,1,1)`                                                                           | col3 is `NULL DEFAULT 1`. This is an implicit insert, and a default expression is specified, so 1 is inserted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `INSERT INTO t1 VALUES (1,1,1,NULL,1)`                                                                                            | col4 is `NOT NULL DEFAULT 1`, and this is an explicit insert. Therefore, a “null mismatch” event occurs. In this particular case, since the data type for col4 is INT, the result is an error. If the data type for col4 was TEXT, for example, the result would have been an insert of `''`.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `INSERT INTO t1 (col1,col2,col3,col5) VALUES (1,1,1,1)`                                                                           | col4 is `NOT NULL DEFAULT 1`, and this is an implicit insert. Therefore, the default expression is used, and 1 is inserted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <p><code>INSERT INTO t1 VALUES (1,1,1,1,NULL)</code></p><p><code>INSERT INTO t1 (col1,col2,col3,col4) VALUES (1,1,1,1)</code></p> | <p>The nullability and default expression for col5 were not specified. In this case, Firebolt treats col5 as <code>NOT NULL DEFAULT NULL</code>.</p><p>For the explicit insert, Firebolt attempts to insert NULL into a NOT NULL int column, and a “null mismatch” event results.</p><p>For the implicit insert, Firebolt resorts to the default, and again, attempts to insert NULL. Similar to the explicit NULL case - an empty value <code>''</code> is inserted.</p>                                                                                                                                                                                                                        |
+| `INSERT INTO t1 VALUES (1,1,1,1,NULL)`<br><br>`INSERT INTO t1 (col1,col2,col3,col4) VALUES (1,1,1,1)` | The nullability and default expression for col5 were not specified. In this case, Firebolt treats col5 as `NOT NULL DEFAULT NULL`.</p><p>For the explicit insert, Firebolt attempts to insert NULL into a NOT NULL int column, and a “null mismatch” event results.<br><br>For the implicit insert, Firebolt resorts to the default, and again, attempts to insert NULL. Similar to the explicit NULL case - an empty value `''` is inserted.                                                                                                                                                                                                                        |
 
 #### PRIMARY INDEX
 
@@ -610,7 +610,7 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 The following table describes the primary index parameters:
 
 | Parameter.      | Description                                                                                                                                  | Mandatory? |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
 | `<column_name>` | Specifies the name of the column in the Firebolt table which composes the index. At least one column must be used for configuring the index. | Y          |
 
 #### PARTITION BY
@@ -657,7 +657,7 @@ AS <select_query>
 #### General parameters
 
 | Parameter                                       | Description                                                                                                     |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | `<table_name>`                                  | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
 | `<select_query`>                                | Any valid select query                                                                                          |
@@ -680,7 +680,7 @@ AS SELECT <select_statement>
 #### Parameters
 
 | Parameter                                       | Description                                                                                                                     |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
 | `<name>`                                        | An ​identifier​​ that specifies the name of the view. This name should be unique within the database.                           |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_list>` | An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query. |
 | `<select_statement>`                            | The select statement for creating the view                                                                                      |
@@ -715,7 +715,7 @@ CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_n
 **General parameters**
 
 | Parameter                  | Description                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<unique_join_index_name>` | A unique name for the join index.                                                                                  |
 | `<dimension_table_name>`   | The name of the dimension table on which the index is configured.                                                  |
 | `<unique_join_key_column>` | The column name that is used in the join’s `ON` clause.                                                            |
@@ -780,7 +780,7 @@ Generating the index after data was loaded to the table is a memory-heavy operat
 #### Parameters
 
 | Parameter           | Description                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
 | `<agg_index_name>`  | Specifies a unique name for the index                                                                                   |
 | `<fact_table_name>` | Specifies the name of the fact table referenced by this index                                                           |
 | `<key_column>`      | Specifies column name from the `<fact_table_name>` used for the index                                                   |
@@ -827,7 +827,7 @@ START ENGINE <engine_name>
 ```
 
 | Parameter       | Description                          | Mandatory? Y/N |
-| --------------- | ------------------------------------ | -------------- |
+| :--------------- | :------------------------------------ | :-------------- |
 | `<engine_name>` | The name of the engine to be started | Y              |
 
 ## STOP ENGINE
@@ -841,7 +841,7 @@ STOP ENGINE <engine_name>
 ```
 
 | Parameter       | Description                          | Mandatory? Y/N |
-| --------------- | ------------------------------------ | -------------- |
+| :--------------- | :------------------------------------ | :-------------- |
 | `<engine_name>` | The name of the engine to be stopped | Y              |
 
 ## ATTACH ENGINE
@@ -855,7 +855,7 @@ ATTACH ENGINE <engine_name> TO <database_name>
 ```
 
 | Parameter         | Description                                                   | Mandatory? Y/N |
-| ----------------- | ------------------------------------------------------------- | -------------- |
+| :----------------- | :------------------------------------------------------------- | :-------------- |
 | `<engine_name>`   | The name of the engine to attach.                             | Y              |
 | `<database_name>` | The name of the database to attach engine `<engine_name>` to. | Y              |
 
@@ -870,7 +870,7 @@ DETACH ENGINE <engine_name> FROM <database_name>
 ```
 
 | Parameter         | Description                                                     | Mandatory? Y/N |
-| ----------------- | --------------------------------------------------------------- | -------------- |
+| :----------------- | :--------------------------------------------------------------- | :-------------- |
 | `<engine_name>`   | The name of the engine to detach.                               | Y              |
 | `<database_name>` | The name of the database to detach engine `<engine_name>` from. | Y              |
 
@@ -924,7 +924,7 @@ DROP ENGINE [IF EXISTS] <engine_name>
 ```
 
 | Parameter       | Description                           |
-| --------------- | ------------------------------------- |
+| :--------------- | :------------------------------------- |
 | `<engine_name>` | The name of the engine to be deleted. |
 
 ### DROP INDEX
@@ -936,7 +936,7 @@ DROP [AGGREGATING | JOIN] INDEX [IF EXISTS] <index_name>
 ```
 
 | Parameter      | Description                          |
-| -------------- | ------------------------------------ |
+| :-------------- | :------------------------------------ |
 | `<index_name>` | The name of the index to be deleted. |
 
 ### DROP TABLE
@@ -948,7 +948,7 @@ DROP TABLE [IF EXISTS] <table_name>
 ```
 
 | Parameter      | Description                          |
-| -------------- | ------------------------------------ |
+| :-------------- | :------------------------------------ |
 | `<table_name>` | The name of the table to be deleted. For external tables, the definition is removed from Firebolt but not from the source. |
 
 ### DROP DATABASE
@@ -962,7 +962,7 @@ DROP DATABASE [IF EXISTS] <database_name>
 ```
 
 | Parameter         | Description                            |
-| ----------------- | -------------------------------------- |
+| :----------------- | :-------------------------------------- |
 | `<database_name>` | The name of the database to be deleted |
 
 ### DROP VIEW
@@ -974,7 +974,7 @@ DROP VIEW [IF EXISTS] <view_name>
 ```
 
 | Parameter     | Description                         |
-| ------------- | ----------------------------------- |
+| :------------- | :----------------------------------- |
 | `<view_name>` | The name of the view to be deleted. |
 
 ## REFRESH JOIN INDEX
@@ -1003,7 +1003,7 @@ REFRESH ALL JOIN INDEXES ON TABLE <dim-table-name>
 ```
 
 | Parameter          |                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------- |
+| :------------------ | :--------------------------------------------------------------------------------------- |
 | `<index-name>`     | The name of the join index to rebuild.                                                  |
 | `<dim-table-name>` | The name of a dimension table. All join indexes associated with that table are rebuilt. |
 
@@ -1027,11 +1027,10 @@ The results of `SHOW CACHE` are formatted as follows:
 
 These components are defined as follows:
 
-|                         |                                                                                                                            |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Component               | Description                                                                                                                |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | `<ssd_used>`            | The amount of storage currently used on your engine. This data includes storage that Firebolt reserves for internal usage. |
-| `<ssd`\_`available>`    | The amount of available storage on your engine.                                                                            |
+| `<ssd_available>`    | The amount of available storage on your engine.                                                                            |
 | `<percent_utilization>` | The percent of used storage as compared to available storage.                                                              |
 
 Example returned output is shown below.
@@ -1053,7 +1052,7 @@ SHOW COLUMNS <table_name>;
 ```
 
 | Parameter      | Description                           |
-| -------------- | ------------------------------------- |
+| :-------------- | :------------------------------------- |
 | `<table_name>` | The name of the table to be analyzed. |
 
 **Example**
@@ -1108,7 +1107,7 @@ SHOW DATABASE <database_name>;
 ```
 
 | Parameter         | Description                              |
-| ----------------- | ---------------------------------------- |
+| :----------------- | :---------------------------------------- |
 | <`database_name>` | The name of the database to be analyzed. |
 
 ### SHOW ENGINES
