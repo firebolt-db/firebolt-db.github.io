@@ -16,7 +16,7 @@ $callouts: (
             color: nth($props, 1);
             content: nth($props, 3);
             display: block;
-            font-weight: bold;
+            font-weight: 500;
             font-size: 1em;
             padding-bottom: .75rem;
         }
