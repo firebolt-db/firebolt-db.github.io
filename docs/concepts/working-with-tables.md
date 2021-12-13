@@ -7,23 +7,24 @@ has_toc: true
 ---
 # Working with tables
 
-Tables in Firebolt have a few unique characteristics that are designed to optimize performance. This page will help you understand these concepts and how to work with Firebolt tables.
+Tables in Firebolt have a few unique characteristics that are designed to optimize performance. This topic covers table concepts.
 
-## FACT and DIMENSION tables
+## Fact and dimension tables
 
-When you create a table in Firebolt, you must also specify whether it’s a `FACT` or a `DIMENSION` table. The two different types of tables are handled differently in order to optimize the performance of queries in general and joins in particular.
+External tables exist solely as a connector to your data source. When you create a table in Firebolt to run queries over, you must specify whether it’s a `FACT` or a `DIMENSION` table. Firebolt handles these table types differently to optimize query performance in general and join operations in particular.
 
-* **FACT** tables are always **sharded** across the nodes of the cluster
-* **DIMENSION** tables are **replicated** across the nodes of the cluster
-* When performing joins, the local shard of a fact table on each node is joined with the local copy of the dimension table
+* **Fact tables** are always **sharded** across engine nodes. Each node stores part of the table.  
+FACT tables should be used for your traditional fact tables&mdash;usually your larger and most granular (transaction) tables.
+* **Dimension tables** are **replicated** in each engine node.  
+DIMENSION tables should be used for the smaller tables that are typically more descriptive in nature and are joined with the FACT tables.
 
-FACT tables should be used for your traditional fact tables - usually your larger and most granular (transaction) tables. DIMENSION tables should be used for the smaller tables that are typically more descriptive in nature and are joined with the FACT tables. If your table does not fit in either of the traditional fact/dimension definition, then it is recommended to define very large tables as FACT, and smaller tables as DIMENSION.
+When performing joins, the local shard of a fact table on each node is joined with the local copy of the dimension table. If your table does not fit in either of the traditional fact or dimension definition, we recommended that you define very large tables as fact tables, and smaller tables as dimension tables.
 
-## PRIMARY INDEX
+<!-- This is all being pre-empted by the new Indexing topic. Nothing below here should be edited -->
 
-Firebolt tables are persisted in S3 in a proprietary file format called TripleF, aimed to optimize speed and efficiency. One of the unique characteristics of the TripleF format is that it is sorted, compressed, and indexed. What defines the sort order of the files is the PRIMARY INDEX defined on the table, which can include one or many fields.
+## Primary indexes
 
-Primary indexes are mandatory for fact tables and optional for dimension tables.
+Firebolt tables are persisted in the proprietary Firebolt file format (F3) to optimize speed and efficiency. One of the unique characteristics of F3 is that it is sorted, compressed, and indexed. What defines the sort order of the files is the `PRIMARY INDEX` that you specify as part of the table definition. The primary index can include one or many columns. Primary indexes are mandatory for fact tables and optional for dimension tables.
 
 ### How to choose a primary index
 
