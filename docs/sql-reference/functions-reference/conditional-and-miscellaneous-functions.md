@@ -25,17 +25,16 @@ END;
 ```
 
 | Parameter     | Description                                                                                                                                             |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<condition>` | An expression that returns a boolean result. ​ A condition can be defined for each WHEN, and ELSE clause.                                               |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<condition>` | An expression that returns a boolean result. ​ A condition can be defined for each `WHEN`, and `ELSE` clause.                                               |
 | `<result>`    | The result of any condition. Every ​`THEN` ​​clause receives a single result. All results in a single ​`CASE` ​​function must share the same data type. |
 
 **Example**
 
 This example references a table `Movie_test` with the following columns and values:&#x20;
 
-|                      |        |
-| -------------------- | ------ |
 | Movie                | Length |
+| :-------------------- | :------ |
 | Citizen Kane         | 114    |
 | Happy Gilmore        | 82     |
 | Silence of the Lambs | 110    |
@@ -98,7 +97,7 @@ CAST(<value> AS <type>)
 ```
 
 | Parameter | Description                                                                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 
@@ -124,7 +123,7 @@ CITY_HASH(<exp>, [, expr2 [,...]])
 ```
 
 | Parameter | Description                                                      |
-| --------- | ---------------------------------------------------------------- |
+| :--------- | :---------------------------------------------------------------- |
 | `<exp>`   | An expression that returns any data type that Firebolt supports. |
 
 **Example**
@@ -146,7 +145,7 @@ Checks from left to right for the first non-NULL argument found for each entry p
 ```
 
 | Parameter | Description                                                                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<value>` | The value(s) to coalesce. Can be either: column name, ​ ​a function applied on a column (or on another function), and a literal (constant value). |
 
 **Example**
@@ -172,8 +171,8 @@ NULLIF(<exp1>, <exp2>)
 ```
 
 | Parameter            | Description                                                                                                                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. `exp1` is the value returned if the expressions do not evaluate to an equal result. |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. `<exp1>` is the value returned if the expressions do not evaluate to an equal result. |
 
 **Example**
 
@@ -200,7 +199,7 @@ TRY_CAST(<value> AS <type>)
 ```
 
 | Parameter | Description                                                                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 

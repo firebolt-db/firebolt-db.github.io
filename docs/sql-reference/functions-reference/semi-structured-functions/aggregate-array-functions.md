@@ -17,7 +17,7 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 From the remainder of this page we will use the following table `T` in our examples:
 
 | Category | vals        |
-| -------- | ----------- |
+| :-------- | :----------- |
 | a        | \[1,3,4]    |
 | b        | \[3,5,6,7]  |
 | a        | \[30,50,60] |
@@ -33,7 +33,7 @@ ARRAY_MAX_GLOBAL(<arr>) AS cnt
 ```
 
 | Parameter | Description                                                               |
-| --------- | ------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------- |
 | `<arr>`   | The array column over from which the function returns the maximum element |
 
 **Example**
@@ -51,7 +51,7 @@ GROUP BY
 **Returns**:
 
 | category | mx |
-| -------- | -- |
+| :-------- | :-- |
 | a        | 4  |
 | b        | 7  |
 | c        | 60 |
@@ -67,7 +67,7 @@ ARRAY_MIN_GLOBAL(<arr>)
 ```
 
 | Parameter | Description                                                              |
-| --------- | ------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------ |
 | `<arr>`   | The array column from which the function will return the minimal element |
 
 **Example**
@@ -85,7 +85,7 @@ GROUP BY
 **Returns**:
 
 | category | sm |
-| -------- | -- |
+| :-------- | :-- |
 | a        | 1  |
 | b        | 3  |
 | c        | 30 |
@@ -101,7 +101,7 @@ ARRAY_SUM_GLOBAL(<arr>)
 ```
 
 | Parameter | Description                                                    |
-| --------- | -------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------- |
 | `<arr>`   | The array column over which the function will sum the elements |
 
 **Example**
@@ -119,7 +119,7 @@ GROUP BY
 **Returns**:
 
 | category | sm  |
-| -------- | --- |
+| :-------- | :--- |
 | a        | 8   |
 | b        | 21  |
 | c        | 140 |

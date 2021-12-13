@@ -20,7 +20,7 @@ ABS(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -43,7 +43,7 @@ ACOS(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -66,7 +66,7 @@ ASIN(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -89,7 +89,7 @@ ATAN(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -112,7 +112,7 @@ CBRT(<val>);
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -136,7 +136,7 @@ CEILING(<val>[, <dec>]);
 ```
 
 | Parameter | Description                                                                                                                               |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `CEIL `and `CEILING` return whole numbers.  |
 
@@ -159,9 +159,8 @@ Calculates the cosine.
 COS(<exp>)
 ```
 
-|           |                                                       |
-| --------- | ----------------------------------------------------- |
 | Parameter | Description                                           |
+| :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
 **Example**
@@ -183,9 +182,8 @@ Calculates the cotangent.
 COT(<exp>)
 ```
 
-|           |                                                       |
-| --------- | ----------------------------------------------------- |
 | Parameter | Description                                           |
+| :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
 **Example**
@@ -207,9 +205,8 @@ Converts a value in radians to degrees.
 DEGREES(<exp>)
 ```
 
-|           |                                                       |
-| --------- | ----------------------------------------------------- |
 | Parameter | Description                                           |
+| :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
 **Example**
@@ -232,7 +229,7 @@ EXP(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -255,9 +252,9 @@ FLOOR(<val>[, <dec>])
 ```
 
 | Parameter | Description                                                                                                                   |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
-| `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `FLOOR `returns whole numbers.  |
+| `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `FLOOR` returns whole numbers.  |
 
 **Example**
 
@@ -279,7 +276,7 @@ LOG([<base>,] <num>);
 ```
 
 | Parameter   | Description                                                                                                         |
-| ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| :----------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<base>`    | Optional. The base for the logarithm. The default base is 10.                                                       |
 | `<numeric>` | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
@@ -312,7 +309,7 @@ MOD(<num>,<den>)
 ```
 
 | Parameter | Description                               |
-| --------- | ----------------------------------------- |
+| :--------- | :----------------------------------------- |
 | `<num>`   | The numerator of the division equation.   |
 | `<den>`   | The denominator of the division equation. |
 
@@ -342,7 +339,7 @@ SELECT
     PI()
 ```
 
-**Returns: **`3.141592653589793`
+**Returns:** `3.141592653589793`
 
 ## POW, POWER
 
@@ -356,7 +353,7 @@ POWER(<val>, <exp>)​;
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 | `<exp>`   | The exponent value used to raise `<val>`                                                                            |
 
@@ -367,7 +364,7 @@ SELECT
     POW(2, 5)
 ```
 
-**Returns: **`32`
+**Returns:** `32`
 
 ## RADIANS
 
@@ -380,7 +377,7 @@ Converts degrees to radians as a `FLOAT` value.
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -390,7 +387,7 @@ SELECT
     RADIANS(180)
 ```
 
-**Returns: **`3.141592653589793`
+**Returns:** `3.141592653589793`
 
 ## RANDOM
 
@@ -410,7 +407,7 @@ The example below demonstrates using `RANDOM` without any other numeric function
 SELECT RANDOM()
 ```
 
-**Returns: **`0.8544004706537051`
+**Returns:** `0.8544004706537051`
 
 **Using RANDOM for range of values**
 
@@ -426,7 +423,7 @@ For example, the formula below generates a random integer between 50 and 100:&#x
 SELECT FLOOR( RANDOM() * (100 - 50 + 1)) + 50;
 ```
 
-**Returns: **`61`
+**Returns:** `61`
 
 ## ROUND
 
@@ -439,7 +436,7 @@ ROUND(<val> [, <dec>])
 ```
 
 | Parameter | Description                                                                                                                   |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `ROUND` returns whole numbers.  |
 
@@ -470,7 +467,7 @@ SIN(<val>)
 ```
 
 | Parameter | Description                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 **Example**
@@ -493,7 +490,7 @@ SQRT(<val>);
 ```
 
 | Parameter | Description                                                                                                                                                       |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. Returns `NULL `if a negative value is given.  |
 
 **Example**
@@ -503,7 +500,7 @@ SELECT
     SQRT(64)
 ```
 
-**Returns: **`8`
+**Returns:** `8`
 
 ## TAN
 
@@ -516,7 +513,7 @@ TAN(<val>)
 ```
 
 | Parameter | Description                                                                                                          |
-| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.  |
 
 **Example**
@@ -539,7 +536,7 @@ TRUNC(<val>[, <dec>])
 ```
 
 | Parameter | Description                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.          |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `TRUNC` returns whole numbers. |
 
@@ -550,11 +547,11 @@ SELECT
     TRUNC(-20.5)
 ```
 
-**Returns: **`-20`
+**Returns:** `-20`
 
 ```
 SELECT
     TRUNC(-99.999999, 3)
 ```
 
-**Returns: **`-99.999`
+**Returns:** `-99.999`

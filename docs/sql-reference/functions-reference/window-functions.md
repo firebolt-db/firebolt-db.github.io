@@ -27,9 +27,9 @@ AVG( <val> ) OVER ( [ PARTITION BY <exp> ] )
 ```
 
 |           |                                                 |
-| --------- | ----------------------------------------------- |
+| :--------- | :----------------------------------------------- |
 | Parameter | Description                                     |
-| `<val>`   | An expression used for the `AVG() `function.    |
+| `<val>`   | An expression used for the `AVG()` function.    |
 | `<expr>`  | An expression used for the partition by clause. |
 
 **Example**
@@ -46,7 +46,7 @@ FROM
 	class_test
 ```
 
-**Results**
+**Returns**
 
 ```
 ' +------------+-------------+------------+-------------------------+
@@ -87,10 +87,8 @@ Count the number of values within the requested window.
 ```sql
 COUNT( <val> ) OVER ( [ PARTITION BY <exp> ] )
 ```
-
-|           |                                                  |
-| --------- | ------------------------------------------------ |
 | Parameter | Description                                      |
+| :--------- | :------------------------------------------------ |
 | `<val>`   | An expression used for the `COUNT()` function.   |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
@@ -107,7 +105,7 @@ FROM
 	class_test
 ```
 
-**Results**
+**Returns**
 
 ```
 +------------+-------------+-------------------+
@@ -150,9 +148,9 @@ DENSE_RANK() OVER ([PARTITION BY <val>] ORDER BY <exp> [ASC|DESC] )
 ```
 
 | Parameter | Description                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------- |
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                |
-| \<exp>    | The expression used in the ORDER BY clause. This parameter determines what value will be ranked.  |
+| `<exp>`    | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked.  |
 
 **Example**
 
@@ -168,7 +166,7 @@ FROM
 	class_test
 ```
 
-**Returns: **
+**Returns:**
 
 ```
 +------------+-------------+------------+---------------+
@@ -212,11 +210,11 @@ LAG ( <exp> [, <offset> [, <default> ]] )
 ```
 
 | Parameter   | Description                                                                                                                  |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| :----------- | :---------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`     | Any valid expression that will be returned based on the `LAG` `<offset>.`                                                    |
 | `<expr>`    | The expression used for the `PARTITION BY` clause.                                                                           |
 | `<offset>`  | The number of rows backward from the current row from which to obtain a value. A negative number will act as `LEAD()`        |
-| `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INT`. The default is NULL. |
+| `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INT`. The default is `NULL`. |
 
 **Example**
 
@@ -232,7 +230,7 @@ FROM
 	class_test
 ```
 
-**Returns: **
+**Returns:**
 
 ```
 +------------+-------------+-------------+--------------+
@@ -276,11 +274,11 @@ LEAD ( <val> [, <offset> [, <default> ] )
 ```
 
 | Parameter   | Description                                                                                                                                                           |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`     | Any valid expression that will be returned based on the `LEAD` `<offset>.`                                                                                            |
 | `<expr>`    | The expression used for the `PARTITION BY` clause.                                                                                                                    |
 | `<offset>`  | The number of rows forward from the current row from which to obtain a value.                                                                                         |
-| `<default>` | The expression to return when the offset goes out of the bounds of the window. Supports any expression whose type is compatible with expression. The default is NULL. |
+| `<default>` | The expression to return when the offset goes out of the bounds of the window. Supports any expression whose type is compatible with expression. The default is `NULL`. |
 
 **Example**
 
@@ -339,7 +337,7 @@ MIN( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 ```
 
 | Parameter | Description                                                      |
-| --------- | ---------------------------------------------------------------- |
+| :--------- | :---------------------------------------------------------------- |
 | `<val>`   | <p>An expression used for the <code>MIN </code>function.<br></p> |
 | `<exp>`   | An expression used for the `PARTITION BY` clause.                |
 
@@ -400,7 +398,7 @@ MAX( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 ```
 
 | Parameter | Description                                       |
-| --------- | ------------------------------------------------- |
+| :--------- | :------------------------------------------------- |
 | `<val>`   | An expression used for the `MAX `function.        |
 | `<exp>`   | An expression used for the `PARTITION BY` clause. |
 
@@ -461,7 +459,7 @@ RANK() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 ```
 
 | Parameter | Description                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------- |
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                 |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked. |
 
@@ -522,7 +520,7 @@ ROW_NUMBER() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 ```
 
 | Parameter | Desccription                                                                                                      |
-| --------- | ----------------------------------------------------------------------------------------------------------------- |
+| :--------- | :----------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                                |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be used for `ROW_NUMBER`. |
 
@@ -539,7 +537,7 @@ FROM
 	class_test
 ```
 
-**Returns: **
+**Returns:**
 
 ```
 +------------+-------------+------------+
@@ -584,7 +582,7 @@ SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
 ```
 
 | Parameter | Description                                      |
-| --------- | ------------------------------------------------ |
+| :--------- | :------------------------------------------------ |
 | `<val>`   | The expression used for the `SUM `function       |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 

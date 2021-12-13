@@ -309,7 +309,7 @@ MAX_BY(<arg>, <val>)
 ```
 
 | Parameter | Description                                    |
-| --------- | ---------------------------------------------- |
+| :--------- | :---------------------------------------------- |
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a maximum value. |
 
@@ -318,7 +318,7 @@ MAX_BY(<arg>, <val>)
 For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:&#x20;
 
 | item   | price |
-| ------ | ----- |
+| :------ | :----- |
 | apple  | 4     |
 | banana | 25    |
 | orange | 11    |
@@ -348,7 +348,7 @@ Calculates an approximate median for a given column.
 ```
 
 | Parameter | Description                                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<col>`   | The column used to calculate the median value. This column can consist of numeric data types or DATE and DATETIME. |
 
 **Example**
@@ -394,7 +394,7 @@ Calculates the minimum value of an expression across all input values.
 ```
 
 | Parameter | Description                                                                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the minimum values. Valid values for the expression include a column name or functions that return a column name. |
 
 **Example**
@@ -452,7 +452,7 @@ MIN_BY(arg, val)
 ```
 
 | Parameter | Description                                    |
-| --------- | ---------------------------------------------- |
+| :--------- | :---------------------------------------------- |
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a minimum value. |
 
@@ -461,7 +461,7 @@ MIN_BY(arg, val)
 For this example, we will again use the `prices` table that was created above for the `MIN` function. The values for that table are below:&#x20;
 
 | item   | price |
-| ------ | ----- |
+| :------ | :----- |
 | apple  | 4     |
 | banana | 25    |
 | orange | 11    |
@@ -495,7 +495,7 @@ STDDEV_SAMP(<expr>)​
 ```
 
 | Parameter | Description                                                                                |
-| --------- | ------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------ |
 | `<expr>`  | Any column with numeric values or an expression that returns a column with numeric values. |
 
 **Example**
@@ -541,7 +541,7 @@ Calculates the sum of an expression.
 ```
 
 | Parameter | Description                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the sum. Valid values for `<expr>` include column names or expressions that evaluate to numeric values. |
 
 **Example**
