@@ -6,16 +6,12 @@ parent: Working with engines
 ---
 
 # Working with engines using DDL
+{:.no_toc}
 
-You can execute the operations on engines listed below using SQL statements.
+You can use SQL statements to execute the operations listed in this topic.
 
-* [List \(SHOW\) engines](working-with-engines-using-ddl.md#to-list-show-all-engines-in-your-firebolt-account)
-* [Start an engine](working-with-engines-using-ddl.md#to-start-an-engine)
-* [Stop an engine](working-with-engines-using-ddl.md#to-stop-an-engine)
-* [Create an engine](working-with-engines-using-ddl.md#to-create-an-engine)
-* [Attach an engine to a database](working-with-engines-using-ddl.md#to-attach-an-engine-to-a-database)
-* [Edit \(ALTER\) an engine](working-with-engines-using-ddl.md#to-edit-alter-an-engine)
-* [Delete \(DROP\) an engine](working-with-engines-using-ddl.md#to-delete-drop-an-engine)
+* Topic toC
+{:toc}
 
 ## To list \(SHOW\) all engines in your Firebolt account
 * Using a running engine, execute the `SHOW ENGINES` statement as shown in the example below.  

@@ -17,9 +17,8 @@ Returns the first value encountered in the specified column. The function is ind
 ANY(<col>)
 ```
 
-|           |                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------- |
 | Parameter | Description                                                                                  |
+| :--------- | :-------------------------------------------------------------------------------------------- |
 | `<col>`   | The column from which the value will be returned. The column can be any supported data type. |
 
 To demonstrate `ANY`, we'll create a basic example table.&#x20;
@@ -62,7 +61,7 @@ Returns one arbitrary value from the specified column.
 ```
 
 | Parameter | Description                                  |
-| --------- | -------------------------------------------- |
+| :--------- | :-------------------------------------------- |
 | `<col>`   | The column from which the value is returned. |
 
 **Example**
@@ -92,9 +91,8 @@ The number returned is not necessarily in the original range of numbers.
 APPROX_PERCENTILE(<expr>,<percent>)
 ```
 
-|             |                                                                                                                           |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------- |
 | Parameter   | Description                                                                                                               |
+| :----------- | :------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`    | A valid expression, such as a column name, that evaluates to numeric values.                                              |
 | `<percent>` | A constant real number greater than or equal to 0.0 and less than 1. For example, `.999` specifies the 99.9th percentile. |
 
@@ -152,7 +150,7 @@ Calculates the average of an expression
 ```
 
 | Parameter | Description                                                                                                                                                                        |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the average. Valid values for the expression include column names or functions that return a column name for columns that contain numeric values. |
 
 {: .note}
@@ -190,8 +188,8 @@ COUNT([ DISTINCT ] <expr>)
 ```
 
 | Parameter | Description                                                                                                                                                                                                           |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Valid values for the expression include column names (or \* for counting all columns) or functions that return a column name. When DISTINCT is being used, counts only the unique number of rows with no NULL values. |
+| :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<expr>`  | Valid values for the expression include column names (or \* for counting all columns) or functions that return a column name. When `DISTINCT` is being used, counts only the unique number of rows with no `NULL` values. |
 
 {: .note}
 > `COUNT(*)` returns a total count of all rows in the table, while `COUNT(<column_name>)` returns a count of non-NULL rows in the specified `<column_name>`.
@@ -253,7 +251,7 @@ Calculates the maximum value of an expression across all input values.
 ```
 
 | Parameter | Description                                                                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
 
 **Examples**

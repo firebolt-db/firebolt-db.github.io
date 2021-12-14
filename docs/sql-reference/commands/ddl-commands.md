@@ -6,33 +6,17 @@ parent: SQL commands reference
 ---
 
 # DDL commands
+{: .no_toc}
 
-Firebolt supports these DDL (data definition language) commands so that you can create, manipulate, and modify objects in your tables.
+* Topic ToC
+{:toc}
 
-The commands include:
-
-* [ALTER](ddl-commands.md#alter)
-* [CREATE](ddl-commands.md#create)
-* [START ENGINE](ddl-commands.md#start-engine)
-* [STOP ENGINE](ddl-commands.md#stop-engine)
-* [ATTACH ENGINE](ddl-commands.md#attach-engine)
-* [DETACH ENGINE (deprecated)](ddl-commands.md#detach-engine)
-* [DESCRIBE](ddl-commands.md#describe)
-* [DROP](ddl-commands.md#drop)
-* [SHOW](ddl-commands.md#show)
-
-## ALTER
-
-The `ALTER` command enables you to edit the configuration of an engine, and drop data from a _fact_ table, Read more about these topics:
-
-* [ALTER ENGINE](ddl-commands.md#alter-engine)
-* [ALTER ENGINE DROP PARTITION](ddl-commands.md#alter-table-drop-partition)
-
-### ALTER ENGINE
+## ALTER ENGINE
 
 The `ALTER ENGINE` command enables you to update the engine configuration.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ALTER ENGINE <engine_name> SET
@@ -43,34 +27,32 @@ ALTER ENGINE <engine_name> SET
     [WARMUP = <warmup_method>]
 ```
 
-**Parameters**
-
 | Parameter                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Mandatory? Y/N |
 | :----------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
 | `<engine_name>`                                             | Name of the engine to be altered.                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Y              |
-| `SCALE =`<br><br> `<scale>` | Valid scale numbers include any `INT` between 1 to 128.<br> <br> `ABORT` is an optional parameter (default=false):<br> <br> `ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br> `ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted. | N              |
-| `SPEC =` <br> `<spec>`   | Indicates the EC2 instance type, for example, 'm5.xlarge'<br><br>`ABORT` is an optional parameter (default=false) <br><br>`ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br>`ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.          | N              |
+| `SCALE = <scale>` | Valid scale numbers include any `INT` between 1 to 128.<br> <br> `ABORT` is an optional parameter (default=false):<br> <br> `ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br> `ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted. | N              |
+| `SPEC = <spec>`   | Indicates the EC2 instance type, for example, 'm5.xlarge'<br><br>`ABORT` is an optional parameter (default=false) <br><br>`ABORT=FALSE` means that currently running queries aren’t aborted. The old engine only terminates once the new engine scale is ready, and the running queries are complete.<br> <br>`ABORT=TRUE` means that once the new engine is ready, the old engine is terminated, and running queries in it are aborted.          | N              |
 | `AUTO_STOP = <minutes>`                                     | The number of minutes after which the engine automatically stops, where 0 indicates that `AUTO_STOP` is disabled.                                                                                                                                                                                                                                                                                                                                                                     | N              |
 | `RENAME TO <new_name>`                                      | Indicates the new name for the engine.<br> <br>For example: `RENAME TO new_engine_name`                                                                                                                                                                                                                                                                                                                                                                         | N              |
 | `WARMUP =<warmup_method>`                                   | The warmup method that should be used, the following options are supported:<br><br> `MINIMAL` On-demand loading (both indexes and tables' data).<br><br>`PRELOAD_INDEXES` Load indexes only (default).<br><br>`PRELOAD_ALL_DATA` Full data auto-load (both indexes and table data - full warmup).                                                                                                                                  | N              |
 
-**Example: Change engine scale**
+## Example&ndash;change engine scale
+{: .no_toc}
 
 ```sql
 ALTER ENGINE my_engine SET SCALE TO 1
 ```
 
-### ALTER TABLE DROP PARTITION
+## ALTER TABLE DROP PARTITION
 
 The `ALTER TABLE DROP PARTITION` enables you to delete data from a fact table by dropping a partition.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ALTER TABLE <table_name> DROP PARTITION <partition_expr>
 ```
-
-**Parameters**
 
 | Parameter          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory? Y/N |
 | :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
@@ -79,22 +61,11 @@ ALTER TABLE <table_name> DROP PARTITION <partition_expr>
 
 For usage examples and additional details read more [here](../../concepts/working-with-partitions.md).
 
-## CREATE
+## CREATE ENGINE
+Creates an engine (compute cluster).
 
-The `CREATE` command enables you to create an engine, a database, an _external table_, a Firebolt _fact or a dimension_ table, view, _join index_, and _aggregating index_. `GENERATE` is used to populate an aggregating index once created. Read more about these topics:
-
-* For engines, read more [here](ddl-commands.md#create-engine)
-* For databases, read more [here](ddl-commands.md#create-database).
-* For external tables, read more [here](ddl-commands.md#create-external-table).
-* For external tables based on an AWS Glue table, read more [here](ddl-commands.md#create-external-table-based-on-an-aws-glue-table).
-* For Firebolt tables, read more [here](ddl-commands.md#create-fact-dimension-table).
-* For views, read more [here](ddl-commands.md#create-view).
-* For join index, read more [here](ddl-commands.md#create-join-index).
-* For aggregating index, read more [here](ddl-commands.md#create-aggregating-index).
-
-### CREATE ENGINE
-
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CREATE ENGINE [IF NOT EXISTS] <engine_name>
@@ -110,8 +81,6 @@ Where `<properties>` are:
 * `AUTO_STOP = <minutes>`
 * `WARMUP = [ MINIMAL | PRELOAD_INDEXES | PRELOAD_ALL_DATA ]`
 
-**Parameters**
-
 | Parameter                                                            | Description                                                                                                                                                                                                                                                                                                                                          | Mandatory? Y/N |
 | :-------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
 | `<engine_name>`                                                      | An identifier that specifies the name of the engine.<br><br> For example: `my_engine`                                                                                                                                                                                                                                                   | Y              |
@@ -122,16 +91,19 @@ Where `<properties>` are:
 | `AUTO_STOP = <minutes>`                                              | Indicates the amount of time (in minutes) after which the engine automatically stops. The default value is 20.<br><br>Setting the `minutes` to 0 indicates that `AUTO_STOP` is disabled.                                                                                                                                    | N              |
 | `WARMUP =`<br>`<warmup_method>` | The warmup method that should be used, the following options are supported: `MINIMAL` On-demand loading (both indexes and tables' data).<br><br>`PRELOAD_INDEXES` Load indexes only (default). `PRELOAD_ALL_DATA` Full data auto-load (both indexes and table data - full warmup). | N              |
 
-**Example - create an engine with (non-default) properties:**
+### Example&ndash;create an engine with (non-default) properties
+{: .no_toc}
 
 ```sql
 CREATE ENGINE my_engine
 WITH SPEC = 'c5d.4xlarge' SCALE = 8
 ```
 
-### CREATE DATABASE
+## CREATE DATABASE
+Creates a new database.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CREATE DATABASE [IF NOT EXISTS] <database_name>
@@ -145,7 +117,6 @@ Where `<properties>` are:
 * `DEFAULT_ENGINE = 'engine_name'`
 * `DESCRIPTION = 'description'`
 
-**Parameters**
 
 | Parameter                                      | Description                                                                                                                                                                                                                                                                                                                                                                             | Mandatory? Y/N |
 | :---------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |: -------------- |
@@ -155,16 +126,19 @@ Where `<properties>` are:
 | `DEFAULT_ENGINE = engine_name`                 | An identifier that specifies the name of the default engine. If not specified, the first engine in the attached engines list will be used as default. If a default engine is specified without specifying the list of attached engines or if the default engine is not in that list, the default engine will be both attached to the database and used as the default engine. | N              |
 | `DESCRIPTION = 'description'`                  | The engine's description (up to 64 characters).                                                                                                                                                                                                                                                                                                                                         | N              |
 
-**Example - create a database with (non-default) properties:**
+### Example&ndash;create a database with (non-default) properties
+{: .no_toc}
 
 ```sql
 CREATE DATABASE IF NOT EXISTS my_db
 WITH region = 'us-east-1' description = 'Being used for testing'
 ```
 
-### CREATE EXTERNAL TABLE
+## CREATE EXTERNAL TABLE
+Creates an external table. External tables serve as connectors to your external data sources. External tables contain no data within Firebolt other than metadata virtual columns that are automatically populated with metadata. For more information, see [Working with external tables](../loading-data/working-with-external-tables.md).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CREATE EXTERNAL TABLE [IF NOT EXISTS] <external_table_name>
@@ -180,32 +154,30 @@ TYPE = (<type> [typeOptions])
 [COMPRESSION = <compression_type>]
 ```
 
-#### **Parameters**
-
 | Parameter                                       | Description                                                                                                     |
 |: ----------------------------------------------- |: --------------------------------------------------------------------------------------------------------------- |
 | `<external_table_name>`                         | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
 | `<column_type>`                                 | Specifies the data type for the column.                                                                         |
-| `<partition_column_name>`                       | [Extract partition data](ddl-commands.md#extract-partition-data)                                                |
-| `CREDENTIALS`                                   | [CREDENTIALS](ddl-commands.md#credentials)                                                                      |
-| `URL` and `OBJECT_PATTERN`                      | [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object_pattern)                                                |
-| `TYPE`                                          | [TYPE](ddl-commands.md#type)                                                                                    |
-| `COMPRESSION`                                   | [COMPRESSION](ddl-commands.md#compression)                                                                      |
+| `<partition_column_name>`                       | See [Extract partition data](ddl-commands.md#extracting-partition-data)                                                |
+| `CREDENTIALS`                                   | See [CREDENTIALS](ddl-commands.md#credentials)                                                                      |
+| `URL` and `OBJECT_PATTERN`                      | See [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object_pattern)                                                |
+| `TYPE`                                          | See [TYPE](ddl-commands.md#type)                                                                                    |
+| `COMPRESSION`                                   | See [COMPRESSION](ddl-commands.md#compression)                                                                      |
 
-All Firebolt identifiers are case insensitive unless double-quotes are used. For more information, please see [Identifier requirements](../../general-reference/identifier-requirements.md).
+All Firebolt identifiers are case insensitive unless double-quotes are used. For more information, see [Identifier requirements](../../general-reference/identifier-requirements.md).
 
-#### **Extract partition data**
+### Extracting partition data
+{: .no_toc}
 
 When data is partitioned, the partition columns are not stored in the S3 files. Instead, they can be extracted from the file path within the bucket. ​
 
-**Syntax**
+#### Syntax
+{: .no_toc}
 
 ```sql
 [<column_name> <column_type> PARTITION('<regex>')]
 ```
-
-**Parameters**
 
 | Parameter                                                 | Description                                                                                                                                                                                                |
 |: --------------------------------------------------------- |: ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -213,7 +185,8 @@ When data is partitioned, the partition columns are not stored in the S3 files. 
 | `<partition_column_type>`                                 | Specifies the data type for the column.                                                                                                                                                                    |
 | `'<regex>'`                                               | The regex for extracting the partition value out of the file path in S3.                                                                                                                                   |
 
-**Guidelines for creating the regex:**
+#### Guidelines for creating the regex
+{: .no_toc}
 
 * You do not have to reference all the partitions in your data; you can specify only the columns that you wish to include in the external table.
 * You can extract the column value from the file name, but not from its path.
@@ -222,18 +195,16 @@ When data is partitioned, the partition columns are not stored in the S3 files. 
 * The regular expression is matched against the file path, not including the `s3://bucket_name/` prefix.
 * Firebolt tries to convert the captured string to the specified type. If the type conversion fails, the value is treated as NULL.
 
-> **Tip**
->
-> In most cases, the easiest way to build a regular expression is as follows:
+In most cases, the easiest way to build a regular expression is as follows:
+1. Count the number of folders in the path, not including the bucket name.
+2. Concatenate the string `[^\/]+\/` according to the number of folders.
+3. Prefix the regex with an additional `[^\/]+` for the file name.
+4. Wrap the `[^\/]+` in the right folder with a capturing group parenthesis, i.e `([^\/]+).` See the examples below for both hive-compatible and non-compatible partitions extractions.
 
-> 1. Count the number of folders in the path, not including the bucket name.
-> 2. Concatenate the string `[^\/]+\/` according to the number of folders.
-> 3. Prefix the regex with an additional `[^\/]+` for the file name.
-> 4. Wrap the `[^\/]+` in the right folder with a capturing group parenthesis, i.e `([^\/]+).` See the examples below for both hive-compatible and non-compatible partitions extractions.
->
-> Here is a good explanation about [matching groups](https://regexone.com/lesson/capturing\_groups), and an [online tool](https://regex101.com) to test your regular expressions.
+Here is a good explanation about [matching groups](https://regexone.com/lesson/capturing\_groups), and an [online tool](https://regex101.com) to test your regular expressions.
 
-**Example 1 - extract hive-compatible partitions:**
+#### Example&ndash;extract hive-compatible partitions
+{: .no_toc}
 
 Consider the following layout of files in a bucket - data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The parquet files don't contain the corresponding columns, but the columns can be extracted, along with their values, by parsing the file paths, as we will see in the next section.
 
@@ -269,7 +240,8 @@ Results with an external table in the following structure:
 | ...   | ...       | ...     |
 | 100   | name\_abc | xyz     |
 
-**Example 2 - extract non-hive compatible partitions:**
+#### Example&ndash;extract non-hive compatible partitions
+{: .no_toc}
 
 In some cases, your S3 files may be organized in partitions that do not use the = format. For example, consider this layout:
 
@@ -283,7 +255,7 @@ s3://my_bucket/abc/2018/01/part-00002.parquet
 
 In this case, you can use the advanced `PARTITION(<regex>)` column definition to create the columns and extract their values.
 
-To create the same external table as we did in the hive-compatible case, use the following command:
+To create the same external table as we did in the hive-compatible case, use the following statement:
 
 ```sql
 CREATE EXTERNAL TABLE my_external_table
@@ -304,11 +276,13 @@ As in the previous example, the values for the columns `c_id` and `c_name` are e
 The partition values can be extracted during the `INSERT INTO`command as well. Read more [here](dml-commands.md#example-extracting-partition-values).
 
 
-#### CREDENTIALS
+### CREDENTIALS
+{: .no_toc}
 
 The credentials for accessing your AWS S3. Firebolt enables using either access key & secret or IAM role.
 
-#### **Syntax - Authenticating using an access key & secret**
+#### Syntax&ndash;authenticating using an access key and secret
+{: .no_toc}
 
 ```sql
 CREDENTIALS = (AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' )
@@ -322,7 +296,8 @@ CREDENTIALS = (AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' )
 {: .note}
 In case you don't have the access key and secret to access your S3 bucket, read more [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) on how to obtain them.
 
-#### **Syntax - Authenticating using IAM role**
+#### Syntax&ndash;authenticating using an IAM role
+{: .no_toc}
 
 Read more on how to configure the AWS role [here](../../loading-data/configuring-aws-role-to-access-amazon-s3.md).
 
@@ -335,11 +310,13 @@ CREDENTIALS = (AWS_ROLE_ARN = '<role_arn>' [AWS_ROLE_EXTERNAL_ID = '<external_id
 | `'<role_arn>'`    | The arn\_role you created in order to enable access to the required bucket.                                                                   | TEXT      |
 | `'<external_id>'` | Optional. This is an optional external ID that you can configure in AWS when creating the role. Specify this only if you use the external ID. | TEXT      |
 
-#### URL and OBJECT\_PATTERN
+### URL and OBJECT_PATTERN
+{: .no_toc}
 
-The`URL`and`OBJECT_PATTERN`parameters are used together, to match the set of files from within the specified bucket that you wish to include as the data for the external table.
+The`URL`and`OBJECT_PATTERN`parameters are used together to match the set of files from within the specified bucket that you wish to include as the data for the external table.
 
-**Syntax**
+#### Syntax
+{: .no_toc}
 
 ```sql
 URL = 's3://<bucket>[/<folder>][/...]/'
@@ -358,7 +335,8 @@ The following wildcards are supported:
 * `[SET]` matches any single character in the specified set
 * `[!SET]` matches any character, not in the specified set.
 
-**Example:**
+#### Example
+{: .no_toc}
 
 In the following layout of objects in a bucket, the data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The examples demonstrate how choosing both URL and OBJECT\_PATTERN impacts the objects that are retrieved from S3.
 
@@ -393,23 +371,25 @@ Following are some common use cases for URL and object pattern combinations:
 | No files matched, since the URL parameter does not support wildcards.     | *URL = 's3://bucket/'<br>OBJECT_PATTERN =<br>'/year=2019/month=12/',<br>'/year=2020/month=01/',<br>'/year=2020/month=02/'*                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Get all files of type xyz from the first six months of 2019               | *URL = 's3://bucket/c_type=xyz/'OBJECT_PATTERN ='/year=2019/month=0[1-6]'*                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-#### TYPE
+### TYPE
+{: .no_toc}
 
 Specifies the type of the files in S3. The following types and type options are supported.
 
-*   `TYPE = (CSV [SKIP_HEADER_ROWS = {1|0}])`
+* `TYPE = (CSV [SKIP_HEADER_ROWS = {1|0}])`  
+With `TYPE = (CSV SKIP_HEADER_ROWS = 1)`, Firebolt assumes that the first row in each file read from S3 is a header row and skips it when ingesting data. When set to `0`, which is the default if not specified, Firebolt ingests the first row as data.  
 
-    With `TYPE = (CSV SKIP_HEADER_ROWS = 1)`, Firebolt assumes that the first row in each file read from S3 is a header row and skips it when ingesting data. When set to `0`, which is the default if not specified, Firebolt ingests the first row as data.
-*   `TYPE = (JSON [PARSE_AS_TEXT = {'TRUE'|'FALSE'}])`
+* `TYPE = (JSON [PARSE_AS_TEXT = {'TRUE'|'FALSE'}])`  
+With `TYPE = (JSON PARSE_AS_TEXT = 'TRUE')`, Firebolt ingests each JSON object literal in its entirety into a single column of type `TEXT`. With `TYPE = (JSON PARSE_AS_TEXT = 'FALSE')`, Firebolt expects each key in a JSON object literal to map to a column in the table definition. During ingestion, Firebolt inserts the key's value into the corresponding column.  
 
-    With `TYPE = (JSON PARSE_AS_TEXT = 'TRUE')`, Firebolt ingests each JSON object literal in its entirety into a single column of type `TEXT`. With `TYPE = (JSON PARSE_AS_TEXT = 'FALSE')`, Firebolt expects each key in a JSON object literal to map to a column in the table definition. During ingestion, Firebolt inserts the key's value into the corresponding column.
 * `TYPE = (ORC)`
 * `TYPE = (PARQUET)`
 * `TYPE = (TSV)`
 
-**Example**
+#### Example
+{: .no_toc}
 
-Creating an external table that reads parquet files from S3 is being done with the following command:
+Creating an external table that reads parquet files from S3 is being done with the following statement:
 
 ```sql
 CREATE EXTERNAL TABLE my_external_table
@@ -423,11 +403,13 @@ OBJECT_PATTERN= '*.parquet'
 TYPE = (PARQUET)
 ```
 
-#### COMPRESSION
+### COMPRESSION
+{: .no_toc}
 
 Specifies the compression type of the files in S3.
 
-**Syntax**
+#### Syntax
+{: .no_toc}
 
 ```sql
 [COMPRESSION = <compression_type>]
@@ -437,7 +419,8 @@ Specifies the compression type of the files in S3.
 | :-------------------- |:------------------------------------------------------------------ |
 | `<compression_type>` | An identifier specifies the compression type. `GZIP` is supported. |
 
-**Example**
+#### Example
+{: .no_toc}
 
 The example below creates an external table to ingest parquet files from S3 that are compressed using gzip. The credentials for an IAM user with access to the bucket are provided.
 
@@ -455,16 +438,23 @@ COMPRESSION = GZIP
 ```
 
 ### CREATE EXTERNAL TABLE based on an AWS Glue table
+In addition to other CREATE EXTERNAL TABLE clauses, the `META_STORE` clause provides information to connect to a AWS Glue database and table.
 
-**Syntax**
+#### Syntax
+{: .no_toc}
 
 ```sql
-CREATE EXTERNAL TABLE [IF NOT EXISTS] <external_table_name>
-CREDENTIALS = ( AWS_KEY_ID = '<aws_key_id>' AWS_SECRET_KEY = '<aws_secret_key>' )
 META_STORE = (TYPE='Glue' DATABASE_NAME=<db_name> TABLE_NAME=<table_name>)
 ```
 
-To access Glue, make sure to allow the following actions in the AWS permissions Policy:
+| Parameter |Description| Data type |
+|:--------- | :-------- | :--------- |
+| `<db_name>`| The name of the database in AWS Glue| TEXT      |
+| `<table_name>` | The name of the table in AWS Glue | TEXT      |
+
+#### Additional AWS permissions
+{: .no_toc}
+To access AWS Glue, make sure that the principal that Firebolt uses to access the specified S3 location and Glue metastore is allowed the following actions in the AWS permissions Policy.
 
 * `"s3:GetObject"`
 * `"s3:GetObjectVersion"`
@@ -472,36 +462,31 @@ To access Glue, make sure to allow the following actions in the AWS permissions 
 * `"s3:ListBucket"`
 * `"glue:GetTables"`
 
-Click [here](https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated_glue_policy.txt) to download a templated policy you can use. Make sure to replace:
+A [policy template](https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated_glue_policy.txt) is available to download.
 
-* `<bucket>`and`<prefix>`with the actual AWS S3 bucket name path and prefix where the AWS Glue data is stored.
+* Replace `<bucket>`and`<prefix>`with the actual AWS S3 bucket name path and prefix where the AWS Glue data is stored.
 * `<db_name>`with the name of the AWS Glue database.
 
-| Parameter               | Description                                                                                                     | Data type |
-|:----------------------- | :--------------------------------------------------------------------------------------------------------------- | :--------- |
-| `<external_table_name>` | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |           |
-| `<db_name>`             | The name of the database in AWS Glue                                                                            | TEXT      |
-| `<table_name>`          | The name of the table in AWS Glue                                                                               | TEXT      |
-| `'<aws_key_id>'`        | The AWS access key ID for the authorized app (Firebolt)                                                         | TEXT      |
-| `'<aws_secret_key>'`    | The AWS secret access key for the app (Firebolt)                                                                | TEXT      |
-
-**Example**
+#### Example
+{: .no_toc}
 
 An external table based on an AWS Glue table `'glue_table'` in `'glue_db'` database:
 
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS my_external_table
+CREATE EXTERNAL TABLE IF NOT EXISTS
+  my_external_table
 CREDENTIALS = ( AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY' )
 META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
 ```
 
-### CREATE FACT / DIMENSION TABLE
+## CREATE FACT | DIMENSION TABLE
 
 Creates a new FACT/DIMENSION table in the current database.
 
 Firebolt also supports creating a table as select (also referred to as CTAS) - read more [here](ddl-commands#ctas---create-fact--dimension-table-as-select).
 
-**Fact table syntax**
+### Syntax&ndash;fact table
+{: .no_toc}
 
 ```sql
 CREATE FACT TABLE [IF NOT EXISTS] <table_name>
@@ -517,7 +502,8 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 {: .note}
 Partitions are only supported on FACT tables.
 
-**Dimension table syntax**
+### Syntax&ndash;dimension table**
+{: .no_toc}
 
 ```sql
 CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
@@ -537,21 +523,19 @@ CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
 
 All identifiers are case insensitive unless double-quotes are used. For more information, please see our [identifier requirements page](../../general-reference/identifier-requirements.md).
 
-#### Read more on
+* [Column constraints & default expression](ddl-commands.md#column-constraints--default-expression)
+* [PRIMARY INDEX specifier](ddl-commands.md#primary-index)
+* [PARTITION BY specifier](ddl-commands.md#partition-by)
 
-1. [Column constraints & default expression](ddl-commands.md#column-constraints--default-expression)
-2. [PRIMARY INDEX specifier](ddl-commands.md#primary-index)
-3. [PARTITION BY specifier](ddl-commands.md#partition-by)
+### Column constraints & default expression
+{: .no_toc}
 
-#### Column constraints & default expression
-
-**Syntax**
+Firebolt supports the column constraints shown below.
 
 ```sql
 <column_name> <column_type> [UNIQUE] [NULL | NOT NULL] [DEFAULT <expr>]
 ```
 
-Firebolt supports the following column constraints:
 
 | Constraint           | Description                                                                                                                                                                                                                | Default value |
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- |
@@ -562,14 +546,15 @@ Firebolt supports the following column constraints:
 {: .note}
 Note that nullable columns can not be used in Firebolt indexes (Primary, Aggregating, or Join indexes).
 
-**Example - Creating a table with nulls and not nulls:**
+#### Example&ndash;Creating a table with nulls and not nulls
+{: .no_toc}
 
-This example illustrates different use cases for column definitions and INSERT statements:
+This example illustrates different use cases for column definitions and INSERT statements.
 
-* Explicit `NULL` insert: a direct insertion of a `NULL` value into a particular column.
-* Implicit insert: an `INSERT` statement with missing values for a particular column.
+* **Explicit NULL insert**&ndash;a direct insertion of a `NULL` value into a particular column.
+* **Implicit NULL insert**&ndash;an `INSERT` statement with missing values for a particular column.
 
-The example uses a fact table in which to insert different values. First, we create the fact table as follows:
+The example uses a fact table in which to insert different values. The example below creates the fact table `t1`.
 
 ```sql
 CREATE FACT TABLE t1
@@ -595,13 +580,15 @@ Once we've created the table, we can manipulate the values with different INSERT
 | `INSERT INTO t1 (col1,col2,col4,col5) VALUES (1,1,1,1)`                                                                           | col3 is `NULL DEFAULT 1`. This is an implicit insert, and a default expression is specified, so 1 is inserted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `INSERT INTO t1 VALUES (1,1,1,NULL,1)`                                                                                            | col4 is `NOT NULL DEFAULT 1`, and this is an explicit insert. Therefore, a “null mismatch” event occurs. In this particular case, since the data type for col4 is INT, the result is an error. If the data type for col4 was TEXT, for example, the result would have been an insert of `''`.                                                                                                                                                                                                                                                                                                                                                                                                    |
 | `INSERT INTO t1 (col1,col2,col3,col5) VALUES (1,1,1,1)`                                                                           | col4 is `NOT NULL DEFAULT 1`, and this is an implicit insert. Therefore, the default expression is used, and 1 is inserted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| <p><code>INSERT INTO t1 VALUES (1,1,1,1,NULL)</code></p><p><code>INSERT INTO t1 (col1,col2,col3,col4) VALUES (1,1,1,1)</code></p> | <p>The nullability and default expression for col5 were not specified. In this case, Firebolt treats col5 as <code>NOT NULL DEFAULT NULL</code>.</p><p>For the explicit insert, Firebolt attempts to insert NULL into a NOT NULL int column, and a “null mismatch” event results.</p><p>For the implicit insert, Firebolt resorts to the default, and again, attempts to insert NULL. Similar to the explicit NULL case - an empty value <code>''</code> is inserted.</p>                                                                                                                                                                                                                        |
+| `INSERT INTO t1 VALUES (1,1,1,1,NULL)`<br><br>`INSERT INTO t1 (col1,col2,col3,col4) VALUES (1,1,1,1)` | The nullability and default expression for col5 were not specified. In this case, Firebolt treats col5 as `NOT NULL DEFAULT NULL`.</p><p>For the explicit insert, Firebolt attempts to insert NULL into a NOT NULL int column, and a “null mismatch” event results.<br><br>For the implicit insert, Firebolt resorts to the default, and again, attempts to insert NULL. Similar to the explicit NULL case - an empty value `''` is inserted.                                                                                                                                                                                                                        |
 
-#### PRIMARY INDEX
+### PRIMARY INDEX
+{: .no_toc}
 
 The `PRIMARY INDEX` is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance. A `PRIMARY INDEX` is required for `FACT` tables and optional for `DIMENSION` tables.
 
-**Primary index syntax**
+#### Syntax&ndash;primary index
+{: .no_toc}
 
 ```sql
 PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
@@ -610,32 +597,32 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 The following table describes the primary index parameters:
 
 | Parameter.      | Description                                                                                                                                  | Mandatory? |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :---------- |
 | `<column_name>` | Specifies the name of the column in the Firebolt table which composes the index. At least one column must be used for configuring the index. | Y          |
 
-#### PARTITION BY
+### PARTITION BY
+{: .no_toc}
 
-The `PARTITION BY` specifier contains the definition of the columns by which the table will be split into physical parts. Those columns are considered to be the partition key of the table. The key can be any of the table columns which is not nullable.
+The `PARTITION BY` clause specifies a column or columns by which the table will be split into physical parts. Those columns are considered to be the partition key of the table. Columns must be non-nullable.
 
-{: note}
 Only `FACT` tables can be partitioned.
 
-
-When the partition key is set with multiple columns, all will be used as the partition boundaries.
-
-**Partition syntax**
+When the partition key is set with multiple columns, all columns are used as the partition boundaries.
 
 ```sql
 PARTITION BY <column_name>[, <column_name>[, ...n]]
 ```
 
-Read more on how to work with partitions [here](../../concepts/working-with-partitions.md).
+For more information, see [Working with partitions](../../concepts/working-with-partitions.md).
 
-### CTAS - CREATE FACT / DIMENSION TABLE AS SELECT
+### CTAS&ndash;CREATE FACT|DIMENSION TABLE AS SELECT
 
 Creates a table and loads data into it based on the [SELECT](query-syntax.md) query. The table column names and types are automatically inferred based on the output columns of the [SELECT](query-syntax.md). When specifying explicit column names those override the column names inferred from the [SELECT](query-syntax.md).
 
-**CREATE FACT TABLE AS SELECT syntax**
+####Syntax&ndash;CTAS
+{: .no_toc}
+
+Fact table:
 
 ```sql
 CREATE FACT TABLE <table_name>
@@ -645,7 +632,7 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 AS <select_query>
 ```
 
-**CREATE DIMENSION TABLE AS SELECT syntax**
+Dimension table:
 
 ```sql
 CREATE DIMENSION TABLE <table_name>
@@ -654,38 +641,34 @@ CREATE DIMENSION TABLE <table_name>
 AS <select_query>
 ```
 
-#### General parameters
-
 | Parameter                                       | Description                                                                                                     |
-| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | `<table_name>`                                  | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
 | `<select_query`>                                | Any valid select query                                                                                          |
 
-Read more on the primary index specifier [here](ddl-commands.md#primary-index).
-
-### CREATE VIEW
+## CREATE VIEW
 
 Views allow you to use a query as if it were a table.
 
 Views are useful to filter, focus and simplify a database for users. They provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. A view in Firebolt executes its query each time the view is referenced. In other words, the view results are not stored for future usage, and therefore using views does not provide a performance advantage.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CREATE VIEW [IF NOT EXISTS] <name> [(<column_list>)]
 AS SELECT <select_statement>
 ```
 
-#### Parameters
-
 | Parameter                                       | Description                                                                                                                     |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
 | `<name>`                                        | An ​identifier​​ that specifies the name of the view. This name should be unique within the database.                           |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_list>` | An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query. |
 | `<select_statement>`                            | The select statement for creating the view                                                                                      |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 CREATE VIEW fob_shipments
@@ -698,11 +681,12 @@ WHERE   l_shipdate > '1990-01-01'
 AND     l_shipmode = 'FOB'
 ```
 
-### CREATE JOIN INDEX
+## CREATE JOIN INDEX
 
 Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements required to perform a join at query runtime.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_name>
@@ -712,10 +696,8 @@ CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_n
 )
 ```
 
-**General parameters**
-
 | Parameter                  | Description                                                                                                        |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<unique_join_index_name>` | A unique name for the join index.                                                                                  |
 | `<dimension_table_name>`   | The name of the dimension table on which the index is configured.                                                  |
 | `<unique_join_key_column>` | The column name that is used in the join’s `ON` clause.                                                            |
@@ -724,7 +706,8 @@ CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_n
 {: .note}
 For better performance, whenever possible, use the [UNIQUE](ddl-commands.md#column-constraints--default-expression) column attribute in the dimension table definition for the column that is used as the join key in queries.  the join index is loaded into engine RAM, make sure to choose only the subset of dimension table columns that appear in queries that use the join.
 
-**Example: Create join index with specific columns**
+### Example&ndash;create join index with specific columns
+{: .no_toc}
 
 In the following example, we create a join index on the dimension table `my_dim`, and store the columns `email` and `country` in the index:
 
@@ -742,14 +725,12 @@ CREATE JOIN INDEX my_dim_join_idx ON my_dim
 (my_dim_id, email, country);
 ```
 
-### CREATE AGGREGATING INDEX
+## CREATE AGGREGATING INDEX
 
-Creating an aggregating index can be done as follows:
+Different syntax is used when creating an aggregating index on an empty table or a table populated with data.
 
-1. For an empty table - use the following [syntax](ddl-commands.md#syntax-for-aggregating-index-on-an-empty-table).
-2. For a table already populated with data - use the following [syntax](ddl-commands.md#syntax-for-aggregating-index-on-a-populated-table).
-
-#### Syntax for aggregating index on an empty table
+### Syntax&ndash;aggregating index on an empty table
+{: .no_toc}
 
 ```sql
 CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
@@ -764,7 +745,8 @@ Click [here](ddl-commands.md#parameters) to read about the different parameters.
 {: .note}
 The index is populated automatically as data is loaded into the table.
 
-#### Syntax for aggregating index on a populated table
+### Syntax&ndash;aggregating index on a populated table
+{: .no_toc}
 
 ```sql
 CREATE AND GENERATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
@@ -777,16 +759,15 @@ CREATE AND GENERATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
 {: .caution}
 Generating the index after data was loaded to the table is a memory-heavy operation.
 
-#### Parameters
-
 | Parameter           | Description                                                                                                             |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
 | `<agg_index_name>`  | Specifies a unique name for the index                                                                                   |
 | `<fact_table_name>` | Specifies the name of the fact table referenced by this index                                                           |
 | `<key_column>`      | Specifies column name from the `<fact_table_name>` used for the index                                                   |
 | `<aggregation>`     | Specifies one or more aggregation functions to be applied on a `<key_column>`, such as `SUM`, `COUNT`, `AVG`, and more. |
 
-**Example: Create an aggregating index**
+### Example&ndash;create an aggregating index**
+{: .no_toc}
 
 In the following example, we create an aggregating index on the fact table `my_fact`, to be used in the following query:
 
@@ -801,7 +782,7 @@ GROUP BY
 	product_name;
 ```
 
-The aggregating index is being created as follows:
+The aggregating index is created with the statement below.
 
 ```sql
 CREATE AGGREGATING INDEX
@@ -818,44 +799,47 @@ To benefit from the performance boost provided by the index, include in the inde
 
 ## START ENGINE
 
-The `START ENGINE` command enables you to start a stopped engine.
+The `START ENGINE` statement enables you to start a stopped engine.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 START ENGINE <engine_name>
 ```
 
 | Parameter       | Description                          | Mandatory? Y/N |
-| --------------- | ------------------------------------ | -------------- |
+| :--------------- | :------------------------------------ | :-------------- |
 | `<engine_name>` | The name of the engine to be started | Y              |
 
 ## STOP ENGINE
 
-The `STOP ENGINE` command enables you to stop a running engine.
+The `STOP ENGINE` statement enables you to stop a running engine.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 STOP ENGINE <engine_name>
 ```
 
 | Parameter       | Description                          | Mandatory? Y/N |
-| --------------- | ------------------------------------ | -------------- |
+| :--------------- | :------------------------------------ | :-------------- |
 | `<engine_name>` | The name of the engine to be stopped | Y              |
 
 ## ATTACH ENGINE
 
-The `ATTACH ENGINE` command enables you to attach an engine to a database.
+The `ATTACH ENGINE` statement enables you to attach an engine to a database.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ATTACH ENGINE <engine_name> TO <database_name>
 ```
 
 | Parameter         | Description                                                   | Mandatory? Y/N |
-| ----------------- | ------------------------------------------------------------- | -------------- |
+| :----------------- | :------------------------------------------------------------- | :-------------- |
 | `<engine_name>`   | The name of the engine to attach.                             | Y              |
 | `<database_name>` | The name of the database to attach engine `<engine_name>` to. | Y              |
 
@@ -863,14 +847,15 @@ ATTACH ENGINE <engine_name> TO <database_name>
 
 Deprecated. Avoid using this statement and use `DROP ENGINE` instead. Allows you to detach an engine from a database.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DETACH ENGINE <engine_name> FROM <database_name>
 ```
 
 | Parameter         | Description                                                     | Mandatory? Y/N |
-| ----------------- | --------------------------------------------------------------- | -------------- |
+| :----------------- | :--------------------------------------------------------------- | :-------------- |
 | `<engine_name>`   | The name of the engine to detach.                               | Y              |
 | `<database_name>` | The name of the database to detach engine `<engine_name>` from. | Y              |
 
@@ -878,7 +863,8 @@ DETACH ENGINE <engine_name> FROM <database_name>
 
 Lists all columns and data types for the table. Once the results are displayed, you can also export them to CSV or JSON.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DESCRIBE <table_name>
@@ -903,57 +889,53 @@ DESCRIBE prices
 +------------+-------------+-----------+----------+
 ```
 
-## DROP
+## DROP ENGINE
+Deletes an engine.
 
-`DROP` drops or removes the specified object from Firebolt. Firebolt supports dropping a table and view.
-
-Read more on these topics:
-
-* For dropping an engine, read [here](ddl-commands.md#drop-engine).
-* For dropping an index, read [here](ddl-commands.md#drop-index).
-* For dropping a table, read [here](ddl-commands.md#drop-table).
-* For dropping a database, read [here](ddl-commands.md#drop-database)
-* For dropping a view, read [here](ddl-commands.md#drop-view).
-
-### DROP ENGINE
-
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DROP ENGINE [IF EXISTS] <engine_name>
 ```
 
 | Parameter       | Description                           |
-| --------------- | ------------------------------------- |
+| :--------------- | :------------------------------------- |
 | `<engine_name>` | The name of the engine to be deleted. |
 
-### DROP INDEX
+## DROP INDEX
+Deletes an index.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DROP [AGGREGATING | JOIN] INDEX [IF EXISTS] <index_name>
 ```
 
 | Parameter      | Description                          |
-| -------------- | ------------------------------------ |
+| :-------------- | :------------------------------------ |
 | `<index_name>` | The name of the index to be deleted. |
 
-### DROP TABLE
+## DROP TABLE
+Deletes a table.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DROP TABLE [IF EXISTS] <table_name>
 ```
 
 | Parameter      | Description                          |
-| -------------- | ------------------------------------ |
+| :-------------- | :------------------------------------ |
 | `<table_name>` | The name of the table to be deleted. For external tables, the definition is removed from Firebolt but not from the source. |
 
-### DROP DATABASE
+## DROP DATABASE
+Deletes a database.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 Deletes the database and all of its tables and attached engines.
 
@@ -962,19 +944,22 @@ DROP DATABASE [IF EXISTS] <database_name>
 ```
 
 | Parameter         | Description                            |
-| ----------------- | -------------------------------------- |
+| :----------------- | :-------------------------------------- |
 | `<database_name>` | The name of the database to be deleted |
 
-### DROP VIEW
+## DROP VIEW
 
-**Syntax**
+Deletes a view.
+
+### Syntax
+{: .no_toc}
 
 ```sql
 DROP VIEW [IF EXISTS] <view_name>
 ```
 
 | Parameter     | Description                         |
-| ------------- | ----------------------------------- |
+| :------------- | :----------------------------------- |
 | `<view_name>` | The name of the view to be deleted. |
 
 ## REFRESH JOIN INDEX
@@ -985,7 +970,8 @@ Join indexes are not updated automatically in an engine when new data is ingeste
 
 Refreshing join indexes is a memory-intensive operation because join indexes are stored in node RAM. When refreshing join indexes, use [SHOW INDEXES](ddl-commands.md#show-indexes) to get the `size_compressed` of all indexes to refresh. Ensure that node RAM is greater than the sum `of size_compressed` for all join indexes to be refreshed.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 Two versions of the command are available.
 
@@ -1003,19 +989,16 @@ REFRESH ALL JOIN INDEXES ON TABLE <dim-table-name>
 ```
 
 | Parameter          |                                                                                         |
-| ------------------ | --------------------------------------------------------------------------------------- |
+| :------------------ | :--------------------------------------------------------------------------------------- |
 | `<index-name>`     | The name of the join index to rebuild.                                                  |
 | `<dim-table-name>` | The name of a dimension table. All join indexes associated with that table are rebuilt. |
 
-## SHOW
-
-`SHOW` can list several objects and their details.
-
-### SHOW CACHE
+## SHOW CACHE
 
 Returns the current SSD usage (`ssd_usage`) for the current engine. `SHOW CACHE` returns values at the engine level, not by each node.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW CACHE;
@@ -1027,11 +1010,10 @@ The results of `SHOW CACHE` are formatted as follows:
 
 These components are defined as follows:
 
-|                         |                                                                                                                            |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Component               | Description                                                                                                                |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | `<ssd_used>`            | The amount of storage currently used on your engine. This data includes storage that Firebolt reserves for internal usage. |
-| `<ssd`\_`available>`    | The amount of available storage on your engine.                                                                            |
+| `<ssd_available>`    | The amount of available storage on your engine.                                                                            |
 | `<percent_utilization>` | The percent of used storage as compared to available storage.                                                              |
 
 Example returned output is shown below.
@@ -1042,21 +1024,23 @@ Example returned output is shown below.
 | 3.82/73.28 GB (5.22%) |
 ```
 
-### SHOW COLUMNS
+## SHOW COLUMNS
 
 Lists columns and their properties for a specified table. Returns `<table_name>`, `<column_name>`, `<data_type>`, and `nullable` for each column.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW COLUMNS <table_name>;
 ```
 
 | Parameter      | Description                           |
-| -------------- | ------------------------------------- |
+| :-------------- | :------------------------------------- |
 | `<table_name>` | The name of the table to be analyzed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SHOW COLUMNS prices;
@@ -1073,17 +1057,19 @@ SHOW COLUMNS prices;
 +------------+-------------+-----------+----------+
 ```
 
-### SHOW DATABASES
+## SHOW DATABASES
 
 Lists databases in the current Firebolt account. Returns `name`, `region`, `attached_engines`, `created_on`, `created_by`, and `errors` for each database.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW DATABASES;
 ```
 
-**Example**
+#### Example
+{: .no_toc}
 
 ```sql
 SHOW DATABASES;
@@ -1099,7 +1085,7 @@ SHOW DATABASES;
 +---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
 ```
 
-### SHOW DATABASE
+## SHOW DATABASE
 
 Shows the status for the specified database. These are the same metadata fields as `SHOW DATABASES`.
 
@@ -1108,20 +1094,22 @@ SHOW DATABASE <database_name>;
 ```
 
 | Parameter         | Description                              |
-| ----------------- | ---------------------------------------- |
+| :----------------- | :---------------------------------------- |
 | <`database_name>` | The name of the database to be analyzed. |
 
-### SHOW ENGINES
+## SHOW ENGINES
 
 Lists all engines in the current Firebolt account. Returns `engine_name`, `region`, `spec`, `scale`, `status`, and `attached_to` for each engine.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW ENGINES;
 ```
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SHOW ENGINES;
@@ -1137,17 +1125,19 @@ SHOW ENGINES;
 +--------------------+-----------+-------------+-------+---------+-------------+
 ```
 
-### SHOW INDEXES
+## SHOW INDEXES
 
 Lists all indexes defined in the current database. Returns `index_name`, `table_name`, `type` (primary, aggregating, or join), the index `expression`, and the `size_compressed`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW INDEXES;
 ```
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SHOW INDEXES;
@@ -1165,17 +1155,19 @@ SHOW INDEXES;
 +------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
 ```
 
-### SHOW TABLES
+## SHOW TABLES
 
 Lists all tables defined in the current database. Returns `table_name`, `state`, `table_type`, `column_count`, `primary_index`, and `schema` (the `CREATE [EXTERNAL|FACT|DIMENSION] TABLE` statement for the table).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SHOW TABLES;
 ```
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SHOW TABLES;

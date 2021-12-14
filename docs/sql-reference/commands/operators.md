@@ -6,15 +6,13 @@ parent: SQL commands reference
 ---
 
 # Operators
-
+{: .no_toc}
 This section describes the operators supported in Firebolt.
 
-## Arithmetic
+* Topic ToC
+{:toc}
 
-{: .note}
-> Precision means that representation of a number is guaranteed to be accurate up to X number digits. In Firebolt, calculations are 6 digits accurate for `FLOAT` numbers and 15 for `DOUBLE PRECISION`. This means that calculations have a precision of 6 or 15 respectively and numbers  are truncated to that precision. For example, if a number is stored as 1.234567, it is automatically truncated to 1.23456 for `FLOAT`.
->
-> When performing arithmetic, the number of leading digits in the output is the product of the leading digits in both inputs. This means that if either or both of the input numbers are larger than 6, then those numbers are first truncated and then the arithmetic is performed.
+## Arithmetic
 
 | Operator | Operator description                             | Example             | Result |
 | :-------- | :------------------------------------------------ | :------------------- | :------ |
@@ -25,13 +23,22 @@ This section describes the operators supported in Firebolt.
 | %        | modulo (remainder)                               | `SELECT 5 % 4;`     | 1      |
 | ^        | exponentiation                                   | `SELECT 2.0 ^ 3.0;` | 8      |
 
+{: .note}
+> Precision means that representation of a number is guaranteed to be accurate up to X number digits. In Firebolt, calculations are 6 digits accurate for `FLOAT` numbers and 15 for `DOUBLE PRECISION`. This means that calculations have a precision of 6 or 15 respectively and numbers  are truncated to that precision. For example, if a number is stored as 1.234567, it is automatically truncated to 1.23456 for `FLOAT`.
+>
+> When performing arithmetic, the number of leading digits in the output is the product of the leading digits in both inputs. This means that if either or both of the input numbers are larger than 6, then those numbers are first truncated and then the arithmetic is performed.
+
 ## Comparison
 
 Comparison operators are usually implemented with `WHERE` clauses.
 
 ```sql
-SELECT * FROM Table_Name
-WHERE Price >= Number;
+SELECT
+  *
+FROM
+  Table_Name
+WHERE
+  Price >= Number;
 ```
 
 | Operator | Example | Explanation                      |
@@ -82,13 +89,10 @@ Use the interval operator to add or subtract a period of time to/from a `DATE`, 
 { +|- } INTERVAL '<quantity> [ <date_unit> ] [ ...]'
 ```
 
-|               |                                                                                                                                                                                                                                                             |
-| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Component     | Description                                                                                                                                                                                                                                                 |
-| `<quantity>`  | An integer. Multiple `<quantities>` and `<date_units>` can be used in the same `INTERVAL` command if they are separated by spaces.                                                                                                                          |
+| Component     | Description|
+|:------------  | :----------|
+| `<quantity>`  | An integer. Multiple `<quantities>` and `<date_units>` can be used in the same `INTERVAL` command if they are separated by spaces.|
 | `<date_unit>` | A date measurement including any of the following: `millennium`, `century`, `decade`, `year`, `month`, `week`, `day`, `hour`, `minute`, `second`, `millisecond`, `microsecond `or their plural forms.  If unspecified, `<date_unit>` defaults to `second`.  |
-
-
 
 **Usage example**
 
@@ -111,11 +115,10 @@ Values can be converted from one [data type](../../general-reference/data-types.
  <value>::<type>
 ```
 
-|           |                                                                                                                                                                            |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Component | Description                                                                                                                                                                |
+| Component |Description|
+|:----------|:----------|
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
-| `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                                               |
+| `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).|
 
 **Usage example**
 
@@ -141,47 +144,62 @@ Subqueries are queries contained within other queries. They are typically used t
 ```sql
 SELECT supplier_name
 FROM suppliers
-WHERE EXISTS
-        (SELECT product_name
-         FROM products
-         WHERE products.supplier_id = suppliers.supplier_id AND price < 22);
+WHERE EXISTS (
+  SELECT
+    product_name
+  FROM
+    products
+  WHERE
+    products.supplier_id = suppliers.supplier_id
+  AND
+    price < 22);
 ```
 
 **Example: Using the IN operator, return all the customers from Mannheim or London**
 
 ```sql
-SELECT customer_name
-FROM customers
-WHERE customer_address in ('Mannheim','London');
+SELECT
+  customer_name
+FROM
+  customers
+WHERE
+  customer_address in ('Mannheim','London');
 ```
 
 **Example: Using correlated subquery to retrieve all the products that cost more than the avg(price)**
 
 ```sql
 SELECT
-    product_id,
-    product_name,
-    list_price
+  product_id,
+  product_name,
+  list_price
 FROM
-    products p
+  products p
 WHERE
-    list_price > (
-        SELECT
-            AVG( list_price )
-        FROM
-            products
-        WHERE
-            category_id = p.category_id
-    );
+  list_price > (
+    SELECT
+      AVG( list_price )
+    FROM
+      products
+    WHERE
+      category_id = p.category_id);
 ```
 
 **Example: Using scalar boolean subquery to retrieve rows based on true/false condition**
 
 ```sql
-SELECT * FROM products WHERE
-(SELECT
-   CASE WHEN min(list_price) > 100 THEN true
-        ELSE false
-   END
- FROM products);
+SELECT
+  *
+FROM
+  products
+WHERE (
+  SELECT CASE WHEN
+    min(list_price) > 100
+  THEN
+    true
+  ELSE
+    false
+  END
+  FROM
+    products);
 ```

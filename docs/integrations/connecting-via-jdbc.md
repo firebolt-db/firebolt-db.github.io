@@ -7,14 +7,13 @@ parent: Integrations
 
 # Connecting apps and services using the JDBC driver
 
-Firebolt provides a JDBC driver (Type 4) that can be used with most applications and tools that support JDBC for connecting to a database server. The driver is provided as a JAR file and requires Java 1.8 (or higher).
+Firebolt provides a JDBC driver (Type 4) that can be used with most applications and tools that support JDBC for connecting to a database server. The driver is provided as a JAR file and requires Java 1.8 or later.
 
-## Downloading the driver
+## Download the latest JDBC driver
 
-Use one of the following links to download Firebolt's JDBC driver:
+* Read the [Firebolt JDBC license terms](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/License.pdf) before downloading the [Firebolt generic JDBC driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/firebolt-jdbc-1.18-jar-with-dependencies.jar).
 
-* [Firebolt generic JDBC driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/firebolt-jdbc-1.18-jar-with-dependencies.jar) You can use this driver to connect [Airflow](other-integrations/setting-up-airflow-jdbc-to-firebolt.md), [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md), [DBeaver](other-integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.md), and other services to Firebolt.
-* Before downloading the driver make sure you read the [Firebolt JDBC license terms](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/License.pdf).
+You can use this driver to connect [Airflow](other-integrations/setting-up-airflow-jdbc-to-firebolt.md), [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md), [DBeaver](other-integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.md), and other services to Firebolt.
 
 ## Related topics
 

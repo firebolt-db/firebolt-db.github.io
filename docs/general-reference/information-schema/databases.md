@@ -14,14 +14,13 @@ The view is available in all databases and can be queried as follows:
 
 ```sql
 SELECT
-	*
+  *
 FROM
-	information_schema.databases;
+  information_schema.databases;
 ```
 
 ## View columns
 
-|                                  |               |                                                                   |
 | -------------------------------- | ------------- | ----------------------------------------------------------------- |
 | **Name**                         | **Data Type** | **Description**                                                   |
 | catalog_name                    | `TEXT`        | Name of the catalog. Firebolt provides a single ‘default’ catalog |
