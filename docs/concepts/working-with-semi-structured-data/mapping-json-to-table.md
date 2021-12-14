@@ -1,37 +1,18 @@
 ---
 layout: default
-title: Working with semi-structured data
-nav_order: 3
-parent: Concepts
-has_children: true
+title: Mapping data from JSON to table
+nav_order: 1
+parent: Working with semi-structured data
+grand_parent: Concepts
 ---
-# Working with semi-structured data
 
-Semi-structured data is any data that does not adhere to a strict tabular schema, or data where some field types are not of the standard SQL data types. Semi-structured data usually has a nested structure and supports complex data types like arrays, maps, and structs (compound types).
-
-JSON is the a common example of a semi-structured data type, but many other serialization formats such as Parquet and ORC support similar features.
-
-Firebolt offers [functions for working with semi-structured data](../../sql-reference/functions-reference/semi-structured-functions/semi-structured-data-functions.html/).
-
-Arrays are the building blocks of how Firebolt represent semi-structured data. Arrays are used for the following data structures:
-
-* Arrays of varying lengths in the input, such that the length is unknown at the creation of the table. These arrays can have arbitrary nesting levels, but the nesting level should be the same for a given column and known when you create the table.  
-* Maps using two coordinated arrays: one for keys, the other for values. This is especially useful for JSON like semi-structured data sources in which each object can have different keys, so a fixed schema cannot handle the data properly.
-
-In some cases, when the JSON adheres to a fixed schema&mdash;that is, each object has a known set of keys, and a nesting level of at most two, not including nesting of arrays, which can be arbitrary&mdash;the data can be ingested directly.
-
-This section introduces the correspondence between semi-structured constructs to Firebolt arrays. The subsection will elaborate on the following topics:
-
-* [Working with arrays](working-with-arrays.md)
-* [Ingesting semi-structured data](ingesting-semi-structured-data.md)
-
-## Mapping data from JSON to a Firebolt table
+# Mapping data from JSON records to rows in a Firebolt table
 
 Throughout this section, we use a common example set of JSON records that can result from a website's logs or web-analytics platform, and the Firebolt table into which that JSON record is ingested. We start with a simple example that becomes more involved and realistic as we present new concepts.
 
 Each record in the source data represents a "visit" or "session" on the website. Records are stored in an "Object per line" file. Each line is a JSON object, although the file as a whole is not a valid JSON. These files are usually stored in a data lake in compressed form.
 
-### Source JSON record structure
+## Source JSON record structure
 Assume we have the following two records in the source data lake file.
 
 ```javascript
@@ -67,7 +48,7 @@ Important characteristics of the JSON records:
 * There is an array of `tags` of arbitrary length, potentially empty.
 * There is a *map* of `user_agent` properties. These properties can change from record to record, and the full set of potential properties is not known when you create the Firebolt table.
 
-### Corresponding Firebolt table structure
+## Corresponding Firebolt table structure
 The JSON records above are represented in a Firebolt table that is created with the DDL example below. A fact table example is shown (a dimension table would be acceptable as well) and the `PRIMARY INDEX` definition is arbitrary.
 
 ```sql
@@ -90,7 +71,6 @@ The data type is shown in parenthesis beside the column name for clarity and is 
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2020-01-06 17:00:00 | 450 | \["summer-sale","sports"\] | \["agent", "platform", "resolution"\] | \["Mozilla/5.0", "Windows NT 6.1", "1024x4069"\] |
 | 2 | 2020-01-05 12:00:00 | 959 | \["gadgets","audio"\] | \["agent", "platform"\] | \["Safari", "iOS 14"\] |
-
 
 Important characteristics of the table:
 

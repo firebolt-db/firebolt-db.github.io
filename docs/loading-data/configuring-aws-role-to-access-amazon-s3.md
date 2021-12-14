@@ -6,15 +6,18 @@ parent: Loading data
 ---
 
 # Using AWS roles to access Amazon S3
+{: .no_toc}
+Firebolt uses AWS Identity and Access Management \(IAM\) permissions to load data from Amazon S3 into Firebolt. This requires you to set up permissions using the AWS Management Console. You have two options to specify credentials with the appropriate `CREDENTIALS` when you create an external table:
 
-Firebolt uses AWS Identity and Access Management \(IAM\) permissions to load data from Amazon S3 into Firebolt. This requires you to set up permissions using the AWS Management Console. This topic provides instructions for setting up AWS IAM permissions.
+* You can provide **key credentials** associated with an IAM principal that has the required permissions
+* You can specify an **IAM role** that Firebolt assumes for the appropriate permissions.
 
-* [Create an IAM policy](configuring-aws-role-to-access-amazon-s3.md#Step-1:-Creating-an-IAM-policy)
-* [Create the IAM role](configuring-aws-role-to-access-amazon-s3.md#Step-2:-Create-the-IAM-role-in-AWS)
-* [Increase the max session duration of your role](configuring-aws-role-to-access-amazon-s3.md#Step-3:-Set-the-max-session-duration-for-your-AWS-Role)
-* [Use the role to load your data into Firebolt](configuring-aws-role-to-access-amazon-s3.md#step-4-use-the-aws-role-for-loading-your-data-into-firebolt)
+This topic provides instructions for setting up an IAM role and an AWS IAM permissions policy that allows the actions that Firebolt requires to read data from an S3 location.
 
-## Step 1: Create an IAM permissions policy <a id="Step-1:-Creating-an-IAM-policy"></a>
+1. Topic ToC
+{:toc}
+
+## Create an IAM permissions policy
 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Account settings**.
@@ -76,7 +79,7 @@ Firebolt uses AWS Identity and Access Management \(IAM\) permissions to load dat
 {: .warning}
 Setting the `s3:prefix` condition key to `*` grants access to all prefixes in the specified bucket for the action to which it applies.
 
-## Step 2: Create the IAM role <a id="Step-2:-Create-the-IAM-role-in-AWS"></a>
+## Create the IAM role
 
 In the AWS Management Console, create an AWS IAM role. The IAM role will assume the permissions you defined in step 1 to access the S3 locations where your data files are saved.
 
@@ -96,7 +99,7 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 
 9. Record the **Role ARN** listed on the role summary page.
 
-## Step 3: Increase the max session duration for your AWS role <a id="Step-3:-Set-the-max-session-duration-for-your-AWS-Role"></a>
+## Increase the max session duration for your AWS role
 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Roles**.
@@ -106,9 +109,5 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 
 ![](../assets/images/set_max_session_duration.png)
 
-## Step 4: Use the AWS Role for loading your data into Firebolt
-
-Loading your data into Firebolt begins by creating an external table - full syntax can be found [here](../sql-reference/commands/ddl-commands.md#create-external-table).  
-Make sure to specify both the role's ARN and the external ID you've recorded during [step 2](configuring-aws-role-to-access-amazon-s3.md#Step-2:-Create-the-IAM-role-in-AWS) in the external table's [CREDENTIALS](../sql-reference/commands/ddl-commands.md#credentials) specifier.
-
-Keep on reading in our [getting started tutorial](../getting-started.html) for the full data load flow.
+## Specify the IAM role in the external table definition
+Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/ddl-commands.md#syntax---authenticating-using-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.

@@ -13,12 +13,10 @@ Tables in Firebolt have a few unique characteristics that are designed to optimi
 
 External tables exist solely as a connector to your data source. When you create a table in Firebolt to run queries over, you must specify whether it’s a `FACT` or a `DIMENSION` table. Firebolt handles these table types differently to optimize query performance in general and join operations in particular.
 
-* **Fact tables** are always **sharded** across engine nodes. Each node stores part of the table.  
-FACT tables should be used for your traditional fact tables&mdash;usually your larger and most granular (transaction) tables.
-* **Dimension tables** are **replicated** in each engine node.  
-DIMENSION tables should be used for the smaller tables that are typically more descriptive in nature and are joined with the FACT tables.
+* **Fact tables** are always **sharded** across engine nodes. Each node stores part of the table. Use fact tables for your larger and most granular (transaction) tables.
+* **Dimension tables** are **replicated** in each engine node. Use dimension tables for smaller data sets that are typically more descriptive of a dimension in the fact table, and are frequently joined with fact tables. When performing joins, the local shard of a fact table on each node is joined with the local copy of the dimension table.
 
-When performing joins, the local shard of a fact table on each node is joined with the local copy of the dimension table. If your table does not fit in either of the traditional fact or dimension definition, we recommended that you define very large tables as fact tables, and smaller tables as dimension tables.
+If your table does not fit in either of the traditional fact or dimension definition, we recommended that you define very large tables as fact tables, and smaller tables as dimension tables.
 
 <!-- This is all being pre-empted by the new Indexing topic. Nothing below here should be edited -->
 
