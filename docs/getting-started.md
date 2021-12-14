@@ -6,7 +6,7 @@ has_toc: true
 ---
 # Getting started tutorial
 {:.no_toc}
-This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamenatl analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
 
 1. Topic toC
 {:toc}
