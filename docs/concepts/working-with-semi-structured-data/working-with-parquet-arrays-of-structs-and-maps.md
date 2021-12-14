@@ -6,8 +6,12 @@ parent: Working with semi-structured data
 grand_parent: Concepts
 ---
 # Working with Parquet arrays and maps
+{: .no_toc}
 
 Apache Parquet is a binary file format that can store complex nested file structures in a compressed, columnar format. This topic provides guidance for ingesting and querying Parquet data that is stored as structs in arrays or as maps of key-value pairs.
+
+* Topic ToC
+{:toc}
 
 ## Defining external table columns for Parquet arrays and maps
 
@@ -99,7 +103,7 @@ INSERT INTO my_parquet_array_fact_tbl
   FROM my_parquet_array_ext_tbl;
 ```
 
-### Step 4&ndash;query array values**
+### Step 4&ndash;query array values
 
 After you ingest array values into the fact table, you can query the array using the array functions and lambda function approach covered in [Working with arrays](working-with-arrays.md).
 

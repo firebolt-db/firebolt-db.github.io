@@ -5,14 +5,15 @@ nav_order: 3
 parent: SQL commands reference
 ---
 
-# Data manipulation language (DML) statements
+# DML commands
+Firebolt supports `INSERT INTO`.
 
 ## INSERT INTO
 
 Inserts one or more values into a specified table. Specifying column names is optional.
 
 {: .note}
-The INSERT INTO operation is not atomic. If the operation is interrupted, partial data ingestion may occur.
+The `INSERT INTO` operation is not atomic. If the operation is interrupted, partial data ingestion may occur.
 
 **Syntax**
 
@@ -21,11 +22,11 @@ INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
 { <select_statement> | VALUES ([<val1>[, <val2>][, ...]) }
 ```
 
-| Parameter                                                                                                                | Description                                                                                                                          |
-| :------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------ |
-| `<table_name>`                                                                                                           | The target table where values are to be inserted.                                                                                    |
-| `(<col1>[, <col2>][, ...])]`                                                                                             | A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
-| `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.                         |
+| Parameter | Description|
+| :---------| :----------|
+| `<table_name>`| The target table where values are to be inserted. |
+| `(<col1>[, <col2>][, ...])]`| A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
+| `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.|
 
 **Example: extracting partition values using the INSERT INTO command**
 

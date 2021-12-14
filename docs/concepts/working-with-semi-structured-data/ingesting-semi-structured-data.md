@@ -46,7 +46,7 @@ Assume that each JSON record is stored as plain text in the column `raw_json` of
 
 Recall that we want the target Firebolt table named `visits` to have columns and values similar to the table shown below.
 
-| id INT | StartTime DATETIME | Duration INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
+| id (INT) | start_time (DATETIME) | duration (INT) | tags (ARRAY(TEXT)) | agent_props_keys | agent_props_vals |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2020-01-06 17:00:00 | 450 | \["summer-sale","sports"\] | \["agent", "platform", "resolution"\] | \["Mozilla/5.0", "Windows NT 6.1", "1024x4069"\] |
 | 2 | 2020-01-05 12:00:00 | 959 | \["gadgets","audio"\] | \["agent", "platform"\] | \["Safari", "iOS 14"\] |
@@ -60,7 +60,6 @@ For the top-level keys ()`id`, `Duration`, and `tags`), the task is straightforw
 * An expression that resolves to a JSON string.
 * A [JSON pointer](../../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json-pointer-parameters) that specifies how to extract the value from the JSON object.
 * A type specifier that indicates the Firebolt data type that the function returns. This type should correspond to the JSON type that the pointer references. For more information, see [Supported type parameters](../../sql-reference/functions-reference/semi-structured-functions/json-functions.html#type-parameters).
-
 
 Firebolt's native support for arrays makes the extraction of `tags` as simple as other scalar types.
 

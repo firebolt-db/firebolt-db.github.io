@@ -65,9 +65,9 @@ PRIMARY INDEX start_time;
 With the JSON records above ingested into the table, table data appears as shown below.  For more information about using Firebolt semi-structured functions to transform the JSON records into table rows, see [Ingesting semi-structured data](ingesting semi-structured-data.md).
 
 {: .note}
-The data type is shown in parenthesis beside the column name for clarity and is not part of the column name.
+The data type is shown in capital letters beside the column name for clarity and is not part of the column name.
 
-| id INT | StartTime DATETIME | Duration INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
+| id INT | start_time DATETIME | duration INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2020-01-06 17:00:00 | 450 | \["summer-sale","sports"\] | \["agent", "platform", "resolution"\] | \["Mozilla/5.0", "Windows NT 6.1", "1024x4069"\] |
 | 2 | 2020-01-05 12:00:00 | 959 | \["gadgets","audio"\] | \["agent", "platform"\] | \["Safari", "iOS 14"\] |
