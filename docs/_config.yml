@@ -2,11 +2,11 @@ title: Firebolt documentation
 description: >-
   User and developer documentation for the Firebolt data warehouse.
 domain: firebolt-db.github.io
-baseurl: "/firebolt-docs"
+# baseurl: "/firebolt-docs"
 url: "https://firebolt-db.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-remote_theme: pmarsceill/just-the-docs
+remote_theme: FireboltJeff/just-the-docs
 logo: "/assets/images/firebolt.png"
 color_scheme: firebolt
 search_enabled: true
