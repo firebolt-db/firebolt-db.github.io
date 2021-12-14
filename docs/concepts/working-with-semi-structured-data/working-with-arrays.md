@@ -1,23 +1,23 @@
 ---
 layout: default
 title: Working with arrays
-nav_order: 2
+nav_order: 3
 parent: Working with semi-structured data
 grand_parent: Concepts
 ---
 # Working with arrays
 
-In this section, we introduce the mechanisms which allow querying and manipulating arrays in a Firebolt warehouse. For a full reference see [array functions](../../sql-reference/functions-reference/semi-structured-functions/array-functions.md) and [aggregate array functions](../../sql-reference/functions-reference/semi-structured-functions/aggregate-array-functions.md).
+This section covers querying and manipulating arrays in Firebolt. For more information, see [Array functions](../../sql-reference/functions-reference/semi-structured-functions/array-functions.md) and [Aggregate array functions](../../sql-reference/functions-reference/semi-structured-functions/aggregate-array-functions.md).
 
-Array types are declared using `ARRAY(<type>)` where `<type>` can be any Firebolt supported type, including array, thus, arrays can be arbitrarily nested. The innermost type \(the scalar\) can be nullable, however, array typed columns cannot be nullable.
+Array types are declared using `ARRAY(<type>)` where `<type>` can be any data type that Firebolt supports. This includes the `ARRAY` data type, so arrays can be arbitrarily nested. The innermost type (the scalar) can be nullable, but `ARRAY` typed columns cannot be nullable.
 
-Array literals are also supported, so for example, the following is a valid SQL:
+Array literals are also supported. For example, the `SELECT` statement shown below is valid.
 
 ```sql
 SELECT [1,2,3,4]
 ```
 
-Throughout this page we will use the table presented in the [overview page](./working-with-semi-structured-data.html) and assume its name is **visits**, the relevant columns are presented here for convenience.
+This topic uses the table presented in [Working with semi-structured data](./working-with-semi-structured-data.html) and assumes its name is `visits`. The relevant columns are shown below for convenience.
 
 | id INT | tags ARRAY\(TEXT\) | agent\_props\_keys | agent\_props\_vals |
 | :--- | :--- | :--- | :--- |

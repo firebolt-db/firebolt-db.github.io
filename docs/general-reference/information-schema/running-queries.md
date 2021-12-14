@@ -13,11 +13,11 @@ The view is available in all databases and can be queried, for example, as follo
 
 ```sql
 SELECT
-	*
+  *
 FROM
-	catalog.running_queries
+  catalog.running_queries
 LIMIT
-	100;
+  100;
 ```
 
 The `running_queries` view contains the following columns:

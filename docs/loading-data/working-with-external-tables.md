@@ -7,16 +7,17 @@ parent: Loading data
 
 # Working with external tables
 
-Loading data into Firebolt is done using EXTERNAL TABLEs. Those tables are different from [fact and dimension tables](../concepts/working-with-tables.md) since the data is stored externally in Amazon S3 and not inside the database. Using external tables, Firebolt can access files stored in your S3 bucket with ease and allow you to load those files into Firebolt.
+Loading data into Firebolt is done using *external tables*. External tables are different from [fact and dimension tables](../concepts/working-with-tables.md). Firebolt uses an external table as a connector to your data source. No data is stored in Firebolt.
 
-In order to create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
+To create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
 
-{: .note}
-You can run a query over an external table in Firebolt to return query results directly from external data. A direct query like this over an external table will be significantly slower than the same query run over the same data in a fact or dimension table. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement.
+{: .caution}
+Although you can run a query over an external table to return query results, we don't recommend it. Such a query will be significantly slower than the same query run over the same data in a fact or dimension table because of the data transfer between Firebolt and your data store. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement.
 
 ## Workflows
 
-1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [getting started tutorial](../getting-started.html).
+1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [getting started tutorial](../getting-started.html).  
+
 2. For a workflow that demonstrates continuously loading data into Firebolt, see the [continuously loading data tutorial](continuously-loading-data.md).
 
 ## Supported file formats
@@ -36,7 +37,7 @@ The metadata virtual columns listed below are available in external tables.
 | `source_file_name` | The full path of the row's source file in Amazon S3. For Kafka-connected external tables, this is `NULL`. | TEXT |
 | `source_file_timestamp` | The creation date of the row's source file in S3. For Kafka-connected external tables, this is `NULL`. | TIMESTAMP |
 
-### Example - querying metadata virtual column values
+### Example&ndash;querying metadata virtual column values
 
 The query example below creates an external table that references an AWS S3 bucket that contains Parquet files for Firebolt to ingest.
 
