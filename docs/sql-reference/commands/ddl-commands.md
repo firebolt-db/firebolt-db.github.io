@@ -347,7 +347,7 @@ OBJECT_PATTERN = '<object_pattern>'[, '<object_pattern>'[, ...n]]]
 ```
 
 | Parameters       | Description                                                                                                                          | Data type |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------- |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------ | :--------- |
 | `URL`            | This is the URL of the specific bucket and path within the bucket where the relevant files are located (common path prefix).         | TEXT      |
 | `OBJECT_PATTERN` | Specify the data patterns to be found in your data source. For example, \*.parquet indicates that all parquet files should be found. | TEXT      |
 

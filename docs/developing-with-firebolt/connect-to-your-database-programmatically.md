@@ -115,8 +115,4 @@ for q in queries:
 ```
 
 {: .note}
-The JayDeBeApi Python library may require specific data formatting before input. This includes:
-
-* Datetime objects should be converted to string format
-
-More information about potential driver issues can be found on [JayDeBeApi Github page](https://github.com/baztian/jaydebeapi).
+  The JayDeBeApi Python library may require specific data formatting before input. <br> <br> This includes: <br> <br> * Datetime objects should be converted to string format <br> <br> More information about potential driver issues can be found on [JayDeBeApi Github page](https://github.com/baztian/jaydebeapi).

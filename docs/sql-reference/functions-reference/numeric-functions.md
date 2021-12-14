@@ -30,7 +30,7 @@ SELECT
     ABS(-200.50)
 ```
 
-**Returns: **`200.5`
+**Returns:** s`200.5`
 
 ## ACOS
 
@@ -53,7 +53,7 @@ SELECT
     ACOS(0.5)
 ```
 
-**Returns: **`1.0471975511965979`
+**Returns:** `1.0471975511965979`
 
 ## ASIN
 
@@ -76,7 +76,7 @@ SELECT
     ASIN(1.0)
 ```
 
-**Returns: **`1.5707963267948966`
+**Returns:** `1.5707963267948966`
 
 ## ATAN
 
@@ -170,7 +170,7 @@ SELECT
     COS(180);
 ```
 
-**Returns: **`-0.5984600690578581`
+**Returns:** `-0.5984600690578581`
 
 ## COT
 
@@ -193,7 +193,7 @@ SELECT
     COT(180)
 ```
 
-**Returns: **`0.7469988144140444`
+**Returns:** `0.7469988144140444`
 
 ## DEGREES
 
@@ -239,7 +239,7 @@ SELECT
     EXP(2)
 ```
 
-**Returns: **`7.389056098924109`
+**Returns:** `7.389056098924109`
 
 ## FLOOR
 
@@ -263,7 +263,7 @@ SELECT
     FLOOR(2.19, 1)
 ```
 
-**Returns: **`2.1`
+**Returns:** `2.1`
 
 ## LOG
 
@@ -288,7 +288,7 @@ This example below returns the logarithm of 64.0 with base 2.&#x20;
 SELECT LOG(2, 64.0)
 ```
 
-**Returns: **`6`
+**Returns:** `6`
 
 This example below returns the logarithm of 64.0 with the default base 10.
 
@@ -447,14 +447,14 @@ SELECT
     ROUND(5.4)
 ```
 
-**Returns: **`5`
+**Returns:** `5`
 
 ```
 SELECT
     ROUND(5.6930, 1)
 ```
 
-**Returns: **`5.7`
+**Returns:** `5.7`
 
 ## SIN
 
@@ -477,7 +477,7 @@ SELECT
     SIN(90)
 ```
 
-**Returns: **`0.8939966636005579`
+**Returns:** `0.8939966636005579`
 
 ## SQRT
 
@@ -523,7 +523,7 @@ SELECT
     TAN(90)
 ```
 
-**Returns: **-**1.995200412208242**
+**Returns:** -1.995200412208242
 
 ## TRUNC
 
