@@ -16,43 +16,43 @@ This topic lists the data types available in Firebolt.
 
 ## Numeric
 
-### `INT`
+### INT
 A whole number ranging from -2,147,483,648 to 2,147,483,647. `INT` data types require 4 bytes of storage.
 Synonym for `INTEGER`.
 
-### `INTEGER`
+### INTEGER
 Synonym for `INT`.
 
-### `BIGINT`
+### BIGINT
 A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage.
 Synonym for `LONG`.
 
-### `LONG`
+### LONG
 Synonym for `BIGINT`.
 
-### `FLOAT`
+### FLOAT
 A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. `FLOAT` data types require 4 bytes of storage.
 
-### `DOUBLE`
+### DOUBLE
 A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes. Synonym for `DOUBLE PRECISION`.
 
-### `DOUBLE PRECISION`
+### DOUBLE PRECISION
 Synonym for `DOUBLE`.
 
 ## String
 
-### `VARCHAR`
+### VARCHAR
 A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns. Firebolt supports UTF-8 escape sequences. Synonym for `TEXT` and `STRING`.
 
-### `TEXT`
+### TEXT
 Synonym for `VARCHAR` and `STRING`.
 
-### `STRING`
+### STRING
 Synonym for `VARCHAR` and `TEXT`.
 
 ## Date and time
 
-### `DATE`
+### DATE
 A year, month and day in the format *YYYY-MM-DD*. This value is stored as a 4-byte unsigned Unix timestamp. The minimum `DATE` value is `1970-01-01`. The maximum `DATE` value is `2105-12-31`. It does not specify a time zone.
 
 Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.
@@ -108,15 +108,31 @@ FROM
 GROUP BY
   SUBSTR(date_as_text,6,2);
 ```
+### TIMESTAMP
+
+A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*. This value is stored as an unsigned Unix timestamp with 4 bytes.
+
+Same range as `DATE` type.
+
+Minimal value: 0000-00-00 00:00:00.
+
+To change the default time zone in Firebolt:
+`SET DEFAULT_TIMEZONE = "Pacific Standard Time"`
+
+This is a synonym for `DATETIME`
+
+### DATETIME
+
+Synonym for `TIMESTAMP`
 
 ## Boolean
 
-### `BOOLEAN`
+### BOOLEAN
 Accepts `true`, `false`, `1` and `0`. Stores the values as `1` or `0` respectively.
 
 ## Semi-structured
 
-### `ARRAY`
+### ARRAY
 Represents dense or sparse arrays. An array can contain all data types including nested arrays (array with arrays).
 
 A column whose type is `ARRAY` can't be nullable, but the elements of an `ARRAY` are nullable.

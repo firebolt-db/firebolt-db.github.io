@@ -39,8 +39,8 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 ```
 
 | Parameter     | Description                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `<unit>`      | A unit of time. This can be any of the following: `SECOND`                                                                  |
+| :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`                                                                  |
 | `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value.                                                              |
 
@@ -48,9 +48,8 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 
 The example below uses a table `date_test` with the columns and values below.
 
-|          |            |
-| -------- | ---------- |
 | Category | sale\_date |
+| :-------- | :---------- |
 | a        | 2012-05-01 |
 | b        | 2021-08-30 |
 | c        | 1999-12-31 |
@@ -95,8 +94,8 @@ Calculates the difference between ​​`start_date`​​ and ​`end_date`​�
 ```
 
 | Parameter      | Description                                                    |
-| -------------- | -------------------------------------------------------------- |
-| `<unit>`       | A unit of time. This can be any of the following: `SECOND`     |
+| :-------------- | :-------------------------------------------------------------- |
+| `<unit>`       | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`     |
 | `<start_date>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 | `<end_date>`   | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
@@ -104,9 +103,8 @@ Calculates the difference between ​​`start_date`​​ and ​`end_date`​�
 
 The example below uses a table `date_test` with the columns and values below.
 
-|          |            |                     |
-| -------- | ---------- | ------------------- |
 | Category | sale\_date | sale\_datetime      |
+| :-------- | :---------- | :------------------- |
 | a        | 2012-05-01 | 2017-06-15 09:34:21 |
 | b        | 2021-08-30 | 2014-01-15 12:14:46 |
 | c        | 1999-12-31 | 1999-09-15 11:33:21 |
@@ -154,7 +152,7 @@ Formats a ​`DATE` ​​or ​`DATETIME` ​​according to the given format e
 ```
 
 | Parameter  | Description                                                                                                                                                                                |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<date>`   | The date to be formatted.                                                                                                                                                                  |
 | `<format>` | The format to be used for the output using the syntax shown. The reference table below lists allowed expressions and provides example output of each expression for a given date and time. |
 
@@ -162,7 +160,7 @@ Formats a ​`DATE` ​​or ​`DATETIME` ​​according to the given format e
 | ------------------------ | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | `%C`                     | The year divided by 100 and truncated to integer (00-99)                    | `19`                                                                                       |
 | `%d`                     | Day of the month, zero-padded (01-31)                                       | `02`                                                                                       |
-| `%D`                     | Short MM/DD/YY date, equivalent to %m/%d/%y                                 | `04/02/75`                                                                                 |
+| `%D`                     | Short MM/DD/YY date, equivalent to `%m/%d/%y`                                 | `04/02/75`                                                                                 |
 | `%e`                     | Day of the month, space-padded ( 1-31)                                      | `2`                                                                                        |
 | `%F`                     | Short YYYY-MM-DD date, equivalent to %Y-%m-%d                               | `1975-04-02`                                                                               |
 | `%H`                     | The hour in 24h format (00-23)                                              | `00`                                                                                       |
@@ -170,11 +168,11 @@ Formats a ​`DATE` ​​or ​`DATETIME` ​​according to the given format e
 | `%j`                     | Day of the year (001-366)                                                   | `112`                                                                                      |
 | `%m`                     | Month as a decimal number (01-12)                                           | `04`                                                                                       |
 | `%M`                     | Minute (00-59)                                                              | `24`                                                                                       |
-| `%n`                     | New-line character (‘’) in order to add a new line in the converted format. | <p>For example, <code>%Y%n%m</code> returns<br><code>1975</code></p><p><code>04</code></p> |
+| `%n`                     | New-line character (‘’) in order to add a new line in the converted format. | For example, `%Y%n%m` returns: <br>`1975`<br>`04` |
 | `%p`                     | AM or PM designation                                                        | `PM`                                                                                       |
-| `%R`                     | 24-hour HH:MM time, equivalent to %H:%M                                     | `00:24`                                                                                    |
+| `%R`                     | 24-hour HH:MM time, equivalent to `%H:%M`                                     | `00:24`                                                                                    |
 | `%S`                     | The second (00-59)                                                          | `48`                                                                                       |
-| `%T`                     | ISO 8601 time format (HH:MM:SS), equivalent to %H:%M:%S                     | `00:24:48`                                                                                 |
+| `%T`                     | ISO 8601 time format (HH:MM:SS), equivalent to `%H:%M:%S`                     | `00:24:48`                                                                                 |
 | `%u`                     | ISO 8601 weekday as number with Monday as 1 (1-7)                           | `2`                                                                                        |
 | `%V`                     | ISO 8601 week number (01-53)                                                | `17`                                                                                       |
 | `%w`                     | weekday as a decimal number with Sunday as 0 (0-6)                          | `2`                                                                                        |
@@ -187,7 +185,7 @@ Formats a ​`DATE` ​​or ​`DATETIME` ​​according to the given format e
 The examples below use a table `date_test` with the columns and values below. The following examples use these `TIMESTAMP` values to demonstrate the various `DATE_FORMAT` expressions.
 
 | Category | sale\_datetime      |
-| -------- | ------------------- |
+| :-------- | :------------------- |
 | a        | 2017-06-15 09:34:21 |
 | b        | 2014-01-15 12:14:46 |
 | c        | 1999-09-15 11:33:21 |
@@ -288,8 +286,8 @@ Truncate a given date to a specified position.
 ```
 
 | Parameter     | Description                                                                                           |
-| ------------- | ----------------------------------------------------------------------------------------------------- |
-| `<precision>` | The time unit for the returned value to be expressed. ​ This can be any of the following: `SECOND`    |
+| :------------- | :----------------------------------------------------------------------------------------------------- |
+| `<precision>` | The time unit for the returned value to be expressed. ​ This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`    |
 | `<date>`      | The date to be truncated. This can be any expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
 **Example**
@@ -297,7 +295,7 @@ Truncate a given date to a specified position.
 The example below uses a table `date_test` with the columns and values below.
 
 | Category | sale\_datetime      |
-| -------- | ------------------- |
+| :-------- | :------------------- |
 | a        | 2017-06-15 09:34:21 |
 | b        | 2014-01-15 12:14:46 |
 | c        | 1999-09-15 11:33:21 |
@@ -336,7 +334,7 @@ Retrieves subfields such as year or hour from date/time values.
 ```
 
 | Parameter  | Description                                                                                                      |
-| ---------- | ---------------------------------------------------------------------------------------------------------------- |
+| :---------- | :---------------------------------------------------------------------------------------------------------------- |
 | `<field>`  | Supported fields: `DAY`, `DOW, MONTH`, `WEEK`, `WEEKISO`, `QUARTER`, `YEAR`, `HOUR`, `MINUTE`, `SECOND`, `EPOCH` |
 | `<source>` | A value expression of type timestamp.                                                                            |
 
@@ -366,7 +364,7 @@ Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 ```
 
 | Parameter     | Description                                  |
-| ------------- | -------------------------------------------- |
+| :------------- | :-------------------------------------------- |
 | `<unix_time>` | The UNIX epoch time that is to be converted. |
 
 **Example**
@@ -427,7 +425,7 @@ Converts a date or timestamp to a number representing the day of the week (Monda
 ```
 
 | Parameter | Description                                             |
-| --------- | ------------------------------------------------------- |
+| :--------- | :------------------------------------------------------- |
 | `<date>`  | An expression that evaluates to a `DATE `or `TIMESTAMP` |
 
 **Example**
@@ -452,7 +450,7 @@ Converts a date or timestamp to a number containing the number for the day of th
 ```
 
 | Parameter | Description                                             |
-| --------- | ------------------------------------------------------- |
+| :--------- | :------------------------------------------------------- |
 | `<date>`  | An expression that evaluates to a `DATE `or `TIMESTAMP` |
 
 **Example**
@@ -477,7 +475,7 @@ Converts a date or timestamp to a number containing the hour.
 ```
 
 | Parameter     | Description                                                |
-| ------------- | ---------------------------------------------------------- |
+| :------------- | :---------------------------------------------------------- |
 | `<timestamp>` | The timestamp to be converted into the number of the hour. |
 
 **Example**
@@ -501,7 +499,7 @@ Converts a timestamp (any date format we support) to a number containing the min
 ```
 
 | Parameter     | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
+| :------------- | :------------------------------------------------------------ |
 | `<timestamp>` | The timestamp to be converted into the number of the minute. |
 
 **Example**
@@ -525,7 +523,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 ```
 
 | Parameter | Description                                                         |
-| --------- | ------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the number of the month. |
 
 **Example**
@@ -549,7 +547,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 ```
 
 | Parameter | Description                                                           |
-| --------- | --------------------------------------------------------------------- |
+| :--------- | :--------------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the number of the quarter. |
 
 **Example**
@@ -573,7 +571,7 @@ Converts a timestamp (any date format we support) to a number containing the sec
 ```
 
 | Parameter     | Description                                                  |
-| ------------- | ------------------------------------------------------------ |
+| :------------- | :------------------------------------------------------------ |
 | `<timestamp>` | The timestamp to be converted into the number of the second. |
 
 **Example**
@@ -597,7 +595,7 @@ TO_STRING(<date>)
 ```
 
 | Parameter | Description                           |
-| --------- | ------------------------------------- |
+| :--------- | :------------------------------------- |
 | `<date>`  | The date to be converted to a string. |
 
 **Example**
@@ -621,7 +619,7 @@ Converts a date or timestamp to a number representing the week. This function de
 ```
 
 | Parameter | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------ |
 | `<date>`  | The date or timestamp to be converted into the number of the week. |
 
 **Example**
@@ -657,7 +655,7 @@ TO_WEEKISO(<date>)
 **Parameters**
 
 | Parameter | Description                                                     |
-| --------- | --------------------------------------------------------------- |
+| :--------- | :--------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the ISO week number. |
 
 **Example**
@@ -721,7 +719,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 ```
 
 | Parameter | Description                                                        |
-| --------- | ------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------ |
 | `<date>`  | The date or timestamp to be converted into the number of the year. |
 
 **Example**

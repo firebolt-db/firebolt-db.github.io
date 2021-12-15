@@ -20,7 +20,7 @@ BASE64_ENCODE(<expr>)
 ```
 
 | Parameter | Description                                                                 |
-| --------- | --------------------------------------------------------------------------- |
+| :--------- | :--------------------------------------------------------------------------- |
 | `<expr>`  | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
 
 **Example**
@@ -48,7 +48,7 @@ CONCAT( <string>, <string2>[, ...n] );
 ```
 
 | Parameter                     | Description                     |
-| ----------------------------- | ------------------------------- |
+| :----------------------------- | :------------------------------- |
 | `<string>, <string2>[, ...n]` | The strings to be concatenated. |
 
 **Example**
@@ -70,7 +70,7 @@ EXTRACT_ALL( <expr>, '<regex_pattern>' )
 ```
 
 | Parameter         | Description                                                                 |
-| ----------------- | --------------------------------------------------------------------------- |
+| :----------------- | :--------------------------------------------------------------------------- |
 | `<expr>`          | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
 | `<regex_pattern>` | An re2 regular expression used for matching.                                |
 
@@ -132,9 +132,9 @@ Allows matching of strings based on comparison to a pattern. `ILIKE` is normally
 ```
 
 | Parameter   | Description                                                                                                                                                                                                                                                                              |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`    | Any expression that evaluates to a `TEXT`, `STRING`, or `VARCHAR` data type.                                                                                                                                                                                                             |
-| `<pattern>` | <p>Specifies the pattern to match and is case-insensitive. SQL wildcards are supported:</p><ul><li>Use an underscore (<code>_</code>) to match any single character</li><li>Use a percent sign (<code>%</code>) to match any number of any characters, including no characters</li></ul> |
+| `<pattern>` | Specifies the pattern to match and is case-insensitive. SQL wildcards are supported: <br> <br>* Use an underscore (`_`) to match any single character<br>* Use a percent sign (`%`) to match any number of any characters, including no characters. |
 
 **Example**
 
@@ -187,7 +187,7 @@ Calculates the string length.
 ```
 
 | Parameter  | Description                                |
-| ---------- | ------------------------------------------ |
+| :---------- | :------------------------------------------ |
 | `<string>` | The string for which to return the length. |
 
 **Example**
@@ -209,7 +209,7 @@ Converts the string to a lowercase format.
 ```
 
 | Parameter  | Description                 |
-| ---------- | --------------------------- |
+| :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
 **Example**
@@ -233,7 +233,7 @@ The similar function to pad the end of a string is [`RPAD`](string-functions.md#
 ```
 
 | Parameter  | Description                                                                                                                                                                                                                 |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<str>`    | The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string. ​ `<str>` can be a literal string or the name of a column. |
 | `<length>` | The length of the string as an integer after it has been left-padded. ​ A negative number returns an empty string.                                                                                                          |
 | `<pad>`    | The string to add to the start of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                     |
@@ -263,7 +263,7 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 ```
 
 | Parameter  | Description               |
-| ---------- | ------------------------- |
+| :---------- | :------------------------- |
 | `<target>` | The string to be trimmed. |
 
 **Example**
@@ -289,7 +289,7 @@ Checks whether the string matches the regular expression `<pattern`>, which is a
 ```
 
 | Parameter   | Description                                                           |
-| ----------- | --------------------------------------------------------------------- |
+| :----------- | :--------------------------------------------------------------------- |
 | `<string>`  | The string used to search for a match.                                |
 | `<pattern>` | The regular expression pattern used to search `<string>` for a match. |
 
@@ -301,11 +301,7 @@ The example below generates `0` as a result because it found no match. It is sea
 SELECT MATCH('123','\\[a-Z|A-Z]') AS res;
 ```
 
-**Returns:**
-
-```
-0
-```
+**Returns:** `0`
 
 In this second example, the `MATCH` expression generates a result of `1` because it found a match. It is searching for numeric digits in the string "123".
 
@@ -313,7 +309,7 @@ In this second example, the `MATCH` expression generates a result of `1` because
 SELECT MATCH('123','\\d+');
 ```
 
-\*\*Returns: \*\*`1`
+**Returns:** `1`
 
 ## MATCH\_ANY
 
@@ -328,13 +324,13 @@ Synonym for `MULTI_MATCH_ANY`
 ```
 
 | Parameter         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<string>`        | The string to search for a match.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `<pattern_array>` | <p>A series of one or more regular expression patterns to search for a match in the <code>&#x3C;string></code>.</p><p><code>&#x3C;pattern_array></code> must be enclosed in brackets. Each pattern must be enclosed in single quotes and separated with commas.</p><p>For example, the <code>&#x3C;pattern_array></code> below consists of two regular expression patterns:</p><p><code>['^\S</code><em><code>Apple', 'pie</code></em><code>$']</code></p> |
+| `<pattern_array>` | A series of one or more regular expression patterns to search for a match in the `<string>`.<br>`<pattern_array>`</code> must be enclosed in brackets. Each pattern must be enclosed in single quotes and separated with commas.<br>For example, the `<pattern_array>` below consists of two regular expression patterns:<br>`[ '\\d+', '\\[a-Z|A-Z]' ]` |
 
 **Example**
 
-The query below\*\* \*\*searches for any matches within the string ​`123` ​​with the patterns `​['\d+','\[a-Z|A-Z]']`​. ​ Since at least one is found, it returns: `1`
+The query below searches for any matches within the string ​`123` ​​with the patterns `​['\d+','\[a-Z|A-Z]']`​. ​ Since at least one is found, it returns: `1`
 
 ```sql
 SELECT
@@ -358,7 +354,7 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 ```
 
 | Parameter  | Description                                               |
-| ---------- | --------------------------------------------------------- |
+| :---------- | :--------------------------------------------------------- |
 | `<string>` | The string to hash. For `NULL`, the function returns `0`. |
 
 **Example**
@@ -380,7 +376,7 @@ Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT
 ```
 
 | Parameter  | Description                                                              |
-| ---------- | ------------------------------------------------------------------------ |
+| :---------- | :------------------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 hash value on and represent as `BIGINT.` |
 
 **Example**
@@ -402,7 +398,7 @@ Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT
 ```
 
 | Parameter  | Description                                                  |
-| ---------- | ------------------------------------------------------------ |
+| :---------- | :------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 on and represent as `BIGINT` |
 
 **Example**
@@ -424,7 +420,7 @@ This check whether a string pattern matches a regular expression string. Returns
 ```
 
 | Parameter   | Description                                               |
-| ----------- | --------------------------------------------------------- |
+| :----------- | :--------------------------------------------------------- |
 | `<string>`  | The string searched for a match using the RE2 pattern.    |
 | `<pattern>` | The pattern used to search for a match in the `<string>`. |
 
@@ -451,10 +447,55 @@ REGEXP_MATCHES(<string>, <pattern>[,'<flag>[...]'])
 ```
 
 | Parameter   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<string>`  | The string from which to extract substrings, based on a regular expression                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `<pattern>` | An [re2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `<flag>`    | <p>Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character.</p><p>Firebolt supports the following re2 flags to override default matching behavior.</p><p><code>i</code> - Specifies case-insensitive matching.</p><p><code>m</code> - Specifies multi-line mode. In this mode, <code>^</code> and <code>$</code> characters in the regex match the beginning and end of line in in addition to the beginning and end of text in .</p><p><code>s</code> - Specifies that the <code>.</code> metacharacter in regex matches the newline character in addition to any character in <code>.</code></p><p><code>U</code> - Specifies Ungreedy mode. In this mode, the meaning of the metacharacters <em>and <code>+</code> in regex are swapped with</em> <code>?</code> and <code>+?</code>, respectively. See the examples using flags below for the difference in how results are returned.</p> |
+| `<flag>`    | Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character.<br>Firebolt supports the following re2 flags to override default matching behavior.* `i` - Specifies case-insensitive matching.<br>* `m` - Specifies multi-line mode. In this mode, `^` and `$` characters in the regex match the beginning and end of line.<br>* `s` - Specifies that the `.` metacharacter in regex matches the newline character in addition to any character in `.`<br>* Specifies Ungreedy mode. In this mode, the meaning of the metacharacters `*` and `+` in regex `<pattern>` are swapped with `*?` and `+?`, respectively. See the examples using flags below for the difference in how results are returned. |
+
+**Examples**
+
+```sql
+SELECT REGEXP_MATCHES(
+  'ABC',
+  '^([A-Z]+)'
+  );
+```
+**Returns:** `["ABC"]`
+
+```sql
+SELECT REGEXP_MATCHES(
+  'Learning #Firebolt #REGEX',
+  '#([A-Za-z0-9_]+)'
+  );
+```
+**Returns:** `["Firebolt", "REGEX"]`
+
+**Examples using flags:**
+
+The `i` flag causes the regular expression to be case insensitive. Without this flag, this query would only match and return `ABC`.
+
+```sql
+SELECT REGEXP_MATCHES(
+  'ABCdef',
+  '^([A-Z]+)',
+  'i'
+  );
+```
+
+**Returns:** `["ABCdef"]`
+
+The `U` flag causes metacharacters like `+` to return as few characters together as possible. Without this flag, this query would return `["PPL","P"]`.
+
+```sql
+SELECT REGEXP_MATCHES(
+  'aPPLePie',
+  '([A-Z]+)',
+  'U'
+  );
+```
+
+**Returns:** `["P","P","L","P"]`
+
 
 ## REPEAT
 
@@ -467,7 +508,7 @@ REPEAT(<string>, <repeating_number>)
 ```
 
 | Parameter            | Description                                                                                                    |
-| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| :-------------------- | :-------------------------------------------------------------------------------------------------------------- |
 | `<string>`           | The string to be repeated.                                                                                     |
 | `<repeating_number>` | The number of needed repetitions. The minimum valid repeating number is `0`, which results in an empty string. |
 
@@ -490,7 +531,7 @@ REPLACE (<string>, <pattern>, <replacement>)​
 ```
 
 | Parameter       | Description                                                                                                                                                                                |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<string>`      | The original string that will be searched for instances of the `<pattern>`.                                                                                                                |
 | `<pattern>`     | The substring to be searched and replaced in the string.                                                                                                                                   |
 | `<replacement>` | The substring to replace the original substring defined by `<pattern>`. To remove the `<pattern>` substring with no replacement, you can use a empty string `''` as the replacement value. |
@@ -532,7 +573,7 @@ REVERSE(<string>)
 ```
 
 | Parameter  | Description                |
-| ---------- | -------------------------- |
+| :---------- | :-------------------------- |
 | `<string>` | The string to be reversed. |
 
 **Example**
@@ -556,7 +597,7 @@ The similar function to pad the start of a string is [`LPAD`](string-functions.m
 ```
 
 | Parameter  | Description                                                                                                                                                                                                                 |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<str>`    | The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string. ​ `<str>` can be a literal string or the name of a column. |
 | `<length>` | The integer length that the string will be after it has been left-padded. ​ A negative number returns an empty string.                                                                                                      |
 | `<pad>`    | The string to add to the end of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                       |
@@ -582,7 +623,7 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 ```
 
 | Parameter  | Description               |
-| ---------- | ------------------------- |
+| :---------- | :------------------------- |
 | `<target>` | The string to be trimmed. |
 
 **Example**
@@ -604,7 +645,7 @@ SPLIT( <delimiter>, <string> )
 ```
 
 | Parameter     | Description                           |
-| ------------- | ------------------------------------- |
+| :------------- | :------------------------------------- |
 | `<delimiter>` | The separator to split the string by. |
 | `<string>`    | The string to split.                  |
 
@@ -630,7 +671,7 @@ Divides a string based on a specified delimiter into an array of substrings. ​
 Please note that the order of the arguments is different than the `SPLIT` function.
 
 | Parameter     | Description                                                                                                                                    |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<string>`    | An expression evaluating to a string to be split.                                                                                              |
 | `<delimiter>` | Any character or substring within `<string>`. If `<delimiter>` is an empty string `''`, the `<string>` will be divided into single characters. |
 | `<index>`     | The index from which to return the substring.                                                                                                  |
@@ -666,8 +707,8 @@ Returns the position (in bytes) of the substring found in the string, starting f
 ```
 
 | Parameter     | Description                         |
-| ------------- | ----------------------------------- |
-| `<string>`    | The string in which to search for . |
+| :------------- | :----------------------------------- |
+| `<string>`    | The string that will be searched. |
 | `<substring>` | The substring to search for.        |
 
 **Examples**
@@ -695,7 +736,7 @@ SUBSTR(<string>, <offset> [, <length>])
 ```
 
 | Parameter  | Description                                                                                                                                                                       |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<string>` | The string to be offset.                                                                                                                                                          |
 | `<offset>` | The starting position for the substring. 1 is the first character.                                                                                                                |
 | `<length>` | Optional. The number of characters to be returned by the `SUBSTR` function. If left blank, `length` by default returns all of the string not specified by the `offset` parameter. |
@@ -729,7 +770,7 @@ Converts a string to `DATE` type.
 ```
 
 | Parameter  | Description                                                                |
-| ---------- | -------------------------------------------------------------------------- |
+| :---------- | :-------------------------------------------------------------------------- |
 | `<string>` | The string to convert to a date. The string format should be: ‘YYYY-MM-DD’ |
 
 **Example**
@@ -751,7 +792,7 @@ TO_DOUBLE(<exp>)
 ```
 
 | Parameter | Description                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
 **Example**
@@ -773,7 +814,7 @@ TO_FLOAT(<expr>)
 ```
 
 | Parameter | Description                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
 **Example**
@@ -795,7 +836,7 @@ TO_INT(<exp>)
 ```
 
 | Parameter | Description                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
 **Example**
@@ -817,7 +858,7 @@ TO_LONG(<exp>)
 ```
 
 | Parameter | Description                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
 **Example**
@@ -839,7 +880,7 @@ Converts a string to timestamp.
 ```
 
 | Parameter  | Description                                        |
-| ---------- | -------------------------------------------------- |
+| :---------- | :-------------------------------------------------- |
 | `<string>` | The string format should be: ‘YYYY-MM-DD HH:mm:ss’ |
 
 **Example**
@@ -861,7 +902,7 @@ Converts a string to a UNIX timestamp.
 ```
 
 | Parameter  | Description                                        |
-| ---------- | -------------------------------------------------- |
+| :---------- | :-------------------------------------------------- |
 | `<string>` | The string format should be: ‘YYYY-MM-DD HH:mm:ss’ |
 
 **Example**
@@ -883,7 +924,7 @@ For ​`DATETIME` ​​arguments: this function converts the value to its inter
 ```
 
 | Parameter  | Description                 |
-| ---------- | --------------------------- |
+| :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
 **Example**
@@ -906,7 +947,7 @@ Removes all specified characters from the start, end, or both sides of a string.
 
 | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[ LEADING \| TRAILING \| BOTH ]` | <p>Specifies which part or parts of the <code>&#x3C;target_string></code> to remove the defined <em></em> <code>&#x3C;trim_character></code>. If unspecified, this defaults to <code>BOTH</code>.</p><p><code>LEADING</code> - trims from the beginning of the specified string</p><p><code>TRAILING</code> - trims from the end of the specified string.</p><p><code>BOTH</code> - trims from the beginning and the end of the specified string.</p> |
+| ```[ LEADING | TRAILING | BOTH ]``` | Specifies which part or parts of the `<target_string>` to remove the defined `<trim_character>`. If unspecified, this defaults to `BOTH`.<br><br>`LEADING` - trims from the beginning of the specified string<br><br>`TRAILING` - trims from the end of the specified string. <br><br>`BOTH` - trims from the beginning and the end of the specified string. |
 | `<trim_character>`                | The characters to be removed.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `<target_string>`                 | The string to be trimmed.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
@@ -939,7 +980,7 @@ Converts the string to uppercase format.
 ```
 
 | Parameter  | Description                                             |
-| ---------- | ------------------------------------------------------- |
+| :---------- | :------------------------------------------------------- |
 | `<string>` | The string to be converted to all uppercase characters. |
 
 **Example**

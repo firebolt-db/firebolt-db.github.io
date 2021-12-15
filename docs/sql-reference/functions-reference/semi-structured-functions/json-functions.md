@@ -42,8 +42,8 @@ For example, consider the JSON document below.
 With this JSON document, the JSON pointer expressions below evaluate to the results shown.
 
 | Pointer             | Result                                                                                                                                                                                                                                                                                                    | Notes                                                                                                                                |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `/`                 | <p><code>{</code></p><p><code>"key": 123,</code></p><p><code>"key~with~tilde": 2,</code></p><p><code>"key/with/slash": 3,</code></p><p><code>"value": {</code></p><p><code>"dyid": 987,</code><br><code>"keywords" : ["insanely","fast","analytics"]</code></p><p><code>}</code></p><p><code>}</code></p> | The whole document                                                                                                                   |
+| :------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| `/`                 | `{` <br>`   "key": 123,` <br>`   "key~with~tilde": 2,` <br>`   "key/with/slash": 3,` <br>`   "value": {` <br>`      "dyid": 987,` <br>`      "keywords" : ["insanely","fast","analytics"]` <br>`   }` | The whole document                                                                                                                   |
 | `/key`              | 123                                                                                                                                                                                                                                                                                                       |                                                                                                                                      |
 | `/key~with~tilde`   | 2                                                                                                                                                                                                                                                                                                         | Indicates the value associated with the `key~with~tilde` property name.                                                              |
 | `/key/with/slash`   | 3                                                                                                                                                                                                                                                                                                         | Indicates the value associated with the `key/with/slash` property name.                                                              |
@@ -115,7 +115,7 @@ If the key pointed by the JSON pointer is not found, or the type of the value un
 ```
 
 | Parameter                   | Type           | Description                                                                                       |
-| --------------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
+| :--------------------------- | :-------------- | :------------------------------------------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.                                        |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the value in the JSON document.                                 |
 | `<expected_type>`           | Literal String | A literal string name of the expected [return type](json-functions.md#supported-type-parameters). |
@@ -169,7 +169,7 @@ This function is useful when working with heterogeneously typed arrays and array
 ```
 
 | Parameter                   | Type           | Description                                               |
-| --------------------------- | -------------- | --------------------------------------------------------- |
+| :--------------------------- | :-------------- | :--------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the array is to be extracted |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON   |
 
@@ -197,7 +197,7 @@ JSON_EXTRACT_KEYS(<json>, '<json_pointer_expression>')
 ```
 
 | Parameter                   | Type           | Description                                                     |
-| --------------------------- | -------------- | --------------------------------------------------------------- |
+| :--------------------------- | :-------------- | :--------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document used for key extraction                       |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to a location where the keys are to be extracted |
 
@@ -227,7 +227,7 @@ Returns the scalar or value pointed by the JSON Pointer as a string.
 ```
 
 | Parameter                   | Type           | Description                                                       |
-| --------------------------- | -------------- | ----------------------------------------------------------------- |
+| :--------------------------- | :-------------- | :----------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the value is to be extracted         |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the scalar or value in the JSON |
 
@@ -261,7 +261,7 @@ Returns an array of string representations, each element containing the value po
 ```
 
 | Parameter                   | Type           | Description                                                     |
-| --------------------------- | -------------- | --------------------------------------------------------------- |
+| :--------------------------- | :-------------- | :--------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the values are to be extracted     |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location where values are to be extracted |
 

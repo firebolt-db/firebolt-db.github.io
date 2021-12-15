@@ -21,7 +21,7 @@ ALL_MATCH(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty.                                                                                                          |
 
@@ -39,7 +39,7 @@ SELECT
     ALL_MATCH(x -> x > 10, [1,2,3,9]) AS res;
 ```
 
-\*\*Returns: \*\*`0`
+**Returns:** `0`
 
 ## ANY\_MATCH
 
@@ -52,7 +52,7 @@ Returns `1` if at least one of the elements of an array matches the results of t
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty                                                                                                           |
 
@@ -83,7 +83,7 @@ ARRAY_CONCAT(<arr1> [, ...n])
 ```
 
 | Parameter        | Description                                                                            |
-| ---------------- | -------------------------------------------------------------------------------------- |
+| :---------------- | :-------------------------------------------------------------------------------------- |
 | `<arr> [, ...n]` | The arrays to be combined. If only one array is given, an identical array is returned. |
 
 **Example**
@@ -104,7 +104,7 @@ ARRAY_COUNT(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                                                                                                                           |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<func>`  | Optional. A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<func>` is not included, `ARRAY_COUNT` will return a count of all elements in the array. |
 | `<arr>`   | An array of elements                                                                                                                                                                                                                                                                  |
 
@@ -117,7 +117,7 @@ SELECT
     ARRAY_COUNT(x -> x > 3, [1,2,3,9]) AS res;
 ```
 
-**Returns**: `1`
+**Returns:** `1`
 
 In this example below, there is no `<func>` criteria provided in the `ARRAY_COUNT` function. This means the function will count all of the elements in the given array.
 
@@ -126,7 +126,7 @@ SELECT
     ARRAY_COUNT([ 1, 2, 3, 9 ]) AS res;
 ```
 
-\*\*Returns: \*\*`4`
+**Returns:** `4`
 
 ## ARRAY\_COUNT\_GLOBAL
 
@@ -139,7 +139,7 @@ ARRAY_COUNT_GLOBAL(<arr_col>)
 ```
 
 | Parameter   | Description                                                      |
-| ----------- | ---------------------------------------------------------------- |
+| :----------- | :---------------------------------------------------------------- |
 | `<arr_col>` | The array column over which the function will count the elements |
 
 **Example**
@@ -171,7 +171,7 @@ FROM
 	array_test
 ```
 
-\*\*Returns: \*\*`17`
+**Returns:** `17`
 
 If you want to count elements based on specific criteria, you can use the [`ARRAY_COUNT`](array-functions.md#array_count) function with a `SUM` aggregation as demonstrated below.
 
@@ -195,7 +195,7 @@ ARRAY_CUMULATIVE_SUM( [<func>,] arr)
 ```
 
 | Parameter | Description                                     |
-| --------- | ----------------------------------------------- |
+| :--------- | :----------------------------------------------- |
 | `<func>`  | The function used to convert the array members. |
 | `<arr>`   | The array used for the sum calculations.        |
 
@@ -206,14 +206,14 @@ SELECT
 	ARRAY_CUMULATIVE_SUM(x -> x + 1, [ 1, 2, 3, 9 ]) AS res;
 ```
 
-**Returns**: 2,5,9,19
+**Returns**: `2,5,9,19`
 
 ```sql
 SELECT
 	ARRAY_CUMULATIVE_SUM([ 1, 2, 3, 9 ]) AS res
 ```
 
-**Returns**: 1,3,6,15
+**Returns**: `1,3,6,15`
 
 ## ARRAY\_DISTINCT
 
@@ -226,7 +226,7 @@ ARRAY_DISTINCT(<arr>)
 ```
 
 | Parameter | Description                                  |
-| --------- | -------------------------------------------- |
+| :--------- | :-------------------------------------------- |
 | `<arr>`   | The array to be analyzed for unique members. |
 
 **Example**
@@ -236,7 +236,7 @@ SELECT
 	ARRAY_DISTINCT([ 1, 1, 2, 2, 3, 4 ]) AS res;
 ```
 
-**Returns**: 1,2,3,4
+**Returns**: `1,2,3,4`
 
 ## ARRAY\_FILL
 
@@ -251,7 +251,7 @@ ARRAY_FILL(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
@@ -262,7 +262,7 @@ SELECT
     ARRAY_FILL(x -> x < 0,[1,2,3,9]) AS res;
 ```
 
-**Returns**: 1,1,1,1
+**Returns**: `1,1,1,1`
 
 ```sql
 SELECT
@@ -282,7 +282,7 @@ ARRAY_FIRST(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
@@ -307,7 +307,7 @@ ARRAY_FIRST_INDEX(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
@@ -331,7 +331,7 @@ ARRAY_INTERSECT(<arr>)
 ```
 
 | Parameter | Description                                            |
-| --------- | ------------------------------------------------------ |
+| :--------- | :------------------------------------------------------ |
 | `<arr>`   | A series of arrays to be analyzed for mutual elements. |
 
 **Example**
@@ -355,7 +355,7 @@ ARRAY_JOIN(<arr>[, <delimiter>])
 ```
 
 | Parameter     | Description                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------ |
 | `<arr>`       | An array of `TEXT` elements.                                                                                             |
 | `<delimiter>` | The delimiter used for joining the array elements. If you omit this value, an empty string is being used as a delimiter. |
 
@@ -377,7 +377,7 @@ SELECT
     ARRAY_JOIN(['a', 'b', 'c'], ',') AS res;
 ```
 
-\*\*Returns: \*\*`a,b,c`
+**Returns:** `a,b,c`
 
 ## ARRAY\_MAX
 
@@ -390,7 +390,7 @@ ARRAY_MAX(<arr>)
 ```
 
 | Parameter | Description                                  |
-| --------- | -------------------------------------------- |
+| :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
 **Example**
@@ -413,7 +413,7 @@ ARRAY_MIN(<arr>)
 ```
 
 | Parameter | Description                                  |
-| --------- | -------------------------------------------- |
+| :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
 **Example**
@@ -438,7 +438,7 @@ ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
@@ -462,7 +462,7 @@ ARRAY_REVERSE(<arr>)
 ```
 
 | Parameter | Description               |
-| --------- | ------------------------- |
+| :--------- | :------------------------- |
 | `<arr>`   | The array to be reversed. |
 
 **Example**
@@ -487,7 +487,7 @@ ARRAY_SORT([<func>,] <arr>)
 ```
 
 | Parameter | Description                                                  |
-| --------- | ------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------ |
 | `<func>`  | An optional function to be used to determine the sort order. |
 | `<arr>`   | The array to be sorted.                                      |
 
@@ -520,7 +520,7 @@ ARRAY_SUM([<func>,] <arr>)
 ```
 
 | Parameter | Description                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------- |
 | `<func>`  | A Lambda function with an [arithmetic function](../../commands/operators.md#arithmetic) used to modify the array elements. |
 | `<arr>`   | The array to be used to calculate the function.                                                                            |
 
@@ -555,7 +555,7 @@ ARRAY_UNIQ(<arr> [, ...n])
 ```
 
 | Parameter        | Description                         |
-| ---------------- | ----------------------------------- |
+| :---------------- | :----------------------------------- |
 | `<arr> [, ...n]` | The array or arrays to be analyzed. |
 
 **Example**
@@ -583,7 +583,7 @@ SELECT
         AS res;
 ```
 
-**Returns: **`2`
+**Returns:** `2`
 
 In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').&#x20;
 
@@ -610,7 +610,7 @@ ARRAY_UNNEST(<arr>)
 ```
 
 | Parameter | Description               |
-| --------- | ------------------------- |
+| :--------- | :------------------------- |
 | `<arr>`   | The array to be unfolded. |
 
 **Example**
@@ -622,7 +622,7 @@ SELECT ARRAY_UNNEST([1,2,3,4]) AS res;
 **Returns**:
 
 | res |
-| --- |
+| :--- |
 | 1   |
 | 2   |
 | 3   |
@@ -639,7 +639,7 @@ CONTAINS(<arr>, <arg>)
 ```
 
 | Parameter | Description                                      |
-| --------- | ------------------------------------------------ |
+| :--------- | :------------------------------------------------ |
 | `<arr>`   | The array to be checked for the given element.   |
 | `<arg>`   | The element to be searched for within the array. |
 
@@ -658,7 +658,7 @@ SELECT
     CONTAINS(['a', 'b', 'cookie'], 'c') AS res;
 ```
 
-\*\*Returns: \*\*`0`
+**Returns:** `0`
 
 ## ELEMENT\_AT
 
@@ -671,9 +671,9 @@ ELEMENT_AT(<arr>, <index>)
 ```
 
 | Parameter | Description                                                                                                                                                                                                                |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<arr>`   | The array containing the index.                                                                                                                                                                                            |
-| `<index>` | <p>The index that is matched by the function.</p><p>Negative indexes are supported. If used, the function selects the corresponding element numbered from the end. For example, arr[-1] is the last item in the array.</p> |
+| `<index>` | The index that is matched by the function. <br>Negative indexes are supported. If used, the function selects the corresponding element numbered from the end. For example, arr[-1] is the last item in the array. |
 
 **Example**
 
@@ -702,7 +702,7 @@ FILTER(<func>, <arr> [, ...n] )
 ```
 
 | Parameter        | Description                                                                                                                                                                    |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`         | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
 
@@ -741,7 +741,7 @@ FLATTEN(<arr_of_arrs>)
 ```
 
 | Parameter       | Description                          |
-| --------------- | ------------------------------------ |
+| :--------------- | :------------------------------------ |
 | `<arr_of_arrs>` | The array of arrays to be flattened. |
 
 **Example**
@@ -763,7 +763,7 @@ INDEX_OF(<arr>, <x>)
 ```
 
 | Parameter | Description                                       |
-| --------- | ------------------------------------------------- |
+| :--------- | :------------------------------------------------- |
 | `<arr>`   | The array to be analyzed.                         |
 | `<x>`     | The element from the array that is to be matched. |
 
@@ -787,7 +787,7 @@ LENGTH(<arr>)
 ```
 
 | Parameter | Description                         |
-| --------- | ----------------------------------- |
+| :--------- | :----------------------------------- |
 | `<arr>`   | The array to be checked for length. |
 
 **Example**
@@ -810,7 +810,7 @@ Takes a column as an argument, and returns an array of the values. In case the t
 ```
 
 | Parameter | Description                                         |
-| --------- | --------------------------------------------------- |
+| :--------- | :--------------------------------------------------- |
 | `<col>`   | The name of the column to be converted to an array. |
 
 **Example**
@@ -818,7 +818,7 @@ Takes a column as an argument, and returns an array of the values. In case the t
 Assume we have the following `prices` table:
 
 | item   | price |
-| ------ | ----- |
+| :------ | :----- |
 | apple  | 4     |
 | banana | NULL  |
 | orange | 11    |
@@ -844,7 +844,7 @@ REDUCE(<agg_function>, <arr>)
 ```
 
 | Parameter        | Description                                                                     |
-| ---------------- | ------------------------------------------------------------------------------- |
+| :---------------- | :------------------------------------------------------------------------------- |
 | `<agg_function>` | The name of an aggregate function which should be a constant string             |
 | `<arr>`          | Any number of array type columns as the parameters of the aggregation function. |
 
@@ -868,10 +868,10 @@ SLICE(<arr>, <offset>[, <length>])
 ```
 
 | Parameter  | Description                                                                                                                                                        |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<arr>`    | The array of data to be sliced. Array elements set to `NULL` are handled as normal values. The numbering of the array items begins with `1`.                       |
 | `<offset>` | Indicates starting point of the array slice. A positive value indicates an offset on the left, and a negative value is an indent on the right.                     |
-| `<length>` | <p>The length of the required slice.</p><p>If you omit this value, the function returns the slice from the <code>&#x3C;offset></code> to the end of the array.</p> |
+| `<length>` | The length of the required slice.<br>If you omit this value, the function returns the slice from the `<offset>` to the end of the array. |
 
 **Example**
 
@@ -895,7 +895,7 @@ TRANSFORM(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be transformed by the function.                                                                                                                                   |
 
