@@ -14,9 +14,9 @@ The view is available in all databases and can be queried as follows:
 
 ```sql
 SELECT
-    *
+  *
 FROM
-    information_schema.columns;
+  information_schema.columns;
 ```
 
 ## View columns

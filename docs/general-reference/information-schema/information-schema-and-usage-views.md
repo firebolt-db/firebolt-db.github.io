@@ -6,7 +6,7 @@ parent: General reference
 has_children: true
 ---
 
-# Information schema & usage views
+# Information schema and usage views
 
 The Firebolt information schema consists of a set of system views that contains metadata information on the objects defined in the current database. In addition, it contains a set of database usage views such as the [query history](query-history-view.md) and [running queries](running-queries.md).
 

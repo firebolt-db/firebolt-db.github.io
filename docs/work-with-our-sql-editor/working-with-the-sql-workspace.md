@@ -3,6 +3,7 @@ layout: default
 title: Working with the SQL workspace
 nav_order: 4
 has_children: true
+has_toc: false
 ---
 
 # Working with the SQL workspace

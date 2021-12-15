@@ -6,18 +6,21 @@ has_toc: true
 ---
 # Getting started tutorial
 {:.no_toc}
-This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamenatl analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
 
 1. Topic toC
 {:toc}
 
 ## Create your first database
-To start working with data, you first create a database and a *Firebolt engine*. An engine represents the compute resources that are attached to a database for a certain workload. A database always has one *general purpose engine* that can write to the Firebolt file format (F3) for data ingestion and run analytics queries. We use that single-engine set up in this tutorial, but many databases are set up with additional *analytics engines* engines that are configured to optimize different query workloads. For more information, see [Working-with-engines](/working-with-engines/working-with-engines.md).
+To start working with data, you first create a database and a *Firebolt engine*. An engine represents the compute resources that are attached to a database for a certain workload. A database always has one *general purpose engine* that can write to the Firebolt file format (F3) for data ingestion and run analytics queries. We use that single-engine set up in this tutorial. Many databases are set up with additional *analytics engines* that can only query, and are configured to optimize different query workloads. For more information, see [Working-with-engines](/working-with-engines/working-with-engines.md).
 
 **To create a database and engine**
-1. From the **Databases** page, choose **New Database**.
-2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.
-3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *&#8249;your_db_name&#8250;_general_purpose*.
+1. From the **Databases** page, choose **New Database**.  
+
+2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.  
+
+3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *&#8249;your_db_name&#8250;_general_purpose*.  
+
 4. Choose **Create database**.  
 ![](assets/images/2021-09-13_9-33-35.png)  
 Firebolt adds your database to the **Databases** page.
@@ -34,7 +37,7 @@ Before we ingest the sample data and run a query over it, we'll go to the SQL wo
 SHOW DATABASES;
 ```  
 
-3. Choose **Run script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, ***Tutorial_general_purpose***.  
+3. Choose **Run script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, `Tutorial_general_purpose`.  
 ![](assets/images/2021-09-13_9-35-31.png)  
 
 4. When Firebolt prompts you to start the engine, choose **Start engine**.

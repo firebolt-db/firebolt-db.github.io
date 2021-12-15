@@ -55,10 +55,7 @@ https://maindb-engine1.anycompany.us-east-1.app.firebolt.io
 
 Engines can be one of two _types_:
 
-* **General purpose engines** can do everything analytics engines do, but can also write data to Firebolt tables. They are designed for database creation, data ingestion, and extract, load, and transform \(ELT\) operations.
-
-{: .caution}
-Having more than one general purpose engine writing to a table can cause data inconsistency and errors. We strongly recommend creating only one general purpose engine per database.
+* **General purpose engines** can do everything analytics engines do, but can also write data to Firebolt tables. They are designed for database creation, data ingestion, and extract, load, and transform \(ELT\) operations. A database can have only one general purpose engine running at a time.
 
 * **Analytics engines** are read-only and are designed for queries that do not ingest data. They can't write values. You can run as many analytics engines as you need at the same time.
 
