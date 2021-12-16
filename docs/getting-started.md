@@ -6,7 +6,7 @@ has_toc: true
 ---
 # Getting started tutorial
 {:.no_toc}
-This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. Send email to `hello@firebolt.io` to create one.
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. If you do not have a Firebolt account send email to `hello@firebolt.io` to get started.
 
 1. Topic toC
 {:toc}
@@ -19,7 +19,7 @@ To start working with data, you first create a database and a *Firebolt engine*.
 
 2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.  
 
-3. Under **Database engines**, leave the default engine selected. Firebolt gave it the name *&#8249;your_db_name&#8250;_general_purpose*.  
+3. Under **Database engines**, leave the default engine selected. Firebolt will name the engine *Tutorial_general_purpose*.  
 
 4. Choose **Create database**.  
 ![](assets/images/2021-09-13_9-33-35.png)  
@@ -37,10 +37,10 @@ Before we ingest the sample data and run a query over it, we'll go to the SQL wo
 SHOW DATABASES;
 ```  
 
-3. Choose **Run script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, `Tutorial_general_purpose`.  
+3. Choose **Run Script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, `Tutorial_general_purpose`.  
 ![](assets/images/2021-09-13_9-35-31.png)  
 
-4. When Firebolt prompts you to start the engine, choose **Start engine**.
+4. When Firebolt prompts you to start the engine, choose **Start Engine**.
 
 ## Ingest data
 Ingesting data into Firebolt is a three-step process. You:
@@ -93,7 +93,7 @@ OBJECT_PATTERN = '*.parquet'
 TYPE = (PARQUET);
 ```  
 
-3. Choose **Run script**.  
+3. Choose **Run Script**.  
 Firebolt creates the external table. When finished, the external table `ex_lineitem` appears on the object panel of the database.  
 ![](assets/images/2021-09-13_9-36-53.png)  
 
@@ -134,7 +134,7 @@ PRIMARY INDEX
   l_linenumber;
 ```  
 
-3. Choose **Run script**.  
+3. Choose **Run Script**.  
 Firebolt creates the fact table. When finished, the table `lineitem` appears on the object panel of the database.  
 ![](/assets/images/2021-09-13_9-38-23.png)
 
@@ -152,7 +152,7 @@ SELECT
 FROM
   ex_lineitem;
 ```
-3. Choose **Run script**.  
+3. Choose **Run Script**.  
 The query results pane indicates a **Status** of **Running** as shown below.  
 ![](assets/images/2021-09-13_9-41-38.png)  
 The **Status** changes to **Success** when the ingestion is complete as shown below.
@@ -176,7 +176,7 @@ The values shown in the query results pane should be similar to those shown belo
 
 ### Configure an aggregating index
 
-An aggregating index enables you to take a subset of a table's columns and configure aggregations on top of those columns. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
+An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
 
 From the `lineitem` fact table you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. To help you speed up queries with these aggregations on this table, you can use the following statement in a script to create an aggregating index.
 
