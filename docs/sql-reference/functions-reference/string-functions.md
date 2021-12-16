@@ -6,14 +6,17 @@ parent: SQL functions reference
 ---
 
 # String functions
+{: .no_toc}
 
-This page describes the string functions supported in Firebolt.
+* Topic ToC
+{:toc}
 
 ## BASE64\_ENCODE
 
 Encodes a string into Base64 notation.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 BASE64_ENCODE(<expr>)
@@ -23,7 +26,8 @@ BASE64_ENCODE(<expr>)
 | :--------- | :--------------------------------------------------------------------------- |
 | `<expr>`  | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT BASE64_ENCODE('Hello World')
@@ -35,13 +39,13 @@ SELECT BASE64_ENCODE('Hello World')
 
 Concatenates the strings listed in the arguments without a separator.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CONCAT( <string>, <string2>[, ...n] );
 ```
-
-**Alternative syntax**
+**&mdash;OR&mdash;**
 
 ```sql
 <string> || <string2> || [ ...n]
@@ -51,7 +55,8 @@ CONCAT( <string>, <string2>[, ...n] );
 | :----------------------------- | :------------------------------- |
 | `<string>, <string2>[, ...n]` | The strings to be concatenated. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT concat('Hello ', 'World!')
@@ -63,7 +68,8 @@ SELECT concat('Hello ', 'World!')
 
 Extracts fragments within a string that match a specified regex pattern. String fragments that match are returned as an array of `string` types.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 EXTRACT_ALL( <expr>, '<regex_pattern>' )
@@ -74,7 +80,8 @@ EXTRACT_ALL( <expr>, '<regex_pattern>' )
 | `<expr>`          | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
 | `<regex_pattern>` | An re2 regular expression used for matching.                                |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, `EXTRACT_ALL` is used to match variants of "Hello World". The regular expression pattern `'Hello.[Ww]orld!?'` does not match any special characters except for `!`.
 
@@ -97,13 +104,15 @@ SELECT
 
 Returns a version 4 universally unique identifier (UUID) according to [RFC-4122](https://tools.ietf.org/html/rfc4122#section-4.4). This function accepts no arguments.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 GEN_RANDOM_UUID()
 ```
 
-**Example**
+### Example
+{: .no_toc}
 
 The example below outputs the result of `GEN_RANDOM_UUID` as `session_id`.
 
@@ -125,7 +134,8 @@ SELECT GEN_RANDOM_UUID as session_id;
 
 Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 <expr> ILIKE '<pattern>'
@@ -140,7 +150,7 @@ Allows matching of strings based on comparison to a pattern. `ILIKE` is normally
 
 For this example, we will create and load data into a demonstration table `match_test`:
 
-```
+```sql
 CREATE DIMENSION TABLE match_test
 	(
 		first_name TEXT, last_name TEXT
@@ -160,7 +170,7 @@ VALUES
 
 We can match first names that partially match the string "Fran" and any following characters as follows:
 
-```
+```sql
 SELECT * FROM match_test
 WHERE first_name ILIKE 'Fran%';
 ```
@@ -180,7 +190,8 @@ WHERE first_name ILIKE 'Fran%';
 
 Calculates the string length.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​LENGTH(<string>)​​
@@ -190,7 +201,8 @@ Calculates the string length.
 | :---------- | :------------------------------------------ |
 | `<string>` | The string for which to return the length. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT LENGTH('abcd')
@@ -202,7 +214,8 @@ SELECT LENGTH('abcd')
 
 Converts the string to a lowercase format.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​LOWER(<string>)​​
@@ -212,7 +225,8 @@ Converts the string to a lowercase format.
 | :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```
 SELECT LOWER('ABCD')
@@ -226,7 +240,8 @@ Adds a specified pad string to the end of the string repetitively up until the l
 
 The similar function to pad the end of a string is [`RPAD`](string-functions.md#rpad).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​LPAD(<str>, <length>[, <pad>])​​
@@ -238,7 +253,8 @@ The similar function to pad the end of a string is [`RPAD`](string-functions.md#
 | `<length>` | The length of the string as an integer after it has been left-padded. ​ A negative number returns an empty string.                                                                                                          |
 | `<pad>`    | The string to add to the start of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                     |
 
-**Example**
+### Example
+{: .no_toc}
 
 The following statement adds the string "ABC" in front of the string Firebolt repetitively until the resulting string is equivalent to 20 characters in length.
 
@@ -256,7 +272,8 @@ ABCABCABCABCFirebolt
 
 Removes all consecutive occurrences of common whitespace (ASCII character 32) from the beginning of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc.).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​LTRIM(<target>)​​
@@ -266,7 +283,8 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 | :---------- | :------------------------- |
 | `<target>` | The string to be trimmed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT LTRIM('     Hello, world! ')
@@ -282,7 +300,8 @@ Hello, world!
 
 Checks whether the string matches the regular expression `<pattern`>, which is a RE2 regular expression. ​ Returns `0` if it doesn’t match, or `1` if it matches.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​MATCH(<string>, '<pattern>')​​
@@ -293,7 +312,8 @@ Checks whether the string matches the regular expression `<pattern`>, which is a
 | `<string>`  | The string used to search for a match.                                |
 | `<pattern>` | The regular expression pattern used to search `<string>` for a match. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 The example below generates `0` as a result because it found no match. It is searching a string of numbers for alphabet characters.\*\* \*\*
 
@@ -317,7 +337,8 @@ The same as [MATCH](string-functions.md#match), but it searches for a match with
 
 Synonym for `MULTI_MATCH_ANY`
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​MATCH_ANY(<string>, <pattern_array>)​​
@@ -328,7 +349,8 @@ Synonym for `MULTI_MATCH_ANY`
 | `<string>`        | The string to search for a match.                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `<pattern_array>` | A series of one or more regular expression patterns to search for a match in the `<string>`.<br>`<pattern_array>`</code> must be enclosed in brackets. Each pattern must be enclosed in single quotes and separated with commas.<br>For example, the `<pattern_array>` below consists of two regular expression patterns:<br>`[ '\\d+', '\\[a-Z|A-Z]' ]` |
 
-**Example**
+### Example
+{: .no_toc}
 
 The query below searches for any matches within the string ​`123` ​​with the patterns `​['\d+','\[a-Z|A-Z]']`​. ​ Since at least one is found, it returns: `1`
 
@@ -347,7 +369,8 @@ SELECT
 
 Calculates the MD5 hash of string, returning the result as a string in hexadecimal.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​MD5(<string>)​​
@@ -357,7 +380,8 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 | :---------- | :--------------------------------------------------------- |
 | `<string>` | The string to hash. For `NULL`, the function returns `0`. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT MD5('text') AS res;
@@ -369,7 +393,8 @@ SELECT MD5('text') AS res;
 
 Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​MD5_NUMBER_LOWER64(<string>)​​
@@ -379,7 +404,8 @@ Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT
 | :---------- | :------------------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 hash value on and represent as `BIGINT.` |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT MD5_NUMBER_LOWER64('test') AS res;
@@ -391,7 +417,8 @@ SELECT MD5_NUMBER_LOWER64('test') AS res;
 
 Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​MD5_NUMBER_UPPER64(<string>)​​
@@ -401,7 +428,8 @@ Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT
 | :---------- | :------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 on and represent as `BIGINT` |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT MD5_NUMBER_UPPER64('test') AS res;
@@ -413,7 +441,8 @@ SELECT MD5_NUMBER_UPPER64('test') AS res;
 
 This check whether a string pattern matches a regular expression string. Returns `0` if it doesn’t match, or `1` if it matches. ​ This is a ​​RE2​​ regular expression.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​REGEXP_LIKE(<string>, '<pattern>')​​
@@ -424,7 +453,8 @@ This check whether a string pattern matches a regular expression string. Returns
 | `<string>`  | The string searched for a match using the RE2 pattern.    |
 | `<pattern>` | The pattern used to search for a match in the `<string>`. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 ​​SELECT REGEXP_LIKE('123','\\[a-z]') AS res;​​
@@ -452,7 +482,8 @@ REGEXP_MATCHES(<string>, <pattern>[,'<flag>[...]'])
 | `<pattern>` | An [re2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `<flag>`    | Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character.<br>Firebolt supports the following re2 flags to override default matching behavior.* `i` - Specifies case-insensitive matching.<br>* `m` - Specifies multi-line mode. In this mode, `^` and `$` characters in the regex match the beginning and end of line.<br>* `s` - Specifies that the `.` metacharacter in regex matches the newline character in addition to any character in `.`<br>* Specifies Ungreedy mode. In this mode, the meaning of the metacharacters `*` and `+` in regex `<pattern>` are swapped with `*?` and `+?`, respectively. See the examples using flags below for the difference in how results are returned. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT REGEXP_MATCHES(
@@ -470,7 +501,7 @@ SELECT REGEXP_MATCHES(
 ```
 **Returns:** `["Firebolt", "REGEX"]`
 
-**Examples using flags:**
+####Example&ndash;using flags
 
 The `i` flag causes the regular expression to be case insensitive. Without this flag, this query would only match and return `ABC`.
 
@@ -501,7 +532,8 @@ SELECT REGEXP_MATCHES(
 
 This function repeats the provided string a requested number of times.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 REPEAT(<string>, <repeating_number>)
@@ -512,7 +544,8 @@ REPEAT(<string>, <repeating_number>)
 | `<string>`           | The string to be repeated.                                                                                     |
 | `<repeating_number>` | The number of needed repetitions. The minimum valid repeating number is `0`, which results in an empty string. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT REPEAT('repeat 3 times ' , 3);
@@ -524,7 +557,8 @@ SELECT REPEAT('repeat 3 times ' , 3);
 
 Replaces all occurrences of the `<pattern>` substring within the `<string>` with the `<replacement>` substring.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 REPLACE (<string>, <pattern>, <replacement>)​
@@ -536,7 +570,8 @@ REPLACE (<string>, <pattern>, <replacement>)​
 | `<pattern>`     | The substring to be searched and replaced in the string.                                                                                                                                   |
 | `<replacement>` | The substring to replace the original substring defined by `<pattern>`. To remove the `<pattern>` substring with no replacement, you can use a empty string `''` as the replacement value. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 In the example below, "hello" in "hello world" is replaced with "nice".
 
@@ -566,7 +601,8 @@ SELECT REPLACE('hello world','hi','something') AS res;
 
 This function returns a string of the same size as the original string, with the elements in reverse order.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 REVERSE(<string>)
@@ -576,7 +612,8 @@ REVERSE(<string>)
 | :---------- | :-------------------------- |
 | `<string>` | The string to be reversed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT REVERSE('abcd') AS res
@@ -590,7 +627,8 @@ Adds a specified pad string to the end of the string repetitively up until the l
 
 The similar function to pad the start of a string is [`LPAD`](string-functions.md#lpad).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​RPAD(<str>, <length>[, <pad>])​​
@@ -602,7 +640,8 @@ The similar function to pad the start of a string is [`LPAD`](string-functions.m
 | `<length>` | The integer length that the string will be after it has been left-padded. ​ A negative number returns an empty string.                                                                                                      |
 | `<pad>`    | The string to add to the end of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                       |
 
-**Example**
+### Example
+{: .no_toc}
 
 The following statement adds the string "ABC" to the end of the string "Firebolt" repetitively until the resulting string is equivalent to 20 characters in length.
 
@@ -616,7 +655,8 @@ SELECT RPAD('Firebolt', 20, 'ABC');
 
 Removes all consecutive occurrences of common whitespace (ASCII character 32) from the end of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc.).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​RTRIM(<target>)​​
@@ -626,7 +666,8 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 | :---------- | :------------------------- |
 | `<target>` | The string to be trimmed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT RTRIM('Hello, world!     ')
@@ -638,7 +679,8 @@ SELECT RTRIM('Hello, world!     ')
 
 This function splits a given string by a given separator and returns the result in an array of strings.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SPLIT( <delimiter>, <string> )
@@ -649,7 +691,8 @@ SPLIT( <delimiter>, <string> )
 | `<delimiter>` | The separator to split the string by. |
 | `<string>`    | The string to split.                  |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT SPLIT('|','this|is|my|test') AS res
@@ -661,7 +704,8 @@ SELECT SPLIT('|','this|is|my|test') AS res
 
 Divides a string based on a specified delimiter into an array of substrings. ​ The string in the specified index is returned, with `1` being the first index. If the string separator is empty, the string is divided into an array of single characters.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​SPLIT_PART(<string>, <delimiter>, <index>)​​
@@ -676,7 +720,8 @@ Please note that the order of the arguments is different than the `SPLIT` functi
 | `<delimiter>` | Any character or substring within `<string>`. If `<delimiter>` is an empty string `''`, the `<string>` will be divided into single characters. |
 | `<index>`     | The index from which to return the substring.                                                                                                  |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT SPLIT_PART('hello#world','#',1) AS res;
@@ -684,13 +729,13 @@ SELECT SPLIT_PART('hello#world','#',1) AS res;
 
 **Returns**: `hello`
 
-```
+```sql
 SELECT SPLIT_PART('this|is|my|test', '|', 4 ) AS res;
 ```
 
 **Returns**: `test`
 
-```
+```sql
 SELECT SPLIT_PART('hello world', '', 7 ) AS res;
 ```
 
@@ -700,7 +745,8 @@ SELECT SPLIT_PART('hello world', '', 7 ) AS res;
 
 Returns the position (in bytes) of the substring found in the string, starting from 1. The returned value is for the first matching value, and not for any subsequent valid matches.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​STRPOS(<string>, <substring>)​​
@@ -711,7 +757,8 @@ Returns the position (in bytes) of the substring found in the string, starting f
 | `<string>`    | The string that will be searched. |
 | `<substring>` | The substring to search for.        |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT STRPOS('hello world','hello') AS res
@@ -729,7 +776,8 @@ SELECT STRPOS('hello world','world') AS res
 
 Returns a substring starting at the character indicated by the `<offset>` index and including the number of characters defined by the `<length>`. Character indexing starts from index 1. The `<offset>` and `<length>` arguments must be constants.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SUBSTR(<string>, <offset> [, <length>])
@@ -741,7 +789,8 @@ SUBSTR(<string>, <offset> [, <length>])
 | `<offset>` | The starting position for the substring. 1 is the first character.                                                                                                                |
 | `<length>` | Optional. The number of characters to be returned by the `SUBSTR` function. If left blank, `length` by default returns all of the string not specified by the `offset` parameter. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, the string is offset by 1 and so the `SUBSTR` command begins at the first letter, "h". The `<length>` of 5 indicates the resulting string should be only five characters long.
 
@@ -753,7 +802,7 @@ SELECT SUBSTR('hello world', 1, 5);
 
 In this next example, there is no `<length>` provided. This means all characters are included after the `<offset>` index, which is 7.
 
-```
+```sql
 SELECT SUBSTR('hello world', 7);
 ```
 
@@ -763,7 +812,8 @@ SELECT SUBSTR('hello world', 7);
 
 Converts a string to `DATE` type.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​TO_DATE(<string>)​​
@@ -773,7 +823,8 @@ Converts a string to `DATE` type.
 | :---------- | :-------------------------------------------------------------------------- |
 | `<string>` | The string to convert to a date. The string format should be: ‘YYYY-MM-DD’ |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT TO_DATE('2020-05-31') AS res;
@@ -785,7 +836,8 @@ SELECT TO_DATE('2020-05-31') AS res;
 
 Converts a string to a numeric `DOUBLE` data type.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TO_DOUBLE(<exp>)
@@ -795,9 +847,10 @@ TO_DOUBLE(<exp>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT TO_DOUBLE('100')
 ```
 
@@ -807,7 +860,8 @@ SELECT TO_DOUBLE('100')
 
 Converts a string to a numeric `FLOAT` data type.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TO_FLOAT(<expr>)
@@ -817,9 +871,10 @@ TO_FLOAT(<expr>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT TO_FLOAT('10.5')
 ```
 
@@ -829,7 +884,8 @@ SELECT TO_FLOAT('10.5')
 
 Converts a string to a numeric `INT` data type.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TO_INT(<exp>)
@@ -839,9 +895,10 @@ TO_INT(<exp>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT TO_INT('10')
 ```
 
@@ -851,7 +908,8 @@ SELECT TO_INT('10')
 
 Converts a string to a numeric `LONG` data type.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TO_LONG(<exp>)
@@ -861,9 +919,10 @@ TO_LONG(<exp>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT TO_LONG('1234567890')
 ```
 
@@ -873,7 +932,8 @@ SELECT TO_LONG('1234567890')
 
 Converts a string to timestamp.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​TO_TIMESTAMP(<string>)​​
@@ -883,7 +943,8 @@ Converts a string to timestamp.
 | :---------- | :-------------------------------------------------- |
 | `<string>` | The string format should be: ‘YYYY-MM-DD HH:mm:ss’ |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT TO_TIMESTAMP('2020-05-31 10:31:14') AS res;
@@ -895,7 +956,8 @@ SELECT TO_TIMESTAMP('2020-05-31 10:31:14') AS res;
 
 Converts a string to a UNIX timestamp.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​TO_UNIX_TIMESTAMP(<string>)​​
@@ -905,7 +967,8 @@ Converts a string to a UNIX timestamp.
 | :---------- | :-------------------------------------------------- |
 | `<string>` | The string format should be: ‘YYYY-MM-DD HH:mm:ss’ |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT TO_UNIX_TIMESTAMP('2017-11-05 08:07:47');
@@ -917,7 +980,8 @@ SELECT TO_UNIX_TIMESTAMP('2017-11-05 08:07:47');
 
 For ​`DATETIME` ​​arguments: this function converts the value to its internal numeric representation (Unix Timestamp). ​ For ​`TEXT` ​​arguments: this function parses ​`DATETIME` ​​from a string and returns the corresponding Unix timestamp.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​TO_UNIXTIME(<string>)​​
@@ -927,7 +991,8 @@ For ​`DATETIME` ​​arguments: this function converts the value to its inter
 | :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT TO_UNIXTIME('2017-11-05 08:07:47') AS TO_UNIXTIME;
@@ -939,7 +1004,8 @@ SELECT TO_UNIXTIME('2017-11-05 08:07:47') AS TO_UNIXTIME;
 
 Removes all specified characters from the start, end, or both sides of a string. By default removes all consecutive occurrences of common whitespace (ASCII character 32) from both ends of a string.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​TRIM( [LEADING | TRAILING | BOTH] <trim_character> FROM <target_string>)​​
@@ -951,7 +1017,8 @@ Removes all specified characters from the start, end, or both sides of a string.
 | `<trim_character>`                | The characters to be removed.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `<target_string>`                 | The string to be trimmed.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, no part of the string is specified for `TRIM`, so it defaults to `BOTH`.
 
@@ -973,7 +1040,8 @@ SELECT TRIM( LEADING '$' FROM '$Hello world$') AS res;
 
 Converts the string to uppercase format.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​UPPER(<string>)​​
@@ -983,9 +1051,10 @@ Converts the string to uppercase format.
 | :---------- | :------------------------------------------------------- |
 | `<string>` | The string to be converted to all uppercase characters. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT UPPER('hello world')
 ```
 

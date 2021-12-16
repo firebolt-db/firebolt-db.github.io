@@ -6,14 +6,17 @@ parent: SQL functions reference
 ---
 
 # Numeric functions
+{: .no_toc}
 
-This page describes the numeric functions supported in Firebolt.
+* Topic ToC
+{:toc}
 
 ## ABS
 
 Calculates the absolute value of a number `<val>`.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ABS(<val>)
@@ -23,9 +26,10 @@ ABS(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     ABS(-200.50)
 ```
@@ -36,7 +40,8 @@ SELECT
 
 Calculates the arc cosine of a value `<val>`. `ACOS` returns `NULL` if `<val>` is higher than 1.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ACOS(<val>)
@@ -46,9 +51,10 @@ ACOS(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     ACOS(0.5)
 ```
@@ -59,7 +65,8 @@ SELECT
 
 Calculates the arc sinus. `ASIN` returns `NULL` if `<val>` is higher than 1.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ASIN(<val>)
@@ -69,9 +76,10 @@ ASIN(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     ASIN(1.0)
 ```
@@ -82,7 +90,8 @@ SELECT
 
 Calculates the arctangent.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ATAN(<val>)
@@ -92,9 +101,10 @@ ATAN(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     ATAN(90)
 ```
@@ -105,7 +115,8 @@ SELECT
 
 Returns the cubic-root of a non-negative numeric expression.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CBRT(<val>);
@@ -115,9 +126,10 @@ CBRT(<val>);
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     CBRT(8);
 ```
@@ -128,7 +140,8 @@ SELECT
 
 Returns the smallest number that is greater than or equal to a specified value `<val>`. The value is rounded to a decimal range defined by `<dec>`.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CEIL(<val>[, <dec>]);
@@ -140,9 +153,10 @@ CEILING(<val>[, <dec>]);
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `CEIL `and `CEILING` return whole numbers.  |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     CEIL(2.5549900, 3);
 ```
@@ -153,7 +167,8 @@ SELECT
 
 Calculates the cosine.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 COS(<exp>)
@@ -163,9 +178,10 @@ COS(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     COS(180);
 ```
@@ -176,7 +192,8 @@ SELECT
 
 Calculates the cotangent.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 COT(<exp>)
@@ -186,9 +203,10 @@ COT(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     COT(180)
 ```
@@ -199,7 +217,8 @@ SELECT
 
 Converts a value in radians to degrees.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DEGREES(<exp>)
@@ -209,9 +228,10 @@ DEGREES(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     DEGREES(3);
 ```
@@ -222,7 +242,8 @@ SELECT
 
 Returns the FLOAT value of the constant _e_ raised to the power of a specified number.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 EXP(<val>)
@@ -232,9 +253,10 @@ EXP(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     EXP(2)
 ```
@@ -245,7 +267,8 @@ SELECT
 
 Returns the largest round number that is less than or equal to `<val>`. The value is rounded to a decimal range defined by `<dec>`.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 FLOOR(<val>[, <dec>])
@@ -256,9 +279,10 @@ FLOOR(<val>[, <dec>])
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `FLOOR` returns whole numbers.  |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     FLOOR(2.19, 1)
 ```
@@ -269,7 +293,8 @@ SELECT
 
 Returns the natural logarithm of a numeric expression based on the desired base.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 LOG([<base>,] <num>);
@@ -280,7 +305,8 @@ LOG([<base>,] <num>);
 | `<base>`    | Optional. The base for the logarithm. The default base is 10.                                                       |
 | `<numeric>` | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 This example below returns the logarithm of 64.0 with base 2.&#x20;
 
@@ -302,7 +328,8 @@ SELECT LOG(64.0)
 
 Calculates the remainder after dividing two values, `<num>` / `<den>.`
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 MOD(<num>,<den>)
@@ -313,9 +340,10 @@ MOD(<num>,<den>)
 | `<num>`   | The numerator of the division equation.   |
 | `<den>`   | The denominator of the division equation. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     MOD(45, 7)
 ```
@@ -326,13 +354,15 @@ SELECT
 
 Calculates π as a FLOAT value.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​PI() ​​
 ```
 
-**Example**
+### Example
+{: .no_toc}
 
 ```
 SELECT
@@ -345,7 +375,8 @@ SELECT
 
 Returns a number `<val>` raised to the specified power `<exp>`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 POW(<val>, <exp>)​;
@@ -357,9 +388,10 @@ POWER(<val>, <exp>)​;
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 | `<exp>`   | The exponent value used to raise `<val>`                                                                            |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     POW(2, 5)
 ```
@@ -370,7 +402,8 @@ SELECT
 
 Converts degrees to radians as a `FLOAT` value.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​RADIANS(<val>) ​​
@@ -380,9 +413,10 @@ Converts degrees to radians as a `FLOAT` value.
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     RADIANS(180)
 ```
@@ -393,33 +427,35 @@ SELECT
 
 Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `DOUBLE`.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 RANDOM()
 ```
 
-**Examples**
+### Example
+{: .no_toc}
 
-The example below demonstrates using `RANDOM` without any other numeric functions. This generates a `DOUBLE` value less than 1.&#x20;
+The example below demonstrates using `RANDOM` without any other numeric functions. This generates a `DOUBLE` value less than 1.
 
-```
+```sql
 SELECT RANDOM()
 ```
 
 **Returns:** `0.8544004706537051`
 
-**Using RANDOM for range of values**
+####Example&ndash;using RANDOM for range of values**
 
 To create a random integer number between two values, you can use `RANDOM` with the `FLOOR` function as demonstrated below. `a` is the lesser value and `b` is the greater value. &#x20;
 
-```
+```sql
 SELECT FLOOR( RANDOM() * ( b - a + 1)) + a;
 ```
 
 For example, the formula below generates a random integer between 50 and 100:&#x20;
 
-```
+```sql
 SELECT FLOOR( RANDOM() * (100 - 50 + 1)) + 50;
 ```
 
@@ -429,7 +465,8 @@ SELECT FLOOR( RANDOM() * (100 - 50 + 1)) + 50;
 
 Rounds a value to a specified number of decimal places.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ROUND(<val> [, <dec>])
@@ -440,9 +477,10 @@ ROUND(<val> [, <dec>])
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `ROUND` returns whole numbers.  |
 
-**Examples**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     ROUND(5.4)
 ```
@@ -460,7 +498,8 @@ SELECT
 
 Calculates the sinus.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SIN(<val>)
@@ -470,9 +509,10 @@ SIN(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     SIN(90)
 ```
@@ -483,7 +523,8 @@ SELECT
 
 Returns the square root of a non-negative numeric expression.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SQRT(<val>);
@@ -493,9 +534,10 @@ SQRT(<val>);
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. Returns `NULL `if a negative value is given.  |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     SQRT(64)
 ```
@@ -506,7 +548,8 @@ SELECT
 
 Calculates the tangent.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TAN(<val>)
@@ -516,9 +559,10 @@ TAN(<val>)
 | :--------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.  |
 
-**Example**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     TAN(90)
 ```
@@ -529,7 +573,8 @@ SELECT
 
 Returns the rounded absolute value of a numeric value. The returned value will always be rounded to less than the original value.&#x20;
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TRUNC(<val>[, <dec>])
@@ -540,16 +585,17 @@ TRUNC(<val>[, <dec>])
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.          |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `TRUNC` returns whole numbers. |
 
-**Examples**
+### Example
+{: .no_toc}
 
-```
+```sql
 SELECT
     TRUNC(-20.5)
 ```
 
 **Returns:** `-20`
 
-```
+```sql
 SELECT
     TRUNC(-99.999999, 3)
 ```
