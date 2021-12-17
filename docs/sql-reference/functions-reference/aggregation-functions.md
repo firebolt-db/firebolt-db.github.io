@@ -24,10 +24,7 @@ ANY(<col>)
 To demonstrate `ANY`, we'll create a basic example table.&#x20;
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS example
-	(
-		First_name TEXT
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS example (First_name TEXT);
 
 
 INSERT INTO
@@ -48,7 +45,7 @@ FROM
 	example;
 ```
 
-**Returns: **`Sammy`
+**Returns**: `Sammy`
 
 ## ANY\_VALUE
 
@@ -99,10 +96,8 @@ APPROX_PERCENTILE(<expr>,<percent>)
 To demonstrate `APPROX_PERCENTILE`, we'll use the example table `number_test` as created below. This provides a range of numbers between 1 and 100.&#x20;
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS number_test
-	(
-		First_name TEXT
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS number_test (first_name TEXT);
+
 
 INSERT INTO
 	number_test
@@ -126,7 +121,7 @@ FROM
 	number_test;
 ```
 
-**Returns: **`40.5`
+**Returns**: `40.5`
 
 The example below shows an `APPROX_PERCENTILE` of 25%.&#x20;
 
@@ -137,7 +132,7 @@ FROM
 	number_test;
 ```
 
-**Returns: **`20.5`
+**Returns**: `20.5`
 
 ## AVG
 
@@ -201,10 +196,9 @@ COUNT([ DISTINCT ] <expr>)
 For this example, we'll create a new table `number_test` as shown below.&#x20;
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS number_test
-	(
-		num TEXT
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS number_test (num TEXT);
+
+
 INSERT INTO
 	number_test
 VALUES
@@ -259,11 +253,8 @@ Calculates the maximum value of an expression across all input values.
 For this example, we'll create a new table `prices` as shown below.
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS prices
-    (
-        item TEXT,
-        price INT
-    );
+CREATE DIMENSION TABLE IF NOT EXISTS prices (item TEXT, price INT);
+
 
 INSERT INTO
 	prices
@@ -283,7 +274,7 @@ FROM
 	prices;
 ```
 
-**Returns: **`25`
+**Returns**: `25`
 
 MAX can also work on text columns by returning the text row with the characters that are last in the lexicographic order.&#x20;
 
@@ -294,7 +285,7 @@ FROM
 	prices;
 ```
 
-**Returns: **`orange`
+**Returns**: `orange`
 
 ## MAX\_BY
 
@@ -315,7 +306,7 @@ MAX_BY(<arg>, <val>)
 
 **Example**
 
-For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:&#x20;
+For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:
 
 | item   | price |
 | :------ | :----- |
@@ -333,7 +324,7 @@ FROM
 	prices;
 ```
 
-**Returns:** `banana`
+**Returns**: `banana`
 
 ## MEDIAN
 
@@ -353,13 +344,12 @@ Calculates an approximate median for a given column.
 
 **Example**
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test
-	(
-		num int
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+
+
 INSERT INTO
 	num_test
 VALUES
@@ -381,7 +371,7 @@ FROM
 	number_test
 ```
 
-**Returns: **`30`
+**Returns**: `30`
 
 ## MIN
 
@@ -402,11 +392,8 @@ Calculates the minimum value of an expression across all input values.
 For this example, we'll create a new table `prices` as shown below.
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS prices
-    (
-        item TEXT,
-        price INT
-    );
+CREATE DIMENSION TABLE IF NOT EXISTS prices (item TEXT, price INT);
+
 
 INSERT INTO
 	prices
@@ -414,7 +401,7 @@ VALUES
 	('apple', 4),
 	('banana', 25),
 	('orange', 11),
-	('kiwi', 20)
+	('kiwi', 20);
 ```
 
 When used on the `num` column, `MIN` will return the largest value.
@@ -426,7 +413,7 @@ FROM
 	prices;
 ```
 
-**Returns: **`4`
+**Returns**: `4`
 
 `MIN` can also work on text columns by returning the text row with the characters that are first in the lexicographic order.
 
@@ -486,7 +473,7 @@ See the [full description](semi-structured-functions/array-functions.md#nest) un
 
 ## STDDEV\_SAMP
 
-Computes the standard deviation of a sample consisting of a numeric-expression.
+Computes the standard deviation of a sample consisting of a numeric expression.
 
 **Syntax**
 
@@ -500,13 +487,12 @@ STDDEV_SAMP(<expr>)​
 
 **Example**
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test
-	(
-		num int
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+
+
 INSERT INTO
 	num_test
 VALUES
@@ -546,13 +532,12 @@ Calculates the sum of an expression.
 
 **Example**
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test
-	(
-		num int
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+
+
 INSERT INTO
 	num_test
 VALUES
