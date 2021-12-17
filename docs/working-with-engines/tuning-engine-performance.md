@@ -24,7 +24,7 @@ The first consideration for ingestion engines is the size of individual files an
 Consider tuning adjustments in any of the following situations:
 
 * Individual files or your total ingestion payload are outside the 100 MB – 32 GB range.
-* You ingest complex data structures found in Parquet, JSON, and other nested and semi-structured formats.
+* You ingest complex data structures such as arrays and semi-structured data.
 * You ingest many files, especially small files.
 
 ### Choose RAM based on file and payload size
@@ -36,7 +36,7 @@ The size of the ingestion payload should never exceed the total amount of RAM av
 
 ### Adjust node RAM using the engine specification, and then use scale to increase overall engine RAM
 
-For large files and payloads, choose an engine specification that provides each node with enough RAM for your largest individual file. Aim for RAM that is 1.5x to 2x the size of the largest file. If node RAM can’t cover the size of the entire payload, adjust engine scale to add nodes. When you scale, aim for engine-wide RAM to exceed the size of the entire payload by the same 1.5x to 2x ratio. This same guidance to add nodes applies to a large file that exceeds any available node capacity.
+For large files and payloads, choose an engine specification that provides each node with enough RAM for your largest individual file. Aim for RAM that is 1.5x to 2x the uncompressed size of the largest file. If node RAM can’t cover the size of the entire payload, adjust engine scale to add nodes. When you scale, aim for engine-wide RAM to exceed the size of the entire payload by the same 1.5x to 2x ratio. This same guidance to add nodes applies to a large file that exceeds any available node capacity.
 
 If you ingest smaller files, a single node engine is often enough. Increase the engine specification so that node RAM can cover the payload using the 1.5x to 2x guidance from above. With small files, it’s often possible to decrease the engine specification without a significant impact to performance.
 
@@ -68,5 +68,5 @@ You can run as many analytics engines on a database at the same time as you need
 
 Queries that perform complex aggregations and multiple joins are likely to place greater demands on an analytics engine, requiring more processing power, RAM, or both. For these engines, consider modifying the engine specification to add RAM or increase the CPU of nodes according to the guidance below.
 
-* **Join queries benefit from increased RAM** - Join queries tend to be memory intensive, with large data sets cached in RAM during join operations. Try increasing the engine specification with more RAM per node. Aim for the memory of each node to be enough to contain all the join indexes fully in memory. Next, add nodes for additional RAM when running large and complex joins.
+* **Queries with joins benefit from increased RAM** - Queries joining multiple tables can be memory intensive, with large data sets cached in RAM during join operations. Try increasing the engine specification with more RAM per node. Aim for the memory of each node to be enough to contain all the join indexes fully in memory. Next, add nodes for additional RAM when running large and complex joins.
 * **Aggregation queries benefit from increased CPU** - Aggregation queries tend to be computationally intensive. Using an engine specification with more CPU power per node is likely to improve performance.

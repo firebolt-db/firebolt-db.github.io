@@ -50,32 +50,22 @@ The following example categorizes each entry by length. If the movie is longer t
 
 ```sql
 SELECT
-   Movie,
-   length,
-   CASE
-      WHEN
-         length > 0
-         AND length <= 50
-      THEN
-         'Short'
-      WHEN
-         length > 50
-         AND length <= 120
-      THEN
-         'Medium'
-      WHEN
-         length > 120
-      THEN
-         'Long'
-   END
-   duration
+	movie,
+	length,
+	CASE
+		WHEN length > 0
+		AND length <= 50 THEN 'Short'
+		WHEN length > 50
+		AND length <= 120 THEN 'Medium'
+		WHEN length > 120 THEN 'Long'
+	END duration
 FROM
-   movie_test
+	movie_test
 ORDER BY
-   Movie;
+	movie;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +----------------------+--------+----------+

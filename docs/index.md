@@ -13,3 +13,4 @@ Firebolt is a cloud data warehouse purpose-built for exceptional query performan
 
 * If you like to start with a hands-on test drive, jump in with the [Getting started](getting-started.md).
 * To understand what's under the hood, check out [Key concepts and architecture](architecture-overview.md) first, and then see [Firebolt cloud data warehouse whitepaper](https://www.firebolt.io/resources/firebolt-cloud-data-warehouse-whitepaper) for more detail.
+* If you do not have a Firebolt account, send an email to hello@firebolt.io to see if Firebolt is a good fit for you.

@@ -32,7 +32,7 @@ SELECT
     CURRENT_DATE();
 ```
 
-**Returns:** `2021-11-04`
+**Returns**: `2021-11-04`
 
 ## DATE\_ADD
 
@@ -66,10 +66,10 @@ This example below adds 15 weeks to the `sale_date` column.
 
 ```sql
 SELECT
-	Category,
+	category,
 	DATE_ADD('WEEK', 15, sale_date)
 FROM
-	date_test
+	date_test;
 ```
 
 **Returns**:
@@ -121,10 +121,10 @@ The example below uses a table `date_test` with the columns and values below.
 
 ```sql
 SELECT
-	Category,
+	category,
 	DATE_DIFF('YEAR', sale_date, sale_datetime) AS year_difference
 FROM
-	date_test
+	date_test;
 ```
 
 **Returns**:
@@ -153,7 +153,7 @@ SELECT
 
 ## DATE\_FORMAT
 
-Formats a ​`DATE` ​​or ​`DATETIME` ​​according to the given format expression.
+Formats a `DATE` or `DATETIME` according to the given format expression.
 
 ### Syntax
 {: .no_toc}
@@ -206,7 +206,7 @@ The example below shows output for `<format>` expressions %C, %d, %D, %e, %F, %H
 
 ```sql
 SELECT
-	Category,
+	category,
 	DATE_FORMAT(sale_datetime, '%C') AS C,
 	DATE_FORMAT(sale_datetime, '%d') AS d,
 	DATE_FORMAT(sale_datetime, '%D') AS D,
@@ -216,14 +216,15 @@ SELECT
 	DATE_FORMAT(sale_datetime, '%I') AS I
 FROM
 	date_test
-ORDER BY Category
+ORDER BY
+	category;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +----------+---------------------+----+----+----------+----+------------+----+----+
-| Category | sale_datetime       | C  | d  | D        | e  | F          | H  | I  |
+| category | sale_datetime       | C  | d  | D        | e  | F          | H  | I  |
 | a        | 2017-06-15 09:34:21 | 20 | 15 | 06/15/17 | 15 | 2017-06-15 | 09 | 09 |
 | b        | 2014-01-15 12:14:46 | 20 | 15 | 01/15/14 | 15 | 2014-01-15 | 12 | 12 |
 | c        | 1999-09-15 11:33:21 | 19 | 15 | 09/15/99 | 15 | 1999-09-15 | 11 | 11 |
@@ -234,7 +235,7 @@ The example below shows output for `<format>` expressions %j, %m, %M, %p, %R, %S
 
 ```sql
 SELECT
-	Category,
+	category,
 	sale_datetime,
 	DATE_FORMAT(sale_datetime, '%j') AS j,
 	DATE_FORMAT(sale_datetime, '%m') AS m,
@@ -244,14 +245,15 @@ SELECT
 	DATE_FORMAT(sale_datetime, '%S') AS S
 FROM
 	date_test
-ORDER BY Category
+ORDER BY
+	category;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +----------+---------------------+-----+----+----+----+-------+----+
-| Category | sale_datetime       | j   | m  | M  | p  | R     | S  |
+| category | sale_datetime       | j   | m  | M  | p  | R     | S  |
 | a        | 2017-06-15 09:34:21 | 166 | 06 | 34 | AM | 09:34 | 21 |
 | b        | 2014-01-15 12:14:46 | 015 | 01 | 14 | PM | 12:14 | 46 |
 | c        | 1999-09-15 11:33:21 | 258 | 09 | 33 | AM | 11:33 | 21 |
@@ -262,7 +264,7 @@ The example below shows output for `<format>` expressions %T, %u, %V, %w, %y, %Y
 
 ```sql
 SELECT
-	Category,
+	category,
 	sale_datetime,
 	DATE_FORMAT(sale_datetime, '%T') AS T,
 	DATE_FORMAT(sale_datetime, '%u') AS u,
@@ -273,14 +275,15 @@ SELECT
 	DATE_FORMAT(sale_datetime, '%%') AS percent
 FROM
 	date_test
-ORDER BY Category
+ORDER BY
+	category;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +----------+---------------------+----------+---+----+---+----+------+---------+
-| Category | sale_datetime       | T        | u | V  | w | y  | Y    | percent |
+| category | sale_datetime       | T        | u | V  | w | y  | Y    | percent |
 | a        | 2017-06-15 09:34:21 | 09:34:21 | 4 | 24 | 4 | 17 | 2017 | %       |
 | b        | 2014-01-15 12:14:46 | 12:14:46 | 3 | 03 | 3 | 14 | 2014 | %       |
 | c        | 1999-09-15 11:33:21 | 11:33:21 | 3 | 37 | 3 | 99 | 1999 | %       |
@@ -316,21 +319,22 @@ The example below uses a table `date_test` with the columns and values below.
 
 ```sql
 SELECT
-    Category,
-    sale_datetime,
-    DATE_TRUNC('MINUTE', sale_datetime) AS MINUTE,
-    DATE_TRUNC('HOUR', sale_datetime) AS HOUR,
-    DATE_TRUNC('DAY', sale_datetime) AS DAY
+	category,
+	sale_datetime,
+	DATE_TRUNC('MINUTE', sale_datetime) AS MINUTE,
+	DATE_TRUNC('HOUR', sale_datetime) AS HOUR,
+	DATE_TRUNC('DAY', sale_datetime) AS DAY
 FROM
 	date_test
-ORDER BY Category
+ORDER BY
+	category;
 ```
 
 **Returns**:
 
 ```
 +----------+---------------------+---------------------+---------------------+---------------------+
-| Category | sale_datetime       | MINUTE              | HOUR                | DAY                 |
+| category | sale_datetime       | MINUTE              | HOUR                | DAY                 |
 | a        | 2017-06-15 09:34:21 | 2017-06-15 09:34:00 | 2017-06-15 09:00:00 | 2017-06-15 00:00:00 |
 | b        | 2014-01-15 12:14:46 | 2014-01-15 12:14:00 | 2014-01-15 12:00:00 | 2014-01-15 00:00:00 |
 | c        | 1999-09-15 11:33:21 | 1999-09-15 11:33:00 | 1999-09-15 11:00:00 | 1999-09-15 00:00:00 |
@@ -364,7 +368,7 @@ SELECT
 		YEAR
 		FROM
 			CAST('2020-01-01 10:00:00' AS TIMESTAMP)
-	)
+	);
 ```
 
 **Returns**: `2020`
@@ -512,7 +516,8 @@ Converts a date or timestamp to a number containing the hour.
 For Tuesday, April 22, 1975 at 12:20:05:
 
 ```sql
-SELECT TO_HOUR(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+SELECT
+	TO_HOUR(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) AS res;
 ```
 
 Returns: `12`
@@ -538,10 +543,11 @@ Converts a timestamp (any date format we support) to a number containing the min
 For Tuesday, April 22, 1975 at 12:20:05:
 
 ```sql
-SELECT TO_MINUTE(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+SELECT
+	TO_MINUTE(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) AS res;
 ```
 
-**Returns:** `20`
+**Returns**: `20`
 
 ## TO\_MONTH
 
@@ -563,10 +569,11 @@ Converts a date or timestamp (any date format we support) to a number containing
 For Tuesday, April 22, 1975:
 
 ```sql
-SELECT TO_MONTH(CAST('1975/04/22' AS DATE)) as res;
+SELECT
+	TO_MONTH(CAST('1975/04/22' AS DATE)) AS res;
 ```
 
-**Returns:** 4
+**Returns**: `4`
 
 ## TO\_QUARTER
 
@@ -589,10 +596,11 @@ Converts a date or timestamp (any date format we support) to a number containing
 For Tuesday, April 22, 1975:
 
 ```sql
-SELECT TO_QUARTER(CAST('1975/04/22' AS DATE)) as res;
+SELECT
+	TO_QUARTER(CAST('1975/04/22' AS DATE)) as res;
 ```
 
-**Returns:**` 2`
+**Returns**: `2`
 
 ## TO\_SECOND
 
@@ -615,7 +623,8 @@ Converts a timestamp (any date format we support) to a number containing the sec
 For Tuesday, April 22, 1975 at 12:20:05:
 
 ```sql
-SELECT TO_SECOND(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
+SELECT
+	TO_SECOND(CAST('1975/04/22 12:20:05' AS TIMESTAMP)) as res;
 ```
 
 **Returns**: `5`
@@ -642,10 +651,11 @@ TO_STRING(<date>)
 This que**r**y returns today's date and the current time.
 
 ```sql
-SELECT TO_STRING(NOW());
+SELECT
+	TO_STRING(NOW());
 ```
 
-**Returns**: ​ `2022-10-10 22:22:33`
+**Returns**: `2022-10-10 22:22:33`
 
 ## TO\_WEEK
 
@@ -710,7 +720,7 @@ FROM
     fct_orders;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +-----------+
@@ -770,7 +780,8 @@ Converts a date or timestamp (any date format we support) to a number containing
 For Tuesday, April 22, 1975:
 
 ```sql
-SELECT TO_YEAR(CAST('1975/04/22' AS DATE)) as res;
+SELECT
+	TO_YEAR(CAST('1975/04/22' AS DATE)) as res;
 ```
 
 **Returns**: `1975`

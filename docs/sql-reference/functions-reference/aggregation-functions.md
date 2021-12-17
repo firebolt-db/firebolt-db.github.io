@@ -34,7 +34,6 @@ CREATE DIMENSION TABLE IF NOT EXISTS example
 		First_name TEXT
 	);
 
-
 INSERT INTO
 	example
 VALUES
@@ -53,7 +52,7 @@ FROM
 	example;
 ```
 
-**Returns: **`Sammy`
+**Returns**: `Sammy`
 
 ## ANY\_VALUE
 
@@ -136,7 +135,7 @@ FROM
 	number_test;
 ```
 
-**Returns: **`40.5`
+**Returns**: `40.5`
 
 The example below shows an `APPROX_PERCENTILE` of 25%.&#x20;
 
@@ -147,7 +146,7 @@ FROM
 	number_test;
 ```
 
-**Returns: **`20.5`
+**Returns**: `20.5`
 
 ## AVG
 
@@ -220,6 +219,7 @@ CREATE DIMENSION TABLE IF NOT EXISTS number_test
 	(
 		num TEXT
 	);
+
 INSERT INTO
 	number_test
 VALUES
@@ -300,7 +300,7 @@ FROM
 	prices;
 ```
 
-**Returns: **`25`
+**Returns**: `25`
 
 MAX can also work on text columns by returning the text row with the characters that are last in the lexicographic order.&#x20;
 
@@ -334,7 +334,7 @@ MAX_BY(<arg>, <val>)
 ### Example
 {: .no_toc}
 
-For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:&#x20;
+For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:
 
 | item   | price |
 | :------ | :----- |
@@ -352,7 +352,7 @@ FROM
 	prices;
 ```
 
-**Returns:** `banana`
+**Returns**: `banana`
 
 ## MEDIAN
 
@@ -372,13 +372,14 @@ Calculates an approximate median for a given column.
 ### Example
 {: .no_toc}
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```sql
 CREATE DIMENSION TABLE IF NOT EXISTS num_test
 	(
 		num int
 	);
+
 INSERT INTO
 	num_test
 VALUES
@@ -400,7 +401,7 @@ FROM
 	number_test
 ```
 
-**Returns: **`30`
+**Returns**: `30`
 
 ## MIN
 
@@ -435,7 +436,7 @@ VALUES
 	('apple', 4),
 	('banana', 25),
 	('orange', 11),
-	('kiwi', 20)
+	('kiwi', 20);
 ```
 
 When used on the `num` column, `MIN` will return the largest value.
@@ -447,7 +448,7 @@ FROM
 	prices;
 ```
 
-**Returns: **`4`
+**Returns**: `4`
 
 `MIN` can also work on text columns by returning the text row with the characters that are first in the lexicographic order.
 
@@ -509,7 +510,7 @@ See the [full description](semi-structured-functions/array-functions.md#nest) un
 
 ## STDDEV\_SAMP
 
-Computes the standard deviation of a sample consisting of a numeric-expression.
+Computes the standard deviation of a sample consisting of a numeric expression.
 
 ### Syntax
 {: .no_toc}
@@ -525,13 +526,12 @@ STDDEV_SAMP(<expr>)​
 ### Example
 {: .no_toc}
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test
-	(
-		num int
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+
+
 INSERT INTO
 	num_test
 VALUES
@@ -572,13 +572,12 @@ Calculates the sum of an expression.
 
 **Example**
 
-For this example,** **we'll create a new table `num_test `as shown below:
+For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test
-	(
-		num int
-	);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+
+
 INSERT INTO
 	num_test
 VALUES
