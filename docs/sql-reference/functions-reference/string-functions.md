@@ -26,10 +26,11 @@ BASE64_ENCODE(<expr>)
 **Example**
 
 ```sql
-SELECT BASE64_ENCODE('Hello World')
+SELECT
+	BASE64_ENCODE('Hello World');
 ```
 
-**Returns:** `SGVsbG8gV29ybGQ=`
+**Returns**: `SGVsbG8gV29ybGQ=`
 
 ## CONCAT
 
@@ -54,10 +55,11 @@ CONCAT( <string>, <string2>[, ...n] );
 **Example**
 
 ```sql
-SELECT concat('Hello ', 'World!')
+SELECT
+	concat('Hello ', 'World!');
 ```
 
-**Returns:** `Hello World!`
+**Returns**: `Hello World!`
 
 ## EXTRACT\_ALL
 
@@ -80,14 +82,13 @@ In the example below, `EXTRACT_ALL` is used to match variants of "Hello World". 
 
 ```sql
 SELECT
-    EXTRACT_ALL
-        (
-            'Hello world, ;-+ Hello World!',
-            'Hello.[Ww]orld!?'
-            );
+	EXTRACT_ALL (
+		'Hello world, ;-+ Hello World!',
+		'Hello.[Ww]orld!?'
+	);
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 ["Hello world","Hello World!"]
@@ -108,10 +109,11 @@ GEN_RANDOM_UUID()
 The example below outputs the result of `GEN_RANDOM_UUID` as `session_id`.
 
 ```sql
-SELECT GEN_RANDOM_UUID as session_id;
+SELECT
+	GEN_RANDOM_UUID() as session_id;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +--------------------------------------+
@@ -141,10 +143,8 @@ Allows matching of strings based on comparison to a pattern. `ILIKE` is normally
 For this example, we will create and load data into a demonstration table `match_test`:
 
 ```
-CREATE DIMENSION TABLE match_test
-	(
-		first_name TEXT, last_name TEXT
-);
+CREATE DIMENSION TABLE match_test (first_name TEXT, last_name TEXT);
+
 
 INSERT INTO
 	match_test
@@ -161,11 +161,15 @@ VALUES
 We can match first names that partially match the string "Fran" and any following characters as follows:
 
 ```
-SELECT * FROM match_test
-WHERE first_name ILIKE 'Fran%';
+SELECT
+	*
+FROM
+	match_test
+WHERE
+	first_name ILIKE 'Fran%';
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+------------+
@@ -196,7 +200,7 @@ Calculates the string length.
 SELECT LENGTH('abcd')
 ```
 
-**Returns:** `4`
+**Returns**: `4`
 
 ## LOWER
 
@@ -215,10 +219,11 @@ Converts the string to a lowercase format.
 **Example**
 
 ```
-SELECT LOWER('ABCD')
+SELECT
+	LOWER('ABCD');
 ```
 
-**Returns:** `abcd`
+**Returns**: `abcd`
 
 ## LPAD
 
@@ -243,7 +248,8 @@ The similar function to pad the end of a string is [`RPAD`](string-functions.md#
 The following statement adds the string "ABC" in front of the string Firebolt repetitively until the resulting string is equivalent to 20 characters in length.
 
 ```sql
-SELECT LPAD('Firebolt', 20, 'ABC');
+SELECT
+	LPAD('Firebolt', 20, 'ABC');
 ```
 
 **Returns**:
@@ -269,10 +275,11 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 **Example**
 
 ```sql
-SELECT LTRIM('     Hello, world! ')
+SELECT
+	LTRIM('     Hello, world! ');
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 Hello, world!
@@ -298,18 +305,20 @@ Checks whether the string matches the regular expression `<pattern`>, which is a
 The example below generates `0` as a result because it found no match. It is searching a string of numbers for alphabet characters.\*\* \*\*
 
 ```sql
-SELECT MATCH('123','\\[a-Z|A-Z]') AS res;
+SELECT
+	MATCH('123','\\[a-Z|A-Z]') AS res;
 ```
 
-**Returns:** `0`
+**Returns**: `0`
 
 In this second example, the `MATCH` expression generates a result of `1` because it found a match. It is searching for numeric digits in the string "123".
 
 ```sql
-SELECT MATCH('123','\\d+');
+SELECT
+	MATCH('123','\\d+');
 ```
 
-**Returns:** `1`
+**Returns**: `1`
 
 ## MATCH\_ANY
 
@@ -334,14 +343,10 @@ The query below searches for any matches within the string ​`123` ​​with t
 
 ```sql
 SELECT
-	MATCH_ANY(
-	    '123',
-	    [ '\\d+', '\\[a-Z|A-Z]' ]
-	    )
-	    AS res;
+	MATCH_ANY('123', [ '\\d+', '\\[a-Z|A-Z]' ]) AS res;
 ```
 
-**Returns:** `1`
+**Returns**: `1`
 
 ## MD5
 
@@ -360,7 +365,8 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 **Example**
 
 ```sql
-SELECT MD5('text') AS res;
+SELECT
+	MD5('text') AS res;
 ```
 
 **Returns**: `1cb251ec0d568de6a929b520c4aed8d1`
@@ -382,7 +388,8 @@ Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT
 **Example**
 
 ```sql
-SELECT MD5_NUMBER_LOWER64('test') AS res;
+SELECT
+	MD5_NUMBER_LOWER64('test') AS res;
 ```
 
 **Returns**: `14618207765679027446`
@@ -404,7 +411,8 @@ Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT
 **Example**
 
 ```sql
-SELECT MD5_NUMBER_UPPER64('test') AS res;
+SELECT
+	MD5_NUMBER_UPPER64('test') AS res;
 ```
 
 **Returns**: `688887797400064883`
@@ -455,46 +463,36 @@ REGEXP_MATCHES(<string>, <pattern>[,'<flag>[...]'])
 **Examples**
 
 ```sql
-SELECT REGEXP_MATCHES(
-  'ABC',
-  '^([A-Z]+)'
-  );
+SELECT
+	REGEXP_MATCHES('ABC', '^([A-Z]+)');
 ```
-**Returns:** `["ABC"]`
+**Returns**: `["ABC"]`
 
 ```sql
-SELECT REGEXP_MATCHES(
-  'Learning #Firebolt #REGEX',
-  '#([A-Za-z0-9_]+)'
-  );
+SELECT
+	REGEXP_MATCHES('Learning #Firebolt #REGEX', '#([A-Za-z0-9_]+)');
 ```
-**Returns:** `["Firebolt", "REGEX"]`
+**Returns**: `["Firebolt", "REGEX"]`
 
 **Examples using flags:**
 
 The `i` flag causes the regular expression to be case insensitive. Without this flag, this query would only match and return `ABC`.
 
 ```sql
-SELECT REGEXP_MATCHES(
-  'ABCdef',
-  '^([A-Z]+)',
-  'i'
-  );
+SELECT
+	REGEXP_MATCHES('ABCdef', '^([A-Z]+)', 'i');
 ```
 
-**Returns:** `["ABCdef"]`
+**Returns**: `["ABCdef"]`
 
 The `U` flag causes metacharacters like `+` to return as few characters together as possible. Without this flag, this query would return `["PPL","P"]`.
 
 ```sql
-SELECT REGEXP_MATCHES(
-  'aPPLePie',
-  '([A-Z]+)',
-  'U'
-  );
+SELECT
+	REGEXP_MATCHES('aPPLePie', '([A-Z]+)', 'U');
 ```
 
-**Returns:** `["P","P","L","P"]`
+**Returns**: `["P","P","L","P"]`
 
 
 ## REPEAT
@@ -515,7 +513,8 @@ REPEAT(<string>, <repeating_number>)
 **Example**
 
 ```sql
-SELECT REPEAT('repeat 3 times ' , 3);
+SELECT
+	REPEAT('repeat 3 times ' , 3);
 ```
 
 **Returns**: `repeat 3 times repeat 3 times repeat 3 times`
@@ -541,7 +540,8 @@ REPLACE (<string>, <pattern>, <replacement>)​
 In the example below, "hello" in "hello world" is replaced with "nice".
 
 ```sql
-SELECT REPLACE('hello world','hello','nice') AS res;
+SELECT
+	REPLACE('hello world','hello','nice') AS res;
 ```
 
 **Returns**: `nice world`
@@ -549,7 +549,8 @@ SELECT REPLACE('hello world','hello','nice') AS res;
 In this example below, "world" is replaced by an empty string.
 
 ```sql
-SELECT REPLACE('hello world',' world','') AS res;
+SELECT
+	REPLACE('hello world',' world','') AS res;
 ```
 
 **Returns**: `hello`
@@ -557,7 +558,8 @@ SELECT REPLACE('hello world',' world','') AS res;
 In this following example, the substring "hi" is not found in the original string, so the string is returned unchanged.
 
 ```sql
-SELECT REPLACE('hello world','hi','something') AS res;
+SELECT
+	REPLACE('hello world','hi','something') AS res;
 ```
 
 **Returns**: `hello world`
@@ -579,7 +581,8 @@ REVERSE(<string>)
 **Example**
 
 ```sql
-SELECT REVERSE('abcd') AS res
+SELECT
+	REVERSE('abcd') AS res
 ```
 
 **Returns**: `'dcba'`
@@ -607,7 +610,8 @@ The similar function to pad the start of a string is [`LPAD`](string-functions.m
 The following statement adds the string "ABC" to the end of the string "Firebolt" repetitively until the resulting string is equivalent to 20 characters in length.
 
 ```sql
-SELECT RPAD('Firebolt', 20, 'ABC');
+SELECT
+	RPAD('Firebolt', 20, 'ABC');
 ```
 
 **Returns**: `FireboltABCABCABCABC`
@@ -629,7 +633,8 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 **Example**
 
 ```sql
-SELECT RTRIM('Hello, world!     ')
+SELECT
+	RTRIM('Hello, world!     ');
 ```
 
 **Returns**: `Hello, world!`
@@ -652,7 +657,8 @@ SPLIT( <delimiter>, <string> )
 **Example**
 
 ```sql
-SELECT SPLIT('|','this|is|my|test') AS res
+SELECT
+	SPLIT('|','this|is|my|test') AS res;
 ```
 
 **Returns**: `["this","is","my","test"]`
@@ -679,19 +685,22 @@ Please note that the order of the arguments is different than the `SPLIT` functi
 **Examples**
 
 ```sql
-SELECT SPLIT_PART('hello#world','#',1) AS res;
+SELECT
+	SPLIT_PART('hello#world','#',1) AS res;
 ```
 
 **Returns**: `hello`
 
 ```
-SELECT SPLIT_PART('this|is|my|test', '|', 4 ) AS res;
+SELECT
+	SPLIT_PART('this|is|my|test', '|', 4 ) AS res;
 ```
 
 **Returns**: `test`
 
 ```
-SELECT SPLIT_PART('hello world', '', 7 ) AS res;
+SELECT
+	SPLIT_PART('hello world', '', 7 ) AS res;
 ```
 
 **Returns**: `w`
@@ -714,13 +723,15 @@ Returns the position (in bytes) of the substring found in the string, starting f
 **Examples**
 
 ```sql
-SELECT STRPOS('hello world','hello') AS res
+SELECT
+	STRPOS('hello world','hello') AS res;
 ```
 
 **Returns**: `1`
 
 ```sql
-SELECT STRPOS('hello world','world') AS res
+SELECT
+	STRPOS('hello world','world') AS res;
 ```
 
 **Returns**: `7`
@@ -746,7 +757,8 @@ SUBSTR(<string>, <offset> [, <length>])
 In the example below, the string is offset by 1 and so the `SUBSTR` command begins at the first letter, "h". The `<length>` of 5 indicates the resulting string should be only five characters long.
 
 ```sql
-SELECT SUBSTR('hello world', 1, 5);
+SELECT
+	SUBSTR('hello world', 1, 5);
 ```
 
 **Returns**: `hello`
@@ -754,7 +766,8 @@ SELECT SUBSTR('hello world', 1, 5);
 In this next example, there is no `<length>` provided. This means all characters are included after the `<offset>` index, which is 7.
 
 ```
-SELECT SUBSTR('hello world', 7);
+SELECT
+	SUBSTR('hello world', 7);
 ```
 
 **Returns**: `world`
@@ -776,7 +789,8 @@ Converts a string to `DATE` type.
 **Example**
 
 ```sql
-SELECT TO_DATE('2020-05-31') AS res;
+SELECT
+	TO_DATE('2020-05-31') AS res;
 ```
 
 **Returns**: `2020-05-31`
@@ -798,7 +812,8 @@ TO_DOUBLE(<exp>)
 **Example**
 
 ```
-SELECT TO_DOUBLE('100')
+SELECT
+	TO_DOUBLE('100');
 ```
 
 **Returns**: `100`
@@ -820,10 +835,11 @@ TO_FLOAT(<expr>)
 **Example**
 
 ```
-SELECT TO_FLOAT('10.5')
+SELECT
+	TO_FLOAT('10.5');
 ```
 
-**Returns:** `10.5`
+**Returns**: `10.5`
 
 ## TO\_INT
 
@@ -842,7 +858,8 @@ TO_INT(<exp>)
 **Example**
 
 ```
-SELECT TO_INT('10')
+SELECT
+	TO_INT('10');
 ```
 
 **Returns**: `10`
@@ -864,10 +881,11 @@ TO_LONG(<exp>)
 **Example**
 
 ```
-SELECT TO_LONG('1234567890')
+SELECT
+	TO_LONG('1234567890');
 ```
 
-**Returns:** `1234567890`
+**Returns**: `1234567890`
 
 ## TO\_TIMESTAMP
 
@@ -886,10 +904,11 @@ Converts a string to timestamp.
 **Example**
 
 ```sql
-SELECT TO_TIMESTAMP('2020-05-31 10:31:14') AS res;
+SELECT
+	TO_TIMESTAMP('2020-05-31 10:31:14') AS res;
 ```
 
-**Returns:** `2020-05-31 10:31:14`
+**Returns**: `2020-05-31 10:31:14`
 
 ## TO\_UNIX\_TIMESTAMP
 
@@ -908,7 +927,8 @@ Converts a string to a UNIX timestamp.
 **Example**
 
 ```sql
-SELECT TO_UNIX_TIMESTAMP('2017-11-05 08:07:47');
+SELECT
+	TO_UNIX_TIMESTAMP('2017-11-05 08:07:47');
 ```
 
 **Returns**: `1509869267`
@@ -930,10 +950,11 @@ For ​`DATETIME` ​​arguments: this function converts the value to its inter
 **Example**
 
 ```sql
-SELECT TO_UNIXTIME('2017-11-05 08:07:47') AS TO_UNIXTIME;
+SELECT
+	TO_UNIXTIME('2017-11-05 08:07:47') AS TO_UNIXTIME;
 ```
 
-**Returns:** `1509869267`
+**Returns**: `1509869267`
 
 ## TRIM
 
@@ -956,7 +977,8 @@ Removes all specified characters from the start, end, or both sides of a string.
 In the example below, no part of the string is specified for `TRIM`, so it defaults to `BOTH`.
 
 ```sql
-SELECT TRIM('$' FROM '$Hello world$') AS res;
+SELECT
+	TRIM('$' FROM '$Hello world$') AS res;
 ```
 
 **Returns**: `Hello world`
@@ -964,7 +986,8 @@ SELECT TRIM('$' FROM '$Hello world$') AS res;
 This next example trims only from the start of the string because the `LEADING` parameter is specified.
 
 ```
-SELECT TRIM( LEADING '$' FROM '$Hello world$') AS res;
+SELECT
+	TRIM( LEADING '$' FROM '$Hello world$') AS res;
 ```
 
 **Returns**: `Hello world$`
@@ -986,7 +1009,8 @@ Converts the string to uppercase format.
 **Example**
 
 ```
-SELECT UPPER('hello world')
+SELECT
+	UPPER('hello world')
 ```
 
-**Returns:** `HELLO WORLD`
+**Returns**: `HELLO WORLD`
