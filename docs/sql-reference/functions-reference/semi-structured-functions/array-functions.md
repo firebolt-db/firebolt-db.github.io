@@ -29,17 +29,16 @@ ALL_MATCH(<func>, <arr>)
 
 ```sql
 SELECT
-    ALL_MATCH(x -> x > 0, [1,2,3,9]) AS res;
+	ALL_MATCH(x -> x > 0, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `1`
 
-```
-SELECT
-    ALL_MATCH(x -> x > 10, [1,2,3,9]) AS res;
+```SELECT
+	ALL_MATCH(x -> x > 10, [ 1, 2, 3, 9 ]) AS res;
 ```
 
-**Returns:** `0`
+**Returns**: `0`
 
 ## ANY\_MATCH
 
@@ -60,14 +59,14 @@ Returns `1` if at least one of the elements of an array matches the results of t
 
 ```sql
 SELECT
-    ANY_MATCH(x -> x > 3, [1,2,3,9]) AS res;
+	ANY_MATCH(x -> x > 3, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `1`
 
 ```
 SELECT
-    ANY_MATCH(x -> x = 10, [ 1, 2, 3, 9 ]) AS res;
+	ANY_MATCH(x -> x = 10, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `0`
@@ -114,19 +113,19 @@ The example below searches through the array for any elements that are greater t
 
 ```sql
 SELECT
-    ARRAY_COUNT(x -> x > 3, [1,2,3,9]) AS res;
+	ARRAY_COUNT(x -> x > 3, [ 1, 2, 3, 9 ]) AS res;
 ```
 
-**Returns:** `1`
+**Returns**: `1`
 
 In this example below, there is no `<func>` criteria provided in the `ARRAY_COUNT` function. This means the function will count all of the elements in the given array.
 
 ```
 SELECT
-    ARRAY_COUNT([ 1, 2, 3, 9 ]) AS res;
+	ARRAY_COUNT([ 1, 2, 3, 9 ]) AS res;
 ```
 
-**Returns:** `4`
+**Returns**: `4`
 
 ## ARRAY\_COUNT\_GLOBAL
 
@@ -147,9 +146,8 @@ ARRAY_COUNT_GLOBAL(<arr_col>)
 For this example, we will create a table `array_test` as shown below.
 
 ```
-CREATE DIMENSION TABLE array_test(
-	array_1 ARRAY(INT)
-	);
+CREATE DIMENSION TABLE array_test(array_1 ARRAY(INT));
+
 
 INSERT INTO
 	array_test
@@ -168,10 +166,10 @@ We can use `ARRAY_COUNT_GLOBAL` to learn how many total array elements are in al
 SELECT
 	ARRAY_COUNT_GLOBAL(array_1)
 FROM
-	array_test
+	array_test;
 ```
 
-**Returns:** `17`
+**Returns**: `17`
 
 If you want to count elements based on specific criteria, you can use the [`ARRAY_COUNT`](array-functions.md#array_count) function with a `SUM` aggregation as demonstrated below.
 
@@ -179,10 +177,10 @@ If you want to count elements based on specific criteria, you can use the [`ARRA
 SELECT
 	SUM(ARRAY_COUNT(x -> x > 3, array_1))
 FROM
-	array_test
+	array_test;
 ```
 
-\*\*Returns: \*\*`11`
+**Returns**: `11`
 
 ## ARRAY\_CUMULATIVE\_SUM
 
@@ -210,7 +208,7 @@ SELECT
 
 ```sql
 SELECT
-	ARRAY_CUMULATIVE_SUM([ 1, 2, 3, 9 ]) AS res
+	ARRAY_CUMULATIVE_SUM([ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `1,3,6,15`
@@ -259,17 +257,17 @@ ARRAY_FILL(<func>, <arr>)
 
 ```sql
 SELECT
-    ARRAY_FILL(x -> x < 0,[1,2,3,9]) AS res;
+	ARRAY_FILL(x -> x < 0, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `1,1,1,1`
 
 ```sql
 SELECT
-    ARRAY_FILL(x -> x > 0,[1,2,3,9]) AS res;
+	ARRAY_FILL(x -> x > 0, [ 1, 2, 3, 9 ]) AS res;
 ```
 
-**Returns**: 1,2,3,9
+**Returns**: `1,2,3,9`
 
 ## ARRAY\_FIRST
 
@@ -289,7 +287,8 @@ ARRAY_FIRST(<func>, <arr>)
 **Example**
 
 ```sql
-SELECT ARRAY_FIRST(x -> x > 2,[1,2,3,9]) AS res;
+SELECT
+	ARRAY_FIRST(x -> x > 2, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `3`
@@ -315,7 +314,7 @@ ARRAY_FIRST_INDEX(<func>, <arr>)
 
 ```sql
 SELECT
-    ARRAY_FIRST_INDEX(x -> x > 2,[1,2,3,9]) AS res;
+	ARRAY_FIRST_INDEX(x -> x > 2, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `3`
@@ -339,7 +338,8 @@ ARRAY_INTERSECT(<arr>)
 In the example below, the only element that is shared between all three arrays is `3.`
 
 ```sql
-SELECT ARRAY_INTERSECT([1, 2, 3], [1, 3], [2, 3])
+SELECT
+	ARRAY_INTERSECT([ 1, 2, 3 ], [ 1, 3 ], [ 2, 3 ])
 ```
 
 **Returns**: `3`
@@ -365,7 +365,7 @@ In the example below, the three elements are joined with no delimiter.
 
 ```sql
 SELECT
-    ARRAY_JOIN(['1', '2', '3']) AS res;
+	ARRAY_JOIN([ '1', '2', '3' ]) AS res;
 ```
 
 **Returns**: `123`
@@ -374,10 +374,10 @@ In this example below, we are providing a comma delimiter.
 
 ```
 SELECT
-    ARRAY_JOIN(['a', 'b', 'c'], ',') AS res;
+	ARRAY_JOIN([ 'a', 'b', 'c' ], ',') AS res;
 ```
 
-**Returns:** `a,b,c`
+**Returns**: `a,b,c`
 
 ## ARRAY\_MAX
 
@@ -397,7 +397,7 @@ ARRAY_MAX(<arr>)
 
 ```sql
 SELECT
-    ARRAY_MAX([1,2,3,4]) AS res;
+	ARRAY_MAX([ 1, 2, 3, 4 ]) AS res;
 ```
 
 **Returns**: `4`
@@ -420,7 +420,7 @@ ARRAY_MIN(<arr>)
 
 ```sql
 SELECT
-    ARRAY_MIN([1,2,3,4]) AS res;
+	ARRAY_MIN([ 1, 2, 3, 4 ]) AS res;
 ```
 
 **Returns**: `1`
@@ -446,7 +446,7 @@ ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
 
 ```sql
 SELECT
-    ARRAY_REPLACE_BACKWARDS(x -> x > 2,[1,2,3,9]) AS res;
+	ARRAY_REPLACE_BACKWARDS(x -> x > 2, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `3,3,3,9`
@@ -469,7 +469,7 @@ ARRAY_REVERSE(<arr>)
 
 ```sql
 SELECT
-    ARRAY_REVERSE([1, 2, 3, 6]) AS res
+	ARRAY_REVERSE([ 1, 2, 3, 6 ]) AS res;
 ```
 
 **Returns**: `6,3,2,1`
@@ -495,7 +495,7 @@ ARRAY_SORT([<func>,] <arr>)
 
 ```sql
 SELECT
-    ARRAY_SORT([4,1,3,2]) AS res;
+	ARRAY_SORT([ 4, 1, 3, 2 ]) AS res;
 ```
 
 **Returns**: `1,2,3,4`
@@ -504,7 +504,7 @@ In this example below, the modulus operator is used to calculate the remainder o
 
 ```sql
 SELECT
-    ARRAY_SORT(x -> x % 2, [4,1,3,2]) AS res;
+	ARRAY_SORT(x -> x % 2, [ 4, 1, 3, 2 ]) AS res;
 ```
 
 **Returns**: `4,2,1,3`
@@ -530,7 +530,7 @@ This example below uses a function to first add 1 to all elements before calcula
 
 ```sql
 SELECT
-    ARRAY_SUM(x -> x + 1,[4,1,3,2]) AS res;
+	ARRAY_SUM(x -> x + 1, [ 4, 1, 3, 2 ]) AS res;
 ```
 
 **Returns**: `14`
@@ -539,7 +539,7 @@ In this example below, no function to change the array elements is given.
 
 ```sql
 SELECT
-    ARRAY_SUM([4,1,3,2]) AS res;
+	ARRAY_SUM([ 4, 1, 3, 2 ]) AS res;
 ```
 
 **Returns**: `10`
@@ -562,7 +562,7 @@ ARRAY_UNIQ(<arr> [, ...n])
 
 ```sql
 SELECT
-    ARRAY_UNIQ([1, 2, 4, 5]) AS res;
+	ARRAY_UNIQ([ 1, 2, 4, 5 ]) AS res;
 ```
 
 **Returns**: `4`
@@ -575,29 +575,28 @@ For example, two arrays \[1,1,1,1] and \[1,1,1,2] would be evaluated as individu
 
 ```
 SELECT
-    ARRAY_UNIQ
-        (
-        [1,1,1,1],
-        [1,1,1,2]
-        )
-        AS res;
+	ARRAY_UNIQ ([ 1, 1, 1, 1 ], [ 1, 1, 1, 2 ]) AS res;
 ```
 
-**Returns:** `2`
+**Returns**: `2`
 
-In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').&#x20;
+In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').
 
 ```
 SELECT
-    ARRAY_UNIQ
-        (
-        ['apple','apple','apple','apple'],
-        ['pie','pie','jack','jack']
-        )
-        AS res;
+	ARRAY_UNIQ (
+		[ 'apple',
+		'apple',
+		'apple',
+		'apple' ],
+		[ 'pie',
+		'pie',
+		'jack',
+		'jack' ]
+	) AS res;
 ```
 
-**Returns: **`2`
+**Returns**: `2`
 
 ## ARRAY\_UNNEST
 
@@ -616,7 +615,8 @@ ARRAY_UNNEST(<arr>)
 **Example**
 
 ```sql
-SELECT ARRAY_UNNEST([1,2,3,4]) AS res;
+SELECT
+	ARRAY_UNNEST([ 1, 2, 3, 4 ]) AS res;
 ```
 
 **Returns**:
@@ -646,7 +646,8 @@ CONTAINS(<arr>, <arg>)
 **Examples**
 
 ```sql
-SELECT CONTAINS([1, 2, 3], 3) AS res;
+SELECT
+	CONTAINS([ 1, 2, 3 ], 3) AS res;
 ```
 
 **Returns**: `1`
@@ -655,10 +656,10 @@ SELECT CONTAINS([1, 2, 3], 3) AS res;
 
 ```
 SELECT
-    CONTAINS(['a', 'b', 'cookie'], 'c') AS res;
+	CONTAINS([ 'a', 'b', 'cookie' ], 'c') AS res;
 ```
 
-**Returns:** `0`
+**Returns**: `0`
 
 ## ELEMENT\_AT
 
@@ -679,7 +680,7 @@ ELEMENT_AT(<arr>, <index>)
 
 ```sql
 SELECT
-    ELEMENT_AT([1,2,3,4],2) AS res;
+	ELEMENT_AT([ 1, 2, 3, 4 ], 2) AS res;
 ```
 
 **Returns**: `2`
@@ -693,7 +694,7 @@ The function can receive one or more arrays as its arguments. If more than one a
 1. The number of arguments of the Lambda function must be equal to the number of arrays provided. If the condition isn't met - the query will not run and an error will be returned.
 2. All the provided arrays should be of the same length. If the condition isn't met a runtime error will occur.
 
-When multiple arrays are provided to the function, the function will evaluate the current elements from each array as its parameter. All of the elements at that index position must evaluate to true (or `1)` for this index to be included in the results. The elements that are returned are\_ taken only from the first array provided.\_
+When multiple arrays are provided to the function, the function will evaluate the current elements from each array as its parameter. All of the elements at that index position must evaluate to true (or `1`) for this index to be included in the results. The elements that are returned are taken only from the first array provided.
 
 **Syntax**
 
@@ -712,7 +713,7 @@ In the example below, there is only one array and function. Only one element mat
 
 ```
 SELECT
-    FILTER(x -> x = 'a' ,['a','b','c','d'])
+	FILTER(x -> x = 'a', [ 'a', 'b', 'c', 'd' ]);
 ```
 
 **Returns**: `'a'`
@@ -720,7 +721,8 @@ SELECT
 In this example below, there are two arrays and two separate functions for evaluation. The `y` function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.
 
 ```sql
-SELECT FILTER(x, y -> y > 2,['a','b','c','d'],[1,2,3,9]) AS res;
+SELECT
+	FILTER(x, y -> y > 2, [ 'a', 'b', 'c', 'd' ], [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `['c', 'd']`
@@ -747,7 +749,8 @@ FLATTEN(<arr_of_arrs>)
 **Example**
 
 ```sql
-SELECT flatten([[[1,2]], [[2,3], [3,4]]])
+SELECT
+	flatten([ [ [ 1, 2 ] ], [ [ 2, 3 ], [ 3, 4 ] ] ])
 ```
 
 **Returns**: `(1, 2, 2, 3, 3, 4)`
@@ -771,7 +774,7 @@ INDEX_OF(<arr>, <x>)
 
 ```sql
 SELECT
-    INDEX_OF([1, 3, 5, 7], 5) AS res;
+	INDEX_OF([ 1, 3, 5, 7 ], 5) AS res;
 ```
 
 **Returns**: `3`
@@ -794,7 +797,7 @@ LENGTH(<arr>)
 
 ```sql
 SELECT
-    LENGTH([1, 2, 3, 4]) AS res;
+	LENGTH([ 1, 2, 3, 4 ]) AS res;
 ```
 
 **Returns**: `4`
@@ -828,14 +831,16 @@ Running the following query:
 
 ```sql
 SELECT
-    NEST(price) as arr from prices;
+	NEST(price) AS arr
+FROM
+	prices;
 ```
 
 **Returns**: `[4,11,20]`
 
 ## REDUCE
 
-Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example:` 'max'`, `'sum'`. When using parametric aggregate functions, the parameter is indicated after the function name in parentheses '`<func_name>(<parameter>)`'.
+Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example: `'max'`, `'sum'`. When using parametric aggregate functions, the parameter is indicated after the function name in parentheses `'<func_name>(<parameter>)'`.
 
 **Syntax**
 
@@ -852,7 +857,7 @@ REDUCE(<agg_function>, <arr>)
 
 ```sql
 SELECT
-    REDUCE('max', [1, 2, 3, 6]) AS res;
+	REDUCE('max', [ 1, 2, 3, 6 ]) AS res;
 ```
 
 **Returns**: `6`
@@ -877,7 +882,7 @@ SLICE(<arr>, <offset>[, <length>])
 
 ```sql
 SELECT
-    SLICE([1, 2, NULL, 4, 5], 2, 3) AS res
+	SLICE([ 1, 2, NULL, 4, 5 ], 2, 3) AS res;
 ```
 
 **Returns**: `2, null, 4`
@@ -903,7 +908,7 @@ TRANSFORM(<func>, <arr>)
 
 ```sql
 SELECT
-    TRANSFORM(x -> x * 2,[1,2,3,9]) AS res;
+	TRANSFORM(x -> x * 2, [ 1, 2, 3, 9 ]) AS res;
 ```
 
 **Returns**: `2,4,6,18`
