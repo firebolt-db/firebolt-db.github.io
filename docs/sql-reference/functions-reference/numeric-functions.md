@@ -451,26 +451,16 @@ SELECT RANDOM()
 
 To create a random integer number between two values, you can use `RANDOM` with the `FLOOR` function as demonstrated below. `a` is the lesser value and `b` is the greater value.
 
-<<<<<<< HEAD
 ```sql
-SELECT FLOOR( RANDOM() * ( b - a + 1)) + a;
-=======
-```
 SELECT
 	FLOOR(RANDOM() * (b - a + 1)) + a;
->>>>>>> 8a04ecb4d675b749bdca61843981c11ae4a2f669
 ```
 
 For example, the formula below generates a random integer between 50 and 100:&#x20;
 
-<<<<<<< HEAD
 ```sql
-SELECT FLOOR( RANDOM() * (100 - 50 + 1)) + 50;
-=======
-```
 SELECT
 	FLOOR(RANDOM() * (100 - 50 + 1)) + 50;
->>>>>>> 8a04ecb4d675b749bdca61843981c11ae4a2f669
 ```
 
 **Returns**: `61`

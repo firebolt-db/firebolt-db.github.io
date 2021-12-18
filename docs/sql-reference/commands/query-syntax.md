@@ -163,7 +163,7 @@ CREATE FACT TABLE table_with_arrays
 (
     product TEXT,
     cost ARRAY(INT)
-) PRIMARY INDEX name;
+) PRIMARY INDEX product;
 ```
 
 Assume the table was populated and contains the following values:
@@ -171,17 +171,16 @@ Assume the table was populated and contains the following values:
 | product | cost     |
 | :------- | :-------- |
 | apple   | \[2,5]   |
-| Orange  | \[3,6,7] |
+| orange  | \[3,6,7] |
 
 The following query with `UNNEST`:
 
 ```sql
 SELECT
 	product,
-	COST
+	cost
 FROM
-	table_with_arrays UNNEST COST
-	JOIN orders o ON c.cust_key = o.cust_key;
+	table_with_arrays UNNEST(cost);
 ```
 
 Returns the following result:
@@ -190,9 +189,9 @@ Returns the following result:
 | :------- | :---- |
 | apple   | 2    |
 | apple   | 5    |
-| Orange  | 3    |
-| Orange  | 6    |
-| Orange  | 7    |
+| orange  | 3    |
+| orange  | 6    |
+| orange  | 7    |
 
 ## WHERE
 
