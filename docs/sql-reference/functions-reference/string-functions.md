@@ -110,7 +110,7 @@ The example below outputs the result of `GEN_RANDOM_UUID` as `session_id`.
 
 ```sql
 SELECT
-	GEN_RANDOM_UUID() as session_id;
+	GEN_RANDOM_UUID() AS session_id;
 ```
 
 **Returns**:
