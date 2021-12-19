@@ -34,7 +34,8 @@ SELECT
 
 **Returns**: `1`
 
-```SELECT
+```sql
+SELECT
 	ALL_MATCH(x -> x > 10, [ 1, 2, 3, 9 ]) AS res;
 ```
 
