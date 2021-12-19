@@ -698,7 +698,7 @@ SELECT
 
 **Returns**: `test`
 
-```
+```sql
 SELECT
 	SPLIT_PART('hello world', '', 7 ) AS res;
 ```
