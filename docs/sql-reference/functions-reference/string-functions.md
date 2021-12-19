@@ -691,7 +691,7 @@ SELECT
 
 **Returns**: `hello`
 
-```
+```sql
 SELECT
 	SPLIT_PART('this|is|my|test', '|', 4 ) AS res;
 ```
