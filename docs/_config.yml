@@ -6,7 +6,7 @@ baseurl: "/firebolt-doc-staging"
 url: "https://firebolt-db.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-remote_theme: FireboltJeff/just-the-docs
+remote_theme: firebolt-db/just-the-docs
 logo: "/assets/images/firebolt.png"
 color_scheme: firebolt
 search_enabled: true
