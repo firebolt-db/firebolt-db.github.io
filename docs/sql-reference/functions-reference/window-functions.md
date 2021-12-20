@@ -43,19 +43,19 @@ The example below is querying test scores for students in various grade levels. 
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	Test_score,
-	AVG(Test_score) OVER (PARTITION BY Grade_level) AS average_for_grade
+	first_name,
+	grade_level,
+	test_score,
+	AVG(test_score) OVER (PARTITION BY grade_level) AS average_for_grade
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns**
+**Returns**:
 
 ```
 ' +------------+-------------+------------+-------------------------+
-' | First_name | Grade_level | Test_score |    average_for_grade    |
+' | first_name | grade_level | test_score |    average_for_grade    |
 ' +------------+-------------+------------+-------------------------+
 ' | Frank      |           9 |         76 | 81.33333333333333       |
 ' | Humphrey   |           9 |         90 | 81.33333333333333       |
@@ -93,6 +93,7 @@ Count the number of values within the requested window.
 ```sql
 COUNT( <val> ) OVER ( [ PARTITION BY <exp> ] )
 ```
+
 | Parameter | Description                                      |
 | :--------- | :------------------------------------------------ |
 | `<val>`   | An expression used for the `COUNT()` function.   |
@@ -105,18 +106,18 @@ This example below generates a count of how many students are in each grade leve
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	COUNT(First_name) OVER (PARTITION BY Grade_level) AS count_of_students
+	first_name,
+	grade_level,
+	COUNT(first_name) OVER (PARTITION BY grade_level) AS count_of_students
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns**
+**Returns**:
 
 ```
 +------------+-------------+-------------------+
-| First_name | Grade_level | count_of_students |
+| first_name | grade_level | count_of_students |
 +------------+-------------+-------------------+
 | Frank      |           9 |                 6 |
 | Humphrey   |           9 |                 6 |
@@ -167,19 +168,19 @@ In this example below, students are ranked based on their test scores for their 
 
 ```
 SELECT
-	First_name,
-	Grade_level,
-	Test_score,
-	DENSE_RANK() OVER (PARTITION BY Grade_level ORDER BY Test_score DESC ) AS Rank_in_class
+	first_name,
+	grade_level,
+	test_score,
+	DENSE_RANK() OVER (PARTITION BY grade_level ORDER BY test_score DESC ) AS rank_in_class
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+------------+---------------+
-| First_name | Grade_level | Test_score | Rank_in_class |
+| first_name | grade_level | test_score | rank_in_class |
 +------------+-------------+------------+---------------+
 | Frank      |           9 |         76 |             6 |
 | Humphrey   |           9 |         90 |             1 |
@@ -233,19 +234,19 @@ In the example below, the `LAG `function is being used to find the students in e
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	LAG(First_name, 1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_left,
-	LAG(First_name, -1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_right
+	first_name,
+	grade_level,
+	LAG(first_name, 1) OVER (PARTITION BY grade_level ORDER BY first_name ) AS to_the_left,
+	LAG(first_name, -1) OVER (PARTITION BY grade_level ORDER BY first_name ) AS to_the_right
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+-------------+--------------+
-| First_name | Grade_level | To_the_left | To_the_right |
+| first_name | grade_level | to_the_left | to_the_right |
 +------------+-------------+-------------+--------------+
 | Frank      |           9 | NULL        | Humphrey     |
 | Humphrey   |           9 | Frank       | Iris         |
@@ -295,23 +296,23 @@ LEAD ( <val> [, <offset> [, <default> ] )
 ### Example
 {: .no_toc}
 
-In the example below, the `LEAD `function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LEAD `function returns `NULL`.
+In the example below, the `LEAD` function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LEAD` function returns `NULL`.
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	LEAD(First_name, -1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_left,
-	LEAD(First_name, 1) OVER (PARTITION BY Grade_level ORDER BY First_name ) AS To_the_right
+	first_name,
+	grade_level,
+	LEAD(first_name, -1) OVER (PARTITION BY grade_level ORDER BY first_name ) AS to_the_left,
+	LEAD(first_name, 1) OVER (PARTITION BY grade_level ORDER BY first_name ) AS to_the_right
 FROM
 	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+-------------+--------------+
-| First_name | Grade_level | To_the_left | To_the_right |
+| first_name | grade_level | to_the_left | to_the_right |
 +------------+-------------+-------------+--------------+
 | Frank      |           9 | NULL        | Humphrey     |
 | Humphrey   |           9 | Frank       | Iris         |
@@ -352,29 +353,29 @@ MIN( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 
 | Parameter | Description                                                      |
 | :--------- | :---------------------------------------------------------------- |
-| `<val>`   | <p>An expression used for the <code>MIN </code>function.<br></p> |
+| `<val>`   | An expression used for the `MIN` function.                       |
 | `<exp>`   | An expression used for the `PARTITION BY` clause.                |
 
 ### Example
 {: .no_toc}
 
-The example below queries test scores for students in various grade levels. Unlike a regular `MIN()` aggregation, the window function allows us to see how each student individually compares to the lowest test score for their grade level.&#x20;
+The example below queries test scores for students in various grade levels. Unlike a regular `MIN()` aggregation, the window function allows us to see how each student individually compares to the lowest test score for their grade level.
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	Test_score,
-	MIN(Test_score) OVER (PARTITION BY Grade_level) AS Lowest_score
+	first_name,
+	grade_level,
+	test_score,
+	MIN(test_score) OVER (PARTITION BY grade_level) AS lowest_score
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+------------+--------------+
-| First_name | Grade_level | Test_score | Lowest_score |
+| first_name | grade_level | test_score | lowest_score |
 +------------+-------------+------------+--------------+
 | Frank      |           9 |         76 |           76 |
 | Humphrey   |           9 |         90 |           76 |
@@ -415,29 +416,29 @@ MAX( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 
 | Parameter | Description                                       |
 | :--------- | :------------------------------------------------- |
-| `<val>`   | An expression used for the `MAX `function.        |
+| `<val>`   | An expression used for the `MAX` function.        |
 | `<exp>`   | An expression used for the `PARTITION BY` clause. |
 
 ### Example
 {: .no_toc}
 
-The example below queries test scores for students in various grade levels. Unlike a regular `MAX()` aggregation, the window function allows us to see how each student individually compares to the highest test score for their grade level.&#x20;
+The example below queries test scores for students in various grade levels. Unlike a regular `MAX()` aggregation, the window function allows us to see how each student individually compares to the highest test score for their grade level.
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	Test_score,
-	MAX(Test_score) OVER (PARTITION BY Grade_level) AS Highest_score
+	first_name,
+	grade_level,
+	test_score,
+	MAX(test_score) OVER (PARTITION BY grade_level) AS highest_score
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+------------+---------------+
-| First_name | Grade_level | Test_score | Highest_score |
+| first_name | grade_level | test_score | highest_score |
 +------------+-------------+------------+---------------+
 | Frank      |           9 |         76 |            90 |
 | Humphrey   |           9 |         90 |            90 |
@@ -488,19 +489,19 @@ In this example below, students are ranked based on their test scores for their 
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	Test_score,
-	RANK() OVER (PARTITION BY Grade_level ORDER BY Test_score DESC ) AS Rank_in_class
+	first_name,
+	grade_level,
+	test_score,
+	RANK() OVER (PARTITION BY grade_level ORDER BY test_score DESC ) AS rank_in_class
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```sql
 +------------+-------------+------------+---------------+
-| First_name | Grade_level | Test_score | Rank_in_class |
+| first_name | grade_level | test_score | rank_in_class |
 +------------+-------------+------------+---------------+
 | Frank      |           9 |         76 |             6 |
 | Humphrey   |           9 |         90 |             1 |
@@ -547,22 +548,22 @@ ROW_NUMBER() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 ### Example
 {: .no_toc}
 
-In this example below, students in each grade level are** **assigned a unique number.
+In this example below, students in each grade level are assigned a unique number.
 
 ```sql
 SELECT
-	First_name,
-	Grade_level,
-	ROW_NUMBER() OVER (PARTITION BY Grade_level ORDER BY Grade_level ASC ) AS Student_No
+	first_name,
+	grade_level,
+	ROW_NUMBER() OVER (PARTITION BY grade_level ORDER BY grade_level ASC ) AS student_no
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+-------------+------------+
-| First_name | Grade_level | Student_No |
+| first_name | grade_level | student_no |
 +------------+-------------+------------+
 | Frank      |           9 |          1 |
 | Humphrey   |           9 |          2 |
@@ -594,7 +595,7 @@ FROM
 
 Calculate the sum of the values within the requested window.
 
-The SUM function works with numeric values and ignores `NULL `values.
+The SUM function works with numeric values and ignores `NULL` values.
 
 ### Syntax
 {: .no_toc}
@@ -605,27 +606,27 @@ SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
 
 | Parameter | Description                                      |
 | :--------- | :------------------------------------------------ |
-| `<val>`   | The expression used for the `SUM `function       |
+| `<val>`   | The expression used for the `SUM` function       |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
 ### Example
 {: .no_toc}
 
-The example below shows how many vaccinated students are in the same grade level for each student.&#x20;
+The example below shows how many vaccinated students are in the same grade level for each student.
 
 ```sql
 SELECT
-	First_name,
-	SUM(Vaccinated) OVER (PARTITION BY Grade_level ) AS Vaccinated_Students
+	first_name,
+	SUM(vaccinated) OVER (PARTITION BY grade_level ) AS vaccinated_students
 FROM
-	class_test
+	class_test;
 ```
 
-**Returns:**
+**Returns**:
 
 ```
 +------------+---------------------+
-| First_name | Vaccinated_Students |
+| first_name | vaccinated_students |
 +------------+---------------------+
 | Frank      |                   5 |
 | Humphrey   |                   5 |
