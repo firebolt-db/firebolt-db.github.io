@@ -45,7 +45,6 @@ Copy the packaged connector file into your `My Tableau Repository/Connectors dir
 ### Configuring the Connection
 
 1. In Tableau, under **Connect**, choose **More**.  
-![](../../assets/images/screen-shot-2021-03-22-at-16.53.10.png)  
 
 2. Search for **Connector by Firebolt** in the list of connectors and select it.
 
