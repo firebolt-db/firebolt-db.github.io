@@ -7,7 +7,7 @@ title: Firebolt documentation
 nav_order: 1
 has_toc: true
 ---
-# Firebolt documentation (preview)
+# Firebolt documentation
 {:.no_toc}
 Firebolt is a cloud data warehouse purpose-built for exceptional query performance on massive data sets. Our documentation can help you load and model your data in Firebolt, optimize for performance, and build analytics solutions quickly.
 
