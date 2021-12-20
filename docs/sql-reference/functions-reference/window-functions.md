@@ -2,11 +2,11 @@
 layout: default
 title: Window functions
 nav_order: 7
-
 parent: SQL functions reference
 ---
 
 # Window Functions
+{: .no_toc}
 
 A window function performs a calculation across a set of table rows. Unlike regular aggregate functions, the use of a window function does not cause rows to become grouped into a single output row but allows the rows to retain their separate identities.
 
@@ -16,11 +16,15 @@ To narrow down the window dataset into individual groups, use the `PARTITION BY`
 
 This page describes the window functions supported in Firebolt.
 
+* Topic ToC
+{:toc}
+
 ## AVG
 
 Returns the average value within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 AVG( <val> ) OVER ( [ PARTITION BY <exp> ] )
@@ -32,7 +36,8 @@ AVG( <val> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `AVG()` function.    |
 | `<expr>`  | An expression used for the partition by clause. |
 
-**Example**
+### Example
+{: .no_toc}
 
 The example below is querying test scores for students in various grade levels. Unlike a regular `AVG()` aggregation, the window function allows us to see how each student individually compares to the average test score for their grade level.
 
@@ -82,7 +87,8 @@ FROM
 
 Count the number of values within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 COUNT( <val> ) OVER ( [ PARTITION BY <exp> ] )
@@ -93,7 +99,8 @@ COUNT( <val> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `COUNT()` function.   |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
-**Example**
+### Example
+{: .no_toc}
 
 This example below generates a count of how many students are in each grade level while leaving each student as an independent row.
 
@@ -142,7 +149,8 @@ FROM
 
 Rank the current row within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 DENSE_RANK() OVER ([PARTITION BY <val>] ORDER BY <exp> [ASC|DESC] )
@@ -153,7 +161,8 @@ DENSE_RANK() OVER ([PARTITION BY <val>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                |
 | `<exp>`    | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked.  |
 
-**Example**
+### Example
+{: .no_toc}
 
 In this example below, students are ranked based on their test scores for their grade level.
 
@@ -203,7 +212,8 @@ FROM
 
 Returns the value of the input expression at the given offset before the current row within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 LAG ( <exp> [, <offset> [, <default> ]] )
@@ -217,7 +227,8 @@ LAG ( <exp> [, <offset> [, <default> ]] )
 | `<offset>`  | The number of rows backward from the current row from which to obtain a value. A negative number will act as `LEAD()`        |
 | `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INT`. The default is `NULL`. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, the `LAG `function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LAG `function returns `NULL`.
 
@@ -267,7 +278,8 @@ FROM
 
 Returns values from the row after the current row within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 LEAD ( <val> [, <offset> [, <default> ] )
@@ -281,7 +293,8 @@ LEAD ( <val> [, <offset> [, <default> ] )
 | `<offset>`  | The number of rows forward from the current row from which to obtain a value.                                                                                         |
 | `<default>` | The expression to return when the offset goes out of the bounds of the window. Supports any expression whose type is compatible with expression. The default is `NULL`. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, the `LEAD` function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LEAD` function returns `NULL`.
 
@@ -331,7 +344,8 @@ FROM
 
 Returns the minimum value within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 MIN( <exp> ) OVER ( [ PARTITION BY <exp> ] )
@@ -342,7 +356,8 @@ MIN( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `MIN` function.                       |
 | `<exp>`   | An expression used for the `PARTITION BY` clause.                |
 
-**Example**
+### Example
+{: .no_toc}
 
 The example below queries test scores for students in various grade levels. Unlike a regular `MIN()` aggregation, the window function allows us to see how each student individually compares to the lowest test score for their grade level.
 
@@ -392,7 +407,8 @@ FROM
 
 Returns the maximum value within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 MAX( <exp> ) OVER ( [ PARTITION BY <exp> ] )
@@ -403,7 +419,8 @@ MAX( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `MAX` function.        |
 | `<exp>`   | An expression used for the `PARTITION BY` clause. |
 
-**Example**
+### Example
+{: .no_toc}
 
 The example below queries test scores for students in various grade levels. Unlike a regular `MAX()` aggregation, the window function allows us to see how each student individually compares to the highest test score for their grade level.
 
@@ -453,7 +470,8 @@ FROM
 
 Rank the current row within the requested window with gaps.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 RANK() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
@@ -464,7 +482,8 @@ RANK() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                 |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In this example below, students are ranked based on their test scores for their grade level.
 
@@ -514,7 +533,8 @@ FROM
 
 Returns a unique row number for each row within the requested window.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ROW_NUMBER() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
@@ -525,7 +545,8 @@ ROW_NUMBER() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                                |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be used for `ROW_NUMBER`. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In this example below, students in each grade level are assigned a unique number.
 
@@ -576,7 +597,8 @@ Calculate the sum of the values within the requested window.
 
 The SUM function works with numeric values and ignores `NULL` values.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
@@ -587,7 +609,8 @@ SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
 | `<val>`   | The expression used for the `SUM` function       |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
-**Example**
+### Example
+{: .no_toc}
 
 The example below shows how many vaccinated students are in the same grade level for each student.
 

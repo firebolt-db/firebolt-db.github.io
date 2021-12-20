@@ -7,6 +7,10 @@ grand_parent: SQL functions reference
 ---
 
 # Array Functions
+{: .no_toc}
+
+* Topic ToC
+{:toc}
 
 This page describes the functions for working with arrays.
 
@@ -14,7 +18,8 @@ This page describes the functions for working with arrays.
 
 Returns `1` if all elements of an array match the results of the function provided in the `<func>` parameter, otherwise returns `0`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ALL_MATCH(<func>, <arr>)
@@ -25,7 +30,8 @@ ALL_MATCH(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty.                                                                                                          |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -45,7 +51,8 @@ SELECT
 
 Returns `1` if at least one of the elements of an array matches the results of the function provided in the `<func>` parameter. Otherwise returns `0`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​ANY_MATCH(<func>, <arr>)
@@ -56,7 +63,8 @@ Returns `1` if at least one of the elements of an array matches the results of t
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty                                                                                                           |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -76,7 +84,8 @@ SELECT
 
 Combines one or more arrays that are passed as arguments.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_CONCAT(<arr1> [, ...n])
@@ -86,7 +95,8 @@ ARRAY_CONCAT(<arr1> [, ...n])
 | :---------------- | :-------------------------------------------------------------------------------------- |
 | `<arr> [, ...n]` | The arrays to be combined. If only one array is given, an identical array is returned. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -97,7 +107,8 @@ SELECT
 
 Returns the number of elements in the `<arr>` array that match a specified function `<func>`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_COUNT(<func>, <arr>)
@@ -108,7 +119,8 @@ ARRAY_COUNT(<func>, <arr>)
 | `<func>`  | Optional. A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<func>` is not included, `ARRAY_COUNT` will return a count of all elements in the array. |
 | `<arr>`   | An array of elements                                                                                                                                                                                                                                                                  |
 
-**Examples**
+### Example
+{: .no_toc}
 
 The example below searches through the array for any elements that are greater than 3. Only one number that matches this criteria is found, so the function returns `1`
 
@@ -132,7 +144,8 @@ SELECT
 
 Returns the number of elements in the array typed column accumulated over all rows. As such it is an _aggregation function._
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_COUNT_GLOBAL(<arr_col>)
@@ -142,13 +155,13 @@ ARRAY_COUNT_GLOBAL(<arr_col>)
 | :----------- | :---------------------------------------------------------------- |
 | `<arr_col>` | The array column over which the function will count the elements |
 
-**Example**
+### Example
+{: .no_toc}
 
 For this example, we will create a table `array_test` as shown below.
 
-```
+```sql
 CREATE DIMENSION TABLE array_test(array_1 ARRAY(INT));
-
 
 INSERT INTO
 	array_test
@@ -163,7 +176,7 @@ VALUES
 
 We can use `ARRAY_COUNT_GLOBAL` to learn how many total array elements are in all rows.
 
-```
+```sql
 SELECT
 	ARRAY_COUNT_GLOBAL(array_1)
 FROM
@@ -187,7 +200,8 @@ FROM
 
 Returns an array of partial sums of elements from the source array (a running sum). If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_CUMULATIVE_SUM( [<func>,] arr)
@@ -198,7 +212,8 @@ ARRAY_CUMULATIVE_SUM( [<func>,] arr)
 | `<func>`  | The function used to convert the array members. |
 | `<arr>`   | The array used for the sum calculations.        |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -218,7 +233,8 @@ SELECT
 
 Returns an array containing only the _unique_ elements of the given array. In other words, if the given array contains multiple identical members, the returned array will include only a single member of that value.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_DISTINCT(<arr>)
@@ -228,7 +244,8 @@ ARRAY_DISTINCT(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array to be analyzed for unique members. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -243,7 +260,8 @@ This function scans through the given array `<arr>` from the first to the last e
 
 The lambda function `<func>` is mandatory.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_FILL(<func>, <arr>)
@@ -254,7 +272,8 @@ ARRAY_FILL(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -274,7 +293,8 @@ SELECT
 
 Returns the first element in the given array for which the given `<func>` function returns something other than `0`. The `<func>` argument must be included.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_FIRST(<func>, <arr>)
@@ -285,7 +305,8 @@ ARRAY_FIRST(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -300,7 +321,8 @@ Returns the index of the first element in the indicated array for which the give
 
 The `<func>` argument must be included.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_FIRST_INDEX(<func>, <arr>)
@@ -311,7 +333,8 @@ ARRAY_FIRST_INDEX(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -324,7 +347,8 @@ SELECT
 
 Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array is the same as in the first array.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_INTERSECT(<arr>)
@@ -334,7 +358,8 @@ ARRAY_INTERSECT(<arr>)
 | :--------- | :------------------------------------------------------ |
 | `<arr>`   | A series of arrays to be analyzed for mutual elements. |
 
-**Example**
+### Example
+{: .no_toc}
 
 In the example below, the only element that is shared between all three arrays is `3.`
 
@@ -349,7 +374,8 @@ SELECT
 
 Concatenates an array of `TEXT` elements using an optional delimiter. If no delimiter is provided, an empty string is used instead.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_JOIN(<arr>[, <delimiter>])
@@ -360,7 +386,8 @@ ARRAY_JOIN(<arr>[, <delimiter>])
 | `<arr>`       | An array of `TEXT` elements.                                                                                             |
 | `<delimiter>` | The delimiter used for joining the array elements. If you omit this value, an empty string is being used as a delimiter. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 In the example below, the three elements are joined with no delimiter.
 
@@ -384,7 +411,8 @@ SELECT
 
 Returns the maximum element in an array `<arr>`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_MAX(<arr>)
@@ -394,7 +422,8 @@ ARRAY_MAX(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -407,7 +436,8 @@ SELECT
 
 Returns the minimum element in `<arr>`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_MIN(<arr>)
@@ -417,7 +447,8 @@ ARRAY_MIN(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -432,7 +463,8 @@ Scans an array `<arr>` from the last to the first element and replaces each of t
 
 The `<func>` argument must be included.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
@@ -443,7 +475,8 @@ ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -456,7 +489,8 @@ SELECT
 
 Returns an array of the same size as the original array, with the elements in reverse order.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_REVERSE(<arr>)
@@ -466,7 +500,8 @@ ARRAY_REVERSE(<arr>)
 | :--------- | :------------------------- |
 | `<arr>`   | The array to be reversed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -481,7 +516,8 @@ Returns the elements of `<arr>` in ascending order.
 
 If the argument `<func>` is provided, the sorting order is determined by the result of applying `<func>` on each element of `<arr>`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_SORT([<func>,] <arr>)
@@ -492,7 +528,8 @@ ARRAY_SORT([<func>,] <arr>)
 | `<func>`  | An optional function to be used to determine the sort order. |
 | `<arr>`   | The array to be sorted.                                      |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -514,7 +551,8 @@ SELECT
 
 Returns the sum of elements of `<arr>`. If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_SUM([<func>,] <arr>)
@@ -525,7 +563,8 @@ ARRAY_SUM([<func>,] <arr>)
 | `<func>`  | A Lambda function with an [arithmetic function](../../commands/operators.md#arithmetic) used to modify the array elements. |
 | `<arr>`   | The array to be used to calculate the function.                                                                            |
 
-**Examples**
+### Example
+{: .no_toc}
 
 This example below uses a function to first add 1 to all elements before calculating the sum:
 
@@ -549,7 +588,8 @@ SELECT
 
 If one argument is passed, returns the number of different elements in the array. If multiple arguments are passed, returns the number of different tuples of elements at corresponding positions in multiple arrays.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_UNIQ(<arr> [, ...n])
@@ -559,7 +599,8 @@ ARRAY_UNIQ(<arr> [, ...n])
 | :---------------- | :----------------------------------- |
 | `<arr> [, ...n]` | The array or arrays to be analyzed. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -568,7 +609,8 @@ SELECT
 
 **Returns**: `4`
 
-**Example: Using multiple arrays**
+#### Example&ndash;using multiple arrays
+{: .no_toc}
 
 When using multiple arrays, `ARRAY_UNIQ` evaluates all the elements at a specific index as tuples for counting the unique values.&#x20;
 
@@ -603,7 +645,8 @@ SELECT
 
 This function "unfolds" a given array by creating a column result containing the individual members from the array's values.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_UNNEST(<arr>)
@@ -613,7 +656,8 @@ ARRAY_UNNEST(<arr>)
 | :--------- | :------------------------- |
 | `<arr>`   | The array to be unfolded. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -633,7 +677,8 @@ SELECT
 
 Returns `1` if a specified argument is present in the array, or `0` otherwise.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 CONTAINS(<arr>, <arg>)
@@ -644,7 +689,8 @@ CONTAINS(<arr>, <arg>)
 | `<arr>`   | The array to be checked for the given element.   |
 | `<arg>`   | The element to be searched for within the array. |
 
-**Examples**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -666,7 +712,8 @@ SELECT
 
 Returns the element at a location `<index>` from the given array. `<index>` must be any integer type. Indexes in an array begin at position `1`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ELEMENT_AT(<arr>, <index>)
@@ -677,7 +724,8 @@ ELEMENT_AT(<arr>, <index>)
 | `<arr>`   | The array containing the index.                                                                                                                                                                                            |
 | `<index>` | The index that is matched by the function. <br>Negative indexes are supported. If used, the function selects the corresponding element numbered from the end. For example, arr[-1] is the last item in the array. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -692,12 +740,14 @@ Returns an array containing the elements from `<arr>` for which the given Lambda
 
 The function can receive one or more arrays as its arguments. If more than one array is provided the following conditions should be met:
 
-1. The number of arguments of the Lambda function must be equal to the number of arrays provided. If the condition isn't met - the query will not run and an error will be returned.
-2. All the provided arrays should be of the same length. If the condition isn't met a runtime error will occur.
+* The number of arguments of the Lambda function must be equal to the number of arrays provided. If the condition isn't met - the query will not run and an error will be returned.
+
+* All the provided arrays should be of the same length. If the condition isn't met a runtime error will occur.
 
 When multiple arrays are provided to the function, the function will evaluate the current elements from each array as its parameter. All of the elements at that index position must evaluate to true (or `1`) for this index to be included in the results. The elements that are returned are taken only from the first array provided.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 FILTER(<func>, <arr> [, ...n] )
@@ -708,7 +758,8 @@ FILTER(<func>, <arr> [, ...n] )
 | `<func>`         | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
 
-**Examples**
+### Example
+{: .no_toc}
 
 In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.
 
@@ -737,7 +788,8 @@ The function:
 * Applies to any depth of nested arrays.
 * Does not change arrays that are already flat.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 FLATTEN(<arr_of_arrs>)
@@ -747,7 +799,8 @@ FLATTEN(<arr_of_arrs>)
 | :--------------- | :------------------------------------ |
 | `<arr_of_arrs>` | The array of arrays to be flattened. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -760,7 +813,8 @@ SELECT
 
 Returns the index position of the first occurrence of the element in the array (or `0` if not found).
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 INDEX_OF(<arr>, <x>)
@@ -771,7 +825,8 @@ INDEX_OF(<arr>, <x>)
 | `<arr>`   | The array to be analyzed.                         |
 | `<x>`     | The element from the array that is to be matched. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -784,7 +839,8 @@ SELECT
 
 Returns the length (number of elements) of the given array.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 LENGTH(<arr>)
@@ -794,7 +850,8 @@ LENGTH(<arr>)
 | :--------- | :----------------------------------- |
 | `<arr>`   | The array to be checked for length. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -807,7 +864,8 @@ SELECT
 
 Takes a column as an argument, and returns an array of the values. In case the type of the column is nullable, the `NULL` values will be ignored.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ​​NEST(<col>)​​
@@ -817,7 +875,8 @@ Takes a column as an argument, and returns an array of the values. In case the t
 | :--------- | :--------------------------------------------------- |
 | `<col>`   | The name of the column to be converted to an array. |
 
-**Example**
+### Example
+{: .no_toc}
 
 Assume we have the following `prices` table:
 
@@ -843,7 +902,8 @@ FROM
 
 Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example: `'max'`, `'sum'`. When using parametric aggregate functions, the parameter is indicated after the function name in parentheses `'<func_name>(<parameter>)'`.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 REDUCE(<agg_function>, <arr>)
@@ -854,7 +914,8 @@ REDUCE(<agg_function>, <arr>)
 | `<agg_function>` | The name of an aggregate function which should be a constant string             |
 | `<arr>`          | Any number of array type columns as the parameters of the aggregation function. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -867,7 +928,8 @@ SELECT
 
 Returns a slice of the array based on the indicated offset and length.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 SLICE(<arr>, <offset>[, <length>])
@@ -879,7 +941,8 @@ SLICE(<arr>, <offset>[, <length>])
 | `<offset>` | Indicates starting point of the array slice. A positive value indicates an offset on the left, and a negative value is an indent on the right.                     |
 | `<length>` | The length of the required slice.<br>If you omit this value, the function returns the slice from the `<offset>` to the end of the array. |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -894,7 +957,8 @@ Returns an array by applying `<func>` on each element of `<arr>`.
 
 The Lambda function `<func>` is mandatory.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 TRANSFORM(<func>, <arr>)
@@ -905,7 +969,8 @@ TRANSFORM(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be transformed by the function.                                                                                                                                   |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT

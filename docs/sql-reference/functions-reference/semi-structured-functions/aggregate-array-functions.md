@@ -7,6 +7,10 @@ grand_parent: SQL functions reference
 ---
 
 # Aggregate array functions
+{: .no_toc}
+
+* Topic ToC
+{:toc}
 
 Aggregate semi-structured functions work globally on all the arrays in a given column expression, instead of a row-by-row application.
 
@@ -26,7 +30,8 @@ From the remainder of this page we will use the following table `T` in our examp
 
 Returns the maximum element from all the array elements in each group.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_MAX_GLOBAL(<arr>) AS cnt
@@ -36,7 +41,8 @@ ARRAY_MAX_GLOBAL(<arr>) AS cnt
 | :--------- | :------------------------------------------------------------------------- |
 | `<arr>`   | The array column over from which the function returns the maximum element |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -60,7 +66,8 @@ GROUP BY
 
 Returns the minimal element taken from all the array elements in each group.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_MIN_GLOBAL(<arr>)
@@ -70,7 +77,8 @@ ARRAY_MIN_GLOBAL(<arr>)
 | :--------- | :------------------------------------------------------------------------ |
 | `<arr>`   | The array column from which the function will return the minimal element |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
@@ -94,7 +102,8 @@ GROUP BY
 
 Returns the sum of elements in the array column accumulated over the rows in each group.
 
-**Syntax**
+### Syntax
+{: .no_toc}
 
 ```sql
 ARRAY_SUM_GLOBAL(<arr>)
@@ -104,7 +113,8 @@ ARRAY_SUM_GLOBAL(<arr>)
 | :--------- | :-------------------------------------------------------------- |
 | `<arr>`   | The array column over which the function will sum the elements |
 
-**Example**
+### Example
+{: .no_toc}
 
 ```sql
 SELECT
