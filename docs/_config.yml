@@ -10,6 +10,11 @@ logo: "/assets/images/firebolt.png"
 color_scheme: firebolt
 search_enabled: true
 
+# Jekyll plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-lnr-js-search
+
 search:
   # Split pages into sections that can be searched individually
   # Supports 1 - 6, default: 2
