@@ -504,7 +504,7 @@ SELECT
 ```
 **Returns**: `["Firebolt", "REGEX"]`
 
-####Example&ndash;using flags
+#### Example&ndash;using flags
 
 The `i` flag causes the regular expression to be case insensitive. Without this flag, this query would only match and return `ABC`.
 
