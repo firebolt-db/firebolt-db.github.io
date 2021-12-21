@@ -619,7 +619,7 @@ For more information, see [Working with partitions](../../concepts/working-with-
 
 Creates a table and loads data into it based on the [SELECT](query-syntax.md) query. The table column names and types are automatically inferred based on the output columns of the [SELECT](query-syntax.md). When specifying explicit column names those override the column names inferred from the [SELECT](query-syntax.md).
 
-####Syntax&ndash;CTAS
+#### Syntax&ndash;CTAS
 {: .no_toc}
 
 Fact table:
