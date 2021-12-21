@@ -2,11 +2,10 @@ title: Firebolt documentation
 description: >-
   User and developer documentation for the Firebolt data warehouse.
 domain: firebolt-db.github.io
-baseurl: "/firebolt-doc-staging"
 url: "https://firebolt-db.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
-remote_theme: firebolt-db/just-the-docs
+remote_theme: FireboltJeff/just-the-docs
 logo: "/assets/images/firebolt.png"
 color_scheme: firebolt
 search_enabled: true
@@ -37,7 +36,7 @@ search:
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
-gh_edit_link_text: "Edit on GitHub (GitHub login required)"
+gh_edit_link_text: "Edit on GitHub"
 gh_edit_repository: "https://github.com/firebolt-db/firebolt-doc-staging" # the github URL for your repo
 gh_edit_branch: "gh-pages"
 gh_edit_source: docs
