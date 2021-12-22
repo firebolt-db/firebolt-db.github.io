@@ -345,7 +345,7 @@ SELECT
 
 ## ARRAY\_INTERSECT
 
-Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array may be different than the original array. Use [`ARRAY_SORT`](./array-functions.html#array_sort) to stipulate a specific order on the results.
+Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array may be different than the original arrays. Use [`ARRAY_SORT`](./array-functions.html#array_sort) to stipulate a specific order on the results.
 
 ### Syntax
 {: .no_toc}
