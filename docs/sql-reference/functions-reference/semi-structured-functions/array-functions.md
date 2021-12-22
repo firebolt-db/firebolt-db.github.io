@@ -345,7 +345,7 @@ SELECT
 
 ## ARRAY\_INTERSECT
 
-Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array is the same as in the first array.
+Evaluates all arrays that are provided as arguments and returns an array of any elements that are present in all the arrays. The order of the resulting array may be different than the original array. Use [`ARRAY_SORT`](./array-functions.html#array_sort) to stipulate a specific order on the results.
 
 ### Syntax
 {: .no_toc}
@@ -358,7 +358,7 @@ ARRAY_INTERSECT(<arr>)
 | :--------- | :------------------------------------------------------ |
 | `<arr>`   | A series of arrays to be analyzed for mutual elements. |
 
-### Example
+### Examples
 {: .no_toc}
 
 In the example below, the only element that is shared between all three arrays is `3.`
@@ -369,6 +369,17 @@ SELECT
 ```
 
 **Returns**: `3`
+
+In this second example below, we are using `ARRAY_SORT` to ensure the results are in ascending order.
+
+```sql
+SELECT
+	ARRAY_SORT(
+	    ARRAY_INTERSECT([ 5, 4, 3, 2, 1 ],[ 5, 3, 1 ])
+	    )
+```
+
+**Returns**: `[1,3,5]`
 
 ## ARRAY\_JOIN
 
