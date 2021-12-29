@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Apache Superset
+title: Apache Superset / Preset
 nav_order: 1
 parent: Business intelligence
 grand_parent: Integrations
 ---
 
-# Connecting to Apache Superset
+# Connecting to Apache Superset / Preset
 
 [Apache Superset](https://superset.apache.org) is a business intelligence web application that makes it easy for users of all skill sets to explore and visualize their data, from simple pie charts to highly detailed deck.gl geospatial charts.&#x20;
 
