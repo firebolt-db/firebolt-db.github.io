@@ -18,6 +18,7 @@ The services listed below include tools that have been customized by our partner
 * [Keboola](data-integration-and-transformation/connecting-to-keboola.md)
 * [Looker](business-intelligence/connecting-to-looker.md)
 * [SQLAlchemy](../developing-with-firebolt/connecting-with-sqlalchemy.md)
+* [Apache Superset / Preset](business-intelligence/connecting-to-apache-superset.html)
 * [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md)
 
 ## Common connection parameters
