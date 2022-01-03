@@ -12,20 +12,14 @@ Metabase is an open source business intelligence tool used for querying data set
 
 ### Setting up Metabase
 
-To get started with Metabase, please follow the [official guide](https://www.metabase.com/docs/latest/operations-guide/running-the-metabase-jar-file.html) for running Metabase with a JAR file. This guide will walk you through the following steps:
-
-* Setting up a Java Runtime Environment (JRE) if you don't already have one installed.
-* Creating a new directory and moving the downloaded [Metabase JAR](https://metabase.com/start/jar.html) into it.
-* Launching Metabase by running `java -jar metabase.jar` from a terminal. This command will create a new `plugins` folder in the Metabase directory.
-
-If any of these steps don't work correctly, please consult the [Metabase Troubleshooting documentation](https://www.metabase.com/docs/latest/troubleshooting-guide/running.html).
+To get started with Metabase, please follow the [official guide](https://www.metabase.com/docs/latest/operations-guide/running-the-metabase-jar-file.html) to create an instance.
 
 ### Downloading Firebolt drivers for your Metabase instance
 
-After Metabase is set up on your local drive, you need to download the files listed below before you can connect to your Firebolt database.
+After setting up Metabase on your local drive, you need to download the files listed below before you can connect to your Firebolt database.
 
 * Download the [Firebolt JDBC driver JAR](https://docs.firebolt.io/integrations/connecting-via-jdbc).
-* Download the [Firebolt Metabase driver](https://drive.google.com/file/d/1r--_2oF_cdVjMrlf8zQqX0WE9jCzjg1A/view).
+* Download the [Firebolt Metabase driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/metabase-driver/firebolt-metabase-driver.jar).
 
 Both of these files should be placed in the `plugins` folder in the Metabase directory.
 
