@@ -10,54 +10,41 @@ grand_parent: Integrations
 
 Metabase is an open source business intelligence tool used for querying data sets and producing dashboards.
 
-### Setting up Metabase
-
 To get started with Metabase, please follow the [official guide](https://www.metabase.com/docs/latest/operations-guide/running-the-metabase-jar-file.html) to create an instance.
 
 ### Downloading Firebolt drivers for your Metabase instance
 
-After setting up Metabase on your local drive, you need to download the files listed below before you can connect to your Firebolt database.
+After setting up Metabase, you need to download the files listed below before you can connect to your Firebolt database.
 
 * Download the [Firebolt JDBC driver JAR](https://docs.firebolt.io/integrations/connecting-via-jdbc).
 * Download the [Firebolt Metabase driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/metabase-driver/firebolt-metabase-driver.jar).
 
-Both of these files should be placed in the `plugins` folder in the Metabase directory.
+Both of these files should be placed in the Metabase `plugins` directory.
 
 ### Launching Metabase with Firebolt
 
 You are now ready to run Metabase with your Firebolt databases.
 
-1. Run `java -jar metabase.jar` again from the Metabase directory in a command terminal.
-2. Use a web browser to naviagate to Metabase at [http://localhost:3000/](http://localhost:3000/) (alter the URL port number as necessary if you changed it).
-
-    You should see a screen like this:
-
-    ![Metabase welcome page](../../assets/images/Metabase_welcome.png)
-
-3. Select "Let's get started" and go through the Metabase account signup.
-
-4. For now, you should skip the "Add your data" page. Instead, choose the "I'll add my data later" link.
-
-5. When you are finished with the setup, you should see a screen like this:
+1. Use a web browser to naviagate to the home page of your Metabase instance. You should see a screen like below:
 
     ![Metabase home page](../../assets/images/Metabase_home.png)
 
-6. To connect to your Firebolt database, click on the Admin link under the settings menu (located on the top right):
+2. To connect to your Firebolt database, click on the Admin link under the settings menu (located on the top right):
 
     ![Metabase home page](../../assets/images/Metabase_admin_menu.png)
 
-7. From the Admin page, select the "Databases" link at the top of the page. Then select "Add database".  
+3. From the Admin page, select the "Databases" link at the top of the page. Then select "Add database".  
 
     ![Metabase home page](../../assets/images/Metabase_admin_menu2.png)
 
-8. You should see Firebolt listed under the selections for "Database type". If you don't see Firebolt here, please revisit the previous steps and make sure you installed the Firebolt JDBC and Firebolt Metabase drivers in the correct folder.
+4. You should see Firebolt listed under the selections for "Database type". If you don't see Firebolt here, please revisit the previous steps and make sure you installed the Firebolt JDBC and Firebolt Metabase drivers in the correct folder.
 
-9. Enter the rest of the parameters for your database:
+5. Enter the rest of the parameters for your database:
 
     * **Database type**: Firebolt
     * **Name**: Use any name
     * **Host**: `api.app.firebolt.io`
-    * **Port**: 8123
+    * **Port**: `8123`
     * **Database name**: the name of your database in Firebolt
     * **Username**: your Firebolt username
     * **Password**: your Firebolt password
