@@ -305,12 +305,25 @@ ARRAY_FIRST(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
-### Example
+### Examples
 {: .no_toc}
 
 ```sql
 SELECT
 	ARRAY_FIRST(x -> x > 2, [ 1, 2, 3, 9 ]) AS res;
+```
+
+**Returns**: `3`
+
+In the example below, the third index is returned because it is the first that evaluates to `blue`.
+
+```sql
+SELECT
+    ARRAY_FIRST(x, y -> y = 'blue',
+        [ 1, 2, 3, 4 ],
+        [ 'red', 'green', 'blue' ,'blue' ]
+        )
+    AS res;
 ```
 
 **Returns**: `3`
@@ -745,6 +758,20 @@ SELECT
 
 **Returns**: `2`
 
+In the example below, `ELEMENT_AT` is paired with `ARRAY_SORT` to reorder the array before grabbing the specified element. `ARRAY_SORT` orders the arrays in ascending order by the elements in the second array `[ 3, 7, 4 ]`. Upon being sorted, that array is reordered to `[ 3, 4, 7 ]` while its associated array `[ 'red', 'green', 'blue' ]` is reordered to `[ 'red', 'blue', 'green' ]`. `ELEMENT_AT` then return element at index `-1`, which is now `green`.
+
+```sql
+SELECT
+	ELEMENT_AT(
+		ARRAY_SORT(v, k -> k,
+			[ 'red', 'green', 'blue' ],
+			[ 3, 7, 4 ] ),
+			-1
+		)
+    AS res;
+```
+**Returns**: `'green'`
+
 ## FILTER
 
 Returns an array containing the elements from `<arr>` for which the given Lambda function `<func>` returns something other than `0`.
@@ -769,7 +796,7 @@ FILTER(<func>, <arr> [, ...n] )
 | `<func>`         | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
 
-### Example
+### Examples
 {: .no_toc}
 
 In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.
@@ -781,7 +808,7 @@ SELECT
 
 **Returns**: `'a'`
 
-In this example below, there are two arrays and two separate functions for evaluation. The `y` function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.
+In this example below, there are two arrays and two separate arguments for evaluation. The `y` function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.
 
 ```sql
 SELECT
@@ -789,6 +816,19 @@ SELECT
 ```
 
 **Returns**: `['c', 'd']`
+
+In this example below, there are three arrays with three Lambda arguments, only two of which have conditions to evaluate.
+
+```sql
+SELECT
+	FILTER(x, y, z -> (y > 2 AND z = 'red'),
+		[ 'a', 'b', 'c', 'd' ],
+		[ 1, 2, 3, 9 ],
+		[ 'red', 'green', 'red', 'green' ] )
+	AS res;
+```
+
+**Returns**: ["c"]
 
 ## FLATTEN
 
@@ -980,12 +1020,67 @@ TRANSFORM(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be transformed by the function.                                                                                                                                   |
 
-### Example
+### Examples
 {: .no_toc}
 
 ```sql
 SELECT
-	TRANSFORM(x -> x * 2, [ 1, 2, 3, 9 ]) AS res;
+	TRANSFORM(x -> x * 2, [ 1, 2, 3, 9 ] ) AS res;
 ```
 
 **Returns**: `2,4,6,18`
+
+In the example below, the `TRANSFORM` function is used to [`CAST`](../conditional-and-miscellaneous-functions.html#cast) each element from a string to a date type. With each element now as a date type, the [`INTERVAL`](../../commands/operators.html#interval-for-date-and-time) function is then used to add 5 years to each.  
+
+```sql
+SELECT
+    TRANSFORM(x ->  CAST(x as DATE) + INTERVAL '5 year',
+        [ '1979-01-01', '1986-02-26', '1975-04-04' ] )
+    AS res;
+```
+
+**Returns**: `["1984-01-01 05:06:00","1991-02-26 05:06:00","1980-04-03 05:06:00"]`
+
+In the example below, `TRANSFORM` is used with `CASE` to modify specific elements based on a condition.
+
+```sql
+SELECT
+    TRANSFORM(x, y -> CASE
+        WHEN y = 'green' THEN x
+        ELSE 0
+        END,
+        [ 1, 2, 3 ],
+        [ 'red', 'green', 'blue' ] )
+    AS res;
+```
+
+**Returns**: `[0,2,0]`
+
+This example again uses `TRANSFORM` with `CASE`. Elements that don't meet the condition are left unchanged.
+
+```sql
+SELECT
+    TRANSFORM(x, y -> CASE
+        WHEN y % 2 == 0
+        THEN UPPER(x)
+        ELSE x END,
+        [ 'red', 'green', 'blue' ],
+        [ 1, 2, 3 ] )
+    AS res;
+```
+
+**Returns**: `["red","GREEN","blue"]`
+
+This is another example using `CASE` that changes elements only if they meet the condition.
+
+```sql
+SELECT
+    TRANSFORM(x, y -> CASE
+        WHEN x < y THEN y
+        ELSE x END,
+        [ 100, 700, 800 ],
+        [ 300, 500, 200 ] )
+    AS res;
+```
+
+**Returns**: `[300,700,800]`

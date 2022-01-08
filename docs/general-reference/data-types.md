@@ -114,7 +114,7 @@ A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*.
 
 Same range as `DATE` type.
 
-Minimal value: 0000-00-00 00:00:00.
+Minimal value: 1970-01-01 00:00:00.
 
 To change the default time zone in Firebolt:
 `SET DEFAULT_TIMEZONE = "Pacific Standard Time"`
