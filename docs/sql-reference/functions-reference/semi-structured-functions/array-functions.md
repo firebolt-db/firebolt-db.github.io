@@ -758,7 +758,7 @@ SELECT
 
 **Returns**: `2`
 
-In the example below, `ELEMENT_AT` is paired with `ARRAY_SORT` to reorder the array before grabbing the specified element. `ARRAY_SORT` orders the arrays in ascending order by the elements in the second array `[ 3, 7, 4 ]`. Upon being sorted, that array is reordered to `[ 3, 4, 7 ]` while its associated array `[ 'red', 'green', 'blue' ]` is reordered to `[ 'red', 'blue', 'green' ]`. `ELEMENT_AT` then return element at index `-1`, which is now `green`.
+In the example below, `ELEMENT_AT` is paired with `ARRAY_SORT` to reorder the array before grabbing the specified element. `ARRAY_SORT` orders the arrays in ascending order by the elements in the second array `[ 3, 7, 4 ]`. Upon being sorted, that array is reordered to `[ 3, 4, 7 ]` while its associated array `[ 'red', 'green', 'blue' ]` is reordered to `[ 'red', 'blue', 'green' ]`. `ELEMENT_AT` then returns the element at index `-1`, which is now `green`.
 
 ```sql
 SELECT
