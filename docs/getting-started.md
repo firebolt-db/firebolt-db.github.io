@@ -109,7 +109,7 @@ Every fact table in Firebolt must have a *primary index* specified when you crea
 
 2. Copy and paste the query below into the script tab.  
 ```sql
-CREATE FACT TABLE IF NOT EXISTS lineitem ()
+CREATE FACT TABLE IF NOT EXISTS lineitem (
 -- In this example, these fact table columns
 -- map directly to the external table columns.
   l_orderkey              LONG,
