@@ -42,7 +42,7 @@ search:
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
 gh_edit_link_text: "Edit on GitHub"
-gh_edit_repository: "https://github.com/firebolt-db/firebolt-doc-staging" # the github URL for your repo
+gh_edit_repository: "https://github.com/firebolt-db/firebolt-db.github.io" # the github URL for your repo
 gh_edit_branch: "gh-pages"
 gh_edit_source: docs
 gh_edit_view_mode: "edit"
