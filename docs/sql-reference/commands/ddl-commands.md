@@ -992,7 +992,7 @@ Example returned output is shown below.
 
 ## SHOW COLUMNS
 
-Lists columns and their properties for a specified table. Returns `<table_name>`, `<column_name>`, `<data_type>`, and `nullable` for each column.
+Lists columns and their properties for a specified table. Returns `<table_name>`, `<column_name>`, `<data_type>`, and `nullable` (`1` if nullable, `0` if not) for each column.
 
 ##### Syntax
 {: .no_toc}
@@ -1012,7 +1012,8 @@ SHOW COLUMNS <table_name>;
 SHOW COLUMNS prices;
 ```
 
-**Returns**:
+##### Returns
+{: .no_toc}
 
 ```
 ------------+-------------+-----------+----------+
@@ -1025,7 +1026,7 @@ SHOW COLUMNS prices;
 
 ## SHOW DATABASES
 
-Lists databases in the current Firebolt account. Returns `name`, `region`, `attached_engines`, `created_on`, `created_by`, and `errors` for each database.
+Returns a table with a row for each database defined in the current Firebolt account, with columns containing information as listed below.
 
 ##### Syntax
 {: .no_toc}
@@ -1034,27 +1035,42 @@ Lists databases in the current Firebolt account. Returns `name`, `region`, `atta
 SHOW DATABASES;
 ```
 
-##### Example
+##### Returns
+{: .no_toc}
+
+The returned table has the following columns.
+
+| Column name      | Data Type   | Description |
+| :----------------| :-----------| :-----------|
+| database_name    | STRING      | The name of the database. |
+| region           | STRING      | The AWS Region in which the database was created. |
+| attached_engines | STRING      | A comma separated list of engine names that are attached to the database. |
+| created_on       | TIMESTAMP   | The date and time that the database was created (UTC). |
+| created_by       | STRING      | The user name of the Firebolt user who created the database. |
+| errors           | STRING      | Any error messages associated with the database. |
+
+<<<<<<< HEAD
+=======
+## SHOW DATABASE
+
+Returns a single-row table for the specified database, with columns containing information that are the same as `SHOW DATABASES` above.
+
+##### Syntax
 {: .no_toc}
 
 ```sql
-SHOW DATABASES;
+SHOW DATABASE <database_name>;
 ```
 
-**Returns**:
+| Parameter         | Description                              |
+| :---------------- | :--------------------------------------- |
+| `<database_name>` | The name of the database to be analyzed. |
 
-```
-+---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
-| database_name |  region   |          attached_engines           |         created_on          |  created_by   | errors |
-+---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
-| Tutorial1     | us-east-1 | Tutorial1_general_purpose (default) | 2021-09-30T21:25:45.401405Z | someone       |      - |
-+---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
-```
-
+>>>>>>> d8fb4d5... updating info schema views and show DDL commands
 
 ## SHOW ENGINES
 
-Lists all engines in the current Firebolt account. Returns `engine_name`, `region`, `spec`, `scale`, `status`, and `attached_to` for each engine.
+Returns a table with a row for each Firebolt engine defined in the current Firebolt account, with columns containing information about each engine as listed below.
 
 ##### Syntax
 {: .no_toc}
@@ -1063,26 +1079,23 @@ Lists all engines in the current Firebolt account. Returns `engine_name`, `regio
 SHOW ENGINES;
 ```
 
-##### Example
+##### Returns
 {: .no_toc}
 
-```sql
-SHOW ENGINES;
-```
+The returned table has the following columns.
 
-**Returns**:
-
-```
-+--------------------+-----------+-------------+-------+---------+-------------+
-|    engine_name     |  region   |    spec     | scale | status  | attached_to |
-+--------------------+-----------+-------------+-------+---------+-------------+
-| Tutorial_analytics | us-east-1 | r5d.4xlarge |     2 | Stopped | Tutorial    |
-+--------------------+-----------+-------------+-------+---------+-------------+
-```
+| Column name                 | Data Type   | Description |
+| :---------------------------| :-----------| :-----------|
+| engine_name                 | STRING      | The name of the engine. |
+| region                      | STRING      | The AWS Region in which the engine was created. |
+| spec                        | STRING      | The specification of nodes comprising the engine. |
+| scale                       | INT         | The number of nodes in the engine. |
+| status                      | STRING      | The engine status. For more information, see [Viewing and understanding engine status](../../working-with-engines/understanding-engine-fundamentals.md#viewing-and-understanding-engine-status). |
+| attached_to                 | STRING      | The name of the database to which the engine is attached. |
 
 ## SHOW INDEXES
 
-Lists all indexes defined in the current database. Returns `index_name`, `table_name`, `type` (primary, aggregating, or join), the index `expression`, and the `size_compressed`.
+Returns a table with a row for each Firebolt index defined in the current database, with columns containing information about each index as listed below.
 
 ##### Syntax
 {: .no_toc}
@@ -1091,28 +1104,25 @@ Lists all indexes defined in the current database. Returns `index_name`, `table_
 SHOW INDEXES;
 ```
 
-##### Example
+##### Returns
 {: .no_toc}
 
-```sql
-SHOW INDEXES;
-```
+The returned table has the following columns.
 
-**Returns:**
-
-```
-+------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
-|       index_name       |   table_name   |    type     |                                                expression                                                | size_compressed | size_uncompressed | compression_ratio | number_of_segments |
-+------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
-| primary_lineitem       | lineitem       | primary     | ["l_orderkey","l_linenumber"]                                                                            | N/A             | N/A               | N/A               | N/A                |
-| primary_partition_test | partition_test | primary     | ["store_id","product_id"]                                                                                | N/A             | N/A               | N/A               | N/A                |
-| agg_lineitem           | lineitem       | aggregating | ["\"l_suppkey\"","\"l_partkey\"","SUM(\"l_quantity\")","SUM(\"l_extendedprice\")","AVG(\"l_discount\")"] | N/A             | N/A               | N/A               | 8                  |
-+------------------------+----------------+-------------+----------------------------------------------------------------------------------------------------------+-----------------+-------------------+-------------------+--------------------+
-```
+| Column name                 | Data Type   | Description |
+| :---------------------------| :-----------| :-----------|
+| index_name                  | STRING      | The name of the index. |
+| table_name                  | STRING      | The name of the table associated with the index. |
+| type                        | STRING      | One of `primary`, `aggregating`, or `join`. |
+| expression                  | ARRAY (TEXT)| An ordered array of the expression in SQL that defined the index. |
+| size_compressed             | DOUBLE      | The size of the index in bytes. |
+| size_uncompressed           | DOUBLE      | The uncompressed size of the index in bytes. |
+| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size_compressed>`).
+| number_of_segments          | INT         | The number of segments comprising the table. |
 
 ## SHOW TABLES
 
-Lists all tables defined in the current database. Returns `table_name`, `state`, `table_type`, `column_count`, `primary_index`, and `schema` (the `CREATE [EXTERNAL|FACT|DIMENSION] TABLE` statement for the table).
+Returns a table with a row for each table in the current database, with columns containing information for each table as listed below.
 
 ##### Syntax
 {: .no_toc}
@@ -1121,15 +1131,12 @@ Lists all tables defined in the current database. Returns `table_name`, `state`,
 SHOW TABLES;
 ```
 
-##### Example
+##### Returns
 {: .no_toc}
 
-```sql
-SHOW TABLES;
-```
+The returned table has the following columns.
 
-**Returns**:
-
+<<<<<<< HEAD
 ```
 +----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
 |   table_name   | state | table_type | column_count |       primary_index        |                                                                                                                                                                                                                                                                                                                           schema                                                                                                                                                                                                                                                                                                                            | number_of_rows | size | size_uncompressed | compression_ratio | number_of_segments |
@@ -1170,3 +1177,18 @@ SHOW VIEWS;
 | v16       | CREATE VIEW "v16" AS WITH x7 AS (SELECT * FROM oz_x6 ) SELECT * FROM x7                                      |
 +-----------+--------------------------------------------------------------------------------------------------------------+
 ```
+=======
+| Column name                 | Data Type   | Description |
+| :---------------------------| :-----------| :-----------|
+| table_name                  | STRING      | The name of the table. |
+| state                       | STRING      | The current table state. |
+| table_type                  | STRING      | One of `FACT`, `DIMENSION`, `EXTERNAL`, or `VIEW`. |
+| column_count                | INT         | The number of columns in the table. |
+| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
+| schema                      | STRING      | The text of the SQL statement that created the table. |
+| number_of_rows              | INT         | The number of rows in the table. |
+| size                        | DOUBLE      | The compressed size of the table. |
+| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
+| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
+| number_of_segments          | INT         | The number of segments comprising the table. |
+>>>>>>> d8fb4d5... updating info schema views and show DDL commands

@@ -112,4 +112,143 @@ SELECT (SELECT COUNT(*) FROM my_extable)=(SELECT COUNT(*) FROM fact_or_dim_table
 
 This statement assumes the fact or dimension table ingested all of the rows from the external table, and not a partial subset.
 
-* If the counts are not equal, [`DROP`](https://docs.firebolt.io/sql-reference/commands/ddl-commands#drop) `` the incomplete target table, create a new target table, change the `INSERT INTO` query to use the new target, and then run the query again.
+* If the counts are not equal, [DROP](https://docs.firebolt.io/sql-reference/commands/ddl-commands#drop) the incomplete target table, create a new target table, change the `INSERT INTO` query to use the new target, and then run the query again.
+
+## COPY TO (Beta)
+
+A `COPY TO` statement copies results from a query operation to an Amazon S3 bucket. This command is currently in beta stage and is being further developed.&#x20;
+
+**Syntax**
+
+```sql
+COPY ( <select_query> )
+TO ' <bucket/prefix> '
+CREDENTIALS = <awsCredentials>
+[ TYPE = CSV | TSV | JSON | PARQUET ]
+[ COMPRESSION = GZIP | NONE ]
+[ INCLUDE_QUERY_ID_IN_FILE_NAME = TRUE | FALSE ]
+[ FILE_NAME_PREFIX = <text> ]
+[ SINGLE_FILE = FALSE | TRUE ]
+[ MAX_FILE_SIZE = 16000000 ]
+[ OVERWRITE_EXISTING_FILES = FALSE | TRUE ]
+```
+
+| Parameter | Description |
+| :-------- | :---------- |
+| `<select_query>`  | Any valid `SELECT` statement used to query a data table.|
+| `<bucket/prefix>` | The path to an S3 location where the query results are to be stored.|
+| `<awsCredentials>`| The authentication credentials for accessing your AWS S3. This can be an access key and secret key, or you can use IAM credentials. More information on obtaining these can be found in our [documentation](../../loading-data/configuring-aws-role-to-access-amazon-s3.html)|
+| `COMPRESSION`     | Defaults to GZIP compression format for file exports. If `NONE` is specified, file exports will not be compressed.|
+| `INCLUDE_QUERY_ID_IN_FILE_NAME` | Specifies if a query ID is included in the file name. Defaults to `TRUE`. If `TRUE`, files are exported as `<query_id>.[type].gz`, for example `123ABCXY2.parquet.gz`. If `FALSE`, files as exported as `output.[type].gz`, for example, `output.parquet.gz`. We recommend including `<query_id>` or providing a unique name for exported files to avoid potential overwriting errors.|
+| `FILE_NAME_PREFIX`              | A string to use as a custom file name. The default is an empty string. The specified string is appended to the file name, based on the `INCLUDE_QUERY_ID_IN_FILE_NAME` parameter.<br> If `INCLUDE_QUERY_ID_IN_FILE_NAME` is `TRUE`, the exported file name would be `<query_id><file_name>.[type].gz`.<br> If `FALSE`, the specified string would replace the default “output” file name, for example: `<file_name>.[type].gz`. |
+| `SINGLE_FILE`                   | Specifies if the export should be a single or multiple files. Defaults to `FALSE`.<br> If `FALSE`, the export is split based on the `MAX_FILE_SIZE` value.<br> Exported files are appended with “_” to represent the number of the file in the series, starting with 0 and incrementing up. For example: `123ABCXY2_0.parquet.gz`<br>If `TRUE`, an error is generated if the file exceeds the value in `MAX_FILE_SIZE`. |
+| `MAX_FILE_SIZE`                 | Specifies the max file size in bytes for files uploaded to the S3 bucket.<br> The default value is 16000000 (16 MB). The maximum file size allowed is 5000000000 (5 GB) |
+| `OVERWRITE_EXISTING_FILES`      | Specifies whether exported files should overwrite existing files in the S3 location if they have matching names. Defaults to `FALSE`.<br> Files that do not have matching names are not affected.                                                                                                                              |
+
+**Example 1 - COPY TO with default parameters**
+
+The example below shows a `COPY TO` statement without any parameters. This generates a compressed csv file with the file name format `<query_id>.csv.gz` in the S3. If the data output were to exceed 16MB, the statement would generate multiple files with each being named as `<query_id>_<index>.csv.gz`.
+
+```
+COPY (
+	SELECT *
+	FROM test_table
+	LIMIT 100
+	)
+	TO 's3://my_bucket/'
+	CREDENTIALS = (AWS_ROLE_ARN = '*******');
+```
+
+**Returns**: `s3://my_bucket/16B903C4206098FD.csv.gz`
+
+The newly created csv file is saved to the S3 location specified in the `TO` clause
+
+**Example 2a - different variations of output filenames**
+
+You can specify a single output file that will be named as the query ID. This example below generates a single json file:
+
+```
+COPY (
+    SELECT *
+        FROM test_table
+        LIMIT 100
+    )
+    TO 's3://my_bucket/'
+        TYPE=JSON
+        COMPRESSION=NONE
+        CREDENTIALS=(AWS_KEY_ID='****' AWS_SECRET_KEY='****')
+        INCLUDE_QUERY_ID_IN_FILE_NAME=TRUE
+        SINGLE_FILE=TRUE
+        MAX_FILE_SIZE=5000000
+        OVERWRITE_EXISTING_FILES=TRUE;
+```
+
+**Returns:** `s3://my_bucket/16B90E96716236D0.json`
+
+**Example 2b**
+
+In the example below, a string is appended to the file name by using the `FILE_NAME_PREFIX` parameter.
+
+```
+COPY (
+    SELECT *
+        FROM test_table
+        LIMIT 100
+    )
+    TO 's3://my_bucket/'
+        TYPE=JSON
+        COMPRESSION=NONE
+        CREDENTIALS=(AWS_KEY_ID='****' AWS_SECRET_KEY='****')
+        INCLUDE_QUERY_ID_IN_FILE_NAME=TRUE
+        FILE_NAME_PREFIX='_result'
+        SINGLE_FILE=TRUE
+        MAX_FILE_SIZE=5000000
+        OVERWRITE_EXISTING_FILES=TRUE;
+```
+
+**Returns:** `s3://my_bucket/16B90E96716236D6_result.json`
+
+**Example 2c**
+
+If you prefer not to use the query ID, you can label your output file by setting `INCLUDE_QUERY_ID_IN_FILE_NAME` to false and designating a string in `FILE_NAME_PREFIX`.
+
+```
+COPY (
+    SELECT *
+        FROM test_table
+        LIMIT 100
+    )
+    TO ‘s3://my_bucket’
+        TYPE=JSON
+        COMPRESSION=NONE
+        CREDENTIALS=(AWS_KEY_ID='****' AWS_SECRET_KEY='****')
+        INCLUDE_QUERY_ID_IN_FILE_NAME=FALSE
+        FILE_NAME_PREFIX='result'
+        SINGLE_FILE=TRUE
+        MAX_FILE_SIZE=5000000
+        OVERWRITE_EXISTING_FILES=TRUE;
+```
+
+**Returns:** `s3://my_bucket/result.json`
+
+**Example 2d**
+
+If no file name is specified and the `<query_id>` is not used, exported files will be named “output”.
+
+```
+COPY (
+    SELECT *
+        FROM test_table
+        LIMIT 100
+    )
+    TO ‘s3://my_bucket’
+        TYPE=JSON
+        COMPRESSION=NONE
+        CREDENTIALS=(AWS_KEY_ID='****' AWS_SECRET_KEY='****')
+        INCLUDE_QUERY_ID_IN_FILE_NAME=FALSE
+        SINGLE_FILE=TRUE
+        MAX_FILE_SIZE=5000000
+        OVERWRITE_EXISTING_FILES=TRUE;
+```
+
+**Returns:** `s3://my_bucket/output.json`

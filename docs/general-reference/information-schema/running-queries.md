@@ -7,10 +7,9 @@ parent: Information schema and usage views
 grand_parent: General reference
 ---
 
-# Running queries
+# Information schema for running queries
 
-The `running_queries` view can be used to explore Firebolt's running queries in your account.\
-The view is available in all databases and can be queried, for example, as follows:
+You can use the `catalog.running_queries` view to return information about queries currently running in a database. The view is available in each database and contains one row for each running query in the database. You can use a `SELECT` query to return information about each running query as shown in the example below.
 
 ```sql
 SELECT
@@ -21,19 +20,22 @@ LIMIT
   100;
 ```
 
-The `running_queries` view contains the following columns:
+## Columns in catalog.running_queries
 
-| **Column Name** | **Description**                                               |
-| ENGINE\_NAME    | The name of the engine that was used to execute the query     |
-| ENGINE\_ID      | The id of the engine that was used to execute the query       |
-| USER\_ID        | The user ID that was used to execute the query                |
-| ACCOUNT\_ID     | The ID of the account in which the query was executed         |
-| START\_TIME     | The query execution start time (UTC)                          |
-| DURATION        | Duration of query execution (in milliseconds)                 |
-| STATUS          | The status of the query. Always contains the value 'RUNNING'. |
-| QUERY\_ID       | The unique identifier of the SQL query                        |
-| QUERY\_TEXT     | Text of the SQL statement                                     |
-| SCANNED\_ROWS   | The total amount of rows scanned                              |
-| SCANNED\_BYTES  | The total amount of bytes scanned (both in cache and storage) |
-| INSERTED\_ROWS  | The total amount of rows written                              |
-| INSERTED\_BYTES | The total amount of bytes written                             |
+Each row has the following columns with information about each running query.
+
+| Column Name                 | Data type | Description |
+| :---------------------------| :---------| :---------- |
+| ENGINE_ID                   | STRING    | The ID of the engine that was used to execute the query. |
+| ENGINE_NAME                 | STRING    | The name of the engine that was used to execute the query. |
+| ACCOUNT_ID                  | STRING    | The ID of the account in which the query was executed. |
+| USER_ID                     | STRING    | The user ID that was used to execute the query. |
+| START_TIME                  | TIMESTAMP | The query execution start time (UTC). |
+| STATUS                      | STRING    | The status of the query. Always contains the value 'RUNNING'. |
+| DURATION                    | DOUBLE    | The elapsed time in milliseconds between `<START_TIME>` and the time that the query over `catalog.running_queries` returns results. |
+| QUERY_ID                    | STRING    | The unique identifier of the SQL query. |
+| QUERY_TEXT                  | STRING    | Text of the SQL statement. |
+| SCANNED_ROWS                | LONG      | The number of rows scanned to return query results. |
+| SCANNED_BYTES               | LONG      | The number of bytes scanned from cache and storage. |
+| INSERTED_ROWS               | LONG      | The number of rows written. |
+| INSERTED_BYTES              | LONG      | The number of bytes written. |

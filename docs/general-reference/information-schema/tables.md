@@ -7,11 +7,9 @@ parent: Information schema and usage views
 grand_parent: General reference
 ---
 
-# Tables
+# Information schema for tables
 
-This information schema view contains a row per table in the current database.
-
-The view is available in all databases and can be queried as follows:
+You can use the `information_schema.tables` view to return information about each table in a database. The view is available for each database and contains one row for each table in the database. You can use a `SELECT` query to return information about each table as shown in the example below.
 
 ```sql
 SELECT
@@ -20,18 +18,27 @@ FROM
   information_schema.tables;
 ```
 
-## View columns
+## Columns in information_schema.tables
 
-| **Column Name**                 | **Data Type** | **Description**                                                 |
-| table_catalog                  | `TEXT`        | Name of the catalog. Firebolt offers a single ‘default’ catalog |
-| table_schema                   | `TEXT`        | The name of the database                                        |
-| table_name                     | `TEXT`        | Name of the table                                               |
-| primary_index                  | `ARRAY(TEXT)` | The primary index columns                                       |
-| self_referencing_column_name | `TEXT`        | Not applicable for Firebolt                                     |
-| reference_generation           | `TEXT`        | Not applicable for Firebolt                                     |
-| user_defined_type_catalog    | `TEXT`        | Not applicable for Firebolt                                     |
-| user_defined_type_schema     | `TEXT`        | Not applicable for Firebolt                                     |
-| user_defined_type_name       | `TEXT`        | Not applicable for Firebolt                                     |
-| is_insertable_into            | `TEXT`        | Not applicable for Firebolt                                     |
-| is_typed                       | `TEXT`        | Not applicable for Firebolt                                     |
-| commit_action                  | `TEXT`        | Not applicable for Firebolt                                     |
+Each row has the following columns with information about each table.
+
+| Name                        | Data Type   | Description |
+| :---------------------------| :-----------| :-----------|
+| table_catalog               | STRING      | Name of the catalog. Firebolt offers a single ‘default’ catalog. |
+| table_schema                | STRING      | The name of the database. |
+| table_name                  | STRING      | The name of the table. |
+| table_type                  | STRING      | One of `FACT TABLE`, `DIMENSION TABLE`, `EXTERNAL TABLE`, or `VIEW`. |
+| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
+| number_of_rows              | INT         | The number of rows in the table. |
+| size                        | DOUBLE      | The compressed size of the table. |
+| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
+| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
+| number_of_segments          | INT         | The number of segments comprising the table. |
+| self_referencing_column_name| NULL        | Not applicable for Firebolt. |
+| reference_generation        | NULL        | Not applicable for Firebolt. |
+| user_defined_type_catalog   | NULL        | Not applicable for Firebolt. |
+| user_defined_type_schema    | NULL        | Not applicable for Firebolt. |
+| user_defined_type_name      | NULL        | Not applicable for Firebolt. |
+| is_insertable_into          | NULL        | Not applicable for Firebolt. |
+| is_typed                    | NULL        | Not applicable for Firebolt. |
+| commit_action               | NULL        | Not applicable for Firebolt. |
