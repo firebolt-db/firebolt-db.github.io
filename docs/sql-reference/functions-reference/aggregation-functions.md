@@ -13,55 +13,17 @@ parent: SQL functions reference
 
 ## ANY
 
-Returns the first value encountered in the specified column. The function is indeterminate. It can be executed in any order and might be executed in a different order each time.
-
-### Syntax
-{: .no_toc}
-
-```sql
-ANY(<col>)
-```
-
-| Parameter | Description                                                                                  |
-| :--------- | :-------------------------------------------------------------------------------------------- |
-| `<col>`   | The column from which the value will be returned. The column can be any supported data type. |
-
-To demonstrate `ANY`, we'll create a basic example table.&#x20;
-
-```sql
-CREATE DIMENSION TABLE IF NOT EXISTS example
-	(
-		First_name TEXT
-	);
-
-INSERT INTO
-	example
-VALUES
-	('Sammy'),
-	('Carol'),
-	('Thomas'),
-	('Deborah');
-```
-
-**Example**
-
-```sql
-SELECT
-	ANY(First_name)
-FROM
-	example;
-```
-
-**Returns**: `Sammy`
+Synonym for [ANY_VALUE](#any-value).
 
 ## ANY\_VALUE
 
-Returns one arbitrary value from the specified column.
+Returns a single arbitrary value from the specified column.
 
 ### Syntax
 {: .no_toc}
 
-```sql
+
+```SQL
 ​​ANY_VALUE(<col>)​​
 ```
 
@@ -69,18 +31,31 @@ Returns one arbitrary value from the specified column.
 | :--------- | :-------------------------------------------- |
 | `<col>`   | The column from which the value is returned. |
 
-**Example**
+### Example
+{: .no_toc}
 
-The example below uses the same `example` table used in the `ANY` documentation above.&#x20;
+Consider a table, `example_table`, with a single column `first_name` as shown below.
 
 ```
++------------+
+| first_name |
++------------+
+| Sammy      |
+| Anurag     |
+| Carol      |
+| Lei        |
+| Mickey     |
++------------+
+```
+
+The first time the query below runs, `Carol` might be returned. The second time the query runs, `Carol` or any other value, such as `Lei` or `Sammy`, might be returned.
+
+```sql
 SELECT
-	ANY_VALUE(First_name)
+	ANY_VALUE(first_name)
 FROM
-	example;
+	example_table;
 ```
-
-**Returns**: `Carol`
 
 ## APPROX\_PERCENTILE
 
