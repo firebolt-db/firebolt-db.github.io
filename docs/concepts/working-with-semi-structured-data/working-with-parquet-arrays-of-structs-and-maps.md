@@ -25,7 +25,7 @@ To run queries and DML commands on external tables that use this notation, you m
 SET use_short_column_path_parquet = 1;
 ```
 
-### Syntax for defining a Parquet nested structure
+##### Syntax for defining a Parquet nested structure
 
 You specify the top grouping element of a nested structure in Parquet followed by the field in that structure that contains the data to ingest. You then declare the column type using the `ARRAY(<data_type>)` notation, where `<data type>` is the [Firebolt data type](../../general-reference/data-types.md) corresponding to the data type of the field in Parquet.
 

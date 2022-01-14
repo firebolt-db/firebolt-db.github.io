@@ -16,7 +16,7 @@ parent: SQL functions reference
 The CASE expression is a conditional expression similar to if-then-else statements.\
 If the result of the condition is true then the value of the CASE expression is the result that follows the condition. ​ If the result is false any subsequent WHEN clauses (conditions) are searched in the same manner. ​ If no WHEN condition is true then the value of the case expression is the result specified in the ELSE clause. ​ If the ELSE clause is omitted and no condition matches, the result is null.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -32,7 +32,7 @@ END;
 | `<condition>` | An expression that returns a boolean result. ​ A condition can be defined for each `WHEN`, and `ELSE` clause.                                               |
 | `<result>`    | The result of any condition. Every ​`THEN` ​​clause receives a single result. All results in a single ​`CASE` ​​function must share the same data type. |
 
-### Example
+##### Example
 {: .no_toc}
 
 This example references a table `Movie_test` with the following columns and values:&#x20;
@@ -84,7 +84,7 @@ ORDER BY
 
 Similar to `TRY_CAST`, `CAST` converts data types into other data types based on the specified parameters. If the conversion cannot be performed, `CAST` returns an error. To return a `NULL` value instead, use `TRY_CAST`.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -96,7 +96,7 @@ CAST(<value> AS <type>)
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -112,7 +112,7 @@ SELECT CAST('1' AS INT) as res;
 
 Takes one or more input parameters of any data type and returns a 64-bit non-cryptographic hash value. `CITY_HASH` uses the CityHash algorithm for string data types, implementation-specific algorithms for other data types, and the CityHash combinator to produce the resulting hash value.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -123,7 +123,7 @@ CITY_HASH(<exp>, [, expr2 [,...]])
 | :--------- | :---------------------------------------------------------------- |
 | `<exp>`   | An expression that returns any data type that Firebolt supports. |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -136,7 +136,7 @@ SELECT CITY_HASH('15', 'apple', '02-25-1918')
 
 Checks from left to right for the first non-NULL argument found for each entry parameter pair. For example, for an Employee table (where each employee can have more than one location), check multiple location parameters, find the first non-null pair per employee (the first location with data per employee).
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -147,7 +147,7 @@ Checks from left to right for the first non-NULL argument found for each entry p
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<value>` | The value(s) to coalesce. Can be either: column name, ​ ​a function applied on a column (or on another function), and a literal (constant value). |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -164,7 +164,7 @@ Alias for `NULLIF`.
 
 Compares two values. Returns `null` if the values are equal and returns the first value if they are not equal.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -175,7 +175,7 @@ NULLIF(<exp1>, <exp2>)
 | :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. `<exp1>` is the value returned if the expressions do not evaluate to an equal result. |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -194,7 +194,7 @@ NULLIF('Firebolt fast','Firebolt Fast')
 
 Similar to `CAST`, `TRY_CAST` converts data types into other data types based on the specified parameters. If the conversion cannot be performed, `TRY_CAST` returns a `NULL`. To return an error message instead, use `CAST`.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -206,7 +206,7 @@ TRY_CAST(<value> AS <type>)
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql

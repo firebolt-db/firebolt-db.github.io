@@ -37,7 +37,7 @@ The metadata virtual columns listed below are available in external tables.
 | `source_file_name` | The full path of the row's source file in Amazon S3. For Kafka-connected external tables, this is `NULL`. | TEXT |
 | `source_file_timestamp` | The creation date of the row's source file in S3. For Kafka-connected external tables, this is `NULL`. | TIMESTAMP |
 
-### Example&ndash;querying metadata virtual column values
+##### Example&ndash;querying metadata virtual column values
 
 The query example below creates an external table that references an AWS S3 bucket that contains Parquet files for Firebolt to ingest.
 

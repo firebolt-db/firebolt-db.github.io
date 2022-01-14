@@ -17,14 +17,14 @@ This page describes the date and time functions and [format expressions](date-an
 
 Returns the current year, month and day as a `DATE` value, formatted as YYYY-MM-DD.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
 ​​CURRENT_DATE()​​
 ```
 
-### Example
+##### Example
 {: .no_toc}
 
 ```
@@ -38,7 +38,7 @@ SELECT
 
 Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified number of time units from an indicated expression.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -51,7 +51,7 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 | `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value.                                                              |
 
-### Example
+##### Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.
@@ -95,7 +95,7 @@ SELECT
 
 Calculates the difference between ​​`start_date`​​ and ​`end_date`​​ by the indicated ​unit​​.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -108,7 +108,7 @@ Calculates the difference between ​​`start_date`​​ and ​`end_date`​�
 | `<start_date>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 | `<end_date>`   | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
-### Example
+##### Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.
@@ -155,7 +155,7 @@ SELECT
 
 Formats a `DATE` or `DATETIME` according to the given format expression.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -191,7 +191,7 @@ Formats a `DATE` or `DATETIME` according to the given format expression.
 | `%Y`                     | Year                                                                        | `1975`                                                                                     |
 | `%%`                     | Escape character to use a `%` sign                                          | `%`                                                                                        |
 
-### Example
+##### Example
 {: .no_toc}
 
 The examples below use a table `date_test` with the columns and values below. The following examples use these `TIMESTAMP` values to demonstrate the various `DATE_FORMAT` expressions.
@@ -294,7 +294,7 @@ ORDER BY
 
 Truncate a given date to a specified position.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -306,7 +306,7 @@ Truncate a given date to a specified position.
 | `<precision>` | The time unit for the returned value to be expressed. ​ This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`    |
 | `<date>`      | The date to be truncated. This can be any expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
-### Example
+##### Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.
@@ -345,7 +345,7 @@ ORDER BY
 
 Retrieves subfields such as year or hour from date/time values.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -357,7 +357,7 @@ Retrieves subfields such as year or hour from date/time values.
 | `<field>`  | Supported fields: `DAY`, `DOW, MONTH`, `WEEK`, `WEEKISO`, `QUARTER`, `YEAR`, `HOUR`, `MINUTE`, `SECOND`, `EPOCH` |
 | `<source>` | A value expression of type timestamp.                                                                            |
 
-### Example
+##### Example
 {: .no_toc}
 
 This example below extracts the year from the timestamp. The string date first need to be transformed to `TIMESTAMP` type using the `CAST `function.
@@ -377,7 +377,7 @@ SELECT
 
 Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -388,7 +388,7 @@ Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 | :------------- | :-------------------------------------------- |
 | `<unix_time>` | The UNIX epoch time that is to be converted. |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -402,14 +402,14 @@ SELECT
 
 Returns the current date and time.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
 ​​NOW()​​
 ```
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -423,14 +423,14 @@ SELECT
 
 Returns the current timezone of the request execution
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
 ​​TIMEZONE()​​
 ```
 
-### Example
+##### Example
 {: .no_toc}
 
 
@@ -445,7 +445,7 @@ SELECT
 
 Converts a date or timestamp to a number representing the day of the week (Monday is 1, and Sunday is 7).
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -456,7 +456,7 @@ Converts a date or timestamp to a number representing the day of the week (Monda
 | :--------- | :------------------------------------------------------- |
 | `<date>`  | An expression that evaluates to a `DATE `or `TIMESTAMP` |
 
-### Example
+##### Example
 {: .no_toc}
 
 This example below finds the day of week number for April 22, 1975. The string first needs to be transformed to `DATE `type using the `CAST `function.
@@ -472,7 +472,7 @@ SELECT
 
 Converts a date or timestamp to a number containing the number for the day of the year.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -483,7 +483,7 @@ Converts a date or timestamp to a number containing the number for the day of th
 | :--------- | :------------------------------------------------------- |
 | `<date>`  | An expression that evaluates to a `DATE `or `TIMESTAMP` |
 
-### Example
+##### Example
 {: .no_toc}
 
 This example below finds the day of the year number for April 22, 1975. The string first needs to be transformed to `DATE `type using the `CAST `function.
@@ -499,7 +499,7 @@ SELECT
 
 Converts a date or timestamp to a number containing the hour.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -510,7 +510,7 @@ Converts a date or timestamp to a number containing the hour.
 | :------------- | :---------------------------------------------------------- |
 | `<timestamp>` | The timestamp to be converted into the number of the hour. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975 at 12:20:05:
@@ -526,7 +526,7 @@ Returns: `12`
 
 Converts a timestamp (any date format we support) to a number containing the minute.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -537,7 +537,7 @@ Converts a timestamp (any date format we support) to a number containing the min
 | :------------- | :------------------------------------------------------------ |
 | `<timestamp>` | The timestamp to be converted into the number of the minute. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975 at 12:20:05:
@@ -553,7 +553,7 @@ SELECT
 
 Converts a date or timestamp (any date format we support) to a number containing the month.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -579,7 +579,7 @@ SELECT
 
 Converts a date or timestamp (any date format we support) to a number containing the quarter.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -590,7 +590,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 | :--------- | :--------------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the number of the quarter. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975:
@@ -606,7 +606,7 @@ SELECT
 
 Converts a timestamp (any date format we support) to a number containing the second.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -617,7 +617,7 @@ Converts a timestamp (any date format we support) to a number containing the sec
 | :------------- | :------------------------------------------------------------ |
 | `<timestamp>` | The timestamp to be converted into the number of the second. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975 at 12:20:05:
@@ -633,7 +633,7 @@ SELECT
 
 Converts a date into a STRING. The date is any [date data type​​](../../general-reference/data-types.md).
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -644,7 +644,7 @@ TO_STRING(<date>)
 | :--------- | :------------------------------------- |
 | `<date>`  | The date to be converted to a string. |
 
-### Example
+##### Example
 {: .no_toc}
 
 
@@ -661,7 +661,7 @@ SELECT
 
 Converts a date or timestamp to a number representing the week. This function defines week 1 of a calendar year as the first full week of a calendar year starting on a Sunday.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -672,7 +672,7 @@ Converts a date or timestamp to a number representing the week. This function de
 | :--------- | :------------------------------------------------------------------ |
 | `<date>`  | The date or timestamp to be converted into the number of the week. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Sunday, Jan. 1,  2017:&#x20;
@@ -697,7 +697,7 @@ SELECT
 
 Converts any supported date or timestamp data type to a number representing the week of the year. This function adheres to the [ISO 8601](https://en.wikipedia.org/wiki/ISO\_week\_date) standards for numbering weeks, meaning week 1 of a calendar year is the first week with 4 or more days in that year.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -708,7 +708,7 @@ TO_WEEKISO(<date>)
 | :--------- | :--------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the ISO week number. |
 
-### Example
+##### Example
 {: .no_toc}
 
 Where `ship_date` is a column of type `DATE `in the table `fct_orders`.
@@ -763,7 +763,7 @@ FROM
 
 Converts a date or timestamp (any date format we support) to a number containing the year.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -774,7 +774,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 | :--------- | :------------------------------------------------------------------ |
 | `<date>`  | The date or timestamp to be converted into the number of the year. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975:

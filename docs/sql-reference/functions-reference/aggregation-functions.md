@@ -19,7 +19,7 @@ Synonym for [ANY_VALUE](#any-value).
 
 Returns a single arbitrary value from the specified column.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 
@@ -31,7 +31,7 @@ Returns a single arbitrary value from the specified column.
 | :--------- | :-------------------------------------------- |
 | `<col>`   | The column from which the value is returned. |
 
-### Example
+##### Example
 {: .no_toc}
 
 Consider a table, `example_table`, with a single column `first_name` as shown below.
@@ -65,7 +65,7 @@ For example, if you run `APPROX_PERCENTILE` with a specified `<percent>` of .75 
 
 The number returned is not necessarily in the original range of numbers.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -77,7 +77,7 @@ APPROX_PERCENTILE(<expr>,<percent>)
 | `<expr>`    | A valid expression, such as a column name, that evaluates to numeric values.                                              |
 | `<percent>` | A constant real number greater than or equal to 0.0 and less than 1. For example, `.999` specifies the 99.9th percentile. |
 
-### Example
+##### Example
 {: .no_toc}
 
 To demonstrate `APPROX_PERCENTILE`, we'll use the example table `number_test` as created below. This provides a range of numbers between 1 and 100.
@@ -127,7 +127,7 @@ FROM
 
 Calculates the average of an expression.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -146,14 +146,14 @@ The `AVG()` aggregation function ignores rows with NULL. For example, an `AVG` f
 
 Calculates a hash value known as a checksum operation on a list of arguments. Performing a checksum operation is useful for warming up table data or to check if the same values exist in two different tables.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
 CHECKSUM( <expr1> [, <expr2>] [, <expr3>] [, ...n] )
 ```
 
-### Example
+##### Example
 {: .no_toc}
 
 The example below calculates a checksum based on all data in the table `mytable` and returns the numeric hash value for the checksum.
@@ -168,7 +168,7 @@ SELECT CHECKSUM(*) FROM mytable;
 
 Counts the number of rows or not NULL values.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -184,7 +184,7 @@ COUNT([ DISTINCT ] <expr>)
 >
 > By default, `COUNT(DISTINCT)` returns approximate results. To get a precise result, with a performance penalty, use `SET firebolt_optimization_enable_exact_count_distinct=1;`
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we'll create a new table `number_test` as shown below.&#x20;
@@ -234,7 +234,7 @@ FROM
 
 Calculates the maximum value of an expression across all input values.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -245,7 +245,7 @@ Calculates the maximum value of an expression across all input values.
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we'll create a new table `prices` as shown below.
@@ -294,7 +294,7 @@ The `MAX_BY` function returns a value for the `<arg>` column based on the max va
 
 If there is more than one max value in `<val>`, then the first will be used.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -306,7 +306,7 @@ MAX_BY(<arg>, <val>)
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a maximum value. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:
@@ -333,7 +333,7 @@ FROM
 
 Calculates an approximate median for a given column.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -344,7 +344,7 @@ Calculates an approximate median for a given column.
 | :--------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<col>`   | The column used to calculate the median value. This column can consist of numeric data types or DATE and DATETIME. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we'll create a new table `num_test `as shown below:
@@ -382,7 +382,7 @@ FROM
 
 Calculates the minimum value of an expression across all input values.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -393,7 +393,7 @@ Calculates the minimum value of an expression across all input values.
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the minimum values. Valid values for the expression include a column name or functions that return a column name. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we'll create a new table `prices` as shown below.
@@ -442,7 +442,7 @@ The `MIN_BY` function returns the value of `arg` column at the row in which the 
 
 If there is more than one minimal values in `val`, then the first will be used.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -454,7 +454,7 @@ MIN_BY(arg, val)
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a minimum value. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we will again use the `prices` table that was created above for the `MIN` function. The values for that table are below:&#x20;
@@ -487,7 +487,7 @@ See the [full description](semi-structured-functions/array-functions.md#nest) un
 
 Computes the standard deviation of a sample consisting of a numeric expression.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -498,7 +498,7 @@ STDDEV_SAMP(<expr>)​
 | :--------- | :------------------------------------------------------------------------------------------ |
 | `<expr>`  | Any column with numeric values or an expression that returns a column with numeric values. |
 
-### Example
+##### Example
 {: .no_toc}
 
 For this example, we'll create a new table `num_test `as shown below:
@@ -534,7 +534,7 @@ FROM
 
 Calculates the sum of an expression.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql

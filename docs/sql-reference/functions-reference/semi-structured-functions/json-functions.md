@@ -112,7 +112,7 @@ Takes an expression containing JSON string, a JSON Pointer, and a type parameter
 
 If the key pointed by the JSON pointer is not found, or the type of the value under that key is different from the one specified, the function returns `NULL`
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -131,7 +131,7 @@ If the key pointed by the JSON path exists and its type conforms with the `expec
 
 Otherwise, it returns `NULL`
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -168,7 +168,7 @@ Returns a string representation of a JSON array pointed by the supplied JSON poi
 
 This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](./array-functions#transform).
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -180,7 +180,7 @@ This function is useful when working with heterogeneously typed arrays and array
 | `<json>`                    | TEXT           | The JSON document from which the array is to be extracted |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON   |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -194,7 +194,7 @@ SELECT
 
 Returns an array of strings containing the keys at the nesting level indicated by the specified `<json_pointer_expression>`. If keys do not exist, returns `NULL`.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -206,7 +206,7 @@ JSON_EXTRACT_KEYS(<json>, '<json_pointer_expression>')
 | `<json>`                    | TEXT           | The JSON document used for key extraction                       |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to a location where the keys are to be extracted |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -222,7 +222,7 @@ FROM
 
 Returns a string representation of the scalar or sub-object under the key indicated by `<json_pointer_expression>` if the key exists. If the key does not exist, returns `NULL`.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -234,7 +234,7 @@ Returns a string representation of the scalar or sub-object under the key indica
 | `<json>`                    | TEXT           | The JSON document from which the value is to be extracted         |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the scalar or value in the JSON |
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -254,7 +254,7 @@ JSON_EXTRACT_RAW(<json_common_example>, '/value/tagIdToHits')
 
 Returns an array of string representations, each element containing the value pointed by the JSON Pointer.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -270,7 +270,7 @@ Returns an array of string representations, each element containing the value po
 
 A Firebolt array of string values based on the location specified by the `<json_pointer_expression>.` If no such key exists, it returns `NULL.`
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql

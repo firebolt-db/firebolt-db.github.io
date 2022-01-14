@@ -38,7 +38,7 @@ The primary query and the queries included in the `WITH` clause are all executed
 
 When using the `WITH `clause as part of a DML command, it must include a `RETURNING` clause as well, without which the main query cannot reference the WITH clause.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -51,7 +51,7 @@ WITH <subquery_table_name> [ <column_name> [, ...n] ] AS <subquery>
 | `<column_name>`         | An optional list of one or more column names. Columns should be separated by commas. |
 | `<subquery>`            | Any query statement                                                                  |
 
-### Example
+##### Example
 {: .no_toc}
 
 The following example retrieves all customers from the "EMEA" region, having the results of the `WITH` query in the temporary table `emea_customrs`.
@@ -80,7 +80,7 @@ ORDER BY
 
 Use the `FROM` clause to list the tables and any relevant join information and functions necessary for running the query.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -91,7 +91,7 @@ FROM <from_item> [, ...n]
 | :------------- | :--------------------------------------------------------------------- |
 | `<from_item>` | Indicates the table or tables from which the data is to be retrieved. |
 
-### Example
+##### Example
 {: .no_toc}
 
 In the following example, the query retrieves all entries from the `customers` table for which the `region` value is "EMEA".
@@ -109,7 +109,7 @@ WHERE
 
 A `JOIN` operation combines rows from two data sources (tables/views) and creates a new combined row that can be used in the query.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -124,7 +124,7 @@ FROM <from_item> [ NATURAL ] <join_type> <from_item> [ ON <join_condition> ]
 * `FULL [ OUTER ] JOIN`
 * `CROSS JOIN`
 
-### Example
+##### Example
 {: .no_toc}
 
 ```sql
@@ -141,7 +141,7 @@ Should be used when a table contains an array typed column in order to create a 
 
 An `UNNEST` operation is equivalent to performing a `JOIN` with an array. The purpose is similar to the [ARRAY\_UNNEST](../functions-reference/semi-structured-functions/array-functions.md#array_unnest) function, but the `UNNEST` clause functionality is much broader.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -153,7 +153,7 @@ FROM <from_item> UNNEST <expr>
 | `<from_item>` | The table containing the array column that you want to use to create a new table                                          |                                        |
 | `<expr>`      | Indicates the array or array column to unnest from.  Can be either an array literal or an array typed column. | Any valid array literal or column name |
 
-### Example
+##### Example
 {: .no_toc}
 
 The example is based on the following table:
@@ -197,7 +197,7 @@ Returns the following result:
 
 Use the `WHERE` clause to define conditions for the query in order to filter the query results. When included, the `WHERE` clause always follows the `FROM` clause as part of a command such as `SELECT`.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -208,7 +208,7 @@ WHERE <condition>
 | :------------- | :-------------------------------------- | :----------------------------- |
 | `<condition>` | Indicates the conditions of the query. | Any valid boolean expression. |
 
-### Example
+##### Example
 {: .no_toc}
 
 In the following example, the query retrieves all entries from the `customers` table for which the `region` value is "EMEA".
@@ -261,7 +261,7 @@ WHERE
 
 The `GROUP BY` clause indicates by what column or columns the results of the query should be grouped. `GROUP BY` is usually used in conjunction with aggregations, such as `SUM`, `COUNT`, `MIN`, etc. Grouping elements can include column names, the position of columns as specified in the `SELECT` expression, or other expressions used in the query.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -272,7 +272,7 @@ GROUP BY <grouping_element> [, ...n]
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<grouping_element>` | Indicates the condition by which the results should be grouped. <br><br> The number of `<grouping_elements>` must match the number of columns specified in the `SELECT` statement, not counting aggregations. |
 
-### Example
+##### Example
 {: .no_toc}
 
 In the following example, the results that are retrieved are grouped by the `product_name` and then by the `product_id` columns.
@@ -324,7 +324,7 @@ GROUP BY
 
 The `HAVING` clause is used in conjunction with the `GROUP BY` clause, and is computed after computing the `GROUP BY` clause and aggregate functions. `HAVING` is used to further eliminate groups that don't satisfy the `<condition>` by filtering the `GROUP BY` results.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -344,7 +344,7 @@ The `UNION` operator combines the results of two or more `SELECT` statements int
 
 When including multiple clauses, the same number of columns must be selected by all participating `SELECT` statements. Data types of all column parameters must be the same. Multiple clauses are processed left to right; use parentheses to define an explicit order for processing.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -362,7 +362,7 @@ The `ORDER BY` clause sorts a result set by one or more output expressions. `ORD
 
 The default null ordering is `NULLS LAST`, regardless of ascending or descending sort order.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -379,7 +379,7 @@ ORDER BY <expression> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...]
 
 The `LIMIT` clause restricts the number of rows that are included in the result set.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -396,7 +396,7 @@ The `LIMIT_DISTINCT` clause selects a defined number of rows to return for each 
 
 Returned values will not be grouped together unless you use an `ORDER BY` statement. `LIMIT_DISTINCT` does not preclude also using a `LIMIT` clause.
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
@@ -409,7 +409,7 @@ LIMIT_DISTINCT <returned_values> [OFFSET <offset_value>] BY <expr> [, <expr2> [,
 | `<offset_value>`             | The number of rows that should be skipped from the beginning of the block before returning rows for `<returned_values>`. <br><br> If the `<offset_value>` exceeds the number of rows in the data block, no rows are returned. The `<offset_value>` is restricted to be greater than 0. |
 | `<expr> [, <expr2> [,...n]]` | The expression(s) to define the distinct value that will be limited by `LIMIT_DISTINCT`. Multiple expressions can be used.                                                                                                                                                                                                                         |
 
-### Example
+##### Example
 {: .no_toc}
 
 To demonstrate the `LIMIT_DISTINCT` clause, we will create an example table of students called `class_test`: ** **
@@ -523,7 +523,7 @@ LIMIT_DISTINCT 1 BY
 
 The `OFFSET` clause omits a specified number of rows from the beginning of the result set. When used with `LIMIT`, it specifies the row number after which the limited rows are returned. When used with `FETCH`, only the number of rows specified by the `<fetch_count>` are returned after the `OFFSET`
 
-### Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
