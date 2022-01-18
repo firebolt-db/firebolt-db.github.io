@@ -47,7 +47,7 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 
 | Parameter     | Description                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`                                                                  |
+| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `YEAR`, `EPOCH`                                                                  |
 | `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value.                                                              |
 
@@ -104,7 +104,7 @@ Calculates the difference between ​​`start_date`​​ and ​`end_date`​�
 
 | Parameter      | Description                                                    |
 | :-------------- | :-------------------------------------------------------------- |
-| `<unit>`       | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `YEAR`, `EPOCH`     |
+| `<unit>`       | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `YEAR`, `EPOCH`     |
 | `<start_date>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 | `<end_date>`   | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
