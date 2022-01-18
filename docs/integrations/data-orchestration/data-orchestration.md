@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Other integrations
+title: Data orchestration
 nav_order: 3
 parent: Integrations
 has_children: true
 ---
 
-# Other integrations
+# Data orchestration

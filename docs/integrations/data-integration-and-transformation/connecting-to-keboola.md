@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Keboola
-nav_order: 1
+nav_order: 4
 parent: Data integration and transformation
 grand_parent: Integrations
 ---

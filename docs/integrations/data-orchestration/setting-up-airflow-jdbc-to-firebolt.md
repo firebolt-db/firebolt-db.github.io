@@ -2,7 +2,7 @@
 layout: default
 title: Airflow
 nav_order: 1
-parent: Other integrations
+parent: Data orchestration
 grand_parent: Integrations
 ---
 

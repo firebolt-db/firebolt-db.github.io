@@ -12,12 +12,15 @@ Firebolt is working with an expanding roster of services and applications to uti
 
 The services listed below include tools that have been customized by our partners to connect with Firebolt. Many services not explicitly listed here can still operate with Firebolt's architecture through our [drivers and adapters](connecting-via-jdbc.md) for general connection use.
 
-* [Apache Airflow](other-integrations/setting-up-airflow-jdbc-to-firebolt.md)
-* [DBeaver](other-integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.md)
+* [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
+* [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
+* [Hevo](data-integration-and-transformation/connecting-with-hevo.md)
 * [Keboola](data-integration-and-transformation/connecting-to-keboola.md)
 * [Looker](business-intelligence/connecting-to-looker.md)
 * [Metabase](business-intelligence/connecting-to-metabase.md)
+* [Prefect](data-orchestration/prefect.md)
+* [Panintelligence](business-intelligence/connecting-to-panintelligence.md)
 * [SQLAlchemy](../developing-with-firebolt/connecting-with-sqlalchemy.md)
 * [Apache Superset / Preset](business-intelligence/connecting-to-apache-superset.html)
 * [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md)

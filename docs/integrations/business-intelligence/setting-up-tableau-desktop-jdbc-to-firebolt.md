@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tableau
-nav_order: 4
+nav_order: 5
 parent: Business intelligence
 grand_parent: Integrations
 ---

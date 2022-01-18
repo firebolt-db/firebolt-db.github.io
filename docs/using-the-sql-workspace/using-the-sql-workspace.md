@@ -133,11 +133,7 @@ After you run a script or query statement, results appear below the script edito
 
 ![](../assets/images/workspace_statistics.png)
 
-When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table.
-
-![](../assets/images/table_hot_query_run.png>)
-
-From left to right, these icons represent the following:
+When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table. From left to right, these icons represent the following:
 
 | Icon                                      | Name              | Description                                                                                                                        |
 | ----------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
