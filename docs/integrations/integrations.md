@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Integrations
-nav_order: 6
+nav_order: 11
 has_children: true
 has_toc: false
 ---

@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Working with semi-structured data
-nav_order: 3
-parent: Concepts
+nav_order: 10
 has_children: true
 ---
 # Working with semi-structured data
@@ -11,7 +10,7 @@ Semi-structured data is any data that does not adhere to a strict tabular schema
 
 JSON is the a common example of a semi-structured data type, but many other serialization formats such as Parquet and ORC support similar features.
 
-Firebolt offers [functions for working with semi-structured data](../../sql-reference/functions-reference/semi-structured-functions/semi-structured-data-functions.html/).
+Firebolt offers functions for working with semi-structured data. For more information, see [Semi-structured data functions](../sql-reference/functions-reference/semi-structured-functions/semi-structured-data-functions.md).
 
 Arrays are the building blocks of how Firebolt transforms semi-structured data so that it can be queried efficiently. Arrays in Firebolt are implemented for the following source data constructs.
 

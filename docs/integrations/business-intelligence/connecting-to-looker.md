@@ -26,7 +26,7 @@ By default, Looker connects to the default engine for the database specified in 
 
 Looker can dynamically process your data in a number of ways. Following these best practices helps you configure Looker to take advantage of Firebolt’s features for accelerated query performance. You may not be able to implement all of these for your use case, but the more that you can implement these suggestions the better.
 
-### Use Firebolt fact tables as base views in Looker Explores <a href="leverage-the-from-clause" id="leverage-the-from-clause"></a>
+### Use Firebolt fact tables as base views in Looker Explores
 
 The base view in a Looker Explore is the database table that is used in the `FROM` clause of the SQL query that Looker generates. Looker manifests other views joined into an Explore using a `JOIN` clause. Typically, base views are joined to other views in a many-to-one direction using `LEFT JOIN`, and most filters occur on the base view.
 
@@ -38,7 +38,7 @@ These preferred patterns in Firebolt make it a best practice to use a Firebolt f
 
 * Specify the Firebolt fact table name as the _**view\_name**_ in the LookML [from ](https://docs.looker.com/reference/explore-params/from-for-explore)parameter for a Looker Explore.
 
-### Avoid transformations in commonly filtered dimensions <a href="avoid-date-time-transformations" id="avoid-date-time-transformations"></a>
+### Avoid transformations in commonly filtered dimensions
 
 Filters on dimensions in Looker are translated to predicates in the `WHERE` clause of the SQL query that Looker generates. Firebolt performs best when these predicates are included in primary indexes and, if applicable, aggregating indexes.
 
@@ -51,24 +51,24 @@ For this reason, avoid using transformations in the LookML [sql ](https://docs.l
 
 If you need a transformation for an analytical use case, consider creating a virtual column in the fact table. The virtual column can receive a value that you transform from the original column when you ingest with `INSERT INTO`. You can then specify the virtual column in the primary index and also specify the virtual column in the LookML sql parameter for the Looker dimension.
 
-### Force the usage of filters represented in Firebolt primary indexes <a href="force-the-usage-of-the-primary-index" id="force-the-usage-of-the-primary-index"></a>
+### Force the usage of filters represented in Firebolt primary indexes
 
-As indicated above, by defining indexes in Firebolt on columns that you use as dimensions in Looker Explores to filter results, you can accelerate the performance of queries that Looker builds for Firebolt. You can use the LookML [always\_filter](https://docs.looker.com/reference/explore-params/always\_filter) parameter to specify these columns and filters to help ensure that Looker users exploring data must add those filters on Firebolt’s primary index. This adds guard rails to prevent novice users from building slow queries in their first experience.
+As indicated above, by defining indexes in Firebolt on columns that you use as dimensions in Looker Explores to filter results, you can accelerate the performance of queries that Looker builds for Firebolt. You can use the LookML [always_filter](https://docs.looker.com/reference/explore-params/always_filter) parameter to specify these columns and filters to help ensure that Looker users exploring data must add those filters on Firebolt’s primary index. This adds guard rails to prevent novice users from building slow queries in their first experience.
 
 The example below shows a LookML `always_filter` defined for the `report_date` column in the Firebolt fact table named `campaign_fact`. In Firebolt, this fact table has a primary index definition that includes the `campaign_fact` column.
 
-![A Looker always\_filter created for a primary index column](../../assets/images/Looker_always_filter.png)
+![A Looker always_filter created for a primary index column](../../assets/images/Looker_always_filter.png)
 
-### Use join indexes <a href="use-join-indexes" id="use-join-indexes"></a>
+### Use join indexes
 
 Join indexes in Firebolt can accelerate queries with joins. Looker is known to generate a lot of joins, especially if your data is relatively normalized. Evaluating the joins in the LookML for your Looker Explores can provide clues for the join indexes to create so that you can accelerate performance.
 
 Join indexes that you define in Firebolt are beneficial when there is a many-to-one relationship between fact tables and a join table, when you typically filter queries using only a subset of available columns in the dimension table, and when the dimension table is large enough that it exceeds the RAM available to any single engine instance. In addition, dimension tables that have a join index defined for them should have a column with unique values that is used as the join key. This column should have the `UNIQUE `parameter set when the dimension table is created.
 
-For more information, see [Using indexes for faster queries](../../concepts/get-instant-query-response-time.md#accelerate-joins-using-join-indexes).
+For more information, see [Using indexes](../../using-indexes/using-indexes.md).
 
-### Use system activity data to inform aggregating indexes <a href="leverage-system-activity-data" id="leverage-system-activity-data"></a>
+### Use system activity data to inform aggregating indexes
 
 Use Looker dashboards and [system activity](https://docs.looker.com/admin-options/system-activity) data to identify the most common or impactful queries, and then create Firebolt aggregating indexes to optimize these queries. When looking at the queries in the system activity, try to group the queries to see if there are commonalities between some of them. If possible, create a single aggregating index that can handle multiple queries. A single aggregating index can contain multiple aggregations to handle a range of queries.
 
-For more information, see [Using indexes for faster queries](../../concepts/get-instant-query-response-time.md#get-sub-second-query-response-time-using-aggregating-indexes).
+For more information, see [Using aggregating indexes](../../using-indexes/using-aggregating-indexes.md).

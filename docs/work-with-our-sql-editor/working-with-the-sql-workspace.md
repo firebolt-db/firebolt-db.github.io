@@ -7,6 +7,10 @@ has_toc: false
 ---
 
 # Working with the SQL workspace
+{: .no_toc}
+
+* Topic ToC
+{:toc}
 
 The Firebolt Manager has a SQL workspace that you use to edit, run, and save SQL scripts and view query results. Each database in Firebolt has a SQL workspace. When you open the SQL workspace for a database, you see the saved scripts and state for that particular database.
 
@@ -144,7 +148,7 @@ From left to right, these icons represent the following:
 | ![](/firebolt-doc-staging/assets/images/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
 
 {: .note}
-Warm data is read from engine cache, and can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 storage. A high percentage of **Warm data** indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../concepts/get-instant-query-response-time.md) or by [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache.
+Warm data is read from engine cache, and can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 storage. A high percentage of **Warm data** indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../using-indexes/using-indexes.md) or by [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache.
 
 ### Viewing query statistics with results
 

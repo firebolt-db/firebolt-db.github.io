@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Working with tables
-nav_order: 1
-parent: Concepts
+nav_order: 6
 has_toc: true
 ---
 # Working with tables
@@ -66,4 +65,4 @@ CREATE DIMENSION TABLE dim_product
 );
 ```
 
-Click here for the full [CREATE TABLE](../sql-reference/commands/ddl-commands.md##create) reference.
+For more information, see [CREATE FACT|DIMENSION TABLE](sql-reference/commands/ddl-commands.md#create-fact--dimension-table).

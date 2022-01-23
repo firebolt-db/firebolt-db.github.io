@@ -27,7 +27,7 @@ ALL_MATCH(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty.                                                                                                          |
 
 ##### Example
@@ -60,7 +60,7 @@ Returns `1` if at least one of the elements of an array matches the results of t
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty                                                                                                           |
 
 ##### Example
@@ -116,7 +116,7 @@ ARRAY_COUNT(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                                                                                                                           |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<func>`  | Optional. A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<func>` is not included, `ARRAY_COUNT` will return a count of all non-false elements in the array. |
+| `<func>`  | Optional. A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<func>` is not included, `ARRAY_COUNT` will return a count of all non-false elements in the array. |
 | `<arr>`   | An array of elements                                                                                                                                                                                                                                                                  |
 
 ##### Examples
@@ -269,7 +269,7 @@ ARRAY_FILL(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
 ##### Example
@@ -302,7 +302,7 @@ ARRAY_FIRST(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
 ##### Examples
@@ -343,7 +343,7 @@ ARRAY_FIRST_INDEX(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
 ##### Example
@@ -496,7 +496,7 @@ ARRAY_REPLACE_BACKWARDS(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be evaluated by the function.                                                                                                                                     |
 
 ##### Example
@@ -793,7 +793,7 @@ FILTER(<func>, <arr> [, ...n] )
 
 | Parameter        | Description                                                                                                                                                                    |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`         | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`         | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
 
 ##### Examples
@@ -1017,7 +1017,7 @@ TRANSFORM(<func>, <arr>)
 
 | Parameter | Description                                                                                                                                                                    |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<func>`  | A [Lambda function](../../../concepts/working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
+| `<func>`  | A [Lambda function](../../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be transformed by the function.                                                                                                                                   |
 
 ##### Examples

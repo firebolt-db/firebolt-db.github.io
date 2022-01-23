@@ -3,7 +3,6 @@ layout: default
 title: Mapping data from JSON to table
 nav_order: 1
 parent: Working with semi-structured data
-grand_parent: Concepts
 ---
 
 # Mapping data from JSON records to rows in a Firebolt table

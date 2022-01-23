@@ -3,7 +3,6 @@ layout: default
 title: Working with Parquet arrays and maps
 nav_order: 4
 parent: Working with semi-structured data
-grand_parent: Concepts
 ---
 # Working with Parquet arrays and maps
 {: .no_toc}
@@ -27,7 +26,7 @@ SET use_short_column_path_parquet = 1;
 
 ##### Syntax for defining a Parquet nested structure
 
-You specify the top grouping element of a nested structure in Parquet followed by the field in that structure that contains the data to ingest. You then declare the column type using the `ARRAY(<data_type>)` notation, where `<data type>` is the [Firebolt data type](../../general-reference/data-types.md) corresponding to the data type of the field in Parquet.
+You specify the top grouping element of a nested structure in Parquet followed by the field in that structure that contains the data to ingest. You then declare the column type using the `ARRAY(<data_type>)` notation, where `<data type>` is the [Firebolt data type](../general-reference/data-types.md) corresponding to the data type of the field in Parquet.
 
 ```sql
 "<grouping1>.<datafield>" ARRAY(<data_type>)

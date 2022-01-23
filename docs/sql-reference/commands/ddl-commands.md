@@ -59,7 +59,7 @@ ALTER TABLE <table_name> DROP PARTITION <partition_expr>
 | `<table_name>`     | Name of the table to be altered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Y              |
 | `<partition_expr>` | The partition expression. The following expressions are supported: <br><br> * Literal (or a comma-separated list of literals) <br><br> * A function applied on a literal.<br><br>The following functions are supported: [EXTRACT](../functions-reference/date-and-time-functions.html#extract), and [DATE_FORMAT](../functions-reference/date-and-time-functions.md#date_format") <br><br> * A combination of the 2 above <br><br> The partitions that match the provided expression will be dropped. In-case a partition key is composed of multiple values - all the values must be provided to perform the drop. | Y              |
 
-For usage examples and additional details read more [here](../../concepts/working-with-partitions.md).
+For usage examples and additional details read more [here](../../working-with-partitions.md).
 
 ## CREATE ENGINE
 Creates an engine (compute cluster).
@@ -613,7 +613,7 @@ When the partition key is set with multiple columns, all columns are used as the
 PARTITION BY <column_name>[, <column_name>[, ...n]]
 ```
 
-For more information, see [Working with partitions](../../concepts/working-with-partitions.md).
+For more information, see [Working with partitions](../../working-with-partitions.md).
 
 ### CTAS&ndash;CREATE FACT|DIMENSION TABLE AS SELECT
 
@@ -964,11 +964,11 @@ DROP VIEW [IF EXISTS] <view_name>
 
 ## REFRESH JOIN INDEX
 
-Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table. For more information about join indexes, see [Accelerate join using join indexe](../../concepts/get-instant-query-response-time.md#accelerate-joins-using-join-indexes)s.
+Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table. For more information about join indexes, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 
 Join indexes are not updated automatically in an engine when new data is ingested into a dimension table or a partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results.
 
-Refreshing join indexes is a memory-intensive operation because join indexes are stored in node RAM. When refreshing join indexes, use [SHOW INDEXES](ddl-commands.md#show-indexes) to get the `size_compressed` of all indexes to refresh. Ensure that node RAM is greater than the sum `of size_compressed` for all join indexes to be refreshed.
+Refreshing join indexes is a memory-intensive operation because join indexes are stored in node RAM. When refreshing join indexes, use [SHOW INDEXES](ddl-commands.md#show-indexes) to get the `size_compressed` of all indexes to refresh. Ensure that node RAM is greater than the sum of `size_compressed` for all join indexes to be refreshed.
 
 ##### Syntax
 {: .no_toc}

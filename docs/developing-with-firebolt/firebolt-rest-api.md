@@ -380,10 +380,10 @@ In the above script, replace the following:
 
 * `<fact_table>` is the name of the fact table to create.
 * `<column_name> <column_type>` are columns and corresponding data type specifications.
-* `<column_list>` is a list of column names separated by commas (for example, `column1, column2`) to be used for the primary index. For more information, see [Primary indexes](../concepts/get-instant-query-response-time.md#primary-indexes).
+* `<column_list>` is a list of column names separated by commas (for example, `column1, column2`) to be used for the primary index. For more information, see [How to choose primary index columns](../using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
 
 {: .note}
-Before importing the data to the fact table, consider creating an aggregating index to boost performance even further. You can also create the aggregating index later. For more information, see [Aggregating indexes](../concepts/get-instant-query-response-time.md#get-sub-second-query-response-time-using-aggregating-indexes).
+Before importing the data to the fact table, consider creating an aggregating index to boost performance even further. You can also create the aggregating index later. For more information, see [Aggregating indexes](../using-indexes/using-aggregating-indexes.md).
 
 
 **Import data into the fact table**

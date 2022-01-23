@@ -7,7 +7,7 @@ parent: Loading data
 
 # Working with external tables
 
-Loading data into Firebolt is done using *external tables*. External tables are different from [fact and dimension tables](../concepts/working-with-tables.md). Firebolt uses an external table as a connector to your data source. No data is stored in Firebolt.
+Loading data into Firebolt is done using *external tables*. External tables are different from [fact and dimension tables](../working-with-tables.md). Firebolt uses an external table as a connector to your data source. No data is stored in Firebolt.
 
 To create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
 
