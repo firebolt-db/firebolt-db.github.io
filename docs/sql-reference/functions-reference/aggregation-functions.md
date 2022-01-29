@@ -159,7 +159,7 @@ CHECKSUM(*)
 
 For this example, we'll create a new table `albums` as shown below.&#x20;
 
-```
+```sql
 CREATE DIMENSION TABLE albums (year INT, artist TEXT, title TEXT);
 
 INSERT INTO
@@ -181,7 +181,7 @@ SELECT CHECKSUM(*) FROM albums;
 
 The next example calculates a checksum based on columns `year` and `title` only.
 
-```
+```sql
 SELECT CHECKSUM(year, title) FROM albums;
 ```
 
