@@ -36,30 +36,35 @@ ALTER ENGINE <engine_name> SET
 | `RENAME TO <new_name>`                                      | Indicates the new name for the engine.<br> <br>For example: `RENAME TO new_engine_name`                                                                                                                                                                                                                                                                                                                                                                         | N              |
 | `WARMUP =<warmup_method>`                                   | The warmup method that should be used, the following options are supported:<br><br> `MINIMAL` On-demand loading (both indexes and tables' data).<br><br>`PRELOAD_INDEXES` Load indexes only (default).<br><br>`PRELOAD_ALL_DATA` Full data auto-load (both indexes and table data - full warmup).                                                                                                                                  | N              |
 
-## Example&ndash;change engine scale
+#### Example&ndash;change engine scale
 {: .no_toc}
 
 ```sql
 ALTER ENGINE my_engine SET SCALE TO 1
 ```
 
-## ALTER TABLE DROP PARTITION
+## ALTER TABLE...DROP PARTITION
 
-The `ALTER TABLE DROP PARTITION` enables you to delete data from a fact table by dropping a partition.
+Use `ALTER TABLE...DROP PARTITION` to delete a partition from a fact table.
+
+{: .warning}
+Dropping a partition deletes the partition and the data stored in that partition.
 
 ##### Syntax
 {: .no_toc}
 
 ```sql
-ALTER TABLE <table_name> DROP PARTITION <partition_expr>
+ALTER TABLE <table_name> DROP PARTITION <part_key_val1>[,...<part_key_valN>]
 ```
 
 | Parameter          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Mandatory? Y/N |
 | :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------- |
-| `<table_name>`     | Name of the table to be altered.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Y              |
-| `<partition_expr>` | The partition expression. The following expressions are supported: <br><br> * Literal (or a comma-separated list of literals) <br><br> * A function applied on a literal.<br><br>The following functions are supported: [EXTRACT](../functions-reference/date-and-time-functions.html#extract), and [DATE_FORMAT](../functions-reference/date-and-time-functions.md#date_format") <br><br> * A combination of the 2 above <br><br> The partitions that match the provided expression will be dropped. In-case a partition key is composed of multiple values - all the values must be provided to perform the drop. | Y              |
+| `<table_name>`     | Name of the fact table from which to drop the partition.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Y              |
+| `<part_key_val1>[,...<part_key_valN>]` | An ordered set of one or more values corresponding to the partition key definition. This specifies the partition to drop. When dropping partitions with composite keys (more than one key value), specify all key values in the same order as they were defined. Only partitions with values that match the entire composite key are dropped. | Y              |
 
-For usage examples and additional details read more [here](../../working-with-partitions.md).
+#### Examples
+{: .no_toc}
+See the examples in [Working with partitions](../../concepts/working-with-partitions.md#examples).
 
 ## CREATE ENGINE
 Creates an engine (compute cluster).
@@ -131,7 +136,7 @@ Where `<properties>` are:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS my_db
-WITH region = 'us-east-1' description = 'Being used for testing'
+WITH REGION = 'us-east-1' DESCRIPTION = 'Being used for testing'
 ```
 
 ## CREATE EXTERNAL TABLE
@@ -502,7 +507,7 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 {: .note}
 Partitions are only supported on FACT tables.
 
-##### Syntax&ndash;dimension table**
+##### Syntax&ndash;dimension table
 {: .no_toc}
 
 ```sql

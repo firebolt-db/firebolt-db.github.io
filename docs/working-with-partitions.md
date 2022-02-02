@@ -4,104 +4,152 @@ title: Working with partitions
 nav_order: 9
 ---
 # Working with partitions
+{: .no_toc}
 
-Partitions are multiple smaller physical parts of large tables created for data maintenance and performance. They are defined as part of the table's DDL and maintained as part of the table's internal structure. You can partition your data by any column in your table.
+* Topic ToC
+{: toc}
+
+Partitions are smaller physical parts of large fact tables. They provide the first layer of sorting when you use a fact table to ingest data. Data is sorted in storage by partition first, and then pruned and sorted by the primary index definition next. When new data is ingested into a fact table, Firebolt saves rows automatically in the appropriate partition.
 
 ## When to use partitions
 
-Partitions should be used on large fact tables in one of the following scenarios:
+Partitions are particularly useful to simplify table maintenance by allowing you to drop partitions and delete rows in bulk. For example, consider a transaction table with an average of approximately 150,000 transactions a day, which you partition by month. At the end of each month, you can run [ALTER TABLE...DROP PARTITION](../sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) to delete the last month's data, and then [INSERT](../sql-reference/commands/dml-commands.md#insert-into) to update the fact table with the most recent month's data.
 
-### Delete or update data in bulk
-Partitions are useful if you need to perform update or delete operations on large portions of your data. You can use [ALTER TABLE ... DROP PARTITION](sql-reference/commands/ddl-commands.md#alter-table-drop-partition). After deleting data from a partition, it can be updated with new data by using an [INSERT](sql-reference/commands/dml-commands.md#insert-into) command.
+{: .warning}
+Dropping a partition deletes all the records stored in the partition.
 
-### Improve performance
-If your fact table is large enough (greater than 100 million rows), consider using partitions to better prune data at query runtime. When the partition key appears in the `WHERE` clause of your queries, it extends the functionality of your primary index and reduces the required disk I/O even further.
+Although some applications may see a performance boost from partitions, Firebolt does not rely on paritioning for performance. Firebolt's indexing features are enough for many applications. We recommend that you consider partitioning only for fact tables greater than 100 million rows, and that you benchmark your application with and without partitions.
 
-{: .note}
-It's not a requirement that the partition key column appear in a query's [WHERE](sql-reference/commands/query-syntax.md#where) predicate. If it doesn't, Firebolt uses the primary index and reads from all partitions.
+## Considerations for partitioning and query performance
+
+Before you partition a fact table, use these guidelines to asses the potential impact of partitions on your application performance.  
+
+### Large, equally distributed partitions work best
+
+Too many small partitions to read increases I/O and decreases performance. In addition, skewed (asymmetrically distributed) partitions can lead to poor performance. Choose columns for partition keys that create large partitions of relatively equal size.
+
+### Avoid query "hot-spotting" in multi-node engines
+
+With multi-node engines, partitions are sharded across nodes. A query pattern that causes a single partition to be queried disproportionately can decrease query performance. The impact depends on the size of the data set, the query pattern, and the engine spec (node type).
+
+As an example, consider a fact table with very large partitions by month. At the end of the month, many queries run concurrently that include `WHERE` clauses and other filters by month. The queries run on an engine with many nodes on the lower-end of RAM, CPU, and SSD storage. Because each month's partition is stored on a single node, the single node that stores that month's data might be overwhelmed with requests, causing the month-end query performance to degrade. This query pattern would benefit from running on a single-node engine with higher-end capabilities instead.
 
 ## Defining partition keys
 
-You define partitions using the [PARTITION BY](sql-reference/commands/ddl-commands.md#partition-by) clause in a [CREATE FACT TABLE](sql-reference/commands/ddl-commands.md#create-fact--dimension-table) statement.
+You define partitions using the [PARTITION BY](../sql-reference/commands/ddl-commands.md#partition-by) clause in a [CREATE FACT TABLE](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table) statement.
 
-The partition key can be either a column name or a result of a function applied on a column:
+Rows with the same value in the column key and whose function expression resolves to the same value are included in the partition.
 
-```sql
-PARTITION BY date_column;
-PARTITION BY product_type;
-PARTITION BY EXTRACT(MONTH FROM date_column);
-PARTITION BY EXTRACT(MONTH FROM date_column), product_type;
-```
+Partition key arguments must not evaluate to `NULL` and can be any of the following.
 
-The following functions are supported for defining the partition key:
+* Column names, as shown below.  
+  ```sql
+  PARTITION BY date_column;
+  ```  
+  ```sql
+  PARTITION BY product_type;
+  ```
 
-* [DATE_FORMAT](sql-reference/functions-reference/date-and-time-functions.md#date_format)
-* [EXTRACT](sql-reference/functions-reference/date-and-time-functions.md#extract)
+* The result of an [EXTRACT](../sql-reference/functions-reference/date-and-time-functions.md#extract) function applied to a column of any of the date and time data types, as shown below.  
+  ```sql
+  PARTITION BY EXTRACT(MONTH FROM date_column);
+  ```
 
-When using multiple columns for the partition key, Firebolt creates each partition with all the column boundaries.
-
-## Choosing paritition keys
-Check the queries you plan to run on your data&mdash;in particular, the [WHERE](sql-reference/commands/query-syntax.md#where) clauses in them. Make sure that either the table primary index or the table partition key covers those to enjoy maximum data pruning. The partition key cannot contain nullable columns. Avoid using long text columns as your partition key.
-
-If you use partitions to delete or update data, your partition key should be the column by which you intend to update and delete. For example, if you need to store one month of data, set your partition key based on your `date` column so that you can drop partitions that are older than one month.
-
-If you choose to use partitions to improve performance, base your partition key on the main predicate in your [WHERE](../sql-reference/commands/query-syntax.md#where) clause, so that it prunes as much data as possible for each query. For example, if your main query's predicate is the `product_type` column, use that column in the partition key.
-
-## Working with partitions
-
-After the table is created with the required partition key, Firebolt arranges the table's data in the specified partitions. New partitions will be created automatically during ingest, based on the partition key. New rows are stored in the relevant partition, and queries prune and read from the relevant partition. A database administrator should drop partitions manually.  
+* A composite key, with a mix of columns and `EXTRACT` functions, as shown below.  
+  ```sql
+  PARTITION BY EXTRACT(MONTH FROM date_column), product_type;
+  ```
 
 ## Dropping partitions
 
-Use the [ALTER TABLE...DROP PARTITION](sql-reference/commands/ddl-commands.md#alter-table-drop-partition) command to delete a partition. When working with multiple-column partition keys, you must specify the full partition key. Using a partial partition key value is not supported.
+Use the [ALTER TABLE...DROP PARTITION](../sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) statement to delete a partition and the data stored in that partition.
 
-For example, the partition key defined as `extract(month from date_column), product_type` creates partitions based on an extraction of the month value from the `date_column`, and the `product_type`, which is a numeric product identifier. The statement below drops the partition consisting of the month December (`12`) and product type `34`.
+When you drop a partition created with a composite partition key, you must specify the full partition key. Dropping based on a subset of a composite key is not supported. See the example [Partition and drop by composite key](#partition-and-drop-by-composite-key) below.
 
 ```sql
 ALTER TABLE <table_name> DROP PARTITION 12,34;
 ```
 
-## Example&ndash;partition and drop using a column
+{: .warning}
+Dropping a partition deletes the partition and the data stored in that partition.
 
-The example below creats a fact table that is partitioned by year. All records with the same year value extracted from the `transaction_date` column are saved in the same partition.
+### Examples
+
+* [Partition and drop by date](#Partition-and-drop-by-date)
+* [Partition and drop by date extraction](#Partition-and-drop-by-date-extraction)
+* [Partition and drop by integer](#Partition-and-drop-by-integer)
+* [Partition and drop by composite key](#Partition-and-drop-by-composite-key)
+
+The examples in this section are based on the following common `CREATE TABLE` example. Each example is based on the addition of the `PARTITION BY` statement shown.
 
 ```sql
-CREATE FACT TABLE transactions
+CREATE FACT TABLE fct_tbl_transactions
 (
-    transaction_id    BIGINT,
-    transaction_date  DATETIME,
-    store_id          INT,
-    product_id        INT,
-    units_sold        INT
+    transaction_id      BIGINT,
+    transaction_date    DATE,
+    store_id            INT,
+    product_id          INT,
+    units_sold          INT
 )
 PRIMARY INDEX store_id, product_id
-PARTITION BY EXTRACT(YEAR from transaction_date);
+<examples of PARTITION BY clauses below>
 ```
 
-The example below deletes all the rows that have the year `2020` in the `transaction_date` column from the table.
+#### Partition and drop by date
+{: .no_toc}
+
+The example below creates a partition for each group of records with the same date value in `transaction_date`.
 
 ```sql
-ALTER TABLE transactions DROP PARTITION 2020;
+PARTITION BY transaction_date
 ```
 
-## Example&ndash;partition and drop using multiple columns
-
-The example below creates a table that is partitioned by year and `store_id`. Records with the same year *and* the same `store_id` values are saved in the same partition.
+The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](../sql-reference/commands/operators.md#-operator-for-cast).
 
 ```sql
-CREATE FACT TABLE transactions
-(
-    transaction_id    BIGINT,
-    transaction_date  DATETIME,
-    store_id          INT,
-    product_id        INT,
-    units_sold        INT
-)
-PRIMARY INDEX store_id, product_id
+ALTER TABLE fct_tbl_transactions DROP PARTITION `2020-01-01`::DATE;
+```
+
+#### Partition and drop by date extraction
+{: .no_toc}
+
+The example below uses `EXTRACT` to create a partition for each group of records with the same year value in `transaction_date`.
+
+```sql
+PARTITION BY EXTRACT(MONTH from transaction_date);
+```
+
+The example below drops the partition for records where `transaction_date` contains `3`, which corresponds to the month of March. The month is specified as an integer in the command.
+
+```sql
+ALTER TABLE fct_tbl_transactions DROP PARTITION 3;
+```
+
+#### Partition and drop by integer
+{: .no_toc}
+
+The example below creates a partition for each group of records with the same value for `product_id`.
+
+```sql
+PARTITION BY product_id
+```
+
+The example below drops the partition where `product_id` contains `8188`.
+
+```sql
+ALTER TABLE fct_tbl_transactions DROP PARTITION 8188;
+```
+
+#### Partition and drop by composite key
+{: .no_toc}
+
+The example below creates a partition for each group of records where `store_id` contains the same value **and** `transaction_date` contains the same year.
+
+```sql
 PARTITION BY store_id,EXTRACT(YEAR FROM transaction_date);
 ```
 
-The example below deletes all the rows that have both the year `2020` in the `transaction_date` column and the value `982` un the `store_id` column.
+The example below drops the partition where `store_id` contains `982` **and** `transaction_date` contains `2020` .
 
 ```sql
 ALTER TABLE transactions DROP PARTITION 982,2020;

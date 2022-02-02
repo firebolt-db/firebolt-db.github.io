@@ -100,7 +100,7 @@ Use the `INTERVAL` operator to add to or subtract from a period of time in `DATE
 <date_column> - INTERVAL '1 year 3 hours 20 minutes'
 ```
 
-## `::` operator for CAST
+## :: operator for CAST
 
 Use can use the `::` operator instead of the [CAST](../functions-reference/conditional-and-miscellaneous-functions.md#cast) function to convert one [data type](../../general-reference/data-types.md) to another.
 
