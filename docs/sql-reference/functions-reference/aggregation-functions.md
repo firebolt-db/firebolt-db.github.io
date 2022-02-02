@@ -17,7 +17,7 @@ Synonym for [ANY_VALUE](#any-value).
 
 ## ANY\_VALUE
 
-Returns a single arbitrary value from the specified column.
+Returns a single arbitrary value from the specified column. This function ignores `NULL`s, so the only time it will return `NULL` is when all inputs are `NULL`s.
 
 ##### Syntax
 {: .no_toc}
@@ -27,9 +27,14 @@ Returns a single arbitrary value from the specified column.
 ​​ANY_VALUE(<col>)​​
 ```
 
-| Parameter | Description                                  |
-| :--------- | :-------------------------------------------- |
-| `<col>`   | The column from which the value is returned. |
+| Argument | Description                                  | Data Type |
+| :-------- | :-------------------------------------------- | :--------- |
+| `<col>`  | The column from which the value is returned. | Any       |
+
+##### Return Type
+{: .no_toc}
+
+Same as input argument
 
 ##### Example
 {: .no_toc}
@@ -41,14 +46,14 @@ Consider a table, `example_table`, with a single column `first_name` as shown be
 | first_name |
 +------------+
 | Sammy      |
-| Anurag     |
+| NULL       |
 | Carol      |
 | Lei        |
 | Mickey     |
 +------------+
 ```
 
-The first time the query below runs, `Carol` might be returned. The second time the query runs, `Carol` or any other value, such as `Lei` or `Sammy`, might be returned.
+The first time the query below runs, `Carol` might be returned. The second time the query runs, `Carol` or any other value, such as `Lei` or `Sammy`, might be returned, but `NULL` will never be returned.
 
 ```sql
 SELECT
