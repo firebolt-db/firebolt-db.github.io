@@ -102,7 +102,7 @@ Firebolt creates the external table. When finished, the external table `ex_linei
 ### Create a fact table
 In this step, you create a Firebolt fact table called `lineitem`, which you use in the next step as the target for an `INSERT INTO` command.
 
-Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
+Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [Using indexes for faster queries](/concepts/get-instant-query-response-time.md).
 
 **To create a fact table**
 1. Create a new script tab.  
@@ -176,7 +176,7 @@ The values shown in the query results pane should be similar to those shown belo
 
 ### Configure an aggregating index
 
-An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](../concepts/get-instant-query-response-time.md).
+An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes for faster queries](/concepts/get-instant-query-response-time.md).
 
 From the `lineitem` fact table you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. To help you speed up queries with these aggregations on this table, you can use the following statement in a script to create an aggregating index.
 
