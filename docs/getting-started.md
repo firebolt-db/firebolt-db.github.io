@@ -176,7 +176,7 @@ The values shown in the query results pane should be similar to those shown belo
 
 ### Configure an aggregating index
 
-An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
+An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](../concepts/get-instant-query-response-time.md).
 
 From the `lineitem` fact table you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. To help you speed up queries with these aggregations on this table, you can use the following statement in a script to create an aggregating index.
 
