@@ -27,7 +27,7 @@ Firebolt adds your database to the **Databases** page.
 
 
 ## Run your first query
-Before we ingest the sample data and run a query over it, we'll go to the SQL workspace for the database and run a simple query to demonstrate how to start an engine. For more information about the SQL workspace, see [Working with the SQL workspace](/work-with-our-sql-editor/working-with-the-sql-workspace.md).
+Before we ingest the sample data and run a query over it, we'll go to the SQL workspace for the database and run a simple query to demonstrate how to start an engine. For more information about the SQL workspace, see [Using the SQL workspace](/using-the-sql-workspace/using-the-sql-workspace.md).
 
 **To open your database, start an engine, and run a query**
 1. From the **Database** page, find the database that you created in the list, and then choose the **Open in SQL workspace icon** (**>_**) next to the **Database name**.  
@@ -52,10 +52,10 @@ Ingesting data into Firebolt is a three-step process. You:
 3. Run an `INSERT INTO` command from the external table to the fact or dimension table.
 
 ### Create an external table
-An *external table* is a special, virtual table that serves as a connector to your data source. After the external table is created, you ingest data by running an `INSERT INTO` command from that external table into a *fact table* or *dimension table*. The `INSERT INTO` command must run on a general purpose engine. After the data is available in fact and dimension tables, you can run analytics queries over those tables using any engine. Although it's possible, we don't recommend running analytics queries on external tables. For more information, see [CREATE EXTERNAL TABLE](/sql-reference/ddl-commands.md#create-external-table)
+An *external table* is a special, virtual table that serves as a connector to your data source. After the external table is created, you ingest data by running an `INSERT INTO` command from that external table into a *fact table* or *dimension table*. The `INSERT INTO` command must run on a general purpose engine. After the data is available in fact and dimension tables, you can run analytics queries over those tables using any engine. Although it's possible, we don't recommend running analytics queries on external tables. For more information, see [CREATE EXTERNAL TABLE](/sql-reference/commands/ddl-commands.md#create-external-table).
 
 **To create an external table**
-1. Choose the plus symbol (+) next to Script 1 to create a new script tab, **Script 2**, in the SQL workspace.
+1. Choose the plus symbol (**+**) next to **Script 1** to create a new script tab, **Script 2**, in the SQL workspace.
 
 2. Copy and paste the query below into the **Script 2** tab.
 ```sql
@@ -97,12 +97,12 @@ TYPE = (PARQUET);
 Firebolt creates the external table. When finished, the external table `ex_lineitem` appears on the object panel of the database.  
 ![](assets/images/2021-09-13_9-36-53.png)  
 
-4. Choose the vertical ellipses next to Script 2, choose Save script, enter a name (for example, *MyExTableScript*) and then press ENTER to save the script.
+4. Choose the vertical ellipses next to **Script 2**, choose **Save script**, enter a name (for example, *MyExTableScript*) and then press ENTER to save the script.
 
 ### Create a fact table
 In this step, you create a Firebolt fact table called `lineitem`, which you use in the next step as the target for an `INSERT INTO` command.
 
-Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
+Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. For more information, see [Using primary indexes](/using-indexes/using-primary-indexes.md). The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [How to choose primary index columns](/using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
 
 **To create a fact table**
 1. Create a new script tab.  
@@ -176,9 +176,9 @@ The values shown in the query results pane should be similar to those shown belo
 
 ### Configure an aggregating index
 
-An aggregating index enables you to take a subset of a table's columns and predefine dimensions and measures to aggregate. Many aggregations are supported from the simple sum, max, min to more complex ones such as count and count (distinct). For queries that use aggregations specified in the index, instead of calculating the aggregation on the entire table and scanning all the rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using indexes to accelerate query performance](/using-indexes/using-indexes-to-accelerate-query-performance.md).
+An aggregating index enables you to take a subset of table columns and predefine dimensions and measures to aggregate. Many aggregations are supported&mdash;from `SUM`, `MAX`, and `MIN` to more complex aggregations such as `COUNT` and `COUNT(DISTINCT)`. For more information, see [Aggregation functions](/sql-reference/functions-reference/aggregation-functions.md). At query runtime, instead of calculating the aggregation on the entire table and scanning all rows, Firebolt uses the pre-calculated values in the aggregating index. For more information, see [Using aggregating indexes](/using-indexes/using-aggregating-indexes.md).
 
-From the `lineitem` fact table you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. To help you speed up queries with these aggregations on this table, you can use the following statement in a script to create an aggregating index.
+From the `lineitem` fact table that you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. You can create an aggregating index to speed up these queries by running the statement below.
 
 ```sql
 CREATE AND GENERATE AGGREGATING INDEX
@@ -192,4 +192,4 @@ ON lineitem (
   );
 ```
 
-If you run this script, you see the `agg_lineitem` index listed in the object pane. With the index created, queries over the `lineitem` table that combine any of these fields and aggregations now use the index instead of reading the entire table.
+After you run the script, you see the `agg_lineitem` index listed in the object pane. Any queries that run over the `lineitem` table that combine any of these fields and aggregations defined in the index will now use the index instead of reading the entire table.

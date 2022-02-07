@@ -3,6 +3,7 @@ layout: default
 title: Working with partitions
 nav_order: 9
 ---
+
 # Working with partitions
 {: .no_toc}
 
@@ -18,21 +19,18 @@ Partitions are particularly useful to simplify table maintenance by allowing you
 {: .warning}
 Dropping a partition deletes all the records stored in the partition.
 
-Although some applications may see a performance boost from partitions, Firebolt does not rely on paritioning for performance. Firebolt's indexing features are enough for many applications. We recommend that you consider partitioning only for fact tables greater than 100 million rows, and that you benchmark your application with and without partitions.
-
 ## Considerations for partitioning and query performance
 
-Before you partition a fact table, use these guidelines to asses the potential impact of partitions on your application performance.  
+Although some applications may see a performance boost from partitions, Firebolt does not rely on partitioning for performance. Firebolt's indexing features are enough for many applications.
+
+We recommend that you benchmark your application with and without partitions.
+
+### Partition only large tables
+We recommend that you consider partitioning only for fact tables greater than 100 million rows.
 
 ### Large, equally distributed partitions work best
 
 Too many small partitions to read increases I/O and decreases performance. In addition, skewed (asymmetrically distributed) partitions can lead to poor performance. Choose columns for partition keys that create large partitions of relatively equal size.
-
-### Avoid query "hot-spotting" in multi-node engines
-
-With multi-node engines, partitions are sharded across nodes. A query pattern that causes a single partition to be queried disproportionately can decrease query performance. The impact depends on the size of the data set, the query pattern, and the engine spec (node type).
-
-As an example, consider a fact table with very large partitions by month. At the end of the month, many queries run concurrently that include `WHERE` clauses and other filters by month. The queries run on an engine with many nodes on the lower-end of RAM, CPU, and SSD storage. Because each month's partition is stored on a single node, the single node that stores that month's data might be overwhelmed with requests, causing the month-end query performance to degrade. This query pattern would benefit from running on a single-node engine with higher-end capabilities instead.
 
 ## Defining partition keys
 
@@ -75,10 +73,10 @@ Dropping a partition deletes the partition and the data stored in that partition
 
 ### Examples
 
-* [Partition and drop by date](#Partition-and-drop-by-date)
-* [Partition and drop by date extraction](#Partition-and-drop-by-date-extraction)
-* [Partition and drop by integer](#Partition-and-drop-by-integer)
-* [Partition and drop by composite key](#Partition-and-drop-by-composite-key)
+* [Partition and drop by date](#partition-and-drop-by-date)
+* [Partition and drop by date extraction](#partition-and-drop-by-date-extraction)
+* [Partition and drop by integer](#partition-and-drop-by-integer)
+* [Partition and drop by composite key](#partition-and-drop-by-composite-key)
 
 The examples in this section are based on the following common `CREATE TABLE` example. Each example is based on the addition of the `PARTITION BY` statement shown.
 

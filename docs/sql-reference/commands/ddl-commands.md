@@ -688,46 +688,63 @@ AND     l_shipmode = 'FOB'
 
 ## CREATE JOIN INDEX
 
-Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements required to perform a join at query runtime.
+Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements to perform a join at query runtime. For more information, see [Using join indexes](../using-indexes/using-join-indexes.md).
 
 ##### Syntax
 {: .no_toc}
 
 ```sql
-CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dimension_table_name>
-(
-  <unique_join_key_column>,
-  <dimension_column>[, ...n]
-)
+CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dim_table_name>
+  (
+    <dim_join_key_col>,
+    <dim_col1>[,...<dim_colN>]  
+  );
 ```
 
 | Parameter                  | Description                                                                                                        |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<unique_join_index_name>` | A unique name for the join index.                                                                                  |
 | `<dimension_table_name>`   | The name of the dimension table on which the index is configured.                                                  |
-| `<unique_join_key_column>` | The column name that is used in the join’s `ON` clause.                                                            |
+| `<dim_join_key_col>` | The dimension table join key column. This is the column name used in the join’s `ON` clause. This column in the dimension table should have no duplicate values and should be defined using the [UNIQUE](ddl-commands.md#column-constraints--default-expression) column attribute.                                                             |
 | `<dimension_column>`       | The column name which is being loaded into memory from the dimension table. More than one column can be specified. |
-
-{: .note}
-For better performance, whenever possible, use the [UNIQUE](ddl-commands.md#column-constraints--default-expression) column attribute in the dimension table definition for the column that is used as the join key in queries.  the join index is loaded into engine RAM, make sure to choose only the subset of dimension table columns that appear in queries that use the join.
 
 ##### Example&ndash;create join index with specific columns
 {: .no_toc}
 
-In the following example, we create a join index on the dimension table `my_dim`, and store the columns `email` and `country` in the index:
+The example below creates a join index on the dimension table `my_dim`, created using the following DDL. Note that the column `my_dim_id` is defined with the `UNIQUE` attribute and contains no duplicate values.
 
 ```sql
-CREATE DIMENSION TABLE my_dim(
-my_dim_id BIGINT UNIQUE,
-email TEXT,
-country TEXT,
-city TEXT,
-cellolar TEXT)
-PRIMARY INDEX my_dim_id;
+CREATE DIMENSION TABLE my_cstmr_dim (
+  cstmr_id BIGINT UNIQUE,
+  name TEXT,
+  email TEXT,
+  hs_nm INT,
+  street TEXT,
+  city TEXT,
+  st_pvnc TEXT,
+  country TEXT,
+  phone1 TEXT,
+  phone2 TEXT,
+  status TEXT)
+PRIMARY INDEX my_cstmr_id;
+```
 
+Queries often run that join different fact tables with this dimension table. Those queries `SELECT` the `name` and `email` of customers in the returned results. The join index shown below is created to accelerate these queries.
 
-CREATE JOIN INDEX my_dim_join_idx ON my_dim
-(my_dim_id, email, country);
+```sql
+CREATE JOIN INDEX cstmr_email_name_jidx ON my_cstmr_dim (
+  cstmr_id,
+  name,
+  email);
+```
+
+In addition, queries often run that select the `city` and `status` in returned results with a join. To accelerate those queries, the join index below is created in addition to the one above.
+
+```sql
+CREATE JOIN INDEX my_dim_join_idx ON my_cstmr_dim (
+  cstmr_id,
+  name,
+  email);
 ```
 
 ## CREATE AGGREGATING INDEX

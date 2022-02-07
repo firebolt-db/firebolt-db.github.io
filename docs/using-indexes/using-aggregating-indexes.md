@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Aggregating indexes
-nav_order: 4
+nav_order: 3
 parent: Using indexes
 ---
 
@@ -11,7 +11,7 @@ parent: Using indexes
 * Topic ToC
 {:toc}
 
-Aggregating indexes accelerate queries that contain aggregate functions that you perform repeatedly on large fact tables with millions or billions of rows. Aggregating indexes greatly reduce the compute resources required at query runtime to process functions. This can improve performance and save cost by allowing you to use less costly engines. Dashboards and repetitive reports are common use cases for aggregating indexes. It’s less common to create aggregating indexes for ad hoc queries.
+Aggregating indexes accelerate queries that include aggregate functions that you perform repeatedly on large fact tables with millions or billions of rows. Aggregating indexes greatly reduce the compute resources required at query runtime to process functions. This can improve performance and save cost by allowing you to use less costly engines. Dashboards and repetitive reports are common use cases for aggregating indexes. It’s less common to create aggregating indexes for ad hoc queries.
 
 ## How aggregating indexes work
 
@@ -23,13 +23,16 @@ Firebolt automatically updates aggregating indexes as you ingest new data. The p
 
 Firebolt shards aggregating indexes across engine nodes in multi-node engines as it does with underlying fact tables.
 
+The video below is a technical discussion of some issues with traditional materialized views and how Firebolt addresses the problem with unique technology. Eldad Farkash is the CEO of Firebolt.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hniv9u4w7lI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Aggregating index tradeoffs
 
 Effective aggregating indexes are relatively small compared to the underlying fact table. We recommend that you confirm that an aggregating index is significantly smaller than the underlying fact table.
 
 For very large fact tables, an aggregating index may still be quite large. If the index is effective, the savings at query runtime will outweigh the cost of storage. Aggregating indexes also increase compute requirements during data ingestion because Firebolt performs pre-calculations at that time. As with storage, savings at query runtime usually outweigh the ingestion cost.
 
-If your application favors speed of ingestion over speed of analytics queries, be sure to test ingestion with aggregating indexes before production. You can also change the impact of aggregating indexes on ingestion and first-query speed by configuring the engine warmup method. For more information, see <xref to warmup topic/>.
+If your application favors speed of ingestion over speed of analytics queries, be sure to test ingestion with aggregating indexes before production. You can also change the impact of aggregating indexes on ingestion and first-query speed by configuring the engine warmup method. For more information, see [Warmup method](/working-with-engines/understanding-engine-fundamentals.md#warmup-method).
 
 ## How to define an aggregating index
 
@@ -45,15 +48,15 @@ CREATE [AND GENERATE] AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
   );
 ```
 
-## Creating the index on empty tables is preferred
+### Creating the index on empty tables is preferred
 
 The `AND GENERATE` option is required only when you generate an aggregating index on a fact table with records. Running the `AND GENERATE` option is a memory-intensive operation. If you do this, select an engine specification with a lot of memory and multiple nodes. Whenever possible, we strongly recommend that you create aggregating indexes for a fact table when the table is empty, before you run the first `INSERT INTO` command to ingest data.
 
-## Aggregating indexes can’t be modified
+### Aggregating indexes can’t be modified
 
 You can’t modify aggregating indexes after you create them. To modify an aggregating index, use the `DROP AGGREGATING INDEX` command, and then use `CREATE AND GENERATE AGGREGATING INDEX` to specify a new index for the same table.
 
-## How to choose aggregating index columns
+### How to choose aggregating index columns
 
 Firebolt uses the columns that you specify for an aggregating index in much the same way as the columns for a primary index.
 
@@ -61,19 +64,19 @@ Follow the same guidelines as those outlined for primary index columns. For more
 
 All columns that are used in aggregations at query runtime must appear in the index definition, either in the primary index or the function definitions, for the optimizer to use the index at query runtime. This includes columns that are part of the aggregate functions, any columns used in `GROUP BY` and `WHERE` clauses, and any columns in the fact table that are used as join keys. If a column is missing, Firebolt must scan the fact table, and the aggregating index doesn’t improve performance.
 
-## How to choose aggregate expressions
+### How to choose aggregate expressions
 
 You can specify as many aggregate expressions as required in an aggregating index definition. At query runtime, the number of aggregate expressions does not affect query performance. However, because Firebolt pre-processes each aggregate expression during ingestion, each additional aggregate expression increases compute requirements during ingestion.
 
 Aggregate expressions that you specify must correspond precisely to the aggregate expressions used at query runtime, including specified columns. You also can specify complex functions in the index definition, but make sure to specify them precisely as you use them in queries.
 
-## Using partitions with aggregating indexes
+## Aggregating indexes and partitions
 
 Aggregating indexes inherit the partitions from the underlying fact table. When you drop a partition from the underlying fact table, the partition is dropped from the aggregating index.
 
-## How aggregating indexes work with engine warm-up method
+## Aggregating indexes and engine warmup method
 
-The columns that you specify for an aggregating index are essentially a primary index for the aggregating index. With the warmup method set to **Preload indexes**, an engine preloads these columns on warmup but doesn’t perform the pre-calculations until Firebolt uses the index. This accelerates ingestion, but causes first queries to be slower than subsequent queries. With the warmup method set to **Preload all data**, an engine loads the calculations in addition to the columns. This slows ingestion, but accelerates the first analytics query.
+The columns that you specify for an aggregating index are essentially a primary index for the aggregating index. With the warmup method set to **Preload indexes**, an engine preloads these columns on warmup but doesn’t perform the pre-calculations until Firebolt uses the index. This accelerates ingestion but causes first queries to be slower than subsequent queries. With the warmup method set to **Preload all data**, an engine loads the calculations in addition to the columns. This slows engine start time, but accelerates the first analytics query. For more information, see [Engine warmup method](../working-with-engines/understanding-image-fundamentals.md#warmup-method).
 
 ## Validating aggregating index size
 
@@ -108,7 +111,7 @@ GROUP BY
 
 If the `SELECT` query returns 100,000,000 or fewer, the aggregating index may be beneficial. If it returns 40,000,000 or fewer it will almost certainly be beneficial.
 
-### Aggregating index examples
+## Aggregating index examples
 
 TO DO: This section needs to be updated to use same examples as above. Maybe v2. Right now, uses the examples from the > To demonstrate the requirement for unique function definitions and the ability to handle complex queries, consider a query with the complex COALESCE clauses as shown in the example below.*
 

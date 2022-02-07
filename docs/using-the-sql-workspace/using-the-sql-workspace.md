@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Working with the SQL workspace
+title: Using the SQL workspace
 nav_order: 4
 has_children: true
 has_toc: false
 ---
 
-# Working with the SQL workspace
+# Using the SQL workspace
 {: .no_toc}
 
 * Topic ToC
@@ -67,7 +67,7 @@ Query templates are available for common tasks, such as creating fact or dimensi
 
 To create an external table, which is the first step for ingesting data into Firebolt, choose the **Import Data** button from the object pane or choose the download icon and then choose **Import data** as shown in the example below.
 
-![](/firebolt-doc-staging/assets/images/work-with-our-sql-editor-import-data.png)
+![](../assets/images/work-with-our-sql-editor-import-data.png)
 
 Firebolt creates a new tab with a `CREATE EXTERNAL TABLE` statement.
 
@@ -91,10 +91,10 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
 **To rename a script**
 
-* Double-click the script name, type a new name, and then press ENTER.
+* Double-click the script name, type a new name, and then press ENTER.  
 
-{: .note}
-When you rename an unsaved script, Firebolt saves it.
+  {: .note}
+  When you rename an unsaved script, Firebolt saves it.
 
 **To export a script and download it as a .sql file**
 
@@ -135,17 +135,17 @@ After you run a script or query statement, results appear below the script edito
 
 When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table.
 
-![](/firebolt-doc-staging/assets/images/table_hot_query_run.png>)
+![](../assets/images/table_hot_query_run.png>)
 
 From left to right, these icons represent the following:
 
 | Icon                                      | Name              | Description                                                                                                                        |
 | ----------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| ![](/firebolt-doc-staging/assets/images/Row_count.png)     | **Row count**     | The total number of rows returned by a query.                                                                                      |
-| ![](/firebolt-doc-staging/assets/images/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query.                                                                                         |
-| ![](/firebolt-doc-staging/assets/images/Scanned_bytes.png) | **Scanned Bytes** | The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage. |
-| ![](/firebolt-doc-staging/assets/images/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second.                                                                                             |
-| ![](/firebolt-doc-staging/assets/images/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
+| ![](../assets/images/Row_count.png)     | **Row count**     | The total number of rows returned by a query.                                                                                      |
+| ![](../assets/images/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query.                                                                                         |
+| ![](../assets/images/Scanned_bytes.png) | **Scanned Bytes** | The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage. |
+| ![](../assets/images/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second.                                                                                             |
+| ![](../assets/images/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
 
 {: .note}
 Warm data is read from engine cache, and can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 storage. A high percentage of **Warm data** indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../using-indexes/using-indexes.md) or by [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache.

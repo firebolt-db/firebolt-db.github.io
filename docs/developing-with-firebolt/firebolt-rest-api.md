@@ -363,7 +363,7 @@ echo "CREATE_FACT_TABLE_SCRIPT" | curl \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value returned by the command shown in [Get the URL of an engine](./#get-the-url-of-an-engine).
+* `YOUR_ENGINE_URL` is the value returned by the command shown in [Get the URL of an engine](#get-the-url-of-an-engine).
 * `YOUR_DATABASE_NAME` is the name of the database.
 * `CREATE_FACT_TABLE_SCRIPT` is a SQL script similar to the following:
 
@@ -398,7 +398,7 @@ echo "IMPORT_SCRIPT" | curl \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value of `your_engine_url` returned by the command shown in[ Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
+* `YOUR_ENGINE_URL` is the value of `your_engine_url` returned by the command shown in [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
 * `YOUR_DATABASE_NAME` is the name of the database.
 * `IMPORT_SCRIPT` is a SQL script similar to the following:
 
