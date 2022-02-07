@@ -19,7 +19,7 @@ Those building blocks are called indexes. Using them wisely not only guarantees 
 ## Primary indexes
 
 The primary indexes are the main sort key of the table. They will be built with the table using the [CREATE FACT/DIMENSION TABLE syntax](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table) and will be used as the main tool for data pruning and data distribution.
-
+ 
 By using the primary index, Firebolt will read ranges of data from each F3 file. This will reduce the I/O needed to be read, and increase performance dramatically.
 
 ### How to choose your Primary index
@@ -87,22 +87,22 @@ CREATE AND GENERATE AGGREGATING INDEX agg_fact_orders ON fact_orders
 );
 ```
 
-From now on, every query for data from the _fact\_orders_ table that combines any of these fields and aggregations will now benefit from the aggregating index. Instead of performing a full query scan and perform each aggregation - the engine uses the aggregating index which already has the required aggregating pre-calculated providing a sub-second query response time.
+From now on, every query for data from the _fact\_orders_ table that combines any of these fields and aggregations will now benefit from the aggregating index. Instead of performing a full query scan and every aggregation, the engine uses the aggregating index - which already has the required aggregations pre-calculated - providing a sub-second query response time.
 
 
-The order of the fields is important. Firebolt will create the primary index on the aggregating index as an optimization to filter it best. The primary index will be built base on the index fields, in the order as they were written. In our example, the primary index will be in the following order: `store_id`, `product_id`. Make sure to write first those you mostly filter by in your query [WHERE clause](../sql-reference/commands/query-syntax.md#where).
+The order of the fields is important. Firebolt will create the primary index on the aggregating index as an optimization to filter it best. The primary index will be built based on the index fields, in the order as they were written. In our example, the primary index will be in the following order: `store_id`, `product_id`. Make sure to write first those you mostly filter by in your query [WHERE clause](../sql-reference/commands/query-syntax.md#where).
 
 
 ## Accelerate joins using join indexes
 
-Firebolt supports accelerating your joins by creating join indexes. Queries with joins might be resource-consuming and if not done efficiently - joins can take a significant amount of time to complete which makes them unusable to the user. Using Firebolt’s join indexing saves time searching data in the disk and loading it into memory. It’s already there, indexed by the required join key, and waits to be queried.
+Firebolt supports accelerating your joins by creating join indexes. Queries with joins might be resource-consuming and - if not done efficiently - can take a significant amount of time to complete which makes them unusable to the user. Using Firebolt’s join indexing saves time searching data in the disk and loading it into memory. It’s already there, indexed by the required join key, and waits to be queried.
 
 **Warning!**
 Join indexes are not updated automatically in an engine when new data is ingested into a dimension table or a partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results. For more information, see [REFRESH JOIN INDEX](../sql-reference/commands/ddl-commands.md#refresh-join-index "mention").
 
 ### When to use join index
 
-You should consider implementing join indexes as best practice in Firebolt to speed up any query which performs a join with a dimension table. This reduces the additional overhead of performing the join to the minimum with the benefit of fast query response times while keeping your cloud bill low.
+You should consider implementing join indexes as best practice in Firebolt to speed up any query which performs a join with a dimension table. This reduces the additional overhead of performing the join to the minimum with the benefit of fast query response times. It also keeps your cloud bill low.
 
 ### Create join index
 
