@@ -37,7 +37,7 @@ SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
 FROM visits
 -- returns ["agent", "platform", "resolution", "Mozilla/5.0", "Windows NT 6.1", "1024x4069"]
 
-SELECT ARRAY_FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
+SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
 -- returns [1,2,3,4,5,2]
 ```
 
