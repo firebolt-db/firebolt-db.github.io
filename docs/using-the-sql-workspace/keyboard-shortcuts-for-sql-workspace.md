@@ -2,7 +2,7 @@
 layout: default
 title: Keyboard shortcuts
 nav_order: 1
-parent: Working with the SQL workspace
+parent: Using the SQL workspace
 ---
 
 # Keyboard shortcuts for SQL workspace

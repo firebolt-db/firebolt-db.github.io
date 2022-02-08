@@ -13,7 +13,7 @@ Engines are configurable and efficient. You can quickly set them up with the cap
 
 ## How engines, databases, and scripts work together
 
-You can attach as many engines as you need to a database. One common database setup is to have two engines attached: one general purpose engine for data ingestion, and one analytics engine to execute queries. For more information, see [Engine type](understanding-engine-fundamentals.md#engine-type) below.
+You can attach as many engines as you need to a database. One common database setup is to have two engines attached: one general purpose engine for data ingestion, and one analytics engine to execute queries. For more information, see [Engine type](#engine-type) below.
 
 A running engine is committed to executing SQL scripts, so an engine must be stopped for you to perform any action on it. You can create, edit, attach, start, stop, and delete stopped engines at any time during the life of a database.
 
@@ -81,7 +81,7 @@ The period of inactivity, in minutes, after which an engine shuts down automatic
 
 ## Viewing and understanding engine states
 
-You can execute a [SHOW ENGINES](../sql-reference/commands/ddl-commands.md#show) statement to list all engines in your Firebolt account and view engine status. You can also use the **Databases** list or the **Engines** list in the Firebolt Manager.
+You can execute a [SHOW ENGINES](../sql-reference/commands/ddl-commands.md#show-engines) statement to list all engines in your Firebolt account and view engine status. You can also use the **Databases** list or the **Engines** list in the Firebolt Manager.
 
 * **On -** the engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine.
 * **Starting -** the engine was started. It is provisioning resources, warming up, and will be ready to use shortly.

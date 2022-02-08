@@ -14,7 +14,7 @@ Partitions are smaller physical parts of large fact tables. They provide the fir
 
 ## When to use partitions
 
-Partitions are particularly useful to simplify table maintenance by allowing you to drop partitions and delete rows in bulk. For example, consider a transaction table with an average of approximately 150,000 transactions a day, which you partition by month. At the end of each month, you can run [ALTER TABLE...DROP PARTITION](../sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) to delete the last month's data, and then [INSERT](../sql-reference/commands/dml-commands.md#insert-into) to update the fact table with the most recent month's data.
+Partitions are particularly useful to simplify table maintenance by allowing you to drop partitions and delete rows in bulk. For example, consider a transaction table with an average of approximately 150,000 transactions a day, which you partition by month. At the end of each month, you can run [ALTER TABLE...DROP PARTITION](/sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) to delete the last month's data, and then [INSERT](/sql-reference/commands/dml-commands.md#insert-into) to update the fact table with the most recent month's data.
 
 {: .warning}
 Dropping a partition deletes all the records stored in the partition.
@@ -34,7 +34,7 @@ Too many small partitions to read increases I/O and decreases performance. In ad
 
 ## Defining partition keys
 
-You define partitions using the [PARTITION BY](../sql-reference/commands/ddl-commands.md#partition-by) clause in a [CREATE FACT TABLE](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table) statement.
+You define partitions using the [PARTITION BY](/sql-reference/commands/ddl-commands.md#partition-by) clause in a [CREATE FACT TABLE](/sql-reference/commands/ddl-commands.md#create-fact--dimension-table) statement.
 
 Rows with the same value in the column key and whose function expression resolves to the same value are included in the partition.
 
@@ -48,7 +48,7 @@ Partition key arguments must not evaluate to `NULL` and can be any of the follow
   PARTITION BY product_type;
   ```
 
-* The result of an [EXTRACT](../sql-reference/functions-reference/date-and-time-functions.md#extract) function applied to a column of any of the date and time data types, as shown below.  
+* The result of an [EXTRACT](/sql-reference/functions-reference/date-and-time-functions.md#extract) function applied to a column of any of the date and time data types, as shown below.  
   ```sql
   PARTITION BY EXTRACT(MONTH FROM date_column);
   ```
@@ -60,7 +60,7 @@ Partition key arguments must not evaluate to `NULL` and can be any of the follow
 
 ## Dropping partitions
 
-Use the [ALTER TABLE...DROP PARTITION](../sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) statement to delete a partition and the data stored in that partition.
+Use the [ALTER TABLE...DROP PARTITION](/sql-reference/commands/ddl-commands.md#alter-tabledrop-partition) statement to delete a partition and the data stored in that partition.
 
 When you drop a partition created with a composite partition key, you must specify the full partition key. Dropping based on a subset of a composite key is not supported. See the example [Partition and drop by composite key](#partition-and-drop-by-composite-key) below.
 
@@ -102,7 +102,7 @@ The example below creates a partition for each group of records with the same da
 PARTITION BY transaction_date
 ```
 
-The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](../sql-reference/commands/operators.md#-operator-for-cast).
+The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](/sql-reference/commands/operators.md#-operator-for-cast).
 
 ```sql
 ALTER TABLE fct_tbl_transactions DROP PARTITION `2020-01-01`::DATE;

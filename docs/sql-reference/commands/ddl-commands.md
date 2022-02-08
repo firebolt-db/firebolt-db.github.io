@@ -64,7 +64,7 @@ ALTER TABLE <table_name> DROP PARTITION <part_key_val1>[,...<part_key_valN>]
 
 #### Examples
 {: .no_toc}
-See the examples in [Working with partitions](../../concepts/working-with-partitions.md#examples).
+See the examples in [Working with partitions](../../working-with-partitions.md#examples).
 
 ## CREATE ENGINE
 Creates an engine (compute cluster).
@@ -140,7 +140,7 @@ WITH REGION = 'us-east-1' DESCRIPTION = 'Being used for testing'
 ```
 
 ## CREATE EXTERNAL TABLE
-Creates an external table. External tables serve as connectors to your external data sources. External tables contain no data within Firebolt other than metadata virtual columns that are automatically populated with metadata. For more information, see [Working with external tables](../loading-data/working-with-external-tables.md).
+Creates an external table. External tables serve as connectors to your external data sources. External tables contain no data within Firebolt other than metadata virtual columns that are automatically populated with metadata. For more information, see [Working with external tables](../../loading-data/working-with-external-tables.md).
 
 ##### Syntax
 {: .no_toc}
@@ -206,7 +206,7 @@ In most cases, the easiest way to build a regular expression is as follows:
 3. Prefix the regex with an additional `[^\/]+` for the file name.
 4. Wrap the `[^\/]+` in the right folder with a capturing group parenthesis, i.e `([^\/]+).` See the examples below for both hive-compatible and non-compatible partitions extractions.
 
-Here is a good explanation about [matching groups](https://regexone.com/lesson/capturing\_groups), and an [online tool](https://regex101.com) to test your regular expressions.
+For more information, see [Match groups](https://regexone.com/lesson/capturing_groups) on the RegexOne website. To test your regular expressions, online tools such as [regex101](https://regex101.com) are available.
 
 ##### Example&ndash;extract hive-compatible partitions
 {: .no_toc}
@@ -278,7 +278,7 @@ TYPE = (PARQUET)
 As in the previous example, the values for the columns `c_id` and `c_name` are extracted from the record in the parquet file, and the values for the `c_type` column is extracted from the file path, according to the specified type and regular expression.
 
 {: .note}
-The partition values can be extracted during the `INSERT INTO`command as well. Read more [here](dml-commands.md#example-extracting-partition-values).
+The partition values can be extracted during the `INSERT INTO`command as well. Read more [here](dml-commands.md#exampleextracting-partition-values-using-insert-into).
 
 
 ### CREDENTIALS
@@ -488,7 +488,7 @@ META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
 
 Creates a new FACT/DIMENSION table in the current database.
 
-Firebolt also supports creating a table as select (also referred to as CTAS) - read more [here](ddl-commands#ctas---create-fact--dimension-table-as-select).
+Firebolt supports create table as select (CTAS). For more information, see [CTAS-Create FACT|DIMENSION table as select](#ctascreate-factdimension-table-as-select).
 
 ##### Syntax&ndash;fact table
 {: .no_toc}
@@ -688,7 +688,7 @@ AND     l_shipmode = 'FOB'
 
 ## CREATE JOIN INDEX
 
-Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements to perform a join at query runtime. For more information, see [Using join indexes](../using-indexes/using-join-indexes.md).
+Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements to perform a join at query runtime. For more information, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 
 ##### Syntax
 {: .no_toc}
@@ -749,7 +749,7 @@ CREATE JOIN INDEX my_dim_join_idx ON my_cstmr_dim (
 
 ## CREATE AGGREGATING INDEX
 
-Different syntax is used when creating an aggregating index on an empty table or a table populated with data.
+Different syntax is used when creating an aggregating index on an empty table or a table populated with data. After an aggregating index is created, Firebolt automatically updates the index as new data is ingested. For more information, see [Using aggregating indexes](../../using-indexes/using-aggregating-indexes.md).
 
 ##### Syntax&ndash;aggregating index on an empty table
 {: .no_toc}
@@ -761,8 +761,6 @@ CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
   <aggregation>[, ...n]
 );
 ```
-
-Click [here](ddl-commands.md#parameters) to read about the different parameters.
 
 {: .note}
 The index is populated automatically as data is loaded into the table.

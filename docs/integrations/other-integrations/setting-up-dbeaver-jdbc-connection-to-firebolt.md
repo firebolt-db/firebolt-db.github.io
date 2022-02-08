@@ -16,7 +16,7 @@ DBeaver is a free open-source administration tool used to simplify working acros
 
 ## Adding driver configuration in DBeaver
 
-1. Download the [Firebolt JDBC driver](../connecting-via-jdbc.md#downloading-the-driver).
+1. Download the [Firebolt JDBC driver](../connecting-via-jdbc.md#download-the-latest-jdbc-driver).
 
 2. From the top navigation menu choose **Database** > **Driver Manager**.
 

@@ -15,7 +15,7 @@ Inserts one or more values into a specified table. Specifying column names is op
 {: .note}
 The `INSERT INTO` operation is not atomic. If the operation is interrupted, partial data ingestion may occur.
 
-**Syntax**
+#### Syntax
 
 ```sql
 INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
@@ -28,9 +28,9 @@ INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
 | `(<col1>[, <col2>][, ...])]`| A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
 | `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.|
 
-**Example: extracting partition values using the INSERT INTO command**
+#### Example&ndash;extracting partition values using INSERT INTO
 
-In some cases, your files, stored on AWS S3, may be organized in partitions. Assume we have files with the following paths in S3:
+In some cases, your files in Amazon S3 may be organized in partitions as shown in the example below.
 
 ```
 s3://my_bucket/xyz/2018/01/part-00001.parquet
@@ -40,7 +40,7 @@ s3://my_bucket/abc/2018/01/part-00001.parquet
 s3://my_bucket/abc/2018/01/part-00002.parquet
 ```
 
-Our goal is to extract a value called `c_type` which is stored in the 2nd path segment of each file path.
+Our goal is to extract a value called `c_type` which is stored in the second path segment of each file path.
 
 For example, the following file in S3:
 

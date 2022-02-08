@@ -52,13 +52,13 @@ Recall that we want the target Firebolt table named `visits` to have columns and
 
 ## Extracting top-level scalars and arrays
 
-For the top-level keys ()`id`, `Duration`, and `tags`), the task is straightforward using the [JSON_EXTRACT](../sql-reference/functions-reference/semi-structured-functions/json-functions.html#json_extract) function. Although "StartTime" is also a scalar field, because there is no native DATETIME type in JSON type system, it0 requires an additional step.
+For the top-level keys ()`id`, `Duration`, and `tags`), the task is straightforward using the [JSON_EXTRACT](../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json_extract) function. Although "StartTime" is also a scalar field, because there is no native DATETIME type in JSON type system, it0 requires an additional step.
 
 `JSON_EXTRACT` accepts the following parameters:
 
 * An expression that resolves to a JSON string.
 * A [JSON pointer](../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json-pointer-parameters) that specifies how to extract the value from the JSON object.
-* A type specifier that indicates the Firebolt data type that the function returns. This type should correspond to the JSON type that the pointer references. For more information, see [Supported type parameters](../sql-reference/functions-reference/semi-structured-functions/json-functions.html#type-parameters).
+* A type specifier that indicates the Firebolt data type that the function returns. This type should correspond to the JSON type that the pointer references. For more information, see [Supported type parameters](../sql-reference/functions-reference/semi-structured-functions/json-functions.md#supported-type-parameters).
 
 Firebolt's native support for arrays makes the extraction of `tags` as simple as other scalar types.
 

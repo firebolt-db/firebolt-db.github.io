@@ -61,7 +61,7 @@ CREATE [FACT|DIMENSION] TABLE visits
 )
 PRIMARY INDEX start_time;
 ```
-With the JSON records above ingested into the table, table data appears as shown below.  For more information about using Firebolt semi-structured functions to transform the JSON records into table rows, see [Ingesting semi-structured data](ingesting semi-structured-data.md).
+With the JSON records above ingested into the table, table data appears as shown below.  For more information about using Firebolt semi-structured functions to transform JSON records into table rows, see [Ingesting semi-structured data](ingesting-semi-structured-data.md).
 
 {: .note}
 The data type is shown in capital letters beside the column name for clarity and is not part of the column name.

@@ -32,7 +32,7 @@ Effective aggregating indexes are relatively small compared to the underlying fa
 
 For very large fact tables, an aggregating index may still be quite large. If the index is effective, the savings at query runtime will outweigh the cost of storage. Aggregating indexes also increase compute requirements during data ingestion because Firebolt performs pre-calculations at that time. As with storage, savings at query runtime usually outweigh the ingestion cost.
 
-If your application favors speed of ingestion over speed of analytics queries, be sure to test ingestion with aggregating indexes before production. You can also change the impact of aggregating indexes on ingestion and first-query speed by configuring the engine warmup method. For more information, see [Warmup method](/working-with-engines/understanding-engine-fundamentals.md#warmup-method).
+If your application favors speed of ingestion over speed of analytics queries, be sure to test ingestion with aggregating indexes before production. You can also change the impact of aggregating indexes on ingestion and first-query speed by configuring the engine warmup method. For more information, see [Warmup method](../working-with-engines/understanding-engine-fundamentals.md#warmup-method).
 
 ## How to define an aggregating index
 
@@ -76,7 +76,7 @@ Aggregating indexes inherit the partitions from the underlying fact table. When 
 
 ## Aggregating indexes and engine warmup method
 
-The columns that you specify for an aggregating index are essentially a primary index for the aggregating index. With the warmup method set to **Preload indexes**, an engine preloads these columns on warmup but doesn’t perform the pre-calculations until Firebolt uses the index. This accelerates ingestion but causes first queries to be slower than subsequent queries. With the warmup method set to **Preload all data**, an engine loads the calculations in addition to the columns. This slows engine start time, but accelerates the first analytics query. For more information, see [Engine warmup method](../working-with-engines/understanding-image-fundamentals.md#warmup-method).
+The columns that you specify for an aggregating index are essentially a primary index for the aggregating index. With the warmup method set to **Preload indexes**, an engine preloads these columns on warmup but doesn’t perform the pre-calculations until Firebolt uses the index. This accelerates ingestion but causes first queries to be slower than subsequent queries. With the warmup method set to **Preload all data**, an engine loads the calculations in addition to the columns. This slows engine start time, but accelerates the first analytics query. For more information, see [Engine warmup method](../working-with-engines/understanding-engine-fundamentals.md#warmup-method).
 
 ## Validating aggregating index size
 

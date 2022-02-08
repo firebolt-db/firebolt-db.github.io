@@ -16,7 +16,7 @@ This topic provides an overview of setting up Airflow. For more information and 
 
 ## Install the latest Firebolt JDBC Driver
 
-Download Firebolt’s JDBC driver from [here](../connecting-via-jdbc.md#downloading-the-driver).
+Download Firebolt’s JDBC driver from [here](../connecting-via-jdbc.md#download-the-latest-jdbc-driver).
 
 Put the JDBC jar file in the server which runs Airflow (we have placed it under `/airflow/jdbc`).
 

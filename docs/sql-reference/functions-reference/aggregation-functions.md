@@ -13,9 +13,9 @@ parent: SQL functions reference
 
 ## ANY
 
-Synonym for [ANY_VALUE](#any-value).
+Synonym for [ANY_VALUE](#any_value).
 
-## ANY\_VALUE
+## ANY_VALUE
 
 Returns a single arbitrary value from the specified column. This function ignores `NULL`s, so the only time it will return `NULL` is when all inputs are `NULL`s.
 

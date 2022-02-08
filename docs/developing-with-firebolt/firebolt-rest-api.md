@@ -264,7 +264,7 @@ curl --request POST 'https://api.app.firebolt.io/core/v1/account/engines/ENGINE_
 
 ## Get the URL of an engine
 
-Some Firebolt REST API operations require the URL of the engine to run the request. You can get the URL of an engine in any state, but the engine must be running to accept requests at its URL. Commands to start, stop, and restart and engine use the engine ID instead of the URL. For more information about starting, stopping, and restarting engines using the Firebolt REST API, see [Start, stop, and restart engines](./#start-stop-and-restart-engines) above.
+Some Firebolt REST API operations require the URL of the engine to run the request. You can get the URL of an engine in any state, but the engine must be running to accept requests at its URL. Commands to start, stop, and restart and engine use the engine ID instead of the URL. For more information about starting, stopping, and restarting engines using the Firebolt REST API, see [Start, stop, and restart engines](#start-stop-and-restart-engines) above.
 
 The examples below show you how to get the URL of the default engine by providing the database name, and how to get it using the engine name.
 
@@ -398,7 +398,7 @@ echo "IMPORT_SCRIPT" | curl \
 
 Provide values for placeholders according to the following guidance.
 
-* `YOUR_ENGINE_URL` is the value of `your_engine_url` returned by the command shown in [Get the URL of an engine](connecting-via-rest-api.md#get-the-url-of-an-engine).
+* `YOUR_ENGINE_URL` is the value of `your_engine_url` returned by the command shown in [Get the URL of an engine](#get-the-url-of-an-engine).
 * `YOUR_DATABASE_NAME` is the name of the database.
 * `IMPORT_SCRIPT` is a SQL script similar to the following:
 

@@ -8,11 +8,11 @@ has_toc: false
 
 # Using Firebolt indexes
 
-Firebolt offers unique technologies that accelerate query performance. Indexes are among the most important. Although indexes are a familiar concept in databases and SQL engines, Firebolt indexes are different because they work together with the proprietary Firebolt File Format (F3). When you run queries, this allows Firebolt to scan very small ranges of cached data rather than scanning much larger ranges as other systems do.
+Firebolt offers unique technologies that accelerate query performance. Indexes are among the most important. Although indexes are a familiar concept in databases and SQL engines, Firebolt indexes are different because they work together with the Firebolt File Format (F3). Firebolt indexes allow your queries to scan very small ranges of cached data rather than scanning much larger ranges as other systems do.
 
 Efficient indexes not only accelerate query performance, they allow you to use compute engines more efficiently and reduce cost.
 
-There are three types of indexes that you can create in Firebolt.
+Firebolt offers three types of indexes:
 
 * [Primary indexes](index-quick-reference.md#primary-indexes)
 * [Aggregating indexes](index-quick-reference.md#aggregating-indexes)
@@ -28,7 +28,7 @@ After you define an index for a table, Firebolt updates the index on the general
 
 ## Test and validate indexes before deploying to production
 
-We recommend that you experiment with index configurations before you go to production. Create indexes on tables, create analytics queries that are comparable to your production queries, run the queries, and then compare performance results using query statistics, query history, and explain plans. For more information, see (*need xref*)Analyzing index performance.
+We recommend that you experiment with index configurations before you go to production. Create indexes on tables, create analytics queries that are comparable to your production queries, run the queries, and then compare performance results using query statistics, query history, and explain plans.
 
 ## Additional resources
 

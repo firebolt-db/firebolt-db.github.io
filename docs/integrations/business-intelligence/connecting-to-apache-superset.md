@@ -18,7 +18,7 @@ Superset is open-source software and can be downloaded and hosted on your own se
 
 If you self-host Superset, you must install the Firebolt driver. If you use Preset, you can skip this section and go to Set up the connection below.&#x20;
 
-To install the driver, see [Adding New Database Drivers in Docker](https://superset.apache.org/docs/databases/dockeradddrivers) in Superset documentation. Use `firebolt-sqlalchemy` as the driver name in `requirements-local.txt`.
+To install the driver, see [Adding New Database Drivers in Docker](https://superset.apache.org/docs/connecting-to-databases/docker-add-drivers) in Superset documentation. Use `firebolt-sqlalchemy` as the driver name in `requirements-local.txt`.
 
 ### Set up the connection
 

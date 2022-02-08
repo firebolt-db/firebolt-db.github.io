@@ -106,7 +106,7 @@ Usage examples in this reference are based on the JSON document below, which is 
 }
 ```
 
-## JSON\_EXTRACT
+## JSON_EXTRACT
 
 Takes an expression containing JSON string, a JSON Pointer, and a type parameter. It returns a typed scalar, or an array pointed by the JSON Pointer.
 
@@ -162,11 +162,11 @@ SELECT
 
 **Returns**: `["insanely","fast","analytics"]`
 
-## JSON\_EXTRACT\_ARRAY\_RAW
+## JSON_EXTRACT_ARRAY_RAW
 
 Returns a string representation of a JSON array pointed by the supplied JSON pointer. The returned string represents a Firebolt array with elements that are string representations of the scalars or objects contained in the JSON array under the specified key, if the key exists. If the key does not exist, the function returns `NULL`.
 
-This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](./array-functions#transform).
+This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](/array-functions.md#transform).
 
 ##### Syntax
 {: .no_toc}
@@ -190,7 +190,7 @@ SELECT
 
 **Returns**: `["{\"EventId\":547,\"EventProperties\":{\"UserName\":\"John Doe\",\"Successful\":true}}","{\"EventId\":548,\"EventProperties\":{\"ProductID\":\"xy123\",\"items\":2}}"]`
 
-## JSON\_EXTRACT\_KEYS
+## JSON_EXTRACT_KEYS
 
 Returns an array of strings containing the keys at the nesting level indicated by the specified `<json_pointer_expression>`. If keys do not exist, returns `NULL`.
 
@@ -218,7 +218,7 @@ FROM
 
 **Returns**: `["dyid","uid","keywords","tagIdToHits","events"]`
 
-## JSON\_EXTRACT\_RAW
+## JSON_EXTRACT_RAW
 
 Returns a string representation of the scalar or sub-object under the key indicated by `<json_pointer_expression>` if the key exists. If the key does not exist, returns `NULL`.
 
@@ -250,7 +250,7 @@ JSON_EXTRACT_RAW(<json_common_example>, '/value/tagIdToHits')
 
 **Returns**: `{"map":{"1737729":32,"1775582":35}}`
 
-## JSON\_EXTRACT\_VALUES
+## JSON_EXTRACT_VALUES
 
 Returns an array of string representations, each element containing the value pointed by the JSON Pointer.
 

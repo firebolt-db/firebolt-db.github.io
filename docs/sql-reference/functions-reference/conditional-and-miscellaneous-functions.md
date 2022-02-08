@@ -106,9 +106,9 @@ SELECT CAST('1' AS INT) as res;
 **Returns**: `1`
 
 {: .note}
-`CAST` can also be done by using the `::` operator. For more information, see [Cast operator](../commands/operators.md#cast-operator).
+`CAST` can also be done by using the `::` operator. For more information, see [:: operator for CAST](../commands/operators.md#-operator-for-cast).
 
-## CITY\_HASH
+## CITY_HASH
 
 Takes one or more input parameters of any data type and returns a 64-bit non-cryptographic hash value. `CITY_HASH` uses the CityHash algorithm for string data types, implementation-specific algorithms for other data types, and the CityHash combinator to produce the resulting hash value.
 

@@ -92,7 +92,7 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 4. In the **Account ID** field, enter your Firebolt **AWS Account ID**. Users with Account Admin privileges can view this value in the [Account & Billing window](https://app.firebolt.io/account-info).
 5. If you select **Require external ID**, enter a value of your choosing and make a note of it.
 6. Choose **Next**.
-7. Begin typing the name of the policy you created in [step 1](configuring-aws-role-to-access-amazon-s3.md#Step-1:-Creating-an-IAM-policy) in the search box, select it from the list, and then choose **Next**.
+7. Begin typing the name of the policy you created in [Step 1: Create an IAM permissions policy](#create-an-iam-permissions-policy) in the search box, select it from the list, and then choose **Next**.
 8. Enter a **Name** and optional **Description** for the role, and then choose **Create role**.
 
    You have now created an IAM permissions policy, an IAM role for Firebolt access, and attached the permissions policy to the role.
@@ -103,11 +103,11 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Roles**.
-3. Begin typing the name of the role that you created in [step 2](configuring-aws-role-to-access-amazon-s3.md#Step-2:-Create-the-IAM-role-in-AWS) and then select it from the list.
+3. Begin typing the name of the role that you created in [Step 2: Create the IAM role](#create-the-iam-role), and then select it from the list.
 4. In the summary section, locate the **Maximum session duration** field. Click **Edit**
 5. Choose _12 hours_ from the list, and then click **Save changes.**
 
 ![](../assets/images/set_max_session_duration.png)
 
 ## Specify the IAM role in the external table definition
-Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/ddl-commands.md#syntax---authenticating-using-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.
+Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/ddl-commands.md#syntaxauthenticating-using-an-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.

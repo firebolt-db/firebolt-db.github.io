@@ -8,8 +8,6 @@ parent: SQL functions reference
 # Date and time functions
 {: .no_toc}
 
-This page describes the date and time functions and [format expressions](date-and-time-functions.md#date-format-expressions) supported in Firebolt.
-
 * Topic ToC
 {:toc}
 
@@ -47,9 +45,9 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 
 | Parameter     | Description                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`                                                                  |
+| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`.                                                                  |
 | `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
-| `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value.                                                              |
+| `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP`. value.                                                              |
 
 ##### Example
 {: .no_toc}
@@ -695,7 +693,7 @@ SELECT
 
 ## TO\_WEEKISO
 
-Converts any supported date or timestamp data type to a number representing the week of the year. This function adheres to the [ISO 8601](https://en.wikipedia.org/wiki/ISO\_week\_date) standards for numbering weeks, meaning week 1 of a calendar year is the first week with 4 or more days in that year.
+Converts any supported date or timestamp data type to a number representing the week of the year. This function adheres to the [ISO 8601](https://www.wikipedia.org/wiki/ISO_week_date) standards for numbering weeks, meaning week 1 of a calendar year is the first week with 4 or more days in that year.
 
 ##### Syntax
 {: .no_toc}
