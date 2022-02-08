@@ -729,22 +729,15 @@ CREATE DIMENSION TABLE my_cstmr_dim (
 PRIMARY INDEX my_cstmr_id;
 ```
 
-Queries often run that join different fact tables with this dimension table. Those queries `SELECT` the `name` and `email` of customers in the returned results. The join index shown below is created to accelerate these queries.
+Queries often run that join different fact tables with this dimension table. Those queries `SELECT` the `name` and `email` of customers in the returned results. Another set of queries often select `city` and `status` in returned results with a join. The following join index helps to accelerate these queries.
 
 ```sql
 CREATE JOIN INDEX cstmr_email_name_jidx ON my_cstmr_dim (
   cstmr_id,
   name,
-  email);
-```
-
-In addition, queries often run that select the `city` and `status` in returned results with a join. To accelerate those queries, the join index below is created in addition to the one above.
-
-```sql
-CREATE JOIN INDEX my_dim_join_idx ON my_cstmr_dim (
-  cstmr_id,
-  name,
-  email);
+  email,
+  city,
+  status);
 ```
 
 ## CREATE AGGREGATING INDEX

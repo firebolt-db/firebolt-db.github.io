@@ -39,6 +39,12 @@ search:
   # Supports true or false (default)
   button: false
 
+# Link in upper Right
+
+aux_links:
+  "Schedule a call":
+    - "https://www.firebolt.io/getting-started-now"
+
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
 gh_edit_link_text: "Edit on GitHub"
