@@ -28,7 +28,7 @@ The video below is a technical discussion of some issues with traditional materi
 
 ## Aggregating index tradeoffs
 
-Effective aggregating indexes are relatively small compared to the underlying fact table. We recommend that you confirm that an aggregating index is significantly smaller than the underlying fact table.
+Effective aggregating indexes are relatively small compared to the underlying fact table. We recommend that you confirm that an aggregating index is significantly smaller than the underlying fact table. For more information, see [Validating aggregating index size](#validating-aggregating-index-size) below.
 
 For very large fact tables, an aggregating index may still be quite large. If the index is effective, the savings at query runtime will outweigh the cost of storage. Aggregating indexes also increase compute requirements during data ingestion because Firebolt performs pre-calculations at that time. As with storage, savings at query runtime usually outweigh the ingestion cost.
 
@@ -113,9 +113,7 @@ If the `SELECT` query returns 100,000,000 or fewer, the aggregating index may be
 
 ## Aggregating index examples
 
-TO DO: This section needs to be updated to use same examples as above. Maybe v2. Right now, uses the examples from the > To demonstrate the requirement for unique function definitions and the ability to handle complex queries, consider a query with the complex COALESCE clauses as shown in the example below.*
-
-The examples in this section are based on a fact table, `fact_orders`, created with the DDL shown below.
+The example in this section are based on a fact table, `fact_orders`, created with the DDL shown below. For a more in-depth example, see *Aggregating indexes* in the [Firebolt indexes in action](https://www.firebolt.io/blog/firebolt-indexes-in-action) blog post.
 
 ```sql
 CREATE FACT TABLE fact_orders
