@@ -39,11 +39,15 @@ search:
   # Supports true or false (default)
   button: false
 
-# Link in upper Right
+# Link in upper right
 
 aux_links:
   "Schedule a call":
-    - "https://www.firebolt.io/getting-started-now"
+    - "https:///www.firebolt.io/getting-started-now?utm_source=referral&utm_medium=docs&utm-campaign=docs-demo"
+
+# Google Analytics tracking
+ga_tracking: UA-142599515-1
+ga_tracking_anonymize_ip: true
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
