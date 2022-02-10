@@ -25,7 +25,7 @@ This topic uses the table presented in [Working with semi-structured data](worki
 
 ## Basic Functionality
 
-There are several self-explanatory functions to work with arrays including [LENGTH,](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#length) [ARRAY\_CONCAT](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#array_concat), and [FLATTEN](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#flatten). See the respective reference for a full description. Here's a short example:
+There are several self-explanatory functions to work with arrays including [LENGTH,](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#length), [ARRAY\_CONCAT](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#array_concat), and [FLATTEN](../sql-reference/functions-reference/semi-structured-functions/array-functions.md#flatten). See the respective reference for a full description. Here's a short example:
 
 ```sql
 SELECT LENGTH(agent_prop_keys)
@@ -36,7 +36,7 @@ SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
 FROM visits
 -- returns ["agent", "platform", "resolution", "Mozilla/5.0", "Windows NT 6.1", "1024x4069"]
 
-SELECT ARRAY_FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
+SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
 -- returns [1,2,3,4,5,2]
 ```
 

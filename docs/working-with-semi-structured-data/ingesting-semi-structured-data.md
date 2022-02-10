@@ -52,7 +52,7 @@ Recall that we want the target Firebolt table named `visits` to have columns and
 
 ## Extracting top-level scalars and arrays
 
-For the top-level keys ()`id`, `Duration`, and `tags`), the task is straightforward using the [JSON_EXTRACT](../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json_extract) function. Although "StartTime" is also a scalar field, because there is no native DATETIME type in JSON type system, it0 requires an additional step.
+For the top-level keys (`id`, `Duration`, and `tags`), the task is straightforward using the [JSON_EXTRACT](../sql-reference/functions-reference/semi-structured-functions/json-functions.md#json_extract) function. Although "StartTime" is also a scalar field, because there is no native DATETIME type in JSON type system, it requires an additional step.
 
 `JSON_EXTRACT` accepts the following parameters:
 
