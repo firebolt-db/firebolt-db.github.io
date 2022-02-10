@@ -1,7 +1,7 @@
 ---
 layout: default
 title: REST API
-nav_order: 1
+nav_order: 3
 parent: Developing with Firebolt
 ---
 

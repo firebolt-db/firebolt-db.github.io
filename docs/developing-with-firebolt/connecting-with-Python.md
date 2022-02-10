@@ -1,21 +1,14 @@
 ---
 layout: default
-title: Connecting with Python
-nav_order: 3
+title: Python
+nav_order: 2
 parent: Developing with Firebolt
 ---
 
-# Connecting with Python
+# Python
 
-For instructions on how to connect to Firebolt with Python, please visit our [Python SDK page](https://python-sdk.docs.firebolt.io/).
+You can use the Python SDK to work with Firebolt. See the resources below for more information.
 
-If you are using an application like DBeaver that manages your client connections, then please skip this section and move directly to the dedicated integration page for that application.
-
-**Prepare in advance:**
-
-Connecting to your database in Firebolt requires authentication. You must provide the following parameters for a successful connection:
-
-* Firebolt username
-* Firebolt password
-* Database name
-* Engine name or url
+* [Firebolt Python SDK documentation](https://python-sdk.docs.firebolt.io/)
+* The [firebolt-python-sdk repository on GitHub](https://github.com/firebolt-db/firebolt-python-sdk)
+* Code examples (in Jupyter notebooks) in the SDK repository that demonstrate common [data tasks](https://github.com/firebolt-db/firebolt-python-sdk/blob/main/examples/dbapi.ipynb) and [management tasks](https://github.com/firebolt-db/firebolt-python-sdk/blob/main/examples/management.ipynb)

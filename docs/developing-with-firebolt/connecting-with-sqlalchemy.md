@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Connecting with SQLAlchemy
-nav_order: 2
+title: SQLAlchemy
+nav_order: 4
 parent: Developing with Firebolt
 ---
 
