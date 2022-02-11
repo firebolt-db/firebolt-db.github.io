@@ -1098,17 +1098,6 @@ SHOW DATABASES;
 +---------------+-----------+-------------------------------------+-----------------------------+---------------+--------+
 ```
 
-## SHOW DATABASE
-
-Shows the status for the specified database. These are the same metadata fields as `SHOW DATABASES`.
-
-```sql
-SHOW DATABASE <database_name>;
-```
-
-| Parameter         | Description                              |
-| :----------------- | :---------------------------------------- |
-| <`database_name>` | The name of the database to be analyzed. |
 
 ## SHOW ENGINES
 
