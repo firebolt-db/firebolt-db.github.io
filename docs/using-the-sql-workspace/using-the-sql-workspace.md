@@ -135,16 +135,13 @@ After you run a script or query statement, results appear below the script edito
 
 When running a query, Firebolt provides several statistics to help you understand and monitor the performance. These statistics can be viewed in the SQL workspace, just above the query results table. From left to right, these icons represent the following:
 
-| Icon                                      | Name              | Description                                                                                                                        |
-| ----------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| ![](../assets/images/Row_count.png)     | **Row count**     | The total number of rows returned by a query.                                                                                      |
-| ![](../assets/images/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query.                                                                                         |
+| Icon | Name  | Description |
+| :--- | :---- | :---------- |
+| ![](../assets/images/Row_count.png)     | **Row count**     | The total number of rows returned by a query. |
+| ![](../assets/images/Elapsed_time.png)  | **Elapsed Time**  | The total time needed to complete a query. |
 | ![](../assets/images/Scanned_bytes.png) | **Scanned Bytes** | The total amount of bytes scanned to complete a query. This includes scanned memory in the engine cache as well as the F3 storage. |
-| ![](../assets/images/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second.                                                                                             |
-| ![](../assets/images/Warm_data.png)     | **Warm data**     | A percentage showing how much of the total data used to run a query was loaded from the engine’s cache.                            |
-
-{: .note}
-Warm data is read from engine cache, and can be scanned very quickly. In contrast, “cold data” is slower to access because it’s being loaded from the F3 storage. A high percentage of **Warm data** indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../using-indexes/using-indexes.md) or by [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache.
+| ![](../assets/images/Rows_Second.png)   | **Rows / Second** | The number of rows scanned per second. |
+| ![](../assets/images/Warm_data.png)     | **Cached data ratio** | The percentage of data served from cache (engine SSD and RAM) rather than F3 storage. Equal to `<cached_bytes_scanned>`/`<total_bytes_scanned>`. Cached data is scanned very quickly. A high percentage indicates improved query response times. A low percentage indicates that query performance could be improved by [configuring indexes](../using-indexes/using-indexes.md), changing your [warmup method](../working-with-engines/understanding-engine-fundamentals.md#warmup-method), or [changing the spec of your engine](../working-with-engines/tuning-engine-performance.md) to have a bigger cache. |
 
 ### Viewing query statistics with results
 
@@ -156,14 +153,12 @@ To view query statistics, choose the expansion arrow to the left of a result tab
 
 Each column expands to show statistics on a new row located just below the header. The statistics shown in each cell depend on the column’s [data type](../general-reference/data-types.md).
 
-
-
-| Data type   | Statistics displayed |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Numeric** | The statistics cell displays MIN, MAX, and MEDIAN values for that column. Each data field displays a horizontal data bar to indicate where that value lies in the range of values for that column. For a column with all positive numbers, the bar starts on the left at 0 and extends to the right toward 100% of maximum. If numbers are all negative, the data bar starts on the right at 0 and extends left to 100% of minimum. For mixed positive and negative numbers, the bar starts in the center and extends left and right toward minimum and maximum respectively. |
-| **String**  | The statistics cell displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Date**    | The statistics cell displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values.                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| **Array**   | The statistics cell displays the percentage of empty, not empty, and NULL values.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Data type   | Statistics displayed in cell |
+| :---------- | :--------------------------- |
+| **Numeric** | Displays MIN, MAX, and MEDIAN values for that column. Each data field displays a horizontal data bar to indicate where that value lies in the range of values for that column. For a column with all positive numbers, the bar starts on the left at 0 and extends to the right toward 100% of maximum. If numbers are all negative, the data bar starts on the right at 0 and extends left to 100% of minimum. For mixed positive and negative numbers, the bar starts in the center and extends left and right toward minimum and maximum respectively. |
+| **String**  | The statistics cell displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values. |
+| **Date**    | Displays the most frequent values by percentage. If no single value is more frequent, the cell displays the number of unique values. |
+| **Array**   | Displays the percentage of empty, not empty, and NULL values. |
 
 ### Viewing more result statistics
 
