@@ -8,7 +8,7 @@ parent: General reference
 
 # Data types
 {:.no_toc}
-<!--This needs to be changed pronto -->
+
 This topic lists the data types available in Firebolt.
 
 * Topic ToC
