@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Continuously loading data
+description: Learn how to use Airflow to incrementally load data from Amazon S3 into Firebolt.
 nav_order: 3
 parent: Loading data
 ---

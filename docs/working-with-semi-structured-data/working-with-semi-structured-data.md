@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with semi-structured data
+description: Learn how to handle semi-structured data in Firebolt.
 nav_order: 10
 has_children: true
 ---

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SELECT query
+description: Reference for the SELECT query statement syntax in Firebolt.
 nav_order: 1
 parent: SQL commands reference
 ---

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with external tables
+description: Understand the role of external tables when loading data into Firebolt, and learn how to configure them to connect to your data lake.
 nav_order: 1
 parent: Loading data
 ---

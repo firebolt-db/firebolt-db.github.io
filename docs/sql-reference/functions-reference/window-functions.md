@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Window functions
+description: Reference for window SQL functions available in Firebolt.
 nav_order: 7
 parent: SQL functions reference
 ---

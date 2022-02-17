@@ -1,6 +1,7 @@
 ---
 layout: default
 title: dbt
+description: Learn how to connect dbt to Firebolt. 
 nav_order: 2
 parent: Data integration and transformation
 grand_parent: Integrations

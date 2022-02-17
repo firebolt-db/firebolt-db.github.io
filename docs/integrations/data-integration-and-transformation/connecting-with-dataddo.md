@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Dataddo
+description: Learn how to connect Dataddo to Firebolt. 
 nav_order: 1
 parent: Data integration and transformation
 grand_parent: Integrations

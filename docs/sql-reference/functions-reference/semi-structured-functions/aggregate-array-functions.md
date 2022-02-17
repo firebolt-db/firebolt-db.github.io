@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Aggregate array functions
+description: Reference for SQL aggregate array functions available in Firebolt.
 nav_order: 2
 parent: Semi-structured data functions
 grand_parent: SQL functions reference

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with engines
+description: Learn how to work with Firebolt engines, which provide the compute power for queries in Firebolt.
 nav_order: 5
 has_children: true
 ---

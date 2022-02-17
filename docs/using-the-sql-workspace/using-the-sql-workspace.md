@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Using the SQL workspace
+description: Learn how to navigate and use the SQL workspace to work with your Firebolt database.
 nav_order: 4
 has_children: true
 has_toc: false

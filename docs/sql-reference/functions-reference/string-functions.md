@@ -1,6 +1,7 @@
 ---
 layout: default
 title: String functions
+description: Reference for string SQL functions available in Firebolt.
 nav_order: 6
 parent: SQL functions reference
 ---

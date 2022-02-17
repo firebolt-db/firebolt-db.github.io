@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Tuning engine performance
+description: Learn how to configure compute engines in Firebolt for speed and efficiency.
 nav_order: 5
 parent: Working with engines
 ---

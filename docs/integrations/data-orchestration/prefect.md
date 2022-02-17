@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Prefect
+description: Learn how to connect Prefect to Firebolt.
 nav_order: 2
 parent: Data orchestration
 grand_parent: Integrations

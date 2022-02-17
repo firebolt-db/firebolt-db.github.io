@@ -1,6 +1,7 @@
 ---
 layout: default
 title: DML commands
+description: Reference for the SQL DML commands available in Firebolt.
 nav_order: 3
 parent: SQL commands reference
 ---

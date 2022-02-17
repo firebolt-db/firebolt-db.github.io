@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Panintelligence
+description: Learn how to connect Panintelligence to Firebolt.
 nav_order: 4
 parent: Business intelligence
 grand_parent: Integrations

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Aggregation functions
+description: Reference for SQL aggregation functions available in Firebolt.
 nav_order: 1
 parent: SQL functions reference
 ---

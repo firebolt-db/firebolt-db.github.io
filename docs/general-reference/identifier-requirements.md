@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Identifier requirements
+description: Provides requirements and guidance for using SQL identifiers with Firebolt.
 nav_order: 2
 parent: General reference
 ---

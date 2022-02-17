@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Understanding engine fundamentals
+description: Learn how Firebolt compute engines are decoupled from database storage for maximum flexibility and performance.
 nav_order: 1
 parent: Working with engines
 ---

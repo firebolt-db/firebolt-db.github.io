@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Business intelligence
+description: Learn about the business intelligence services that integrate with Firebolt to deliver data insight. 
 nav_order: 1
 parent: Integrations
 has_children: true

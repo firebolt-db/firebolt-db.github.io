@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Airflow
+description: Learn how to use the JDBC driver to connect Airflow to Firebolt.
 nav_order: 1
 parent: Data orchestration
 grand_parent: Integrations
@@ -9,7 +10,7 @@ grand_parent: Integrations
 # Connecting to Airflow
 {: .no_toc}
 
-This topic provides an overview of setting up Airflow. For more information and step-by-step instructions for using Aiflow see the [Continuously loading data tutorial](../../loading-data/continuously-loading-data.md).
+This topic provides an overview of setting up Airflow. For more information and step-by-step instructions for using Airflow see the [Continuously loading data tutorial](../../loading-data/continuously-loading-data.md).
 
 1. Topic ToC
 {:toc}

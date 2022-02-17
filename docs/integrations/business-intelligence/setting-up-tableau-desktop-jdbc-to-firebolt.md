@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Tableau
+description: Learn how to connect Tableau desktop to Firebolt using the Firebolt JDBC driver.
 nav_order: 5
 parent: Business intelligence
 grand_parent: Integrations

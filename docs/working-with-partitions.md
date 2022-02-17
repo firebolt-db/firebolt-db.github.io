@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with partitions
+description: Learn when and how to partition Firebolt tables to accelerate query performance and simplify table maintenance.
 nav_order: 9
 ---
 

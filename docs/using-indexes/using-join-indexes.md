@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Join indexes
+description: Learn about join indexes in Firebolt and how to configure and use them.
 nav_order: 4
 parent: Using indexes
 ---

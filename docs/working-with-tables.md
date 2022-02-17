@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with tables
+description: Learn about external tables, fact tables, and dimension tables in Firebolt and how to use them. 
 nav_order: 6
 has_toc: true
 ---

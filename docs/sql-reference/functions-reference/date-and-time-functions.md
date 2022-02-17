@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Date and time functions
+description: Reference for date and time SQL functions available in Firebolt.
 nav_order: 3
 parent: SQL functions reference
 ---

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Apache Superset / Preset
+description: Learn about connecting Apache Superset/Preset to Firebolt.
 nav_order: 1
 parent: Business intelligence
 grand_parent: Integrations

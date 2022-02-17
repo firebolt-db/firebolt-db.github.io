@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Getting started
+description: Follow this getting started tutorial to create a database in a Firebolt data warehouse, load a sample data set from Amazon S3, and run queries over the data.
 nav_order: 2
 has_toc: true
 ---

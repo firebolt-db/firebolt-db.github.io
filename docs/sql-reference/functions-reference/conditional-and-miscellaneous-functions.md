@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Conditional and miscellaneous functions
+description: Reference for conditional and miscellaneous SQL functions available in Firebolt.
 nav_order: 2
 parent: SQL functions reference
 ---

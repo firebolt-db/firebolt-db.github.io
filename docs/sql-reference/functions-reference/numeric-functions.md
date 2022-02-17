@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Numeric functions
+description: Reference for numeric SQL functions available in Firebolt.
 nav_order: 4
 parent: SQL functions reference
 ---

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Quick reference
+description: Use this quick reference and cheat sheet for Firebolt indexes to remember index roles and configuration keys.
 nav_order: 1
 parent: Using indexes
 ---

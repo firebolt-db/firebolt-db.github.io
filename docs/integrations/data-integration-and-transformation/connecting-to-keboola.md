@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Keboola
+description: Learn how to connect Keboola to Firebolt. 
 nav_order: 4
 parent: Data integration and transformation
 grand_parent: Integrations

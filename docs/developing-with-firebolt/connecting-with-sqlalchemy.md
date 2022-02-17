@@ -1,6 +1,7 @@
 ---
 layout: default
 title: SQLAlchemy
+description: Learn about using the Firebolt adapter for the SQLAlchemy Python SQL toolkit.
 nav_order: 4
 parent: Developing with Firebolt
 ---
@@ -15,4 +16,4 @@ The adapter is written in Python using the SQLAlchemy toolkit. It is built accor
 
 ### To get started
 
-We recommend you follow the guidelines for SQLAlchemy integration in our[ Github repository](https://github.com/firebolt-db/firebolt-sqlalchemy).
+We recommend you follow the guidelines for SQLAlchemy integration in our [Github repository](https://github.com/firebolt-db/firebolt-sqlalchemy).

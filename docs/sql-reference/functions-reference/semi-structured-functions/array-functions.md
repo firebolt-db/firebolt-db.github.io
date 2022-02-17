@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Array functions
+description: Reference for SQL array functions available in Firebolt.
 nav_order: 1
 parent: Semi-structured data functions
 grand_parent: SQL functions reference

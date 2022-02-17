@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Data types
+description: Provides the SQL data types available in Firebolt.
 nav_order: 1
 parent: General reference
 ---

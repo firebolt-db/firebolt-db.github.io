@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Semi-structured data functions
+description: Reference for SQL functions available in Firebolt for working with semi-structured data.
 nav_order: 5
 parent: SQL functions reference
 has_children: true

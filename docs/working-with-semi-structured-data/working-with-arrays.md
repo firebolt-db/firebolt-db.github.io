@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with arrays
+description: Learn techniques to manipulate and transform arrays in Firebolt.
 nav_order: 3
 parent: Working with semi-structured data
 ---

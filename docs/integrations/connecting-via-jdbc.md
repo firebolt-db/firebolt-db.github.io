@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Using the JDBC driver
+description: Download the JDBC driver for Firebolt to connect services and applications to your Firebolt data warehouse.
 nav_order: 4
 parent: Integrations
 ---

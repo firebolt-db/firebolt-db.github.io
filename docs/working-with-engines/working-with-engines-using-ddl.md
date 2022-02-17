@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Working with engines using DDL
+description: Learn about using SQL DDL to work with Firebolt engines, which provide the compute power for Firebolt queries.
 nav_order: 2
 parent: Working with engines
 ---

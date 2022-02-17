@@ -1,6 +1,7 @@
 ---
 layout: default
 title: DDL commands
+description: Reference for the SQL DDL commands available in Firebolt.
 nav_order: 4
 parent: SQL commands reference
 ---

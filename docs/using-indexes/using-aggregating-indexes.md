@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Aggregating indexes
+description: Learn about aggregating indexes in Firebolt and how to configure and use them.
 nav_order: 3
 parent: Using indexes
 ---

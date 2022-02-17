@@ -1,6 +1,7 @@
 ---
 layout: default
 title: JSON functions
+description: Reference for SQL functions for working with JSON available in Firebolt.
 nav_order: 1
 parent: Semi-structured data functions
 grand_parent: SQL functions reference
