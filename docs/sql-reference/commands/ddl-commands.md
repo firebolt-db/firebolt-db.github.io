@@ -488,7 +488,7 @@ META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
 
 Creates a new FACT/DIMENSION table in the current database.
 
-Firebolt supports create table as select (CTAS). For more information, see [CTAS-Create FACT|DIMENSION table as select](#ctascreate-factdimension-table-as-select).
+Firebolt supports create table as select (CTAS). For more information, see [CTAS-Create FACT\|DIMENSION table as select](#ctascreate-factdimension-table-as-select).
 
 ##### Syntax&ndash;fact table
 {: .no_toc}
