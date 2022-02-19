@@ -40,7 +40,7 @@ Make sure you have:
 | :-------- | :---------- | :---- |
 | `Conn Id` | The connection identifier | For example:`firebolt_jdbc`|
 | `Conn Type` | The connection type | `JDBC Connection`|
-| `Connection URL` | The connection String URL | `jdbc:firebolt://api.app.firebolt.io/&#x3C;db_name>` <br> <br> Make sure to replace `<db_name>` with the name of your database in Firebolt. This enables you to query the database using its default engine. If you wish to use another engine, use the following URL:`jdbc:firebolt://api.app.firebolt.io/&#x3C;db_name>?engine=engineName` <br> <br> Replace `engineName` with the name of the engine you would like to use. |
+| `Connection URL` | The connection String URL | `jdbc:firebolt://api.app.firebolt.io/<db_name>` <br> <br> Make sure to replace `<db_name>` with the name of your database in Firebolt. This enables you to query the database using its default engine. If you wish to use another engine, use the following URL:`jdbc:firebolt://api.app.firebolt.io/<db_name>?engine=engineName` <br> <br> Replace `engineName` with the name of the engine you would like to use. |
 | `Login`| Your Firebolt username | |
 | `Password`| Your Firebolt password| |
 | `Driver Path`| The full path in your Airflow server where you saved the Firebolt JDBC driver | For example: `/airflow/jdbc/firebolt-jdbc-1.03-jar-with-dependencies.jar`|
