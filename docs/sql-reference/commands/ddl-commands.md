@@ -412,7 +412,7 @@ TYPE = (PARQUET)
 ### COMPRESSION
 {: .no_toc}
 
-Specifies the compression type of the files in S3.
+Specifies the compression type of the files matching the specified `OBJECT_PATTERN` in Amazon S3.
 
 ##### Syntax
 {: .no_toc}
@@ -421,9 +421,9 @@ Specifies the compression type of the files in S3.
 [COMPRESSION = <compression_type>]
 ```
 
-| Parameters           | Description                                                        |
+| Parameters            | Description                                                        |
 | :-------------------- |:------------------------------------------------------------------ |
-| `<compression_type>` | An identifier specifies the file's compression type. `GZIP` is supported. |
+| `<compression_type>`  | Specifies the compression type of files. `GZIP` is supported. |
 
 ##### Example
 {: .no_toc}
@@ -439,12 +439,12 @@ CREATE EXTERNAL TABLE my_external_table
 CREDENTIALS = (AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
 URL = 's3://mybucket/'
 OBJECT_PATTERN= '*.csv.gz'
-TYPE = (PARQUET)
+TYPE = (CSV)
 COMPRESSION = GZIP
 ```
 
 ### CREATE EXTERNAL TABLE based on an AWS Glue table
-In addition to other CREATE EXTERNAL TABLE clauses, the `META_STORE` clause provides information to connect to a AWS Glue database and table.
+In addition to other `CREATE EXTERNAL TABLE` clauses, the `META_STORE` clause provides information to connect to an AWS Glue database and table.
 
 ##### Syntax
 {: .no_toc}
@@ -455,8 +455,8 @@ META_STORE = (TYPE='Glue' DATABASE_NAME=<db_name> TABLE_NAME=<table_name>)
 
 | Parameter |Description| Data type |
 |:--------- | :-------- | :--------- |
-| `<db_name>`| The name of the database in AWS Glue| TEXT      |
-| `<table_name>` | The name of the table in AWS Glue | TEXT      |
+| `<db_name>`| The name of the database in AWS Glue. | TEXT      |
+| `<table_name>` | The name of the table in AWS Glue. | TEXT      |
 
 #### Additional AWS permissions
 {: .no_toc}
