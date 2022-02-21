@@ -423,12 +423,12 @@ Specifies the compression type of the files in S3.
 
 | Parameters           | Description                                                        |
 | :-------------------- |:------------------------------------------------------------------ |
-| `<compression_type>` | An identifier specifies the compression type. `GZIP` is supported. |
+| `<compression_type>` | An identifier specifies the file's compression type. `GZIP` is supported. |
 
 ##### Example
 {: .no_toc}
 
-The example below creates an external table to ingest parquet files from S3 that are compressed using gzip. The credentials for an IAM user with access to the bucket are provided.
+The example below creates an external table to ingest CSV files from S3 that are compressed using gzip. The credentials for an IAM user with access to the bucket are provided.
 
 ```sql
 CREATE EXTERNAL TABLE my_external_table
@@ -438,7 +438,7 @@ CREATE EXTERNAL TABLE my_external_table
 )
 CREDENTIALS = (AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
 URL = 's3://mybucket/'
-OBJECT_PATTERN= '*.parquet.gz'
+OBJECT_PATTERN= '*.csv.gz'
 TYPE = (PARQUET)
 COMPRESSION = GZIP
 ```

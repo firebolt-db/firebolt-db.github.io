@@ -157,13 +157,8 @@ SELECT COALESCE(null, 'London','New York') AS res;
 
 **Returns:** `London`
 
-## NULL\_IF
-
-Alias for `NULLIF`.
-
-## NULLIF
-
-Compares two values. Returns `null` if the values are equal and returns the first value if they are not equal.
+## IFNULL
+Compares two expressions. Returns `NULL` if the expressions evaluate to equal values. Returns the result of `<expr2>` if they are not equal. To return `<expr1>` instead, use `NULLIF`.
 
 ##### Syntax
 {: .no_toc}
@@ -172,9 +167,9 @@ Compares two values. Returns `null` if the values are equal and returns the firs
 NULLIF(<exp1>, <exp2>)
 ```
 
-| Parameter            | Description                                                                                                                                                                                                                                 |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. `<exp1>` is the value returned if the expressions do not evaluate to an equal result. |
+| Parameter | Description |
+| :-------- | :---------- |
+| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. The result of `<exp2>` is returned if the expressions do not evaluate to an equal result. |
 
 ##### Example
 {: .no_toc}
@@ -183,7 +178,41 @@ NULLIF(<exp1>, <exp2>)
 NULLIF('Firebolt fast','Firebolt fast')
 ```
 
-**Returns**: `null`
+**Returns**: `NULL`
+
+```sql
+NULLIF('Firebolt fast','Firebolt Fast')
+```
+
+**Returns**: `Firebolt Fast`
+
+## NULL_IF
+
+Alias for `NULLIF`.
+
+## NULLIF
+
+Compares two expressions. Returns `NULL` if the expressions evaluate to equal values. Returns the result of `<expr1>` if they are not equal. To return `<expr2>` instead, use `IFNULL`.
+
+##### Syntax
+{: .no_toc}
+
+```sql
+NULLIF(<exp1>, <exp2>)
+```
+
+| Parameter | Description |
+| :-------- | :---------- |
+| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. The result of `<exp1>` is returned if the expressions do not evaluate to an equal result. |
+
+##### Example
+{: .no_toc}
+
+```sql
+NULLIF('Firebolt fast','Firebolt fast')
+```
+
+**Returns**: `NULL`
 
 ```sql
 NULLIF('Firebolt fast','Firebolt Fast')
@@ -191,7 +220,7 @@ NULLIF('Firebolt fast','Firebolt Fast')
 
 **Returns**: `Firebolt fast`
 
-## TRY\_CAST
+## TRY_CAST
 
 Similar to `CAST`, `TRY_CAST` converts data types into other data types based on the specified parameters. If the conversion cannot be performed, `TRY_CAST` returns a `NULL`. To return an error message instead, use `CAST`.
 
@@ -215,3 +244,15 @@ SELECT TRY_CAST('1' AS INT) as res, TRY_CAST('test' AS INT) as res1;
 ```
 
 **Returns**: `1,null`
+
+
+## ZEROIFNULL
+
+If the specified expression `<expr>` evaluates to `NULL`, returns a `0` instead of `NULL`.
+
+##### Syntax
+{: .no_toc}
+
+```sql
+ZEROIFNULL(<expr>)
+```
