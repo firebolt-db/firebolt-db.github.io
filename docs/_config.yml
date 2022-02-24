@@ -6,7 +6,7 @@ url: "https://docs.firebolt.io" # the base hostname & protocol for your site, e.
 
 # Build settings
 remote_theme: firebolt-db/just-the-docs
-logo: "/assets/images/firebolt.png"
+logo: "/assets/images/logo_website.svg"
 color_scheme: firebolt
 search_enabled: true
 
