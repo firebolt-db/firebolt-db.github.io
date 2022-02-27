@@ -29,47 +29,40 @@ INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
 | `(<col1>[, <col2>][, ...])]`| A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
 | `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.|
 
-#### Example&ndash;extracting partition values using INSERT INTO
+### Extracting partition values using INSERT INTO
 
-In some cases, your files in Amazon S3 may be organized in partitions as shown in the example below.
+In some applications, such as Hive partitioning, table partitions are stored in Amazon S3 folders and files using a folder naming convention that identifies the partition. To extract partition information from the file path and store it with the data that you ingest, you can use the value that Firebolt automatically saves to the `source_file_name` metadata column for external tables. You can use a string operator in your `INSERT INTO` statement to extract a portion of the file path, and then store the result of the extraction in a virtual column in the fact table. For more information about metadata columns, see [Using metadata virtual columns](../../loading-data/working-with-external-tables.md#using-metadata-virtual-columns).
+
+Using the `source_file_name` metadata column during an `INSERT INTO` operation is one method of extracting partition data from file paths. Another method is to use the `PARTITION` keyword for a column in the external table definition. For more information, see the [PARTITION](ddl-commands.md#partition) keyword explanation in the `CREATE EXTERNAL TABLE` reference.
+
+#### Example
+
+Consider an example where folders and files in an S3 bucket have the following consistent pattern for partitions:
 
 ```
 s3://my_bucket/xyz/2018/01/part-00001.parquet
 s3://my_bucket/xyz/2018/01/part-00002.parquet
-...
 s3://my_bucket/abc/2018/01/part-00001.parquet
 s3://my_bucket/abc/2018/01/part-00002.parquet
+[...]
 ```
 
-Our goal is to extract a value called `c_type` which is stored in the second path segment of each file path.
+The `xyz` and `abc` portions of the S3 path above correspond to a value called `c_type`, which we want to store in the fact table alongside the values that we ingest from the parquet file in that partition.
 
-For example, the following file in S3:
-
-```
-s3://my_bucket/xyz/2018/01/part-00001.parquet
-```
-
-Has the following `c_type` value:
-
-```
-xyz
-```
-
-Assume we have an external table that was created using the following DDL:
+In this example, the DDL statement below defines the external table that is used to ingest the data values for `c_id` and `c_name` from the Parquet files.
 
 ```sql
-CREATE EXTERNAL TABLE my_external_table
-(
-    c_id    INT,
-    c_name  TEXT
+CREATE EXTERNAL TABLE my_ext_table (
+  c_id    INT,
+  c_name  TEXT,
 )
-CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
+CREDENTIALS = (AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/MyRoleForFireboltS3Access1')
 URL = 's3://my_bucket/'
 OBJECT_PATTERN= '*.parquet'
 TYPE = (PARQUET)
 ```
 
-And, also, a FACT table was created using the following DDL which we want to ingest data into:
+To use `source_file_name` to extract a portion of the folder name. The first step is to create an additional column, `c_type`, when we create the fact table that is the target of the `INSERT INTO` operation. The `c_type` column will store the values that we extract.
 
 ```sql
 CREATE FACT TABLE my_table
@@ -80,7 +73,9 @@ CREATE FACT TABLE my_table
 ) PRIMARY INDEX c_id
 ```
 
-We are going to extract the data for `c_type` from a metadata column in our external table called `source_file_name`. We can accomplish this by using the following `INSERT INTO` query:
+The example below shows the `INSERT INTO` statement that performs the ingestion and populates `c_type` with a value extracted from the partition file path.
+
+The `SELECT` clause uses the `SPLIT_PART` function on the external table's `source_file_name` metadata column, inserting the result into the   `c_type` column. The `source_file_name` metadata value contains the path and file name, without the bucket. For example, data values ingested from the `s3://my_bucket/xyz/2018/01/part-00001.parquet` file have a corresponding `source_file_name` value of `xyz/2018/01/part-00001.parquet`. The function shown in the example below returns `xyz` because the index is 1. For more information, see [SPLIT_PART](../functions-reference/string-functions.md#split_part).
 
 ```sql
 INSERT INTO my_table (c_id, c_name, c_type)
@@ -91,10 +86,7 @@ SELECT
 FROM my_external_table
 ```
 
-{: .note}
-We have specified 1 in the `SPLIT_PART` function since the bucket name is not included in the `source_file_name.`
-
-## **Checking and validating INSERT INTO status**
+## Checking and validating INSERT INTO status
 
 If an `INSERT INTO` statement fails or a client is disconnected, Firebolt might ingest an incomplete data set into the target table. Here are some steps you can use to determine the status of an ingestion operation and ensure it ran successfully. This may come in handy if you suspect your statement failed for any reason.
 

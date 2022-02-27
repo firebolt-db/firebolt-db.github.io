@@ -149,138 +149,93 @@ Creates an external table. External tables serve as connectors to your external 
 ```sql
 CREATE EXTERNAL TABLE [IF NOT EXISTS] <external_table_name>
 (
-    <column_name> <column_type>
-    [, <column_name2> <column_type2> [, ...n] ]
-    [, <partition_column_name> <partition_column_type> PARTITION('<regex>')
+    <column_name> <column_type>[ PARTITION('<regex>')]
+    [, <column_name2> <column_type2> [PARTITION('<regex>')]]
+    [,...<column_name2> <column_type2> [PARTITION('<regex>')]]
 )
 [CREDENTIALS = (<awsCredentials>)]
-URL = 's3://<bucket>[/<folder>][/...]/'
+URL = 's3://<bucket_name>[/<folder>][/...]/'
 OBJECT_PATTERN = '<object_pattern>'[, '<object_pattern>'[, ...n]]]
 TYPE = (<type> [typeOptions])
 [COMPRESSION = <compression_type>]
 ```
 
-| Parameter                                       | Description                                                                                                     |
-|: ----------------------------------------------- |: --------------------------------------------------------------------------------------------------------------- |
-| `<external_table_name>`                         | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
-| `<column_type>`                                 | Specifies the data type for the column.                                                                         |
-| `<partition_column_name>`                       | See [Extract partition data](ddl-commands.md#extracting-partition-data)                                                |
-| `CREDENTIALS`                                   | See [CREDENTIALS](ddl-commands.md#credentials)                                                                      |
-| `URL` and `OBJECT_PATTERN`                      | See [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object_pattern)                                                |
-| `TYPE`                                          | See [TYPE](ddl-commands.md#type)                                                                                    |
-| `COMPRESSION`                                   | See [COMPRESSION](ddl-commands.md#compression)                                                                      |
+| Parameter                  | Description |
+|: ------------------------- |: ---------- |
+| `<external_table_name>`    | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
+| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>`            | An identifier that specifies the name of the column. This name should be unique within the table. |
+| `<column_type>`            | Specifies the data type for the column. |
+| `PARTITION`                | An optional keyword. When specified, allows you to use a regular expression `<regex>` to extract a value from the file prefix to be stored as the column value. For more information, see [PARTITION](ddl-commands.md#partition). |
+| `CREDENTIALS`              | Specifies the AWS credentials with permission to access the Amazon S3 location specified using `URL`. For more information, see [CREDENTIALS](ddl-commands.md#credentials). |
+| `URL` and `OBJECT_PATTERN` | Specifies the S3 location and the file naming pattern that Firebolt ingests when using this table. For more information, see [URL & OBJECT\_PATTERN](ddl-commands.md#url-and-object_pattern). |
+| `TYPE`                     | Specifies the file type Firebolt expects to ingest given the `OBJECT_PATTERN`. If a file referenced using `OBJECT_PATTERN` does not conform to the specified `TYPE`, an error occurs. For more information, see [TYPE](ddl-commands.md#type). |
+| `COMPRESSION`              | See [COMPRESSION](ddl-commands.md#compression). |
 
 All Firebolt identifiers are case insensitive unless double-quotes are used. For more information, see [Identifier requirements](../../general-reference/identifier-requirements.md).
 
-### Extracting partition data
+### PARTITION
 {: .no_toc}
 
-When data is partitioned, the partition columns are not stored in the S3 files. Instead, they can be extracted from the file path within the bucket. ​
+In some applications, such as Hive partitioning, table partitions are stored in Amazon S3 folders and files using a folder naming convention that identifies the partition. The `PARTITION` keyword allows you to specify a regular expression, `<regex>`, to extract a portion of the file path and store it in the specified column when Firebolt uses the external table to ingest partitioned data.
 
-##### Syntax
-{: .no_toc}
-
-```sql
-[<column_name> <column_type> PARTITION('<regex>')]
-```
-
-| Parameter                                                 | Description                                                                                                                                                                                                |
-|: --------------------------------------------------------- |: ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<partition_column_name>` | An identifier that specifies the name of the column as it would appear in the external table (should match the hive partition name). As with any column name, this name should be unique within the table. |
-| `<partition_column_type>`                                 | Specifies the data type for the column.                                                                                                                                                                    |
-| `'<regex>'`                                               | The regex for extracting the partition value out of the file path in S3.                                                                                                                                   |
+Using `PARTITION` in this way is one method of extracting partition data from file paths. Another method is to use the table metadata column, `source_file_name`, during the `INSERT INTO` operation. For more information, see [Example&ndash;extracting partition values using INSERT INTO](dml-commands.md#extracting-partition-values-using-insert-into).
 
 #### Guidelines for creating the regex
 {: .no_toc}
 
-* You do not have to reference all the partitions in your data; you can specify only the columns that you wish to include in the external table.
-* You can extract the column value from the file name, but not from its path.
-* For each column, a regular expression that contains a capturing group must be specified, so Firebolt can treat the captured string as the column value.
-* When the column data type is `date`, Firebolt expects three capturing groups in the order of year, month, and day.
-* The regular expression is matched against the file path, not including the `s3://bucket_name/` prefix.
-* Firebolt tries to convert the captured string to the specified type. If the type conversion fails, the value is treated as NULL.
+* The regular expression is matched against the object prefix, not including the `s3://<bucket_name>/` portion of the prefix.
+* You can specify as many `PARTITION` columns as you need, each extracting a different portion of the object prefix.
+* For each `PARTITION` column, you must specify a regular expression that contains a capturing group, which determines the column value.
+* When `<column_type>` is `DATE`, Firebolt requires three capturing groups that must be in the order of year, month, and day.
+* Firebolt tries to convert the captured string to the specified `<column_type>`. If the type conversion fails, a `NULL` is entered.
 
 In most cases, the easiest way to build a regular expression is as follows:
+
 1. Count the number of folders in the path, not including the bucket name.
 2. Concatenate the string `[^\/]+\/` according to the number of folders.
 3. Prefix the regex with an additional `[^\/]+` for the file name.
-4. Wrap the `[^\/]+` in the right folder with a capturing group parenthesis, i.e `([^\/]+).` See the examples below for both hive-compatible and non-compatible partitions extractions.
+4. Wrap the `[^\/]+` in the right folder with a capturing group parenthesis, such as `([^\/]+).`
 
 For more information, see [Match groups](https://regexone.com/lesson/capturing_groups) on the RegexOne website. To test your regular expressions, online tools such as [regex101](https://regex101.com) are available.
 
-##### Example&ndash;extract hive-compatible partitions
+##### Example&ndash;extract Hive-compatible partitions
 {: .no_toc}
 
-Consider the following layout of files in a bucket - data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The parquet files don't contain the corresponding columns, but the columns can be extracted, along with their values, by parsing the file paths, as we will see in the next section.
+The example below demonstrates a `CREATE EXTERNAL TABLE` statement that creates the table `my_ext_table`. This table is used to ingest all files with a `*.parquet` file extension in any sub-folder of the Amazon S3 bucket `s3://my_bucket`.
+
+Consider an example where folders and files in the bucket have the following consistent pattern, which is common for Hive partitions:
 
 ```
 s3://my_bucket/c_type=xyz/year=2018/month=01/part-00001.parquet
 s3://my_bucket/c_type=xyz/year=2018/month=01/part-00002.parquet
-...
 s3://my_bucket/c_type=abc/year=2018/month=01/part-00001.parquet
 s3://my_bucket/c_type=abc/year=2018/month=01/part-00002.parquet
+[...]
 ```
 
-Creating an external table using the following format:
+In the example `CREATE EXTERNAL TABLE` statement below, the `PARTITION` keyword in the column definition for `c_type` specifies a regular expression. This expression extracts the portion of the S3 path name that correspond to the `xyz` or `abc` within `c_type=xyz` or `c_type=abc`.
 
 ```sql
-CREATE EXTERNAL TABLE my_external_table
-(
-    c_id    INT,
-    c_name  TEXT,
-    c_type TEXT PARTITION('[^\/]+\/c_type=([^\/]+)\/[^\/]+\/[^\/]+')
+CREATE EXTERNAL TABLE my_ext_table (
+  c_id    INT,
+  c_name  TEXT,
+  c_type  TEXT PARTITION('[^\/]+\/c_type=([^\/]+)\/[^\/]+\/[^\/]+')
 )
-CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
+CREDENTIALS = (AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/MyRoleForFireboltS3Access1')
 URL = 's3://my_bucket/'
 OBJECT_PATTERN= '*.parquet'
 TYPE = (PARQUET)
 ```
+When Firebolt ingests the data from a Parquet file stored in that path, the `c_type` column for each row contains the extracted portion of the path. For the files listed above, the extraction results in the following values. `c_id` and `c_name ` are values stored within the respective Parquet files, while `c_type` are values extracted from the file path.
 
-Results with an external table in the following structure:
-
-| c\_id | c\_name   | c\_type |
-|: ----- |: --------- |: ------- |
-| 1     | name\_a   | xyz     |
-| 2     | name\_b   | xyz     |
-| ...   | ...       | ...     |
-| 100   | name\_abc | xyz     |
-
-##### Example&ndash;extract non-hive compatible partitions
-{: .no_toc}
-
-In some cases, your S3 files may be organized in partitions that do not use the = format. For example, consider this layout:
-
-```
-s3://my_bucket/xyz/2018/01/part-00001.parquet
-s3://my_bucket/xyz/2018/01/part-00002.parquet
-...
-s3://my_bucket/abc/2018/01/part-00001.parquet
-s3://my_bucket/abc/2018/01/part-00002.parquet
-```
-
-In this case, you can use the advanced `PARTITION(<regex>)` column definition to create the columns and extract their values.
-
-To create the same external table as we did in the hive-compatible case, use the following statement:
-
-```sql
-CREATE EXTERNAL TABLE my_external_table
-(
-    c_id INT,
-    c_name TEXT,
-    c_type TEXT PARTITION('[^\/]+\/([^\/]+)\/[^\/]+\/[^\/]+')
-)
-CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
-URL = 's3://my_bucket/'
-OBJECT_PATTERN= '*.parquet'
-TYPE = (PARQUET)
-```
-
-As in the previous example, the values for the columns `c_id` and `c_name` are extracted from the record in the parquet file, and the values for the `c_type` column is extracted from the file path, according to the specified type and regular expression.
-
-{: .note}
-The partition values can be extracted during the `INSERT INTO`command as well. Read more [here](dml-commands.md#exampleextracting-partition-values-using-insert-into).
-
+| c_id       | c_name     | c_type |
+|: --------- |: --------- |: ----- |
+| 1ef4302294 | Njimba     | xyz    |
+| 8b98470659 | Yuang      | xyz    |
+| 98734hkk89 | Cole       | xyz    |
+| 38cjodjlo8 | Blanda     | xyz    |
+| 448dfgkl12 | Harris     | abc    |
+| j987rr3233 | Espinoza   | abc    |
 
 ### CREDENTIALS
 {: .no_toc}

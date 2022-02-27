@@ -35,12 +35,14 @@ The metadata virtual columns listed below are available in external tables.
 
 | Metadata column name | Description | Data type |
 | :--- | :--- | :--- |
-| `source_file_name` | The full path of the row's source file in Amazon S3. For Kafka-connected external tables, this is `NULL`. | TEXT |
-| `source_file_timestamp` | The creation date of the row's source file in S3. For Kafka-connected external tables, this is `NULL`. | TIMESTAMP |
+| `source_file_name` | The full path of the row data's source file in Amazon S3, without the bucket. For example, with a source file of `s3://my_bucket/xyz/year=2018/month=01/part-00001.parquet`, the `source_file_name` is `xyz/year=2018/month=01/part-00001.parquet`. | TEXT |
+| `source_file_timestamp` | The creation timestamp of the row's source file in S3. | TIMESTAMP |
+
+For an additional example, see [Extracting partition values using INSERT INTO](sql-reference\commands\dml-commands.md#extracting-partition-values-using-insert-into).
 
 ##### Example&ndash;querying metadata virtual column values
 
-The query example below creates an external table that references an AWS S3 bucket that contains Parquet files for Firebolt to ingest.
+The query example below creates an external table that references an AWS S3 bucket that contains Parquet files from which Firebolt will ingest values for `c_id` and `c_name`.
 
 ```sql
 CREATE EXTERNAL TABLE my_external_table
@@ -54,7 +56,7 @@ CREATE EXTERNAL TABLE my_external_table
   TYPE = (PARQUET);
 ```
 
-The query example below creates a dimension table to be the target for data ingestion.
+The query example below creates a dimension table, which will be the target for the data to be ingested. The statement defines two additional columns, `source_file_name` and `source_file_timestamp`, to contain metadata values that Firebolt creates automatically for the external table.
 
 ```sql
 CREATE DIMENSION TABLE my_dim_table_with_metadata
@@ -66,7 +68,7 @@ CREATE DIMENSION TABLE my_dim_table_with_metadata
 );
 ```
 
-The query example below uses `my_external_table` to ingest the Parquet data into `my_dim_table_with_metadata`. The statement explicitly specifies the metadata virtual columns in the `SELECT` clause, which is a requirement.
+Finally, the `INSERT INTO` query below ingests the data from `my_external_table` into `my_dim_table_with_metadata`. The `SELECT` clause explicitly specifies the metadata virtual columns, which is a requirement.
 
 ```sql
 INSERT INTO
@@ -79,22 +81,21 @@ FROM
     my_external_table;
 ```
 
-Finally, the query example below retrieves all records in `my_dim_table_with_metadata.`
+An example `SELECT` query over `my_dim_table_with_metadata` shows that the source data file (minus the `s3://my_bucket` portion of the file path) and file timestamp are included in the dimension table for each row.
 
 ```sql
 SELECT * FROM my_dim_table_with_metadata;
 ```
 
-The query returns output similar to the following.
-
 ```bash
--------------------------------------------------------------------------------
-|c_id     |c_name             |source_file_name        |source_file_timestamp
--------------------------------------------------------------------------------
--------------------------------------------------------------------------------
-|12385    |ClevelandDC8933    |cle.parquet             |2021-09-10 10:32:03
-|12386    |PortlandXfer9483   |pdx.parquet             |2021-09-10 10:32:04
-|12387    |NashvilleXfer9987  |bna.parquet             |2021-09-10 10:33:01
-|12388    |ClevelandXfer8998  |cle.parquet             |2021-09-10 10:32:03
++-----------+---------------------+------------------------ +-----------------------+
+| c_id      | c_name              | source_file_name        | source_file_timestamp |
++-----------+---------------------+-------------------------+-----------------------+
+| 11385     | ClevelandDC8933     | central/cle.parquet     | 2021-09-10 10:32:03   |
+| 12386     | PortlandXfer9483    | west/pdx.parquet        | 2021-09-10 10:32:04   |
+| 12387     | PortlandXfer9449    | west/pdx.parquet        | 2021-09-10 10:32:04   |
+| 12388     | PortlandXfer9462    | west/pdx.parquet        | 2021-09-10 10:32:04   |
+| 12387     | NashvilleXfer9987   | south/bna.parquet       | 2021-09-10 10:33:01   |
+| 12499     | ClevelandXfer8998   | central/cle.parquet     | 2021-09-10 10:32:03   |
 [...]
 ```
