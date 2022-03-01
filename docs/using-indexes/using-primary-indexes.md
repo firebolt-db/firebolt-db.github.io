@@ -26,13 +26,13 @@ To define a primary index, you use the `PRIMARY INDEX` clause within a [`CREATE 
 The basic syntax of a `PRIMARY INDEX` clause within a `CREATE TABLE` statement is shown in the example below.
 
 ```sql
-CREATE TABLE <table_name> )
-     <colname_1> <datatype>,
-     <colname_2> <datatype>,
-     <colname_3> <datatype>,
+CREATE [FACT|DIMENSION] TABLE <table_name> (
+  <colname_1> <datatype>,
+  <colname_2> <datatype>,
+  <colname_3> <datatype>,
      ...
-     )
-     PRIMARY INDEX <colname_1> [, <colname_n> [, ...]];
+)
+PRIMARY INDEX <colname_1> [, <...colname_N>];
 ```
 
 ## Primary indexes can’t be modified
@@ -79,12 +79,12 @@ In the example analytics query over the `events_log` table, Firebolt can’t use
 
 ```sql
 SELECT
-	asset_id
+  asset_id
 FROM
-	events_log
+  events_log
 WHERE
-	UPPER(asset_id) LIKE ‘AA%’;
-  ```
+  UPPER(asset_id) LIKE ‘AA%’;
+```
 
 In contrast, Firebolt can use the primary index in the following example:
 
@@ -92,11 +92,11 @@ In contrast, Firebolt can use the primary index in the following example:
 
 ```sql
 SELECT
-	asset_id
+  asset_id
 FROM
-	events_log
+  events_log
 WHERE
-	asset_id LIKE ‘AAA%’;
+  asset_id LIKE ‘AAA%’;
 ```
 
 If you know that you will use a function in a predicate ahead of time, consider creating a virtual column to store the result of the function. You can then use that virtual column in your index and queries. This is particularly useful for hashing columns.
@@ -127,12 +127,13 @@ The examples in this section are based on the fact table below. The table is a w
 
 ```sql
 CREATE FACT TABLE events_log (
-	visit_date DATE,
-	asset_id TEXT,
-	customer_id TEXT NOT NULL,
-	event_type TEXT,
-	event_count INT NOT NULL
-) PRIMARY INDEX < see examples below >;
+  visit_date DATE,
+  asset_id TEXT,
+  customer_id TEXT NOT NULL,
+  event_type TEXT,
+  event_count INT NOT NULL
+)
+PRIMARY INDEX <see examples below>;
 ```
 
 #### Table contents (excerpt)
@@ -201,9 +202,9 @@ WHERE
 
 For both queries, the best primary index is:
 
-  ```
-  PRIMARY INDEX (visit_date, customer_id, event_type)
-  ```
+```sql
+PRIMARY INDEX (visit_date, customer_id, event_type)
+```
 
 * With `visit_date` in the first position in the primary index, Firebolt sorts and compresses records most efficiently for these date-based queries.
 * The addition of `customer_id` in the second position and `event_type` in the third position further compresses data and accelerates query response.
@@ -226,19 +227,19 @@ Consider the example query below that returns the sum of `click` values for a pa
 ```sql
 SELECT
   asset_id,
-	customer_id,
-	event_type,
-	sum(event_value)
+  customer_id,
+  event_type,
+  SUM(event_value)
 FROM
-	events
+  events
 WHERE
-	customer_id = "14493"
-	AND event_type = 'click'
-	AND event_value > 0
+  customer_id = "14493"
+  AND event_type = 'click'
+  AND event_value > 0
 GROUP BY
 	1,
-	2,
-	3;
+  2,
+  3;
 ```
 
 For this query, the best primary index is:
@@ -269,13 +270,14 @@ The `PRIMARY INDEX` clause uses the `upper_customer_id` column because that colu
 
 ```sql
 CREATE FACT TABLE events_log (
-	visit_date DATE,
-	asset_id TEXT,
-	customer_id TEXT NOT NULL,
-	event_type TEXT,
-	event_count INT NOT NULL,
-	uppder_customer_id TEXT NOT NULL
-) PRIMARY INDEX visit_date, upper _customer_id;
+  visit_date DATE,
+  asset_id TEXT,
+  customer_id TEXT NOT NULL,
+  event_type TEXT,
+  event_count INT NOT NULL,
+  uppder_customer_id TEXT NOT NULL
+)
+PRIMARY INDEX visit_date, upper _customer_id;
 ```
 
 #### Step 2&mdash;use the function during ingestion (`INSERT INTO` statement)
@@ -283,16 +285,16 @@ CREATE FACT TABLE events_log (
 
 ```sql
 INSERT INTO
-	events_log
+  events_log
 SELECT
-	visit_date,
-	asset_id,
-	customer_id,
-	event_type,
-	event_count,
-	UPPER(customer_id) AS upper_customer_id
+  visit_date,
+  asset_id,
+  customer_id,
+  event_type,
+  event_count,
+  UPPER(customer_id) AS upper_customer_id
 FROM
-	ext_tbl_events;
+  ext_tbl_events;
 ```
 
 #### Step 3&mdash;query using the virtual column in predicates
@@ -302,9 +304,9 @@ The example `SELECT` query below uses the virtual column to produce query result
 
 ```sql
 SELECT
-	customer_id
+  customer_id
 FROM
-	events_log
+  events_log
 WHERE
-	upper_customer_id LIKE ‘AAA%’;
+  upper_customer_id LIKE ‘AAA%’;
 ```

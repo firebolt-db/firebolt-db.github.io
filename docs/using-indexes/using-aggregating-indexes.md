@@ -89,25 +89,22 @@ For example, with the aggregating index below on the table store_sales with 200,
 CREATE AGGREGATING INDEX idx_agg_store_sales ON store_sales (
 	ss_sold_date_sk,
 	ss_item_sk,
-	sum(ss_ext_discount_amt));
+	sum(ss_ext_discount_amt)
+);
 ```
 
 You can run the following query to validate that the size of the aggregating index is effective:
 
 ```sql
-SELECT
-	count(*)
-FROM
-	(
-		SELECT
-			ss_sold_date_sk,
-			ss_item_sk
-	)
-FROM
-	store_sales
-GROUP BY
-	1
-);
+SELECT count(*)
+FROM (
+  SELECT
+    ss_sold_date_sk,
+    ss_item_sk
+  FROM
+    store_sales
+  GROUP BY
+    1,2);
 ```
 
 If the `SELECT` query returns 100,000,000 or fewer, the aggregating index may be beneficial. If it returns 40,000,000 or fewer it will almost certainly be beneficial.
@@ -117,17 +114,19 @@ If the `SELECT` query returns 100,000,000 or fewer, the aggregating index may be
 The example in this section are based on a fact table, `fact_orders`, created with the DDL shown below. For a more in-depth example, see *Aggregating indexes* in the [Firebolt indexes in action](https://www.firebolt.io/blog/firebolt-indexes-in-action) blog post.
 
 ```sql
-CREATE FACT TABLE fact_orders
-(
-    order_id LONG,
-    product_id LONG,
-    store_id LONG,
-    client_id LONG,
-    order_date DATE,
-    order_total DOUBLE,
-    order_item_count INT
+CREATE FACT TABLE fact_orders (
+  order_id LONG,
+  product_id LONG,
+  store_id LONG,
+  client_id LONG,
+  order_date DATE,
+  order_total DOUBLE,
+  order_item_count INT
 )
-PRIMARY INDEX store_id, product_id, order_id;
+PRIMARY INDEX
+  store_id,
+  product_id,
+  order_id;
 ```
 
 From this table, let's assume we typically run queries that use these aggregations:
@@ -144,8 +143,7 @@ And they are grouped by different combinations of the `store_id` and `product_id
 ‌The DDL below creates an aggregating index to accelerate these aggregations.
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX agg_fact_orders ON fact_orders
-(
+CREATE AND GENERATE AGGREGATING INDEX agg_fact_orders ON fact_orders (
   store_id,
   product_id,
   SUM(order_total),
