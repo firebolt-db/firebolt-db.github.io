@@ -38,7 +38,7 @@ The metadata virtual columns listed below are available in external tables.
 | `source_file_name` | The full path of the row data's source file in Amazon S3, without the bucket. For example, with a source file of `s3://my_bucket/xyz/year=2018/month=01/part-00001.parquet`, the `source_file_name` is `xyz/year=2018/month=01/part-00001.parquet`. | TEXT |
 | `source_file_timestamp` | The creation timestamp of the row's source file in S3. | TIMESTAMP |
 
-For an additional example, see [Extracting partition values using INSERT INTO](sql-reference\commands\dml-commands.md#extracting-partition-values-using-insert-into).
+For an additional example, see [Extracting partition values using INSERT INTO](../sql-reference/commands/dml-commands.md#extracting-partition-values-using-insert-into).
 
 ##### Example&ndash;querying metadata virtual column values
 
