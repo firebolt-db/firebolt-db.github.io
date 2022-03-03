@@ -693,7 +693,8 @@ CREATE JOIN INDEX cstmr_email_name_jidx ON my_cstmr_dim (
   name,
   email,
   city,
-  status);
+  status
+);
 ```
 
 ## CREATE AGGREGATING INDEX
@@ -704,10 +705,9 @@ Different syntax is used when creating an aggregating index on an empty table or
 {: .no_toc}
 
 ```sql
-CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
-(
-  <key_column>[, ...n],
-  <aggregation>[, ...n]
+CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name> (
+  <key_column>[,...<key_columnN>],
+  <aggregation>[,...<key_columnN>]
 );
 ```
 
@@ -718,10 +718,9 @@ The index is populated automatically as data is loaded into the table.
 {: .no_toc}
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
-(
-  <key_column>[, ...n],
-  <aggregation>[, ...n]
+CREATE AND GENERATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name> (
+  <key_column>[,...<key_columnN>],
+  <aggregation>[,...<aggregationN>]
 );
 ```
 
@@ -735,32 +734,30 @@ Generating the index after data was loaded to the table is a memory-heavy operat
 | `<key_column>`      | Specifies column name from the `<fact_table_name>` used for the index                                                   |
 | `<aggregation>`     | Specifies one or more aggregation functions to be applied on a `<key_column>`, such as `SUM`, `COUNT`, `AVG`, and more. |
 
-##### Example&ndash;create an aggregating index**
+##### Example&ndash;create an aggregating index
 {: .no_toc}
 
 In the following example, we create an aggregating index on the fact table `my_fact`, to be used in the following query:
 
 ```sql
 SELECT
-	product_name,
-	count(DISTINCT source),
-	sum(amount)
+  product_name,
+  count(DISTINCT source),
+  sum(amount)
 FROM
-	my_fact
+  my_fact
 GROUP BY
-	product_name;
+  product_name;
 ```
 
 The aggregating index is created with the statement below.
 
 ```sql
-CREATE AGGREGATING INDEX
-  my_fact_agg_idx ON my_fact
-  (
-    product_name,
-    count(distinct source),
-    sum(amount)
-  );
+CREATE AGGREGATING INDEX my_fact_agg_idx ON my_fact (
+  product_name,
+  count(distinct source),
+  sum(amount)
+);
 ```
 
 {: .note}
