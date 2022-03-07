@@ -7,7 +7,7 @@ parent: Working with semi-structured data
 ---
 # Working with arrays
 
-This section covers querying and manipulating arrays in Firebolt. For more information, see [Array functions](../../sql-reference/functions-reference/semi-structured-functions/array-functions.md) and [Aggregate array functions](../sql-reference/functions-reference/semi-structured-functions/aggregate-array-functions.md).
+This section covers querying and manipulating arrays in Firebolt. For more information, see [Array functions](../sql-reference/functions-reference/semi-structured-functions/array-functions.md) and [Aggregate array functions](../sql-reference/functions-reference/semi-structured-functions/aggregate-array-functions.md).
 
 Array types are declared using `ARRAY(<type>)` where `<type>` can be any data type that Firebolt supports. This includes the `ARRAY` data type, so arrays can be arbitrarily nested. The innermost type (the scalar) can be nullable, but `ARRAY` typed columns cannot be nullable.
 
