@@ -22,7 +22,7 @@ The services listed below include tools that have been customized by our partner
 * [Metabase](business-intelligence/connecting-to-metabase.md)
 * [Prefect](data-orchestration/prefect.md)
 * [Panintelligence](business-intelligence/connecting-to-panintelligence.md)
-* [Rivery](data-integration-and-tranformation/connecting-to-rivery.md)
+* [Rivery](data-integration-and-transformation/connecting-to-rivery.md)
 * [SQLAlchemy](../developing-with-firebolt/connecting-with-sqlalchemy.md)
 * [Apache Superset / Preset](business-intelligence/connecting-to-apache-superset.html)
 * [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md)
