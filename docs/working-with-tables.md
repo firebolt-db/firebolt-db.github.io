@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Working with tables
-description: Learn about external tables, fact tables, and dimension tables in Firebolt and how to use them. 
+description: Learn about external tables, fact tables, and dimension tables in Firebolt and how to use them.
 nav_order: 6
 has_toc: true
 ---
@@ -18,25 +18,13 @@ External tables exist solely as a connector to your data source. When you create
 
 If your table does not fit in either of the traditional fact or dimension definition, we recommended that you define very large tables as fact tables, and smaller tables as dimension tables.
 
-<!-- This is all being pre-empted by the new Indexing topic. Nothing below here should be edited -->
+### Primary indexes
 
-## Primary indexes
-
-Firebolt tables are persisted in the proprietary Firebolt file format (F3) to optimize speed and efficiency. One of the unique characteristics of F3 is that it is sorted, compressed, and indexed. What defines the sort order of the files is the `PRIMARY INDEX` that you specify as part of the table definition. The primary index can include one or many columns. Primary indexes are mandatory for fact tables and optional for dimension tables.
-
-### How to choose a primary index
-
-Because the primary index determines the physical sort order of the file, it significantly affects performance. For optimal performance, the primary index of **fact tables** should contain the fields that are most typically filtered or grouped by. This enables most queries to scan physically adjacent data and thus improve query performance. The primary index does not have to be identical to the field/s by which data is partitioned at the source. In **dimension tables**, the primary key should include the field/s that are used to join the dimension table to the fact table.
-
-**Note**
-
-
-A **primary index** should not be confused with a **primary key** in traditional database design. Unlike a primary key, the primary index is not unique.
-
+Tables in the Firebolt data warehouse are stored in the Firebolt file format (F3) to optimize speed and efficiency. F3 uses the *primary index* that you specify in a table definition to sort, compress, and index data. Primary indexes are mandatory for fact tables and optional for dimension tables. For more information about configuring primary indexes, see [Using primary indexes](/using-indexes/using-primary-indexes.md).
 
 ## Example: creating fact and dimension tables
 
-Below is a simple example of creating a fact table and two dimension tables.
+Below is a simple example of a script that creates one fact table and two dimension tables.
 
 ```sql
 CREATE FACT TABLE transactions
@@ -52,7 +40,7 @@ PRIMARY INDEX store_id, product_id;
 CREATE DIMENSION TABLE dim_store
 (
     store_id      INT,
-    store_nunber  INT,
+    store_number  INT,
     state         TEXT,
     country       TEXT
 );
