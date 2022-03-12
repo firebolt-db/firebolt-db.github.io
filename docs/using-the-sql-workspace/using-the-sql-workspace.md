@@ -26,6 +26,7 @@ You can launch the SQL workspace for a database either from the left navigation 
     ![](../assets/images/work-with-our-sql-editor-select-editor-from-nav.png)
 
     The workspace for the database that you last worked with opens, and the database is selected from the list.
+
 2. To switch to the workspace for a different database, choose it from the **Select a database** list.
 
 **To start the SQL workspace from the Databases list**
@@ -39,10 +40,12 @@ You can launch the SQL workspace for a database either from the left navigation 
 The SQL workspace is organized into three panes.
 
 * The left pane is the workspace navigation pane. Use it to navigate to different databases and to open different scripts in your database.
-* The center pane is the SQL editor. Use it to edit scripts, save them, and run scripts. When you run a script, results are shown in the bottom part of the pane.
-* The right pane is an object viewer that shows you the tables, views, and indexes in your database. You must start an engine before objects are visible. You can select an object to view its attributes. For example, you can select a table from the list of tables to view columns and data types.
 
-![](../assets/images/work-with-our-sql-editor-select-editor-quicktour.png)
+* The center pane is the SQL editor. Use it to edit scripts, save them, and run scripts. When you run a script, results are shown in the bottom part of the pane.
+
+* The right pane is an object viewer that shows you the tables, views, and indexes in your database. You must start an engine before objects are visible. You can select an object to view its attributes. For example, you can select a table from the list of tables to view columns and data types.  
+
+  ![](../assets/images/work-with-our-sql-editor-select-editor-quicktour.png)
 
 ## Editing SQL scripts
 
@@ -58,9 +61,9 @@ You can click the keyboard icon to view available keyboard shortcuts, or you can
 
 ![](../assets/images/work-with-our-sql-editor-select-editor-keyboard-shortcuts.png)
 
-### Using query templates
+### Using script templates
 
-Query templates are available for common tasks, such as creating fact or dimension tables. Place the cursor in the editor where you want to insert code, choose the **\</>** icon, and then select a query template from the list.
+Script templates are available for common tasks, such as creating fact or dimension tables. Place the cursor in the editor where you want to insert code, choose the **\</>** icon, and then select a query template from the list.
 
 ![](../assets/images/work-with-our-sql-editor-select-editor-templates.png)
 
@@ -81,14 +84,12 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
 **To save a script**
 
-1.  Choose the vertical ellipses next to the script name and then select **Save script**.
+1.  Choose the vertical ellipses next to the script name and then select **Save script**.  
+  ![](../assets/images/work-with-our-sql-editor-save-script.png)
 
-    ![](../assets/images/work-with-our-sql-editor-save-script.png)
-2.  Type a new name for the script and then press ENTER.
-
-    The script appears in the **Database scripts** list.
-
-    ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png)
+2.  Type a new name for the script and then press ENTER.  
+  The script appears in the **Database scripts** list.  
+  ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png)
 
 **To rename a script**
 
@@ -103,16 +104,15 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
     ![](../assets/images/Screen_Shot_2021-05-04_at_18_42_02.png)
 
-    Firebolt downloads the file to your browser's default download directory using the file pattern _Yourscriptname_**.sql**.
+    Firebolt downloads the file to your browser's default download directory using the file pattern `<your_script_name>.sql`.
 
 **To import a script from a file**
 
-1.  Choose the arrow icon and then choose **Import script**.
+1. Choose the arrow icon and then choose **Import script**.  
+  ![](../assets/images/work-with-our-sql-editor-import-script.png)
 
-    ![](../assets/images/work-with-our-sql-editor-import-script.png)
-2.  Browse your computer for a file and select it, or drag and drop a file to upload it.
-
-    Firebolt creates a new tab with the contents of the script you imported.
+2. Browse your computer for a file and select it, or drag and drop a file to upload it.  
+  Firebolt creates a new tab with the contents of the script you imported.
 
 ## Running scripts and working with results
 
@@ -174,3 +174,13 @@ When you run a script that has multiple SQL statements with result sets (`SELECT
 To view the results table for a result set, choose the table icon corresponding to the numbered result set you want to view, or choose the expansion arrow next to the **Statement** and then choose **Open table** as shown in the example below.
 
 ![](../assets/images/work-with-our-sql-editor-multi-select-query-results.png)
+
+### Exporting results to a local hard drive
+
+You can export up to 10,000 rows of query results to your local hard drive after you run a query.
+
+1. Choose the download icon (see image below).  
+
+2. Choose **Export table as CSV** or **Export table as JSON**.  
+Firebolt downloads the file type that you chose to the default download location for your browser.  
+![](../assets/images/download_icon.png)

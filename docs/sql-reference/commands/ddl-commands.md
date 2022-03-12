@@ -1049,25 +1049,6 @@ The returned table has the following columns.
 | created_by       | STRING      | The user name of the Firebolt user who created the database. |
 | errors           | STRING      | Any error messages associated with the database. |
 
-<<<<<<< HEAD
-=======
-## SHOW DATABASE
-
-Returns a single-row table for the specified database, with columns containing information that are the same as `SHOW DATABASES` above.
-
-##### Syntax
-{: .no_toc}
-
-```sql
-SHOW DATABASE <database_name>;
-```
-
-| Parameter         | Description                              |
-| :---------------- | :--------------------------------------- |
-| `<database_name>` | The name of the database to be analyzed. |
-
->>>>>>> d8fb4d5... updating info schema views and show DDL commands
-
 ## SHOW ENGINES
 
 Returns a table with a row for each Firebolt engine defined in the current Firebolt account, with columns containing information about each engine as listed below.
@@ -1092,6 +1073,9 @@ The returned table has the following columns.
 | scale                       | INT         | The number of nodes in the engine. |
 | status                      | STRING      | The engine status. For more information, see [Viewing and understanding engine status](../../working-with-engines/understanding-engine-fundamentals.md#viewing-and-understanding-engine-status). |
 | attached_to                 | STRING      | The name of the database to which the engine is attached. |
+| type                        | STRING      | One of `ANALYTICS` or `GENERAL PURPOSE`. |
+| auto_stop                   | INT         | The auto-stop interval in minutes, which is the amount of inactive time after which the engine will automatically stop. |
+| warmup_policy               | STRING      | One of `MINIMAL`, `PRELOAD_INDEXES`, or `PRELOAD_ALL_DATA`. For more information about warmup methods, see [Warmup method](../../working-with-engines/understanding-engine-fundamentals.md#warmup-method). |
 
 ## SHOW INDEXES
 
@@ -1136,17 +1120,21 @@ SHOW TABLES;
 
 The returned table has the following columns.
 
-<<<<<<< HEAD
-```
-+----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
-|   table_name   | state | table_type | column_count |       primary_index        |                                                                                                                                                                                                                                                                                                                           schema                                                                                                                                                                                                                                                                                                                            | number_of_rows | size | size_uncompressed | compression_ratio | number_of_segments |
-+----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
-| ex_lineitem    | Valid | EXTERNAL   |           16 | N/A                        | CREATE EXTERNAL TABLE IF NOT EXISTS "ex_lineitem" ("l_orderkey" long NOT NULL, "l_partkey" long NOT NULL, "l_suppkey" long NOT NULL, "l_linenumber" int NOT NULL, "l_quantity" long NOT NULL, "l_extendedprice" long NOT NULL, "l_discount" long NOT NULL, "l_tax" long NOT NULL, "l_returnflag" text NOT NULL, "l_linestatus" text NOT NULL, "l_shipdate" text NOT NULL, "l_commitdate" text NOT NULL, "l_receiptdate" text NOT NULL, "l_shipinstruct" text NOT NULL, "l_shipmode" text NOT NULL, "l_comment" text NOT NULL) "URL" = 's3://firebolt-publishing-public/samples/tpc-h/parquet/lineitem/' "OBJECT_PATTERN" = '*.parquet' "TYPE" = ("PARQUET") | N/A            | N/A  | N/A               | N/A               | N/A                |
-| lineitem       | Valid | FACT       |           16 | [l_orderkey, l_linenumber] | CREATE FACT TABLE IF NOT EXISTS "lineitem" ("l_orderkey" long NOT NULL, "l_partkey" long NOT NULL, "l_suppkey" long NOT NULL, "l_linenumber" int NOT NULL, "l_quantity" long NOT NULL, "l_extendedprice" long NOT NULL, "l_discount" long NOT NULL, "l_tax" long NOT NULL, "l_returnflag" text NOT NULL, "l_linestatus" text NOT NULL, "l_shipdate" text NOT NULL, "l_commitdate" text NOT NULL, "l_receiptdate" text NOT NULL, "l_shipinstruct" text NOT NULL, "l_shipmode" text NOT NULL, "l_comment" text NOT NULL) PRIMARY INDEX "l_orderkey", "l_linenumber"                                                                                           | N/A            | N/A  | N/A               | N/A               | 6                  |
-| partition_test | Valid | FACT       |            5 | [store_id, product_id]     | CREATE FACT TABLE IF NOT EXISTS "partition_test" ("transaction_id" long NOT NULL, "transaction_date" timestamp NOT NULL, "store_id" int NOT NULL, "product_id" int NOT NULL, "units_sold" int NOT NULL) PRIMARY INDEX "store_id", "product_id" PARTITION BY EXTRACT(YEAR FROM "transaction_date")                                                                                                                                                                                                                                                                                                                                                           | N/A            | N/A  | N/A               | N/A               | N/A                |
-| Insert_test    | Valid | DIMENSION  |            3 | N/A                        | CREATE DIMENSION TABLE IF NOT EXISTS "Insert_test" ("name" long NOT NULL, "number" int NOT NULL, "other_name" long NOT NULL)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | N/A            | N/A  | N/A               | N/A               | 2                  |
-+----------------+-------+------------+--------------+----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+------+-------------------+-------------------+--------------------+
-```
+
+| Column name                 | Data Type   | Description |
+| :---------------------------| :-----------| :-----------|
+| table_name                  | STRING      | The name of the table. |
+| state                       | STRING      | The current table state. |
+| table_type                  | STRING      | One of `FACT`, `DIMENSION`, `EXTERNAL`, or `VIEW`. |
+| column_count                | INT         | The number of columns in the table. |
+| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
+| schema                      | STRING      | The text of the SQL statement that created the table. |
+| number_of_rows              | INT         | The number of rows in the table. |
+| size                        | DOUBLE      | The compressed size of the table. |
+| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
+| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
+| number_of_segments          | INT         | The number of segments comprising the table. |
+
 
 ## SHOW VIEWS
 
@@ -1177,18 +1165,3 @@ SHOW VIEWS;
 | v16       | CREATE VIEW "v16" AS WITH x7 AS (SELECT * FROM oz_x6 ) SELECT * FROM x7                                      |
 +-----------+--------------------------------------------------------------------------------------------------------------+
 ```
-=======
-| Column name                 | Data Type   | Description |
-| :---------------------------| :-----------| :-----------|
-| table_name                  | STRING      | The name of the table. |
-| state                       | STRING      | The current table state. |
-| table_type                  | STRING      | One of `FACT`, `DIMENSION`, `EXTERNAL`, or `VIEW`. |
-| column_count                | INT         | The number of columns in the table. |
-| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
-| schema                      | STRING      | The text of the SQL statement that created the table. |
-| number_of_rows              | INT         | The number of rows in the table. |
-| size                        | DOUBLE      | The compressed size of the table. |
-| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
-| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
-| number_of_segments          | INT         | The number of segments comprising the table. |
->>>>>>> d8fb4d5... updating info schema views and show DDL commands

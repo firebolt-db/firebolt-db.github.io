@@ -89,21 +89,23 @@ SELECT
 
 ## ATAN
 
-Calculates the arctangent.
+Calculates the arc tangent of the real number returned by the specified expression `<expr>`.
 
 ##### Syntax
 {: .no_toc}
 
 ```sql
-ATAN(<val>)
+ATAN(<expr>)
 ```
 
-| Parameter | Description                                                                                                         |
-| :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| Parameter | Description |
+| :-------- | :-----------|
+| `<expr>`  | Any expression that evaluates to a real number. |
 
 ##### Example
 {: .no_toc}
+
+The following example returns the arc tangent of the specified literal value `90`.
 
 ```sql
 SELECT
@@ -111,6 +113,32 @@ SELECT
 ```
 
 **Returns**: `1.5596856728972892`
+
+## ATAN2
+
+Two-argument arc tangent function. Calculates the angle, in radians, between the specified positive x-axis value and the ray from the origin to the point (y,x), where x is a number of type `DOUBLE` returned by the expression `<x_expr>`, and y is a number of type `DOUBLE` returned by the expression `<y_expr>`. Returns the radians as type `DOUBLE`.
+
+##### Syntax
+{: .no_toc}
+
+```sql
+ATAN2(<y_expr>,<x_expr>)
+```
+
+| Parameter   | Description |
+| :---------- | :-----------|
+| `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
+| `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
+
+##### Example
+{: .no_toc}
+
+```sql
+SELECT ATAN2(11,3);
+```
+
+**Returns:**
+`1.3045442776439713`
 
 ## CBRT
 

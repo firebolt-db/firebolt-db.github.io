@@ -7,33 +7,22 @@ parent: SQL commands reference
 
 # EXPLAIN
 
-`EXPLAIN` returns the execution plan for a specified query statement without running it. `EXPLAIN` can help you identify opportunities to tune query performance before you run a query.
+Returns the query execution plan for a specified query statement without running it. `EXPLAIN` can help you identify opportunities to tune query performance before you run a query.
 
-By default, `EXPLAIN` returns output in JSON format. The SQL workspace uses the JSON to present diagram views of the execution operations in the query plan.You can choose different views. You can also use the SQL workspace to analyze a query plan after a query runs without using the `EXPLAIN `statement.
+By default, `EXPLAIN` returns output in JSON format.The SQL workspace uses the JSON to generate *visual explain* output. For more information, including example JSON output, see [Using explain to analyze query execution](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md). Specify the `USING TEXT` option to return plain text.
 
-For more information, see [Using explain to analyze query execution](../../work-with-our-sql-editor/using-explain-to-analyze-query-execution.md).
-
-**Syntax**
+#### Syntax
 
 ```sql
 EXPLAIN [USING {TEXT|JSON}] <query_statement>
 ```
 
-<style>
-table th:first-of-type {
-    width: 30%;
-}
-table th:nth-of-type(2) {
-    width: 70%;
-}
-</style>
+| Parameter              | Description |
+| :--------------------- | :---------- |
+| `[USING {TEXT|JSON}]`  | Specifies the output format for the query plan. Defaults to JSON if not specified. If `USING TEXT` is specified, list view and graph view are not available. For more information, see [Viewing and copying explain output](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#viewing-and-copying-explain-output). |
+| `<query_statement>`    | Any query statement that does not include DDL commands. |
 
-| Parameter | Description |
-| :--------- | :---------- |
-| `[USING {TEXT|JSON}]`  | Defaults to `JSON`. This parameter determines the output format for the view. If `USING TEXT` is specified, the list view and graph view are not available. |
-| `<query_statement>`    | Any query statement that does not include DDL commands.|
-
-**Example**
+#### Example
 
 The example below demonstrates an `EXPLAIN` statement for a `SELECT` query on a table named `lineitem`.
 
@@ -57,7 +46,7 @@ ORDER BY
 	1,2,3,4;
 ```
 
-After the statement runs, Firebolt shows a list of query execution plan nodes (or steps) in descending order of execution. The last plan node to execute is shown at the top of the list.
+**Returns:**
 
 ![](../../assets/images/explain_results.png)
 

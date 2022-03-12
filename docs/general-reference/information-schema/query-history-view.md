@@ -2,7 +2,7 @@
 layout: default
 title: Query history
 description: Use this reference to learn about the metadata available for historical queries in Firebolt.
-nav_order: 5
+nav_order: 7
 parent: Information schema and usage views
 grand_parent: General reference
 ---

@@ -2,7 +2,7 @@
 layout: default
 title: Columns
 description: Use this reference to learn about the metadata available for Firebolt columns using the information schema.
-nav_order: 3
+nav_order: 5
 parent: Information schema and usage views
 grand_parent: General reference
 ---

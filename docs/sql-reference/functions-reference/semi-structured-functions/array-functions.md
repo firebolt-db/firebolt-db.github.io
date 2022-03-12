@@ -186,7 +186,7 @@ FROM
 
 **Returns**: `17`
 
-If you want to count elements based on specific criteria, you can use the [`ARRAY_COUNT`](array-functions.md#array_count) function with a `SUM` aggregation as demonstrated below.
+If you want to count elements based on specific criteria, you can use the [`ARRAY_COUNT`](#array_count) function with a `SUM` aggregation as demonstrated below.
 
 ```sql
 SELECT
