@@ -1,19 +1,29 @@
 ---
 layout: default
 title: Release notes
+description: Latest release notes for the Firebolt data warehouse.
 nav_order: 5
 has_toc: false
+has_children: true
 parent: General reference
 ---
 
 # Release notes
 
-Firebolt continuously releases updates so that you can benefit from the latest and most stable service. These updates might happen daily, but we aggregate release notes to cover a longer time period for easier reference. The most recent release notes are below. See the [Release notes archive](https://www.notion.so/Firebolt-release-notes-5669618c83904f67949c481be383f784) for earlier-version release notes.
-
-## MARCH 15, 2022
+Firebolt continuously releases updates so that you can benefit from the latest and most stable service. These updates might happen daily, but we aggregate release notes to cover a longer time period for easier reference. The most recent release notes from the past 30 days are below. See the [Release notes archive](release-notes-archive.md) for earlier-version release notes.
 
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
+
+## March 30, 2022
+
+### Improved error message experience
+
+In the SQL workspace, you can now select a portion of an error message to copy.
+
+![Select partial error message](../assets/images/relnote_select_partial_error.png)
+
+## March 15, 2022
 
 * [New features](#new-features)
 * [Enhancements, changes, and resolved issues](#enhancements-changes-and-resolved-issues)
