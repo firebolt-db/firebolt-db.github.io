@@ -48,7 +48,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 ### Enhancements, changes, and resolved issues
 
 * **Breaking change**  
-  * Columns of FLOAT data type are no longer supported in partition key definitions.
+  * Floating point data type columns are no longer supported in partition key definitions.
 
 * **Enhanced Parquet support**  
   Firebolt now supports Parquet list fields with a period (`.`) in the name. In addition, Parquet nested lists are now supported.
