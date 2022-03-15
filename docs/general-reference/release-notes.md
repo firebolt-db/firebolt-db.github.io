@@ -53,7 +53,7 @@ In the SQL workspace, you can now select a portion of an error message to copy.
   For more information, see [Information schema for engines](/information-schema/engines.md).
 
 * **Added `ATAN2(<y_expr>,<x_expr>)`**  
-  Added the two-argument arc tangent function [ATAN2](../sql-reference/functions-reference/numeric-functions.md#atan2).
+  Added the two-argument arc tangent function [ATAN2](../sql-reference/functions-reference/atan2.md).
 
 ### Enhancements, changes, and resolved issues
 

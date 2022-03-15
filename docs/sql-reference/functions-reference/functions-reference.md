@@ -1,9 +1,7 @@
 ---
-layout: default
-title: SQL functions reference
-description: Reference for SQL functions available in Firebolt.
-nav_order: 15
-has_children: true
+layout: redirects
+sitemap: false
+nav_exclude: true
+permalink: /sql-reference/functions-reference/functions-reference.html
+redirect_to:  /sql-reference/functions-reference/
 ---
-
-# Functions reference

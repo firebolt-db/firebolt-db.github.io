@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CREATE AGGREGATING INDEX
+title: CREATE [AND GENERATE] AGGREGATING INDEX
 description: Reference and syntax for the CREATE AGGREGATING INDEX command.
 parent: SQL commands
 ---

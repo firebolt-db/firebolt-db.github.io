@@ -2,8 +2,8 @@
 layout: default
 title: Operators
 description: Reference for SQL operators available in Firebolt.
-nav_order: 1
-parent: SQL functions reference
+nav_order: 2.5
+parent: General reference
 ---
 
 # Operators
@@ -104,7 +104,7 @@ Use the `INTERVAL` operator to add to or subtract from a period of time in `DATE
 
 ## :: operator for CAST
 
-Use can use the `::` operator instead of the [CAST](../functions-reference/conditional-and-miscellaneous-functions.md#cast) function to convert one [data type](../../general-reference/data-types.md) to another.
+Use can use the `::` operator instead of the [CAST](../sql-reference/functions-reference/cast.md) function to convert one [data type](./data-types.md) to another.
 
 ##### Syntax
 {: .no_toc}
@@ -119,7 +119,7 @@ Use can use the `::` operator instead of the [CAST](../functions-reference/condi
 | Component |Description|
 |:----------|:----------|
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
-| `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).|
+| `<type>`  | The target [data type](./data-types.md) (case-insensitive).|
 
 ##### Example
 {: .no_toc}

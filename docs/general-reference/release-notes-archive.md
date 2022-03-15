@@ -442,7 +442,7 @@ We’ve updated the way engines and databases are created and edited, for a smoo
 
 * SHOW CACHE now shows you detailed information on the engine’s SSD utilization
 
-* Our JDBC driver has been updated with multiple bug fixes and improvements (read more on using our JDBC driver [here](https://docs.firebolt.io/connecting-to-firebolt/connecting-via-jdbc))
+* Our JDBC driver has been updated with multiple bug fixes and improvements
 
 ### Bug fixes
 {: .no_toc}

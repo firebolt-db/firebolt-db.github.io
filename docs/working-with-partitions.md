@@ -49,7 +49,7 @@ Partition key arguments must not evaluate to `NULL` and can be any of the follow
   PARTITION BY product_type;
   ```
 
-* The result of an [EXTRACT](/sql-reference/functions-reference/date-and-time-functions.md#extract) function applied to a column of any of the date and time data types, as shown below.  
+* The result of an [EXTRACT](/sql-reference/functions-reference/extract.md) function applied to a column of any of the date and time data types, as shown below.  
   ```sql
   PARTITION BY EXTRACT(MONTH FROM date_column);
   ```
@@ -103,7 +103,7 @@ The example below creates a partition for each group of records with the same da
 PARTITION BY transaction_date
 ```
 
-The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](sql-reference/functions-reference/operators.md#-operator-for-cast).
+The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](/general-reference/operators.md#-operator-for-cast).
 
 ```sql
 ALTER TABLE fct_tbl_transactions DROP PARTITION `2020-01-01`::DATE;
