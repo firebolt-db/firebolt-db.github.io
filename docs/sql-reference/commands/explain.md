@@ -1,8 +1,7 @@
 ---
 layout: default
 title: EXPLAIN
-nav_order: 1.1
-parent: SQL commands reference
+parent: SQL commands
 ---
 
 # EXPLAIN
@@ -11,7 +10,7 @@ Returns the query execution plan for a specified query statement without running
 
 By default, `EXPLAIN` returns output in JSON format.The SQL workspace uses the JSON to generate *visual explain* output. For more information, including example JSON output, see [Using explain to analyze query execution](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md). Specify the `USING TEXT` option to return plain text.
 
-#### Syntax
+## Syntax
 
 ```sql
 EXPLAIN [USING {TEXT|JSON}] <query_statement>
@@ -22,7 +21,7 @@ EXPLAIN [USING {TEXT|JSON}] <query_statement>
 | `[USING {TEXT|JSON}]`  | Specifies the output format for the query plan. Defaults to JSON if not specified. If `USING TEXT` is specified, list view and graph view are not available. For more information, see [Viewing and copying explain output](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#viewing-and-copying-explain-output). |
 | `<query_statement>`    | Any query statement that does not include DDL commands. |
 
-#### Example
+## Example
 
 The example below demonstrates an `EXPLAIN` statement for a `SELECT` query on a table named `lineitem`.
 

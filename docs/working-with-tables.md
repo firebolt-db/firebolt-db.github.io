@@ -54,4 +54,4 @@ CREATE DIMENSION TABLE dim_product
 );
 ```
 
-For more information, see [CREATE FACT\|DIMENSION TABLE](sql-reference/commands/ddl-commands.md#create-fact--dimension-table).
+For more information, see [CREATE FACT\|DIMENSION TABLE](sql-reference/commands/create-fact-dimension-table.md).

@@ -78,11 +78,11 @@ This determines the behavior of the engine on startup. You have three options:
 
 ### Auto-stop duration
 
-The period of inactivity, in minutes, after which an engine shuts down automatically to save cost. The default is 20 minutes. Using `CREATE ENGINE` and `ALTER ENGINE` SQL statements, you can specify auto-stop duration in one-minute increments. For more information, see [CREATE ENGINE](../sql-reference/commands/ddl-commands.md#create-engine) and [ALTER ENGINE](../sql-reference/commands/ddl-commands.md#alter-engine). Using the Firebolt Manager, you can set the auto-stop duration to always on, 20 minutes, or 60 minutes.
+The period of inactivity, in minutes, after which an engine shuts down automatically to save cost. The default is 20 minutes. Using `CREATE ENGINE` and `ALTER ENGINE` SQL statements, you can specify auto-stop duration in one-minute increments. For more information, see [CREATE ENGINE](../sql-reference/commands/create-engine.md) and [ALTER ENGINE](../sql-reference/commands/alter-engine.md). Using the Firebolt Manager, you can set the auto-stop duration to always on, 20 minutes, or 60 minutes.
 
 ## Viewing and understanding engine status
 
-You can execute a [SHOW ENGINES](../sql-reference/commands/ddl-commands.md#show-engines) statement to list all engines in your Firebolt account and view engine status. You can also use the **Databases** list or the **Engines** list in the Firebolt Manager.
+You can execute a [SHOW ENGINES](../sql-reference/commands/show-engines.md) statement to list all engines in your Firebolt account and view engine status. You can also use the **Databases** list or the **Engines** list in the Firebolt Manager.
 
 * **On -** the engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine.
 * **Starting -** the engine was started. It is provisioning resources, warming up, and will be ready to use shortly.

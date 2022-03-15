@@ -111,4 +111,4 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 ![](../assets/images/set_max_session_duration.png)
 
 ## Specify the IAM role in the external table definition
-Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/ddl-commands.md#syntaxauthenticating-using-an-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.
+Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/create-external-table.md#syntaxauthenticating-using-an-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.

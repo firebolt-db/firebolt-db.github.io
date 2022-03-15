@@ -24,9 +24,9 @@ When you create a join index, you specify a dimension table, the unique join key
 
 ## How to define a join index
 
-To create a join index, use the [`CREATE JOIN INDEX`](../sql-reference/commands/ddl-commands.md#create-join-index) statement. You can create as many join indexes for a dimension table as you need.
+To create a join index, use the [`CREATE JOIN INDEX`](../sql-reference/commands/create-join-index.md) statement. You can create as many join indexes for a dimension table as you need.
 
-The join index definition establishes the name of the join index and specifies the dimension table it applies to. The definition then specifies the join key column. The join key column must appear in the first position. For the best performance, this column must have been created using the `UNIQUE` attribute and have no duplicate values. For more information, see [`CREATE FACT|DIMENSION TABLE`](../sql-reference/commands/ddl-commands.md#create-fact--dimension-table).
+The join index definition establishes the name of the join index and specifies the dimension table it applies to. The definition then specifies the join key column. The join key column must appear in the first position. For the best performance, this column must have been created using the `UNIQUE` attribute and have no duplicate values. For more information, see [`CREATE FACT|DIMENSION TABLE`](../sql-reference/commands/create-fact-dimension-table.md).
 
 ```sql
 CREATE JOIN INDEX [IF NOT EXISTS] <unique_join_index_name> ON <dim_table_name>

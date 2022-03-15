@@ -82,7 +82,7 @@ Returns the desired results:
 
 Sometimes it is desirable to transform the nested array structure to a standard tabular format. This can be used to expose views to BI tools that cannot handle Firebolt array syntax, or the tabular format is more natural to query using standard SQL idioms. `UNNEST` serves these purposes.
 
-`UNNEST` is part of the [FROM](../sql-reference/commands/query-syntax.md#from) clause and it resembles a `JOIN` sub-clause. Given an array typed column, it unfolds the element of the array and duplicates all other columns found in the `SELECT` clause per each array element.
+`UNNEST` is part of the [FROM](../sql-reference/commands/select.md#from) clause and it resembles a `JOIN` sub-clause. Given an array typed column, it unfolds the element of the array and duplicates all other columns found in the `SELECT` clause per each array element.
 
 For example the following query:
 

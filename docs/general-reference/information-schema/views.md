@@ -2,6 +2,7 @@
 layout: default
 title: Views
 nav_order: 4
+description: Use this reference to learn about the metadata available for Firebolt views using the information schema.
 parent: Information schema and usage views
 grand_parent: General reference
 ---

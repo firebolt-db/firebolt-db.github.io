@@ -585,7 +585,7 @@ ARRAY_SUM([<func>,] <arr>)
 
 | Parameter | Description                                                                                                                |
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| `<func>`  | A Lambda function with an [arithmetic function](../../commands/operators.md#arithmetic) used to modify the array elements. |
+| `<func>`  | A Lambda function with an [arithmetic function](../operators.md#arithmetic) used to modify the array elements. |
 | `<arr>`   | The array to be used to calculate the function.                                                                            |
 
 ##### Example
@@ -1044,7 +1044,7 @@ SELECT
 
 **Returns**: `2,4,6,18`
 
-In the example below, the `TRANSFORM` function is used to [`CAST`](../conditional-and-miscellaneous-functions.html#cast) each element from a string to a date type. With each element now as a date type, the [`INTERVAL`](../../commands/operators.html#interval-for-date-and-time) function is then used to add 5 years to each.  
+In the example below, the `TRANSFORM` function is used to [`CAST`](../conditional-and-miscellaneous-functions.html#cast) each element from a string to a date type. With each element now as a date type, the [`INTERVAL`](../operators.html#interval-for-date-and-time) function is then used to add 5 years to each.  
 
 ```sql
 SELECT

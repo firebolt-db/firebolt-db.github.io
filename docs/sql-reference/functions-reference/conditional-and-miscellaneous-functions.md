@@ -107,7 +107,7 @@ SELECT CAST('1' AS INT) as res;
 **Returns**: `1`
 
 {: .note}
-`CAST` can also be done by using the `::` operator. For more information, see [:: operator for CAST](../commands/operators.md#-operator-for-cast).
+`CAST` can also be done by using the `::` operator. For more information, see [:: operator for CAST](operators.md#-operator-for-cast).
 
 ## CITY_HASH
 

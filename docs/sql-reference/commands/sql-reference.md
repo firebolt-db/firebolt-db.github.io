@@ -1,9 +1,6 @@
 ---
-layout: default
-title: SQL commands reference
-description: Reference for SQL commands and operators in Firebolt.
-nav_order: 14
-has_children: true
+layout: redirects
+nav_exclude: true
+permalink: /sql-reference/commands/sql-reference.html
+redirect_to:  /sql-reference/commands/
 ---
-
-# SQL commands

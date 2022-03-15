@@ -37,7 +37,7 @@ If your application favors speed of ingestion over speed of analytics queries, b
 
 ## How to define an aggregating index
 
-To create an aggregating index, use the [`CREATE AGGREGATING INDEX`](../sql-reference/commands/ddl-commands.html#create-aggregating-index) statement. This statement specifies a fact table, a subset of columns from the table, and a list of the aggregate functions that commonly run over that table. You can create as many aggregating indexes per table as you need. Each aggregating index is associated with a single fact table.
+To create an aggregating index, use the [`CREATE AGGREGATING INDEX`](../sql-reference/commands/create-aggregating-index.md) statement. This statement specifies a fact table, a subset of columns from the table, and a list of the aggregate functions that commonly run over that table. You can create as many aggregating indexes per table as you need. Each aggregating index is associated with a single fact table.
 
 The syntax for the `CREATE AGGREGATING INDEX` is shown below.
 

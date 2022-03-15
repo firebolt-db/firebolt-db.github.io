@@ -10,7 +10,7 @@ parent: Loading data
 
 Loading data into Firebolt is done using *external tables*. External tables are different from [fact and dimension tables](../working-with-tables.md). Firebolt uses an external table as a connector to your data source. No data is stored in Firebolt.
 
-To create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/ddl-commands.md#create-external-table) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command to load the data from the external table into a fact or dimension table.
+To create an external table, run the [CREATE EXTERNAL TABLE](../sql-reference/commands/create-external-table.md) command. After you create an external table, use the [INSERT INTO](../sql-reference/commands/insert-into.md) command to load the data from the external table into a fact or dimension table.
 
 {: .caution}
 Although you can run a query over an external table to return query results, we don't recommend it. Such a query will be significantly slower than the same query run over the same data in a fact or dimension table because of the data transfer between Firebolt and your data store. We strongly recommend that you use external tables only for ingestion, specifying the table and its columns only in the `FROM` clause of an `INSERT INTO` statement.
@@ -38,7 +38,7 @@ The metadata virtual columns listed below are available in external tables.
 | `source_file_name` | The full path of the row data's source file in Amazon S3, without the bucket. For example, with a source file of `s3://my_bucket/xyz/year=2018/month=01/part-00001.parquet`, the `source_file_name` is `xyz/year=2018/month=01/part-00001.parquet`. | TEXT |
 | `source_file_timestamp` | The creation timestamp of the row's source file in S3. | TIMESTAMP |
 
-For an additional example, see [Extracting partition values using INSERT INTO](../sql-reference/commands/dml-commands.md#extracting-partition-values-using-insert-into).
+For an additional example, see [Extracting partition values using INSERT INTO](../sql-reference/commands/insert-into.md#extracting-partition-values-using-insert-into).
 
 ##### Example&ndash;querying metadata virtual column values
 

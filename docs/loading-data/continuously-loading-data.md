@@ -76,7 +76,7 @@ data_load
 
 ### Load command
 
-The script contains a single step called `data_load`. It connects to a database in Firebolt via a JDBC connector and runs the following [INSERT INTO](../sql-reference/commands/dml-commands.md#insert-into) command:
+The script contains a single step called `data_load`. It connects to a database in Firebolt via a JDBC connector and runs the following [INSERT INTO](../sql-reference/commands/insert-into.md) command:
 
 ```sql
 INSERT INTO lineitem_detailed SELECT *, source_file_name, source_file_timestamp

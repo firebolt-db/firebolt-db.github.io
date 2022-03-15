@@ -34,7 +34,7 @@ STOP ENGINE MyDatabase_MyFireboltEngine
 ```
 
 ## To create an engine
-* Using a running engine, execute a `CREATE ENGINE` statement similar to one of the examples below. For more information, see [CREATE ENGINE](../sql-reference/commands/ddl-commands.md#create-engine).
+* Using a running engine, execute a `CREATE ENGINE` statement similar to one of the examples below. For more information, see [CREATE ENGINE](../sql-reference/commands/create-engine.md).
 
 ##### Example &ndash; Create engine using default values
 ```sql
