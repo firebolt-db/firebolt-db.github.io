@@ -21,7 +21,7 @@ The `ALTER ENGINE` command enables you to update the engine configuration.
 
 ```sql
 ALTER ENGINE <engine_name> SET
-    [SCALE TO <scale> [ABORT = TRUE|FALSE ]]
+    [SCALE = <scale> [ABORT = TRUE|FALSE ]]
     [SPEC = <spec> [ABORT = TRUE|FALSE]]
     [AUTO_STOP = <minutes]
     [RENAME TO <new_name>]
