@@ -682,7 +682,7 @@ CREATE DIMENSION TABLE my_cstmr_dim (
   phone1 TEXT,
   phone2 TEXT,
   status TEXT)
-PRIMARY INDEX my_cstmr_id;
+PRIMARY INDEX cstmr_id;
 ```
 
 Queries often run that join different fact tables with this dimension table. Those queries `SELECT` the `name` and `email` of customers in the returned results. Another set of queries often select `city` and `status` in returned results with a join. The following join index helps to accelerate these queries.
