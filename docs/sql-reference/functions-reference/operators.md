@@ -30,26 +30,27 @@ parent: SQL functions reference
 
 ## Comparison
 
-Comparison operators are usually implemented with `WHERE` clauses, as shown in the example below.
+| Operator | Syntax              | Explanation                      |
+| :-------- | :------------------- | :-------------------------------- |
+| =        | `a=b`               | a is equal to b.                 |
+| !=       | `a!=b`              | a is not equal to b.             |
+| <>       | `a<>b`              | a is not equal to b.             |
+| <=       | `a<=b`              | a is less than or equal to b.    |
+| >        | `a>b`               | a is greater than b.             |
+| >=       | `a>=b`              | a is greater than or equal to b. |
+| <        | `a<b`               | a is less than b.                |
+| BETWEEN  | `a BETWEEN b AND c` | equivalent to b <= a <= c        |
+
+Example of using comparison operator in `WHERE` clause
 
 ```sql
 SELECT
   *
 FROM
-  Table_Name
+  Table
 WHERE
-  Price >= Number;
+  Price >= 100;
 ```
-
-| Operator | Example | Explanation                      |
-| :-------- | :------- | :-------------------------------- |
-| =        | `a=b`   | a is equal to b.                 |
-| <=       | `a<=b`  | a is less than or equal to b.    |
-| !=       | `a!=b`  | a is not equal to b.             |
-| <>       | `a<>b`  | a is not equal to b.             |
-| >        | `a>b`   | a is greater than b.             |
-| >=       | `a>=b`  | a is greater than or equal to b. |
-| <        | `a<b`   | a is less than b.                |
 
 
 ## String
