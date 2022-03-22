@@ -140,7 +140,7 @@ FROM
 
 Should be used when a table contains an array typed column in order to create a new table that contains a column with each array element of the array column, alongside duplicating the values of the other columns per each array element.
 
-An `UNNEST` operation is equivalent to performing a `JOIN` with an array. The purpose is similar to the [ARRAY\_UNNEST](../functions-reference/semi-structured-functions/array-functions.md#array_unnest) function, but the `UNNEST` clause functionality is much broader.
+An `UNNEST` operation is equivalent to performing a `JOIN` with an array. The purpose is similar to the [ARRAY\_UNNEST](../functions-reference/semi-structured-functions/array-functions.md#array_unnest-deprecated) function, but the `UNNEST` clause functionality is much broader.
 
 ##### Syntax
 {: .no_toc}

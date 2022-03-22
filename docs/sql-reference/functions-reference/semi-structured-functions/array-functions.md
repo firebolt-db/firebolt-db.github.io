@@ -666,9 +666,11 @@ SELECT
 
 **Returns**: `2`
 
-## ARRAY\_UNNEST
+## ARRAY\_UNNEST (deprecated)
 
 This function "unfolds" a given array by creating a column result containing the individual members from the array's values.
+
+ARRAY\_UNNEST is deprecated. Instead, we recommend using the [UNNEST](../../../working-with-semi-structured-data/working-with-arrays.md#unnest) function.
 
 ##### Syntax
 {: .no_toc}
