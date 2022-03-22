@@ -176,14 +176,16 @@ NULLIF(<exp1>, <exp2>)
 
 The following truth table demonstrates values returned by based on the values of two column expressions: `col1` and `col2`.
 
+```
++-----------+-----------+-------------------+-------------------+
+|  col1     |   col2    | IFNULL(col1,col2) | IFNULL(col2,col1) |
++-----------+-----------+-------------------+-------------------+
+| 0         | 32        | 0                 | 32                |
+| 0         | [NULL]    | 0                 | 0                 |
+| [NULL]    | 32        | 32                | 32                |
+| [NULL]    | [NULL]    | [NULL]            | [NULL]            |
 -----------+-----------+-------------------+-------------------+
-   col1    |   col2    | IFNULL(col1,col2) | IFNULL(col2,col1) |
------------+-----------+-------------------+-------------------+
- 0         | 32        | 0                 | 32                |
- 0         | [NULL]    | 0                 | 0                 |
- [NULL]    | 32        | 32                | 32                |
- [NULL]    | [NULL]    | [NULL]            | [NULL]            |
------------+-----------+-------------------+-------------------+
+```
 
 ## NULL_IF
 
