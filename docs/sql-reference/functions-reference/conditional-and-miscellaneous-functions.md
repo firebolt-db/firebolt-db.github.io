@@ -174,7 +174,7 @@ NULLIF(<exp1>, <exp2>)
 ##### Example
 {: .no_toc}
 
-The following truth table demonstrates values returned by based on the values of two column expressions: `col1` and `col2`.
+The following truth table demonstrates values that `IFNULL` returns based on the values of two column expressions: `col1` and `col2`.
 
 ```
 +-----------+-----------+-------------------+-------------------+
