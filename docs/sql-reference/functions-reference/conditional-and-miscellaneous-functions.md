@@ -158,7 +158,7 @@ SELECT COALESCE(null, 'London','New York') AS res;
 **Returns:** `London`
 
 ## IFNULL
-Compares two expressions. Returns `NULL` if the expressions evaluate to equal values. Returns the result of `<expr2>` if they are not equal. To return `<expr1>` instead, use `NULLIF`.
+Compares two expressions. Returns `<expr1>` if it's not `NULL`, otherwise returns `<expr2>`.
 
 ##### Syntax
 {: .no_toc}
@@ -169,22 +169,21 @@ NULLIF(<exp1>, <exp2>)
 
 | Parameter | Description |
 | :-------- | :---------- |
-| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. The expressions must evaluate to the same data type or synonyms, or an error occurs. The result of `<exp2>` is returned if the expressions do not evaluate to an equal result. |
+| `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports.|
 
 ##### Example
 {: .no_toc}
 
-```sql
-NULLIF('Firebolt fast','Firebolt fast')
-```
+The following truth table demonstrates values returned by based on the values of two column expressions: `col1` and `col2`.
 
-**Returns**: `NULL`
-
-```sql
-NULLIF('Firebolt fast','Firebolt Fast')
-```
-
-**Returns**: `Firebolt Fast`
+-----------+-----------+-------------------+-------------------+
+   col1    |   col2    | IFNULL(col1,col2) | IFNULL(col2,col1) |
+-----------+-----------+-------------------+-------------------+
+ 0         | 32        | 0                 | 32                |
+ 0         | [NULL]    | 0                 | 0                 |
+ [NULL]    | 32        | 32                | 32                |
+ [NULL]    | [NULL]    | [NULL]            | [NULL]            |
+-----------+-----------+-------------------+-------------------+
 
 ## NULL_IF
 
