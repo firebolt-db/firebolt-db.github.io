@@ -932,7 +932,7 @@ DROP VIEW [IF EXISTS] <view_name>
 
 Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table. For more information about join indexes, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 
-Join indexes are not updated automatically in an engine when new data is ingested into a dimension table or a partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results.
+Join indexes are not updated automatically in an engine when partition is dropped. You must refresh all indexes on all engines with queries that use them or those queries will return pre-update results.
 
 Refreshing join indexes is a memory-intensive operation because join indexes are stored in node RAM. When refreshing join indexes, use [SHOW INDEXES](ddl-commands.md#show-indexes) to get the `size_compressed` of all indexes to refresh. Ensure that node RAM is greater than the sum of `size_compressed` for all join indexes to be refreshed.
 
