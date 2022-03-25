@@ -13,10 +13,12 @@ Firebolt is working with an expanding roster of services and applications to uti
 
 The services listed below include tools that have been customized by our partners to connect with Firebolt. Many services not explicitly listed here can still operate with Firebolt's architecture through our [drivers and adapters](connecting-via-jdbc.md) for general connection use.
 
+* [Adverity](business-intelligence/connecting-to-adverity.md)
 * [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
 * [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
 * [Hevo](data-integration-and-transformation/connecting-with-hevo.md)
+* [Hightouch](data-integration-and-transformation/connecting-to-hightouch.md)
 * [Keboola](data-integration-and-transformation/connecting-to-keboola.md)
 * [Looker](business-intelligence/connecting-to-looker.md)
 * [Metabase](business-intelligence/connecting-to-metabase.md)
