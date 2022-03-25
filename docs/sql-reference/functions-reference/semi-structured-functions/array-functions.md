@@ -954,7 +954,7 @@ FROM
 
 ## REDUCE
 
-Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example: `'max'`, `'sum'`. When using parametric aggregate functions, the parameter is indicated after the function name in parentheses `'<func_name>(<parameter>)'`.
+Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example: `'max'`, `'sum'`. 
 
 ##### Syntax
 {: .no_toc}
@@ -975,8 +975,19 @@ REDUCE(<agg_function>, <arr>)
 SELECT
 	REDUCE('max', [ 1, 2, 3, 6 ]) AS res;
 ```
-
 **Returns**: `6`
+
+When using aggregate functions which take constant parameters, these parameters are specified after the function name in parentheses
+
+##### Example
+{: .no_toc}
+
+```sql
+SELECT
+	REDUCE('approx_percentile(0.3)', [ 1, 2, 3, 4, 5, 6 ]) AS res;
+```
+**Returns**: `2.5`
+
 
 ## SLICE
 
