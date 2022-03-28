@@ -19,7 +19,7 @@ WHERE
   attached_to ILIKE 'deng%'
 ```
 
-## Columns in information_schema.views
+## Columns in information_schema.engines
 
 Each row has the following columns with information about each engine.
 
