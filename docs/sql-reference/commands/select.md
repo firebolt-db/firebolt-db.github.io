@@ -109,9 +109,9 @@ WHERE
 	region = 'EMEA'
 ```
 
-### JOIN
+## JOIN
 
-A `JOIN` operation combines rows from two data sources (tables/views) and creates a new combined row that can be used in the query.
+A `JOIN` operator combines rows from two data sources (tables/views) and creates a new combined row that can be used in the query.
 
 ### Syntax
 {: .no_toc}
@@ -141,9 +141,7 @@ FROM
 
 ## UNNEST
 
-Should be used when a table contains an array typed column in order to create a new table that contains a column with each array element of the array column, alongside duplicating the values of the other columns per each array element.
-
-An `UNNEST` operation is equivalent to performing a `JOIN` with an array. The purpose is similar to the [ARRAY_UNNEST](../functions-reference/semi-structured-functions/array-functions.md#array_unnest-deprecated) function, but the `UNNEST` clause functionality is much broader.
+An `UNNEST` operator performs join between the table in the left side, and the array in the right side. The output table repeats rows of the table from the left for every element of the array. If the array is empty, the corresponding row from the table is eliminated.
 
 ### Syntax
 {: .no_toc}
