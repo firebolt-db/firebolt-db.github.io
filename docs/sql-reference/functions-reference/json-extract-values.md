@@ -9,9 +9,7 @@ parent: SQL functions
 
 Returns an array of string representations, each element containing the value pointed by the JSON Pointer.
 
-For more information on manipulating JSON data sets, please refer to [JSON functions](./json-functions.md).
-
-The example below uses our [JSON Common Example](./json-functions.md#json-common-example)
+For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
 
 ##### Syntax
 {: .no_toc}
@@ -31,6 +29,8 @@ A Firebolt array of string values based on the location specified by the `<json_
 
 ##### Example
 {: .no_toc}
+
+The example below uses our [JSON Common Example](./index.md#json-common-example)
 
 ```sql
 SELECT

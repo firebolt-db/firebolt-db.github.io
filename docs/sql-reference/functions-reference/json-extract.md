@@ -11,9 +11,7 @@ Takes an expression containing JSON string, a JSON Pointer, and a type parameter
 
 If the key pointed by the JSON pointer is not found, or the type of the value under that key is different from the one specified, the function returns `NULL`
 
-For more information on manipulating JSON data sets, please refer to [JSON functions](./json-functions.md).
-
-The example below uses our [JSON Common Example](./json-functions.md#json-common-example)
+For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
 
 ##### Syntax
 {: .no_toc}
@@ -36,6 +34,8 @@ Otherwise, it returns `NULL`
 
 ##### Example
 {: .no_toc}
+
+The examples below use our [JSON Common Example](./index.md#json-common-example)
 
 ```sql
 SELECT

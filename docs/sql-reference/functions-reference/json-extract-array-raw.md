@@ -11,9 +11,7 @@ Returns a string representation of a JSON array pointed by the supplied JSON poi
 
 This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](/transform.md).
 
-For more information on manipulating JSON data sets, please refer to [JSON functions](./json-functions.md).
-
-The example below uses our [JSON Common Example](./json-functions.md#json-common-example)
+For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
 
 ##### Syntax
 {: .no_toc}
@@ -29,6 +27,8 @@ The example below uses our [JSON Common Example](./json-functions.md#json-common
 
 ##### Example
 {: .no_toc}
+
+The example below uses our [JSON Common Example](./index.md#json-common-example)
 
 ```sql
 SELECT
