@@ -69,8 +69,4 @@ When you choose the copy icon, JSON for the explain output is copied to the clip
 
 Text view is a simplified representation of your execution stages that can be copied in an easily readable format. It is the only view available when you use the `EXPLAIN` statement with the `USING TEXT` option. When you choose the copy icon, the text is copied to the clipboard as you see it in the output pane.
 
-### Text view
 
-![](../assets/images/explain_text_view.png)
-
-Text view is a simplified representation of your execution stages that can be copied in an easily readable format. It is the only view available when you use the `EXPLAIN` statement with the `USING TEXT` option. When you choose the copy icon, the text is copied to the clipboard as you see it in the output pane.
