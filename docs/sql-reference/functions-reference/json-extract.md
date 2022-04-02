@@ -5,15 +5,11 @@ description: Reference material for JSON_EXTRACT function
 parent: SQL functions
 ---
 
-## JSON_EXTRACT
+# JSON_EXTRACT
 
-Takes an expression containing JSON string, a JSON Pointer, and a type parameter. It returns a typed scalar, or an array pointed by the JSON Pointer.
+Takes an expression containing a JSON document, a JSON pointer expression, and an expected data type parameter. If the key specified using the JSON pointer expression exists, and its type conforms with the expected data type parameter, `JSON_EXTRACT` returns the value of the data type specified. Otherwise, returns `NULL`.
 
-If the key pointed by the JSON pointer is not found, or the type of the value under that key is different from the one specified, the function returns `NULL`
-
-For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
-
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,19 +19,13 @@ For more information on manipulating JSON data sets, please refer to [JSON funct
 | Parameter                   | Type           | Description                                                                                       |
 | :--------------------------- | :-------------- | :------------------------------------------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.                                        |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the value in the JSON document.                                 |
-| `<expected_type>`           | Literal String | A literal string name of the expected [return type](json-functions.md#supported-type-parameters). |
+| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).                                 |
+| `<expected_type>`           | Literal string | The expected data type of the key indicated by `<json_pointer_expression>`, such as `STRING` or `INT`. For more information, see [supported type parameters](index.md#supported-type-parameters). |
 
-**Return Value**
-
-If the key pointed by the JSON path exists and its type conforms with the `expected_type` parameter, then `JSON_EXTRACT` returns the value under that key.
-
-Otherwise, it returns `NULL`
-
-##### Example
+## Example
 {: .no_toc}
 
-The examples below use our [JSON Common Example](./index.md#json-common-example)
+For the JSON document indicated by `<json_common_example>` below, see [JSON common example](./index.md#json-common-example). The **Returns** result is based on this example.
 
 ```sql
 SELECT

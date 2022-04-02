@@ -5,11 +5,11 @@ description: Reference material for FROM_UNIXTIME function
 parent: SQL functions
 ---
 
-## FROM\_UNIXTIME
+# FROM\_UNIXTIME
 
 Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 | :------------- | :-------------------------------------------- |
 | `<unix_time>` | The UNIX epoch time that is to be converted. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

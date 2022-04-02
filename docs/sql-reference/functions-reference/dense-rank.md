@@ -6,13 +6,13 @@ parent: Window functions
 parent: SQL functions
 ---
 
-## DENSE\_RANK
+# DENSE\_RANK
 
 Rank the current row within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -24,7 +24,7 @@ DENSE_RANK() OVER ([PARTITION BY <val>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                |
 | `<exp>`    | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked.  |
 
-##### Example
+## Example
 {: .no_toc}
 
 In this example below, students are ranked based on their test scores for their grade level.

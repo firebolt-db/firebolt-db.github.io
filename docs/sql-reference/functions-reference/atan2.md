@@ -5,11 +5,11 @@ description: Reference material for ATAN2 function
 parent: SQL functions
 ---
 
-## ATAN2
+# ATAN2
 
 Two-argument arc tangent function. Calculates the angle, in radians, between the specified positive x-axis value and the ray from the origin to the point (y,x), where x is a number of type `DOUBLE` returned by the expression `<x_expr>`, and y is a number of type `DOUBLE` returned by the expression `<y_expr>`. Returns the radians as type `DOUBLE`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ATAN2(<y_expr>,<x_expr>)
 | `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
 | `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

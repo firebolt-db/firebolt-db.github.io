@@ -5,7 +5,7 @@ description: Reference material for SUM function
 parent: SQL functions
 ---
 
-## SUM
+# SUM (window function)
 
 Calculate the sum of the values within the requested window.
 
@@ -13,7 +13,7 @@ The SUM function works with numeric values and ignores `NULL` values.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -25,7 +25,7 @@ SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
 | `<val>`   | The expression used for the `SUM` function       |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below shows how many vaccinated students are in the same grade level for each student.

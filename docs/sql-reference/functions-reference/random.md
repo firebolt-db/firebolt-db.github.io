@@ -5,18 +5,18 @@ description: Reference material for RANDOM function
 parent: SQL functions
 ---
 
-## RANDOM
+# RANDOM
 
 Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `DOUBLE`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
 RANDOM()
 ```
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below demonstrates using `RANDOM` without any other numeric functions. This generates a `DOUBLE` value less than 1.

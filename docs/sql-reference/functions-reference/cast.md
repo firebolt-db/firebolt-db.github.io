@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## CAST
+# CAST
 
 Similar to `TRY_CAST`, `CAST` converts data types into other data types based on the specified parameters. If the conversion cannot be performed, `CAST` returns an error. To return a `NULL` value instead, use `TRY_CAST`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ CAST(<value> AS <type>)
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

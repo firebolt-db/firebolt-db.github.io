@@ -5,11 +5,11 @@ description: Reference material for STDDEV_SAMP
 parent: SQL functions
 ---
 
-## STDDEV\_SAMP
+# STDDEV\_SAMP
 
 Computes the standard deviation of a sample consisting of a numeric expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ STDDEV_SAMP(<expr>)​
 | :--------- | :------------------------------------------------------------------------------------------ |
 | `<expr>`  | Any column with numeric values or an expression that returns a column with numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we'll create a new table `num_test `as shown below:

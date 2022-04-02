@@ -5,11 +5,11 @@ description: Reference material for TO_WEEKISO function
 parent: SQL functions
 ---
 
-## TO\_WEEKISO
+# TO\_WEEKISO
 
 Converts any supported date or timestamp data type to a number representing the week of the year. This function adheres to the [ISO 8601](https://www.wikipedia.org/wiki/ISO_week_date) standards for numbering weeks, meaning week 1 of a calendar year is the first week with 4 or more days in that year.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ TO_WEEKISO(<date>)
 | :--------- | :--------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the ISO week number. |
 
-##### Example
+## Example
 {: .no_toc}
 
 Where `ship_date` is a column of type `DATE `in the table `fct_orders`.

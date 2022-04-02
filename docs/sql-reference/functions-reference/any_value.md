@@ -5,11 +5,11 @@ description: Reference material for ANY_VALUE
 parent: SQL functions
 ---
 
-## ANY_VALUE
+# ANY_VALUE
 
 Returns a single arbitrary value from the specified column. This function ignores `NULL`s, so the only time it will return `NULL` is when all inputs are `NULL`s.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 
@@ -26,7 +26,7 @@ Returns a single arbitrary value from the specified column. This function ignore
 
 Same as input argument
 
-##### Example
+## Example
 {: .no_toc}
 
 Consider a table, `example_table`, with a single column `first_name` as shown below.

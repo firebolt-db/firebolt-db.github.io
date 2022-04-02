@@ -81,7 +81,7 @@ Boolean operators return the result of a Boolean operation between one or more e
 
 Use the `INTERVAL` operator to add to or subtract from a period of time in `DATE`, `TIME`, or `TIMESTAMP` data types.
 
-##### Syntax
+### Syntax
 {: .no_toc}
 
 ```sql
@@ -93,7 +93,7 @@ Use the `INTERVAL` operator to add to or subtract from a period of time in `DATE
 | `<quantity>`  | An integer. Multiple `<quantities>` and `<date_units>` can be used in the same `INTERVAL` command if they are separated by spaces.|
 | `<date_unit>` | A date measurement including any of the following: `millennium`, `century`, `decade`, `year`, `month`, `week`, `day`, `hour`, `minute`, `second`, `millisecond`, `microsecond `or their plural forms.  If unspecified, `<date_unit>` defaults to `second`.  |
 
-##### Example
+### Example
 {: .no_toc}
 
 ```sql
@@ -106,7 +106,7 @@ Use the `INTERVAL` operator to add to or subtract from a period of time in `DATE
 
 Use can use the `::` operator instead of the [CAST](../sql-reference/functions-reference/cast.md) function to convert one [data type](./data-types.md) to another.
 
-##### Syntax
+### Syntax
 {: .no_toc}
 
 ```sql
@@ -121,7 +121,7 @@ Use can use the `::` operator instead of the [CAST](../sql-reference/functions-r
 | `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](./data-types.md) (case-insensitive).|
 
-##### Example
+### Example
 {: .no_toc}
 
 ```sql
@@ -141,7 +141,7 @@ Subqueries are queries contained within other queries. They are typically used a
 | `IN`         | The `IN` operator is used to check whether a value matches any value in a list.                                                                    |
 | `NOT IN`     | Retrieve all entries from the value list that don't match the required value.                                                                      |
 
-##### Example&ndash;using EXISTS to find all suppliers with products equal to the price of 22
+### Example&ndash;using EXISTS to find all suppliers with products equal to the price of 22
 {: .no_toc}
 
 ```sql
@@ -158,7 +158,7 @@ WHERE EXISTS (
     price < 22);
 ```
 
-##### Example&ndash;using the IN operator to return all customers from Mannheim or London
+### Example&ndash;using the IN operator to return all customers from Mannheim or London
 {: .no_toc}
 
 ```sql
@@ -170,7 +170,7 @@ WHERE
   customer_address IN ('Mannheim','London');
 ```
 
-##### Example&ndash;using a correlated subquery to retrieve all the products that cost more than the avg(price)
+### Example&ndash;using a correlated subquery to retrieve all the products that cost more than the avg(price)
 {: .no_toc}
 
 ```sql
@@ -190,7 +190,7 @@ WHERE
       category_id = p.category_id);
 ```
 
-##### Example&ndash;using a scalar boolean subquery to retrieve rows based on true/false condition
+### Example&ndash;using a scalar boolean subquery to retrieve rows based on true/false condition
 {: .no_toc}
 
 ```sql

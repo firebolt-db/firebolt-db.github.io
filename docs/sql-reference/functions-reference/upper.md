@@ -5,11 +5,11 @@ description: Reference material for UPPER function
 parent: SQL functions
 ---
 
-## UPPER
+# UPPER
 
 Converts the string to uppercase format.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts the string to uppercase format.
 | :---------- | :------------------------------------------------------- |
 | `<string>` | The string to be converted to all uppercase characters. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for CBRT function
 parent: SQL functions
 ---
 
-## CBRT
+# CBRT
 
 Returns the cubic-root of a non-negative numeric expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ CBRT(<val>);
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

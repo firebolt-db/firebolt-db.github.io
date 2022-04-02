@@ -5,11 +5,11 @@ description: Reference material for DEGREES function
 parent: SQL functions
 ---
 
-## DEGREES
+# DEGREES
 
 Converts a value in radians to degrees.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ DEGREES(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

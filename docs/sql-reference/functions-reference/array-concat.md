@@ -5,11 +5,11 @@ description: Reference material for ARRAY_CONCAT function
 parent: SQL functions
 ---
 
-## ARRAY\_CONCAT
+# ARRAY\_CONCAT
 
 Combines one or more arrays that are passed as arguments.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ARRAY_CONCAT(<arr1> [, ...n])
 | :---------------- | :-------------------------------------------------------------------------------------- |
 | `<arr> [, ...n]` | The arrays to be combined. If only one array is given, an identical array is returned. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for EXP function
 parent: SQL functions
 ---
 
-## EXP
+# EXP
 
 Returns the FLOAT value of the constant _e_ raised to the power of a specified number.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ EXP(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

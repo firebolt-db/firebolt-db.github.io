@@ -5,13 +5,13 @@ description: Reference material for ROW_NUMBER function
 parent: SQL functions
 ---
 
-## ROW\_NUMBER
+# ROW\_NUMBER
 
 Returns a unique row number for each row within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,7 +23,7 @@ ROW_NUMBER() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                                |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be used for `ROW_NUMBER`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 In this example below, students in each grade level are assigned a unique number.

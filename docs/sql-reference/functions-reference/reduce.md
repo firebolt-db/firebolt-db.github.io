@@ -5,11 +5,11 @@ description: Reference material for REDUCE function
 parent: SQL functions
 ---
 
-## REDUCE
+# REDUCE
 
 Applies an aggregate function on the elements of the array and returns its result. The name of the aggregation function is passed as a string in single quotes - for example: `'max'`, `'sum'`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ REDUCE(<agg_function>, <arr>)
 | `<agg_function>` | The name of an aggregate function which should be a constant string             |
 | `<arr>`          | Any number of array type columns as the parameters of the aggregation function. |
 
-##### Examples
+## Examples
 {: .no_toc}
 
 ```sql

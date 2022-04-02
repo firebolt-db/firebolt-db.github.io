@@ -4,11 +4,12 @@ title: CONTAINS
 description: Reference material for CONTAINS function
 parent: SQL functions
 ---
-## CONTAINS
+
+# CONTAINS
 
 Returns `1` if a specified argument is present in the array, or `0` otherwise.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +21,7 @@ CONTAINS(<arr>, <arg>)
 | `<arr>`   | The array to be checked for the given element.   |
 | `<arg>`   | The element to be searched for within the array. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

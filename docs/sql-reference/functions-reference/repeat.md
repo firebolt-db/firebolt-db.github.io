@@ -5,11 +5,11 @@ description: Reference material for REPEAT function
 parent: SQL functions
 ---
 
-## REPEAT
+# REPEAT
 
 This function repeats the provided string a requested number of times.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ REPEAT(<string>, <repeating_number>)
 | `<string>`           | The string to be repeated.                                                                                     |
 | `<repeating_number>` | The number of needed repetitions. The minimum valid repeating number is `0`, which results in an empty string. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

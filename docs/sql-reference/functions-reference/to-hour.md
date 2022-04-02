@@ -4,11 +4,11 @@ title: TO_HOUR
 parent: SQL functions
 ---
 
-## TO\_HOUR
+# TO\_HOUR
 
 Converts a date or timestamp to a number containing the hour.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +19,7 @@ Converts a date or timestamp to a number containing the hour.
 | :------------- | :---------------------------------------------------------- |
 | `<timestamp>` | The timestamp to be converted into the number of the hour. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975 at 12:20:05:

@@ -5,11 +5,11 @@ description: Reference material for ARRAY_CUMULATIVE_SUM function
 parent: SQL functions
 ---
 
-## ARRAY\_CUMULATIVE\_SUM
+# ARRAY\_CUMULATIVE\_SUM
 
 Returns an array of partial sums of elements from the source array (a running sum). If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ARRAY_CUMULATIVE_SUM( [<func>,] arr)
 | `<func>`  | The function used to convert the array members. |
 | `<arr>`   | The array used for the sum calculations.        |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

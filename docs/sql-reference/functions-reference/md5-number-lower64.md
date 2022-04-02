@@ -5,11 +5,11 @@ description: Reference material for MD5_NUMBER_LOWER64 function
 parent: SQL functions
 ---
 
-## MD5\_NUMBER\_LOWER64
+# MD5\_NUMBER\_LOWER64
 
 Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT
 | :---------- | :------------------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 hash value on and represent as `BIGINT.` |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for ARRAY_REVERSE function
 parent: SQL functions
 ---
 
-## ARRAY\_REVERSE
+# ARRAY\_REVERSE
 
 Returns an array of the same size as the original array, with the elements in reverse order.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ARRAY_REVERSE(<arr>)
 | :--------- | :------------------------- |
 | `<arr>`   | The array to be reversed. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

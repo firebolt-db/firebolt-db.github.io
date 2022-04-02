@@ -5,11 +5,11 @@ description: Reference material for ROUND function
 parent: SQL functions
 ---
 
-## ROUND
+# ROUND
 
 Rounds a value to a specified number of decimal places.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ROUND(<val> [, <dec>])
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `ROUND` returns whole numbers.  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

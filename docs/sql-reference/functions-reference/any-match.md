@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## ANY\_MATCH
+# ANY\_MATCH
 
 Returns `1` if at least one of the elements of an array matches the results of the function provided in the `<func>` parameter. Otherwise returns `0`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ Returns `1` if at least one of the elements of an array matches the results of t
 | `<func>`  | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty                                                                                                           |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

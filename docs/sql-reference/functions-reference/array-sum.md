@@ -5,11 +5,11 @@ description: Reference material for ARRAY_SUM function
 parent: SQL functions
 ---
 
-## ARRAY\_SUM
+# ARRAY\_SUM
 
 Returns the sum of elements of `<arr>`. If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ARRAY_SUM([<func>,] <arr>)
 | `<func>`  | A Lambda function with an [arithmetic function](../../general-reference/operators.md#arithmetic) used to modify the array elements. |
 | `<arr>`   | The array to be used to calculate the function.                                                                            |
 
-##### Example
+## Example
 {: .no_toc}
 
 This example below uses a function to first add 1 to all elements before calculating the sum:

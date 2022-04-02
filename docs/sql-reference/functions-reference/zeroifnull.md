@@ -5,11 +5,11 @@ description: Reference material for ZEROIFNULL function
 parent: SQL functions
 ---
 
-## ZEROIFNULL
+# ZEROIFNULL
 
 If the specified expression `<expr>` evaluates to `NULL`, returns a `0` instead of `NULL`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql

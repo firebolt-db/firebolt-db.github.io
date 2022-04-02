@@ -5,11 +5,11 @@ description: Reference material for COT function
 parent: SQL functions
 ---
 
-## COT
+# COT
 
 Calculates the cotangent.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ COT(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

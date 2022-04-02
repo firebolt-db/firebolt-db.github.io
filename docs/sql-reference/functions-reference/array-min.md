@@ -4,11 +4,12 @@ title: ARRAY_MIN
 description: Reference material for ARRAY_MIN function
 parent: SQL functions
 ---
-## ARRAY\_MIN
+
+# ARRAY\_MIN
 
 Returns the minimum element in `<arr>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +20,7 @@ ARRAY_MIN(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

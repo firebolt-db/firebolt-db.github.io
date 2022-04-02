@@ -36,13 +36,15 @@ STOP ENGINE MyDatabase_MyFireboltEngine
 ## To create an engine
 * Using a running engine, execute a `CREATE ENGINE` statement similar to one of the examples below. For more information, see [CREATE ENGINE](../sql-reference/commands/create-engine.md).
 
-##### Example &ndash; Create engine using default values
+### Example &ndash; Create engine using default values
+
 ```sql
 CREATE ENGINE MyDatabase_MyFireboltEngine;
 ```  
 `GENERAL_PURPOSE` is the default engine type if none is specified.
 
-##### Example &ndash; Create an analytics engine, specifying all properties
+### Example &ndash; Create an analytics engine, specifying all properties
+
 ```sql
 CREATE ENGINE MyDatabase_MyFireboltEngine WITH  
     REGION = 'us-west-2'  
@@ -54,6 +56,7 @@ CREATE ENGINE MyDatabase_MyFireboltEngine WITH
 ```
 
 ## To attach an engine to a database
+
 This action is available only using DDL.
 
 * Using a running engine, execute an `ATTACH ENGINE` statement similar to the example below.  
@@ -62,6 +65,7 @@ This action is available only using DDL.
 ```
 
 ## To edit \(ALTER\) an engine
+
 * Using a running engine, execute an `ALTER ENGINE` statement similar to the example below.  
 ```sql
 ALTER ENGINE MyDatabase_MyFireboltEngine SET  
@@ -73,6 +77,7 @@ ALTER ENGINE MyDatabase_MyFireboltEngine SET
 ```
 
 ## To delete \(DROP\) an engine
+
 * Using a running engine, execute a `DROP ENGINE` SQL statement similar to the example below.  
 ```sql
 DROP ENGINE MyDatabase_MyFireboltEngine;

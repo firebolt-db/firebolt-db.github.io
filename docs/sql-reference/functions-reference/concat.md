@@ -5,11 +5,11 @@ description: Reference material for CONCAT function
 parent: SQL functions
 ---
 
-## CONCAT
+# CONCAT
 
 Concatenates the strings listed in the arguments without a separator.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -25,7 +25,7 @@ CONCAT( <string>, <string2>[, ...n] );
 | :----------------------------- | :------------------------------- |
 | `<string>, <string2>[, ...n]` | The strings to be concatenated. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

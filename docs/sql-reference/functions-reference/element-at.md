@@ -5,11 +5,11 @@ description: Reference material for ELEMENT_AT function
 parent: SQL functions
 ---
 
-## ELEMENT\_AT
+# ELEMENT\_AT
 
 Returns the element at a location `<index>` from the given array. `<index>` must be any integer type. Indexes in an array begin at position `1`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ELEMENT_AT(<arr>, <index>)
 | `<arr>`   | The array containing the index.                                                                                                                                                                                            |
 | `<index>` | The index that is matched by the function. <br>Negative indexes are supported. If used, the function selects the corresponding element numbered from the end. For example, arr[-1] is the last item in the array. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

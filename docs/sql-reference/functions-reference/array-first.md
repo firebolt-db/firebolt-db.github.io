@@ -4,11 +4,12 @@ title: ARRAY_FIRST
 description: Reference material for ARRAY_FIRST function
 parent: SQL functions
 ---
-## ARRAY\_FIRST
+
+# ARRAY\_FIRST
 
 Returns the first element in the given array for which the given `<func>` function returns something other than `0`. The `<func>` argument must be included.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +21,7 @@ ARRAY_FIRST(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array evaluated by the function.                                                                                                                                           |
 
-##### Examples
+## Examples
 {: .no_toc}
 
 ```sql

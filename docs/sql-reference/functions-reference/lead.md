@@ -5,13 +5,13 @@ description: Reference material for LEAD function
 parent: SQL functions
 ---
 
-## LEAD
+# LEAD
 
 Returns values from the row after the current row within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -26,7 +26,7 @@ LEAD ( <val> [, <offset> [, <default> ] )
 | `<offset>`  | The number of rows forward from the current row from which to obtain a value.                                                                                         |
 | `<default>` | The expression to return when the offset goes out of the bounds of the window. Supports any expression whose type is compatible with expression. The default is `NULL`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 In the example below, the `LEAD` function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LEAD` function returns `NULL`.

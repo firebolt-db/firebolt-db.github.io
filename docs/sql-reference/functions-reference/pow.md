@@ -5,11 +5,11 @@ description: Reference material for POW, POWER functions
 parent: SQL functions
 ---
 
-## POW, POWER
+# POW, POWER
 
 Returns a number `<val>` raised to the specified power `<exp>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ POWER(<val>, <exp>)​;
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 | `<exp>`   | The exponent value used to raise `<val>`                                                                            |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

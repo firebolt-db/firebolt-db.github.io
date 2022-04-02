@@ -4,13 +4,14 @@ title: TRANSFORM
 description: Reference material for TRANSFORM function
 parent: SQL functions
 ---
-## TRANSFORM
+
+# TRANSFORM
 
 Returns an array by applying `<func>` on each element of `<arr>`.
 
 The Lambda function `<func>` is mandatory.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +23,7 @@ TRANSFORM(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be transformed by the function.                                                                                                                                   |
 
-##### Examples
+## Examples
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for REGEXP_LIKE function
 parent: SQL functions
 ---
 
-## REGEXP\_LIKE
+# REGEXP\_LIKE
 
 This check whether a string pattern matches a regular expression string. Returns `0` if it doesn’t match, or `1` if it matches. ​ This is a ​​RE2​​ regular expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ This check whether a string pattern matches a regular expression string. Returns
 | `<string>`  | The string searched for a match using the RE2 pattern.    |
 | `<pattern>` | The pattern used to search for a match in the `<string>`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

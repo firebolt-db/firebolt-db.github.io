@@ -5,11 +5,11 @@ description: Reference material for REPLACE function
 parent: SQL functions
 ---
 
-## REPLACE
+# REPLACE
 
 Replaces all occurrences of the `<pattern>` substring within the `<string>` with the `<replacement>` substring.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ REPLACE (<string>, <pattern>, <replacement>)​
 | `<pattern>`     | The substring to be searched and replaced in the string.                                                                                                                                   |
 | `<replacement>` | The substring to replace the original substring defined by `<pattern>`. To remove the `<pattern>` substring with no replacement, you can use a empty string `''` as the replacement value. |
 
-##### Example
+## Example
 {: .no_toc}
 
 In the example below, "hello" in "hello world" is replaced with "nice".

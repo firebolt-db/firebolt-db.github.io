@@ -5,11 +5,11 @@ description: Reference material for ATAN function
 parent: SQL functions
 ---
 
-## ATAN
+# ATAN
 
 Calculates the arc tangent of the real number returned by the specified expression `<expr>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ATAN(<expr>)
 | :-------- | :-----------|
 | `<expr>`  | Any expression that evaluates to a real number. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The following example returns the arc tangent of the specified literal value `90`.

@@ -5,11 +5,11 @@ description: Reference material for TO_MONTH function
 parent: SQL functions
 ---
 
-## TO\_MONTH
+# TO\_MONTH
 
 Converts a date or timestamp (any date format we support) to a number containing the month.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql

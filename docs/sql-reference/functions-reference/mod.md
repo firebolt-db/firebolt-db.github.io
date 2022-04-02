@@ -5,11 +5,11 @@ description: Reference material for MOD function
 parent: SQL functions
 ---
 
-## MOD
+# MOD
 
 Calculates the remainder after dividing two values, `<num>` / `<den>.`
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ MOD(<num>,<den>)
 | `<num>`   | The numerator of the division equation.   |
 | `<den>`   | The denominator of the division equation. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

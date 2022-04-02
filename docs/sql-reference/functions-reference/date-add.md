@@ -4,11 +4,12 @@ title: DATE_ADD
 description: Reference material for DATE_ADD function
 parent: SQL functions
 ---
-## DATE\_ADD
+
+# DATE\_ADD
 
 Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified number of time units from an indicated expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +22,7 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 | `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP`. value.                                                              |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.

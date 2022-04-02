@@ -5,12 +5,11 @@ description: Reference material for SUM
 parent: SQL functions
 ---
 
-
-## SUM
+# SUM
 
 Calculates the sum of an expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for TO_DATE function
 parent: SQL functions
 ---
 
-## TO\_DATE
+# TO\_DATE
 
 Converts a string to `DATE` type.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a string to `DATE` type.
 | :---------- | :-------------------------------------------------------------------------- |
 | `<string>` | The string to convert to a date. The string format should be: ‘YYYY-MM-DD’ |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

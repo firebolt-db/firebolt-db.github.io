@@ -5,11 +5,11 @@ description: Reference material for MATCH function
 parent: SQL functions
 ---
 
-## MATCH
+# MATCH
 
 Checks whether the string matches the regular expression `<pattern`>, which is a RE2 regular expression. ​ Returns `0` if it doesn’t match, or `1` if it matches.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ Checks whether the string matches the regular expression `<pattern`>, which is a
 | `<string>`  | The string used to search for a match.                                |
 | `<pattern>` | The regular expression pattern used to search `<string>` for a match. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below generates `0` as a result because it found no match. It is searching a string of numbers for alphabet characters.\*\* \*\*

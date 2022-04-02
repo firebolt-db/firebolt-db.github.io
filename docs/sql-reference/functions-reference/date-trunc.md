@@ -5,11 +5,11 @@ description: Reference material for DATE_TRUNC function
 parent: SQL functions
 ---
 
-## DATE\_TRUNC
+# DATE\_TRUNC
 
 Truncate a given date to a specified position.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ Truncate a given date to a specified position.
 | `<precision>` | The time unit for the returned value to be expressed. ​ This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`    |
 | `<date>`      | The date to be truncated. This can be any expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.

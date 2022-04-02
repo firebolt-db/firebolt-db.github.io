@@ -5,12 +5,11 @@ description: Reference material for ARRAY_COUNT function
 parent: SQL functions
 ---
 
-
-## ARRAY\_COUNT
+# ARRAY\_COUNT
 
 Returns the number of elements in the `<arr>` array that match a specified function `<func>`. If you want only a count of the elements in an array without any conditions, we recommend using the [LENGTH](./length.md) function instead.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +21,7 @@ ARRAY_COUNT(<func>, <arr>)
 | `<func>`  | Optional. A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<func>` is not included, `ARRAY_COUNT` will return a count of all non-false elements in the array. |
 | `<arr>`   | An array of elements                                                                                                                                                                                                                                                                  |
 
-##### Examples
+## Examples
 {: .no_toc}
 
 The example below searches through the array for any elements that are greater than 3. Only one number that matches this criteria is found, so the function returns `1`

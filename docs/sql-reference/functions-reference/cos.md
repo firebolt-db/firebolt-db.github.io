@@ -5,11 +5,11 @@ description: Reference material for COS function
 parent: SQL functions
 ---
 
-## COS
+# COS
 
 Calculates the cosine.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ COS(<exp>)
 | :--------- | :----------------------------------------------------- |
 | `<exp>`   | Any expression that evaluates to a numeric data type. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

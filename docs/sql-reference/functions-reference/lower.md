@@ -5,11 +5,11 @@ description: Reference material for LOWER function
 parent: SQL functions
 ---
 
-## LOWER
+# LOWER
 
 Converts the string to a lowercase format.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts the string to a lowercase format.
 | :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```

@@ -5,13 +5,11 @@ description: Reference material for JSON_EXTRACT_VALUES function
 parent: SQL functions
 ---
 
-## JSON_EXTRACT_VALUES
+# JSON_EXTRACT_VALUES
 
-Returns an array of string representations, each element containing the value pointed by the JSON Pointer.
+Returns an array of string values from a JSON document using the key location specified by the `<json_pointer_expression>.` If no such key exists, returns `NULL.`
 
-For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
-
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,17 +18,13 @@ For more information on manipulating JSON data sets, please refer to [JSON funct
 
 | Parameter                   | Type           | Description                                                     |
 | :--------------------------- | :-------------- | :--------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which the values are to be extracted     |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location where values are to be extracted |
+| `<json>`                    | TEXT           | The JSON document from which the values are to be extracted.     |
+| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax). |
 
-**Return value**
-
-A Firebolt array of string values based on the location specified by the `<json_pointer_expression>.` If no such key exists, it returns `NULL.`
-
-##### Example
+## Example
 {: .no_toc}
 
-The example below uses our [JSON Common Example](./index.md#json-common-example)
+For the JSON document indicated by `<json_common_example>` below, see [JSON common example](./index.md#json-common-example). The **Returns** result is based on this common example.
 
 ```sql
 SELECT
@@ -39,4 +33,6 @@ FROM
     RAW_JSON
 ```
 
-**Returns**: `["987","\"987654\"","[\"insanely\",\"fast\",\"analytics\"]","{\"map\":{\"1737729\":32,\"1775582\":35}}","[{\"EventId\":547,\"EventProperties\":{\"UserName\":\"John Doe\",\"Successful\":true}},{\"EventId\":548,\"EventProperties\":{\"ProductID\":\"xy123\",\"items\":2}}]"]`
+**Returns**:
+
+`["987","\"987654\"","[\"insanely\",\"fast\",\"analytics\"]","{\"map\":{\"1737729\":32,\"1775582\":35}}","[{\"EventId\":547,\"EventProperties\":{\"UserName\":\"John Doe\",\"Successful\":true}},{\"EventId\":548,\"EventProperties\":{\"ProductID\":\"xy123\",\"items\":2}}]"]`

@@ -17,7 +17,7 @@ Apache Parquet is a binary file format that can store complex nested file struct
 
 When you set up an external table to ingest Parquet data files, you use a hierarchical dotted notation syntax to define table columns. Firebolt uses this notation to identify the field to ingest.
 
-### Prerequisite
+## Prerequisite
 
 To run queries and DML commands on external tables that use this notation, you must run the `SET` command shown in the example below. You cannot run the `SET` clause within another statement. In other words, it must be on its own and terminated by a semi-colon. This also applies to external tables connected to AWS Glue.
 
@@ -25,7 +25,7 @@ To run queries and DML commands on external tables that use this notation, you m
 SET use_short_column_path_parquet = 1;
 ```
 
-##### Syntax for defining a Parquet nested structure
+## Syntax for defining a Parquet nested structure
 
 You specify the top grouping element of a nested structure in Parquet followed by the field in that structure that contains the data to ingest. You then declare the column type using the `ARRAY(<data_type>)` notation, where `<data type>` is the [Firebolt data type](../general-reference/data-types.md) corresponding to the data type of the field in Parquet.
 
@@ -54,7 +54,8 @@ optional group hashtags (LIST) {
 
 The steps below demonstrate the process to ingest the array values into Firebolt. You create an external table, create a fact table, and insert data into the fact table from the external table, which is connected to the Parquet data store.
 
-### Step 1&ndash;create an external table  
+### Step 1&ndash;create an external table
+
 The `CREATE EXTERNAL TABLE` example below creates a column in an external table from the Parquet schema shown in the example above. The column definition uses the top level grouping `hashtags` followed by the field `some_value`. Intermediate nesting levels are omitted.
 
 ```sql

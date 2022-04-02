@@ -5,13 +5,13 @@ description: Reference material for RANK function
 parent: SQL functions
 ---
 
-## RANK
+# RANK
 
 Rank the current row within the requested window with gaps.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,7 +23,7 @@ RANK() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
 | `<val>`   | The expression used for the `PARTITION BY` clause.                                                 |
 | `<exp>`   | The expression used in the `ORDER BY` clause. This parameter determines what value will be ranked. |
 
-##### Example
+## Example
 {: .no_toc}
 
 In this example below, students are ranked based on their test scores for their grade level.

@@ -5,11 +5,11 @@ description: Reference material for TAN function
 parent: SQL functions
 ---
 
-## TAN
+# TAN
 
 Calculates the tangent.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ TAN(<val>)
 | :--------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

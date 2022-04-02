@@ -5,11 +5,11 @@ description: Reference material for REVERSE function
 parent: SQL functions
 ---
 
-## REVERSE
+# REVERSE
 
 This function returns a string of the same size as the original string, with the elements in reverse order.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ REVERSE(<string>)
 | :---------- | :-------------------------- |
 | `<string>` | The string to be reversed. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

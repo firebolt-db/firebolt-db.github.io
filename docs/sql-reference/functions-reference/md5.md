@@ -5,11 +5,11 @@ description: Reference material for MD5 function
 parent: SQL functions
 ---
 
-## MD5
+# MD5
 
 Calculates the MD5 hash of string, returning the result as a string in hexadecimal.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 | :---------- | :--------------------------------------------------------- |
 | `<string>` | The string to hash. For `NULL`, the function returns `0`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

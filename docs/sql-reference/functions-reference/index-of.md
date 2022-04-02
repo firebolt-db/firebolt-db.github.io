@@ -4,11 +4,12 @@ title: INDEX_OF
 description: Reference material for INDEX_OF function
 parent: SQL functions
 ---
-## INDEX\_OF
+
+# INDEX\_OF
 
 Returns the index position of the first occurrence of the element in the array (or `0` if not found).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +21,7 @@ INDEX_OF(<arr>, <x>)
 | `<arr>`   | The array to be analyzed.                         |
 | `<x>`     | The element from the array that is to be matched. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

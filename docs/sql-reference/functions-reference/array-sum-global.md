@@ -5,13 +5,13 @@ description: Reference material for ARRAY_SUM_GLOBAL function
 parent: SQL functions
 ---
 
-## ARRAY\_SUM\_GLOBAL
+# ARRAY\_SUM\_GLOBAL
 
 Returns the sum of elements in the array column accumulated over the rows in each group.
 
 For more information and the sample data used in the example below, please refer to [Aggregate Array Functions](./aggregate-array-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 The example below uses the following table `T`:
@@ -30,7 +30,7 @@ ARRAY_SUM_GLOBAL(<arr>)
 | :--------- | :-------------------------------------------------------------- |
 | `<arr>`   | The array column over which the function will sum the elements |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

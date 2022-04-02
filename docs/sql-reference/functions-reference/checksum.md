@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## CHECKSUM
+# CHECKSUM
 
 Calculates a hash value known as a checksum operation on a list of arguments. When `*` is specified as an argument - calculates checksum over all columns in the input. Performing a checksum operation is useful for warming up table data or to check if the same values exist in two different tables.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -18,7 +18,7 @@ CHECKSUM( <expr1> [, <expr2>] [, <expr3>] [, ...<exprN>] )
 CHECKSUM(*)
 ```
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we'll create a new table `albums` as shown below.&#x20;

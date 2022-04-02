@@ -5,11 +5,11 @@ description: Reference material for TO_FLOAT function
 parent: SQL functions
 ---
 
-## TO\_FLOAT
+# TO\_FLOAT
 
 Converts a string to a numeric `FLOAT` data type.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ TO_FLOAT(<expr>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

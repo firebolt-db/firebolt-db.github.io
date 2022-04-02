@@ -5,11 +5,11 @@ description: Reference material for SIN function
 parent: SQL functions
 ---
 
-## SIN
+# SIN
 
 Calculates the sinus.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ SIN(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

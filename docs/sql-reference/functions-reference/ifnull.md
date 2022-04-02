@@ -5,10 +5,10 @@ description: Reference material for IFNULL function
 parent: SQL functions
 ---
 
-## IFNULL
+# IFNULL
 Compares two expressions. Returns `<expr1>` if it’s not `NULL`, otherwise returns `<expr2>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +19,7 @@ IFNULL(<exp1>, <exp2>)
 | :-------- | :---------- |
 | `<expr1>`, `<expr2>` | Expressions that evaluate to any data type that Firebolt supports. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The following truth table demonstrates values that `IFNULL` returns based on the values of two column expressions: `col1` and `col2`.

@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## COUNT
+# COUNT
 
 Counts the number of rows or not NULL values.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -26,7 +26,7 @@ COUNT([ DISTINCT ] <expr>)
 >
 > By default, `COUNT(DISTINCT)` returns approximate results. To get a precise result, with a performance penalty, use `SET firebolt_optimization_enable_exact_count_distinct=1;`
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we'll create a new table `number_test` as shown below.&#x20;

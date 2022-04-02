@@ -5,11 +5,11 @@ description: Reference material for SQRT function
 parent: SQL functions
 ---
 
-## SQRT
+# SQRT
 
 Returns the square root of a non-negative numeric expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ SQRT(<val>);
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. Returns `NULL `if a negative value is given.  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

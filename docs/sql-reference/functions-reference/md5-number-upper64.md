@@ -5,11 +5,11 @@ description: Reference material for MD5_NUMBER_UPPER64 function
 parent: SQL functions
 ---
 
-## MD5\_NUMBER\_UPPER64
+# MD5\_NUMBER\_UPPER64
 
 Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT
 | :---------- | :------------------------------------------------------------ |
 | `<string>` | The string to calculate the MD5 on and represent as `BIGINT` |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

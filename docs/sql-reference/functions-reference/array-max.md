@@ -4,11 +4,12 @@ title: ARRAY_MAX
 description: Reference material for ARRAY_MAX function
 parent: SQL functions
 ---
-## ARRAY\_MAX
+
+# ARRAY\_MAX
 
 Returns the maximum element in an array `<arr>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +20,7 @@ ARRAY_MAX(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array or array-type column to be checked |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

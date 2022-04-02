@@ -5,13 +5,13 @@ description: Reference material for ARRAY_MIN_GLOBAL function
 parent: SQL functions
 ---
 
-## ARRAY\_MIN\_GLOBAL
+# ARRAY\_MIN\_GLOBAL
 
 Returns the minimal element taken from all the array elements in each group.
 
 For more information and the sample data used in the example below, please refer to [Aggregate Array Functions](./aggregate-array-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 The example below uses the following table `T`:
@@ -30,7 +30,7 @@ ARRAY_MIN_GLOBAL(<arr>)
 | :--------- | :------------------------------------------------------------------------ |
 | `<arr>`   | The array column from which the function will return the minimal element |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

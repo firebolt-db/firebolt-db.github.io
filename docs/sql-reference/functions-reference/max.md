@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## MAX
+# MAX
 
 Calculates the maximum value of an expression across all input values.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ Calculates the maximum value of an expression across all input values.
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we'll create a new table `prices` as shown below.

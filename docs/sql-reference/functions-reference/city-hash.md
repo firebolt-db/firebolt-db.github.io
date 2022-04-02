@@ -5,11 +5,11 @@ description: Reference material for CITY_HASH function
 parent: SQL functions
 ---
 
-## CITY_HASH
+# CITY_HASH
 
 Takes one or more input parameters of any data type and returns a 64-bit non-cryptographic hash value. `CITY_HASH` uses the CityHash algorithm for string data types, implementation-specific algorithms for other data types, and the CityHash combinator to produce the resulting hash value.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ CITY_HASH(<exp>, [, expr2 [,...]])
 | :--------- | :---------------------------------------------------------------- |
 | `<exp>`   | An expression that returns any data type that Firebolt supports. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

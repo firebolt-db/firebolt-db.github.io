@@ -5,13 +5,11 @@ description: Reference material for JSON_EXTRACT_KEYS function
 parent: SQL functions
 ---
 
-## JSON_EXTRACT_KEYS
+# JSON_EXTRACT_KEYS
 
 Returns an array of strings containing the keys at the nesting level indicated by the specified `<json_pointer_expression>`. If keys do not exist, returns `NULL`.
 
-For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
-
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,17 +18,17 @@ JSON_EXTRACT_KEYS(<json>, '<json_pointer_expression>')
 
 | Parameter                   | Type           | Description                                                     |
 | :--------------------------- | :-------------- | :--------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document used for key extraction                       |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to a location where the keys are to be extracted |
+| `<json>`                    | TEXT           | The JSON document from which keys are to be extracted.                      |
+| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax). |
 
-##### Example
+## Example
 {: .no_toc}
 
-The example below uses our [JSON Common Example](./index.md#json-common-example)
+For the JSON document indicated by `<json_common_example>` below, see [JSON common example](./index.md#json-common-example). The **Returns** result is based on this common example.
 
 ```sql
 SELECT
-	JSON_EXTRACT_KEYS(< json_common_example >, 'value')
+	JSON_EXTRACT_KEYS(<json_common_example>, 'value')
 FROM
 	RAW_JSON
 ```

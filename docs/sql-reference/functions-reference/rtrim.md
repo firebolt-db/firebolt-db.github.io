@@ -5,11 +5,11 @@ description: Reference material for RTRIM function
 parent: SQL functions
 ---
 
-## RTRIM
+# RTRIM
 
 Removes all consecutive occurrences of common whitespace (ASCII character 32) from the end of a string. It doesn’t remove other kinds of whitespace characters (tab, no-break space, etc.).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 | :---------- | :------------------------- |
 | `<target>` | The string to be trimmed. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

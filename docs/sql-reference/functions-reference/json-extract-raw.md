@@ -5,13 +5,11 @@ description: Reference material for JSON_EXTRACT_RAW function
 parent: SQL functions
 ---
 
-## JSON_EXTRACT_RAW
+# JSON_EXTRACT_RAW
 
 Returns a string representation of the scalar or sub-object under the key indicated by `<json_pointer_expression>` if the key exists. If the key does not exist, returns `NULL`.
 
-For more information on manipulating JSON data sets, please refer to [JSON function reference conventions](./index.md#json-function-reference-conventions).
-
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,13 +18,13 @@ For more information on manipulating JSON data sets, please refer to [JSON funct
 
 | Parameter                   | Type           | Description                                                       |
 | :--------------------------- | :-------------- | :----------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which the value is to be extracted         |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the scalar or value in the JSON |
+| `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.         |
+| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax). |
 
-##### Example
+## Example
 {: .no_toc}
 
-The examples below use our [JSON Common Example](./index.md#json-common-example)
+For the JSON document indicated by `<json_common_example>` below, see [JSON common example](./index.md#json-common-example). The **Returns** result is based on this common example.
 
 ```sql
 SELECT

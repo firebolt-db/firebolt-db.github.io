@@ -5,11 +5,11 @@ description: Reference material for ARRAY_DISTINCT function
 parent: SQL functions
 ---
 
-## ARRAY\_DISTINCT
+# ARRAY\_DISTINCT
 
 Returns an array containing only the _unique_ elements of the given array. In other words, if the given array contains multiple identical members, the returned array will include only a single member of that value.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ARRAY_DISTINCT(<arr>)
 | :--------- | :-------------------------------------------- |
 | `<arr>`   | The array to be analyzed for unique members. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

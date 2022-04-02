@@ -5,13 +5,13 @@ description: Reference material for RPAD function
 parent: SQL functions
 ---
 
-## RPAD
+# RPAD
 
 Adds a specified pad string to the end of the string repetitively up until the length of the resulting string is equivalent to an indicated length.
 
 The similar function to pad the start of a string is [`LPAD`](./lpad.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -24,7 +24,7 @@ The similar function to pad the start of a string is [`LPAD`](./lpad.md).
 | `<length>` | The integer length that the string will be after it has been left-padded. ​ A negative number returns an empty string.                                                                                                      |
 | `<pad>`    | The string to add to the end of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                       |
 
-##### Example
+## Example
 {: .no_toc}
 
 The following statement adds the string "ABC" to the end of the string "Firebolt" repetitively until the resulting string is equivalent to 20 characters in length.

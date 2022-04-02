@@ -5,11 +5,11 @@ description: Reference material for TO_WEEK function
 parent: SQL functions
 ---
 
-## TO\_WEEK
+# TO\_WEEK
 
 Converts a date or timestamp to a number representing the week. This function defines week 1 of a calendar year as the first full week of a calendar year starting on a Sunday.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a date or timestamp to a number representing the week. This function de
 | :--------- | :------------------------------------------------------------------ |
 | `<date>`  | The date or timestamp to be converted into the number of the week. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For Sunday, Jan. 1,  2017:&#x20;

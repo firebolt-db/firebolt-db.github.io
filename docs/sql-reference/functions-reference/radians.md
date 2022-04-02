@@ -5,11 +5,11 @@ description: Reference material for RADIANS function
 parent: SQL functions
 ---
 
-## RADIANS
+# RADIANS
 
 Converts degrees to radians as a `FLOAT` value.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts degrees to radians as a `FLOAT` value.
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

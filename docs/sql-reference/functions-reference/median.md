@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## MEDIAN
+# MEDIAN
 
 Calculates an approximate median for a given column.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ Calculates an approximate median for a given column.
 | :--------- | :------------------------------------------------------------------------------------------------------------------ |
 | `<col>`   | The column used to calculate the median value. This column can consist of numeric data types or DATE and DATETIME. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we'll create a new table `num_test `as shown below:

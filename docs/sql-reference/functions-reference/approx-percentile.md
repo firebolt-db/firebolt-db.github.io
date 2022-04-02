@@ -5,7 +5,7 @@ description: Reference material for APPROX_PERCENTILE
 parent: SQL functions
 ---
 
-## APPROX\_PERCENTILE
+# APPROX\_PERCENTILE
 
 Returns an approximate value for the specified percentile based on the range of numbers returned by the expression.&#x20;
 
@@ -13,7 +13,7 @@ For example, if you run `APPROX_PERCENTILE` with a specified `<percent>` of .75 
 
 The number returned is not necessarily in the original range of numbers.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -25,7 +25,7 @@ APPROX_PERCENTILE(<expr>,<percent>)
 | `<expr>`    | A valid expression, such as a column name, that evaluates to numeric values.                                              |
 | `<percent>` | A constant real number greater than or equal to 0.0 and less than 1. For example, `.999` specifies the 99.9th percentile. |
 
-##### Example
+## Example
 {: .no_toc}
 
 To demonstrate `APPROX_PERCENTILE`, we'll use the example table `number_test` as created below. This provides a range of numbers between 1 and 100.

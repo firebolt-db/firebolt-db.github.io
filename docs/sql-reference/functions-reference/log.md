@@ -5,11 +5,11 @@ description: Reference material for LOG function
 parent: SQL functions
 ---
 
-## LOG
+# LOG
 
 Returns the natural logarithm of a numeric expression based on the desired base.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ LOG([<base>,] <num>);
 | `<base>`    | Optional. The base for the logarithm. The default base is 10.                                                       |
 | `<numeric>` | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 This example below returns the logarithm of 64.0 with base 2.&#x20;

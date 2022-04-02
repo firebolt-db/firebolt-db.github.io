@@ -5,11 +5,11 @@ description: Reference material for TRIM function
 parent: SQL functions
 ---
 
-## TRIM
+# TRIM
 
 Removes all specified characters from the start, end, or both sides of a string. By default removes all consecutive occurrences of common whitespace (ASCII character 32) from both ends of a string.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ Removes all specified characters from the start, end, or both sides of a string.
 | `<trim_character>`                | The characters to be removed.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `<target_string>`                 | The string to be trimmed.                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-##### Example
+## Example
 {: .no_toc}
 
 In the example below, no part of the string is specified for `TRIM`, so it defaults to `BOTH`.

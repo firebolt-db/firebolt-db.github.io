@@ -5,11 +5,11 @@ description: Reference material for ASIN function
 parent: SQL functions
 ---
 
-## ASIN
+# ASIN
 
 Calculates the arc sinus. `ASIN` returns `NULL` if `<val>` is higher than 1.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ASIN(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

@@ -5,11 +5,11 @@ description: Reference material for SPLIT function
 parent: SQL functions
 ---
 
-## SPLIT
+# SPLIT
 
 This function splits a given string by a given separator and returns the result in an array of strings.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ SPLIT( <delimiter>, <string> )
 | `<delimiter>` | The separator to split the string by. |
 | `<string>`    | The string to split.                  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

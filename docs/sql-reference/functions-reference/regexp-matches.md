@@ -5,7 +5,7 @@ description: Reference material for REGEXP_MATCHES function
 parent: SQL functions
 ---
 
-## REGEXP\_MATCHES
+# REGEXP\_MATCHES
 
 Returns an array of all substrings that match a regular expression pattern. If the pattern does not match, returns an empty array.
 
@@ -19,7 +19,7 @@ REGEXP_MATCHES(<string>, <pattern>[,'<flag>[...]'])
 | `<pattern>` | An [re2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `<flag>`    | Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character.<br>Firebolt supports the following re2 flags to override default matching behavior.* `i` - Specifies case-insensitive matching.<br>* `m` - Specifies multi-line mode. In this mode, `^` and `$` characters in the regex match the beginning and end of line.<br>* `s` - Specifies that the `.` metacharacter in regex matches the newline character in addition to any character in `.`<br>* Specifies Ungreedy mode. In this mode, the meaning of the metacharacters `*` and `+` in regex `<pattern>` are swapped with `*?` and `+?`, respectively. See the examples using flags below for the difference in how results are returned. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql
@@ -34,7 +34,7 @@ SELECT
 ```
 **Returns**: `["Firebolt", "REGEX"]`
 
-##### Example&ndash;using flags
+## Example&ndash;using flags
 
 The `i` flag causes the regular expression to be case insensitive. Without this flag, this query would only match and return `ABC`.
 

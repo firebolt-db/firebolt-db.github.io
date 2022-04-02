@@ -5,18 +5,18 @@ description: Reference material for PI function
 parent: SQL functions
 ---
 
-## PI
+# PI
 
 Calculates π as a FLOAT value.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
 ​​PI() ​​
 ```
 
-##### Example
+## Example
 {: .no_toc}
 
 ```

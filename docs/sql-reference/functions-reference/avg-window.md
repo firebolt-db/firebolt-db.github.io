@@ -5,13 +5,13 @@ description: Reference material for AVG function
 parent: SQL functions
 ---
 
-## AVG
+# AVG
 
 Returns the average value within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -24,7 +24,7 @@ AVG( <val> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `AVG()` function.    |
 | `<expr>`  | An expression used for the partition by clause. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below is querying test scores for students in various grade levels. Unlike a regular `AVG()` aggregation, the window function allows us to see how each student individually compares to the average test score for their grade level.

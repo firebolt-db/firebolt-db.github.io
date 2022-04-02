@@ -5,11 +5,11 @@ description: Reference material for DATE_FORMAT function
 parent: SQL functions
 ---
 
-## DATE\_FORMAT
+# DATE\_FORMAT
 
 Formats a `DATE` or `DATETIME` according to the given format expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -45,7 +45,7 @@ Formats a `DATE` or `DATETIME` according to the given format expression.
 | `%Y`                     | Year                                                                        | `1975`                                                                                     |
 | `%%`                     | Escape character to use a `%` sign                                          | `%`                                                                                        |
 
-##### Example
+## Example
 {: .no_toc}
 
 The examples below use a table `date_test` with the columns and values below. The following examples use these `TIMESTAMP` values to demonstrate the various `DATE_FORMAT` expressions.

@@ -4,11 +4,12 @@ title: DATE_DIFF
 description: Reference material for DATE_DIFF function
 parent: SQL functions
 ---
-## DATE\_DIFF
+
+# DATE\_DIFF
 
 Calculates the difference between ​​`start_date`​​ and ​`end_date`​​ by the indicated ​unit​​.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +22,7 @@ Calculates the difference between ​​`start_date`​​ and ​`end_date`​�
 | `<start_date>` | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 | `<end_date>`   | An expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below uses a table `date_test` with the columns and values below.

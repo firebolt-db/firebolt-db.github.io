@@ -5,11 +5,11 @@ description: Reference material for LENGTH function
 parent: SQL functions
 ---
 
-## LENGTH
+# LENGTH
 
 Calculates the string length.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Calculates the string length.
 | :---------- | :------------------------------------------ |
 | `<string>` | The string for which to return the length. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

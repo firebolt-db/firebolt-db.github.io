@@ -6,13 +6,13 @@ parent: SQL functions
 ---
 
 
-## MAX\_BY
+# MAX\_BY
 
 The `MAX_BY` function returns a value for the `<arg>` column based on the max value in a separate column, specified by `<val>`.
 
 If there is more than one max value in `<val>`, then the first will be used.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -24,7 +24,7 @@ MAX_BY(<arg>, <val>)
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a maximum value. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:

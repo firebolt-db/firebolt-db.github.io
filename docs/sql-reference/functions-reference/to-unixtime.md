@@ -5,11 +5,11 @@ description: Reference material for TO_UNIXTIME function
 parent: SQL functions
 ---
 
-## TO\_UNIXTIME
+# TO\_UNIXTIME
 
 For ​`DATETIME` ​​arguments: this function converts the value to its internal numeric representation (Unix Timestamp). ​ For ​`TEXT` ​​arguments: this function parses ​`DATETIME` ​​from a string and returns the corresponding Unix timestamp.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ For ​`DATETIME` ​​arguments: this function converts the value to its inter
 | :---------- | :--------------------------- |
 | `<string>` | The string to be converted. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

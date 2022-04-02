@@ -5,18 +5,18 @@ description: Reference material for TIMEZONE function
 parent: SQL functions
 ---
 
-## TIMEZONE
+# TIMEZONE
 
 Returns the current timezone of the request execution
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
 ​​TIMEZONE()​​
 ```
 
-##### Example
+## Example
 {: .no_toc}
 
 

@@ -4,11 +4,12 @@ title: NEST
 description: Reference material for NEST function
 parent: SQL functions
 ---
-## NEST
+
+# NEST
 
 Takes a column as an argument, and returns an array of the values. In case the type of the column is nullable, the `NULL` values will be ignored.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +20,7 @@ Takes a column as an argument, and returns an array of the values. In case the t
 | :--------- | :--------------------------------------------------- |
 | `<col>`   | The name of the column to be converted to an array. |
 
-##### Example
+## Example
 {: .no_toc}
 
 Assume we have the following `prices` table:

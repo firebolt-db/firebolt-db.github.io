@@ -5,13 +5,13 @@ description: Reference material for COUNT function
 parent: SQL functions
 ---
 
-## COUNT
+# COUNT
 
 Count the number of values within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md)  
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,7 +23,7 @@ COUNT( <val> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `COUNT()` function.   |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
 
-##### Example
+## Example
 {: .no_toc}
 
 This example below generates a count of how many students are in each grade level while leaving each student as an independent row.

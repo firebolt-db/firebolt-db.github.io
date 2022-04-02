@@ -5,11 +5,11 @@ description: Referece material for TO_DAY_OF_WEEK function
 parent: SQL functions
 ---
 
-## TO\_DAY\_OF\_WEEK
+# TO\_DAY\_OF\_WEEK
 
 Converts a date or timestamp to a number representing the day of the week (Monday is 1, and Sunday is 7).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a date or timestamp to a number representing the day of the week (Monda
 | :--------- | :------------------------------------------------------- |
 | `<date>`  | An expression that evaluates to a `DATE `or `TIMESTAMP` |
 
-##### Example
+## Example
 {: .no_toc}
 
 This example below finds the day of week number for April 22, 1975. The string first needs to be transformed to `DATE `type using the `CAST `function.

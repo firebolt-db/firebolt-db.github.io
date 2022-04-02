@@ -6,11 +6,11 @@ parent: SQL functions
 ---
 
 
-## AVG
+# AVG
 
 Calculates the average of an expression.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql

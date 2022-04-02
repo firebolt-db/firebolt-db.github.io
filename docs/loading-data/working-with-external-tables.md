@@ -40,7 +40,7 @@ The metadata virtual columns listed below are available in external tables.
 
 For an additional example, see [Extracting partition values using INSERT INTO](../sql-reference/commands/insert-into.md#extracting-partition-values-using-insert-into).
 
-##### Example&ndash;querying metadata virtual column values
+### Example&ndash;querying metadata virtual column values
 
 The query example below creates an external table that references an AWS S3 bucket that contains Parquet files from which Firebolt will ingest values for `c_id` and `c_name`.
 

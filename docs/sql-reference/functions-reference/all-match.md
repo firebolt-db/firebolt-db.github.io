@@ -5,11 +5,11 @@ description: Reference material for ALL_MATCH function
 parent: SQL functions
 ---
 
-## ALL\_MATCH
+# ALL\_MATCH
 
 Returns `1` if all elements of an array match the results of the function provided in the `<func>` parameter, otherwise returns `0`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ ALL_MATCH(<func>, <arr>)
 | `<func>`  | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr>`   | The array to be matched with the function. The array cannot be empty.                                                                                                          |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

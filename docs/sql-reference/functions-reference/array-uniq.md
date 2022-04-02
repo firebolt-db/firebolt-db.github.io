@@ -5,11 +5,11 @@ description: Reference material for ARRAY_UNIQ function
 parent: SQL functions
 ---
 
-## ARRAY\_UNIQ
+# ARRAY\_UNIQ
 
 If one argument is passed, returns the number of different elements in the array. If multiple arguments are passed, returns the number of different tuples of elements at corresponding positions in multiple arrays.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ARRAY_UNIQ(<arr> [, ...n])
 | :---------------- | :----------------------------------- |
 | `<arr> [, ...n]` | The array or arrays to be analyzed. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql
@@ -30,7 +30,7 @@ SELECT
 
 **Returns**: `4`
 
-##### Example&ndash;using multiple arrays
+## Example&ndash;using multiple arrays
 {: .no_toc}
 
 When using multiple arrays, `ARRAY_UNIQ` evaluates all the elements at a specific index as tuples for counting the unique values.&#x20;

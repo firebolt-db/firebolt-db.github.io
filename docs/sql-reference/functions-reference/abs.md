@@ -5,11 +5,11 @@ description: Reference material for ABS function
 parent: SQL functions
 ---
 
-## ABS
+# ABS
 
 Calculates the absolute value of a number `<val>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ABS(<val>)
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

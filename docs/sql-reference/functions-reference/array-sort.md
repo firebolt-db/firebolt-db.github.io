@@ -5,13 +5,13 @@ description: Reference material for ARRAY_SORT function
 parent: SQL functions
 ---
 
-## ARRAY\_SORT
+# ARRAY\_SORT
 
 Returns the elements of `<arr>` in ascending order.
 
 If the argument `<func>` is provided, the sorting order is determined by the result of applying `<func>` on each element of `<arr>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,7 +23,7 @@ ARRAY_SORT([<func>,] <arr>)
 | `<func>`  | An optional function to be used to determine the sort order. |
 | `<arr>`   | The array to be sorted.                                      |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

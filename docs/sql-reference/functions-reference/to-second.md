@@ -5,11 +5,11 @@ description: Reference material for TO_SECOND function
 parent: SQL functions
 ---
 
-## TO\_SECOND
+# TO\_SECOND
 
 Converts a timestamp (any date format we support) to a number containing the second.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a timestamp (any date format we support) to a number containing the sec
 | :------------- | :------------------------------------------------------------ |
 | `<timestamp>` | The timestamp to be converted into the number of the second. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975 at 12:20:05:

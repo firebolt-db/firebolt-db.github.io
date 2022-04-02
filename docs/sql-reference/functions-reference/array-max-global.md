@@ -5,13 +5,13 @@ description: Reference material for ARRAY_MAX_GLOBAL function
 parent: SQL functions
 ---
 
-## ARRAY\_MAX\_GLOBAL
+# ARRAY\_MAX\_GLOBAL
 
 Returns the maximum element from all the array elements in each group.
 
 For more information and the sample data used in the example below, please refer to [Aggregate Array Functions](./aggregate-array-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ ARRAY_MAX_GLOBAL(<arr>) AS cnt
 | :--------- | :------------------------------------------------------------------------- |
 | `<arr>`   | The array column over from which the function returns the maximum element |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below uses the following table `T`:

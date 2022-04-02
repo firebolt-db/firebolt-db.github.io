@@ -5,11 +5,11 @@ description: Reference material for TO_QUARTER function
 parent: SQL functions
 ---
 
-## TO\_QUARTER
+# TO\_QUARTER
 
 Converts a date or timestamp (any date format we support) to a number containing the quarter.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 | :--------- | :--------------------------------------------------------------------- |
 | `<date>`  | The date or timestamp to be converted into the number of the quarter. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For Tuesday, April 22, 1975:

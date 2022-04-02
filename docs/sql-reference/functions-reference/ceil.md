@@ -5,11 +5,11 @@ description: Reference material for CEIL, CEILING functions
 parent: SQL functions
 ---
 
-## CEIL, CEILING
+# CEIL, CEILING
 
 Returns the smallest number that is greater than or equal to a specified value `<val>`. The value is rounded to a decimal range defined by `<dec>`.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -22,7 +22,7 @@ CEILING(<val>[, <dec>]);
 | `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       |
 | `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `CEIL `and `CEILING` return whole numbers.  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

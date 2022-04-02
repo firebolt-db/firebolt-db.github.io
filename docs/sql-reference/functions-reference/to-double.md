@@ -5,11 +5,11 @@ description: Reference material for TO_DOUBLE function
 parent: SQL functions
 ---
 
-## TO\_DOUBLE
+# TO\_DOUBLE
 
 Converts a string to a numeric `DOUBLE` data type.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ TO_DOUBLE(<exp>)
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
 | `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

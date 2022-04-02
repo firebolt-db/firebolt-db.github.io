@@ -5,11 +5,11 @@ description: Reference material for BASE64_ENCODE function
 parent: SQL functions
 ---
 
-## BASE64\_ENCODE
+# BASE64\_ENCODE
 
 Encodes a string into Base64 notation.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ BASE64_ENCODE(<expr>)
 | :--------- | :--------------------------------------------------------------------------- |
 | `<expr>`  | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

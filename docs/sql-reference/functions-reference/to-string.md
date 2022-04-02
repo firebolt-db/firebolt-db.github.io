@@ -5,11 +5,11 @@ description: Reference material for TO_STRING function
 parent: SQL functions
 ---
 
-## TO\_STRING
+# TO\_STRING
 
 Converts a date into a STRING. The date is any [date data type​​](../../general-reference/data-types.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ TO_STRING(<date>)
 | :--------- | :------------------------------------- |
 | `<date>`  | The date to be converted to a string. |
 
-##### Example
+## Example
 {: .no_toc}
 
 

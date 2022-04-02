@@ -4,11 +4,12 @@ title: LENGTH (array function)
 description: Reference material for LENGTH function
 parent: SQL functions
 ---
-## LENGTH
+
+# LENGTH
 
 Returns the length (number of elements) of the given array.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -19,7 +20,7 @@ LENGTH(<arr>)
 | :--------- | :----------------------------------- |
 | `<arr>`   | The array to be checked for length. |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

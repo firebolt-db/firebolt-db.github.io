@@ -4,7 +4,8 @@ title: FILTER
 description: Reference material for FILTER function
 parent: SQL functions
 ---
-## FILTER
+
+# FILTER
 
 Returns an array containing the elements from `<arr>` for which the given Lambda function `<func>` returns something other than `0`.
 
@@ -16,7 +17,7 @@ The function can receive one or more arrays as its arguments. If more than one a
 
 When multiple arrays are provided to the function, the function will evaluate the current elements from each array as its parameter. All of the elements at that index position must evaluate to true (or `1`) for this index to be included in the results. The elements that are returned are taken only from the first array provided.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -28,7 +29,7 @@ FILTER(<func>, <arr> [, ...n] )
 | `<func>`         | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
 | `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
 
-##### Examples
+## Examples
 {: .no_toc}
 
 In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.

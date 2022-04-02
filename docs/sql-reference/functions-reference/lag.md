@@ -5,13 +5,13 @@ description: Reference material for LAG function
 parent: SQL functions
 ---
 
-## LAG
+# LAG
 
 Returns the value of the input expression at the given offset before the current row within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -26,7 +26,7 @@ LAG ( <exp> [, <offset> [, <default> ]] )
 | `<offset>`  | The number of rows backward from the current row from which to obtain a value. A negative number will act as `LEAD()`        |
 | `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INT`. The default is `NULL`. |
 
-##### Example
+## Example
 {: .no_toc}
 
 In the example below, the `LAG `function is being used to find the students in each grade level who are sitting next to each other. In some cases, a student does not have an adjacent classmate, so the `LAG `function returns `NULL`.

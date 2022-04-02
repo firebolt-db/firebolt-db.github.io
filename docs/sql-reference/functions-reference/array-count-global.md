@@ -5,11 +5,11 @@ description: Reference material for ARRAY_COUNT_GLOBAL function
 parent: SQL functions
 ---
 
-## ARRAY\_COUNT\_GLOBAL
+# ARRAY\_COUNT\_GLOBAL
 
 Returns the number of elements in the array typed column accumulated over all rows. As such it is an _aggregation function._
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ ARRAY_COUNT_GLOBAL(<arr_col>)
 | :----------- | :---------------------------------------------------------------- |
 | `<arr_col>` | The array column over which the function will count the elements |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we will create a table `array_test` as shown below.

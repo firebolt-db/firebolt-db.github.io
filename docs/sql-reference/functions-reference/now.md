@@ -5,18 +5,18 @@ description: Reference material for NOW
 parent: SQL functions
 ---
 
-## NOW
+# NOW
 
 Returns the current date and time.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
 ​​NOW()​​
 ```
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

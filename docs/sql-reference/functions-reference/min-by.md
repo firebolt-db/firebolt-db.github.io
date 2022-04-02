@@ -6,13 +6,13 @@ parent: SQL functions
 ---
 
 
-## MIN\_BY
+# MIN\_BY
 
 The `MIN_BY` function returns the value of `arg` column at the row in which the `val` column is minimal.
 
 If there is more than one minimal values in `val`, then the first will be used.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -24,7 +24,7 @@ MIN_BY(arg, val)
 | `<arg>`   | The column from which the value is returned.   |
 | `<val>`   | The column that is search for a minimum value. |
 
-##### Example
+## Example
 {: .no_toc}
 
 For this example, we will again use the `prices` table that was created above for the `MIN` function. The values for that table are below:&#x20;

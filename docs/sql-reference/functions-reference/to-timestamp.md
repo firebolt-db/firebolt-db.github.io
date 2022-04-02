@@ -5,11 +5,11 @@ description: Reference material for TO_TIMESTAMP function
 parent: SQL functions
 ---
 
-## TO\_TIMESTAMP
+# TO\_TIMESTAMP
 
 Converts a string to timestamp.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -20,7 +20,7 @@ Converts a string to timestamp.
 | :---------- | :-------------------------------------------------- |
 | `<string>` | The string format should be: ‘YYYY-MM-DD HH:mm:ss’ |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

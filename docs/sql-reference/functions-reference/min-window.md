@@ -5,13 +5,13 @@ description: Reference material for MIN function
 parent: SQL functions
 ---
 
-## MIN
+# MIN
 
 Returns the minimum value within the requested window.
 
 For more information on usage, please refer to [Window Functions](./window-functions.md).
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -23,7 +23,7 @@ MIN( <exp> ) OVER ( [ PARTITION BY <exp> ] )
 | `<val>`   | An expression used for the `MIN` function.                       |
 | `<exp>`   | An expression used for the `PARTITION BY` clause.                |
 
-##### Example
+## Example
 {: .no_toc}
 
 The example below queries test scores for students in various grade levels. Unlike a regular `MIN()` aggregation, the window function allows us to see how each student individually compares to the lowest test score for their grade level.

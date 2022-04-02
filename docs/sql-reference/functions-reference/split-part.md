@@ -5,11 +5,11 @@ description: Reference material for SPLIT_PART function
 parent: SQL functions
 ---
 
-## SPLIT_PART
+# SPLIT_PART
 
 Divides a string based on a specified delimiter into an array of substrings. ​ The string in the specified index is returned, with `1` being the first index. If the string separator is empty, the string is divided into an array of single characters.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -25,7 +25,7 @@ Please note that the order of the arguments is different than the `SPLIT` functi
 | `<delimiter>` | Any character or substring within `<string>`. If `<delimiter>` is an empty string `''`, the `<string>` will be divided into single characters. |
 | `<index>`     | The index from which to return the substring.                                                                                                  |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql

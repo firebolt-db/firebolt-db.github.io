@@ -5,11 +5,11 @@ description: Reference material for SUBSTR function
 parent: SQL functions
 ---
 
-## STRPOS
+# STRPOS
 
 Returns the position (in bytes) of the substring found in the string, starting from 1. The returned value is for the first matching value, and not for any subsequent valid matches.
 
-##### Syntax
+## Syntax
 {: .no_toc}
 
 ```sql
@@ -21,7 +21,7 @@ Returns the position (in bytes) of the substring found in the string, starting f
 | `<string>`    | The string that will be searched. |
 | `<substring>` | The substring to search for.        |
 
-##### Example
+## Example
 {: .no_toc}
 
 ```sql
