@@ -1,7 +1,7 @@
 ---
 layout: default
 title: General reference
-description: Reference for the data types, reserved words, and identifier requirements in Firebolt.
+description: General reference for Firebolt.
 nav_order: 13
 has_children: true
 ---

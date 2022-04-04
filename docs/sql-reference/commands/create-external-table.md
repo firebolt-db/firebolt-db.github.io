@@ -8,7 +8,7 @@ parent: SQL commands
 # CREATE EXTERNAL TABLE
 {: .no_toc}
 
-Creates an external table. External tables serve as connectors to your external data sources. External tables contain no data within Firebolt other than metadata virtual columns that are automatically populated with metadata. For more information, see [Working with external tables](../../loading-data/working-with-external-tables.md).
+Creates an external table. External tables serve as connectors to your external data sources. External tables contain no data within Firebolt other than metadata virtual columns that are automatically populated with metadata. For more information, see [Working with external tables](../../loading-data/working-with-external-tables.md). Data that you ingest must be in an Amazon S3 bucket in the same AWS Region as the Firebolt database.
 
 * ToC
 {:toc}
@@ -35,7 +35,7 @@ TYPE = (<type> [typeOptions])
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>`            | An identifier that specifies the name of the column. This name should be unique within the table. |
 | `<column_type>`            | Specifies the data type for the column. |
 | `PARTITION`                | An optional keyword. When specified, allows you to use a regular expression `<regex>` to extract a value from the file prefix to be stored as the column value. For more information, see [PARTITION](#partition). |
-| `CREDENTIALS`              | Specifies the AWS credentials with permission to access the Amazon S3 location specified using `URL`. For more information, see [CREDENTIALS](#credentials). |
+| `CREDENTIALS`              | Specifies the AWS credentials with permission to access the S3 location specified using `URL`. For more information, see [CREDENTIALS](#credentials). |
 | `URL` and `OBJECT_PATTERN` | Specifies the S3 location and the file naming pattern that Firebolt ingests when using this table. For more information, see [URL & OBJECT_PATTERN](#url-and-object_pattern). |
 | `TYPE`                     | Specifies the file type Firebolt expects to ingest given the `OBJECT_PATTERN`. If a file referenced using `OBJECT_PATTERN` does not conform to the specified `TYPE`, an error occurs. For more information, see [TYPE](#type). |
 | `COMPRESSION`              | See [COMPRESSION](#compression). |
@@ -44,7 +44,7 @@ All Firebolt identifiers are case insensitive unless double-quotes are used. For
 
 ### PARTITION
 
-In some applications, such as Hive partitioning, table partitions are stored in Amazon S3 folders and files using a folder naming convention that identifies the partition. The `PARTITION` keyword allows you to specify a regular expression, `<regex>`, to extract a portion of the file path and store it in the specified column when Firebolt uses the external table to ingest partitioned data.
+In some applications, such as Hive partitioning, table partitions are stored in S3 folders and files using a folder naming convention that identifies the partition. The `PARTITION` keyword allows you to specify a regular expression, `<regex>`, to extract a portion of the file path and store it in the specified column when Firebolt uses the external table to ingest partitioned data.
 
 Using `PARTITION` in this way is one method of extracting partition data from file paths. Another method is to use the table metadata column, `source_file_name`, during the `INSERT INTO` operation. For more information, see [Example&ndash;extracting partition values using INSERT INTO](insert-into.md#extracting-partition-values-using-insert-into).
 
@@ -69,7 +69,7 @@ For more information, see [Match groups](https://regexone.com/lesson/capturing_g
 #### Example&ndash;extract Hive-compatible partitions
 {: .no_toc}
 
-The example below demonstrates a `CREATE EXTERNAL TABLE` statement that creates the table `my_ext_table`. This table is used to ingest all files with a `*.parquet` file extension in any sub-folder of the Amazon S3 bucket `s3://my_bucket`.
+The example below demonstrates a `CREATE EXTERNAL TABLE` statement that creates the table `my_ext_table`. This table is used to ingest all files with a `*.parquet` file extension in any sub-folder of the S3 bucket `s3://my_bucket`.
 
 Consider an example where folders and files in the bucket have the following consistent pattern, which is common for Hive partitions:
 
@@ -138,7 +138,7 @@ CREDENTIALS = (AWS_ROLE_ARN = '<role_arn>' [AWS_ROLE_EXTERNAL_ID = '<external_id
 
 ### URL and OBJECT_PATTERN
 
-The`URL`and`OBJECT_PATTERN`parameters are used together to match the set of files from within the specified bucket that you wish to include as the data for the external table.
+The`URL`and`OBJECT_PATTERN`parameters are used together to match the set of files from within the specified bucket that you wish to include as the data for the external table. The S3 bucket that you reference must be in the same AWS Region as the Firebolt database.
 
 #### Syntax
 {: .no_toc}
@@ -186,7 +186,7 @@ s3://bucket/c_type=c_type=abc/year=2018/month=01/part-00002.parquet
 Following are some common use cases for URL and object pattern combinations:
 
 | Use cases  | Syntax  |
-| :--- | :--- | 
+| :--- | :--- |
 | Get all files for file type xyz     | *URL = 's3://bucket/c_type=xyz/'* <br> *OBJECT_PATTERN = '\*'*     |
 |                                     | *URL = 's3://bucket/'<br>OBJECT_PATTERN = 'c_type=xyz/\*'*         |
 | Get one specific file: `c_type=xyz/year=2018/month=01/part-00001.parquet` | *URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = 'c_type=xyz/year=2018/month=01/part-00001.parquet'<br> <br> URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = '\*/part-00001.parquet'*<br><br>As can be seen in this example, the ​`URL`​ is used to get only the minimal set of files (c_type files in the bucket from January 2018), and then from within those matching files, the `OBJECT_PATTERN`​​ is matched against the full path of the file (without the bucket name).  |
@@ -225,7 +225,7 @@ TYPE = (PARQUET)
 
 ### COMPRESSION
 
-Specifies the compression type of the files matching the specified `OBJECT_PATTERN` in Amazon S3.
+Specifies the compression type of the files matching the specified `OBJECT_PATTERN` in S3.
 
 #### Syntax
 {: .no_toc}

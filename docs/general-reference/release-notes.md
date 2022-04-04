@@ -2,7 +2,7 @@
 layout: default
 title: Release notes
 description: Latest release notes for the Firebolt data warehouse.
-nav_order: 5
+nav_order: 6
 has_toc: false
 has_children: true
 parent: General reference
