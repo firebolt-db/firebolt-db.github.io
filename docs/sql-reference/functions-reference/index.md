@@ -60,7 +60,7 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [ANY_VALUE](any_value.md)  
 
-* [APPROXPERCENTILE](approx-percentile.md)  
+* [APPROX_PERCENTILE](approx-percentile.md)  
 
 * [AVG](avg.md)
 
