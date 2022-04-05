@@ -24,7 +24,7 @@ For more information about creating an instance and getting started with Metabas
 After setting up Metabase, download the following files and save them to the Metabase `plugins` directory on your host system. By default, `plugins` is a subdirectory of the directory where the `metabase.jar` file executes.
 
 * Download the [Firebolt JDBC driver JAR](https://docs.firebolt.io/integrations/connecting-via-jdbc).
-* Download the [Firebolt Metabase driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/metabase-driver/firebolt-metabase-driver-2.jar).
+* Download the [Firebolt Metabase driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/metabase-driver/firebolt.metabase-driver-latest.jar).
 
 
 
