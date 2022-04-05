@@ -7,4 +7,4 @@ parent: SQL functions
 
 # ANY
 
-Synonym for [ANY_VALUE](#any_value).
+Synonym for [ANY_VALUE](any_value).
