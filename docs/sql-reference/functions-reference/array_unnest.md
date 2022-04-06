@@ -1,11 +1,13 @@
 ---
 layout: default
-title: ARRAY_UNNEST
-description: Reference material for ARRAY_UNNEST function
+title: ARRAY_UNNEST (deprecated)
+description: Reference material for the deprecated ARRAY_UNNEST function.
 parent: SQL functions
 ---
 
-# ARRAY\_UNNEST
+# ARRAY_UNNEST (deprecated)
+
+`ARRAY_UNNEST` is deprecated. Instead, we recommend using the `UNNEST` clause in a `SELECT` statement. For more information and examples, see [SELECT](../commands/select.md#unnest).
 
 This function "unfolds" a given array by creating a column result containing the individual members from the array's values.
 
