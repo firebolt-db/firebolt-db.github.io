@@ -82,7 +82,7 @@ Returns the desired results:
 
 Sometimes it is desirable to transform the nested array structure to a standard tabular format. This can be used to expose views to BI tools that cannot handle Firebolt array syntax, or the tabular format is more natural to query using standard SQL idioms. `UNNEST` serves these purposes.
 
-`UNNEST` is part of the [FROM](../sql-reference/commands/select.md#from) clause and it resembles a `JOIN` sub-clause. Given an array typed column, it unfolds the element of the array and duplicates all other columns found in the `SELECT` clause per each array element.
+[UNNEST](../sql-reference/commands/select.md#unnest) is part of the [FROM](../sql-reference/commands/select.md#from) clause and resembles a [JOIN](../sql-reference/commands/select.md#join).  Given an array typed column, it unfolds the element of the array and duplicates all other columns found in the `SELECT` clause per each array element.  A single `UNNEST` will act similar to `JOIN`.  Unnesting several arrays in the same query can be accomplished via a single `UNNEST` command (if the arrays are the same length) or multiple `UNNEST` statements.  Multiple `UNNEST` statements in a single `FROM` clause will cause a cartesian product as each element in the first array will have a record in the results with each element in the second array. 
 
 For example the following query:
 
@@ -100,3 +100,49 @@ Will result in:
 | 1 | "sports" |
 | 2 | "gadgets" |
 | 2 | "audio" |
+
+The following query unnests multiple arrays in the same clause:
+```sql
+SELECT 
+    id, 
+    a_keys, 
+    a_vals
+FROM
+    visits
+    UNNEST(agent_props_keys as a_keys, 
+           agent_props_vals as a_vals)
+```
+Produces:
+| id | a_keys | a_vals |
+| :--- | :--- | :--- |
+| 1 | agent | "Mozilla/5.0" |
+| 1 | platform | "Windows NT 6.1" |
+| 1 | resolution | "1024x4069" |
+| 2 | agent | "Safari" |
+| 2 | platform | "iOS 14" |
+
+
+The following query, while valid, will create a cartesian product result:
+
+```sql
+SELECT 
+    id, 
+    a_keys, 
+    a_vals
+FROM
+    visits
+UNNEST(agent_props_keys as a_keys)
+UNNEST(agent_props_vals as a_vals)
+```
+
+However the following query is **invalid** and will result in an error as the tags and agent_props_keys arrays have different lengths for row 1:
+```sql
+SELECT 
+    id, 
+    tags,
+    a_keys
+FROM
+    visits
+    UNNEST(tags,
+           agent_props_keys as a_keys)
+```
