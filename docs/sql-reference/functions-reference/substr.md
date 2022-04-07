@@ -4,36 +4,40 @@ title: SUBSTR
 description: Reference material for SUBSTR function
 parent: SQL functions
 ---
+## SUBSTR
 
-# STRPOS
+Returns a substring starting at the character indicated by the `<offset>` index and including the number of characters defined by the `<length>`. Character indexing starts from index 1. The `<offset>` and `<length>` arguments must be constants.
 
-Returns the position (in bytes) of the substring found in the string, starting from 1. The returned value is for the first matching value, and not for any subsequent valid matches.
-
-## Syntax
+##### Syntax
 {: .no_toc}
 
 ```sql
-​​STRPOS(<string>, <substring>)​​
+SUBSTR(<string>, <offset> [, <length>])
 ```
 
-| Parameter     | Description                         |
-| :------------- | :----------------------------------- |
-| `<string>`    | The string that will be searched. |
-| `<substring>` | The substring to search for.        |
+| Parameter  | Description                                                                                                                                                                       |
+| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<string>` | The string to be offset.                                                                                                                                                          |
+| `<offset>` | The starting position for the substring. 1 is the first character.                                                                                                                |
+| `<length>` | Optional. The number of characters to be returned by the `SUBSTR` function. If left blank, `length` by default returns all of the string not specified by the `offset` parameter. |
 
-## Example
+##### Example
 {: .no_toc}
 
-```sql
-SELECT
-	STRPOS('hello world','hello') AS res;
-```
-
-**Returns**: `1`
+In the example below, the string is offset by 1 and so the `SUBSTR` command begins at the first letter, "h". The `<length>` of 5 indicates the resulting string should be only five characters long.
 
 ```sql
 SELECT
-	STRPOS('hello world','world') AS res;
+	SUBSTR('hello world', 1, 5);
 ```
 
-**Returns**: `7`
+**Returns**: `hello`
+
+In this next example, there is no `<length>` provided. This means all characters are included after the `<offset>` index, which is 7.
+
+```sql
+SELECT
+	SUBSTR('hello world', 7);
+```
+
+**Returns**: `world`
