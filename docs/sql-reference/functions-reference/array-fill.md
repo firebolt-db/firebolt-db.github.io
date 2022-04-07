@@ -9,7 +9,7 @@ parent: SQL functions
 
 This function scans through the given array `<arr>` from the first to the last element and replaces `arr[i]` with `arr[i - 1]` if the `<func>` returns `0`. The first element of the given array is not replaced.
 
-The lambda function `<func>` is mandatory.
+The Lambda function `<func>` is mandatory.
 
 ## Syntax
 {: .no_toc}

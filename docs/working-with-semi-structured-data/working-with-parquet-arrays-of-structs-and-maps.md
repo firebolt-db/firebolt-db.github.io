@@ -106,7 +106,7 @@ INSERT INTO my_parquet_array_fact_tbl
 
 ### Step 4&ndash;query array values
 
-After you ingest array values into the fact table, you can query the array using the array functions and lambda function approach covered in [Working with arrays](working-with-arrays.md).
+After you ingest array values into the fact table, you can query and manipulate the array using array functions and Lambda functions. For more information, see [Working with arrays](working-with-arrays.md).
 
 ## Example&ndash;ingest and work with maps
 
@@ -175,9 +175,9 @@ INSERT INTO my_parquet_map_fact_tbl
 
 ### Step 4&ndash;query map values
 
-After you ingest array values into the fact table, you can query the array using the array functions and lambda function approach covered in [Working with arrays](working-with-arrays.md).
+After you ingest array values into the fact table, you can query and manipulate the array using array functions and Lambda functions. For more information, see [Working with arrays](working-with-arrays.md).
 
-A query that uses a lambda function to return a specific value by specifying the corresponding key value is shown below. For more information, see [Manipulating arrays using lambda functions](working-with-arrays.md#manipulating-arrays-with-lambda-functions).
+A query that uses a Lambda function to return a specific value by specifying the corresponding key value is shown below. For more information, see [Manipulating arrays using Lambda functions](working-with-arrays.md#manipulating-arrays-with-lambda-functions).
 
 ```sql
 SET use_short_column_path_parquet = 1;
