@@ -117,7 +117,7 @@ A `JOIN` operator combines rows from two data sources (tables/views) and creates
 {: .no_toc}
 
 ```sql
-FROM <from_item> [ NATURAL ] <join_type> <from_item> [ ON <join_condition> ]
+FROM <from_item> [[ AS ] <alias_name>] [, ...n][ NATURAL ] <join_type> <from_item> [ ON <join_condition> ]
 ```
 
 `JOIN `types:
@@ -147,7 +147,7 @@ An `UNNEST` operator performs join between the table in the left side, and the a
 {: .no_toc}
 
 ```sql
-FROM <from_item> UNNEST <expr>
+FROM <from_item> UNNEST(<array_column> [[ AS ] <alias_name>][,<array_column>...])
 ```
 
 | Component     | Description                                                                                                               | Valid values and syntax                |
