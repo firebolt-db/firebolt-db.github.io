@@ -20,7 +20,7 @@ Use the functional list below to find commands for a specific task area that you
   These functions perform a calculation across a set of rows, returning a single value.
 
 * [Array functions](#array-functions)  
-  Used for the manipulation and querying of array typed columns, such as transformation, filtering, and un-nesting (an operation that converts the array to a regular column)
+  Used for the manipulation and querying of `ARRAY`-typed columns, such as transforming and filtering. Includes Lambda array functions.
 
 * [Conditional and miscellaneous functions](#conditional-and-miscellaneous-functions)  
   These functions include various methods for modifying data types and applying conditional operations.   
@@ -85,6 +85,7 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 * [SUM](sum.md)  
 
 ## Array functions
+
 
 * [ALL_MATCH](all-match.md)  
 
