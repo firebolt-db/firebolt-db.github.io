@@ -17,13 +17,14 @@ For more information on usage, please refer to [Window Functions](./window-funct
 {: .no_toc}
 
 ```sql
-SUM( <val> ) OVER ( [ PARTITION BY <expr> ] )
+SUM([DISTINCT] <val> ) OVER ( [ PARTITION BY <expr> ] )
 ```
 
 | Parameter | Description                                      |
 | :--------- | :------------------------------------------------ |
 | `<val>`   | The expression used for the `SUM` function       |
 | `<expr>`  | An expression used for the `PARTITION BY` clause |
+| `DISTINCT` | When specified, removes duplicate values from `<expr>` before calculating the sum. |
 
 ## Example
 {: .no_toc}

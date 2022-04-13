@@ -350,6 +350,8 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [ROUND](round.md)  
 
+* [SIGN](sign.md)
+
 * [SIN](sin.md)  
 
 * [SQRT](sqrt.md)  
