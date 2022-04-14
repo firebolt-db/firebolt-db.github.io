@@ -111,33 +111,270 @@ WHERE
 
 ## JOIN
 
-A `JOIN` operator combines rows from two data sources (tables/views) and creates a new combined row that can be used in the query.
+A `JOIN` operation combines rows from two data sources, such as tables or views, and creates a new table of combined rows that can be used in a query.  
 
-### Syntax
+`JOIN` operations can be used with an `ON` clause for conditional logic or a `USING` clause to specify columns to match.
+
+### JOIN with ON clause syntax
 {: .no_toc}
 
 ```sql
-FROM <from_item> [[ AS ] <alias_name>] [, ...n][ NATURAL ] <join_type> <from_item> [ ON <join_condition> ]
+FROM <join_table1> [ INNER | LEFT | RIGHT | FULL ] JOIN <join_table2> ON <join_condition>
 ```
 
-`JOIN `types:
+|     Parameters      |                                                                          Description                                                                          |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<join_table1>`       | A table or view to be used in the join operation                                                                                                              |
+| `<join_table2>`       | A second table or view to be used in the join operation                                                                                                       |
+| `ON <join_condition>` | One or more boolean comparison expressions that specify the logic to join the two specified tables and which columns should be compared. For example: `ON join_table1.column = join_table2.column` |
 
-* `[ INNER ] JOIN`
-* `LEFT [ OUTER ] JOIN`
-* `RIGHT [ OUTER ] JOIN`
-* `FULL [ OUTER ] JOIN`
-* `CROSS JOIN`
 
-### Example
+
+### JOIN with USING clause syntax  
 {: .no_toc}
 
 ```sql
-SELECT
-	*
-FROM
-	customers c
-	JOIN orders o ON c.cust_key = o.cust_key;
+FROM <join_table1> [ INNER | LEFT | RIGHT | FULL ] JOIN <join_table2> USING (column_list)
 ```
+
+|      Component      |                                                                                                      Description                                                                                                      |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `<join_table1>`       | A table or view to be used in the join operation                                                                                                                                                                      |
+| `<join_table2>`       | A second table or view to be used in the join operation.                                                                                                                                                              |
+| `USING (column_list)` | A list of one or more columns to compare for exact matching. `USING` is a shortcut to join tables that share the same column names. The specified columns are joined via a basic match condition. The match condition of `USING (column)` is equivalent to `ON join_table1.column = join_table2.column` |
+
+### JOIN Types
+{: .no_toc}
+
+The type of `JOIN` operation specifies which rows are included between two specified tables. If unspecified, `JOIN` defaults to `INNER JOIN`.
+
+`JOIN` types include:
+
+
+| `[INNER] JOIN`        |  When used with an `ON` clause, `INNER JOIN` includes only rows that satisfy the `<join_condition>` . When used with a `USING` clause, `INNER JOIN` includes rows only if they have matching values for the specified columns in the `column_list`. |
+| `LEFT [OUTER] JOIN`   |  Includes all rows from `<join_table1>` but excludes any rows from `<join_table2>` that don’t satisfy the `<join_condition>`. `LEFT JOIN` is equivalent to `LEFT OUTER JOIN`.                                           |
+| `RIGHT [OUTER] JOIN`  |  Includes all rows from `<join_table2>` but excludes any rows from `<join_table1>` that don’t satisfy the `<join_condition>`. `RIGHT JOIN` is equivalent to `RIGHT OUTER JOIN`.                                         |
+| `FULL [OUTER] JOIN`   |  Includes all rows from both tables matched where appropriate with the `<join_condition>`. `FULL JOIN` is equivalent to `FULL OUTER JOIN`.                                                                              |
+| `CROSS JOIN`          |  Includes every possible combination of rows from `<join_table1>` and `<join_table2>`. A `CROSS JOIN` does not use an `ON` or `USING` clause.                                                                           |
+
+### Examples
+{: .no_toc}
+
+The `JOIN` examples below use two tables, `num_test` and `num_test2`. These tables are created and populated with data as follows.
+
+```sql
+CREATE DIMENSION TABLE num_test (
+    firstname varchar,
+    score integer);
+
+INSERT INTO num_test VALUES
+    ('Carol', 11),
+    ('Albert', 50),
+    ('Sammy', 90),
+    ('Peter', 50),
+    ('Deborah', 90),
+    ('Frank', 87),
+    ('Thomas', 85),
+    ('Humphrey', 56);
+
+CREATE DIMENSION TABLE num_test2 (
+    firstname varchar,
+    score integer);
+
+INSERT INTO num_test2 VALUES
+    ('Sammy', 90),
+    ('Hector', 56),
+    ('Tom', 85),
+    ('Peter', 50),
+    ('Carl', 100),
+    ('Frank', 87),
+    ('Deborah', 90),
+    ('Albert', 50);
+```
+
+The tables and their data are shown below.
+
+| num_test.firstname | num_test.score | num_test2.firstname | num_test2.score |
+| :--------------------| :----------------| :---------------------| :-----------------|
+| Carol              |             11 | Sammy               |              90 |
+| Albert             |             50 | Hector              |              56 |
+| Sammy              |             90 | Tom                 |              85 |
+| Peter              |             50 | Peter               |              50 |
+| Deborah            |             90 | Carl                |             100 |
+| Frank              |             87 | Frank               |              87 |
+| Thomas             |             85 | Deborah             |              90 |
+| Humphrey           |             56 | Albert              |              50 |
+
+#### INNER JOIN example
+{: .no_toc}
+
+The `INNER JOIN` example below includes only the rows where the `firstname` and `score` values match.
+
+``` sql
+SELECT 
+    *
+FROM 
+    num_test 
+INNER JOIN 
+    num_test2
+    USING (
+        firstname, 
+        score
+	);
+```
+
+This query is equivalent to:
+
+``` sql
+SELECT 
+    *
+FROM 
+    num_test 
+INNER JOIN 
+    num_test2
+        ON num_test.firstname = num_test2.firstname
+        AND num_test.score = num_test2.score;
+```
+
+**Returns**
+
+| num_test.firstname | num_test.score | num_test2.firstname | num_test2.score |
+| :-----------| :-------| :------------| :--------|
+| Sammy     |    90 | Sammy      |     90 |
+| Peter     |    50 | Peter      |     50 |
+| Albert    |    50 | Albert     |     50 |
+| Deborah   |    90 | Deborah    |     90 |
+| Frank     |    87 | Frank      |     87 |
+
+#### LEFT OUTER JOIN example
+{: .no_toc}
+
+The `LEFT OUTER JOIN` example below includes all `firstname` values from the `num_test` table. Any rows with no matching value in the `num_test2` table return `NULL`.  
+
+``` sql
+SELECT 
+    num_test.firstname, 
+    num_test2.firstname
+FROM num_test 
+LEFT OUTER JOIN 
+    num_test2
+    USING (firstname);
+```
+
+**Returns**
+
+| num_test.firstname | num_test2.firstname |
+|:-----------| :------------|
+| Sammy     | Sammy      |
+| Peter     | Peter      |
+| Carol     | NULL       |
+| Albert    | Albert     |
+| Thomas    | NULL       |
+| Humphrey  | NULL       |
+| Deborah   | Deborah    |
+| Frank     | Frank      |
+
+#### RIGHT OUTER JOIN example
+{: .no_toc}
+
+The `RIGHT OUTER JOIN` example below includes all `firstname` values from `num_test2`. Any rows with no matching values in the `num_test` table return `NULL`. 
+
+``` sql
+SELECT 
+    num_test.firstname, 
+    num_test2.firstname
+FROM 
+    num_test 
+RIGHT OUTER JOIN 
+    num_test2
+    USING (firstname);
+```
+
+**Returns**
+
+| num_test.firstname | num_test2.firstname |
+| :-----------| :------------|
+| Sammy     | Sammy      |
+| Peter     | Peter      |
+| Albert    | Albert     |
+| Deborah   | Deborah    |
+| Frank     | Frank      |
+| NULL      | Tom        |
+| NULL      | Carl       |
+| NULL      | Hector     |
+
+#### FULL OUTER JOIN example
+{: .no_toc}
+
+The `FULL OUTER JOIN` example below includes all values from `num_test` and `num_test2`. Any rows with no matching values return `NULL`. 
+
+``` sql
+SELECT 
+    num_test.firstname, 
+    num_test2.firstname
+FROM 
+    num_test 
+FULL OUTER JOIN 
+    num_test2
+    USING (firstname);
+```
+
+**Returns**
+
+| num_test.firstname | num_test2.firstname |
+| :-----------| :------------|
+| Sammy     | Sammy      |
+| Peter     | Peter      |
+| Deborah   | Deborah    |
+| Frank     | Frank      |
+| Carol     | NULL       |
+| Albert    | Albert     |
+| Thomas    | NULL       |
+| Humphrey  | NULL       |
+| NULL      | Tom        |
+| NULL      | Carl       |
+| NULL      | Hector     |
+
+#### CROSS JOIN example
+{: .no_toc}
+
+A `CROSS JOIN` produces a table with every combination of row values in the specified columns.
+
+This example uses two tables, `crossjoin_test` and `crossjoin_test2`, each with a single `letter` column. The tables contain the following data.
+
+| crossjoin_test.letter | crossjoin_test2.letter |
+| :-----------| :------------|
+| a     | x      |
+| b     | y      |
+| c   | z    |
+
+The `CROSS JOIN` example below produces a table of every possible pairing of these rows.
+
+``` sql
+SELECT 
+    crossjoin_test.letter, 
+    crossjoin_test2.letter
+FROM 
+    crossjoin_test 
+CROSS JOIN 
+    crossjoin_test2;
+```
+
+**Returns**
+
+| crossjoin_test.letter | crossjoin_test2.letter |
+| :-------| :---------|
+| a      | x       |
+| a      | y       |
+| a      | z       |
+| b      | x       |
+| b      | y       |
+| b      | z       |
+| c      | x       |
+| c      | y       |
+| c      | z       |
+
+
 
 ## UNNEST
 
