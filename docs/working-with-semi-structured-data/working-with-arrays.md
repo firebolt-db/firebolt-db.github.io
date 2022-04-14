@@ -41,6 +41,7 @@ All examples in this topic are based on the table below, named `visits`. The col
 
 There are several fundamental functions that you can use to work with arrays, including [LENGTH](../sql-reference/functions-reference/length.md), [ARRAY_CONCAT](../sql-reference/functions-reference/array-concat.md), and [FLATTEN](../sql-reference/functions-reference/flatten.md). See the respective reference for a full description. Brief examples are shown below.
 
+
 ```sql
 SELECT LENGTH(agent_prop_keys)
 FROM visits
@@ -88,9 +89,7 @@ SELECT TRANSFORM(t -> UPPER(t), tags) as up_tags
 FROM visits
 ```
 
-The [TRANSFORM](../sql-reference/functions-reference/transform.md) uses the lambda expression to apply `UPPER` to each element `t` in each array found in the `ARRAY`-typed column `tags`.
-
-This function converts each element in each array in `tags` to upper-case, as shown in the result example below.
+The [TRANSFORM](../sql-reference/functions-reference/transform.md) uses the lambda expression to apply `UPPER` to each element `t` in each array found in the `ARRAY`-typed column `tags`. This converts each element in each array in `tags` to upper-case, as shown in the result example below.
 
 ```
 +----------------------------+
