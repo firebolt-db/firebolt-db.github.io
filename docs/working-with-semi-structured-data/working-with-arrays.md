@@ -11,7 +11,7 @@ parent: Working with semi-structured data
 This section covers querying and manipulating arrays in Firebolt.
 
 * Topic ToC
-{: .toc}
+{:toc}
 
 ## Declaring ARRAY data types in table definitions
 
@@ -23,7 +23,7 @@ Array literals are also supported. For example, the `SELECT` statement shown bel
 SELECT [1,2,3,4]
 ```
 
-## Common table example
+## Basis table for examples
 
 All examples in this topic are based on the table below, named `visits`. The column `id` is of type `INT`. All other columns are of type `ARRAY(TEXT)`.
 
@@ -39,41 +39,35 @@ All examples in this topic are based on the table below, named `visits`. The col
 
 ## Basic array functions
 
-There are several self-explanatory functions to work with arrays including [LENGTH](../sql-reference/functions-reference/length.md), [ARRAY_CONCAT](../sql-reference/functions-reference/array-concat.md), and [FLATTEN](../sql-reference/functions-reference/flatten.md). See the respective reference for a full description. Here's a short example:
+There are several fundamental functions that you can use to work with arrays, including [LENGTH](../sql-reference/functions-reference/length.md), [ARRAY_CONCAT](../sql-reference/functions-reference/array-concat.md), and [FLATTEN](../sql-reference/functions-reference/flatten.md). See the respective reference for a full description. Brief examples are shown below.
+
 
 ```sql
 SELECT LENGTH(agent_prop_keys)
 FROM visits
--- returns 3,2
-
-SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
-FROM visits
--- returns ["agent", "platform", "resolution", "Mozilla/5.0", "Windows NT 6.1", "1024x4069"]
-
-SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
--- returns [1,2,3,4,5,2]
 ```
 
-## Manipulating arrays with Lambda expressions
+**Returns**: `3,2`
 
-Firebolt *Lambda expressions* are a powerful tool to manipulate arrays to extract results. The following array functions use Lambda expressions to operate on each element of one or more arrays. The arrays are specified as arguments in the Lambda expression.
+```sql
+SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
+FROM visits
+```
+**Returns**: `["agent", "platform", "resolution", "Mozilla/5.0", "Windows NT 6.1", "1024x4069"]`
 
-* ALL_MATCH
-* ANY_MATCH
-* ARRAY_COUNT
-* ARRAY_CUMULATIVE_SUM
-* ARRAY_FILL
-* ARRAY_FIRST_INDEX
-* ARRAY_FIRST
-* ARRAY_REPLACE_BACKWARDS
-* ARRAY_SORT
-* ARRAY_SUM
-* FILTER
-* TRANSFORM
+```sql
+SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
+```
 
-### Lambda function general syntax
+**Returns**: `[1,2,3,4,5,2]`
 
-The general syntax pattern of Lambda expressions is uniform across the array functions that use them. That general syntax is shown below. For syntax and examples of each expression used in the context of the array function, see the reference topic for the specific [Array function](../sql-reference/index.md#array-functions).
+## Manipulating arrays with Lambda functions
+
+*Lambda functions* in Firebolt are a powerful tool that you can use to manipulate arrays and extract results. The subset of array functions known as Lamda functions use *Firebolt Lambda expressions* to operate on each element of one or more arrays. Arrays are specified as arguments to the Lambda expression. For a list of available expressions, see [Lambda functions](../sql-reference/functions-reference/#lambda-functions).
+
+### Lambda expression general syntax
+
+The general syntax pattern of Lambda expressions shown below is uniform across the array functions that use them. For syntax and examples of each expression used in the context of the Lambda function, see the function's reference topic.
 
 ```
 <ARRAY_FUNC>(<arr1_var>[, <arr2_var>][, ...<arrN_var>]) -> <operation>, <array1>[, <array2>][, ...<arrayN>])
@@ -81,7 +75,7 @@ The general syntax pattern of Lambda expressions is uniform across the array fun
 
 | Parameter                                     | Description    |
 | :-------------------------------------------- | :------------- |
-| `<ARRAY_FUNC>`                                | Any [Array function](../sql-reference/index.md#array-functions) that accepts a lambda expression as an argument. |
+| `<ARRAY_FUNC>`                                | Any [Array function](../sql-reference/index.md#lambda-functions) that accepts a lambda expression as an argument. |
 | `<arr1_var>[, <arr2_var>][, ...<arrN_var>]``  | A list of one or more variables that you specify. The list is specified in the same order and must be the same length as the list of array expressions (`<array1>[, <array2>][, ...<arrayN>]`). At run-time, each variable contains an element of the corresponding array, upon which the specified `<operation>` is performed.|
 | <operation>                                   | The operation that is performed for each element of the array. This is typically a function or comparison. | <array1>[, <array2>][, ...<arrayN>]           | A comma-separated list of expressions, each of which evaluates to an `ARRAY` data type. |
 
@@ -101,18 +95,20 @@ The [TRANSFORM](../sql-reference/functions-reference/transform.md) uses the lamb
 +----------------------------+
 |          up_tags           |
 +----------------------------+
-| ["SUMMER_SALE", "SPORTS"] |
+| ["SUMMER_SALE", "SPORTS"]  |
 | ["GADGETS", "AUDIO"]       |
 +----------------------------+
 ```
 
 ### Lambda function example&ndash;multiple arrays
 
-A common use case where you provide multiple array arguments is when one array represents the keys and the other represents the values in a map of key-value pairs.
+A common use case for providing multiple array arguments is when one array represents the keys and the other represents the values in a map of key-value pairs.
 
-To extract the value associated with a particular key, you can use the [ARRAY_FIRST ](../sql-reference/functions-reference/array-first.md) function, which returns the first element for which the lambda expression evaluates to a result that is true (non-`0`). The value returned always corresponds to the first array argument in the series. However, the lambda expression operation can evaluate its comparison using any array argument.
+To extract the value associated with a particular key, you can use the [ARRAY_FIRST ](../sql-reference/functions-reference/array-first.md) function. `ARRAY_FIRST` returns the first element for which the lambda expression evaluates to a result that is true (non-`0`). The value returned always corresponds to the first array argument in the series. However, the lambda expression operation can evaluate its comparison using any array argument.
 
-In the example below, we want to return the value in `agent_props_vals` where the corresponding position in the `agent_props_keys` array contains the value `platform`.
+In the example below, the array variable `v` corresponds to each element in each array found in the `agent_props_vals` column. `k` corresponds to the same for `agent_props_keys`.
+
+For each array element `k` with a value of `platform` for each array in `agent_props_keys`, the lambda expression returns the corresponding value `v` in the same position for each array in `agent_props_vals`.
 
 ```sql
 SELECT ARRAY_FIRST(v, k -> k = 'platform', agent_props_vals, agent_props_keys)
@@ -181,13 +177,17 @@ FROM
 
 **Returns**:
 
-| id   | a_keys | a_vals |
-| :--- | :---   | :---   |
-| 1    | agent | "Mozilla/5.0" |
-| 1    | platform | "Windows NT 6.1" |
-| 1    | resolution | "1024x4069" |
-| 2    | agent | "Safari" |
-| 2    | platform | "iOS 14" |
+```
++------+------------+------------------+
+| id   | a_keys     | a_vals           |
++------+------------+------------------+
+| 1    | agent      | "Mozilla/5.0"    |
+| 1    | platform   | "Windows NT 6.1" |
+| 1    | resolution | "1024x4069"      |
+| 2    | agent      | "Safari"         |
+| 2    | platform   | "iOS 14"         |
++------+------------+------------------+
+```
 
 ### Example&ndash;multiple UNNEST clauses resulting in a Cartesian product
 
@@ -207,23 +207,23 @@ UNNEST(agent_props_vals as a_vals)
 **Returns**:
 
 ```
-+-----+------------+------------------+
-| INT |   a_keys   |     a_values     |
-+-----+------------+------------------+
-|   1 | agent      | "Mozilla/5.0"    |
-|   1 | agent      | "Windows NT 6.1" |
-|   1 | agent      | "1024x4069"      |
-|   1 | platform   | "Mozilla/5.0"    |
-|   1 | platform   | "Windows NT 6.1" |
-|   1 | platform   | "1024x4069"      |
-|   1 | resolution | "Mozilla/5.0"    |
-|   1 | resolution | "Windows NT 6.1" |
-|   1 | resolution | "1024x4069"      |
-|   2 | agent      | "Safari"         |
-|   2 | agent      | "iOS 14"         |
-|   2 | platform   | "Safari"         |
-|   2 | platform   | "iOS 14"         |
-+-----+------------+------------------+
++----+------------+------------------+
+| id |   a_keys   |     a_values     |
++--- +------------+------------------+
+| 1  | agent      | "Mozilla/5.0"    |
+| 1  | agent      | "Windows NT 6.1" |
+| 1  | agent      | "1024x4069"      |
+| 1  | platform   | "Mozilla/5.0"    |
+| 1  | platform   | "Windows NT 6.1" |
+| 1  | platform   | "1024x4069"      |
+| 1  | resolution | "Mozilla/5.0"    |
+| 1  | resolution | "Windows NT 6.1" |
+| 1  | resolution | "1024x4069"      |
+| 2  | agent      | "Safari"         |
+| 2  | agent      | "iOS 14"         |
+| 2  | platform   | "Safari"         |
+| 2  | platform   | "iOS 14"         |
++----+------------+------------------+
 ```
 
 ### Example&ndash;error on UNNEST of multiple arrays with different lengths

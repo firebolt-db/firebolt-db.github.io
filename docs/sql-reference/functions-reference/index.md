@@ -86,42 +86,21 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 ## Array functions
 
+* [ARRAY_CONCAT](array-concat.md)
 
-* [ALL_MATCH](all-match.md)  
+* [ARRAY_COUNT_GLOBAL](array-count-global.md)
 
-* [ANY_MATCH](any-match.md)  
+* [ARRAY_DISTINCT](array-distinct.md)
 
-* [ARRAY_CONCAT](array-concat.md)  
-
-* [ARRAY_COUNT](array-count.md)  
-
-* [ARRAY_COUNT_GLOBAL](array-count-global.md)  
-
-* [ARRAY_CUMULATIVE_SUM](array-cumulative-sum.md)  
-
-* [ARRAY_DISTINCT](array-distinct.md)  
-
-* [ARRAY_FILL](array-fill.md)  
-
-* [ARRAY_FIRST](array-first.md)  
-
-* [ARRAY_FIRST_INDEX](array-first-index.md)  
-
-* [ARRAY_INTERSECT](array-intersect.md)  
+* [ARRAY_INTERSECT](array-intersect.md)
 
 * [ARRAY_JOIN](array-join.md)  
 
 * [ARRAY_MAX](array-max.md)  
 
-* [ARRAY_MIN](array-min.md)  
+* [ARRAY_MIN](array-min.md)
 
-* [ARRAY_REPLACE_BACKWARDS](array-replace-backwards.md)  
-
-* [ARRAY_REVERSE](array-reverse.md)  
-
-* [ARRAY_SORT](array-sort.md)  
-
-* [ARRAY_SUM](array-sum.md)  
+* [ARRAY_REVERSE](array-reverse.md)
 
 * [ARRAY_UNIQ](array-uniq.md)  
 
@@ -129,9 +108,7 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [CONTAINS](contains.md)  
 
-* [ELEMENT_AT](element-at.md)  
-
-* [FILTER](filter.md)  
+* [ELEMENT_AT](element-at.md)
 
 * [FLATTEN](flatten.md)  
 
@@ -143,7 +120,33 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [REDUCE](reduce.md)  
 
-* [SLICE](slice.md)  
+* [SLICE](slice.md)
+
+### Lambda functions
+
+For more information about using Lambda functions, see [Manipulating arrays with Lambda functions](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-expressions).
+
+* [ALL_MATCH](all-match.md)  
+
+* [ANY_MATCH](any-match.md)  
+
+* [ARRAY_COUNT](array-count.md)  
+
+* [ARRAY_CUMULATIVE_SUM](array-cumulative-sum.md)  
+
+* [ARRAY_FILL](array-fill.md)  
+
+* [ARRAY_FIRST](array-first.md)  
+
+* [ARRAY_FIRST_INDEX](array-first-index.md)  
+
+* [ARRAY_REPLACE_BACKWARDS](array-replace-backwards.md)  
+
+* [ARRAY_SORT](array-sort.md)  
+
+* [ARRAY_SUM](array-sum.md)  
+
+* [FILTER](filter.md)  
 
 * [TRANSFORM](transform.md)  
 

@@ -20,10 +20,10 @@ To start working with data, you first create a database and a *Firebolt engine*.
 
 2. Enter a **Database name** (we use *Tutorial* in this topic) and leave `us-east-1` selected as the **Database region**.  
 
-3. Under **Database engines**, leave the default engine selected. Firebolt will name the engine *Tutorial_general_purpose*.  
+3. Under **Database engines**, leave the default engine selected. Firebolt will name the engine *Tutorial_Ingest*.  
 
 4. Choose **Create database**.  
-![](assets/images/2021-09-13_9-33-35.png)  
+![](assets/images/newdb.png)  
 Firebolt adds your database to the **Databases** page.
 
 
@@ -38,8 +38,8 @@ Before we ingest the sample data and run a query over it, we'll go to the SQL wo
 SHOW DATABASES;
 ```  
 
-3. Choose **Run Script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, `Tutorial_general_purpose`.  
-![](assets/images/2021-09-13_9-35-31.png)  
+3. Choose **Run Script** and note that the **Using** list indicates the engine that Firebolt uses to run the script, for example, `Tutorial_Ingest`.  
+![](assets/images/showdb.png)  
 
 4. When Firebolt prompts you to start the engine, choose **Start Engine**.
 
@@ -96,7 +96,7 @@ TYPE = (PARQUET);
 
 3. Choose **Run Script**.  
 Firebolt creates the external table. When finished, the external table `ex_lineitem` appears on the object panel of the database.  
-![](assets/images/2021-09-13_9-36-53.png)  
+![](assets/images/exlineitem.png)  
 
 4. Choose the vertical ellipses next to **Script 2**, choose **Save script**, enter a name (for example, *MyExTableScript*) and then press ENTER to save the script.
 
@@ -137,7 +137,7 @@ PRIMARY INDEX
 
 3. Choose **Run Script**.  
 Firebolt creates the fact table. When finished, the table `lineitem` appears on the object panel of the database.  
-![](/assets/images/2021-09-13_9-38-23.png)
+![](/assets/images/facttable.png)
 
 ### Use INSERT INTO to ingest data
 You can now use the `INSERT INTO` command to copy the data from the external table into the fact table. During the INSERT INTO operation, Firebolt ingests the data from your source into Firebolt.
@@ -155,9 +155,9 @@ FROM
 ```
 3. Choose **Run Script**.  
 The query results pane indicates a **Status** of **Running** as shown below.  
-![](assets/images/2021-09-13_9-41-38.png)  
+![](assets/images/running.png)  
 The **Status** changes to **Success** when the ingestion is complete as shown below.
-![](assets/images/2021-09-13_9-51-18.png)
+![](assets/images/success.png)
 
 ## Query the ingested data
 Now that the data has been ingested into the `lineitem` table, you can run analytics queries over the table that benefit from the speed and efficiency of Firebolt.
@@ -173,7 +173,7 @@ LIMIT
   1000;
 ```
 The values shown in the query results pane should be similar to those shown below.
-![](assets/images/2021-09-13_9-52-07.png)
+![](assets/images/results.png)
 
 ### Configure an aggregating index
 
