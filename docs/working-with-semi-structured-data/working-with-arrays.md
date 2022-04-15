@@ -23,7 +23,7 @@ Array literals are also supported. For example, the `SELECT` statement shown bel
 SELECT [1,2,3,4]
 ```
 
-## Basis table for examples
+### Basis for examples
 
 All examples in this topic are based on the table below, named `visits`. The column `id` is of type `INT`. All other columns are of type `ARRAY(TEXT)`.
 
@@ -37,7 +37,7 @@ All examples in this topic are based on the table below, named `visits`. The col
 
 ```
 
-## Basic array functions
+## Simple array functions
 
 There are several fundamental functions that you can use to work with arrays, including [LENGTH](../sql-reference/functions-reference/length.md), [ARRAY_CONCAT](../sql-reference/functions-reference/array-concat.md), and [FLATTEN](../sql-reference/functions-reference/flatten.md). See the respective reference for a full description. Brief examples are shown below.
 
@@ -63,7 +63,7 @@ SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
 
 ## Manipulating arrays with Lambda functions
 
-*Lambda functions* in Firebolt are a powerful tool that you can use to manipulate arrays and extract results. The subset of array functions known as Lamda functions use *Firebolt Lambda expressions* to operate on each element of one or more arrays. Arrays are specified as arguments to the Lambda expression. For a list of available expressions, see [Lambda functions](../sql-reference/functions-reference/#lambda-functions).
+*Lambda functions* in Firebolt are a powerful tool that you can use on arrays to extract results. This subset of array functions, known as Lamda functions, use *Firebolt Lambda expressions* to operate on each element of one or more arrays. Arrays, as well as the operation to perform, are specified as arguments to the Lambda expression. For a list of available expressions, see [Lambda functions](../sql-reference/functions-reference/#lambda-functions).
 
 ### Lambda expression general syntax
 
