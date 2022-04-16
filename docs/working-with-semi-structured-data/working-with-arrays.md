@@ -7,6 +7,7 @@ parent: Working with semi-structured data
 ---
 
 # Working with arrays
+{: .no_toc}
 
 This section covers querying and manipulating arrays in Firebolt.
 
@@ -24,6 +25,7 @@ SELECT [1,2,3,4]
 ```
 
 ### Basis for examples
+{: .no_toc}
 
 All examples in this topic are based on the table below, named `visits`. The column `id` is of type `INT`. All other columns are of type `ARRAY(TEXT)`.
 
