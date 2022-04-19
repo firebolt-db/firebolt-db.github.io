@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: peckjon/github-to-guru@1.7.5
       env:
-        GURU_CARD_DIR: https://github.com/firebolt-db/firebolt-db.github.io/blob/gh-pages/collection.yaml
+        GURU_CARD_YAML: https://github.com/firebolt-db/firebolt-db.github.io/blob/gh-pages/collection.yaml
         GURU_USER_EMAIL:  '${{ secrets.GURU_USER_EMAIL }}'
         GURU_USER_TOKEN:  '${{ secrets.GURU_USER_TOKEN }}'
         GURU_COLLECTION_ID: 'd345adef-5855-4bff-94b2-ed4cd0d568af'
