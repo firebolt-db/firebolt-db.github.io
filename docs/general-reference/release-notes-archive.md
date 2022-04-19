@@ -126,7 +126,7 @@ In the SQL workspace, you can now select a portion of an error message to copy.
 
 * **Firebolt dbt adapter**  
   * **Improved connection method** &ndash; The Firebolt dbt adapter now connects to Firebolt using the Python SDK instead of JDBC. JDBC and the JRE are no longer required.
-  * **Upgraded to dbt 1.0.0** &ndash; The Firebolt dbt adapter has been upgraded to v1.0.0. For more information about new features available in 1.0.0, see [New features and changed documentation](https://docs.getdbt.com/docs/guides/migration-guide/upgrading-to-1-0-0#new-features-and-changed-documentation) in dbt documentation.
+  * **Upgraded to dbt 1.0.0** &ndash; The Firebolt dbt adapter has been upgraded to v1.0.0. For more information about new features available in 1.0.0, see [New features and changed documentation](https://docs.getdbt.com/guides/migration/versions/upgrading-to-v1.0#new-features-and-changed-documentation) in dbt documentation.
 
 * **Resolved issues**  
   * Fixed an issue that caused inaccurate elapsed time for queries to be shown in the SQL workspace.

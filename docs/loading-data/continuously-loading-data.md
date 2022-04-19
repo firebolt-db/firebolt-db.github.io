@@ -49,7 +49,7 @@ Apache Airflow supports several kinds of connectors. In this tutorial, we use th
 
 Perform the following steps [Setting up Airflow JDBC to Firebolt](../integrations/data-orchestration/setting-up-airflow-jdbc-to-firebolt.md):
 
-* Install the latest Firebolt JDBC driver in Airflow. [Download Firebolt’s JDBC driver](../integrations/connecting-via-jdbc.md#download-the-latest-jdbc-driver), and save the JDBC jar file to the server that runs Airflow (we use `/airflow/jdbc`).
+* Install the latest Firebolt JDBC driver in Airflow. [Download Firebolt’s JDBC driver](../developing-with-firebolt/connecting-with-jdbc.md#step-1-download-the-jdbc-driver), and save the JDBC jar file to the server that runs Airflow (we use `/airflow/jdbc`).
 * [Set up the JDBC connection to Firebolt in Airflow](../integrations/data-orchestration/setting-up-airflow-jdbc-to-firebolt.md#set-up-the-jdbc-connection-in-airflow). In this guide, we assume the `Conn ID` is `firebolt_jdbc`.
 
 ## Step 2: Create a DAG for continuously loading data into Firebolt
