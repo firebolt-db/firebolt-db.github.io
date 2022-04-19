@@ -1,0 +1,19 @@
+name: GitHub to Guru
+on:
+  push:
+    branches:
+      - gh-pages
+      
+      
+jobs:
+  guru:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: peckjon/github-to-guru@1.7.5
+      env:
+        GURU_COLLECTION_YAML: https://github.com/firebolt-db/firebolt-db.github.io/blob/gh-pages/collection.yaml
+        GURU_USER_EMAIL:  '${{ secrets.GURU_USER_EMAIL }}'
+        GURU_USER_TOKEN:  '${{ secrets.GURU_USER_TOKEN }}'
+        GURU_COLLECTION_ID: 'd345adef-5855-4bff-94b2-ed4cd0d568af'
+        GURU_CARD_FOOTER: 'To edit this card, visit https://github.com/${{ github.repository }}/tree/gh-pages/__CARDPATH__'
