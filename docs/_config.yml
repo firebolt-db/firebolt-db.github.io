@@ -43,7 +43,7 @@ search:
 
 aux_links:
   "SCHEDULE A CALL":
-    - "https:///www.firebolt.io/getting-started-now?utm_source=referral&utm_medium=docs&utm-campaign=docs-demo"
+    - "https:///www.firebolt.io/getting-started-now"
 
 # Google Analytics tracking
 ga_tracking: UA-142599515-1
