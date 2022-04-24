@@ -215,7 +215,7 @@ For query 2, you can improve performance further by partitioning the table accor
 
 ```
 PRIMARY INDEX (visit_date, customer_id, event_type)
-PARTITION BY (EXTRACT (YEAR FROM visit_date)
+PARTITION BY (EXTRACT (YEAR FROM visit_date))
 ```
 
 Without the partition, Firebolt likely must scan across file segments to return results for the year 2021. With the partition, segments exist for each year, and Firebolt can read all results from a single segment. If the query runs on a multi-node engine, the benefit may be greater. Firebolt can avoid pulling data from multiple engine nodes for results.
