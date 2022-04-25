@@ -82,7 +82,7 @@ The example AWS IAM policy statement below demonstrates the minimum actions that
         {
             "Effect": "Allow",
             "Action": [
-                "s3:Get*",ALTER TABLE...DROP PARTITION
+                "s3:Get*",
                 "s3:List*",
                 "s3:PutObject",
                 "s3:DeleteObject"
