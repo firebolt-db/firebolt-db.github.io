@@ -9,12 +9,12 @@ parent: SQL commands
 
 Views allow you to use a query as if it were a table.
 
-Views are useful to filter, focus and simplify a database for users. They provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. A view in Firebolt executes its query each time the view is referenced. In other words, the view results are not stored for future usage, and therefore using views does not provide a performance advantage.
+Views are useful to filter, focus, and simplify a database for users. They provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. A view in Firebolt executes its query each time the view is referenced. In other words, the view results are not stored for future usage, and therefore using views does not provide a performance advantage. Consider using a materialized common table expression (CTE) as an alternative. For more information, see [Materialized common table expressions](../sql-reference/commands/select.md#materialized-common-table-expressions-beta).
 
 ## Syntax
 
 ```sql
-CREATE VIEW [IF NOT EXISTS] <name> [(<column_list>)]
+CREATE VIEW  [IF NOT EXISTS | OR REPLACE]  <name> [(<column_list>)]
 AS SELECT <select_statement>
 ```
 
@@ -33,6 +33,6 @@ AS SELECT   l_shipmode,
             l_linestatus,
             l_orderkey,
 FROM    lineitem
-WHERE   l_shipdate > '1990-01-01'
-AND     l_shipmode = 'FOB'
+WHERE   l_shipdate > 1990-01-01
+AND     l_shipmode = 'FOB';
 ```

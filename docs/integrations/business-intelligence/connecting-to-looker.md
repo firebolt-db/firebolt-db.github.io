@@ -31,7 +31,7 @@ Looker can dynamically process your data in a number of ways. Following these be
 
 The base view in a Looker Explore is the database table that is used in the `FROM` clause of the SQL query that Looker generates. Looker manifests other views joined into an Explore using a `JOIN` clause. Typically, base views are joined to other views in a many-to-one direction using `LEFT JOIN`, and most filters occur on the base view.
 
-In Firebolt, fact tables are sharded across engine instances. Dimension tables, which are typically smaller than fact tables, are replicated in each instance. This helps optimize query performance. Firebolt typically performs best when you filter on the fact table and use it in the `FROM` clause in your SQL queries when using a `LEFT JOIN`.
+In Firebolt, fact tables are sharded across engine nodes. Dimension tables, which are typically smaller than fact tables, are replicated in each node. This helps optimize query performance. Firebolt typically performs best when you filter on the fact table and use it in the `FROM` clause in your SQL queries when using a `LEFT JOIN`.
 
 These preferred patterns in Firebolt make it a best practice to use a Firebolt fact table as the base view of a Looker Explore. If you need multiple fact tables in an Explore, set the base view as the Firebolt fact table that is queried most frequently and join the others. Looker only joins tables when the analyitcal query needs them, and the `FROM` clause is static.
 
@@ -64,7 +64,7 @@ The example below shows a LookML `always_filter` defined for the `report_date` c
 
 Join indexes in Firebolt can accelerate queries with joins. Looker is known to generate a lot of joins, especially if your data is relatively normalized. Evaluating the joins in the LookML for your Looker Explores can provide clues for the join indexes to create so that you can accelerate performance.
 
-Join indexes that you define in Firebolt are beneficial when there is a many-to-one relationship between fact tables and a join table, when you typically filter queries using only a subset of available columns in the dimension table, and when the dimension table is large enough that it exceeds the RAM available to any single engine instance. In addition, dimension tables that have a join index defined for them should have a column with unique values that is used as the join key. This column should have the `UNIQUE `parameter set when the dimension table is created.
+Join indexes that you define in Firebolt are beneficial when there is a many-to-one relationship between fact tables and a join table, when you typically filter queries using only a subset of available columns in the dimension table, and when the dimension table is large enough that it exceeds the RAM available in the engine spec. In addition, dimension tables that have a join index defined for them should have a column with unique values that is used as the join key. This column should have the `UNIQUE `parameter set when the dimension table is created.
 
 For more information, see [Using indexes](../../using-indexes/using-indexes.md).
 

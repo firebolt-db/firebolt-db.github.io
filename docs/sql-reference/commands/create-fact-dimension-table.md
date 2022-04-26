@@ -72,7 +72,7 @@ Firebolt supports the column constraints shown below.
 | `UNIQUE`             | This is an optimization hint to tell Firebolt that this column will be queried for unique values, such as through a `COUNT(DISTINCT)` function. This will not raise an error if a non-unique value is added to the column. |               |
 
 {: .note}
-Note that nullable columns can not be used in Firebolt indexes (Primary, Aggregating, or Join indexes).
+Note that nullable columns can not be used in Firebolt indexes (Primary, Aggregating or Join indexes).
 
 ### Example&ndash;Creating a table with nulls and not nulls
 

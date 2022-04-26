@@ -115,13 +115,13 @@ ALTER TABLE fct_tbl_transactions DROP PARTITION `2020-01-01`::DATE;
 The example below uses `EXTRACT` to create a partition for each group of records with the same year value in `transaction_date`.
 
 ```sql
-PARTITION BY EXTRACT(MONTH from transaction_date);
+PARTITION BY EXTRACT(YEAR FROM transaction_date), EXTRACT(MONTH FROM transaction_date);
 ```
 
 The example below drops the partition for records where `transaction_date` contains `3`, which corresponds to the month of March. The month is specified as an integer in the command.
 
 ```sql
-ALTER TABLE fct_tbl_transactions DROP PARTITION 3;
+ALTER TABLE fct_tbl_transactions DROP PARTITION 2022,04;
 ```
 
 #### Partition and drop by integer

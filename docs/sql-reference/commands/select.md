@@ -42,18 +42,33 @@ The primary query and the queries included in the `WITH` clause are all executed
 
 When using the `WITH `clause as part of a DML command, it must include a `RETURNING` clause as well, without which the main query cannot reference the WITH clause.
 
+### Materialized common table expressions (Beta)
+{: .no_toc}
+
+The query hint `MATERIALIZED` or `NOT MATERIALIZED` controls whether common table expressions (CTEs) produce an internal results table that is cached in engine RAM (`MATERIALIZED`) or calculated each time the sub-query runs. `NOT MATERIALIZED` is the default. `MATERIALIZED` must be specified explicitly.
+
+Materialized results can be accessed more quickly in some circumstances. By using the proper materialization hint, you can control when a CTE gets materialized and improve query performance. We recommend the `MATERIALIZED` hint to improve query performance in the following circumstances:
+
+* The CTE is reused at the main query level more than once.
+
+* The CTE is computationally expensive, producing a relatively small number of rows.
+
+* The CTE calculation is independent of the main query, and no external optimizations from the main table are needed for it to be fast.
+
+* The materialized CTE fits into the nodes’ ram.
+
 ### Syntax
 {: .no_toc}
 
 ```sql
-WITH <subquery_table_name> [ <column_name> [, ...n] ] AS <subquery>
+WITH <subquery_table_name> [ <column_name> [, ...n] ] AS [MATERIALIZED|NOT MATERIALIZED] <subquery>
 ```
 
 | Component               | Description                                                                          |
 | :----------------------- | :------------------------------------------------------------------------------------ |
-| `<subquery_table_name>` | A unique name for a temp table                                                       |
+| `<subquery_table_name>` | A unique name for a temporary table.                                                       |
 | `<column_name>`         | An optional list of one or more column names. Columns should be separated by commas. |
-| `<subquery>`            | Any query statement                                                                  |
+| `<subquery>`            | Any query statement.                                                                  |
 
 ### Example
 {: .no_toc}
@@ -211,14 +226,14 @@ The tables and their data are shown below.
 The `INNER JOIN` example below includes only the rows where the `firstname` and `score` values match.
 
 ``` sql
-SELECT 
+SELECT
     *
-FROM 
-    num_test 
-INNER JOIN 
+FROM
+    num_test
+INNER JOIN
     num_test2
     USING (
-        firstname, 
+        firstname,
         score
 	);
 ```
@@ -226,11 +241,11 @@ INNER JOIN
 This query is equivalent to:
 
 ``` sql
-SELECT 
+SELECT
     *
-FROM 
-    num_test 
-INNER JOIN 
+FROM
+    num_test
+INNER JOIN
     num_test2
         ON num_test.firstname = num_test2.firstname
         AND num_test.score = num_test2.score;
@@ -252,11 +267,11 @@ INNER JOIN
 The `LEFT OUTER JOIN` example below includes all `firstname` values from the `num_test` table. Any rows with no matching value in the `num_test2` table return `NULL`.  
 
 ``` sql
-SELECT 
-    num_test.firstname, 
+SELECT
+    num_test.firstname,
     num_test2.firstname
-FROM num_test 
-LEFT OUTER JOIN 
+FROM num_test
+LEFT OUTER JOIN
     num_test2
     USING (firstname);
 ```
@@ -277,15 +292,15 @@ LEFT OUTER JOIN
 #### RIGHT OUTER JOIN example
 {: .no_toc}
 
-The `RIGHT OUTER JOIN` example below includes all `firstname` values from `num_test2`. Any rows with no matching values in the `num_test` table return `NULL`. 
+The `RIGHT OUTER JOIN` example below includes all `firstname` values from `num_test2`. Any rows with no matching values in the `num_test` table return `NULL`.
 
 ``` sql
-SELECT 
-    num_test.firstname, 
+SELECT
+    num_test.firstname,
     num_test2.firstname
-FROM 
-    num_test 
-RIGHT OUTER JOIN 
+FROM
+    num_test
+RIGHT OUTER JOIN
     num_test2
     USING (firstname);
 ```
@@ -306,15 +321,15 @@ RIGHT OUTER JOIN
 #### FULL OUTER JOIN example
 {: .no_toc}
 
-The `FULL OUTER JOIN` example below includes all values from `num_test` and `num_test2`. Any rows with no matching values return `NULL`. 
+The `FULL OUTER JOIN` example below includes all values from `num_test` and `num_test2`. Any rows with no matching values return `NULL`.
 
 ``` sql
-SELECT 
-    num_test.firstname, 
+SELECT
+    num_test.firstname,
     num_test2.firstname
-FROM 
-    num_test 
-FULL OUTER JOIN 
+FROM
+    num_test
+FULL OUTER JOIN
     num_test2
     USING (firstname);
 ```
@@ -351,12 +366,12 @@ This example uses two tables, `crossjoin_test` and `crossjoin_test2`, each with 
 The `CROSS JOIN` example below produces a table of every possible pairing of these rows.
 
 ``` sql
-SELECT 
-    crossjoin_test.letter, 
+SELECT
+    crossjoin_test.letter,
     crossjoin_test2.letter
-FROM 
-    crossjoin_test 
-CROSS JOIN 
+FROM
+    crossjoin_test
+CROSS JOIN
     crossjoin_test2;
 ```
 

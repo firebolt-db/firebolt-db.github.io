@@ -116,7 +116,7 @@ Firebolt uses cookies in your client to save the state of unsaved scripts automa
 
 ## Running scripts and working with results
 
-At the bottom of each script tab, you can choose **Run script** to execute SQL statements. SQL statements can only run on running engines. If an engine isn't running, you can select it from the list and then choose the **Start** button for that engine. For more information about engines, see [Working with engines](../working-with-engines/working-with-engines.html).
+At the bottom of each script tab, you can choose **Run script** to execute SQL statements. SQL statements can only run on running engines. If an engine isn't running, you can select it from the list and then choose the **Start** button for that engine. For more information about engines, see [Working with engines](../working-with-engines/index.md).
 
 You can run all statements in a script or select snippets of SQL to run.
 

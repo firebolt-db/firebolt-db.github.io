@@ -79,9 +79,6 @@ In the SQL workspace, you can now select a portion of an error message to copy.
   * Fixed an issue that caused an engine crash when an unsupported function was used in a partition key definition.
   * Fixed an issue that allowed an aggregating index to be created with a window function, which is unsupported and caused unpredictable issues. Creating an aggregating index with a window function now fails with an error.
 
-
-
-
 ## February 16, 2022
 
 * Fixed an issue where view creation could fail when the view depended on other views.

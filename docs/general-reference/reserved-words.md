@@ -2,7 +2,7 @@
 layout: default
 title: Reserved words
 description: Provides a list of SQL reserved words in Firebolt.
-nav_order: 3
+nav_order: 4
 parent: General reference
 ---
 

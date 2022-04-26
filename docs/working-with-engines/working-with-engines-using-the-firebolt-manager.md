@@ -26,7 +26,7 @@ For more information about settings and their meanings, see [Understanding engin
 
 4. Choose an **Engine type**.  
 
-5. Under **Engine spec**, choose an EC2 instance type from the list. **Total engine stats** and the engine list in the left pane update to reflect your selection.  
+5. Under **Engine spec**, choose a Firebolt engine name from the list. **Total engine stats** and the engine list in the left pane update to reflect your selection.  
 
 6. Under **Engine scale**, select a scale factor of 1 to 128.  
 **Total engine stats** and the engine list in the left pane update to reflect your selection.  

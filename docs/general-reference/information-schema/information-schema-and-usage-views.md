@@ -2,7 +2,7 @@
 layout: default
 title: Information schema and usage views
 description: Learn about the metadata available for Firebolt objects using the information schema.  
-nav_order: 4
+nav_order: 5
 parent: General reference
 has_children: true
 ---

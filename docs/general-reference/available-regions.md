@@ -2,7 +2,7 @@
 layout: default
 title: Available AWS Regions
 description: Provides the AWS Regions available in Firebolt.
-nav_order: 5
+nav_order: 7
 parent: General reference
 ---
 

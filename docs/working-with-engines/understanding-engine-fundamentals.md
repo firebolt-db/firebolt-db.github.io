@@ -62,11 +62,11 @@ Engines can be one of two _types_:
 
 ### Engine spec
 
-When you choose an _engine spec_, you choose the instance type that is the foundation of the engine’s compute capabilities. Each instance has CPU, RAM, and storage characteristics along with a cost per hour \(billed per second\) for each instance. You can choose to build an engine on one of several instance types. Firebolt has pre-selected these instance types for characteristics that are best suited for Firebolt workloads.
+When you choose an _engine spec_, you choose the foundation of an engine’s compute capabilities. Each engine spec has CPU, RAM, and cache characteristics. The engine spec determines the cost per hour \(billed per second\) for each engine node (the total engine cost per hour is also a function of scale). You can choose engine specs for characteristics that are best suited for your Firebolt workload. For details, see [Available engine specs](../general-reference/available-engine-specs.md).
 
 ### Scale
 
-_Scale_ determines the number of nodes that the engine uses and can be an integer ranging from 1 to 128. Firebolt monitors the health of nodes on a continuous basis and automatically repairs nodes that report an unhealthy status. To help ensure uninterrupted operation of engines if a node becomes unhealthy, we recommend a scale of two or more.
+_Scale_ determines the number of nodes that the engine uses and can be an integer ranging from 1 to 128. Firebolt monitors the health of nodes on a continuous basis and automatically repairs nodes that report an unhealthy status. To help ensure uninterrupted operation of engines if a node becomes unhealthy, we recommend a scale of two or more for each engine.
 
 ### Warmup method
 

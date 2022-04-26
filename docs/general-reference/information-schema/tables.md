@@ -29,7 +29,7 @@ Each row has the following columns with information about each table.
 | table_name                  | STRING      | The name of the table. |
 | table_type                  | STRING      | One of `FACT TABLE`, `DIMENSION TABLE`, `EXTERNAL TABLE`, or `VIEW`. |
 | primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
-| number_of_rows              | INT         | The number of rows in the table. |
+| number_of_rows              | BIGINT      | The number of rows in the table. |
 | size                        | DOUBLE      | The compressed size of the table. |
 | size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
 | compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |

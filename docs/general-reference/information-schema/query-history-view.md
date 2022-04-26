@@ -40,11 +40,11 @@ Each row has the following columns with information about each query in query hi
 | ERROR_MESSAGE               | STRING    | The error message that was returned. |
 | SCANNED_ROWS                | LONG      | The total number of rows scanned. |
 | SCANNED_BYTES               | LONG      | The total number of bytes scanned (both from cache and storage). |
-| SCANNED_BYTES_CACHE         | LONG      | The total number of compressed bytes scanned from the engine's cache (the SSD instance store on engine nodes). |
+| SCANNED_BYTES_CACHE         | LONG      | The total number of compressed bytes scanned from the engine's cache. |
 | SCANNED_BYTES_STORAGE       | LONG      | The total number of compressed bytes scanned from F3 storage. |
 | INSERTED_ROWS               | LONG      | The total number of rows written. |
 | INSERTED_BYTES              | LONG      | The total number of bytes written (both to cache and storage). |
-| INSERTED_BYTES_CACHE        | LONG      | The total number of compressed bytes written to the engine's cache (the SSD instance store on engine nodes). |
+| INSERTED_BYTES_CACHE        | LONG      | The total number of compressed bytes written to the engine's cache. |
 | INSERTED_BYTES_STORAGE      | LONG      | The total number of compressed bytes written to F3 storage. |
 | SPILLED_BYTES_COMPRESSED    | LONG      | The total number of compressed bytes spilled. |
 | SPILLED_BYTES_UNCOMPRESSED  | LONG      | The total number of uncompressed bytes spilled. |
