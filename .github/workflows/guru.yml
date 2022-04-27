@@ -9,11 +9,18 @@ jobs:
   guru:
     runs-on: ubuntu-latest
     steps:
+    - name: Update YAML
+      run: rm "guru/cards.yaml"; rm "guru/collection.yaml"; rm guru/boards.yaml; rm guru/boardgroups.yaml; python3 scripts/create_card_yaml.py "./docs" "guru/cards.yaml"  "guru/collection.yaml"; python3 scripts/create_board_yaml.py "./docs" "guru/boards.yaml" "guru/boardgroups.yaml";
+      shell: sh
+    - name: Github to Guru action
     - uses: actions/checkout@v1
-    - uses: peckjon/github-to-guru@1.7.5
+    - uses: peckjon/github-to-guru@master
       env:
-        GURU_CARD_YAML: ./.github/workflows/collection.yaml
         GURU_USER_EMAIL:  '${{ secrets.GURU_USER_EMAIL }}'
         GURU_USER_TOKEN:  '${{ secrets.GURU_USER_TOKEN }}'
         GURU_COLLECTION_ID: 'd345adef-5855-4bff-94b2-ed4cd0d568af'
         GURU_CARD_FOOTER: 'To edit this card, visit https://github.com/${{ github.repository }}/tree/gh-pages/__CARDPATH__'
+        GURU_COLLECTION_YAML: 'guru/collection.yaml'
+        GURU_CARD_YAML: 'guru/card.yaml'
+        GURU_BOARD_YAML: 'guru/boards.yaml'
+        GURU_BOARDGROUP_YAML: 'guru/boardgroups.yaml'
