@@ -14,7 +14,7 @@ jobs:
         run: |
           pip3 install -r "scripts/requirements.txt"; 
       - name: Run scripts
-        run: rm "guru/cards.yaml"; rm "guru/collection.yaml"; rm guru/boards.yaml; rm guru/boardgroups.yaml; python3 scripts/create_card_yaml.py "./docs" "guru/cards.yaml"  "guru/collection.yaml"; python3 scripts/create_board_yaml.py "./docs" "guru/boards.yaml" "guru/boardgroups.yaml";
+        run: python3 scripts/create_card_yaml.py "./docs" "guru/cards.yaml"  "guru/collection.yaml"; python3 scripts/create_board_yaml.py "./docs" "guru/boards.yaml" "guru/boardgroups.yaml";
         shell: sh
   guru:
     runs-on: ubuntu-latest
