@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - gh-pages
-      
-      
+          
 jobs:
   yaml:
     runs-on: ubuntu-latest
