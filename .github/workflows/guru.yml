@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Update YAML
-      run: rm "guru/cards.yaml"; rm "guru/collection.yaml"; rm guru/boards.yaml; rm guru/boardgroups.yaml; python3 scripts/create_card_yaml.py "./docs" "guru/cards.yaml"  "guru/collection.yaml"; python3 scripts/create_board_yaml.py "./docs" "guru/boards.yaml" "guru/boardgroups.yaml";
-      shell: sh
+      run: pip3 install -r "scripts/requirements.txt"; rm "guru/cards.yaml"; rm "guru/collection.yaml"; rm guru/boards.yaml; rm guru/boardgroups.yaml; python3 scripts/create_card_yaml.py "./docs" "guru/cards.yaml"  "guru/collection.yaml"; python3 scripts/create_board_yaml.py "./docs" "guru/boards.yaml" "guru/boardgroups.yaml";
+      shell: python
     - name: Github to Guru action
     - uses: actions/checkout@v1
     - uses: peckjon/github-to-guru@master
