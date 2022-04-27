@@ -1,16 +1,16 @@
 "boardgroup0":
-  Title: "general-reference"
-  Boards:
-  - "board4"
-"boardgroup1":
   Title: "integrations"
   Boards:
+  - "board1"
+  - "board2"
+  - "board3"
+"boardgroup1":
+  Title: "general-reference"
+  Boards:
   - "board6"
-  - "board7"
-  - "board8"
 "boardgroup2":
   Title: "sql-reference"
   Boards:
+  - "board9"
   - "board10"
-  - "board11"
 
