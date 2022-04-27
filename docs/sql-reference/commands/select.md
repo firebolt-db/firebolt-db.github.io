@@ -32,7 +32,7 @@ SELECT [ DISTINCT ] {<select_expr> [, ...]}
 
 ## WITH
 
-The `WITH` clause is used for sub-query refactoring so that you can specify subqueries and then reference them as part of the main query. This simplifies the hierarchy of the main query, enabling you to avoid using multiple nested sub-queries.
+The `WITH` clause is used for subquery refactoring so that you can specify subqueries and then reference them as part of the main query. This simplifies the hierarchy of the main query, enabling you to avoid using multiple nested sub-queries.
 
 In order to reference the data from the `WITH` clause, a name must be specified for it. This name is then treated as a temporary relation table during query execution.
 
