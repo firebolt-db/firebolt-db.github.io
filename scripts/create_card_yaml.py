@@ -79,7 +79,7 @@ for filename in glob.iglob(root_dir + '**/*.md', recursive=True):
     if content_new3 != content:
         with open (filename, 'w' ) as f:
             f.write(content_new3)
-    cards+=f'"{filename.lstrip(parent_path)}":\n'
+    cards+=f'"do{filename.lstrip(parent_path)}":\n'
     cards+=f'  Title: "{title}"\n'
     if tags:
         cards+='  Tags:\n'
