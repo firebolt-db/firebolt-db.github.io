@@ -35,7 +35,7 @@ def get_order_directory(folder, default_sorted):
 
 def create_card_entry(parent_path, cardfile, line_prefix):
     card_id = path.splitext(cardfile)[0].lstrip(parent_path)
-    return f'{line_prefix}  - ID: "{card_id}"\n' \
+    return f'{line_prefix}  - ID: "do{card_id}"\n' \
         + f'{line_prefix}    Type: "card"\n'
 
 def create_board_yaml(parent_path, board_id, entry):
