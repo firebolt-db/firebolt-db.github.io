@@ -131,3 +131,4 @@ else:
     with open(boardgroups_outputfile, 'w') as f:
             print(boardgroups_yaml, file=f)
     print(f'{nboardgroups} boards written to {boardgroups_outputfile}')
+   
