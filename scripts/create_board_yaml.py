@@ -35,6 +35,7 @@ def get_order_directory(folder, default_sorted):
 
 def create_card_entry(parent_path, cardfile, line_prefix):
     card_id = path.splitext(cardfile)[0].lstrip(parent_path)
+    card_id = re.sub(r'[^a-zA-Z0-9]','_', card_id)
     return f'{line_prefix}  - ID: "do{card_id}"\n' \
         + f'{line_prefix}    Type: "card"\n'
 
