@@ -434,9 +434,9 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 ## Window functions
 
-* [AVG](avg.md)  
+* [AVG](avg-window.md)  
 
-* [COUNT](count.md)  
+* [COUNT](count-window.md)  
 
 * [DENSE_RANK](dense-rank.md)  
 
@@ -444,12 +444,12 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [LEAD](lead.md)  
 
-* [MAX](max.md)  
+* [MAX](max-window.md)  
 
-* [MIN](min.md)  
+* [MIN](min-window.md)  
 
 * [RANK](rank.md)  
 
 * [ROW_NUMBER](row-number.md)  
 
-* [SUM](sum.md)  
+* [SUM](sum-window.md)  
