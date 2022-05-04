@@ -32,3 +32,4 @@ jobs:
         GURU_CARD_YAML: 'guru/cards.yaml'
         GURU_BOARD_YAML: 'guru/boards.yaml'
         GURU_BOARDGROUP_YAML: 'guru/boardgroups.yaml'
+        GURU_CONVERT_MARKDOWN: 1
