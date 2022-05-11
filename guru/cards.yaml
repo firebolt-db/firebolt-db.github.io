@@ -1,555 +1,555 @@
-"docs/architecture-overview.md":
+"doverview.md":
   Title: "Architecture overview"
-"docs/exporting-query-results.md":
+"doxporting-query-results.md":
   Title: "Exporting query results"
-"docs/getting-started.md":
+"do.md":
   Title: "Getting started"
-"docs/index.md":
+"dox.md":
   Title: "Firebolt documentation"
-"docs/working-with-partitions.md":
+"dopartitions.md":
   Title: "Working with partitions"
-"docs/working-with-tables.md":
+"do.md":
   Title: "Working with tables"
-"docs/using-the-sql-workspace/using-explain-to-analyze-query-execution.md":
+"doql-workspace/using-explain-to-analyze-query-execution.md":
   Title: "Using visual explain"
-"docs/using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md":
+"doql-workspace/keyboard-shortcuts-for-sql-workspace.md":
   Title: "Keyboard shortcuts"
-"docs/using-the-sql-workspace/using-the-sql-workspace.md":
+"doql-workspace/using-the-sql-workspace.md":
   Title: "Using the SQL workspace"
-"docs/developing-with-firebolt/connecting-with-nodejs.md":
+"doveloping-with-firebolt/connecting-with-nodejs.md":
   Title: "Node.js"
-"docs/developing-with-firebolt/connecting-with-Python.md":
+"doveloping-with-firebolt/connecting-with-Python.md":
   Title: "Python"
-"docs/developing-with-firebolt/developing-with-firebolt.md":
+"doveloping-with-firebolt/developing-with-firebolt.md":
   Title: "Developing with Firebolt"
-"docs/developing-with-firebolt/connecting-with-sqlalchemy.md":
+"doveloping-with-firebolt/connecting-with-sqlalchemy.md":
   Title: "SQLAlchemy"
-"docs/developing-with-firebolt/firebolt-rest-api.md":
+"doveloping-with-firebolt/firebolt-rest-api.md":
   Title: "REST API"
-"docs/sql-reference/functions-reference/sign.md":
+"doql-reference/functions-reference/sign.md":
   Title: "SIGN"
-"docs/sql-reference/functions-reference/substr.md":
+"doql-reference/functions-reference/substr.md":
   Title: "SUBSTR"
-"docs/sql-reference/functions-reference/min.md":
+"doql-reference/functions-reference/min.md":
   Title: "MIN (aggregation function)"
-"docs/sql-reference/functions-reference/gen-random-uuid.md":
+"doql-reference/functions-reference/gen-random-uuid.md":
   Title: "GEN_RANDOM_UUID"
-"docs/sql-reference/functions-reference/to-timestamp.md":
+"doql-reference/functions-reference/to-timestamp.md":
   Title: "TO_TIMESTAMP"
-"docs/sql-reference/functions-reference/array-replace-backwards.md":
+"doql-reference/functions-reference/array-replace-backwards.md":
   Title: "ARRAY_REPLACE_BACKWARDS"
-"docs/sql-reference/functions-reference/to-second.md":
+"doql-reference/functions-reference/to-second.md":
   Title: "TO_SECOND"
-"docs/sql-reference/functions-reference/dense-rank.md":
+"doql-reference/functions-reference/dense-rank.md":
   Title: "DENSE_RANK"
-"docs/sql-reference/functions-reference/to-minute.md":
+"doql-reference/functions-reference/to-minute.md":
   Title: "TO_MINUTE"
-"docs/sql-reference/functions-reference/round.md":
+"doql-reference/functions-reference/round.md":
   Title: "ROUND"
-"docs/sql-reference/functions-reference/strpos.md":
+"doql-reference/functions-reference/strpos.md":
   Title: "STRPOS"
-"docs/sql-reference/functions-reference/slice.md":
+"doql-reference/functions-reference/slice.md":
   Title: "SLICE"
-"docs/sql-reference/functions-reference/median.md":
+"doql-reference/functions-reference/median.md":
   Title: "MEDIAN"
-"docs/sql-reference/functions-reference/min-by.md":
+"doql-reference/functions-reference/min-by.md":
   Title: "MIN_BY"
-"docs/sql-reference/functions-reference/count.md":
+"doql-reference/functions-reference/count.md":
   Title: "COUNT (aggregation function)"
-"docs/sql-reference/functions-reference/max-window.md":
+"doql-reference/functions-reference/max-window.md":
   Title: "MAX (window function)"
-"docs/sql-reference/functions-reference/to-day-of-year.md":
+"doql-reference/functions-reference/to-day-of-year.md":
   Title: "TO_DAY_OF_YEAR"
-"docs/sql-reference/functions-reference/index-of.md":
+"doql-reference/functions-reference/index-of.md":
   Title: "INDEX_OF"
-"docs/sql-reference/functions-reference/to-unix-timestamp.md":
+"doql-reference/functions-reference/to-unix-timestamp.md":
   Title: "TO_UNIX_TIMESTAMP"
-"docs/sql-reference/functions-reference/json-extract.md":
+"doql-reference/functions-reference/json-extract.md":
   Title: "JSON_EXTRACT"
-"docs/sql-reference/functions-reference/avg.md":
+"doql-reference/functions-reference/avg.md":
   Title: "AVG (aggregation function)"
-"docs/sql-reference/functions-reference/radians.md":
+"doql-reference/functions-reference/radians.md":
   Title: "RADIANS"
-"docs/sql-reference/functions-reference/avg-window.md":
+"doql-reference/functions-reference/avg-window.md":
   Title: "AVG (window function)"
-"docs/sql-reference/functions-reference/max-by.md":
+"doql-reference/functions-reference/max-by.md":
   Title: "MAX_BY"
-"docs/sql-reference/functions-reference/flatten.md":
+"doql-reference/functions-reference/flatten.md":
   Title: "FLATTEN"
-"docs/sql-reference/functions-reference/aggregation-functions.md":
+"doql-reference/functions-reference/aggregation-functions.md":
   Title: "aggregation-functions"
-"docs/sql-reference/functions-reference/cbrt.md":
+"doql-reference/functions-reference/cbrt.md":
   Title: "CBRT"
-"docs/sql-reference/functions-reference/lower.md":
+"doql-reference/functions-reference/lower.md":
   Title: "LOWER"
-"docs/sql-reference/functions-reference/approx-percentile.md":
+"doql-reference/functions-reference/approx-percentile.md":
   Title: "APPROX_PERCENTILE"
-"docs/sql-reference/functions-reference/operators.md":
+"doql-reference/functions-reference/operators.md":
   Title: "operators"
-"docs/sql-reference/functions-reference/case.md":
+"doql-reference/functions-reference/case.md":
   Title: "CASE"
-"docs/sql-reference/functions-reference/count-window.md":
+"doql-reference/functions-reference/count-window.md":
   Title: "COUNT (window function)"
-"docs/sql-reference/functions-reference/rank.md":
+"doql-reference/functions-reference/rank.md":
   Title: "RANK"
-"docs/sql-reference/functions-reference/degrees.md":
+"doql-reference/functions-reference/degrees.md":
   Title: "DEGREES"
-"docs/sql-reference/functions-reference/array-count.md":
+"doql-reference/functions-reference/array-count.md":
   Title: "ARRAY_COUNT"
-"docs/sql-reference/functions-reference/ceil.md":
+"doql-reference/functions-reference/ceil.md":
   Title: "CEIL, CEILING"
-"docs/sql-reference/functions-reference/row-number.md":
+"doql-reference/functions-reference/row-number.md":
   Title: "ROW_NUMBER"
-"docs/sql-reference/functions-reference/json-functions.md":
+"doql-reference/functions-reference/json-functions.md":
   Title: "json-functions"
-"docs/sql-reference/functions-reference/any_value.md":
+"doql-reference/functions-reference/any_value.md":
   Title: "ANY_VALUE"
-"docs/sql-reference/functions-reference/functions-reference.md":
+"doql-reference/functions-reference/functions-reference.md":
   Title: "functions-reference"
-"docs/sql-reference/functions-reference/abs.md":
+"doql-reference/functions-reference/abs.md":
   Title: "ABS"
-"docs/sql-reference/functions-reference/repeat.md":
+"doql-reference/functions-reference/repeat.md":
   Title: "REPEAT"
-"docs/sql-reference/functions-reference/semi-structured-data-functions.md":
+"doql-reference/functions-reference/semi-structured-data-functions.md":
   Title: "semi-structured-data-functions"
-"docs/sql-reference/functions-reference/to-hour.md":
+"doql-reference/functions-reference/to-hour.md":
   Title: "TO_HOUR"
-"docs/sql-reference/functions-reference/element-at.md":
+"doql-reference/functions-reference/element-at.md":
   Title: "ELEMENT_AT"
-"docs/sql-reference/functions-reference/log.md":
+"doql-reference/functions-reference/log.md":
   Title: "LOG"
-"docs/sql-reference/functions-reference/nest.md":
+"doql-reference/functions-reference/nest.md":
   Title: "NEST"
-"docs/sql-reference/functions-reference/to-long.md":
+"doql-reference/functions-reference/to-long.md":
   Title: "TO_LONG"
-"docs/sql-reference/functions-reference/cast.md":
+"doql-reference/functions-reference/cast.md":
   Title: "CAST"
-"docs/sql-reference/functions-reference/array-concat.md":
+"doql-reference/functions-reference/array-concat.md":
   Title: "ARRAY_CONCAT"
-"docs/sql-reference/functions-reference/length-string.md":
+"doql-reference/functions-reference/length-string.md":
   Title: "LENGTH (string function)"
-"docs/sql-reference/functions-reference/date-format.md":
+"doql-reference/functions-reference/date-format.md":
   Title: "DATE_FORMAT"
-"docs/sql-reference/functions-reference/cot.md":
+"doql-reference/functions-reference/cot.md":
   Title: "COT"
-"docs/sql-reference/functions-reference/window-functions.md":
+"doql-reference/functions-reference/window-functions.md":
   Title: "window-functions"
-"docs/sql-reference/functions-reference/mod.md":
+"doql-reference/functions-reference/mod.md":
   Title: "MOD"
-"docs/sql-reference/functions-reference/array-sum.md":
+"doql-reference/functions-reference/array-sum.md":
   Title: "ARRAY_SUM"
-"docs/sql-reference/functions-reference/md5.md":
+"doql-reference/functions-reference/md5.md":
   Title: "MD5"
-"docs/sql-reference/functions-reference/regexp-matches.md":
+"doql-reference/functions-reference/regexp-matches.md":
   Title: "REGEXP_MATCHES"
-"docs/sql-reference/functions-reference/conditional-and-miscellaneous-functions.md":
+"doql-reference/functions-reference/conditional-and-miscellaneous-functions.md":
   Title: "conditional-and-miscellaneous-functions"
-"docs/sql-reference/functions-reference/array-cumulative-sum.md":
+"doql-reference/functions-reference/array-cumulative-sum.md":
   Title: "ARRAY_CUMULATIVE_SUM"
-"docs/sql-reference/functions-reference/atan2.md":
+"doql-reference/functions-reference/atan2.md":
   Title: "ATAN2"
-"docs/sql-reference/functions-reference/json-extract-values.md":
+"doql-reference/functions-reference/json-extract-values.md":
   Title: "JSON_EXTRACT_VALUES"
-"docs/sql-reference/functions-reference/array-functions.md":
+"doql-reference/functions-reference/array-functions.md":
   Title: "array-functions"
-"docs/sql-reference/functions-reference/array-min-global.md":
+"doql-reference/functions-reference/array-min-global.md":
   Title: "ARRAY_MIN_GLOBAL"
-"docs/sql-reference/functions-reference/trunc.md":
+"doql-reference/functions-reference/trunc.md":
   Title: "TRUNC"
-"docs/sql-reference/functions-reference/json-extract-raw.md":
+"doql-reference/functions-reference/json-extract-raw.md":
   Title: "JSON_EXTRACT_RAW"
-"docs/sql-reference/functions-reference/exp.md":
+"doql-reference/functions-reference/exp.md":
   Title: "EXP"
-"docs/sql-reference/functions-reference/sum.md":
+"doql-reference/functions-reference/sum.md":
   Title: "SUM (aggregation function)"
-"docs/sql-reference/functions-reference/extract.md":
+"doql-reference/functions-reference/extract.md":
   Title: "EXTRACT"
-"docs/sql-reference/functions-reference/to-unixtime.md":
+"doql-reference/functions-reference/to-unixtime.md":
   Title: "TO_UNIXTIME"
-"docs/sql-reference/functions-reference/to-year.md":
+"doql-reference/functions-reference/to-year.md":
   Title: "TO_YEAR"
-"docs/sql-reference/functions-reference/ilike.md":
+"doql-reference/functions-reference/ilike.md":
   Title: "ILIKE"
-"docs/sql-reference/functions-reference/acos.md":
+"doql-reference/functions-reference/acos.md":
   Title: "ACOS"
-"docs/sql-reference/functions-reference/reduce.md":
+"doql-reference/functions-reference/reduce.md":
   Title: "REDUCE"
-"docs/sql-reference/functions-reference/cos.md":
+"doql-reference/functions-reference/cos.md":
   Title: "COS"
-"docs/sql-reference/functions-reference/array-sum-global.md":
+"doql-reference/functions-reference/array-sum-global.md":
   Title: "ARRAY_SUM_GLOBAL"
-"docs/sql-reference/functions-reference/trim.md":
+"doql-reference/functions-reference/trim.md":
   Title: "TRIM"
-"docs/sql-reference/functions-reference/city-hash.md":
+"doql-reference/functions-reference/city-hash.md":
   Title: "CITY_HASH"
-"docs/sql-reference/functions-reference/pow.md":
+"doql-reference/functions-reference/pow.md":
   Title: "POW, POWER"
-"docs/sql-reference/functions-reference/sqrt.md":
+"doql-reference/functions-reference/sqrt.md":
   Title: "SQRT"
-"docs/sql-reference/functions-reference/upper.md":
+"doql-reference/functions-reference/upper.md":
   Title: "UPPER"
-"docs/sql-reference/functions-reference/floor.md":
+"doql-reference/functions-reference/floor.md":
   Title: "FLOOR"
-"docs/sql-reference/functions-reference/base64-encode.md":
+"doql-reference/functions-reference/base64-encode.md":
   Title: "BASE64_ENCODE"
-"docs/sql-reference/functions-reference/split.md":
+"doql-reference/functions-reference/split.md":
   Title: "SPLIT"
-"docs/sql-reference/functions-reference/md5-number-lower64.md":
+"doql-reference/functions-reference/md5-number-lower64.md":
   Title: "MD5_NUMBER_LOWER64"
-"docs/sql-reference/functions-reference/string-functions.md":
+"doql-reference/functions-reference/string-functions.md":
   Title: "string-functions"
-"docs/sql-reference/functions-reference/any-match.md":
+"doql-reference/functions-reference/any-match.md":
   Title: "ANY_MATCH"
-"docs/sql-reference/functions-reference/timezone.md":
+"doql-reference/functions-reference/timezone.md":
   Title: "TIMEZONE"
-"docs/sql-reference/functions-reference/array-distinct.md":
+"doql-reference/functions-reference/array-distinct.md":
   Title: "ARRAY_DISTINCT"
-"docs/sql-reference/functions-reference/any.md":
+"doql-reference/functions-reference/any.md":
   Title: "ANY"
-"docs/sql-reference/functions-reference/try-cast.md":
+"doql-reference/functions-reference/try-cast.md":
   Title: "TRY_CAST"
-"docs/sql-reference/functions-reference/date-and-time-functions.md":
+"doql-reference/functions-reference/date-and-time-functions.md":
   Title: "date-and-time-functions"
-"docs/sql-reference/functions-reference/transform.md":
+"doql-reference/functions-reference/transform.md":
   Title: "TRANSFORM"
-"docs/sql-reference/functions-reference/array-fill.md":
+"doql-reference/functions-reference/array-fill.md":
   Title: "ARRAY_FILL"
-"docs/sql-reference/functions-reference/numeric-functions.md":
+"doql-reference/functions-reference/numeric-functions.md":
   Title: "numeric-functions"
-"docs/sql-reference/functions-reference/zeroifnull.md":
+"doql-reference/functions-reference/zeroifnull.md":
   Title: "ZEROIFNULL"
-"docs/sql-reference/functions-reference/pi.md":
+"doql-reference/functions-reference/pi.md":
   Title: "PI"
-"docs/sql-reference/functions-reference/contains.md":
+"doql-reference/functions-reference/contains.md":
   Title: "CONTAINS"
-"docs/sql-reference/functions-reference/array-first.md":
+"doql-reference/functions-reference/array-first.md":
   Title: "ARRAY_FIRST"
-"docs/sql-reference/functions-reference/to-char.md":
+"doql-reference/functions-reference/to-char.md":
   Title: "TO_CHAR"
-"docs/sql-reference/functions-reference/array-first-index.md":
+"doql-reference/functions-reference/array-first-index.md":
   Title: "ARRAY_FIRST_INDEX"
-"docs/sql-reference/functions-reference/sum-window.md":
+"doql-reference/functions-reference/sum-window.md":
   Title: "SUM (window function)"
-"docs/sql-reference/functions-reference/current-date.md":
+"doql-reference/functions-reference/current-date.md":
   Title: "CURRENT_DATE"
-"docs/sql-reference/functions-reference/json-extract-keys.md":
+"doql-reference/functions-reference/json-extract-keys.md":
   Title: "JSON_EXTRACT_KEYS"
-"docs/sql-reference/functions-reference/reverse.md":
+"doql-reference/functions-reference/reverse.md":
   Title: "REVERSE"
-"docs/sql-reference/functions-reference/index.md":
+"doql-reference/functions-reference/index.md":
   Title: "SQL functions"
-"docs/sql-reference/functions-reference/array-max-global.md":
+"doql-reference/functions-reference/array-max-global.md":
   Title: "ARRAY_MAX_GLOBAL"
-"docs/sql-reference/functions-reference/array-reverse.md":
+"doql-reference/functions-reference/array-reverse.md":
   Title: "ARRAY_REVERSE"
-"docs/sql-reference/functions-reference/to-date.md":
+"doql-reference/functions-reference/to-date.md":
   Title: "TO_DATE"
-"docs/sql-reference/functions-reference/concat.md":
+"doql-reference/functions-reference/concat.md":
   Title: "CONCAT"
-"docs/sql-reference/functions-reference/array-min.md":
+"doql-reference/functions-reference/array-min.md":
   Title: "ARRAY_MIN"
-"docs/sql-reference/functions-reference/from-unixtime.md":
+"doql-reference/functions-reference/from-unixtime.md":
   Title: "FROM_UNIXTIME"
-"docs/sql-reference/functions-reference/nullif.md":
+"doql-reference/functions-reference/nullif.md":
   Title: "NULLIF"
-"docs/sql-reference/functions-reference/replace.md":
+"doql-reference/functions-reference/replace.md":
   Title: "REPLACE"
-"docs/sql-reference/functions-reference/atan.md":
+"doql-reference/functions-reference/atan.md":
   Title: "ATAN"
-"docs/sql-reference/functions-reference/date-trunc.md":
+"doql-reference/functions-reference/date-trunc.md":
   Title: "DATE_TRUNC"
-"docs/sql-reference/functions-reference/tan.md":
+"doql-reference/functions-reference/tan.md":
   Title: "TAN"
-"docs/sql-reference/functions-reference/checksum.md":
+"doql-reference/functions-reference/checksum.md":
   Title: "CHECKSUM"
-"docs/sql-reference/functions-reference/rtrim.md":
+"doql-reference/functions-reference/rtrim.md":
   Title: "RTRIM"
-"docs/sql-reference/functions-reference/date-diff.md":
+"doql-reference/functions-reference/date-diff.md":
   Title: "DATE_DIFF"
-"docs/sql-reference/functions-reference/ltrim.md":
+"doql-reference/functions-reference/ltrim.md":
   Title: "LTRIM"
-"docs/sql-reference/functions-reference/ifnull.md":
+"doql-reference/functions-reference/ifnull.md":
   Title: "IFNULL"
-"docs/sql-reference/functions-reference/stddev-samp.md":
+"doql-reference/functions-reference/stddev-samp.md":
   Title: "STDDEV_SAMP"
-"docs/sql-reference/functions-reference/min-window.md":
+"doql-reference/functions-reference/min-window.md":
   Title: "MIN (window function)"
-"docs/sql-reference/functions-reference/date-add.md":
+"doql-reference/functions-reference/date-add.md":
   Title: "DATE_ADD"
-"docs/sql-reference/functions-reference/now.md":
+"doql-reference/functions-reference/now.md":
   Title: "NOW"
-"docs/sql-reference/functions-reference/regexp-like.md":
+"doql-reference/functions-reference/regexp-like.md":
   Title: "REGEXP_LIKE"
-"docs/sql-reference/functions-reference/to-int.md":
+"doql-reference/functions-reference/to-int.md":
   Title: "TO_INT"
-"docs/sql-reference/functions-reference/to-month.md":
+"doql-reference/functions-reference/to-month.md":
   Title: "TO_MONTH"
-"docs/sql-reference/functions-reference/random.md":
+"doql-reference/functions-reference/random.md":
   Title: "RANDOM"
-"docs/sql-reference/functions-reference/lag.md":
+"doql-reference/functions-reference/lag.md":
   Title: "LAG"
-"docs/sql-reference/functions-reference/to-float.md":
+"doql-reference/functions-reference/to-float.md":
   Title: "TO_FLOAT"
-"docs/sql-reference/functions-reference/match-any.md":
+"doql-reference/functions-reference/match-any.md":
   Title: "MATCH_ANY"
-"docs/sql-reference/functions-reference/match.md":
+"doql-reference/functions-reference/match.md":
   Title: "MATCH"
-"docs/sql-reference/functions-reference/filter.md":
+"doql-reference/functions-reference/filter.md":
   Title: "FILTER"
-"docs/sql-reference/functions-reference/split-part.md":
+"doql-reference/functions-reference/split-part.md":
   Title: "SPLIT_PART"
-"docs/sql-reference/functions-reference/lpad.md":
+"doql-reference/functions-reference/lpad.md":
   Title: "LPAD"
-"docs/sql-reference/functions-reference/to-weekiso.md":
+"doql-reference/functions-reference/to-weekiso.md":
   Title: "TO_WEEKISO"
-"docs/sql-reference/functions-reference/to-day-of-week.md":
+"doql-reference/functions-reference/to-day-of-week.md":
   Title: "TO_DAY_OF_WEEK"
-"docs/sql-reference/functions-reference/array_unnest.md":
+"doql-reference/functions-reference/array_unnest.md":
   Title: "ARRAY_UNNEST (deprecated)"
-"docs/sql-reference/functions-reference/to-string.md":
+"doql-reference/functions-reference/to-string.md":
   Title: "TO_STRING"
-"docs/sql-reference/functions-reference/lead.md":
+"doql-reference/functions-reference/lead.md":
   Title: "LEAD"
-"docs/sql-reference/functions-reference/to-week.md":
+"doql-reference/functions-reference/to-week.md":
   Title: "TO_WEEK"
-"docs/sql-reference/functions-reference/to-double.md":
+"doql-reference/functions-reference/to-double.md":
   Title: "TO_DOUBLE"
-"docs/sql-reference/functions-reference/length.md":
+"doql-reference/functions-reference/length.md":
   Title: "LENGTH (array function)"
-"docs/sql-reference/functions-reference/array-join.md":
+"doql-reference/functions-reference/array-join.md":
   Title: "ARRAY_JOIN"
-"docs/sql-reference/functions-reference/aggregate-array-functions.md":
+"doql-reference/functions-reference/aggregate-array-functions.md":
   Title: "aggregate-array-functions"
-"docs/sql-reference/functions-reference/max.md":
+"doql-reference/functions-reference/max.md":
   Title: "MAX (aggregation function)"
-"docs/sql-reference/functions-reference/json-extract-array-raw.md":
+"doql-reference/functions-reference/json-extract-array-raw.md":
   Title: "JSON_EXTRACT_ARRAY_RAW"
-"docs/sql-reference/functions-reference/array-uniq.md":
+"doql-reference/functions-reference/array-uniq.md":
   Title: "ARRAY_UNIQ"
-"docs/sql-reference/functions-reference/all-match.md":
+"doql-reference/functions-reference/all-match.md":
   Title: "ALL_MATCH"
-"docs/sql-reference/functions-reference/array-sort.md":
+"doql-reference/functions-reference/array-sort.md":
   Title: "ARRAY_SORT"
-"docs/sql-reference/functions-reference/sin.md":
+"doql-reference/functions-reference/sin.md":
   Title: "SIN"
-"docs/sql-reference/functions-reference/md5-number-upper64.md":
+"doql-reference/functions-reference/md5-number-upper64.md":
   Title: "MD5_NUMBER_UPPER64"
-"docs/sql-reference/functions-reference/coalesce.md":
+"doql-reference/functions-reference/coalesce.md":
   Title: "COALESCE"
-"docs/sql-reference/functions-reference/array-max.md":
+"doql-reference/functions-reference/array-max.md":
   Title: "ARRAY_MAX"
-"docs/sql-reference/functions-reference/array-intersect.md":
+"doql-reference/functions-reference/array-intersect.md":
   Title: "ARRAY_INTERSECT"
-"docs/sql-reference/functions-reference/rpad.md":
+"doql-reference/functions-reference/rpad.md":
   Title: "RPAD"
-"docs/sql-reference/functions-reference/extract-all.md":
+"doql-reference/functions-reference/extract-all.md":
   Title: "EXTRACT_ALL"
-"docs/sql-reference/functions-reference/asin.md":
+"doql-reference/functions-reference/asin.md":
   Title: "ASIN"
-"docs/sql-reference/functions-reference/to-quarter.md":
+"doql-reference/functions-reference/to-quarter.md":
   Title: "TO_QUARTER"
-"docs/sql-reference/functions-reference/array-count-global.md":
+"doql-reference/functions-reference/array-count-global.md":
   Title: "ARRAY_COUNT_GLOBAL"
-"docs/sql-reference/commands/dml-commands.md":
+"doql-reference/commands/dml-commands.md":
   Title: "dml-commands"
-"docs/sql-reference/commands/alter-engine.md":
+"doql-reference/commands/alter-engine.md":
   Title: "ALTER ENGINE"
-"docs/sql-reference/commands/drop-table.md":
+"doql-reference/commands/drop-table.md":
   Title: "DROP TABLE"
-"docs/sql-reference/commands/create-external-table.md":
+"doql-reference/commands/create-external-table.md":
   Title: "CREATE EXTERNAL TABLE"
-"docs/sql-reference/commands/operators.md":
+"doql-reference/commands/operators.md":
   Title: "operators"
-"docs/sql-reference/commands/sql-reference.md":
+"doql-reference/commands/sql-reference.md":
   Title: "sql-reference"
-"docs/sql-reference/commands/describe.md":
+"doql-reference/commands/describe.md":
   Title: "DESCRIBE"
-"docs/sql-reference/commands/create-view.md":
+"doql-reference/commands/create-view.md":
   Title: "CREATE VIEW"
-"docs/sql-reference/commands/show-cache.md":
+"doql-reference/commands/show-cache.md":
   Title: "SHOW CACHE"
-"docs/sql-reference/commands/stop-engine.md":
+"doql-reference/commands/stop-engine.md":
   Title: "STOP ENGINE"
-"docs/sql-reference/commands/show-tables.md":
+"doql-reference/commands/show-tables.md":
   Title: "SHOW TABLES"
-"docs/sql-reference/commands/show-databases.md":
+"doql-reference/commands/show-databases.md":
   Title: "SHOW DATABASES"
-"docs/sql-reference/commands/alter-database.md":
+"doql-reference/commands/alter-database.md":
   Title: "ALTER DATABASE"
-"docs/sql-reference/commands/show-engines.md":
+"doql-reference/commands/show-engines.md":
   Title: "SHOW ENGINES"
-"docs/sql-reference/commands/ddl-commands.md":
+"doql-reference/commands/ddl-commands.md":
   Title: "ddl-commands"
-"docs/sql-reference/commands/create-aggregating-index.md":
+"doql-reference/commands/create-aggregating-index.md":
   Title: "CREATE [AND GENERATE] AGGREGATING INDEX"
-"docs/sql-reference/commands/create-engine.md":
+"doql-reference/commands/create-engine.md":
   Title: "CREATE ENGINE"
-"docs/sql-reference/commands/copy-to.md":
+"doql-reference/commands/copy-to.md":
   Title: "COPY TO"
-"docs/sql-reference/commands/refresh-join-index.md":
+"doql-reference/commands/refresh-join-index.md":
   Title: "REFRESH JOIN INDEX"
-"docs/sql-reference/commands/insert-into.md":
+"doql-reference/commands/insert-into.md":
   Title: "INSERT INTO"
-"docs/sql-reference/commands/index.md":
+"doql-reference/commands/index.md":
   Title: "SQL commands"
-"docs/sql-reference/commands/drop-database.md":
+"doql-reference/commands/drop-database.md":
   Title: "DROP DATABASE"
-"docs/sql-reference/commands/show-views.md":
+"doql-reference/commands/show-views.md":
   Title: "SHOW VIEWS"
-"docs/sql-reference/commands/start-engine.md":
+"doql-reference/commands/start-engine.md":
   Title: "START ENGINE"
-"docs/sql-reference/commands/show-indexes.md":
+"doql-reference/commands/show-indexes.md":
   Title: "SHOW INDEXES"
-"docs/sql-reference/commands/attach-engine.md":
+"doql-reference/commands/attach-engine.md":
   Title: "ATTACH ENGINE"
-"docs/sql-reference/commands/create-fact-dimension-table.md":
+"doql-reference/commands/create-fact-dimension-table.md":
   Title: "CREATE FACT or DIMENSION TABLE"
-"docs/sql-reference/commands/explain.md":
+"doql-reference/commands/explain.md":
   Title: "EXPLAIN"
-"docs/sql-reference/commands/create-database.md":
+"doql-reference/commands/create-database.md":
   Title: "CREATE DATABASE"
-"docs/sql-reference/commands/drop-index.md":
+"doql-reference/commands/drop-index.md":
   Title: "DROP INDEX"
-"docs/sql-reference/commands/create-fact-dimension-table-as-select.md":
+"doql-reference/commands/create-fact-dimension-table-as-select.md":
   Title: "CREATE TABLE AS SELECT (CTAS)"
-"docs/sql-reference/commands/show-columns.md":
+"doql-reference/commands/show-columns.md":
   Title: "SHOW COLUMNS"
-"docs/sql-reference/commands/select.md":
+"doql-reference/commands/select.md":
   Title: "SELECT"
-"docs/sql-reference/commands/drop-view.md":
+"doql-reference/commands/drop-view.md":
   Title: "DROP VIEW"
-"docs/sql-reference/commands/create-join-index.md":
+"doql-reference/commands/create-join-index.md":
   Title: "CREATE JOIN INDEX"
-"docs/sql-reference/commands/drop-engine.md":
+"doql-reference/commands/drop-engine.md":
   Title: "DROP ENGINE"
-"docs/sql-reference/commands/query-syntax.md":
+"doql-reference/commands/query-syntax.md":
   Title: "query-syntax"
-"docs/sql-reference/commands/detach-engine.md":
+"doql-reference/commands/detach-engine.md":
   Title: "DETACH ENGINE (deprecated)"
-"docs/sql-reference/commands/alter-table-drop-partition.md":
+"doql-reference/commands/alter-table-drop-partition.md":
   Title: "ALTER TABLE...DROP PARTITION"
-"docs/working-with-engines/tuning-engine-performance.md":
+"doperformance.md":
   Title: "Tuning engine performance"
-"docs/working-with-engines/understanding-engine-fundamentals.md":
+"do.md":
   Title: "Understanding engine fundamentals"
-"docs/working-with-engines/working-with-engines-using-the-rest-api.md":
+"dopi.md":
   Title: "Working with engines using the REST API"
-"docs/working-with-engines/index.md":
+"dox.md":
   Title: "Working with engines"
-"docs/working-with-engines/working-with-engines-using-the-firebolt-manager.md":
+"do.md":
   Title: "Working with engines using the Firebolt Manager"
-"docs/working-with-engines/working-with-engines-using-ddl.md":
+"do.md":
   Title: "Working with engines using DDL"
-"docs/general-reference/release-notes.md":
+"do.md":
   Title: "Release notes"
-"docs/general-reference/available-engine-specs.md":
+"dovailable-engine-specs.md":
   Title: "Available engine specs"
-"docs/general-reference/available-regions.md":
+"dovailable-regions.md":
   Title: "Available AWS Regions"
-"docs/general-reference/operators.md":
+"doperators.md":
   Title: "Operators"
-"docs/general-reference/identifier-requirements.md":
+"doquirements.md":
   Title: "Identifier requirements"
-"docs/general-reference/reserved-words.md":
+"doved-words.md":
   Title: "Reserved words"
-"docs/general-reference/release-notes-archive.md":
+"dove.md":
   Title: "Release notes archive"
-"docs/general-reference/data-types.md":
+"doypes.md":
   Title: "Data types"
-"docs/general-reference/index.md":
+"dox.md":
   Title: "General reference"
-"docs/general-reference/information-schema/engines.md":
+"do.md":
   Title: "Engines"
-"docs/general-reference/information-schema/information-schema-and-usage-views.md":
+"doviews.md":
   Title: "Information schema and usage views"
-"docs/general-reference/information-schema/views.md":
+"doviews.md":
   Title: "Views"
-"docs/general-reference/information-schema/running-queries.md":
+"doqueries.md":
   Title: "Running queries"
-"docs/general-reference/information-schema/tables.md":
+"do.md":
   Title: "Tables"
-"docs/general-reference/information-schema/databases.md":
+"do.md":
   Title: "Databases"
-"docs/general-reference/information-schema/columns.md":
+"do.md":
   Title: "Columns"
-"docs/general-reference/information-schema/query-history-view.md":
+"doquery-history-view.md":
   Title: "Query history"
-"docs/working-with-semi-structured-data/mapping-json-to-table.md":
+"dopping-json-to-table.md":
   Title: "Mapping data from JSON to table"
-"docs/working-with-semi-structured-data/working-with-arrays.md":
+"doys.md":
   Title: "Working with arrays"
-"docs/working-with-semi-structured-data/ingesting-semi-structured-data.md":
+"do.md":
   Title: "Ingesting semi-structured data"
-"docs/working-with-semi-structured-data/working-with-parquet-arrays-of-structs-and-maps.md":
+"doparquet-arrays-of-structs-and-maps.md":
   Title: "Working with Parquet arrays and maps"
-"docs/working-with-semi-structured-data/working-with-semi-structured-data.md":
+"do.md":
   Title: "Working with semi-structured data"
-"docs/integrations/connecting-via-jdbc.md":
+"dovia-jdbc.md":
   Title: "Using the JDBC driver"
-"docs/integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.md":
+"dop-dbeaver-jdbc-connection-to-firebolt.md":
   Title: "DBeaver"
-"docs/integrations/integrations.md":
+"do.md":
   Title: "Integrations"
-"docs/integrations/business-intelligence/business-intelligence.md":
+"do.md":
   Title: "Business intelligence"
-"docs/integrations/business-intelligence/connecting-to-metabase.md":
+"do.md":
   Title: "Metabase"
-"docs/integrations/business-intelligence/connecting-to-apache-superset.md":
+"dopache-superset.md":
   Title: "Apache Superset / Preset"
-"docs/integrations/business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md":
+"dop-tableau-desktop-jdbc-to-firebolt.md":
   Title: "Tableau"
-"docs/integrations/business-intelligence/connecting-to-panintelligence.md":
+"dopanintelligence.md":
   Title: "Panintelligence"
-"docs/integrations/business-intelligence/connecting-to-looker.md":
+"do.md":
   Title: "Looker"
-"docs/integrations/data-orchestration/data-orchestration.md":
+"do.md":
   Title: "Data orchestration"
-"docs/integrations/data-orchestration/prefect.md":
+"doprefect.md":
   Title: "Prefect"
-"docs/integrations/data-orchestration/setting-up-airflow-jdbc-to-firebolt.md":
+"dop-airflow-jdbc-to-firebolt.md":
   Title: "Airflow"
-"docs/integrations/data-integration-and-transformation/data-integration-and-transformation.md":
+"do.md":
   Title: "Data integration and transformation"
-"docs/integrations/data-integration-and-transformation/connecting-with-dbt.md":
+"do.md":
   Title: "dbt"
-"docs/integrations/data-integration-and-transformation/connecting-with-hevo.md":
+"dovo.md":
   Title: "Hevo"
-"docs/integrations/data-integration-and-transformation/connecting-to-hightouch.md":
+"do.md":
   Title: "Hightouch"
-"docs/integrations/data-integration-and-transformation/connecting-to-keboola.md":
+"do.md":
   Title: "Keboola"
-"docs/integrations/data-integration-and-transformation/connecting-with-dataddo.md":
+"do.md":
   Title: "Dataddo"
-"docs/integrations/data-integration-and-transformation/connecting-to-adverity.md":
+"doverity.md":
   Title: "Adverity"
-"docs/integrations/data-integration-and-transformation/connecting-to-rivery.md":
+"dovery.md":
   Title: "Rivery"
-"docs/loading-data/configuring-aws-role-to-access-amazon-s3.md":
+"dozon-s3.md":
   Title: "Using AWS roles to access S3"
-"docs/loading-data/loading-data.md":
+"do.md":
   Title: "Loading data"
-"docs/loading-data/continuously-loading-data.md":
+"doy-loading-data.md":
   Title: "Continuously loading data"
-"docs/loading-data/working-with-external-tables.md":
+"doxternal-tables.md":
   Title: "Working with external tables"
-"docs/managing-your-account/managing-users.md":
+"doyour-account/managing-users.md":
   Title: "Managing users"
-"docs/managing-your-account/creating-an-account.md":
+"doyour-account/creating-an-account.md":
   Title: "Creating a Firebolt account"
-"docs/managing-your-account/concepts-and-terminology.md":
+"doyour-account/concepts-and-terminology.md":
   Title: "Account concepts and terminology"
-"docs/managing-your-account/billing.md":
+"doyour-account/billing.md":
   Title: "Billing"
-"docs/managing-your-account/index.md":
+"doyour-account/index.md":
   Title: "Account and user management"
-"docs/using-indexes/index-quick-reference.md":
+"doxes/index-quick-reference.md":
   Title: "Quick reference"
-"docs/using-indexes/using-indexes.md":
+"doxes/using-indexes.md":
   Title: "Using indexes"
-"docs/using-indexes/using-join-indexes.md":
+"doxes/using-join-indexes.md":
   Title: "Join indexes"
-"docs/using-indexes/using-aggregating-indexes.md":
+"doxes/using-aggregating-indexes.md":
   Title: "Aggregating indexes"
-"docs/using-indexes/using-primary-indexes.md":
+"doxes/using-primary-indexes.md":
   Title: "Primary indexes"
 
