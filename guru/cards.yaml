@@ -224,6 +224,8 @@
   Title: "CONTAINS"
 "docs/sql-reference/functions-reference/array-first.md":
   Title: "ARRAY_FIRST"
+"docs/sql-reference/functions-reference/to-char.md":
+  Title: "TO_CHAR"
 "docs/sql-reference/functions-reference/array-first-index.md":
   Title: "ARRAY_FIRST_INDEX"
 "docs/sql-reference/functions-reference/sum-window.md":
@@ -372,6 +374,8 @@
   Title: "SHOW TABLES"
 "docs/sql-reference/commands/show-databases.md":
   Title: "SHOW DATABASES"
+"docs/sql-reference/commands/alter-database.md":
+  Title: "ALTER DATABASE"
 "docs/sql-reference/commands/show-engines.md":
   Title: "SHOW ENGINES"
 "docs/sql-reference/commands/ddl-commands.md":
@@ -428,16 +432,18 @@
   Title: "Tuning engine performance"
 "docs/working-with-engines/understanding-engine-fundamentals.md":
   Title: "Understanding engine fundamentals"
-"docs/working-with-engines/working-with-engines.md":
-  Title: "Working with engines"
 "docs/working-with-engines/working-with-engines-using-the-rest-api.md":
   Title: "Working with engines using the REST API"
+"docs/working-with-engines/index.md":
+  Title: "Working with engines"
 "docs/working-with-engines/working-with-engines-using-the-firebolt-manager.md":
   Title: "Working with engines using the Firebolt Manager"
 "docs/working-with-engines/working-with-engines-using-ddl.md":
   Title: "Working with engines using DDL"
 "docs/general-reference/release-notes.md":
   Title: "Release notes"
+"docs/general-reference/available-engine-specs.md":
+  Title: "Available engine specs"
 "docs/general-reference/available-regions.md":
   Title: "Available AWS Regions"
 "docs/general-reference/operators.md":

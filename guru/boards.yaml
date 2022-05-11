@@ -293,6 +293,8 @@
     Type: "card"
   - ID: "docs_sql_reference_functions_reference_timezone"
     Type: "card"
+  - ID: "docs_sql_reference_functions_reference_to_char"
+    Type: "card"
   - ID: "docs_sql_reference_functions_reference_to_date"
     Type: "card"
   - ID: "docs_sql_reference_functions_reference_to_day_of_week"
@@ -348,6 +350,8 @@
 "board3":
   Title: "commands"
   Items:
+  - ID: "docs_sql_reference_commands_alter_database"
+    Type: "card"
   - ID: "docs_sql_reference_commands_alter_engine"
     Type: "card"
   - ID: "docs_sql_reference_commands_alter_table_drop_partition"
@@ -427,6 +431,8 @@
 "board4":
   Title: "working-with-engines"
   Items:
+  - ID: "docs_working_with_engines_index"
+    Type: "card"
   - ID: "docs_working_with_engines_tuning_engine_performance"
     Type: "card"
   - ID: "docs_working_with_engines_understanding_engine_fundamentals"
@@ -436,8 +442,6 @@
   - ID: "docs_working_with_engines_working_with_engines_using_the_firebolt_manager"
     Type: "card"
   - ID: "docs_working_with_engines_working_with_engines_using_the_rest_api"
-    Type: "card"
-  - ID: "docs_working_with_engines_working_with_engines"
     Type: "card"
 "board5":
   Title: "information-schema"
