@@ -38,5 +38,5 @@ Where `<properties>` are:
 
 ```sql
 CREATE ENGINE my_engine
-WITH SPEC = 'c5d.4xlarge' SCALE = 8
+WITH SPEC = 'S24E' SCALE = 8
 ```

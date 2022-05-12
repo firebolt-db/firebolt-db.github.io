@@ -50,7 +50,7 @@ CREATE ENGINE MyDatabase_MyFireboltEngine WITH
     REGION = 'us-west-2'  
     ENGINE_TYPE = DATA_ANALYTICS  
     SCALE = 32  
-    SPEC = 'c5d.4xlarge'  
+    SPEC = 'S8'  
     AUTO_STOP = '45'  
     WARMUP = PRELOAD_ALL_DATA;
 ```
@@ -70,7 +70,7 @@ This action is available only using DDL.
 ```sql
 ALTER ENGINE MyDatabase_MyFireboltEngine SET  
     SCALE = 12  
-    SPEC = 'c5d.4xlarge'  
+    SPEC = 'S8'  
     AUTO_STOP = '45'  
     RENAME TO 'MyProductionDatabase_MyFireboltEngine'  
     WARMUP = PRELOAD_ALL_DATA;
