@@ -10,7 +10,7 @@ parent: General reference
 
 The engine specs listed below are available in Firebolt. For more information, see [Working with engines](../working-with-engines/index.md).
 
-| Name    	| vCPU 	| RAM (GiB) 	| Cache (GB) 	|
+| Name    	| vCPU 	| RAM (GB) 	| Cache (GB) 	|
 | :--------	| :----	| :------	| :--------	|
 | **Compute optimized** | |   |         	|
 | C1       	| 2    	| 4      	| 50       	|
