@@ -1,26 +1,4 @@
 "board0":
-  Title: "using-the-sql-workspace"
-  Items:
-  - ID: "doql_workspace_keyboard_shortcuts_for_sql_workspace"
-    Type: "card"
-  - ID: "doql_workspace_using_explain_to_analyze_query_execution"
-    Type: "card"
-  - ID: "doql_workspace_using_the_sql_workspace"
-    Type: "card"
-"board1":
-  Title: "developing-with-firebolt"
-  Items:
-  - ID: "doveloping_with_firebolt_connecting_with_Python"
-    Type: "card"
-  - ID: "doveloping_with_firebolt_connecting_with_nodejs"
-    Type: "card"
-  - ID: "doveloping_with_firebolt_connecting_with_sqlalchemy"
-    Type: "card"
-  - ID: "doveloping_with_firebolt_developing_with_firebolt"
-    Type: "card"
-  - ID: "doveloping_with_firebolt_firebolt_rest_api"
-    Type: "card"
-"board2":
   Title: "functions-reference"
   Items:
   - ID: "doql_reference_functions_reference_abs"
@@ -347,7 +325,7 @@
     Type: "card"
   - ID: "doql_reference_functions_reference_zeroifnull"
     Type: "card"
-"board3":
+"board1":
   Title: "commands"
   Items:
   - ID: "doql_reference_commands_alter_database"
@@ -428,41 +406,33 @@
     Type: "card"
   - ID: "doql_reference_commands_stop_engine"
     Type: "card"
+"board2":
+  Title: "developing-with-firebolt"
+  Items:
+  - ID: "doveloping_with_firebolt_connecting_with_Python"
+    Type: "card"
+  - ID: "doveloping_with_firebolt_connecting_with_nodejs"
+    Type: "card"
+  - ID: "doveloping_with_firebolt_connecting_with_sqlalchemy"
+    Type: "card"
+  - ID: "doveloping_with_firebolt_developing_with_firebolt"
+    Type: "card"
+  - ID: "doveloping_with_firebolt_firebolt_rest_api"
+    Type: "card"
+"board3":
+  Title: "using-indexes"
+  Items:
+  - ID: "doxes_index_quick_reference"
+    Type: "card"
+  - ID: "doxes_using_aggregating_indexes"
+    Type: "card"
+  - ID: "doxes_using_indexes"
+    Type: "card"
+  - ID: "doxes_using_join_indexes"
+    Type: "card"
+  - ID: "doxes_using_primary_indexes"
+    Type: "card"
 "board4":
-  Title: "working-with-engines"
-  Items:
-  - ID: "dox"
-    Type: "card"
-  - ID: "doperformance"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "dopi"
-    Type: "card"
-"board5":
-  Title: "information-schema"
-  Items:
-  - ID: "do"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "doviews"
-    Type: "card"
-  - ID: "doquery_history_view"
-    Type: "card"
-  - ID: "doqueries"
-    Type: "card"
-  - ID: "do"
-    Type: "card"
-  - ID: "doviews"
-    Type: "card"
-"board6":
   Title: "working-with-semi-structured-data"
   Items:
   - ID: "do"
@@ -475,22 +445,18 @@
     Type: "card"
   - ID: "do"
     Type: "card"
-"board7":
-  Title: "business-intelligence"
+"board5":
+  Title: "loading-data"
   Items:
-  - ID: "do"
+  - ID: "dozon_s3"
     Type: "card"
-  - ID: "dopache_superset"
-    Type: "card"
-  - ID: "do"
+  - ID: "doy_loading_data"
     Type: "card"
   - ID: "do"
     Type: "card"
-  - ID: "dopanintelligence"
+  - ID: "doxternal_tables"
     Type: "card"
-  - ID: "dop_tableau_desktop_jdbc_to_firebolt"
-    Type: "card"
-"board8":
+"board6":
   Title: "data-orchestration"
   Items:
   - ID: "do"
@@ -499,7 +465,7 @@
     Type: "card"
   - ID: "dop_airflow_jdbc_to_firebolt"
     Type: "card"
-"board9":
+"board7":
   Title: "data-integration-and-transformation"
   Items:
   - ID: "doverity"
@@ -518,16 +484,54 @@
     Type: "card"
   - ID: "do"
     Type: "card"
-"board10":
-  Title: "loading-data"
+"board8":
+  Title: "business-intelligence"
   Items:
-  - ID: "dozon_s3"
+  - ID: "do"
     Type: "card"
-  - ID: "doy_loading_data"
+  - ID: "dopache_superset"
     Type: "card"
   - ID: "do"
     Type: "card"
-  - ID: "doxternal_tables"
+  - ID: "do"
+    Type: "card"
+  - ID: "dopanintelligence"
+    Type: "card"
+  - ID: "dop_tableau_desktop_jdbc_to_firebolt"
+    Type: "card"
+"board9":
+  Title: "information-schema"
+  Items:
+  - ID: "do"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "doviews"
+    Type: "card"
+  - ID: "doquery_history_view"
+    Type: "card"
+  - ID: "doqueries"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "doviews"
+    Type: "card"
+"board10":
+  Title: "working-with-engines"
+  Items:
+  - ID: "dox"
+    Type: "card"
+  - ID: "doperformance"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "do"
+    Type: "card"
+  - ID: "dopi"
     Type: "card"
 "board11":
   Title: "managing-your-account"
@@ -543,16 +547,12 @@
   - ID: "doyour_account_managing_users"
     Type: "card"
 "board12":
-  Title: "using-indexes"
+  Title: "using-the-sql-workspace"
   Items:
-  - ID: "doxes_index_quick_reference"
+  - ID: "doql_workspace_keyboard_shortcuts_for_sql_workspace"
     Type: "card"
-  - ID: "doxes_using_aggregating_indexes"
+  - ID: "doql_workspace_using_explain_to_analyze_query_execution"
     Type: "card"
-  - ID: "doxes_using_indexes"
-    Type: "card"
-  - ID: "doxes_using_join_indexes"
-    Type: "card"
-  - ID: "doxes_using_primary_indexes"
+  - ID: "doql_workspace_using_the_sql_workspace"
     Type: "card"
 
