@@ -4,13 +4,13 @@
   - "board0"
   - "board1"
 "boardgroup1":
-  Title: "general-reference"
-  Boards:
-  - "board4"
-"boardgroup2":
   Title: "integrations"
   Boards:
   - "board6"
   - "board7"
   - "board8"
+"boardgroup2":
+  Title: "general-reference"
+  Boards:
+  - "board9"
 
