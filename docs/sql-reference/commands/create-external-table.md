@@ -31,7 +31,7 @@ TYPE = (<type> [typeOptions])
 
 | Parameter                  | Description |
 |: ------------------------- |: ---------- |
-| `<external_table_name>`    | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
+| `<external_table_name>`    | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. For identifier usage and syntax, see [Identifier requirements](../../general-reference/identifier-requirements.md). |
 | `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>`            | An identifier that specifies the name of the column. This name should be unique within the table. |
 | `<column_type>`            | Specifies the data type for the column. |
 | `PARTITION`                | An optional keyword. When specified, allows you to use a regular expression `<regex>` to extract a value from the file prefix to be stored as the column value. For more information, see [PARTITION](#partition). |
@@ -39,8 +39,6 @@ TYPE = (<type> [typeOptions])
 | `URL` and `OBJECT_PATTERN` | Specifies the S3 location and the file naming pattern that Firebolt ingests when using this table. For more information, see [URL & OBJECT_PATTERN](#url-and-object_pattern). |
 | `TYPE`                     | Specifies the file type Firebolt expects to ingest given the `OBJECT_PATTERN`. If a file referenced using `OBJECT_PATTERN` does not conform to the specified `TYPE`, an error occurs. For more information, see [TYPE](#type). |
 | `COMPRESSION`              | See [COMPRESSION](#compression). |
-
-All Firebolt identifiers are case insensitive unless double-quotes are used. For more information, see [Identifier requirements](../../general-reference/identifier-requirements.md).
 
 ### PARTITION
 

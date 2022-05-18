@@ -17,7 +17,17 @@ Firebolt identifiers can refer to the following items:
 * Views
 * Engines
 
-Identifiers must be at least one character and at most 255 characters. Firebolt evaluates unquoted identifiers such as table and column names entirely in lowercase. The following queries:
+## Syntax
+
+Identifiers must adhere to the following syntax:
+
+1. Contain at least one character, and no more than 255.
+2. The first character must be a letter (a-z) or underscore (_).
+3. After the first character, subsequent characters can be letters, underscores, digits (0-9), or dollar signs ($).
+
+## Unquoted identifiers
+
+Firebolt evaluates unquoted identifiers such as table and column names entirely in lowercase. The following queries:
 
 ```
 SELECT my_column FROM my_table
