@@ -61,11 +61,11 @@ CLI commands use the following configuration parameters for your Firebolt accoun
 
 You can establish and change configuration settings by:
 
-* [Using the configure command](#using-the-configure-command) saves configuration parameters as defaults for repeated CLI sessions.
+* [Using the configure command](#using-the-configure-command). This saves configuration parameters as defaults for repeated CLI sessions.
 
-* [Passing configuration parameters as command options](#passing-configuration-parameters-as-command-options) makes one-time configuration changes for a specific command.
+* [Passing configuration parameters as command options](#passing-configuration-parameters-as-command-options). This makes one-time configuration changes for a specific command.
 
-* [Using environment variables](#using-environment-variables) adds flexibility and isolates credentials for additional security.
+* [Using environment variables](#using-environment-variables). This adds flexibility and isolates credentials for additional security.
 
 
 ### Using the configure command
@@ -114,6 +114,31 @@ CLI commands can then reference the variables as shown below.
 $ firebolt query --database-name $FB_DB2 --engine-name $FB_ENG2
 ```
 
+## Enabling tab completion
+Firebolt provides tab completion for Bash (version 4.4 and later), Zsh, and Fish. Tab completion is based on the `Click` library. For more information, see [Click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/#enabling-completion).
+
+Use the following guidance to enable tab completion for the shell that you use.
+
+* **Bash**  
+  Add the line shown below to `~/.bashrc`.  
+
+  ```shell
+  eval "$(_FIREBOLT_COMPLETE=bash_source firebolt)"
+  ```
+
+* **Zsh**  
+  Add the line shown below to `~/.zshrc`.
+
+  ```shell
+  eval "$(_FIREBOLT_COMPLETE=zsh_source firebolt)"
+  ```
+* **Fish**  
+  Add the line shown below to `~/.config/fish/completions/firebolt.fish`.
+
+  ```shell
+  eval (env _FIREBOLT_COMPLETE=fish_source firebolt)
+  ```
+
 ## Running queries
 
 Use the `query` command to run query statements. You can run queries in interactive mode or submit a query script using the `--query` option. `SELECT` queries return results in ASCII table format as shown below.
@@ -152,7 +177,7 @@ You can start a stopped engine by using the `start` CLI command. The `--wait` op
 $ firebolt engine start Tutorial_Ingest --wait
 ```
 
-An engine that is done starting up sends a response:
+After the engine starts, Firebolt displays the message shown below.
 
 ```
 Engine Tutorial_Ingest is successfully started
@@ -160,13 +185,13 @@ Engine Tutorial_Ingest is successfully started
 
 ### Running queries interactively
 
-Interactive mode allows you to enter SQL syntax and run a query directly on the command line. To start interactive mode, use the `query` command with no options as shown below.
+Interactive mode allows you to enter SQL syntax and run a query directly on the command line. To start interactive mode, use the `query` command with no options, as shown below.
 
 ```
 firebolt query
 ```
 
-If the specified engine is on and ready to run scripts, the message `Connection succeeded` appears. The command prompt changes to `firebolt>` as shown below.
+If the specified engine is on and ready to run scripts, the message `Connection succeeded` appears. The command prompt changes to `firebolt>`, as shown below.
 
 ```
 firebolt>
