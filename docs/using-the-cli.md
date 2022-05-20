@@ -53,8 +53,8 @@ This topic covers installation, configuration, and running queries. For a list o
 
 CLI commands use the following configuration parameters for your Firebolt account when they run.
 
-| `username`            | [Required] The email address associated with your Firebolt user.           |
-| `password`           |  [Required] The password associated with the `username`. The CLI encrypts and securely stores passwords using the [Python keyring library](https://keyring.readthedocs.io/en/latest/) if encryption is enabled on your respective OS.              |
+| `username`            | Required. The email address associated with your Firebolt user.           |
+| `password`           |  Required. The password associated with the `username`. The CLI encrypts and securely stores passwords using the [Python keyring library](https://keyring.readthedocs.io/en/latest/) if encryption is enabled on your respective OS.              |
 | `account-name`       |  The name of your Firebolt account in all lowercase characters. For help finding your account name, see [Firebolt account concepts and terminology](./managing-your-account/concepts-and-terminology.md#firebolt-account). |
 | `database-name`      |  The name of the database to connect to.            |
 | `engine-name` |  The name or URL of the engine to use for SQL queries.    |
@@ -96,9 +96,11 @@ $ firebolt query --database-name my_other_database --engine-name my_other_databa
 
 ### Using environment variables
 
-You can add configuration values as environment variables in Docker or your operating system, and then pass the environment variables as command options. This is particularly useful for automation in scripting and Docker applications. For a Docker example, see [Using the CLI with Docker](#using-the-cli-with-docker).
+You can use operating system or Docker environment variables to specify configuration parameters for executing commands. Reserved environment variables allow you to set configuration parameter defaults for Docker. For more information, see [Using the CLI with docker](#using-the-cli-with-docker).
 
-In the example below for Linux, the database name and engine are stored in system variables.
+You can specify configuration values as operating system environment variables as shown in the example below.
+
+First, define the variables.
 
 ```
 $ export FB_DB2=my_other_database
@@ -108,11 +110,12 @@ $ export FB_ENG2=my_other_database_Ingest
 {: .note}
 Replace the `export` command with `set` on Windows.
 
-CLI commands can then reference the variables as shown below.
+Then CLI commands can then reference the variables as shown below.
 
 ```
 $ firebolt query --database-name $FB_DB2 --engine-name $FB_ENG2
 ```
+
 
 ## Enabling tab completion
 Firebolt provides tab completion for Bash (version 4.4 and later), Zsh, and Fish. Tab completion is based on the `Click` library. For more information, see [Click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/#enabling-completion).
@@ -251,15 +254,30 @@ dataengineer@MYDESKTOP: ~/fb-jobs$ firebolt query --sql "CREATE FACT TABLE trans
 
 ## Using the CLI with Docker
 
-To use the CLI with Docker, download and install it for your operating system. A Docker container can pull in the latest Firebolt CLI package as shown below.
+To use the CLI with Docker, download and install it for your operating system. Use the command shown below to pull the latest Firebolt CLI package into a docker container.
 
 ```
 docker pull ghcr.io/firebolt-db/firebolt-cli:latest
 ```
 
-You can now run the CLI within a Docker container, using environment variables to set configuration parameters. For more information, see [Set environment variables](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) in Docker docs.
+### Setting configuration parameters using Docker environment variables
 
-In the example below, Docker runs the CLI command `engine list` on its latest container. This command returns a table with the `name`, `status`, and `region` of all engines in an account.
+You can set values for configuration parameters using Docker environment variables. For more information, see [Set environment variables](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file) in Docker docs.
+
+The CLI has reserved environment variables that you use to set default values for commands that run in Docker, similar to using `firebolt configure` to establish defaults for your operating system. Reserved environment variables are listed below.
+
+{: .note}
+When using Docker, you must specify the username and password using the reserved environment variables `FIREBOLT_USERNAME` and `FIREBOLT_PASSWORD`.
+
+**Reserved environment variables**
+
+* `FIREBOLT_USERNAME` Required. The email address associated with your Firebolt user.
+* `FIREBOLT_PASSWORD` Required. The password for the specified user.
+* `FIREBOLT_ACCOUNT_NAME` The name of your Firebolt account in all lowercase characters.
+* `FIREBOLT_ENGINE_NAME_URL` The engine name. Alternatively, the URL of the engine in the form `https://api.app.firebolt.io/core/v1/account/engines/<engine_id>`.
+* `FIREBOLT_ACCESS_TOKEN` For more information, see [Use tokens for authentication](developing-with-firebolt/firebolt-rest-api.md#use-tokens-for-authentication).
+
+In the example below, Docker runs the CLI command `engine list` in a container using the latest firebolt-cli package. The command returns a table with the `name`, `status`, and `region` of all engines in an account.
 
 ```
 docker run -e FIREBOLT_USERNAME="your_username"\
