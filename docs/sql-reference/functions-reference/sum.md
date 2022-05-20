@@ -13,7 +13,7 @@ Calculates the sum of an expression.
 {: .no_toc}
 
 ```sql
-​​SUM ([DISTINCT] <expr>)​​
+SUM ([DISTINCT] <expr>)
 ```
 
 | Parameter | Description                                                                                                                              |

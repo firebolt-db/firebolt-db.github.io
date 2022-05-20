@@ -13,7 +13,7 @@ Removes all specified characters from the start, end, or both sides of a string.
 {: .no_toc}
 
 ```sql
-​​TRIM( [LEADING | TRAILING | BOTH] <trim_character> FROM <target_string>)​​
+TRIM( [LEADING | TRAILING | BOTH] <trim_character> FROM <target_string>)
 ```
 
 | Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |

@@ -7,13 +7,13 @@ parent: SQL functions
 
 # SPLIT_PART
 
-Divides a string based on a specified delimiter into an array of substrings. ​ The string in the specified index is returned, with `1` being the first index. If the string separator is empty, the string is divided into an array of single characters.
+Divides a string based on a specified delimiter into an array of substrings.  The string in the specified index is returned, with `1` being the first index. If the string separator is empty, the string is divided into an array of single characters.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-​​SPLIT_PART(<string>, <delimiter>, <index>)​​
+SPLIT_PART(<string>, <delimiter>, <index>)
 ```
 
 {: .note}

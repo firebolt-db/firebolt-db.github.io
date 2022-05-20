@@ -13,7 +13,7 @@ Calculates π as a FLOAT value.
 {: .no_toc}
 
 ```sql
-​​PI() ​​
+PI() 
 ```
 
 ## Example

@@ -13,7 +13,7 @@ Returns a string representation of the scalar or sub-object under the key indica
 {: .no_toc}
 
 ```sql
-​​JSON_EXTRACT_RAW(<json>, <json_pointer_expression>)
+JSON_EXTRACT_RAW(<json>, <json_pointer_expression>)
 ```
 
 | Parameter                   | Type           | Description                                                       |

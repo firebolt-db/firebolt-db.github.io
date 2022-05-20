@@ -20,8 +20,8 @@ AS SELECT <select_statement>
 
 | Parameter                                       | Description                                                                                                                     |
 | :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| `<name>`                                        | An ​identifier​​ that specifies the name of the view. This name should be unique within the database.                           |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_list>` | An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query. |
+| `<name>`                                        | An identifier that specifies the name of the view. This name should be unique within the database.                           |
+| `<column_list>` | An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query. |
 | `<select_statement>`                            | The select statement for creating the view                                                                                      |
 
 ## Example

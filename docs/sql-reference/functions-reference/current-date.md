@@ -13,7 +13,7 @@ Returns the current year, month and day as a `DATE` value, formatted as YYYY-MM-
 {: .no_toc}
 
 ```sql
-​​CURRENT_DATE()​​
+CURRENT_DATE()
 ```
 
 ## Example

@@ -14,7 +14,7 @@ Returns `1` if at least one of the elements of an array matches the results of t
 {: .no_toc}
 
 ```sql
-​​ANY_MATCH(<func>, <arr>)
+ANY_MATCH(<func>, <arr>)
 ```
 
 | Parameter | Description                                                                                                                                                                    |

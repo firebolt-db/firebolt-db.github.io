@@ -13,7 +13,7 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 {: .no_toc}
 
 ```sql
-​​MD5(<string>)​​
+MD5(<string>)
 ```
 
 | Parameter  | Description                                               |

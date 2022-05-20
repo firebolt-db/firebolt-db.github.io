@@ -15,7 +15,7 @@ This function is useful when working with heterogeneously typed arrays and array
 {: .no_toc}
 
 ```sql
-​​JSON_EXTRACT_ARRAY_RAW(<json>, '<json_pointer_expression>')
+JSON_EXTRACT_ARRAY_RAW(<json>, '<json_pointer_expression>')
 ```
 
 | Parameter                   | Type           | Description                                               |

@@ -12,7 +12,7 @@ Converts a date or timestamp to a number containing the hour.
 {: .no_toc}
 
 ```sql
-​​TO_HOUR(<timestamp>)​​
+TO_HOUR(<timestamp>)
 ```
 
 | Parameter     | Description                                                |

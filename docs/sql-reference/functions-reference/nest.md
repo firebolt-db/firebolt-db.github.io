@@ -13,7 +13,7 @@ Takes a column as an argument, and returns an array of the values. In case the t
 {: .no_toc}
 
 ```sql
-​​NEST(<col>)​​
+NEST(<col>)
 ```
 
 | Parameter | Description                                         |

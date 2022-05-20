@@ -18,7 +18,7 @@ TRY_CAST(<value> AS <type>)
 
 | Parameter | Description                                                                                                                                                                |
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
+| `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name,  a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](../../general-reference/data-types.md) (case-insensitive).                                                                                          |
 
 ## Example

@@ -13,12 +13,12 @@ Truncate a given date to a specified position.
 {: .no_toc}
 
 ```sql
-​​DATE_TRUNC('<precision>', <date>)​​
+DATE_TRUNC('<precision>', <date>)
 ```
 
 | Parameter     | Description                                                                                           |
 | :------------- | :----------------------------------------------------------------------------------------------------- |
-| `<precision>` | The time unit for the returned value to be expressed. ​ This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`    |
+| `<precision>` | The time unit for the returned value to be expressed.  This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`    |
 | `<date>`      | The date to be truncated. This can be any expression that evaluates to a `DATE` or `TIMESTAMP` value. |
 
 ## Example

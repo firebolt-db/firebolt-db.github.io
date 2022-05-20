@@ -13,7 +13,7 @@ Retrieves subfields such as year or hour from date/time values.
 {: .no_toc}
 
 ```sql
-​​EXTRACT(<field> FROM <source>)​​
+EXTRACT(<field> FROM <source>)
 ```
 
 | Parameter  | Description                                                                                                      |

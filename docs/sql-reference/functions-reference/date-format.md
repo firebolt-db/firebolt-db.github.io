@@ -13,7 +13,7 @@ Formats a `DATE` or `DATETIME` according to the given format expression.
 {: .no_toc}
 
 ```sql
-​​DATE_FORMAT(<date>, '<format>')​​
+DATE_FORMAT(<date>, '<format>')
 ```
 
 | Parameter  | Description                                                                                                                                                                                |

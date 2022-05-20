@@ -13,7 +13,7 @@ Converts the string to uppercase format.
 {: .no_toc}
 
 ```sql
-​​UPPER(<string>)​​
+UPPER(<string>)
 ```
 
 | Parameter  | Description                                             |

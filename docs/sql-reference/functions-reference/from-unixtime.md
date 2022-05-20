@@ -13,7 +13,7 @@ Convert Unix time (`LONG` in epoch seconds) to `DATETIME` (YYYY-MM-DD HH:mm:ss).
 {: .no_toc}
 
 ```sql
-​​FROM_UNIXTIME(<unix_time>)​​
+FROM_UNIXTIME(<unix_time>)
 ```
 
 | Parameter     | Description                                  |

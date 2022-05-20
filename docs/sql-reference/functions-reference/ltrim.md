@@ -13,7 +13,7 @@ Removes all consecutive occurrences of common whitespace (ASCII character 32) fr
 {: .no_toc}
 
 ```sql
-​​LTRIM(<target>)​​
+LTRIM(<target>)
 ```
 
 | Parameter  | Description               |

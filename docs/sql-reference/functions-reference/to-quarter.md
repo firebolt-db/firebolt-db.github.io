@@ -13,7 +13,7 @@ Converts a date or timestamp (any date format we support) to a number containing
 {: .no_toc}
 
 ```sql
-​​TO_QUARTER(<date>)​​
+TO_QUARTER(<date>)
 ```
 
 | Parameter | Description                                                           |

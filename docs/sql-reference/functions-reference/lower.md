@@ -13,7 +13,7 @@ Converts the string to a lowercase format.
 {: .no_toc}
 
 ```sql
-​​LOWER(<string>)​​
+LOWER(<string>)
 ```
 
 | Parameter  | Description                 |

@@ -13,7 +13,7 @@ Converts a timestamp (any date format we support) to a number containing the min
 {: .no_toc}
 
 ```sql
-​​TO_MINUTE(<timestamp>)​​
+TO_MINUTE(<timestamp>)
 ```
 
 | Parameter     | Description                                                  |

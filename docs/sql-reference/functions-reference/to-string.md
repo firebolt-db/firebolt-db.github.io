@@ -7,7 +7,7 @@ parent: SQL functions
 
 # TO\_STRING
 
-Converts a date into a STRING. The date is any [date data type​​](../../general-reference/data-types.md).
+Converts a date into a STRING. The date is any [date data type](../../general-reference/data-types.md).
 
 ## Syntax
 {: .no_toc}

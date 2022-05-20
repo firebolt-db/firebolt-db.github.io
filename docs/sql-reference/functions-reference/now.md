@@ -13,7 +13,7 @@ Returns the current date and time.
 {: .no_toc}
 
 ```sql
-​​NOW()​​
+NOW()
 ```
 
 ## Example

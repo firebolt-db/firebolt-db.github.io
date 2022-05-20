@@ -13,12 +13,12 @@ Checks from left to right for the first non-NULL argument found for each entry p
 {: .no_toc}
 
 ```sql
-​​COALESCE(<value> [,...])
+COALESCE(<value> [,...])
 ```
 
 | Parameter | Description                                                                                                                                       |
 | :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<value>` | The value(s) to coalesce. Can be either: column name, ​ ​a function applied on a column (or on another function), and a literal (constant value). |
+| `<value>` | The value(s) to coalesce. Can be either: column name,  a function applied on a column (or on another function), and a literal (constant value). |
 
 ## Example
 {: .no_toc}

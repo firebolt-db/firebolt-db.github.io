@@ -13,7 +13,7 @@ Computes the standard deviation of a sample consisting of a numeric expression.
 {: .no_toc}
 
 ```sql
-STDDEV_SAMP(<expr>)​
+STDDEV_SAMP(<expr>)
 ```
 
 | Parameter | Description                                                                                |

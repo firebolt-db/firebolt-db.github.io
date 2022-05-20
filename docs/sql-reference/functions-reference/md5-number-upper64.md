@@ -13,7 +13,7 @@ Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT
 {: .no_toc}
 
 ```sql
-​​MD5_NUMBER_UPPER64(<string>)​​
+MD5_NUMBER_UPPER64(<string>)
 ```
 
 | Parameter  | Description                                                  |

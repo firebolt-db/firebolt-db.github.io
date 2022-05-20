@@ -14,7 +14,7 @@ Calculates an approximate median for a given column.
 {: .no_toc}
 
 ```sql
-​​MEDIAN(<col>)​​
+MEDIAN(<col>)
 ```
 
 | Parameter | Description                                                                                                        |

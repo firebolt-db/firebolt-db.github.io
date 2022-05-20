@@ -13,7 +13,7 @@ Converts a date or timestamp to a number representing the day of the week (Monda
 {: .no_toc}
 
 ```sql
-​​TO_DAY_OF_WEEK(<date>)​​
+TO_DAY_OF_WEEK(<date>)
 ```
 
 | Parameter | Description                                             |

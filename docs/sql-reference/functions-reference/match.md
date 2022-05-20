@@ -7,13 +7,13 @@ parent: SQL functions
 
 # MATCH
 
-Checks whether the string matches the regular expression `<pattern`>, which is a RE2 regular expression. ​ Returns `0` if it doesn’t match, or `1` if it matches.
+Checks whether the string matches the regular expression `<pattern`>, which is a RE2 regular expression.  Returns `0` if it doesn’t match, or `1` if it matches.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-​​MATCH(<string>, '<pattern>')​​
+MATCH(<string>, '<pattern>')
 ```
 
 | Parameter   | Description                                                           |

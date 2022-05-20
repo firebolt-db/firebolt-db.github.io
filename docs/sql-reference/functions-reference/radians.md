@@ -13,7 +13,7 @@ Converts degrees to radians as a `FLOAT` value.
 {: .no_toc}
 
 ```sql
-​​RADIANS(<val>) ​​
+RADIANS(<val>) 
 ```
 
 | Parameter | Description                                                                                                         |

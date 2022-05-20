@@ -14,7 +14,7 @@ Calculates the maximum value of an expression across all input values.
 {: .no_toc}
 
 ```sql
-​​MAX(<expr>)
+MAX(<expr>)
 ```
 
 | Parameter | Description                                                                                                                                        |

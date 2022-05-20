@@ -118,7 +118,7 @@ Use can use the `::` operator instead of the [CAST](../sql-reference/functions-r
 
 | Component |Description|
 |:----------|:----------|
-| `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name, ​ ​a function applied to a column or another function, or a literal value. |
+| `<value>` | The value to convert or an expression that results in a value to convert. Can be a column name,  a function applied to a column or another function, or a literal value. |
 | `<type>`  | The target [data type](./data-types.md) (case-insensitive).|
 
 ### Example

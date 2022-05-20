@@ -12,7 +12,7 @@ Converts a date or timestamp to a number containing the number for the day of th
 {: .no_toc}
 
 ```sql
-​​TO_DAY_OF_YEAR(<date>)​​
+TO_DAY_OF_YEAR(<date>)
 ```
 
 | Parameter | Description                                             |

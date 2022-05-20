@@ -7,7 +7,7 @@ parent: SQL functions
 # CASE
 
 The CASE expression is a conditional expression similar to if-then-else statements.\
-If the result of the condition is true then the value of the CASE expression is the result that follows the condition. ​ If the result is false any subsequent WHEN clauses (conditions) are searched in the same manner. ​ If no WHEN condition is true then the value of the case expression is the result specified in the ELSE clause. ​ If the ELSE clause is omitted and no condition matches, the result is null.
+If the result of the condition is true then the value of the CASE expression is the result that follows the condition.  If the result is false any subsequent WHEN clauses (conditions) are searched in the same manner.  If no WHEN condition is true then the value of the case expression is the result specified in the ELSE clause.  If the ELSE clause is omitted and no condition matches, the result is null.
 
 ## Syntax
 {: .no_toc}
@@ -22,8 +22,8 @@ END;
 
 | Parameter     | Description                                                                                                                                             |
 | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<condition>` | An expression that returns a boolean result. ​ A condition can be defined for each `WHEN`, and `ELSE` clause.                                               |
-| `<result>`    | The result of any condition. Every ​`THEN` ​​clause receives a single result. All results in a single ​`CASE` ​​function must share the same data type. |
+| `<condition>` | An expression that returns a boolean result.  A condition can be defined for each `WHEN`, and `ELSE` clause.                                               |
+| `<result>`    | The result of any condition. Every `THEN` clause receives a single result. All results in a single `CASE` function must share the same data type. |
 
 ## Example
 {: .no_toc}

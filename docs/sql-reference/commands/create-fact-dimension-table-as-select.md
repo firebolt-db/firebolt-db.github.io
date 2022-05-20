@@ -32,6 +32,6 @@ AS <select_query>
 
 | Parameter                                       | Description                                                                                                     |
 | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| `<table_name>`                                  | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
+| `<table_name>`                                  | An identifier that specifies the name of the external table. This name should be unique within the database. |
+| `<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
 | `<select_query`>                                | Any valid select query                                                                                          |

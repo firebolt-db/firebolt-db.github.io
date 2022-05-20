@@ -13,7 +13,7 @@ Converts a date or timestamp to a number representing the week. This function de
 {: .no_toc}
 
 ```sql
-​​TO_WEEK(<date>)​​
+TO_WEEK(<date>)
 ```
 
 | Parameter | Description                                                        |

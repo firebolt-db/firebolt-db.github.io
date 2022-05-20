@@ -13,8 +13,8 @@ Returns a number `<val>` raised to the specified power `<exp>`.
 {: .no_toc}
 
 ```sql
-POW(<val>, <exp>)​;
-POWER(<val>, <exp>)​;
+POW(<val>, <exp>);
+POWER(<val>, <exp>);
 ```
 
 | Parameter | Description                                                                                                         |

@@ -13,7 +13,7 @@ Replaces all occurrences of the `<pattern>` substring within the `<string>` with
 {: .no_toc}
 
 ```sql
-REPLACE (<string>, <pattern>, <replacement>)​
+REPLACE (<string>, <pattern>, <replacement>)
 ```
 
 | Parameter       | Description                                                                                                                                                                                |

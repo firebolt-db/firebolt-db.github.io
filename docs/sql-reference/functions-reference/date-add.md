@@ -13,13 +13,13 @@ Calculates a new `DATE `or `TIMESTAMP` by adding or subtracting a specified numb
 {: .no_toc}
 
 ```sql
-​​DATE_ADD('<unit>', <interval>, <date_expr>)​​
+DATE_ADD('<unit>', <interval>, <date_expr>)
 ```
 
 | Parameter     | Description                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
 | `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`.                                                                  |
-| `<interval>`  | The number of times to increase the ​`<date_expr>​​` by the time unit specified by `<unit>`. This can be a negative number. |
+| `<interval>`  | The number of times to increase the `<date_expr>` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP`. value.                                                              |
 
 ## Example

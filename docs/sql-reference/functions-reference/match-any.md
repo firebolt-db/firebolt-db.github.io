@@ -15,7 +15,7 @@ Synonym for `MULTI_MATCH_ANY`
 {: .no_toc}
 
 ```sql
-​​MATCH_ANY(<string>, <pattern_array>)​​
+MATCH_ANY(<string>, <pattern_array>)
 ```
 
 | Parameter         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -26,7 +26,7 @@ Synonym for `MULTI_MATCH_ANY`
 ## Example
 {: .no_toc}
 
-The query below searches for any matches within the string ​`123` ​​with the patterns `​['\d+','\[a-Z|A-Z]']`​. ​ Since at least one is found, it returns: `1`
+The query below searches for any matches within the string `123` with the patterns `['\d+','\[a-Z|A-Z]']`.  Since at least one is found, it returns: `1`
 
 ```sql
 SELECT

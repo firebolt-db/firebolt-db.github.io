@@ -7,13 +7,13 @@ parent: SQL functions
 
 # TO\_UNIXTIME
 
-For ​`DATETIME` ​​arguments: this function converts the value to its internal numeric representation (Unix Timestamp). ​ For ​`TEXT` ​​arguments: this function parses ​`DATETIME` ​​from a string and returns the corresponding Unix timestamp.
+For `DATETIME` arguments: this function converts the value to its internal numeric representation (Unix Timestamp).  For `TEXT` arguments: this function parses `DATETIME` from a string and returns the corresponding Unix timestamp.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-​​TO_UNIXTIME(<string>)​​
+TO_UNIXTIME(<string>)
 ```
 
 | Parameter  | Description                 |

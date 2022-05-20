@@ -46,8 +46,8 @@ CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
 
 | Parameter                                       | Description                                                                                            |
 | :----------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| `<table_name>`                                  | An ​identifier​​ that specifies the name of the table. This name should be unique within the database. |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.      |
+| `<table_name>`                                  | An identifier that specifies the name of the table. This name should be unique within the database. |
+| `<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.      |
 | `<column_type>`                                 | Specifies the data type for the column.                                                                |
 
 All identifiers are case insensitive unless double-quotes are used. For more information, please see our [identifier requirements page](../../general-reference/identifier-requirements.md).

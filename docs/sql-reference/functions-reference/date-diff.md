@@ -7,13 +7,13 @@ parent: SQL functions
 
 # DATE\_DIFF
 
-Calculates the difference between ​​`start_date`​​ and ​`end_date`​​ by the indicated ​unit​​.
+Calculates the difference between `start_date` and `end_date` by the indicated unit.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-​​DATE_DIFF('<unit>', <start_date>, <end_date>)​​
+DATE_DIFF('<unit>', <start_date>, <end_date>)
 ```
 
 | Parameter      | Description                                                    |

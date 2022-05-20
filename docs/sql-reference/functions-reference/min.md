@@ -14,7 +14,7 @@ Calculates the minimum value of an expression across all input values.
 {: .no_toc}
 
 ```sql
-​​MIN(<expr>)
+MIN(<expr>)
 ```
 
 | Parameter | Description                                                                                                                                        |

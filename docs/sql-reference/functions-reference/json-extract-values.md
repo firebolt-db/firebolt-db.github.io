@@ -13,7 +13,7 @@ Returns an array of string values from a JSON document using the key location sp
 {: .no_toc}
 
 ```sql
-​​JSON_EXTRACT_VALUES(<json>, '<json_pointer_expression>')
+JSON_EXTRACT_VALUES(<json>, '<json_pointer_expression>')
 ```
 
 | Parameter                   | Type           | Description                                                     |

@@ -13,7 +13,7 @@ Returns the position (in bytes) of the substring found in the string, starting f
 {: .no_toc}
 
 ```sql
-​​STRPOS(<string>, <substring>)​​
+STRPOS(<string>, <substring>)
 ```
 
 | Parameter     | Description                         |

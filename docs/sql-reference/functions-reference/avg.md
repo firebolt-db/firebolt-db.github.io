@@ -14,7 +14,7 @@ Calculates the average of an expression.
 {: .no_toc}
 
 ```sql
-​​AVG(<expr>)​​
+AVG(<expr>)
 ```
 
 | Parameter | Description                                                                                                                                                                        |

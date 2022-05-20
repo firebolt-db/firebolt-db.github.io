@@ -13,7 +13,7 @@ Converts a string to a UNIX timestamp.
 {: .no_toc}
 
 ```sql
-​​TO_UNIX_TIMESTAMP(<string>)​​
+TO_UNIX_TIMESTAMP(<string>)
 ```
 
 | Parameter  | Description                                        |

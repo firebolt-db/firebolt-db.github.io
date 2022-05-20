@@ -13,7 +13,7 @@ Converts a string to timestamp.
 {: .no_toc}
 
 ```sql
-​​TO_TIMESTAMP(<string>)​​
+TO_TIMESTAMP(<string>)
 ```
 
 | Parameter  | Description                                        |

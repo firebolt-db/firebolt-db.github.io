@@ -7,13 +7,13 @@ parent: SQL functions
 
 # REGEXP\_LIKE
 
-This check whether a string pattern matches a regular expression string. Returns `0` if it doesn’t match, or `1` if it matches. ​ This is a ​​RE2​​ regular expression.
+This check whether a string pattern matches a regular expression string. Returns `0` if it doesn’t match, or `1` if it matches.  This is a RE2 regular expression.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-​REGEXP_LIKE(<string>, '<pattern>')​​
+REGEXP_LIKE(<string>, '<pattern>')
 ```
 
 | Parameter   | Description                                               |
@@ -25,13 +25,13 @@ This check whether a string pattern matches a regular expression string. Returns
 {: .no_toc}
 
 ```sql
-​​SELECT REGEXP_LIKE('123','\\[a-z]') AS res;​​
+SELECT REGEXP_LIKE('123','\\[a-z]') AS res;
 ```
 
 **Returns**: `0`
 
 ```sql
-SELECT REGEXP_LIKE('123','\\d+') AS res;​
+SELECT REGEXP_LIKE('123','\\d+') AS res;
 ```
 
 **Returns**: `1`

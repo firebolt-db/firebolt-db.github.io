@@ -13,7 +13,7 @@ Returns the current timezone of the request execution
 {: .no_toc}
 
 ```sql
-​​TIMEZONE()​​
+TIMEZONE()
 ```
 
 ## Example

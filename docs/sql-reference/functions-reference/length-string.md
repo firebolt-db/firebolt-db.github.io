@@ -13,7 +13,7 @@ Calculates the string length.
 {: .no_toc}
 
 ```sql
-​​LENGTH(<string>)​​
+LENGTH(<string>)
 ```
 
 | Parameter  | Description                                |

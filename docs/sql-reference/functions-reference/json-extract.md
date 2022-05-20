@@ -13,7 +13,7 @@ Takes an expression containing a JSON document, a JSON pointer expression, and a
 {: .no_toc}
 
 ```sql
-​​JSON_EXTRACT(<json>, '<json_pointer_expression>', '<expected_type>')
+JSON_EXTRACT(<json>, '<json_pointer_expression>', '<expected_type>')
 ```
 
 | Parameter                   | Type           | Description                                                                                       |

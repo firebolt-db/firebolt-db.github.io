@@ -13,7 +13,7 @@ Converts a timestamp (any date format we support) to a number containing the sec
 {: .no_toc}
 
 ```sql
-​​TO_SECOND(<timestamp>)​​
+TO_SECOND(<timestamp>)
 ```
 
 | Parameter     | Description                                                  |

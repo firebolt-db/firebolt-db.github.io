@@ -31,8 +31,8 @@ TYPE = (<type> [typeOptions])
 
 | Parameter                  | Description |
 |: ------------------------- |: ---------- |
-| `<external_table_name>`    | An ​identifier​​ that specifies the name of the external table. This name should be unique within the database. For identifier usage and syntax, see [Identifier requirements](../../general-reference/identifier-requirements.md). |
-| `​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​<column_name>`            | An identifier that specifies the name of the column. This name should be unique within the table. |
+| `<external_table_name>`    | An identifier that specifies the name of the external table. This name should be unique within the database. For identifier usage and syntax, see [Identifier requirements](../../general-reference/identifier-requirements.md). |
+| `<column_name>`            | An identifier that specifies the name of the column. This name should be unique within the table. |
 | `<column_type>`            | Specifies the data type for the column. |
 | `PARTITION`                | An optional keyword. When specified, allows you to use a regular expression `<regex>` to extract a value from the file prefix to be stored as the column value. For more information, see [PARTITION](#partition). |
 | `CREDENTIALS`              | Specifies the AWS credentials with permission to access the S3 location specified using `URL`. For more information, see [CREDENTIALS](#credentials). |
@@ -187,7 +187,7 @@ Following are some common use cases for URL and object pattern combinations:
 | :--- | :--- |
 | Get all files for file type xyz     | *URL = 's3://bucket/c_type=xyz/'* <br> *OBJECT_PATTERN = '\*'*     |
 |                                     | *URL = 's3://bucket/'<br>OBJECT_PATTERN = 'c_type=xyz/\*'*         |
-| Get one specific file: `c_type=xyz/year=2018/month=01/part-00001.parquet` | *URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = 'c_type=xyz/year=2018/month=01/part-00001.parquet'<br> <br> URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = '\*/part-00001.parquet'*<br><br>As can be seen in this example, the ​`URL`​ is used to get only the minimal set of files (c_type files in the bucket from January 2018), and then from within those matching files, the `OBJECT_PATTERN`​​ is matched against the full path of the file (without the bucket name).  |
+| Get one specific file: `c_type=xyz/year=2018/month=01/part-00001.parquet` | *URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = 'c_type=xyz/year=2018/month=01/part-00001.parquet'<br> <br> URL = 's3://bucket/c_type=xyz/year=2018/month=01/'<br> OBJECT_PATTERN = '\*/part-00001.parquet'*<br><br>As can be seen in this example, the `URL` is used to get only the minimal set of files (c_type files in the bucket from January 2018), and then from within those matching files, the `OBJECT_PATTERN` is matched against the full path of the file (without the bucket name).  |
 | Get all parquet files for type xyz  | *URL = 's3://bucket/c_type=xyz/'<br> OBJECT_PATTERN = '\*.parquet'*  |
 
 ### TYPE

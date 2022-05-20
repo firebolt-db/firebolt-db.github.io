@@ -13,7 +13,7 @@ Converts a string to `DATE` type.
 {: .no_toc}
 
 ```sql
-​​TO_DATE(<string>)​​
+TO_DATE(<string>)
 ```
 
 | Parameter  | Description                                                                |
