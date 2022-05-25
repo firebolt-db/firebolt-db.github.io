@@ -1,0 +1,15 @@
+name: Page Build
+on:
+  page_build
+
+jobs:
+  pagebuild:
+    runs-on: ubuntu-latest
+    steps:    
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: molly-firebolt/fireboltdocs2guru
+          event-type: prod_build
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
