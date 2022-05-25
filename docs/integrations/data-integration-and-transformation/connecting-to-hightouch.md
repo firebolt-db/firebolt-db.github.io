@@ -2,7 +2,7 @@
 layout: default
 title: Hightouch
 description: Learn how to connect Hightouch to Firebolt.
-nav_order: 3.5
+nav_order: 6
 parent: Data integration and transformation
 grand_parent: Integrations
 ---

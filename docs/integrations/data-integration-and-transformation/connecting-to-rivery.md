@@ -2,7 +2,7 @@
 layout: default
 title: Rivery
 description: Learn how to connect Rivery to Firebolt.
-nav_order: 5
+nav_order: 8
 parent: Data integration and transformation
 grand_parent: Integrations
 ---

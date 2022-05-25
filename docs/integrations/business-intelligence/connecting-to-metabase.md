@@ -2,7 +2,6 @@
 layout: default
 title: Metabase
 description: Learn how to connect Metabase to Firebolt.
-nav_order: 3
 parent: Business intelligence
 grand_parent: Integrations
 ---

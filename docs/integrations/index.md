@@ -17,6 +17,7 @@ The services listed below include tools that have been customized by our partner
 * [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
 * [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
+* [Estuary Flow](data-integration-and-transformation/connecting-with-estuary-flow.md)
 * [Hevo](data-integration-and-transformation/connecting-with-hevo.md)
 * [Hightouch](data-integration-and-transformation/connecting-to-hightouch.md)
 * [Keboola](data-integration-and-transformation/connecting-to-keboola.md)

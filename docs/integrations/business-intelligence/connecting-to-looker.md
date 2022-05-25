@@ -2,7 +2,6 @@
 layout: default
 title: Looker
 description: Learn about configuring a Looker connection to Firebolt and get tips and best practices for using Looker with Firebolt.
-nav_order: 2
 parent: Business intelligence
 grand_parent: Integrations
 ---
