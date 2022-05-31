@@ -18,19 +18,20 @@ To connect to Firebolt from Tableau Desktop, Tableau Server, or Tableau Prep, yo
   
 ### Creating a connection
 
-Once the connector is installed, you can create a new connection to Firebolt from Tableau via **Connect** > **More** > **Connector by Firebolt**. The following fields are used to establish the connection.
+Once the connector is installed, you can create a new connection to Firebolt from Tableau via **Connect** > **More** > **Firebolt Connector by Firebolt**. The following fields are used to establish the connection.
 
 #### Connection Fields
 
 | Field       | Required | Description                                                                                        |
 |-------------|----------|----------------------------------------------------------------------------------------------------|
-| Username    | Yes      | Your Firebolt username.                                                                            |
-| Password    | Yes      | Your Firebolt password.                                                                            |
+| Server      | Yes      | The host to connect to, which is api.app.firebolt.io.                                              |
+| Engine      | No       | The name (not the URL) of the Firebolt engine to use. If omitted, the default engine will be used. |
 | Account     | No       | Your Firebolt account.                                                                             |
 | Database    | Yes      | The name of your Firebolt database.                                                                |
-| Engine Name | No       | The name (not the URL) of the Firebolt engine to use. If omitted, the default engine will be used. |
-| Host        | Yes      | The host to connect to, which is api.app.firebolt.io.                                              |
+| Username    | Yes      | Your Firebolt username.                                                                            |
+| Password    | Yes      | Your Firebolt password.                                                                            |
+
 
 ## Supported Features
 
-The Tableau Connector for Firebolt currently supports Tableau Desktop, Tableau Server, and Tableau Prep. Support for Tableau Online is planned but not yet available.
+The Firebolt Connector for Tableau currently supports Tableau Desktop, Tableau Server, and Tableau Prep. Support for Tableau Online is planned but not yet available.
