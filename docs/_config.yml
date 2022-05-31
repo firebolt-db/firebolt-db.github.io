@@ -49,6 +49,8 @@ aux_links:
 ga_tracking: UA-142599515-1
 ga_tracking_anonymize_ip: true
 
+footer_content: "<a href=\"mailto:docs@firebolt.io\">Send feedback</a>"
+
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
 gh_edit_link_text: "Edit on GitHub"
