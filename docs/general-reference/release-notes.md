@@ -15,7 +15,7 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## May 11, 2022
+## May 31, 2022
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
@@ -23,51 +23,49 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### New features
 
-* **Added support for `CREATE OR REPLACE VIEW` statement**  
-  The `IF NOT EXISTS` and `OR REPLACE` options are incompatible when creating a view. For more information, see [CREATE VIEW](../sql-reference/commands/create-view.md).
+*  You can now use the help menu to check the Firebolt service status page.  
+  ![Status Page](../assets/images/firebolt-service-status.png)
 
-* **Added `ALTER DATABASE` statement**  
-  Allows you to change the engine configuration and the database description. For more information, see [ALTER DATABASE](../sql-reference/commands/alter-database.md).
+* Added support for `CREATE AND GENERATE AGGREGATING INDEX IF NOT EXISTS`. For more information, see [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md).
 
-* **Added `TO_CHAR` function**   
-  Converts a timestamp or a numeric type to strings in a format that you specify. For more information, see [TO_CHAR](../sql-reference/functions-reference/to-char.md).
+* Added an information schema view for indexes. The view is available for each database and contains one row for each index. For more information, see [Information schema for indexes](../general-reference/information-schema/indexes.md).
 
-* **Materialized CTEs (Beta)**  
-  Added an optimization hint to support caching large, computationally expensive CTE results in memory for reuse to increase query performance. For more information, see [SELECT](../sql-reference/commands/select.md#materialized-common-table-expressions-beta).
+* Added `ARRAY_AGG` as an alias of `NEST`. For more information, see [NEST](../sql-reference/functions-reference/nest.md).
 
-* **Added support for SET statements passed via SQL in the Python SDK**  
+* You can now concatenate strings, numbers, and arrays using the `||` operator without exlicitly casting elements.
+
+* Added `TO_TEXT` as an alias of `TO_STRING`. For more information, see [TO_STRING](../sql-reference/functions-reference/to-string.md).
+
+*  An improved approach to Window functions is available for Beta testing by request. For more information, contact Firebolt Support.
+
 
 ### Enhancements, changes, and new integrations
 
-* **Engine specs are now Firebolt-specific**  
-  Firebolt engine spec names have changed from AWS EC2 names to Firebolt-specific names&mdash;for example, **M4**. This change simplifies engine specs and aligns them with Firebolt usage and deployment. This is the first step toward improving the overall engine selection and usage experience, allowing Firebolt to update underlying hardware more quickly and automatically. For more information, see [Working with engines](../working-with-engines/index.md).
+* Improved query execution on queries that read table data in Amazon S3. Firebolt now achieves greater read parallelization, which significantly speeds up queries that read many columns.
 
-* **Expanded application of aggregating indexes**  
-  The query optimizer now uses aggregating indexes in more cases to improve performance.
+* **Cube.js integration**  
+  You can now configure a Firebolt database as a data source for [Cube.js](https://cube.dev). Cube.js is an embedded BI platform that allows you to define a data model, manage security and multitenancy, accelerate queries, and expose data to your applications using SQL and APIs. For more information, see [Firebolt](https://cube.dev/docs/config/databases/firebolt) in Cube.js documentation.
 
-* **Python SDK updates**  
-  * Support added for `DECIMAL`, `DATE32`, and `DATETIME64` data types in the Python SDK.
-  * Added the ability to disable caching of authentication tokens for use in read-only environments like AWS Lambda.
+* **Tableau connector**  
+  An official Firebolt connector is now available in the [Tableau Exchange](https://exchange.tableau.com/products/650) so you can use Tableau more easily to analyze and visualize your Firebolt data.
 
-* **Added a materialization connector in Estuary for Firebolt**  
-  For more information, see the [Firebolt materialization connector topic](https://docs.estuary.dev/reference/Connectors/materialization-connectors/Firebolt/) in Estuary documentation.
+* **Sifflet integration**  
+  Firebolt now integrates with Sifflet to improve your visibility into data quality issues, data lineage, and data discovery. For more information, see [Firebolt](https://docs.siffletdata.com/docs/firebolt) in Sifflet documentation.
+
+* **Looker symmetric aggregates**  
+  Symmetric aggregates in Looker are now supported when connected to Firebolt. For more information, see [A Simple Explanation of Symmetric Aggregates](https://help.looker.com/hc/en-us/articles/360023722974) in the Looker Help Center.
+
+* **dbt append-only incremental materializations**  
+  The dbt-firebolt adapter now supports append-only incremental materializations. For more information, see [Firebolt configurations](https://docs.getdbt.com/reference/resource-configs/firebolt-configs) in dbt documentation.
 
 ### Resolved issues
 
-* Fixed an issue where complex join conditions could fail when evaluating `NULL` values.
+* Fixed an issue that caused a `Type mismatch in joinGet` error when using a join index in table joins where columns are of different numeric types&mdash;for example, joining a column in a fact table defined as `DOUBLE` with a column defined as `BIGINT` in a dimension table.
 
-* Fixed an issue that caused [dropping partitions by date extraction](../working-with-partitions.md#partition-and-drop-by-date-extraction) to fail.
+* Fixed an issue that caused the `ARRAY_JOIN` function to fail with an array of numeric values.
 
-* Fixed an issue that caused `DROP AGGREGATING INDEX` to run slower than expected.
+* Fixed an issue in the `REGEXP_MATCHES` function that caused an error in some circumstances when a specified pattern didn't match the input string.
 
-* Fixed an issue with queries containing subqueries, where the outer query limit clause would override the inner query limit clause.
+* Fixed an issue that caused a session to hang when trying to query an external table referencing an empty JSON file in Amazon S3.
 
-* Fixed an issue that could cause canceling a query to fail if the query was reading an external table.
-
-* Fixed an issue that could prevent aggregating index creation on aggregations used with a few functions (for example, `SUM`, `LENGTH`, and `COUNT`).
-
-* Fixed an issue that caused `NULL`s to be mishandled in some `CASE` statements.
-
-* Fixed an issue that required non-reserved keywords to be enclosed in quotes.
-
-* Fixed the data type for the `number_of_rows` column in `information_schema.tables` from `INT` to `BIGINT`.
+* Fixed an issue that caused incorrect column names when using `COPY TO` with a `SELECT` statement that uses aliases.

@@ -25,7 +25,7 @@ The index is populated automatically as data is loaded into the table.
 {: .no_toc}
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name> (
+CREATE AND GENERATE AGGREGATING INDEX [IF NOT EXISTS] <agg_index_name> ON <fact_table_name> (
   <key_column>[,...<key_columnN>],
   <aggregation>[,...<aggregationN>]
 );
