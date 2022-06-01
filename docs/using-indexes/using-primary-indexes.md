@@ -103,7 +103,7 @@ If you know that you will use a function in a predicate ahead of time, consider 
 
 ### With a star schema, include join key columns in the fact table index
 
-If you have a star schema with many fact tables referring to a single dimension table, include the join keys (the foreign key columns) in the primary index of the fact table. This helps accelerate queries because the Firebolt query planner uses join keys as a predicate.
+If you have a star schema with a fact table referring to many dimension tables, include the join keys (the foreign key columns) in the primary index of the fact table. This helps accelerate queries because the Firebolt query planner uses join keys as a predicate.
 
 Conversely, on the dimension table side, there is no benefit to including the join key in the dimension table primary index unless you use it as a filter on the dimension table itself.
 
