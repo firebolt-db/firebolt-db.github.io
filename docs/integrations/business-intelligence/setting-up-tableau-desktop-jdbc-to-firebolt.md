@@ -1,59 +1,37 @@
 ---
 layout: default
 title: Tableau
-description: Learn how to connect Tableau desktop to Firebolt using the Firebolt JDBC driver.
+description: Learn how to connect Tableau to Firebolt.
 parent: Business intelligence
 grand_parent: Integrations
 ---
 
-# Connecting to Tableau (desktop)
-{: .no_toc}
+# Connecting Tableau to Firebolt
 
-This topic describes the steps for setting up the Tableau (desktop) connection to Firebolt.
+Tableau is a leading data visualization and business intelligence platform that allows anyone to see and understand their data. When connected to Firebolt, Tableau delivers sub-second query speeds on live connections, thus enabling truly interactive analytics experiences without needing to compromise on data volume, freshness, or latency.
+  
+## Getting started
+  
+### Installation
 
-1. Topic ToC
-{:toc}
+To connect to Firebolt from Tableau Desktop, Tableau Server, or Tableau Prep, you must install the Firebolt connector. The instructions to do so can be found in the Tableau Exchange [here](https://exchange.tableau.com/products/650).
+  
+### Creating a connection
 
-## Install the latest Firebolt JDBC Driver
+Once the connector is installed, you can create a new connection to Firebolt from Tableau via **Connect** > **More** > **Firebolt Connector by Firebolt**. The following fields are used to establish the connection.
 
-Download Firebolt’s JDBC driver for Tableau from [here](../connecting-via-jdbc.md).
+#### Connection Fields
 
-Put the JDBC jar file in the Tableau JDBC driver folder:
+| Field       | Required | Description                                                                                        |
+|-------------|----------|----------------------------------------------------------------------------------------------------|
+| Server      | Yes      | The host to connect to, which is api.app.firebolt.io.                                              |
+| Engine      | No       | The name (not the URL) of the Firebolt engine to use. If omitted, the default engine will be used. |
+| Account     | No       | Your Firebolt account.                                                                             |
+| Database    | Yes      | The name of your Firebolt database.                                                                |
+| Username    | Yes      | Your Firebolt username.                                                                            |
+| Password    | Yes      | Your Firebolt password.                                                                            |
 
-* Windows: `C:\Program Files\Tableau\Drivers`
-* Mac: `~/Library/Tableau/Drivers`
 
-## Install the latest Firebolt TACO file
+## Supported Features
 
-Download Firebolt’s packaged connector file for Tableau (with a .taco filename extension) from [here](https://firebolt-publishing-public.s3.amazonaws.com/repo/Tableau/firebolt_connector.taco).
-
-Copy the packaged connector file into your `My Tableau Repository/Connectors directory`:
-
-* Windows:_`C:\Users\[your-user]\Documents\My Tableau Repository\Connectors`_
-* Mac:_`~/Documents/My Tableau Repository/Connectors`_
-
-## Set up the connection to Firebolt in Tableau
-
-### Pre-requisites
-
-1. Make a note of the database name you would like to connect to in Firebolt. Also, make sure the database has an up-and-running engine before you configure the connection in Tableau.  
-
-2. Make a note of the username and password used to log into Firebolt.  
-
-3. Start Tableau and disable signature validation for the TACO file. For more information, see "Disabling signature verification" in [Run Your Connector](https://tableau.github.io/connector-plugin-sdk/docs/run-taco) in Tableau Connector SDK documentation.
-
-### Configuring the Connection
-
-1. In Tableau, under **Connect**, choose **More**.  
-
-2. Search for **Connector by Firebolt** in the list of connectors and select it.
-
-3. In the form that appears, fill in parameters according to the guidelines below, and then choose **Sign in**.
-
-    | Parameter  | Description                                                                                                  | Value                  |
-    | ---------- | ------------------------------------------------------------------------------------------------------------ | ---------------------- |
-    | `Server`   | The URL of Firebolt's API server                                                                             | `api.app.firebolt.io`  |
-    | `Database` | The name of the database you would like to connect to                                                        | Database name          |
-    | `Engine`   | The name of the engine you would like to use (optional). If not specified - the default engine will be used. | Engine name            |
-    | `Username` | The username used for connecting to Firebolt                                                                 | Your Firebolt username |
-    | `Password` | The password used for connecting to Firebolt                                                                 | Your Firebolt password |
+The Firebolt Connector for Tableau currently supports Tableau Desktop, Tableau Server, and Tableau Prep. Support for Tableau Online is planned but not yet available.
