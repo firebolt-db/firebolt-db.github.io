@@ -59,6 +59,9 @@ gh_edit_branch: "gh-pages"
 gh_edit_source: docs
 gh_edit_view_mode: "edit"
 
+
+git config --global merge.ours.driver true
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
