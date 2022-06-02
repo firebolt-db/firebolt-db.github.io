@@ -1,14 +1,14 @@
 ---
 layout: default
 title: COPY TO
-description: Reference and syntax for the COPY TO command that exports data from Firebolt to Amazon S3.
+description: Reference and syntax for the COPY TO command that exports or unloads data from Firebolt to Amazon S3.
 parent: SQL commands
 ---
 
 # COPY TO (Beta)
 {: .no_toc}
 
-Copies (exports) the results of a `SELECT` query to an Amazon S3 location in the file format that you specify.
+Copies (exports or unloads) the results of a `SELECT` query to an Amazon S3 location in the file format that you specify.
 
 * Topic ToC
 {:toc}
