@@ -15,6 +15,7 @@ The services listed below include tools that have been customized by our partner
 
 * [Adverity](data-integration-and-transformation/connecting-to-adverity.md)
 * [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
+* [Cube.js](business-intelligence/connecting-to-cubejs.md)
 * [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
 * [Estuary Flow](data-integration-and-transformation/connecting-with-estuary-flow.md)
