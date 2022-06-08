@@ -1,22 +1,48 @@
-name: Page Build
+name: Production Build and Deploy
 on:
-  page_build
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - '.github/workflows/**'
 
 jobs:
-  dispatch:
+  build:
     runs-on: ubuntu-latest
-    steps:    
-      - name: dispatch for guru sync
-        uses: peter-evans/repository-dispatch@v2
+    steps:
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+
+      # https://github.com/actions/checkout#push-a-commit-using-the-built-in-token
+      - name: Set GitHub Actions as Commit Author
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
+
+      - name: Checkout Repo
+        uses: actions/checkout@v2
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          repository: firebolt-db/firebolt-doc-to-guru
-          event-type: prod_build
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
-      - name: dispatch for staging sync
-        uses: peter-evans/repository-dispatch@v2
+          path: 'build'
+
+      - name: Build
+        run: |
+          cd build
+          git checkout gh-pages
+          git pull https://github.com/firebolt-db/firebolt-db.github.io.git gh-pages
+          git push origin
+
+
+      - name: Checkout Staging Target
+        uses: actions/checkout@v2
         with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: firebolt-db/firebolt-doc-staging
-          event-type: prod_build
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          path: 'deploy'
+      
+      - name: Push files to target
+        run: |
+          cp -r build/* deploy
+          cd deploy
+          git add .
+          git commit -m $GITHUB_SHA
+          git push
