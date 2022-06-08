@@ -1,7 +1,7 @@
 name: Production Build and Deploy
 on:
   push:
-    branches: [ main ]
+    branches: [ gh-pages ]
     paths-ignore:
       - '.github/workflows/**'
 
