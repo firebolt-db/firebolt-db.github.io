@@ -14,7 +14,7 @@ Firebolt is working with an expanding roster of services and applications to uti
 The services listed below include tools that have been customized by our partners to connect with Firebolt. Many services not explicitly listed here can still operate with Firebolt's architecture through our [drivers and adapters](connecting-via-jdbc.md) for general connection use.
 
 * [Adverity](data-integration-and-transformation/connecting-to-adverity.md)
-* [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
+* [Apache Airflow](data-orchestration/airflow.md)
 * [Cube.js](business-intelligence/connecting-to-cubejs.md)
 * [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
