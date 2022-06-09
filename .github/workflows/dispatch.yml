@@ -46,3 +46,18 @@ jobs:
           git add .
           git commit -m $GITHUB_SHA
           git push
+
+      - name: Checkout Guru Synch Target
+        uses: actions/checkout@v2
+        with:
+          repository: firebolt-db/firebolt-doc-to-guru
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          path: 'deploysync'
+
+      - name: Push files to target
+        run: |
+          cp -r build/* deploysync
+          cd deploysync
+          git add .
+          git commit -m $GITHUB_SHA
+          git push
