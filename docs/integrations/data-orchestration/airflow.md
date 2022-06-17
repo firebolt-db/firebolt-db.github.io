@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Airflow
-description: Learn how to use the JDBC driver to connect Airflow to Firebolt.
+description: Learn how to use the Apache Airflow provider package to connect Airflow to Firebolt.
 nav_order: 1
 parent: Data orchestration
 grand_parent: Integrations
