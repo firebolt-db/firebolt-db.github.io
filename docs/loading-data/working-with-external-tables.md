@@ -17,9 +17,9 @@ Although you can run a query over an external table to return query results, we 
 
 ## Workflows
 
-1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [Getting started tutorial](../getting-started.html).  
+1. For a simple end-to-end workflow that demonstrates loading data into Firebolt, see the [getting started tutorial](../getting-started.html).  
 
-2. For a workflow that demonstrates incrementally loading data into Firebolt, see [Incrementally loading data with Airflow](incremrm entally-loading-data.md).
+2. For a workflow that demonstrates continuously loading data into Firebolt, see the [continuously loading data tutorial](continuously-loading-data.md).
 
 ## Supported file formats
 
@@ -29,7 +29,7 @@ Firebolt supports loading the following source file formats from S3: `PARQUET`, 
 
 Firebolt external tables include metadata virtual columns that Firebolt populates with useful system data during ingestion. Firebolt includes these columns automatically. You don't need to specify them in the `CREATE EXTERNAL TABLE` statement.
 
-When you use an external table to ingest data, you can explicitly reference these columns to ingest the metadata. First, you define the columns in a `CREATE FACT|DIMENSION TABLE` statement. Next, you specify the virtual column names to select in the `INSERT INTO` statement, with the fact or dimension table as the target. You can then query the columns in the fact or dimension table for analysis, troubleshooting, and to implement logic. For more information, see the example below.
+When you use an external table to ingest data, you can explicitly reference these columns to ingest the metadata. First, you define the columns in a`CREATE FACT|DIMENSION TABLE` statement. Next, you specify the virtual column names to select in the `INSERT INTO` statement, with the fact or dimension table as the target. You can then query the columns in the fact or dimension table for analysis and troubleshooting. For more information, see the example below.
 
 The metadata virtual columns listed below are available in external tables.
 
@@ -38,7 +38,7 @@ The metadata virtual columns listed below are available in external tables.
 | `source_file_name` | The full path of the row data's source file in Amazon S3, without the bucket. For example, with a source file of `s3://my_bucket/xyz/year=2018/month=01/part-00001.parquet`, the `source_file_name` is `xyz/year=2018/month=01/part-00001.parquet`. | TEXT |
 | `source_file_timestamp` | The creation timestamp of the row's source file in S3. | TIMESTAMP |
 
-For examples of metadata virtual column usage, see [Extracting partition values using INSERT INTO](../sql-reference/commands/insert-into.md#extracting-partition-values-using-insert-into) and [Incrementally loading data with Airflow](../loading-data/incrementally-loading-data.md).
+For an additional example, see [Extracting partition values using INSERT INTO](../sql-reference/commands/insert-into.md#extracting-partition-values-using-insert-into).
 
 ### Example&ndash;querying metadata virtual column values
 
