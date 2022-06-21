@@ -78,13 +78,13 @@ The instructions below demonstrate how to use the Airflow UI to create a connect
 5. Provide connection parameters for Firebolt according to the following guidelines. These connection parameters correspond to built-in Airflow variables.  
 
    |   Parameter     |Description |Example value |
-   |:-------------- |:---------- |:------------ |
-   | Connection id   | The name of the connection. This appears in the list of connections in the Airflow UI. | `My_Firebolt_Connection` |
+   |:--------------  |:---------- |:------------ |
+   | Connection id   | The name of the connection. This appears in the list of connections in the Airflow UI. | My_Firebolt_Connection` |
    | Description     | Self-explanatory. | `Connection to Firebolt database MyDatabase using engine MyEngine.`|
    | Host            | The API hostname for Firebolt. Always `https://api.app.firebolt.io`. | `https://api.app.firebolt.io` |
    | Database        | The name of the Firebolt database to connect to. | `MyFireboltDatabase` |
    | Username        | The username (email address) associated with the Firebolt user that Airflow will use to connect. | `me@mycompany.com` |
-   | Password        | The password associated with the username provided. | `pass1234` | `password` |
+   | Password        | The password associated with the username provided. | `pass1234` |
    | Advanced Connection Properties | Specifies the Firebolt account name and engine within the specified database to use in the format `{"account_name":"<my_account_name>","engine_name":"<engine_name>"}`. | `{"account_name":"MyFbAccount","engine_name":"MyFireboltDatabase_general_purpose"}` |
 
 6. Choose **Test** to verify that connection parameters are correct.  
