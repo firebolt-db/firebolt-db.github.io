@@ -2,7 +2,7 @@
 layout: default
 title: Integrations
 description: Learn about options for connecting data services and tools to Firebolt to build your data stack.
-nav_order: 11.1
+nav_order: 3.1
 has_children: true
 has_toc: false
 ---
@@ -14,7 +14,7 @@ Firebolt is working with an expanding roster of services and applications to uti
 The services listed below include tools that have been customized by our partners to connect with Firebolt. Many services not explicitly listed here can still operate with Firebolt's architecture through our [drivers and adapters](connecting-via-jdbc.md) for general connection use.
 
 * [Adverity](data-integration-and-transformation/connecting-to-adverity.md)
-* [Apache Airflow](data-orchestration/airflow.md)
+* [Apache Airflow](data-orchestration/setting-up-airflow-jdbc-to-firebolt.md)
 * [Cube.js](business-intelligence/connecting-to-cubejs.md)
 * [Dataddo](data-integration-and-transformation/connecting-with-dataddo.md)
 * [dbt](data-integration-and-transformation/connecting-with-dbt.md)
@@ -30,6 +30,7 @@ The services listed below include tools that have been customized by our partner
 * [SQLAlchemy](../developing-with-firebolt/connecting-with-sqlalchemy.md)
 * [Apache Superset / Preset](business-intelligence/connecting-to-apache-superset.html)
 * [Tableau](business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.md)
+* [Sifflet](data-observability/sifflet.md)
 
 ## Common connection parameters
 
