@@ -24,7 +24,7 @@ Authenticating with the Firebolt REST API requires retrieving an access token us
 
 ### Retrieve authentication token
 
-The access token is a secret string that identifies your user. Submit the request shown in the example below to get a token. The token for you to use with other commands is in the response example as `YOUR_ACCESS_TOKEN_VALUE`. The access token is valid for 24 hours (86400 seconds). Replace `YOUR_USER_EMAIL` and `YOUR_PASSWORD` as appropriate.
+The access token is a secret string that identifies your user. Submit the request shown in the example below to get a token. The token for you to use with other commands is in the response example as `YOUR_ACCESS_TOKEN_VALUE`. The access token is valid for 12 hours (43,200 seconds). Replace `YOUR_USER_EMAIL` and `YOUR_PASSWORD` as appropriate.
 
 **Request**
 
