@@ -39,7 +39,7 @@ curl --request POST 'https://api.app.firebolt.io/auth/v1/login' \
 ```javascript
 {  
   "access_token": "YOUR_ACCESS_TOKEN_VALUE",  
-  "expires_in": 86400,  
+  "expires_in": 43200,  
   "refresh_token": "YOUR_REFRESH_TOKEN_VALUE",  
   "scope": "offline_access",  
   "token_type": "Bearer"  
@@ -64,7 +64,7 @@ curl --request POST 'https://api.app.firebolt.io/auth/v1/refresh' \
 {
     "access_token": "YOUR_REFRESHED_ACCESS_TOKEN_VALUE",
     "scope": "offline_access",
-    "expires_in": 86400,
+    "expires_in": 43200,
     "token_type": "Bearer"
 }
 ```
