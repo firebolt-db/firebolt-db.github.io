@@ -39,7 +39,7 @@ Permissions apply throughout the account. The actions allowed for each role are 
 | **Tables and table data**        |        |          |               |
 | Create tables                    | ✅     | ✅       | ✅            |
 | Drop (delete) tables             | ✅     | ✅       | ✅            |
-| Ingest (INSERT INTO)             | ✅     | ✅       | ✅            |
+| Ingest (INSERT INTO)             | ❌     | ✅       | ✅            |
 | Run analytics queries            | ✅     | ✅       | ✅            |
 | **Accounts and users**           |        |          |               |
 | View Firebolt AWS Account #      | ❌     | ❌       | ✅            |
