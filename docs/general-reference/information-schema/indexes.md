@@ -33,5 +33,5 @@ Each row has the following columns with information about the database.
 | index_name                    | STRING    | The name defined for the index. |
 | index_type                    | STRING    | One of `primary`, `aggregating`, or `join`. |
 | index_definition              | STRING    | The portion of the index statement that defines the columns and aggregations (if applicable) for the index. |
-| _index_compressed_size        | BIGINT    | The compressed size of the index. |
+| index_compressed_size         | BIGINT    | The compressed size of the index. |
 | index_uncompressed_size       | BIGINT    | The uncompressed size of the index. |
