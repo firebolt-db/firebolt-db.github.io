@@ -155,7 +155,7 @@ WHERE EXISTS (
   WHERE
     products.supplier_id = suppliers.supplier_id
   AND
-    price < 22);
+    price = 22);
 ```
 
 ### Example&ndash;using the IN operator to return all customers from Mannheim or London
