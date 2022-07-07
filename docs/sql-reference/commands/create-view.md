@@ -7,22 +7,34 @@ parent: SQL commands
 
 # CREATE VIEW
 
-Views allow you to use a query as if it were a table.
+Creates a view, which is useful to filter, focus, and simplify a data set for querying. Views provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. 
 
-Views are useful to filter, focus, and simplify a database for users. They provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. A view in Firebolt executes its query each time the view is referenced. In other words, the view results are not stored for future usage, and therefore using views does not provide a performance advantage. Consider using a materialized common table expression (CTE) as an alternative. For more information, see [Materialized common table expressions](select.md#materialized-common-table-expressions-beta).
+View results are not stored for future usage. Each time a query references a view, the view runs its `SELECT` query. For this reason, views do not provide a performance advantage. Consider using a materialized common table expression (CTE) as an alternative. For more information, see [Materialized common table expressions](select.md#materialized-common-table-expressions-beta).
+
+The optional `IF NOT EXISTS` and `OR REPLACE` clauses are mutually exclusive. They specify behavior if a view with the same name already exists. If neither clause is specified, an error occurs if a view with the same `<view_name>` already exists. 
 
 ## Syntax
 
 ```sql
-CREATE VIEW  [IF NOT EXISTS | OR REPLACE]  <name> [(<column_list>)]
+CREATE VIEW [IF NOT EXISTS] <view_name> [(<column_list>)]
 AS SELECT <select_statement>
 ```
 
-| Parameter                                       | Description                                                                                                                     |
-| :----------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| `<name>`                                        | An identifier that specifies the name of the view. This name should be unique within the database.                           |
-| `<column_list>` | An optional list of column names to be used for columns of the view. If not given, the column names are deduced from the query. |
-| `<select_statement>`                            | The select statement for creating the view                                                                                      |
+**&mdash;OR&mdash;**
+
+```sql
+CREATE [OR REPLACE] VIEW <view_name> [(<column_list>)]
+AS SELECT <select_statement>
+```
+
+
+| Parameter              | Description |
+| :----------------------| :---------  |
+| `IF NOT EXISTS`        | Specifies that an existing view with `<view_name>` will not be replaced with this view definition. This is the default behavior, but this clause suppresses the error message that would otherwise occur, which is useful for scripted and programmatic implementations.|
+| `OR REPLACE`           | Specifies that an existing view with `<view_name>` will be replaced with this view definition.|  
+| `<view_name>`          | An identifier that specifies the name of the view. This name must be unique within the database. |
+| `<column_list>`        | An optional list of column names to be used for columns of the view. If not specified, the column names are deduced from the query. |
+| `<select_statement>`   | The select statement for creating the view. |
 
 ## Example
 
