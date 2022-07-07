@@ -14,7 +14,7 @@ Use the alphabetical list in the navigation pane to find the syntax for commands
 Use the functional list below to find commands for a specific task area that you're working in.
 
 * [Aggregate array functions](#aggregate-array-functions)  
-  These functions work on array-typed columns, but instead of being applied row by row, they combine the results or all the array belonging to the groups defined by the `GROUP BY` clause.
+  These functions work on array-typed columns, but instead of being applied row by row, they combine the results of all the arrays belonging to each of the groups defined by the `GROUP BY` clause.
 
 * [Aggregation functions](#aggregation-functions)  
   These functions perform a calculation across a set of rows, returning a single value.
