@@ -19,7 +19,7 @@ COUNT([ DISTINCT ] <expr>)
 
 | Parameter | Description                                                                                                                                                                                                           |
 | :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Valid values for the expression include column names (or \* for counting all columns) or functions that return a column name. When `DISTINCT` is being used, counts only the unique number of rows with no `NULL` values. |
+| `<expr>`  | Valid values for the expression include column names or functions that return a column name. When `DISTINCT` is being used, counts only the unique number of rows with no `NULL` values. |
 
 {: .note}
 > `COUNT(*)` returns a total count of all rows in the table, while `COUNT(<column_name>)` returns a count of non-NULL rows in the specified `<column_name>`.
