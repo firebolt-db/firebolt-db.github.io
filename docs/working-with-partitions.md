@@ -106,7 +106,7 @@ PARTITION BY transaction_date
 The example below drops the partition for records with the date `2020-01-01`. The date is provided as a string literal and must be cast to the `DATE` data type in the command. The command uses the [:: operator for CAST](/general-reference/operators.md#-operator-for-cast).
 
 ```sql
-ALTER TABLE fct_tbl_transactions DROP PARTITION `2020-01-01`::DATE;
+ALTER TABLE fct_tbl_transactions DROP PARTITION '2020-01-01'::DATE;
 ```
 
 #### Partition and drop by date extraction
