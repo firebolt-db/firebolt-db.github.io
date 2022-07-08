@@ -80,7 +80,7 @@ The instructions below demonstrate how to use the Airflow UI to create a connect
    |   Parameter     |Description |Example value |
    |:--------------  |:---------- |:------------ |
    | Connection id   | The name of the connection. This appears in the list of connections in the Airflow UI. | `My_Firebolt_Connection` |
-   | Description     | Self-explanatory. | `Connection to Firebolt database MyDatabase using engine MyEngine.`|
+   | Description     | Self-explanatory. | `Connection to Firebolt database MyDatabase using engine MyFireboltDatabase_general_purpose.`|
    | Host            | Optional. The API hostname for Firebolt. Always `api.app.firebolt.io`. | `api.app.firebolt.io` |
    | Database        | The name of the Firebolt database to connect to. | `MyFireboltDatabase` |
    | Username        | The username (email address) associated with the Firebolt user that Airflow will use to connect. | `me@mycompany.com` |
