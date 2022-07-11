@@ -441,7 +441,7 @@ SELECT_QUERY_N;
 Use the following request to cancel a running query:
 
 ```bash
-curl --request POST 'https://YOUR_ENGINE_URL/cancel?query_id=YOUR_QUERY_ID;' \
+curl --request POST 'https://YOUR_ENGINE_URL/cancel?query_id=YOUR_QUERY_ID' \
 --header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
 ```
 
