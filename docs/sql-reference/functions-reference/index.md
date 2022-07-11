@@ -29,7 +29,7 @@ Use the functional list below to find commands for a specific task area that you
   Functions for manipulating date and time data types.   
 
 * [JSON functions](#json-functions)  
-  These functions extract and transform raw JSON into Firebolt native types, or JSON sub-objects. They are used either during the ELT process or applied to columns storing JSON objects as plain `TEXT`.
+  These functions extract and transform JSON into Firebolt native types, or JSON sub-objects. They are used either during the ELT process or applied to columns storing JSON objects as plain `TEXT`.
 
 * [Numeric functions](#numeric-functions)  
   Functions for manipulating data types including `INT`, `LONG`, `DOUBLE`, and other numeric types.

@@ -2,7 +2,7 @@
 layout: default
 title: Working with engines using the REST API
 description: Use the Firebolt REST API to work with engines.
-nav_order: 3
+nav_order: 5
 parent: Working with engines
 ---
 

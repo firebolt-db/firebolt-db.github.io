@@ -7,10 +7,14 @@ parent: Working with engines
 ---
 
 # Understanding engine fundamentals
+{: .no_toc}
 
 Firebolt engines are attached to databases. Each engine provides isolated and assured compute and storage capacity that you can use for different workloads and queries.
 
 Engines are configurable and efficient. You can quickly set them up with the capabilities that you need, start them only when you need them, and configure them to stop automatically when not in use. Engine costs accrue only while an engine is running, so you can create as many engines as you like to compare cost and performance and to handle different aspects of your workload.
+
+* Topic Toc
+{: toc}
 
 ## How engines, databases, and scripts work together
 
@@ -84,9 +88,13 @@ The period of inactivity, in minutes, after which an engine shuts down automatic
 
 You can execute a [SHOW ENGINES](../sql-reference/commands/show-engines.md) statement to list all engines in your Firebolt account and view engine status. You can also use the **Databases** list or the **Engines** list in the Firebolt Manager.
 
-* **On -** the engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine.
-* **Starting -** the engine was started. It is provisioning resources, warming up, and will be ready to use shortly.
-* **Stopped -** the engine was stopped. It is not available to run queries. You can edit, delete, or attach engines in this state.
-* **Stopping -** the engine is shutting down. It is finishing query tasks in process and is not available for new queries.
-* **Dropping -** the engine is being deleted. It is finishing query tasks in process and is not available for new queries.
-* **Repairing -** at least one node is out of service. Firebolt is working on replacing nodes. The engine is not available to run queries while in this state. Firebolt engines go into repairing status if there is an infrastructure or software failure. When an engine is repairing, it stops any current query actions.
+The table below lists the statuses returned by the `SHOW ENGINES` command and the corresponding status enumeration that the Firebolt API returns.
+
+| `SHOW ENGINES` and UI | API Enum                         | Description                     |
+| :-------------------- | :------------------------------- | :------------------------------ |
+| Provisioning          | `ENGINE_STATUS_SUMMARY_STARTING` | The engine was started. It is provisioning resources, warming up, and will be ready to use soon. |
+| Running               | `ENGINE_STATUS_SUMMARY_RUNNING`  | The engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine. |
+| Stopping              | `ENGINE_STATUS_SUMMARY_STOPPING` | The engine is shutting down. It is finishing query tasks in process and is not available for new queries. |
+| Stopped               | `ENGINE_STATUS_SUMMARY_STOPPED`  | The engine is stopped. It is not available to run queries. You are able to edit, delete, or attach engines in this state. |
+| Dropping              | `ENGINE_STATUS_DELETING`         | The engine configuration is being permanently deleted. |
+| Repairing             | `ENGINE_STATUS_REPAIRING`        | At least one node is out of service because of an infrastructure or software failure. Firebolt is working on replacing nodes. The engine is not available to run queries, and any query actions in progress have stopped.|
