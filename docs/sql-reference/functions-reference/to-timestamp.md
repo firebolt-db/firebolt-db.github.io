@@ -19,7 +19,7 @@ TO_TIMESTAMP(<string> [,format])
 | Parameter  | Description                                        |
 | :---------- | :-------------------------------------------------- |
 | `<string>` | The string value to convert. |
-| `<format>` | An optional string literal that specifies the format of the `<string>` to convert. See [DATE_FORMAT](../sql-reference/functions-reference/date-format.md) for a table of available string literals.  |
+| `<format>` | An optional string literal that specifies the format of the `<string>` to convert. See [DATE_FORMAT](../functions-reference/date-format.md) for a table of available string literals.  |
 
 ## Example
 {: .no_toc}
