@@ -1,8 +1,8 @@
 title: Firebolt documentation
 description: >-
   User and developer documentation for the Firebolt data warehouse.
-domain: docs.firebolt.io
-url: "https://docs.firebolt.io" # the base hostname & protocol for your site, e.g. http://example.com
+# domain: docs.firebolt.io
+# url: "https://docs.firebolt.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 remote_theme: firebolt-db/just-the-docs
