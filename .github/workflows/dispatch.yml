@@ -48,7 +48,7 @@ jobs:
       - name: Checkout Guru Synch Target
         uses: actions/checkout@v2
         with:
-          repository: firebolt-db/firebolt-doc-to-guru
+          repository: firebolt-analytics/firebolt-doc-to-guru
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: 'deploysync'
 
