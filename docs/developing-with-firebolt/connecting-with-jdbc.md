@@ -63,6 +63,14 @@ The table below lists the available parameter keys. All parameter keys are case-
 | use_objects_in_arrays | BOOLEAN            | false             | When set to true, object arrays **(Object[])** are used to store data types instead of primitive arrays. | true or false                                                |
 | use_path_as_db        | BOOLEAN            | true              | When set to true (the default) or not specified, the path parameter **<database>** from the URL is used as the database name. For example, the URL, `jdbc:firebolt://api.dev.firebolt.io/database_example?compress=1`, would use the database name, **database_example**. However, when set to false, an alternate database parameter from the URL is used instead. The alternate database identifier can be added to a URL with the following syntax: `jdbc:firebolt://api.app.firebolt.io/path?database=<database>?use_path_as_db=false`. For example, the URL, `jdbc:firebolt://[api.dev.firebolt.io/database_example?database=myDbName&compress=1&use_path_as_db=false`, would use the database identifier **myDbName**. | true or false  |
 
+### SET Parameters
+
+In addition to the parameters specified above, any `SET` settings can also be passed as JDBC parameters.
+
+`SET` statements can be executed in multiples as long as they follow one after another, as shown in the following example.
+
+![Multiple SET statements example](../../assets/images/jdbc-multi-set-example.png)
+
 ## Configure the JDBC driver as a Maven dependency
 
 If you are using Apache Maven, you can configure your projects to use the Firebolt JDBC driver to connect to your Firebolt resources. To do this, add the JDBC driver as a dependency in your project **pom.xml** file by including a link to the [Firebolt Maven repository](https://repo.repsy.io/mvn/firebolt/maven/){:target="_blank"}.
