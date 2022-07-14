@@ -33,7 +33,7 @@ jobs:
       - name: Checkout Staging Target
         uses: actions/checkout@v2
         with:
-          repository: firebolt-db/firebolt-doc-staging
+          repository: firebolt-analytics/firebolt-docs-staging
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: 'deploy'
       
