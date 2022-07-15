@@ -273,8 +273,9 @@ When using Docker, you must specify the username and password using the reserved
 
 * `FIREBOLT_USERNAME` Required. The email address associated with your Firebolt user.
 * `FIREBOLT_PASSWORD` Required. The password for the specified user.
+* `FIREBOLT_DATABASE_NAME` The name of the Firebolt database to use.
 * `FIREBOLT_ACCOUNT_NAME` The name of your Firebolt account in all lowercase characters.
-* `FIREBOLT_ENGINE_NAME_URL` The engine name. Alternatively, the URL of the engine in the form `https://api.app.firebolt.io/core/v1/account/engines/<engine_id>`.
+* `FIREBOLT_ENGINE_NAME` The engine name. Alternatively, the URL of the engine in the form `https://api.app.firebolt.io/core/v1/account/engines/<engine_id>`.
 * `FIREBOLT_ACCESS_TOKEN` For more information, see [Use tokens for authentication](developing-with-firebolt/firebolt-rest-api.md#use-tokens-for-authentication).
 
 In the example below, Docker runs the CLI command `engine list` in a container using the latest firebolt-cli package. The command returns a table with the `name`, `status`, and `region` of all engines in an account.
