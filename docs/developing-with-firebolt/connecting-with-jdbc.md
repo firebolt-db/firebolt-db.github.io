@@ -77,6 +77,9 @@ If you are using Apache Maven, you can configure your projects to use the Firebo
 
 See below for an example pom.xml file:
 
+  {: .note}
+  Be sure to replace `<version>0.00</version>` with the latest (highest) version number. You can identify the latest version by viewing the version history in the following repository: https://repo.repsy.io/mvn/firebolt/maven/com/firebolt/firebolt-jdbc/.
+    
     <!-- pom.xml  -->
     
     <project ...>
@@ -94,6 +97,6 @@ See below for an example pom.xml file:
     <dependency>
                 	<groupId>com.firebolt</groupId>
                 	<artifactId>firebolt-jdbc</artifactId>
-                	<version>1.26</version>
+                	<version>0.00</version>
            </dependency>
     </project>
