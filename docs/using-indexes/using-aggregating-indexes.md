@@ -61,9 +61,9 @@ You can’t modify aggregating indexes after you create them. To modify an aggre
 
 Firebolt uses the columns that you specify for an aggregating index in much the same way as the columns for a primary index.
 
-Follow the same guidelines as those outlined for primary index columns. For more information, see [Using primary indexes](using-primary-indexes.md). Most importantly, specify columns in descending order of cardinality, highest cardinality first.
+Follow the same guidelines as those outlined for primary index columns. For more information, see [Using primary indexes](using-primary-indexes.md). Most importantly, specify columns in ascending order of cardinality (number of distinct values), i.e. lowest cardinality first.
 
-All columns that are used in aggregations at query runtime must appear in the index definition, either in the primary index or the function definitions, for the optimizer to use the index at query runtime. This includes columns that are part of the aggregate functions, any columns used in `GROUP BY` and `WHERE` clauses, and any columns in the fact table that are used as join keys. If a column is missing, Firebolt must scan the fact table, and the aggregating index doesn’t improve performance.
+All columns that are used in aggregations at query runtime must appear in the index definition, either in the primary index or the function definitions, for the optimizer to use the index at query runtime. This includes columns that are part of the aggregate functions, any columns used in `GROUP BY` and `WHERE` clauses, and any columns in the fact table that are used as join keys. If a column is missing, Firebolt must scan the fact table instead, and the aggregating index thus won't improve performance.
 
 ### How to choose aggregate expressions
 
