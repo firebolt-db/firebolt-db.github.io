@@ -27,7 +27,7 @@ SELECT RANDOM()
 
 **Returns:** `0.8544004706537051`
 
-####Example&ndash;using RANDOM for range of values**
+### Example&ndash;using RANDOM for range of values 
 
 To create a random integer number between two values, you can use `RANDOM` with the `FLOOR` function as demonstrated below. `a` is the lesser value and `b` is the greater value.
 
