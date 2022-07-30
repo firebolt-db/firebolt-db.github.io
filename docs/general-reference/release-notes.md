@@ -10,62 +10,64 @@ parent: General reference
 
 # Release notes
 
-Firebolt continuously releases updates so that you can benefit from the latest and most stable service. These updates might happen daily, but we aggregate release notes to cover a longer time period for easier reference. The most recent release notes from the past 30 days are below. See the [Release notes archive](release-notes-archive.md) for earlier-version release notes.
+Firebolt continuously releases updates so that you can benefit from the latest and most stable service. These updates might happen daily, but we aggregate release notes to cover a longer time period for easier reference. The most recent release notes from the past month are below. See the [Release notes archive](release-notes-archive.md) for earlier-version release notes.
 
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## May 31, 2022
+## July 2022
 
-* [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
-### New features
-
-*  You can now use the help menu to check the Firebolt service status page.  
-  ![Status Page](../assets/images/firebolt-service-status.png)
-
-* Added support for `CREATE AND GENERATE AGGREGATING INDEX IF NOT EXISTS`. For more information, see [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md).
-
-* Added an information schema view for indexes. The view is available for each database and contains one row for each index. For more information, see [Information schema for indexes](../general-reference/information-schema/indexes.md).
-
-* Added `ARRAY_AGG` as an alias of `NEST`. For more information, see [NEST](../sql-reference/functions-reference/nest.md).
-
-* You can now concatenate strings, numbers, and arrays using the `||` operator without exlicitly casting elements.
-
-* Added `TO_TEXT` as an alias of `TO_STRING`. For more information, see [TO_STRING](../sql-reference/functions-reference/to-string.md).
-
-*  An improved approach to Window functions is available for Beta testing by request. For more information, contact Firebolt Support.
-
-
 ### Enhancements, changes, and new integrations
 
-* Improved query execution on queries that read table data in Amazon S3. Firebolt now achieves greater read parallelization, which significantly speeds up queries that read many columns.
+* #### Added support for Airbyte
+ 
+  The Firebolt integration includes an [Airbyte Source](https://docs.airbyte.com/integrations/sources/firebolt/){:target="_blank"} connector as well as an [Airbyte Destination](https://docs.airbyte.com/integrations/destinations/firebolt){:target="_blank"} connector, which allow you to easily move data into and out of Firebolt. 
+  
+  For more information on Airbyte, see [Airbyte](https://airbyte.com/){:target="_blank"}.
 
-* **Cube.js integration**  
-  You can now configure a Firebolt database as a data source for [Cube.js](https://cube.dev). Cube.js is an embedded BI platform that allows you to define a data model, manage security and multitenancy, accelerate queries, and expose data to your applications using SQL and APIs. For more information, see [Firebolt](https://cube.dev/docs/config/databases/firebolt) in Cube.js documentation.
+* #### New billing breakdown in engine dashboard
+  
+  The billing breakdown in the engine dashboard can now show billing or running time.
 
-* **Tableau connector**  
-  An official Firebolt connector is now available in the [Tableau Exchange](https://exchange.tableau.com/products/650) so you can use Tableau more easily to analyze and visualize your Firebolt data.
-
-* **Sifflet integration**  
-  Firebolt now integrates with Sifflet to improve your visibility into data quality issues, data lineage, and data discovery. For more information, see [Firebolt](https://docs.siffletdata.com/docs/firebolt) in Sifflet documentation.
-
-* **Looker symmetric aggregates**  
-  Symmetric aggregates in Looker are now supported when connected to Firebolt. For more information, see [A Simple Explanation of Symmetric Aggregates](https://help.looker.com/hc/en-us/articles/360023722974) in the Looker Help Center.
-
-* **dbt append-only incremental materializations**  
-  The dbt-firebolt adapter now supports append-only incremental materializations. For more information, see [Firebolt configurations](https://docs.getdbt.com/reference/resource-configs/firebolt-configs) in dbt documentation.
+  ![Billing time](../assets/images/release-notes/billing-time.png)
+ 
+* #### Added an optional `<format>` parameter to the `TO_DATE` and `TO_TIMESTAMP` functions
+  
+  The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../sql-reference/functions-reference/to-timestamp.md).
 
 ### Resolved issues
 
-* Fixed an issue that caused a `Type mismatch in joinGet` error when using a join index in table joins where columns are of different numeric types&mdash;for example, joining a column in a fact table defined as `DOUBLE` with a column defined as `BIGINT` in a dimension table.
+* Fixed an issue that prevented values from being set properly for a column with a `DEFAULT` constraint when an `INSERT INTO` statement ran without specifying the column value. 
 
-* Fixed an issue that caused the `ARRAY_JOIN` function to fail with an array of numeric values.
+  For example, consider the following fact table and `INSERT INTO` statement.   
 
-* Fixed an issue in the `REGEXP_MATCHES` function that caused an error in some circumstances when a specified pattern didn't match the input string.
+  ```sql
+  CREATE FACT TABLE t8
+  (
+       col1 INT  NULL ,
+       col2 INT  NOT NULL UNIQUE,
+       col3 INT  NULL DEFAULT 1,
+       col4 INT  NOT NULL DEFAULT 3,
+       col5 TEXT
+  )
+  PRIMARY INDEX col2;
 
-* Fixed an issue that caused a session to hang when trying to query an external table referencing an empty JSON file in Amazon S3.
+  INSERT INTO t8 (col1,col2,col3,col5) VALUES (1,1,1,'a'); 
+  ```
+  
+  Before the fix, `SELECT * FROM t8` would return `(1,1,1,0,'a')`. The statement now returns the expected values, `(1,1,1,3,'a')`.
 
-* Fixed an issue that caused incorrect column names when using `COPY TO` with a `SELECT` statement that uses aliases.
+* Fixed a case where the `APPROX_PERCENTILE` function returns an error when running over an expression derived from multiple tables. 
+
+* `JSON_EXTRACT` now supports the `STRING` data type as the expected type in addition to the `TEXT` data type.
+
+* Fixed an issue where a username that contained special alphabetical characters was not recognized when registering a Firebolt user. 
+
+* Concatenating multiple arrays using the `||` operator now produces an array containing the input array values.
+
+* Fixed an issue where an array of `LONG`s could be displayed as an array of `TEXT`s in the SQL Workspace.
+
+* Fixed an issue that prevented a database without engines from being edited.
