@@ -127,10 +127,9 @@ import time
 import airflow
 from airflow.models import DAG
 from airflow.models import Variable
-from airflow.operators.python import PythonOperator
-from firebolt.service.manager import ResourceManager
-from firebolt_provider.operators.firebolt import FireboltOperator
-from firebolt.common import Settings
+from firebolt_provider.operators.firebolt \
+    import FireboltOperator, FireboltStartEngineOperator, FireboltStopEngineOperator
+
 default_args = {
     'owner': 'airflow',
     'start_date': airflow.utils.dates.days_ago(1)
@@ -138,42 +137,14 @@ default_args = {
 
 ### Function to connect to Firebolt
 def connection_params(conn_opp, field):
-    connector = FireboltOperator(firebolt_conn_id=conn_opp, sql="", task_id="CONNECT")
+    connector = FireboltOperator(
+        firebolt_conn_id=conn_opp, sql="", task_id="CONNECT")
     return connector.get_db_hook()._get_conn_params()[field]
 
-### Pull in the connection parameter settings using built-in Airflow variables.
 ### Change the value of FIREBOLT_CONN_ID to match the name of your connector.
-FIREBOLT_CONN_ID = 'my_firebolt_connection'
-FIREBOLT_USER = connection_params(FIREBOLT_CONN_ID, 'username')
-FIREBOLT_PASS = connection_params(FIREBOLT_CONN_ID, 'password')
+FIREBOLT_CONN_ID = 'firebolt_benf_tutorial'
 FIREBOLT_ENGINE_NAME = connection_params(FIREBOLT_CONN_ID, 'engine_name')
-FIREBOLT_SERVER = connection_params(FIREBOLT_CONN_ID, 'api_endpoint')
-
-### Pull in custom variables set using the Airflow Variables module.
-FIREBOLT_DEFAULT_REGION = Variable.get("firebolt_default_region")
 tmpl_search_path = Variable.get("firebolt_sql_path")
-
-### Define a variable for the Firebolt SDK ResourceManager module that can access database resources.
-### See https://python-sdk.docs.firebolt.io/en/latest/firebolt.service.html#module-firebolt.service.manager.
-fb_rm = ResourceManager(Settings(
-        server=FIREBOLT_SERVER,
-        user=FIREBOLT_USER,
-        password=FIREBOLT_PASS,
-        default_region=FIREBOLT_DEFAULT_REGION
-        )
-    )
-
-### Function to return the engine ID based on the engine name specified in
-### the Airflow connector. Some Firebolt tasks required the engine ID.
-def get_engine_by_name():
-    engine = fb_rm.engines.get_by_name(name=FIREBOLT_ENGINE_NAME)
-    return engine
-
-### Function to start the engine using its engine ID.
-def start_engine():
-    engine = get_engine_by_name()
-    engine.start()
-    time.sleep(5)
 
 ### Function to open query files saved locally.
 def get_query(query_file):
@@ -181,7 +152,7 @@ def get_query(query_file):
 
 ### Define a variable based on an Airflow DAG class.
 ### For class parameters, see https://airflow.apache.org/docs/apache-airflow/stable/_api/airflow/models/dag/index.html#airflow.models.dag.DAG.
-dag = DAG('firebolt_provider_trip_data',
+dag = DAG('firebolt_provider_startstop_trip_data',
           default_args=default_args,
           template_searchpath=tmpl_search_path,
           schedule_interval=None,
@@ -190,31 +161,43 @@ dag = DAG('firebolt_provider_trip_data',
 
 ### Define DAG tasks and task sequence.
 ### Where necessary, read local sql files using the Airflow variable.
-task_start_engine = PythonOperator(
-        dag=dag,
-        task_id="START_ENGINE",
-        python_callable=start_engine
+task_start_engine = FireboltStartEngineOperator(
+    dag=dag,
+    task_id="START_ENGINE",
+    firebolt_conn_id=FIREBOLT_CONN_ID,
+    engine_name=FIREBOLT_ENGINE_NAME)
+
+
+task_trip_data__external_table = FireboltOperator(
+    dag=dag,
+    task_id="task_trip_data__external_table",
+    sql=get_query(f'{tmpl_search_path}/trip_data__create_external_table.sql'),
+    firebolt_conn_id=FIREBOLT_CONN_ID
 )
-task_trip_data__external_table = FireboltOperator (
-        dag=dag,
-        task_id="task_trip_data__external_table",
-        sql=get_query(f'{tmpl_search_path}/trip_data__create_external_table.sql'),
-        firebolt_conn_id=FIREBOLT_CONN_ID
-        )
-task_trip_data__create_table = FireboltOperator (
-        dag=dag,
-        task_id="task_trip_data__create_table",
-        sql=get_query(f'{tmpl_search_path}/trip_data__create_table.sql'),
-        firebolt_conn_id=FIREBOLT_CONN_ID
-        )
+
+task_trip_data__create_table = FireboltOperator(
+    dag=dag,
+    task_id="task_trip_data__create_table",
+    sql=get_query(f'{tmpl_search_path}/trip_data__create_table.sql'),
+    firebolt_conn_id=FIREBOLT_CONN_ID
+)
 task_trip_data__create_table.post_execute = lambda **x: time.sleep(10)
-task_trip_data__process_data = FireboltOperator (
-        dag=dag,
-        task_id="task_trip_data__process_data",
-        sql=get_query(f'{tmpl_search_path}/trip_data__process.sql'),
-        firebolt_conn_id=FIREBOLT_CONN_ID
-        )
-( task_start_engine >> task_trip_data__external_table >> task_trip_data__create_table >> task_trip_data__process_data)
+
+task_trip_data__process_data = FireboltOperator(
+    dag=dag,
+    task_id="task_trip_data__process_data",
+    sql=get_query(f'{tmpl_search_path}/trip_data__process.sql'),
+    firebolt_conn_id=FIREBOLT_CONN_ID
+)
+
+task_stop_engine = FireboltStopEngineOperator(
+    dag=dag,
+    task_id="STOP_ENGINE",
+    firebolt_conn_id=FIREBOLT_CONN_ID,
+    engine_name=FIREBOLT_ENGINE_NAME)
+
+(task_start_engine >> task_trip_data__external_table >>
+ task_trip_data__create_table >> task_trip_data__process_data >> task_stop_engine)
 ```
 
 ### SQL script examples
