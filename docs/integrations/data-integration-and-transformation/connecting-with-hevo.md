@@ -2,7 +2,7 @@
 layout: default
 title: Hevo
 description: Learn how to connect Hevo to Firebolt.
-nav_order: 5
+nav_order: 6
 parent: Data integration and transformation
 grand_parent: Integrations
 ---

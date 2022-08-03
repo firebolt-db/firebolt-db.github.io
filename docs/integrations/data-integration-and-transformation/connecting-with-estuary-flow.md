@@ -2,7 +2,7 @@
 layout: default
 title: Estuary Flow
 description: Learn to connect Estuary to Firebolt.
-nav_order: 4
+nav_order: 5
 parent: Data integration and transformation
 grand_parent: Integrations
 ---
