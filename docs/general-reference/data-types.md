@@ -53,8 +53,21 @@ Synonym for `VARCHAR` and `TEXT`.
 
 ## Date and time
 
-### DATE
-A year, month and day in the format *YYYY-MM-DD*. This value is stored as a 4-byte unsigned Unix timestamp. The minimum `DATE` value is `1970-01-01`. The maximum `DATE` value is `2105-12-31`. It does not specify a time zone.
+Store a time with no reference to a timezone.
+
+To change the default time zone in Firebolt:
+`SET DEFAULT_TIMEZONE = "Pacific Standard Time"`
+
+`CAST`ing a date/time type to or from a numeric type might succeed, but is unsupported.
+It is not guaranteed to produce correct results, and might be removed in the future.
+
+### DATE / DATE_EXT
+A year, month and day in the format *YYYY-MM-DD*. This value is stored as an unsigned Unix timestamp.
+
+`DATE` is stored in 2 bytes; the minimum value is `1970-01-01`, the maximum `2105-12-31`.
+
+`DATE_EXT` is stored in 4 bytes; the minimum value is `1925-01-01`, the maximum is `2283-11-11`.
+
 
 Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.
 
@@ -109,18 +122,15 @@ FROM
 GROUP BY
   SUBSTR(date_as_text,6,2);
 ```
-### TIMESTAMP
+### TIMESTAMP / TIMESTAMP_EXT
 
-A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*. This value is stored as an unsigned Unix timestamp with 4 bytes.
+A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*. This value is stored as an unsigned Unix timestamp.
 
-Same range as `DATE` type.
+`TIMESTAMP` is stored in 4 bytes, represents the same range as the `DATE` type. 
+It is a synonym for `DATETIME`.
 
-Minimal value: 1970-01-01 00:00:00.
-
-To change the default time zone in Firebolt:
-`SET DEFAULT_TIMEZONE = "Pacific Standard Time"`
-
-This is a synonym for `DATETIME`
+`TIMESTAMP_EXT` is stored in 8 bytes, represents the range of `DATE_EXT`, and can in addition store fractions of seconds up to 8 digits.
+So it can represent *YYYY-MM-DD hh:mm:ss.ssssssss*
 
 ### DATETIME
 
