@@ -64,7 +64,13 @@ An Account Admin invites a user to join a Firebolt account. The invitation is se
 
 ## Changing a user's role
 
-As an Account Admin, you can't edit a user profile to change a user's role. To change a user's role, remove the user, and then invite the user again, selecting the new role when you create the invitation.
+Account Admins can edit a user's role. 
+
+**To change a user's role**
+
+1. To the far right of a user in the User Management list, select the ellipses and then choose **Edit User Details**.
+
+2. Choose the role to assign, and then choose **Update user details**.
 
 ## Removing users
 
