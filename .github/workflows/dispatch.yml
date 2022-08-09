@@ -41,7 +41,7 @@ jobs:
         run: |
           cp -r build/* deploy
           cd deploy
-          git add .
+          git add -A
           git commit -m $GITHUB_SHA
           git push
 
@@ -56,6 +56,6 @@ jobs:
         run: |
           cp -r build/* deploysync
           cd deploysync
-          git add .
+          git add -A
           git commit -m $GITHUB_SHA
           git push
