@@ -20,7 +20,7 @@ The Firebolt JDBC driver is provided as a JAR file and requires [Java 1.8](https
 
 **To download the Firebolt JDBC driver**
 
-1.  Review the [Firebolt JDBC license terms](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/License.pdf){:target="_blank"}.
+1.  Review the [Firebolt JDBC license terms](https://github.com/firebolt-db/jdbc/blob/master/LICENSE){:target="_blank"}.
 2.  Download the latest version of the [Firebolt JDBC driver](https://firebolt-publishing-public.s3.amazonaws.com/repo/jdbc/firebolt-jdbc-latest.jar){:target="_blank"}.
 
 ## Step 2: Connect using the URL
