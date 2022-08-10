@@ -59,7 +59,7 @@ The table below lists the available parameter keys. All parameter keys are case-
 | ssl_mode               | STRING             | strict            | When set to strict, the certificate is validated to ensure it is correct. If set to none, no certificate verification is used. | strict or none                                               |
 | ssl_certificate_path           | STRING             | No default value  | The absolute file path for the SSL root certificate.         |                                                              |
 | time_to_live_millis      | INT                | 60000             | Specifies the maximum lifespan of connections, in milliseconds, regardless of their **connection_keep_alive_timeout_millis** value.  A value of 0 or less leaves this parameter undefined (which means that the connection can be kept alive indefinitely). | From INTEGER.MIN (-2147483648) to INTEGER.MAX  (2147483647)  |
-| database      | STRING                | No default value  | Specifies the name of the database to connect to. Takes precende over the database name provided as a path parameter. |   |    
+| database      | STRING                | No default value  | Specifies the name of the database to connect to. Takes precendece over the database name provided as a path parameter. |   |    
 
 ### SET Parameters
 
