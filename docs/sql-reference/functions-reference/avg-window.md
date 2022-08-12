@@ -9,7 +9,7 @@ parent: SQL functions
 
 Returns the average value within the requested window.
 
-For more information on usage, please refer to [Window Functions](./window-functions.md).
+For additional window functions, see [Window Functions](./window-functions.md).
 
 ## Syntax
 {: .no_toc}
