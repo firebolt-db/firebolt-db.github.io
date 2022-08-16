@@ -24,41 +24,6 @@ Synonym for `INTEGER`.
 ### INTEGER
 Synonym for `INT`.
 
-### DECIMAL
-Signed fixed-point numbers that keep precision during add, subtract and multiply operations. For division least significant digits are discarded (not rounded).
-
-Numeric/Decimal can be up to 76 digits, with an optional precision and scale:
-
-- Precision: Total number of digits allowed (default = 38, max = 76)
-
-- Scale: Number of digits allowed to the right of the decimal point (default = 0)
-
-#### Parameters
-{:.no_toc} 
-P - precision. Valid range: [ 1 : 76 ]. Determines how many decimal digits number can have (including fraction).
-
-S - scale. Valid range: [ 0 : P ]. Determines how many decimal digits fraction can have.
-Depending on P parameter value Decimal(P, S) is a synonym for:
-
-P from [ 1 : 9 ] - for Decimal32(S)
-
-P from [ 10 : 18 ] - for Decimal64(S)
-
-P from [ 19 : 38 ] - for Decimal128(S)
-
-P from [ 39 : 76 ] - for Decimal256(S)
-
-#### Decimal Value Ranges 
-Decimal32(S) - ( -1 * 10^(9 - S), 1 * 10^(9 - S) )
-Decimal64(S) - ( -1 * 10^(18 - S), 1 * 10^(18 - S) )
-Decimal128(S) - ( -1 * 10^(38 - S), 1 * 10^(38 - S) )
-Decimal256(S) - ( -1 * 10^(76 - S), 1 * 10^(76 - S) )
-For example, Decimal32(4) can contain numbers from -99999.9999 to 99999.9999 with 0.0001 step.
-
-#### Overflow Checks 
-During calculations on Decimal, integer overflows might happen. Excessive digits in a fraction are discarded (not rounded). Excessive digits in integer part will lead to an exception.
-
-
 ### BIGINT
 A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage.
 Synonym for `LONG`.
