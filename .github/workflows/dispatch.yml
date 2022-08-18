@@ -59,3 +59,19 @@ jobs:
           git add -A
           git commit -m $GITHUB_SHA
           git push
+          
+          
+      - name: Checkout Preview Target
+        uses: actions/checkout@v2
+        with:
+          repository: firebolt-analytics/firebolt-docs-preview-relnotes
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          path: 'deploysync2'
+      
+      - name: Push files to target
+        run: |
+          cp -r build/* deploysync2
+          cd deploy
+          git add -A
+          git commit -m $GITHUB_SHA
+          git push
