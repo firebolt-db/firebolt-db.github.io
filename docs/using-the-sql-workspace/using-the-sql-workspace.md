@@ -15,6 +15,13 @@ has_toc: false
 
 The Firebolt Manager has a SQL workspace that you use to edit, run, and save SQL scripts and view query results. Each database in Firebolt has a SQL workspace. When you open the SQL workspace for a database, you see the saved scripts and state for that particular database.
 
+## Dark mode
+
+Select the toggle at the bottom of the left navigation pane to turn dark mode on and off.
+
+![](../assets/images/dark_mode.png)
+
+
 ## Opening a SQL workspace
 
 You can launch the SQL workspace for a database either from the left navigation pane or from the databases list.
@@ -39,7 +46,7 @@ You can launch the SQL workspace for a database either from the left navigation 
 
 The SQL workspace is organized into three panes.
 
-* The left pane is the workspace navigation pane. Use it to navigate to different databases and to open different scripts in your database.
+* The left pane is the workspace navigation pane. Use it to navigate to different databases and to work with different scripts in your database.
 
 * The center pane is the SQL editor. Use it to edit scripts, save them, and run scripts. When you run a script, results are shown in the bottom part of the pane.
 
@@ -77,41 +84,55 @@ Firebolt creates a new tab with a `CREATE EXTERNAL TABLE` statement.
 
 ## Saving and managing scripts
 
-Choose the vertical ellipses on the script tab to select options for saving a script, duplicating a script to a new tab, exporting a script to a file, and closing the script tab. Although scripts are saved automatically in this way, we recommend that you save your script from time to time and before closing your editor.
+Choose the vertical ellipses on the script tab to select options for saving a script, duplicating a script to a new tab, exporting a script to a file, and closing the script tab. Although scripts are saved automatically in this way, we recommend that you save your script from time to time and before closing your editor. Scripts that you save are available to you only. To share a script with other users, you can export it as described below.
+
+* [To save a script](#scriptsave)
+* [To make a script global (available in other databases)](#scriptglobal)
+* [To rename a script](#scriptrename)
+* [To copy a script](#scriptcopy)
+* [To export a script and download it as a .sql file](#scriptexport)
+* [To import a script from a file](#scriptimport)
 
 {: .caution}
 Firebolt uses cookies in your client to save the state of unsaved scripts automatically. A script is lost and can't be recovered if you close a script tab or clear your browser cache before saving. We recommend that you save scripts immediately when you start working. Saved scripts are saved to Firebolt automatically as you work.
 
-**To save a script**
+**To save a script**<a name="scriptsave"></a>
 
-1.  Choose the vertical ellipses next to the script name and then select **Save script**.  
+1.  Choose the vertical ellipses in the tab title and then select **Save script**.  
   ![](../assets/images/work-with-our-sql-editor-save-script.png)
 
 2.  Type a new name for the script and then press ENTER.  
-  The script appears in the **Database scripts** list.  
+  The script appears in the **Database scripts** list and is available to you in that database until you delete it. By default, saved scripts are available only in the database where you created them. To make them available in other databases, make them global as described below.  
   ![](../assets/images/work-with-our-sql-editor-select-editor-db-scripts-list.png)
 
-**To rename a script**
+**To make a script global (available in other databases)**<a name="scriptglobal"></a>
 
-* Double-click the script name, type a new name, and then press ENTER.  
+* Choose the vertical ellipses next to the script in the left pane and then choose **Make script global**.  
+  ![](../assets/images/global_script.png)  
 
-  {: .note}
-  When you rename an unsaved script, Firebolt saves it.
+  Firebolt moves the script to the **Global scripts** list.  
+  ![](../assets/images/global_script_list.png)
+  
+**To rename a script**<a name="scriptrename"></a>
 
-**To export a script and download it as a .sql file**
+* Choose the vertical ellipses next to the script name in the left pane, choose **Rename script**, type a new name, and then press ENTER.
 
-*   Choose the vertical ellipses next to the script name and then choose **Export script**.
+**To copy a script**<a name="scriptcopy"></a>
 
-    ![](../assets/images/Screen_Shot_2021-05-04_at_18_42_02.png)
+* Choose the vertical ellipses next to the script name in the left pane, choose **Duplicate script**, and then press ENTER. Firebolt saves a new script with the pattern `<original_script>_copy. If you copy a global script, the new script inherits the global setting.
+
+**To export a script and download it as a .sql file**<a name="scriptexport"></a>
+
+*   Choose the vertical ellipses next to the script name in the left pane, and then choose **Export script**.
 
     Firebolt downloads the file to your browser's default download directory using the file pattern `<your_script_name>.sql`.
 
-**To import a script from a file**
+**To import a script from a file**<a name="scriptimport"></a>
 
 1. Choose the arrow icon and then choose **Import script**.  
   ![](../assets/images/work-with-our-sql-editor-import-script.png)
 
-2. Browse your computer for a file and select it, or drag and drop a file to upload it.  
+2. Browse your computer for a `.sql` file and select it, or drag and drop a file to upload it.  
   Firebolt creates a new tab with the contents of the script you imported.
 
 ## Running scripts and working with results
