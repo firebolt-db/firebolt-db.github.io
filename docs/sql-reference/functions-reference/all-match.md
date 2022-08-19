@@ -7,35 +7,54 @@ parent: SQL functions
 
 # ALL_MATCH
 
-Returns `1` if all elements `<array_var>` of the specified `<array>` when compared to `<comparator>` evaluate to `1` (true). match the results of the function provided in the `<func>` parameter, otherwise returns `0`.
+Returns `1` (true) when the Boolean expression `<Boolean_expr>` performed on all elements of an array evaluate to true. Returns `0` (false) when any one comparison evaluates to false.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ALL_MATCH(<array_var> -> <array_var>[<comparison>]<expr>, <array_expr>)
+ALL_MATCH(<array_var> -> <Boolean_expr>, <array_expr>)
 ```
 
-| Parameter | Description                                                                                                                                                                    |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `<array_var>`  | A Lambda expression array variable that you define to contain elements of arrays found in `<array_expr>`. For more information, see [Manipulating arrays with Lambda functions](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
-| `<comparison>` | A comparison operator. For more information, see [Comparison operators](../../general-reference/operators.md#comparison)
-| `<expr>`   | An expression that evaluates to the same element type represented by `<array_var>`. |
-| `<array_expr>`  | An expression that evaluates to an `ARRAY` data type. |                                                                                                          |
+| Parameter      | Description                                   |
+| :------------- |:--------------------------------------------- |
+| `<array_var>`  | A Lambda array variable that contains elements of the array specified using `<array_expr>`. For more information, see [Manipulating arrays with Lambda functions](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions). |
+| `<Boolean_expr>` | A Boolean expression that evaluates each array value using a comparison operator. For available operators, see [Comparison operators](../../general-reference/operators.md#comparison). |
+| `<array_expr>` | An expression that evaluates to an `ARRAY` data type. |
 
-## Example
+## Examples
 {: .no_toc}
 
-```sql
-SELECT
-	ALL_MATCH(x -> x > 0, [ 1, 2, 3, 9 ]) AS res;
-```
-
-**Returns**: `1`
+Return `1` (true) if all elements in the array are greater than 0.
 
 ```sql
 SELECT
-	ALL_MATCH(x -> x > 10, [ 1, 2, 3, 9 ]) AS res;
+	ALL_MATCH(x -> x > 0, [ 1, 2, 3, 9 ]) AS comparisons_result;
 ```
 
-**Returns**: `0`
+**Returns**: 
+
+```
++--------------------+
+| comparisons_result |
++--------------------+
+| 1                  |
++--------------------+
+```
+
+Return `1` (true) if `gadgets` does not appear in the array.
+
+```sql
+SELECT
+	ALL_MATCH(x -> x <> 'gadgets', [ 'audio', summer-sale', 'gadgets']) AS comparisons_result;
+```
+
+**Returns**: 
+
+```
++--------------------+
+| comparisons_result |
++--------------------+
+| 0                  |
++--------------------+
+```

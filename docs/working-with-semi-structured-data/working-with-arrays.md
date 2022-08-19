@@ -29,102 +29,148 @@ SELECT [1,2,3,4]
 
 All examples in this topic are based on the table below, named `visits`. The column `id` is of type `INT`. All other columns are of type `ARRAY(TEXT)`.
 
-```
-+----+--------------------------+-------------------------------------+------------------------------------------------+
-| id |           tags           |          agent_props_keys           |                agent_props_vals                |
-+----+--------------------------+-------------------------------------+------------------------------------------------+
-|  1 | ["summer-sale","sports"] | ["agent", "platform", "resolution"] | ["Mozilla/5.0", "Windows NT 6.1", "1024x4069"] |
-|  2 | ["gadgets","audio"]      | ["agent", "platform"]               | ["Safari", "iOS 14"]                           |
-+----+--------------------------+-------------------------------------+------------------------------------------------+
-
-```
+![](../assets/images/array_example_table.png)
 
 ## Simple array functions
 
 There are several fundamental functions that you can use to work with arrays, including [LENGTH](../sql-reference/functions-reference/length.md), [ARRAY_CONCAT](../sql-reference/functions-reference/array-concat.md), and [FLATTEN](../sql-reference/functions-reference/flatten.md). See the respective reference for a full description. Brief examples are shown below.
 
-```sql
-SELECT LENGTH(agent_prop_keys)
-FROM visits
-```
+### LENGTH example
+{: .no_toc}
 
-**Returns**: `3,2`
+`LENGTH` returns the number of elements in an array.
 
 ```sql
-SELECT ARRAY_CONCAT(agent_props_keys, agent_props_vals)
-FROM visits
-```
-**Returns**: `["agent", "platform", "resolution", "Mozilla/5.0", "Windows NT 6.1", "1024x4069"]`
-
-```sql
-SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ])
-```
-
-**Returns**: `[1,2,3,4,5,2]`
-
-## Manipulating arrays with Lambda functions
-
-Firebolt *Lambda functions* are a powerful tool that you can use on arrays to extract results. This subset of array functions uses Firebolt *Lambda expressions* to operate on each element of one or more arrays. Arrays and the operation to perform are specified as arguments to the Lambda expression. Lambda expressions have the general syntax shown below. For details of each expression and operation, see the reference topic for each function listed under [Lambda functions](../sql-reference/functions-reference/#lambda-functions).
-
-### Lambda expression general syntax
-
-The general syntax pattern of Lambda expressions shown below is uniform across the array functions that use them. For syntax and examples of each expression used in the context of the Lambda function, see the function's reference topic.
-
-```
-<ARRAY_FUNC>(<arr1_var>[, <arr2_var>][, ...<arrN_var>]) -> <operation>, <array1>[, <array2>][, ...<arrayN>])
-```
-
-| Parameter                                     | Description    |
-| :-------------------------------------------- | :------------- |
-| `<ARRAY_FUNC>`                                | Any array function that accepts a Lambda expression as an argument. For a list, see [Lambda functions](../sql-reference/functions-reference/index.md#lambda-functions).|
-| `<arr1_var>[, <arr2_var>][, ...<arrN_var>]``  | A list of one or more variables that you specify. The list is specified in the same order and must be the same length as the list of array expressions (`<array1>[, <array2>][, ...<arrayN>]`). At run-time, each variable contains an element of the corresponding array, upon which the specified `<operation>` is performed.|
-| <operation>                                   | The operation that is performed for each element of the array. This is typically a function or comparison. |
-| <array1>[, <array2>][, ...<arrayN>]           | A comma-separated list of expressions, each of which evaluates to an `ARRAY` data type. |
-
-
-### Lambda function example&ndash;single array
-
-Consider the following [TRANSFORM](../sql-reference/functions-reference/transform.md) array function that uses a single array variable and reference in the Lambda expression.
-
-```sql
-SELECT TRANSFORM(t -> UPPER(t), tags) as up_tags
-FROM visits
-```
-
-The [TRANSFORM](../sql-reference/functions-reference/transform.md) uses the Lambda expression to apply `UPPER` to each element `t` in each array found in the `ARRAY`-typed column `tags`. This converts each element in each array in `tags` to upper-case, as shown in the result example below.
-
-```
-+----------------------------+
-|          up_tags           |
-+----------------------------+
-| ["SUMMER_SALE", "SPORTS"] |
-| ["GADGETS", "AUDIO"]       |
-+----------------------------+
-```
-
-### Lambda function example&ndash;multiple arrays
-
-A common use case where you provide multiple array arguments is when one array represents the keys and the other represents the values in a map of key-value pairs.
-
-To extract the value associated with a particular key, you can use the [ARRAY_FIRST ](../sql-reference/functions-reference/array-first.md) function, which returns the first element for which the Lambda expression evaluates to a result that is true (non-`0`). The value returned always corresponds to the first array argument in the series. However, the Lambda expression operation can evaluate its comparison using any array argument.
-
-In the example below, we want to return the value in `agent_props_vals` where the corresponding position in the `agent_props_keys` array contains the value `platform`.
-
-```sql
-SELECT ARRAY_FIRST(v, k -> k = 'platform', agent_props_vals, agent_props_keys)
-as platform
-FROM visits
+SELECT 
+  id,
+  LENGTH(agent_props_keys) as key_array_length
+FROM visits;
 ```
 
 **Returns**:
 
 ```
-+------------------+
-|     platform     |
-+------------------+
-| "Windows NT 6.1" |
-| "iOS 14"         |
-+------------------+
++-----------------------+
+| id | key_array_length |
++-----------------------+
+| 1  | 3                |
+| 2  | 2                |
+| 3  | 3                |
++-----------------------+
+```
+
+### ARRAY_CONCAT example
+{: .no_toc}
+
+`ARRAY_CONCAT` combines multiple arrays into a single array.
+
+```sql
+SELECT 
+  id, 
+  ARRAY_CONCAT(agent_props_keys, agent_props_vals) as concat_keys_and_vals
+FROM visits;
+```
+
+**Returns**:
+
+```
++----+------------------------------------------------------------------------------+
+| id | concat_keys_and_vals                                                         |
++----+------------------------------------------------------------------------------+
+| 1  | ["agent","platform","resolution","Mozilla/5.0","Windows NT 6.1","1024X4069"] |
+| 2  | ["agent","platform","Safari","iOS 14"]                                       |
+| 3  | ["agent","platform","platform","Safari","iOS 14","Windows 11"]               |
++----+------------------------------------------------------------------------------+
+```
+
+### FLATTEN example
+{: .no_toc}
+
+`FLATTEN` converts one or more nested arrays into a single array.
+
+```sql
+SELECT FLATTEN([ [[1,2,3],[4,5]], [[2]] ]) as flattened_array;
+```
+
+**Returns**: 
+
+```
++-----------------+
+| flattened_array |
++-----------------+
+| [1,2,3,4,5,2]   |
++-----------------+
+```
+
+## Manipulating arrays with Lambda functions
+
+Firebolt *Lambda functions* are a powerful tool that you can use on arrays to extract results. Lambda functions iteratively perform an operation on each element of one or more arrays. Arrays and the operation to perform are specified as arguments to the Lambda function.
+
+### Lambda function general syntax
+
+The general syntax pattern of a Lambda function is shown below. For detailed syntax and examples see the reference topics for [Lambda functions](../sql-reference/functions-reference/index.md#lambda-functions).
+
+```
+<LAMBDA_FUNC>(<arr1_var>[, <arr2_var>][, ...<arrN_var>]) -> <operation>, <array1>[, <array2>][, ...<arrayN>])
+```
+
+| Parameter                                     | Description    |
+| :-------------------------------------------- | :------------- |
+| `<LAMBDA_FUNC>`                                | Any array function that accepts a Lambda expression as an argument. For a list, see [Lambda functions](../sql-reference/functions-reference/index.md#lambda-functions).|
+| `<arr1_var>[, <arr2_var>][, ...<arrN_var>]`   | A list of one or more variables that you specify. The list is specified in the same order and must be the same length as the list of array expressions (`<array1>[, <array2>][, ...<arrayN>]`). At runtime, each variable contains an element of the corresponding array. The specified `<operation>` is performed for each variable.|
+| <operation>                                   | The operation that is performed for each element of the array. This is typically a function or Boolean expression. |
+| <array1>[, <array2>][, ...<arrayN>]           | A comma-separated list of expressions, each of which evaluates to an `ARRAY` data type. |
+
+
+### Lambda function example&ndash;single array
+
+Consider the following [TRANSFORM](../sql-reference/functions-reference/transform.md) array function that uses a single array variable and reference in the Lambda expression. This example applies the `UPPER` function to each element `t` in the `ARRAY`-typed column `tags`. This converts each element in each `tags` array to upper-case.
+
+
+```sql
+SELECT 
+  id, 
+  TRANSFORM(t -> UPPER(t), tags) AS up_tags
+FROM visits;
+```
+
+**Returns:**
+
+```
++----+--------------------------+
+| id | up_tags                  |
++----+--------------------------+
+| 1  | ["SUMMER-SALE","SPORTS"] |
+| 2  | ["GADGETS","AUDIO"]      |
+| 3  | ["SUMMER-SALE","AUDIO"]  |
++----+--------------------------+
+```
+
+### Lambda function example&ndash;multiple arrays
+
+[ARRAY_FIRST](../sql-reference/functions-reference/array-first.md) is an example of a function that takes multiple arrays as arguments in a map of key-value pairs. One array represents the keys and the other represents the values.
+
+`ARRAY_FIRST` uses a Boolean expression that you specify to find the key in the key array. If the Boolean expression resolves to true, the function returns the first value in the value array that corresponds to the key's element position. If there are duplicate keys, only the first corresponding value is returned.
+
+The example below returns the first value in the `agent_props_vals` array where the corresponding position in the `agent_props_keys` array contains the key `platform`.
+
+```sql
+SELECT 
+  id, 
+  ARRAY_FIRST(v, k -> k = 'platform', agent_props_vals, agent_props_keys) AS platform
+FROM visits;
+```
+
+**Returns**:
+
+```
++----+----------------+
+| id | platform       |
++----+----------------+
+| 1  | Windows NT 6.1 |
+| 2  | iOS 14         |
+| 3  | iOS 14         |
++----+----------------+
 ```
 
 ## UNNEST
@@ -142,9 +188,11 @@ Multiple `UNNEST` statements in a single `FROM` clause result in a Cartesian pro
 The following example unnests the `tags` column from the `visits` table.
 
 ```sql
-SELECT id, tags
-  FROM visits
-UNNEST(tags)
+SELECT 
+  id, 
+  tags
+FROM visits
+  UNNEST(tags);
 ```
 
 **Returns**:
@@ -177,13 +225,17 @@ FROM
 
 **Returns**:
 
-| id   | a_keys | a_vals |
-| :--- | :---   | :---   |
-| 1    | agent | "Mozilla/5.0" |
-| 1    | platform | "Windows NT 6.1" |
-| 1    | resolution | "1024x4069" |
-| 2    | agent | "Safari" |
-| 2    | platform | "iOS 14" |
+```
++----+------------+------------------+
+| id | a_keys     | a_vals           |
++----+------------+------------------+
+| 1  | agent      | “Mozilla/5.0”    |
+| 1  | platform   | “Windows NT 6.1” |
+| 1  | resolution | “1024x4069”      |
+| 2  | agent      | “Safari”         |
+| 2  | platform   | “iOS 14”         |
++----+------------+------------------+
+```
 
 ### Example&ndash;multiple UNNEST clauses resulting in a Cartesian product
 
@@ -204,7 +256,7 @@ UNNEST(agent_props_vals as a_vals)
 
 ```
 +-----+------------+------------------+
-| INT |   a_keys   |     a_values     |
+| INT | a_keys     |   a_values       |
 +-----+------------+------------------+
 |   1 | agent      | "Mozilla/5.0"    |
 |   1 | agent      | "Windows NT 6.1" |
@@ -233,6 +285,5 @@ SELECT
     a_keys
 FROM
     visits
-    UNNEST(tags,
-           agent_props_keys as a_keys)
+    UNNEST(tags, agent_props_keys as a_keys)
 ```
