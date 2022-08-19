@@ -33,11 +33,11 @@ You are now ready to run Metabase with your Firebolt databases.
 
     ![Metabase home page](../../assets/images/Metabase_home.png)
 
-2. From the **Settings** menu, click the **Admin** link:
+2. From the **Settings** menu, select the **Admin** link:
 
     ![Metabase home page](../../assets/images/Metabase_admin_menu.png)
 
-3. From the Metabase **Admin** page, click the **Databases** link at the top of the page. Then click **Add database**.  
+3. From the Metabase **Admin** page, select the **Databases** link at the top of the page. Then select **Add database**.  
 
     ![Metabase home page](../../assets/images/Metabase_admin_menu2.png)
 
@@ -51,8 +51,8 @@ You are now ready to run Metabase with your Firebolt databases.
 | **Host**                       | The Firebolt host to connect to. It is always `api.app.firebolt.io`.         |              
 | **Port**                       | The port to use for the connection. It is `8123`.                            |              
 | **Database name**              | The name of the Firebolt database to connect to.                             |              
-| **Username**                   | The name of the Firebolt user to connect with, e.g. `janedoe@mycompany.com`. | 
+| **Username**                   | The username to connect with, for example, `janedoe@mycompany.com`. | 
 | **Password**                   | The password associated with the username above.                             | 
 | **Additional JDBC parameters** | Any additional JDBC parameters to pass along with the connection, such as `engine=<my_database_engine_1>`. See [here](https://docs.firebolt.io/developing-with-firebolt/connecting-with-jdbc.html#available-connection-parameters) for a list of all available JDBC connection parameters. | 
 
-Be sure to click **Save** after entering all your information. After saving, you should get a message saying your Firebolt database was successfully added.
+Be sure to select **Save** after entering all your information. After saving, you should get a message saying your Firebolt database was successfully added.
