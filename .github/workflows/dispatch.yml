@@ -66,11 +66,11 @@ jobs:
         with:
           repository: firebolt-analytics/firebolt-docs-preview-relnotes
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          path: 'deploysync2'
+          path: 'preview'
       
       - name: Push files to target
         run: |
-          cp -r build/* deploysync2
+          cp -r build/* preview
           cd deploy
           git add -A
           git commit -m $GITHUB_SHA
