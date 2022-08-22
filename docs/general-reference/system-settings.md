@@ -106,7 +106,7 @@ SET input_format_skip_unknown_fields = 1;
 
 ## Enable exact COUNT (DISTINCT)
 
-When set to false (`0`), the [COUNT (DISTINCT)](../sql-reference/functions-reference/count.md) function returns approximate results, using an estimation algorithm with up to 2% deviation. This is the default to optimize query performance. When set to true (`1`), the function returns an exact count, which can slow query performance.
+When set to false (`0`), the [COUNT (DISTINCT)](../sql-reference/functions-reference/count.md) function returns approximate results, using an estimation algorithm with an average deviation under 2%. This is the default to optimize query performance. When set to true (`1`), the function returns an exact count, which can slow query performance.
 
 ### Syntax  
 {: .no_toc}
