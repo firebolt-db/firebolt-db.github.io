@@ -11,16 +11,14 @@ grand_parent: Integrations
 
 [Metabase](https://www.metabase.com/) is an open source business intelligence tool used for exploring data and producing dashboards.
 
+If you are using Metabase Cloud, you can skip to [Creating a connection](#creating-a-connection) below; no download or installation is necessary. 
+
 1. Topic ToC
 {:toc}
 
-### Install Metabase
+### Setting up the Firebolt connector (on-premises only)
 
-For more information about creating an instance and getting started with Metabase, see [Metabase documentation](https://www.metabase.com/docs/latest/operations-guide/running-the-metabase-jar-file.html) to create an instance.
-
-### Download required files
-
-After setting up Metabase, download the following files and save them to the Metabase `/plugins` directory on your host system. By default, `/plugins` is a subdirectory of the directory where the `metabase.jar` file executes.
+To set up the Firebolt connector on a self-hosted Metabase instance, download the following files and save them to the `/plugins` directory on your Metabase host system. By default, `/plugins` is a subdirectory of the directory where the `metabase.jar` file executes.
 
 * Download the latest Firebolt JDBC driver from its [GitHub Releases page](https://github.com/firebolt-db/jdbc/releases).
 * Download the latest Firebolt Metabase driver from its [GitHub Releases page](https://github.com/firebolt-db/metabase-firebolt-driver/releases).
