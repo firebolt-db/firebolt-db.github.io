@@ -26,7 +26,7 @@ TO_TIMESTAMP(<string> [,format])
 
 ```sql
 SELECT
-	TO_TIMESTAMP('2020-05-31 10:31:14', ‘YYYY-MM-DD HH:MM:SS’) AS res;
+	TO_TIMESTAMP('2020-05-31 10:31:14', 'YYYY-MM-DD HH:MM:SS') AS res;
 ```
 
 **Returns**: `2020-05-31 10:31:14`
