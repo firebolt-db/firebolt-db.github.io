@@ -24,7 +24,7 @@ The returned table has the following columns.
 | :---------------------------| :-----------| :-----------|
 | table_name                  | STRING      | The name of the table. |
 | state                       | STRING      | The current table state. |
-| table_type                  | STRING      | One of `FACT`, `DIMENSION`, `EXTERNAL`, or `VIEW`. |
+| table_type                  | STRING      | One of `FACT`, `DIMENSION`, or `EXTERNAL`. |
 | column_count                | INT         | The number of columns in the table. |
 | primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
 | schema                      | STRING      | The text of the SQL statement that created the table. |
