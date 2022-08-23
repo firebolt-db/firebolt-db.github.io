@@ -71,7 +71,7 @@ jobs:
       - name: Push files to target
         run: |
           cp -r build/* preview
-          cd deploy
+          cd preview
           git add -A
           git commit -m $GITHUB_SHA
           git push
