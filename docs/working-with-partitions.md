@@ -11,7 +11,7 @@ nav_order: 9
 * Topic ToC
 {: toc}
 
-Partitions are smaller physical parts of large fact tables. They provide the first layer of sorting when you use a fact table to ingest data. Data is sorted in storage by partition first, and then pruned and sorted by the primary index definition next. When new data is ingested into a fact table, Firebolt saves rows automatically in the appropriate partition.
+Partitions are smaller physical parts of large fact and dimension tables. When used with fact tables, partitions provide the first layer of sorting when you ingest data. Data is sorted in storage by partition first, and then pruned and sorted by the primary index definition next. When new data is ingested into a fact table, Firebolt saves rows automatically in the appropriate partition.
 
 ## When to use partitions
 
@@ -27,7 +27,7 @@ Although some applications may see a performance boost from partitions, Firebolt
 We recommend that you benchmark your application with and without partitions.
 
 ### Partition only large tables
-We recommend that you consider partitioning only for fact tables greater than 100 million rows.
+We recommend that you consider partitioning only for tables greater than 100 million rows.
 
 ### Large, equally distributed partitions work best
 
@@ -35,7 +35,7 @@ Too many small partitions to read increases I/O and decreases performance. In ad
 
 ## Defining partition keys
 
-You define partitions using the [PARTITION BY](/sql-reference/commands/create-fact-dimension-table.md#partition-by) clause in a `CREATE FACT TABLE` statement.
+You define partitions using the [PARTITION BY](/sql-reference/commands/create-fact-dimension-table.md#partition-by) clause in a `CREATE TABLE` statement.
 
 Rows with the same value in the column key and whose function expression resolves to the same value are included in the partition.
 

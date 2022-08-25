@@ -29,9 +29,6 @@ PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 [PARTITION BY <column_name>[, <column_name>[, ...n]]]
 ```
 
-{: .note}
-Partitions are only supported on FACT tables.
-
 ## Syntax&ndash;dimension table
 
 ```sql
@@ -42,6 +39,7 @@ CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
     [, ...n]]
 )
 [PRIMARY INDEX <column_name>[, <column_name>[, ...n]]]
+[PARTITION BY <column_name>[, <column_name>[, ...n]]]
 ```
 
 | Parameter                                       | Description                                                                                            |
@@ -128,11 +126,7 @@ The following table describes the primary index parameters:
 
 ### PARTITION BY
 
-The `PARTITION BY` clause specifies a column or columns by which the table will be split into physical parts. Those columns are considered to be the partition key of the table. Columns must be non-nullable.
-
-Only `FACT` tables can be partitioned.
-
-When the partition key is set with multiple columns, all columns are used as the partition boundaries.
+The `PARTITION BY` clause specifies a column or columns by which the table will be split into physical parts. Those columns are considered to be the partition key of the table. Columns must be non-nullable. When the partition key is set with multiple columns, all columns are used as the partition boundaries.
 
 ```sql
 PARTITION BY <column_name>[, <column_name>[, ...n]]

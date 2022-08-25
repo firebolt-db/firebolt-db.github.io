@@ -7,7 +7,7 @@ parent: SQL commands
 
 # REFRESH JOIN INDEX
 
-Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table. For more information about join indexes, see [Using join indexes](../../using-indexes/using-join-indexes.md).
+Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table or after a partition has been dropped to delete records. For more information about join indexes, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 
 Join indexes are not updated automatically in an engine when a partition is dropped. You must refresh all indexes on all engines with queries that use the indexes, otherwise the queries return results from before the partition drop.
 

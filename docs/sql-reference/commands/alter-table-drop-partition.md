@@ -7,7 +7,7 @@ parent: SQL commands
 
 # ALTER TABLE...DROP PARTITION
 
-Use `ALTER TABLE...DROP PARTITION` to delete a partition from a fact table.
+Use `ALTER TABLE...DROP PARTITION` to delete a partition from a fact or dimension table.
 
 {: .warning}
 Dropping a partition deletes the partition and the data stored in that partition.
