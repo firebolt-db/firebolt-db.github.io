@@ -61,4 +61,4 @@ SELECT
 	AS res;
 ```
 
-**Returns**: ['c']
+**Returns**: `['c']`
