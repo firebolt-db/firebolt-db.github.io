@@ -21,27 +21,27 @@ When multiple arrays are provided to the function, the function will evaluate th
 {: .no_toc}
 
 ```sql
-FILTER(<func>, <arr> [, ...n] )
+FILTER(<func>, <arr> [, ...] )
 ```
 
 | Parameter        | Description                                                                                                                                                                    |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `<func>`         | A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. |
-| `<arr> [, ...n]` | One or more arrays that will be evaluated by the function. Only the first array that is included will be filtered in the results.                                              |
+| `<arr> [, ...]`  | One or more arrays that will be evaluated by the Lambda function. Only the first array that is included will be filtered in the results. All the arrays must have exactly same number of elements.                                             |
 
 ## Examples
 {: .no_toc}
 
-In the example below, there is only one array and function. Only one element matches the function criteria, and it is returned.
+In the example below, there is only one array.
 
 ```
 SELECT
 	FILTER(x -> x = 'a', [ 'a', 'b', 'c', 'd' ]);
 ```
 
-**Returns**: `'a'`
+**Returns**: `['a']`
 
-In this example below, there are two arrays and two separate arguments for evaluation. The `y` function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.
+In this example below, there are two arrays and two separate arguments for evaluation. The Lambda function searches the second array for all elements that are greater than 2. The elements in these positions are returned from the first array.
 
 ```sql
 SELECT
@@ -50,7 +50,7 @@ SELECT
 
 **Returns**: `['c', 'd']`
 
-In this example below, there are three arrays with three Lambda arguments, only two of which have conditions to evaluate.
+In this example below, there are three arrays, and Lambda function which have condition on two of them.
 
 ```sql
 SELECT
@@ -61,4 +61,4 @@ SELECT
 	AS res;
 ```
 
-**Returns**: ["c"]
+**Returns**: ['c']
