@@ -105,3 +105,7 @@ See below for an example pom.xml file:
                 	<version>0.00</version>
            </dependency>
     </project>
+
+## Full reference documentation
+
+Complete reference documentation for the classes and methods implemented in the Firebolt JDBC driver can be found [here](https://docs.firebolt.io/jdbc/javadoc/).
