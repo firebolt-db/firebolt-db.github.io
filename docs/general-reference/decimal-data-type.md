@@ -52,7 +52,8 @@ If the scale of a value to be stored is greater than the declared scale of the c
   f(DECIMAL(P1, S1), DECIMAL(P2, S2)) -> CAST(result as DECIMAL(P3, S3))* 
   ```
   where P1≠P2 or S1≠S2
-  
+
+{:start="2"}
 2. **P1=P2 and S1=S2** (casting optional)
 
   If the two decimals have the same precision and scale, the result will implicitly cast to the same precision and scale. You can still explicitly cast to any other precision and scale.
