@@ -37,9 +37,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   For more information, see [Information schema for query history](information-schema/query-history-view.html) and [Information schema for running queries](information-schema/running-queries.md).
 
-* #### <!--- FIR-10324 --> Added support for Multi-factor authentication (MFA) (Beta)
+* #### <!--- FIR-10324 --> Added support for Multi-factor authentication (MFA)<br>
+  **(Beta)**
 
-  Firebolt now supports Multi-factor authentication (Beta). 
+  Firebolt now supports Multi-factor authentication. 
  
   You can enable MFA for users or groups with the Firebolt Manager which sends a link to enroll in MFA using a QR code. When a user enrolls in MFA from the email, the status in Firebolt updates to **MFA enabled**.
 
@@ -80,7 +81,8 @@ Firebolt might roll out releases in phases. New features and changes may not yet
  
   ![](../assets/images/release-notes/dark-mode-toggle.gif)
 
-* #### <!--- FIR-10347 --> Added support for IP allowed & blocked lists (Beta)
+* #### <!--- FIR-10347 --> Added support for IP allowed & blocked lists<br> 
+  **(Beta)**
 
   Allows access to your Firebolt account from specific IP addresses. For more information, see [Allowing and blocking source IP addresses for users (Beta)](../managing-your-account/managing-users.md#allowing-and-blocking-source-ip-addresses-for-users-beta)
   
