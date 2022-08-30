@@ -54,7 +54,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
   Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
 
-* #### <!--- FIR-10136 --> Added new data type aliases
+* #### <!--- FIR-10136 --> (DB version 3.7.0) Added new data type aliases
 
   Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](data-types.md).
 
