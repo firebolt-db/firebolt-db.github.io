@@ -9,33 +9,33 @@ grand_parent: General reference
 
 # Information schema for running queries
 
-You can use the `catalog.running_queries` view to return information about queries currently running in a database. The view is available in each database and contains one row for each running query in the database. You can use a `SELECT` query to return information about each running query as shown in the example below.
+You can use the `information_schema.running_queries` view to return information about queries currently running in a database. The view is available in each database and contains one row for each running query in the database. You can use a `SELECT` query to return information about each running query as shown in the example below.
 
 ```sql
 SELECT
   *
 FROM
-  catalog.running_queries
+   information_schema.running_queries
 LIMIT
   100;
 ```
 
-## Columns in catalog.running_queries
+## Columns in information_schema.running_queries
 
 Each row has the following columns with information about each running query.
 
 | Column Name                 | Data type | Description |
 | :---------------------------| :---------| :---------- |
-| ENGINE_ID                   | STRING    | The ID of the engine that was used to execute the query. |
-| ENGINE_NAME                 | STRING    | The name of the engine that was used to execute the query. |
-| ACCOUNT_ID                  | STRING    | The ID of the account in which the query was executed. |
-| USER_ID                     | STRING    | The user ID that was used to execute the query. |
-| START_TIME                  | TIMESTAMP | The query execution start time (UTC). |
-| STATUS                      | STRING    | The status of the query. Always contains the value 'RUNNING'. |
-| DURATION                    | DOUBLE    | The elapsed time in milliseconds between `<START_TIME>` and the time that the query over `catalog.running_queries` returns results. |
-| QUERY_ID                    | STRING    | The unique identifier of the SQL query. |
-| QUERY_TEXT                  | STRING    | Text of the SQL statement. |
-| SCANNED_ROWS                | LONG      | The number of rows scanned to return query results. |
-| SCANNED_BYTES               | LONG      | The number of bytes scanned from cache and storage. |
-| INSERTED_ROWS               | LONG      | The number of rows written. |
-| INSERTED_BYTES              | LONG      | The number of bytes written. |
+| engine_id                   | STRING    | The ID of the engine that was used to execute the query. |
+| engine_name                 | STRING    | The name of the engine that was used to execute the query. |
+| account_id                  | STRING    | The ID of the account in which the query was executed. |
+| user_id                     | STRING    | The user ID that was used to execute the query. |
+| start_time                  | TIMESTAMP | The query execution start time (UTC). |
+| status                      | STRING    | The status of the query. Always contains the value 'RUNNING'. |
+| duration_usec               | BIGINT    | The elapsed time in microseconds between `<START_TIME>` and the time that the query over ` information_schema.running_queries` returns results. |
+| query_id                    | STRING    | The unique identifier of the SQL query. |
+| query_text                  | STRING    | Text of the SQL statement. |
+| scanned_rows                | LONG      | The number of rows scanned to return query results. |
+| scanned_bytes               | LONG      | The number of bytes scanned from cache and storage. |
+| inserted_rows               | LONG      | The number of rows written. |
+| inserted_bytes              | LONG      | The number of bytes written. |

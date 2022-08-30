@@ -151,7 +151,9 @@ You can run all statements in a script or select snippets of SQL to run.
 
 ### Viewing results
 
-After you run a script or query statement, results appear below the script editor, along with statistics about query execution.
+While your script is running, its status is displayed at the top of the browser tab so you can switch to other tabs in your browser and still track how your script is running. The Firebolt icon dislays a colored dot to indicate status, and updates the tab title with a description. For example, when a green dot displays, your script has completed successfully. The tab script status remains displayed in the tab for one minute after the script completes.
+
+After you run a script or query statement, more results appear below the script editor, along with statistics about query execution.
 
 ![](../assets/images/workspace_statistics.png)
 

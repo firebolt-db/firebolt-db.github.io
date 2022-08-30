@@ -15,59 +15,96 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## July 2022
+## August 2022
 
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
 ### Enhancements, changes, and new integrations
 
-* #### Added support for Airbyte
- 
-  The Firebolt integration includes an [Airbyte Source](https://docs.airbyte.com/integrations/sources/firebolt/){:target="_blank"} connector as well as an [Airbyte Destination](https://docs.airbyte.com/integrations/destinations/firebolt){:target="_blank"} connector, which allow you to easily move data into and out of Firebolt. 
-  
-  For more information on Airbyte, see [Airbyte](https://airbyte.com/){:target="_blank"}.
+* #### <!--- FIR-12825 -->Firebolt .NET SDK now available
 
-* #### New billing breakdown in engine dashboard
-  
-  The billing breakdown in the engine dashboard can now show billing or running time.
+  The Firebolt .NET SDK can be used to connect to Firebolt from .NET applications. The SDK supports .NET Core and is available at [NuGet FireboltNetSDK](https://www.nuget.org/packages/FireboltNetSDK/0.0.1).
 
-  ![Billing time](../assets/images/release-notes/billing-time.png)
+* #### Firebolt Go SDK now available
+
+  The Firebolt Go SDK can be used to connect to Firebolt from Go applications. The SDK implements the Go database/sql driver specification. For more details, see the package listing at [Firebolt Go SDK](https://pkg.go.dev/github.com/firebolt-db/firebolt-go-sdk).
+
+* #### <!--- FIR-3345 --> Added DECIMAL data type (Alpha)
  
-* #### Added an optional `<format>` parameter to the `TO_DATE` and `TO_TIMESTAMP` functions
+  The `DECIMAL` data type is an exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). 
+
+  `DECIMAL` has two optional input parameters: `DECIMAL(precision, scale)`
+
+  The maximum precision is 38. The scale value is bounded by the precision value `(scale<=precision)`. 
+
+  The precision must be positive, while the scale can be zero or positive.
+ 
+  For more information, see [DECIMAL data type](decimal-data-type.md).
+
+* #### <!--- FIR-14195 --> Information schema updated
+
+  QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION/_SCHEMA.
+
+  For more information, see [Information schema for query history](information-schema/query-history-view.html) and [Information schema for running queries](information-schema/running-queries.md).
+
+* #### <!--- FIR-10324 --> Added support for Multi-factor authentication (MFA) (Beta)
+
+  Firebolt now supports Multi-factor authentication (Beta). 
+ 
+  You can enable MFA for users or groups with the Firebolt Manager which sends a link to enroll in MFA using a QR code. When a user enrolls in MFA from the email, the status in Firebolt updates to **MFA enabled**.
+
+  **To enable MFA for a Firebolt user or group of users** choose the **User Management** icon in the navigation pane. If the icon isn't available, you don't have Account Admin permissions. 
+    
+  ![User management icon](../assets/images/user-management.png)
   
-  The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../sql-reference/functions-reference/to-timestamp.md).
+  For more information, see [Configuring MFA for users (Beta)](../managing-your-account/managing-users.md#configuring-mfa-for-users-beta).
+
+* #### <!--- FIR-10304 --> Added support for the hll\_count\_distinct(input, [, precision]) function
+
+  Allows for precision control of the approx_count_distinct function with an optional precision parameter.
+  
+  Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12., with a maximum of 20.
+
+* #### <!--- FIR-10136 --> Added new data type aliases
+
+  Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](data-types.md).
+
+* #### <!--- FIR-8896 --> Updated INFORMATION_SCHEMA.COLUMNS 
+
+  Now includes more metadata on columns, as well as columns for views in a given database.
+
+* #### <!--- FIR-8437 --> New script processing status in browser tab
+
+  Added a status indicator in the browser tab so when multiple tabs are open in the browser, you can switch to a different tab and still track the status of your running script. The status adds a color coded indicator dot to the Firebolt icon in the tab. A green dot indicates the script completed successfully. The status remains in the tab for one minute after the script completes running. 
+  
+  For more information about this new status indicator, and running scripts, see [Running scripts and working with results](../using-the-sql-workspace/using-the-sql-workspace.md#running-scripts-and-working-with-results).
+
+  ![](../assets/images/release-notes/script-status.gif)
+
+* #### <!--- FIR-7229 --> Added dark mode
+
+  Firebolt now supports an additional color theme - dark mode. You can toggle between light and dark modes in the UI. Select the toggle at the bottom of the left navigation pane to turn dark mode on and off.   
+ 
+  ![](../assets/images/release-notes/dark-mode-toggle.gif)
+
+* #### <!--- FIR-6523 --> Added support for exact percentile aggregations using PERCENTILE\_CONT function
+
+* #### <!--- FIR-10347 --> Added support for IP allowed & blocked lists (Beta)
+
+  Allows access to your Firebolt account from specific IP addresses. For more information, see [Allowing and blocking source IP addresses for users (Beta)](../managing-your-account/managing-users.md#allowing-and-blocking-source-ip-addresses-for-users-beta)
+  
+* #### <!--- FIR-12819 --> Added support for server-side asynchronous querying on the Python SDK
+
+  Allows the connection to be closed while the query is still running in Firebolt.
+  
+* #### <!--- FIR-12822 --> Released JDBC 2.0
+
+  The Firebolt JBDC driver is now open-source under Apache 2. The new release also adds support for view tables in `getTables()`.
+  
 
 ### Resolved issues
 
-* Fixed an issue that prevented values from being set properly for a column with a `DEFAULT` constraint when an `INSERT INTO` statement ran without specifying the column value. 
+* <!--- FIR-11369 --> An error message is now displayed when too many partitions are added using a single `INSERT` statement.
 
-  For example, consider the following fact table and `INSERT INTO` statement.   
-
-  ```sql
-  CREATE FACT TABLE t8
-  (
-       col1 INT  NULL ,
-       col2 INT  NOT NULL UNIQUE,
-       col3 INT  NULL DEFAULT 1,
-       col4 INT  NOT NULL DEFAULT 3,
-       col5 TEXT
-  )
-  PRIMARY INDEX col2;
-
-  INSERT INTO t8 (col1,col2,col3,col5) VALUES (1,1,1,'a'); 
-  ```
-  
-  Before the fix, `SELECT * FROM t8` would return `(1,1,1,0,'a')`. The statement now returns the expected values, `(1,1,1,3,'a')`.
-
-* Fixed a case where the `APPROX_PERCENTILE` function returns an error when running over an expression derived from multiple tables. 
-
-* `JSON_EXTRACT` now supports the `STRING` data type as the expected type in addition to the `TEXT` data type.
-
-* Fixed an issue where a username that contained special alphabetical characters was not recognized when registering a Firebolt user. 
-
-* Concatenating multiple arrays using the `||` operator now produces an array containing the input array values.
-
-* Fixed an issue where an array of `LONG`s could be displayed as an array of `TEXT`s in the SQL Workspace.
-
-* Fixed an issue that prevented a database without engines from being edited.
+* <!--- FIR-11193-->  Fixed an issue where casting to timestamp concatenated strings, representing the date and time parts, returned an incorrect timestamp value.
