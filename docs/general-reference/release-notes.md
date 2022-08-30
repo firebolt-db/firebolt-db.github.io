@@ -30,18 +30,6 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   The Firebolt Go SDK can be used to connect to Firebolt from Go applications. The SDK implements the Go database/sql driver specification. For more details, see the package listing at [Firebolt Go SDK](https://pkg.go.dev/github.com/firebolt-db/firebolt-go-sdk).
 
-* #### <!--- FIR-3345 --> Added DECIMAL data type (Alpha)
- 
-  The `DECIMAL` data type is an exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). 
-
-  `DECIMAL` has two optional input parameters: `DECIMAL(precision, scale)`
-
-  The maximum precision is 38. The scale value is bounded by the precision value `(scale<=precision)`. 
-
-  The precision must be positive, while the scale can be zero or positive.
- 
-  For more information, see [DECIMAL data type](decimal-data-type.md).
-
 * #### <!--- FIR-14195 --> Information schema updated
 
   QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION/_SCHEMA.
