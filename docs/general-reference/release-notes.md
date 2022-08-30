@@ -76,8 +76,6 @@ Firebolt might roll out releases in phases. New features and changes may not yet
  
   ![](../assets/images/release-notes/dark-mode-toggle.gif)
 
-* #### <!--- FIR-6523 --> Added support for exact percentile aggregations using PERCENTILE\_CONT function
-
 * #### <!--- FIR-10347 --> Added support for IP allowed & blocked lists (Beta)
 
   Allows access to your Firebolt account from specific IP addresses. For more information, see [Allowing and blocking source IP addresses for users (Beta)](../managing-your-account/managing-users.md#allowing-and-blocking-source-ip-addresses-for-users-beta)
