@@ -32,7 +32,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-14195 --> Information schema updated
 
-  QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION/_SCHEMA.
+  QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION\_SCHEMA.
 
   For more information, see [Information schema for query history](information-schema/query-history-view.html) and [Information schema for running queries](information-schema/running-queries.md).
 
