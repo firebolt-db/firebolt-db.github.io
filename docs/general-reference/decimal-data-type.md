@@ -3,6 +3,7 @@ layout: default
 title: DECIMAL data type
 description: Describes the Firebolt implementation of the `DECIMAL` data type
 nav_exclude: true
+search_exclude: true
 parent: General reference
 ---
 
