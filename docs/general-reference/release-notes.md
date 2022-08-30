@@ -93,4 +93,4 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * <!--- FIR-11369 --> An error message is now displayed when too many partitions are added using a single `INSERT` statement.
 
-* <!--- FIR-11193-->  (DB version 3.1.0) Fixed an issue where casting to timestamp concatenated strings, representing the date and time parts, returned an incorrect timestamp value.
+* <!--- FIR-11193--> Fixed an issue where casting to timestamp concatenated strings, representing the date and time parts, returned an incorrect timestamp value.
