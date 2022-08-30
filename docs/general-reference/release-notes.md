@@ -31,7 +31,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   The Firebolt Go SDK can be used to connect to Firebolt from Go applications. The SDK implements the Go database/sql driver specification. For more details, see the package listing at [Firebolt Go SDK](https://pkg.go.dev/github.com/firebolt-db/firebolt-go-sdk).
 
 * #### <!--- FIR-14195 --> Information schema updated<br>
-  **(DB version 3.7.0)**
+  ###### (DB version 3.7.0)
 
   QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION\_SCHEMA.
 
