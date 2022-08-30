@@ -31,7 +31,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   The Firebolt Go SDK can be used to connect to Firebolt from Go applications. The SDK implements the Go database/sql driver specification. For more details, see the package listing at [Firebolt Go SDK](https://pkg.go.dev/github.com/firebolt-db/firebolt-go-sdk).
 
 * #### <!--- FIR-14195 --> Information schema updated<br>
-  ###### (DB version 3.7.0)
+  **(DB version 3.7.0)**
 
   QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION\_SCHEMA.
 
@@ -49,17 +49,20 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
   For more information, see [Configuring MFA for users (Beta)](../managing-your-account/managing-users.md#configuring-mfa-for-users-beta).
 
-* #### <!--- FIR-10304 --> (DB version 3.7.0) Added support for the hll\_count\_distinct(input, [, precision]) function 
+* #### <!--- FIR-10304 --> Added support for the hll\_count\_distinct(input, [, precision]) function<br>
+  **(DB version 3.7.0)**
 
   Allows for precision control of the approx_count_distinct function with an optional precision parameter.
   
   Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
 
-* #### <!--- FIR-10136 --> (DB version 3.7.0) Added new data type aliases
+* #### <!--- FIR-10136 --> Added new data type aliases<br>
+  **(DB version 3.7.0)**
 
   Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](data-types.md).
 
-* #### <!--- FIR-8896 --> (DB version 3.8.0) Updated INFORMATION_SCHEMA.COLUMNS 
+* #### <!--- FIR-8896 --> Updated INFORMATION_SCHEMA.COLUMNS<br>
+  **(DB version 3.8.0)** 
 
   Now includes more metadata on columns, as well as columns for views in a given database.
 
