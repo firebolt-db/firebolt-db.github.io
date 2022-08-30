@@ -52,7 +52,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   Allows for precision control of the approx_count_distinct function with an optional precision parameter.
   
-  Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12., with a maximum of 20.
+  Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
 
 * #### <!--- FIR-10136 --> Added new data type aliases
 
