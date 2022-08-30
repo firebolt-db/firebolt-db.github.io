@@ -31,9 +31,9 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   The Firebolt Go SDK can be used to connect to Firebolt from Go applications. The SDK implements the Go database/sql driver specification. For more details, see the package listing at [Firebolt Go SDK](https://pkg.go.dev/github.com/firebolt-db/firebolt-go-sdk).
 
 * #### <!--- FIR-14195 --> Information schema updated<br>
-  ###### (DB version 3.7.0)
+  **(DB version 3.7.0)**
 
-  QUERY\_HISTORY and RUNNING\_QUERIES views can now be queried via the INFORMATION\_SCHEMA.
+  query\_history and running\_queries views can now be queried via the information\_schema.
 
   For more information, see [Information schema for query history](information-schema/query-history-view.html) and [Information schema for running queries](information-schema/running-queries.md).
 
@@ -59,7 +59,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](data-types.md).
 
-* #### <!--- FIR-8896 --> (DB version 3.8.0) Updated INFORMATION_SCHEMA.COLUMNS 
+* #### <!--- FIR-8896 --> (DB version 3.8.0) Updated information_schema.columns
 
   Now includes more metadata on columns, as well as columns for views in a given database.
 
