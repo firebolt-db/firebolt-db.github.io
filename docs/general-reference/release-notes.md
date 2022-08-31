@@ -53,7 +53,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * #### <!--- FIR-10304 --> Added support for the hll\_count\_distinct(input, [, precision]) function<br>
   **(DB version 3.7.0)**
 
-  Allows for precision control of the approx_count_distinct function with an optional precision parameter.
+  Allows for precision control of the count(distinct <expr>) function with an optional precision parameter.
   
   Requires less memory than exact aggregation functions, like `COUNT(DISTINCT)`, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
 
