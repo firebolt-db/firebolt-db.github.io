@@ -83,7 +83,7 @@ format_csv_delimiter = <char>
 {: .no_toc}
 
 ```sql
-SET format_csv_delimeter = |;
+SET format_csv_delimiter = |;
 ```
 
 ## Skip unknown fields during ingestion
