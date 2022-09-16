@@ -64,7 +64,7 @@ jobs:
       - name: Checkout Preview Target
         uses: actions/checkout@v2
         with:
-          repository: firebolt-analytics/firebolt-docs-preview-relnotes
+          repository: firebolt-analytics/firebolt-docs-preview-cntrbtr
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           path: 'preview'
       
