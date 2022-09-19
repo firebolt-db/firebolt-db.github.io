@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DESCRIBE
+title: DELETE
 nav_exclude: true
 search_exclude: true
 description: Reference and syntax for the DELETE command.

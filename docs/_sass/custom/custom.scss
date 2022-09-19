@@ -117,3 +117,13 @@ $callouts: (
 @media (min-width: 600px) {
     .container { grid-template-columns: 300px 300px; }
   }
+
+  .resource {
+    width: 200px;
+    border-style: solid;
+    border-radius: 8px;
+    border-color: #f5ebeb;
+    justify-content: center;
+    float: right;
+    padding: 20px 20px 20px;
+}
