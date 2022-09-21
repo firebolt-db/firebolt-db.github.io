@@ -58,6 +58,12 @@ If your application requires a specific version of the package, use the command 
 pip install airflow-provider-firebolt==0.0.2
 ```
 
+### Installing the provider for AWS Managed Airflow (MWAA)
+
+Using the Firebolt Airflow provider with AWS Managed Airflow (MWAA) requires that you are using v2 of MWAA.
+
+In order to install the provider, add `airflow-provider-firebolt` to the `requirements.txt` file configured as per the [MWAA Documentation.](https://docs.aws.amazon.com/mwaa/latest/userguide/working-dags-dependencies.html)
+
 ## Connecting Airflow to Firebolt
 
 To configure a connection to Firebolt, you create an Airflow connection object. For more information, see [Managing Connections](https://airflow.apache.org/docs/apache-airflow/stable/howto/connection.html) in Airflow documentation.
