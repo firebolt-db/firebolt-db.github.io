@@ -218,13 +218,8 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-<<<<<<< HEAD
     minitest (5.17.0)
     nokogiri (1.13.10-x86_64-linux)
-=======
-    minitest (5.15.0)
-    nokogiri (1.14.1-x86_64-linux)
->>>>>>> 981175d (Bump nokogiri from 1.13.9 to 1.14.1 in /docs)
       racc (~> 1.4)
     octokit (4.23.0)
       faraday (>= 1, < 3)
