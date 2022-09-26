@@ -23,19 +23,19 @@ We provide an archive of release notes for your historical reference.
 
 ### Enhancements, changes, and new integrations
 
-* #### Added support for Airbyte
+* **Added support for Airbyte**
  
   The Firebolt integration includes an [Airbyte Source](https://docs.airbyte.com/integrations/sources/firebolt/){:target="_blank"} connector as well as an [Airbyte Destination](https://docs.airbyte.com/integrations/destinations/firebolt){:target="_blank"} connector, which allow you to easily move data into and out of Firebolt. 
   
   For more information on Airbyte, see [Airbyte](https://airbyte.com/){:target="_blank"}.
 
-* #### New billing breakdown in engine dashboard
+* **New billing breakdown in engine dashboard**
   
   The billing breakdown in the engine dashboard can now show billing or running time.
 
   ![Billing time](../assets/images/release-notes/billing-time.png)
  
-* #### Added an optional `<format>` parameter to the `TO_DATE` and `TO_TIMESTAMP` functions
+* **Added an optional `<format>` parameter to the `TO_DATE` and `TO_TIMESTAMP` functions**
   
   The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../sql-reference/functions-reference/to-timestamp.md).
 
