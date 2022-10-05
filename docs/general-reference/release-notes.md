@@ -17,15 +17,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ## October 2022
 
-* [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
-
-### New features
-
-* #### <!--- FIR-15853 —-->Added support for functions REGEXP_REPLACE and REGEXP_REPLACE_ALL
-**(DB version 3.11.0)**
-
-  Use these functions to replace matching patterns in the input with a replacement. The REGEXP_REPLACE function replaces the first match only (from the left), REGEXP_REPLACE_ALL function replaces all the matches.
 
 ### Enhancements, changes, and new integrations
 
