@@ -12,7 +12,7 @@ Firebolt bills are based on the consumption of resources within your account. Th
 
 * **Data storage** usage is calculated on the daily average amount of data (in bytes) stored under your Firebolt account name for indexes and raw compressed data.
 
-* **Engine resources** usage is calculated with **one-second granularity** between the time Firebolt provisions the engine and when the engine is terminated. Warmup time for caching indexes and raw data is counted in engine usage time.
+* **Engine resources** usage is calculated with **one-second granularity** between the time Firebolt starts to provision the engine and when the request to terminate the engine is submitted. Warmup time for caching indexes and raw data is counted in engine usage time.
 
 ## Invoices
 
