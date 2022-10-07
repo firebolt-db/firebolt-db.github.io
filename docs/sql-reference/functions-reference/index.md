@@ -166,6 +166,8 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [TRY_CAST](try-cast.md)  
 
+* [VERSION](version.md)
+
 * [ZEROIFNULL](zeroifnull.md)  
 
 ## Date and time functions

@@ -18,6 +18,8 @@ If you are using Metabase Cloud, you can skip to [Creating a connection](#creati
 
 ### Setting up the Firebolt connector (on-premises only)
 
+To set up the Firebolt connector on a self-hosted Metabase instance, download the following files and save them to the `/plugins` directory on your Metabase host system. By default, `/plugins` is a subdirectory of the directory where the `metabase.jar` file executes.
+
 To set up the Firebolt connector on a self-hosted Metabase instance:
 1. Download the latest Firebolt Metabase driver from its [GitHub Releases page](https://github.com/firebolt-db/metabase-firebolt-driver/releases).
 2. Move the driver to the `/plugins` directory on your Metabase host system. By default, `/plugins` is a subdirectory of the directory where the `metabase.jar` file executes.

@@ -42,7 +42,7 @@ To create an aggregating index, use the [`CREATE AGGREGATING INDEX`](../sql-refe
 The syntax for the `CREATE AGGREGATING INDEX` is shown below.
 
 ```sql
-CREATE [AND GENERATE] AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
+CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
   (
     <fact_table_column_1> [,<fact_table_column_2>][,...]
     <aggregate_expression> [,...]
@@ -51,11 +51,11 @@ CREATE [AND GENERATE] AGGREGATING INDEX <agg_index_name> ON <fact_table_name>
 
 ### Creating the index on empty tables is preferred
 
-The `AND GENERATE` option is required only when you generate an aggregating index on a fact table with records. Running the `AND GENERATE` option is a memory-intensive operation. If you do this, select an engine specification with a lot of memory and multiple nodes. Whenever possible, we strongly recommend that you create aggregating indexes for a fact table when the table is empty, before you run the first `INSERT INTO` command to ingest data.
+Whenever possible, we strongly recommend that you create aggregating indexes for a fact table when the table is empty, before you run the first `INSERT INTO` command to ingest data.
 
 ### Aggregating indexes can’t be modified
 
-You can’t modify aggregating indexes after you create them. To modify an aggregating index, use the `DROP AGGREGATING INDEX` command, and then use `CREATE AND GENERATE AGGREGATING INDEX` to specify a new index for the same table.
+You can’t modify aggregating indexes after you create them. To modify an aggregating index, use the `DROP AGGREGATING INDEX` command, and then use `CREATE AGGREGATING INDEX` to specify a new index for the same table.
 
 ### How to choose aggregating index columns
 
@@ -143,7 +143,7 @@ And they are grouped by different combinations of the `store_id` and `product_id
 ‌The DDL below creates an aggregating index to accelerate these aggregations.
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX agg_fact_orders ON fact_orders (
+CREATE AGGREGATING INDEX agg_fact_orders ON fact_orders (
   store_id,
   product_id,
   SUM(order_total),
