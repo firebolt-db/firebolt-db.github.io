@@ -51,6 +51,15 @@ SELECT REGEXP_REPLACE_ALL('     Hello world ! ', '^[ ]+|[ ]+$', '');
 ```
 **Returns**: `'Hello world !'`
 
+Duplicate every character
+
+```sql
+SELECT REGEXP_REPLACE_ALL('Hello, World!', '.', '\\&\\&')
+```
+
+**Returns**: `'HHeelllloo,,  WWoorrlldd!!'`
+
+
 Mask email address by leaving first character only (Note: this is for illustrative purposes only, the email matching pattern is too simplistic)
 
 ```sql
