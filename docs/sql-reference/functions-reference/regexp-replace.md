@@ -17,6 +17,8 @@ REGEXP_REPLACE(<input>, <pattern>, <replacement>)
 
 Matches a pattern in the input string and replaces all matched portions with the specified replacement. 
 
+If any of the arguments to these functions is `NULL`, the return value is `NULL`.
+
 ```sql
 REGEXP_REPLACE_ALL(<input>, <pattern>, <replacement>)
 ```
@@ -28,6 +30,9 @@ REGEXP_REPLACE_ALL(<input>, <pattern>, <replacement>)
 | `<input>`  | The string to search for a matching pattern                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `<pattern>` | An [RE2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string input.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `<replacement>`    | The string to replace the matching pattern found in the input. This argument can include the following special sequences: <ul><li> `\&` - To indicate that the substring matching the entire pattern should be inserted.</li><li> `\n` - Where n is a digit from 1 to 9, to indicate that the substring matching the n'th capturing group (parenthesized subexpression) of the pattern should be inserted</li><li> `\\` - results in a single \</li><li> `\c` - Specifies for any other character, c results in the same sequence \c</li></ul><p/>Note, that for string literals the above escaping rules apply *after* string literals escaping rules for `\`. See examples below. |
+
+### Return type
+`TEXT`
 
 ## Example
 {: .no_toc}
