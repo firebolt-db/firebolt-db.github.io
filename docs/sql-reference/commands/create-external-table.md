@@ -164,20 +164,20 @@ The following wildcards are supported:
 In the following layout of objects in a bucket, the data is partitioned according to client type, year, and month, with multiple parquet files in each partition. The examples demonstrate how choosing both URL and OBJECT\_PATTERN impacts the objects that are retrieved from S3.
 
 ```
-s3://bucket/c_type=c_type=xyz/year=2018/month=01/part-00001.parquet
-s3://bucket/c_type=c_type=xyz/year=2018/month=01/part-00002.parquet
+s3://bucket/c_type=xyz/year=2018/month=01/part-00001.parquet
+s3://bucket/c_type=xyz/year=2018/month=01/part-00002.parquet
 ...
-s3://bucket/c_type=c_type=xyz/year=2018/month=12/part-00001.parquet
-s3://bucket/c_type=c_type=xyz/year=2018/month=12/part-00002.parquet
+s3://bucket/c_type=xyz/year=2018/month=12/part-00001.parquet
+s3://bucket/c_type=xyz/year=2018/month=12/part-00002.parquet
 ...
-s3://bucket/c_type=c_type=xyz/year=2019/month=01/part-00001.parquet
-s3://bucket/c_type=c_type=xyz/year=2019/month=01/part-00002.parquet
+s3://bucket/c_type=xyz/year=2019/month=01/part-00001.parquet
+s3://bucket/c_type=xyz/year=2019/month=01/part-00002.parquet
 ...
-s3://bucket/c_type=c_type=xyz/year=2020/month=01/part-00001.parquet
-s3://bucket/c_type=c_type=xyz/year=2020/month=01/part-00002.parquet
+s3://bucket/c_type=xyz/year=2020/month=01/part-00001.parquet
+s3://bucket/c_type=xyz/year=2020/month=01/part-00002.parquet
 ...
-s3://bucket/c_type=c_type=abc/year=2018/month=01/part-00001.parquet
-s3://bucket/c_type=c_type=abc/year=2018/month=01/part-00002.parquet
+s3://bucket/c_type=abc/year=2018/month=01/part-00001.parquet
+s3://bucket/c_type=abc/year=2018/month=01/part-00002.parquet
 ...
 ```
 
