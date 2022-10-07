@@ -37,15 +37,55 @@ REGEXP_REPLACE_ALL(<input>, <pattern>, <replacement>)
 ## Example
 {: .no_toc}
 
-```sql
-SELECT
-	REGEXP_REPLACE('ABC', '^([A-Z]+)');
-```
-**Returns**: `["ABC"]`
+Replace first occurence of `!` with `!!!`
 
 ```sql
-SELECT
-	REGEXP_REPLACE_ALL('ABC', '^([A-Z]+)');
+SELECT REGEXP_REPLACE('Hello, world!', '!', '!!!');
 ```
-**Returns**: `["ABC"]`
+**Returns**: `'Hello, world!!!'`
+
+Remove leading and trailing spaces
+
+```sql
+SELECT REGEXP_REPLACE_ALL('     Hello world ! ', '^[ ]+|[ ]+$', '');
+```
+**Returns**: `'Hello world !'`
+
+Mask email address by leaving first character only (Note: this is for illustrative purposes only, the email matching pattern is too simplistic)
+
+```sql
+SELECT REGEXP_REPLACE(email, '(\\w)[\\w\\.]+@([\\w]+\\.)+([\\w]+)', '\\1***@\\2\\3') 
+FROM UNNEST([
+  'matt123@hotmail.com',
+  'joe.doe@gmail.com',
+  '12345@www.atg.wa.gov'
+] email)
+```
+
+**Returns**:
+```
+'m***@hotmail.com'
+'j***@gmail.com'
+'1***@www.atg.wa.gov'
+```
+
+Convert dates into US format
+
+```sql
+SELECT REGEXP_REPLACE(event_date::TEXT, '(\\d{4})-(\\d{2})-(\\d{2})', '\\2/\\3/\\1')
+FROM UNNEST([
+  DATE '1970-08-07',
+  DATE '2000-04-22',
+  DATE '2002-07-25',
+  DATE '2010-11-11'
+] event_date)
+```
+
+**Returns**
+```
+08/07/1970
+04/22/2000
+07/25/2002
+11/11/2010
+```
 
