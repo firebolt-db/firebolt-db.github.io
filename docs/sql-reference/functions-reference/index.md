@@ -394,6 +394,8 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [REGEXP_MATCHES](regexp-matches.md)  
 
+* [REGEXP_REPLACE](regexp-replace.md)
+
 * [REPEAT](repeat.md)  
 
 * [REPLACE](replace.md)  
