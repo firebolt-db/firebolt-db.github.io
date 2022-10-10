@@ -172,7 +172,25 @@ FROM visits;
 | 3  | iOS 14         |
 +----+----------------+
 ```
+[ARRAY_SORT](../sql-reference/functions-reference/array-sort.md) sorts one array by another. One array represents the values and the other represents the sort order.
 
+The example below sorts the first array by the positions defined in the second array
+
+```sql
+SELECT 
+  ARRAY_SORT(x,y -> y, [ 'A','B','C'],[3,2,1]) AS res;
+```  
+**Returns**:
+
+```
++-----------------+
+| res             |
++-----------------+
+| ["C", "B", "A"] |
++-----------------+
+```
+
+  
 ## UNNEST
 
 You might want to transform a nested array structure to a standard tabular format so that you can expose views to BI tools that can't handle Firebolt array syntax, or you might find the tabular format more natural to query using standard SQL idioms. `UNNEST` serves these purposes.
