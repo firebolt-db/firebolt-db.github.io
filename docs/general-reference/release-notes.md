@@ -22,10 +22,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### New features
 
-* #### <!--- FIR-15853 —-->Added support for functions REGEXP_REPLACE and REGEXP_REPLACE_ALL
+* #### <!--- FIR-15853 —-->Added support for functions REGEXP\_REPLACE and REGEXP\_REPLACE\_ALL
 **(DB version 3.11.0)**
 
-  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP_REPLACE_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
+  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
 
 ### Enhancements, changes, and new integrations
 
@@ -47,7 +47,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * #### <!--- FIR-15022 —-->VERSION() function now available
 **(DB version 3.8.0)**
 
-  Query the engine version using the new [VERSION()](../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information_schema.engines](../general-reference/information-schema/engines.md) view. 
+  Query the engine version using the new [VERSION()](../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information\_schema.engines](../general-reference/information-schema/engines.md) view. 
 
 * #### <!--- FIR-15152 —--> Information schema updated
 **(DB version 3.8.0)**
