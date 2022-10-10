@@ -31,3 +31,4 @@ Each row has the following columns with information about each engine.
 | scale                       | INT         | The number of nodes in the engine. |
 | status                      | STRING      | The engine status. For more information, see [Viewing and understanding engine status](../../working-with-engines/understanding-engine-fundamentals.md#viewing-and-understanding-engine-status). |
 | attached_to                 | STRING      | The name of the database to which the engine is attached. |
+| version                 | STRING      | The engine version.|
