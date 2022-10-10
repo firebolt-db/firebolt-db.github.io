@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CREATE [AND GENERATE] AGGREGATING INDEX
+title: CREATE AGGREGATING INDEX
 description: Reference and syntax for the CREATE AGGREGATING INDEX command.
 parent: SQL commands
 ---
@@ -25,14 +25,11 @@ The index is populated automatically as data is loaded into the table.
 {: .no_toc}
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX [IF NOT EXISTS] <agg_index_name> ON <fact_table_name> (
+CREATE AGGREGATING INDEX [IF NOT EXISTS] <agg_index_name> ON <fact_table_name> (
   <key_column>[,...<key_columnN>],
   <aggregation>[,...<aggregationN>]
 );
 ```
-
-{: .caution}
-Generating the index after data was loaded to the table is a memory-heavy operation.
 
 | Parameter           | Description                                                                                                             |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------- |
