@@ -18,7 +18,7 @@ MD5(<string>)
 
 | Parameter  | Description                                               |
 | :---------- | :--------------------------------------------------------- |
-| `<string>` | The string to hash. For `NULL`, the function returns `0`. |
+| `<string>` | The string to hash. For `NULL`, the function returns `NULL`. |
 
 ## Example
 {: .no_toc}
