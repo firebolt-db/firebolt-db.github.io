@@ -73,7 +73,8 @@ In addition to the parameters specified above, any [system setting](https://docs
 
 In addition to passing system settings as connection string parameters, any [system setting](https://docs.firebolt.io/general-reference/system-settings.html){:target="_blank"} can be passed to Firebolt as a `SET` command in SQL. Multiple `SET` statements can passed at once as long as they immediately follow one after another separated by semicolons, as shown in the following example.
 
-![Multiple SET statements example](../../assets/images/jdbc-multi-set-example.png)
+    SET input_format_csv_allow_single_quotes = 0;
+    SET format_csv_delimiter = |;
 
 ## Adding the Firebolt JDBC driver as a Maven dependency
 
