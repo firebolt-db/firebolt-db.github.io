@@ -174,6 +174,8 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [CURRENT_DATE](current-date.md)  
 
+* [CURRENT_TIMESTAMP](current-timestamp.md)  
+
 * [DATE_ADD](date-add.md)  
 
 * [DATE_DIFF](date-diff.md)  
