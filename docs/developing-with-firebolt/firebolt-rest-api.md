@@ -436,6 +436,9 @@ SELECT_QUERY_2;
 SELECT_QUERY_N;
 ```
 
+{: .note}
+Queries are per request. To run multiple statement queries, separate queries each into one request. 
+
 ### Cancel a running Query
 
 Use the following request to cancel a running query:
