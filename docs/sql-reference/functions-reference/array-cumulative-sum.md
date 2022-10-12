@@ -7,7 +7,7 @@ parent: SQL functions
 
 # ARRAY\_CUMULATIVE\_SUM
 
-Returns an array of partial sums of elements from the source array (a running sum). If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
+Returns an array of partial sums of elements from the source array (a cumulative sum). If the argument `<func>` is provided, the values of the array elements are converted by this function before summing.
 
 ## Syntax
 {: .no_toc}
