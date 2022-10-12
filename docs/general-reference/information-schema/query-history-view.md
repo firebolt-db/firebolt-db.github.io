@@ -50,3 +50,4 @@ Each row has the following columns with information about each query in query hi
 | total_ram_consumed          | LONG      | The total number of engine bytes in RAM consumed during query execution. |
 | returned_rows               | LONG      | The total number of rows returned from the query. |
 | returned_bytes              | LONG      | The total number of bytes returned from the query. |
+| time_in_queue_ms            | LONG      | The number of milliseconds the query spent in queue. |
