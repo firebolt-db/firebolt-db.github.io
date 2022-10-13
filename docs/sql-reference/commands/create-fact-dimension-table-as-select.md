@@ -14,7 +14,7 @@ Creates a table and loads data into it based on the [SELECT](query-syntax.md) qu
 Fact table:
 
 ```sql
-CREATE FACT TABLE <table_name>
+CREATE FACT TABLE [IF NOT EXISTS] <table_name>
 [(<column_name>[, ...n] )]
 PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
 [PARTITION BY <column_name>[, <column_name>[, ...n]]]
@@ -24,7 +24,7 @@ AS <select_query>
 Dimension table:
 
 ```sql
-CREATE DIMENSION TABLE <table_name>
+CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
 [(<column_name>[, ...n] )]
 [PRIMARY INDEX <column_name>[, <column_name>[, ...n]]]
 AS <select_query>
