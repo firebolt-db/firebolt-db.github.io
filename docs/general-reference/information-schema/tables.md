@@ -42,3 +42,7 @@ Each row has the following columns with information about each table.
 | is_insertable_into          | NULL        | Not applicable for Firebolt. |
 | is_typed                    | NULL        | Not applicable for Firebolt. |
 | commit_action               | NULL        | Not applicable for Firebolt. |
+| physical_table_name         | NULL        | Not applicable for Firebolt. |
+| state                       | NULL        | Not applicable for Firebolt. |
+| ddl                         | NULL        | Not applicable for Firebolt. |
+| fragmentation               | NULL        | Not applicable for Firebolt. |
