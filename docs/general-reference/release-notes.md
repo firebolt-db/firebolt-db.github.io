@@ -52,7 +52,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * #### <!--- FIR-15152 —--> Information schema updated
 **(DB version 3.8.0)**
 
-  Tables metadata can now be queried via the [information\_schema.tables](../general-reference/information-schema/tables.md) view.
+  System-defined tables metadata can now be queried via the [information\_schema.tables](../general-reference/information-schema/tables.md) view.
 
 
 
