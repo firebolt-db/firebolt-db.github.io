@@ -1,5 +1,5 @@
 ---
-name: docs/pull_request_template.md
+name: New function template
 about: Use this template to add new SQL functions
 title: "[NEW FUNCTION]"
 labels: ''
