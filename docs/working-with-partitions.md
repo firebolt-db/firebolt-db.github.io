@@ -58,6 +58,8 @@ Partition key arguments must not evaluate to `NULL` and can be any of the follow
   ```sql
   PARTITION BY EXTRACT(MONTH FROM date_column), product_type;
   ```
+{: .caution}
+Floating point data type columns are not supported as partition keys.
 
 ## Dropping partitions
 
