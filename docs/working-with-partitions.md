@@ -121,7 +121,7 @@ The example below uses `EXTRACT` to create a partition for each group of records
 PARTITION BY EXTRACT(YEAR FROM transaction_date), EXTRACT(MONTH FROM transaction_date);
 ```
 
-The example below drops the partition for records where `transaction_date` contains `3`, which corresponds to the month of March. The month is specified as an integer in the command.
+The example below drops the partition for records where `transaction_date` is `3`, which corresponds to the month of March. The month is specified as an integer in the command.
 
 ```sql
 ALTER TABLE fct_tbl_transactions DROP PARTITION 2022,04;
@@ -136,7 +136,7 @@ The example below creates a partition for each group of records with the same va
 PARTITION BY product_id
 ```
 
-The example below drops the partition where `product_id` contains `8188`.
+The example below drops the partition where `product_id` is `8188`.
 
 ```sql
 ALTER TABLE fct_tbl_transactions DROP PARTITION 8188;
@@ -145,13 +145,13 @@ ALTER TABLE fct_tbl_transactions DROP PARTITION 8188;
 #### Partition and drop by composite key
 {: .no_toc}
 
-The example below creates a partition for each group of records where `store_id` contains the same value **and** `transaction_date` contains the same year.
+The example below creates a partition for each group of records where `store_id` is the same value **and** `transaction_date` is the same year.
 
 ```sql
 PARTITION BY store_id,EXTRACT(YEAR FROM transaction_date);
 ```
 
-The example below drops the partition where `store_id` contains `982` **and** `transaction_date` contains `2020` .
+The example below drops the partition where `store_id` is `982` **and** `transaction_date` is `2020` .
 
 ```sql
 ALTER TABLE transactions DROP PARTITION 982,2020;
