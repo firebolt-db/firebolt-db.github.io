@@ -42,7 +42,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * #### <!--- FIR-15452 —-->Added support for window function frame definitions
 **(DB version 3.11.0)**
 
-  Add support for n PRECEDING, n FOLLOWING, and CURRENT ROW when defining the frame start and end in window functions.
+  Add support for UNBOUNDED PRECEDING, n PRECEDING, CURRENT ROW, n FOLLOWING, and UNBOUNDED FOLLOWING when defining the frame start and end in window functions.
 
 * #### <!--- FIR-15022 —-->VERSION() function now available
 **(DB version 3.8.0)**
