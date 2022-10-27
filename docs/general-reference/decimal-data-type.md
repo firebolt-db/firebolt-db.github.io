@@ -6,7 +6,7 @@ nav_exclude: true
 search_exclude: false
 ---
 
-# DECIMAL data type (Beta)
+# DECIMAL data type (Alpha)
 {:.no_toc}
 
 This topic describes the Firebolt implementation of the `DECIMAL` data type.
