@@ -3,10 +3,10 @@ layout: default
 title: DECIMAL data type
 description: Describes the Firebolt implementation of the `DECIMAL` data type
 nav_exclude: true
-search_exclude: true
+search_exclude: false
 ---
 
-# DECIMAL data type (Alpha)
+# DECIMAL data type (Beta)
 {:.no_toc}
 
 This topic describes the Firebolt implementation of the `DECIMAL` data type.
@@ -74,7 +74,7 @@ If the scale of a value to be stored is greater than the declared scale of the c
   AVG(DECIMAL(P1, S1)) = AVG(DECIMAL(38, max(6, S1)))
   ```
  
-### Supported functions (Alpha release)
+### Supported functions (Beta release)
 
 **Operators:**
 
@@ -85,16 +85,30 @@ If the scale of a value to be stored is greater than the declared scale of the c
 
 **Functions:**
 
-SUM, AVG<br>
-ANY, ANY\_VALUE<br>
-CHECKSUM<br>
-COUNT<br>
-MAX, MAX\_BY, MEDIAN, MIN, MIN\_BY<br>
-CASE, CAST<br>
-CITY\_HASH<br>
-COALESCE, CONCAT<br>
-IFNULL, NULLIF, ZEROIFNULL<br>
-TRY\_CAST<br>
-ABS, ROUND<br>
-TO\_DOUBLE, TO\_FLOAT, TO\_INT, TO\_LONG, TO\_STRING
-
+* [ABS](../sql-reference/functions-reference/abs.md)
+* [ANY](../sql-reference/functions-reference/any.md)
+* [ANY\_VALUE](../sql-reference/functions-reference/any_value.md)
+* [AVG](../sql-reference/functions-reference/avg.md)
+* [CHECKSUM](../sql-reference/functions-reference/checksum.md)
+* [COUNT](../sql-reference/functions-reference/count.md)
+* [CASE](../sql-reference/functions-reference/case.md)
+* [CAST](../sql-reference/functions-reference/cast.md)
+* [CITY\_HASH](../sql-reference/functions-reference/city-hash.md)
+* [COALESCE](../sql-reference/functions-reference/coalesce.md) 
+* [CONCAT](../sql-reference/functions-reference/concat.md)
+* [IFNULL](../sql-reference/functions-reference/ifnull.md) 
+* [MAX](../sql-reference/functions-reference/max.md) 
+* [MAX\_BY](../sql-reference/functions-reference/max-by.md) 
+* [MEDIAN](../sql-reference/functions-reference/median.md) 
+* [MIN](../sql-reference/functions-reference/min.md) 
+* [MIN\_BY](../sql-reference/functions-reference/min-by.md) 
+* [NULLIF](../sql-reference/functions-reference/nullif.md)
+* [ROUND](../sql-reference/functions-reference/round.md)
+* [SUM](../sql-reference/functions-reference/sum.md)
+* [TO\_DOUBLE](../sql-reference/functions-reference/to-double.md) 
+* [TO\_FLOAT](../sql-reference/functions-reference/to-float.md) 
+* [TO\_INT](../sql-reference/functions-reference/to-int.md)
+* [TO\_LONG](../sql-reference/functions-reference/to-long.md)
+* [TO\_STRING](../sql-reference/functions-reference/to-string.md)
+* [TRY\_CAST](../sql-reference/functions-reference/try-cast.md)
+* [ZEROIFNULL](../sql-reference/functions-reference/zeroifnull.md)
