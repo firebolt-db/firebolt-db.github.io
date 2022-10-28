@@ -74,7 +74,7 @@ If the scale of a value to be stored is greater than the declared scale of the c
   AVG(DECIMAL(P1, S1)) = AVG(DECIMAL(38, max(6, S1)))
   ```
  
-### Supported functions (Beta release)
+### Supported functions (Alpha release)
 
 **Operators:**
 
