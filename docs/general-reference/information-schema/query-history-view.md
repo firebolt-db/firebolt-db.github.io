@@ -34,7 +34,7 @@ Each row has the following columns with information about each query in query hi
 | start_time                  | TIMESTAMP | The query execution start time (UTC). |
 | end_time                    | TIMESTAMP | The query execution end time (UTC). |
 | duration_usec               | BIGINT    | Duration of query execution (in microseconds). |
-| status                      | STRING    | Can be one of the following values:<br>`STARTED_EXECUTION`&ndash;Successful start of query execution.<br>`ENDED_SUCCESSFULLY`&ndash;Successful end of query execution. <br>`PARSE_ERROR`&ndash;Exception before the start of query execution.<br>`EXECUTION_ERROR`&ndash;Exception during query execution. |
+| status                      | STRING    | Can be one of the following values:<br>`STARTED_EXECUTION`&ndash;Successful start of query execution.<br>`ENDED_SUCCESSFULLY`&ndash;Successful end of query execution. <br>`CANCELED_EXECUTION`&ndash;Query cancelled during execution. <br>`PARSE_ERROR`&ndash;Exception before the start of query execution.<br>`EXECUTION_ERROR`&ndash;Exception during query execution. |
 | query_id                    | STRING    | The unique identifier of the SQL query. |
 | query_text                  | STRING    | Text of the SQL statement. |
 | error_message               | STRING    | The error message that was returned. |
