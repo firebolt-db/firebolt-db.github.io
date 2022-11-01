@@ -86,6 +86,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 ## Array functions
 
+* [ARRAY_AGG](array-agg.md)
+
 * [ARRAY_CONCAT](array-concat.md)
 
 * [ARRAY_COUNT_GLOBAL](array-count-global.md)
