@@ -7,4 +7,4 @@ parent: SQL functions
 
 # NEST
 
-Synonym for [ARRAY_AGG](array_agg.md).
+Synonym for [ARRAY_AGG](array-agg.md).
