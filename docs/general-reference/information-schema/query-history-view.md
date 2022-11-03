@@ -50,4 +50,6 @@ Each row has the following columns with information about each query in query hi
 | total_ram_consumed          | LONG      | The total number of engine bytes in RAM consumed during query execution. |
 | returned_rows               | LONG      | The total number of rows returned from the query. |
 | returned_bytes              | LONG      | The total number of bytes returned from the query. |
+| cpu_usage_us                | LONG      | The query time spent on the CPU as reported by Linux kernel scheduler |
+| cpu_delay_us                | LONG      | The query time spent on the runqueue as reported by Linux kernel scheduler - The value may be greater than overall execution time of the query because query’s execution is parallelized and CPU times across all threads and nodes is summarized. |
 | time_in_queue_ms            | LONG      | The number of milliseconds the query spent in queue. |
