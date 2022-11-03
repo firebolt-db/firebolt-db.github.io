@@ -76,3 +76,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   ```
 
   * Functions `ROUND`, `TO_STRING`, and `TO_TEXT` applied on DECIMAL will return the data type matching the input data type. 
+
+ ### Enhancements, changes, and new integrations
+
+* #### <!--- FIR-16295 —-->**Information schema updated**
+**(DB version 3.13.0)**
+
+  Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../general-reference/information-schema/query-history-view.md) view.
