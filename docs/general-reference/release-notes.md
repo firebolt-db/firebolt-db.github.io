@@ -22,7 +22,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### New features
 
-* #### <!--- FIR-15968, FIR-15744 —-->Added support for functions
+* #### <!--- FIR-15968, FIR-15744 —-->Added support for Window functions
 **(DB version 3.13.0)**
 
   * [FIRST_VALUE](../sql-reference/functions-reference/first-value.md): Returns the first value evaluated in the specified window frame.
