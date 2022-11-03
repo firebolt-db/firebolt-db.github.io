@@ -87,4 +87,4 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
 ### Resolved issues
 
-* Fixed an issue that caused performance issues in the cache evictor. (DB version 3.13.0)
+* Fixed an issue that caused degraded performance of the cache evictor. (DB version 3.13.0)
