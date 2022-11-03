@@ -60,11 +60,13 @@ Use the functional list below to find commands for a specific task area that you
 * [DROP DATABASE](drop-database.md)
 * [DROP TABLE](drop-table.md)
 * [DROP VIEW](drop-view.md)
+* [INSERT INTO](insert-into.md)
 * [REFRESH JOIN INDEX](refresh-join-index.md)
 * [SHOW COLUMNS](show-columns.md)
 * [SHOW DATABASES](show-databases.md)
 * [SHOW TABLES](show-tables.md)
-* [INSERT INTO](insert-into.md)
+* [TRUNCATE TABLE](truncate-table.md)
+
 
 ## Queries and query optimization
 

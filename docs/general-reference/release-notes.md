@@ -15,44 +15,64 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## October 2022
+## November 2022
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 
 ### New features
 
-* #### <!--- FIR-15853 —-->Added support for functions REGEXP\_REPLACE and REGEXP\_REPLACE\_ALL
+* #### <!--- FIR-15968, FIR-15744 —-->Added support for functions
+**(DB version 3.13.0)**
+
+  * [FIRST_VALUE](../sql-reference/functions-reference/first-value.md): Returns the first value evaluated in the specified window frame.
+  * [NTH_VALUE](../sql-reference/functions-reference/nth-value.md): Returns the value evaluated of the nth row of the specified window frame (starting at the first row).
+  * [NTILE](../sql-reference/functions-reference/ntile.md): Divides an ordered data set equally into a specified number of buckets.
+  * [CUME\_DIST](../sql-reference/functions-reference/cume-dist.md): Calculates the relative rank (cumulative distribution) of the current row in relation to other rows in the same partition within an ordered data set.
+  * [PERCENT\_RANK](../sql-reference/functions-reference/percent-rank.md): Calculates the relative rank of the current row within an ordered data set.
+  * [PERCENTILE\_CONT (aggregation function)](../sql-reference/functions-reference/percentile-cont.md): Calculates a percentile, assuming a continuous distribution of values.
+  * [PERCENTILE\_CONT (window function)](../sql-reference/functions-reference/percentile-cont-window.md): Calculates a percentile over a partition, assuming a continuous distribution of values.
+  * [PERCENTILE\_DISC (aggregation function)](../sql-reference/functions-reference/percentile-disc.md): Returns a percentile for an ordered data set, equal to a specific column value.
+  * [PERCENTILE\_DISC (window function)](../sql-reference/functions-reference/percentile-disc-window.md): Returns a percentile over a partition for an ordered data set, equal to a specific column value.
+
+* #### <!--- FIR-15007 —-->Added support for TRUNCATE TABLE command
 **(DB version 3.11.0)**
+  
+  Use the [TRUNCATE TABLE](../sql-reference/commands/truncate-table.md) command to remove all rows from a table. 
 
-  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
+* #### <!--- FIR-12587 —-->Added support for DECIMAL data type
+ **(DB version 3.13.0)**
 
-### Enhancements, changes, and new integrations
+  Beta support for the [DECIMAL](decimal-data-type.md) data type is coming in version 3.13. 
 
-* #### <!--- FIR-14886 —-->Added support for “OR” operator for JOIN 
-**(DB version 3.11.0)**
+  {: .warning}
+  In previous versions, DECIMAL type columns are stored as DOUBLE type. Therefore, this change may require your action. Restart analytics engines before general purpose engines to use this new feature, and see below for additional actions. 
+  
+  **If your existing data model contains tables defined with DOUBLE type columns:**
+  * If you want to preserve the DOUBLE data type going forward, no change is required. The DECIMAL data type can be used for new tables/columns.
+   
+  **If your existing data model contains tables defined with DECIMAL type columns:**
+   * If you do not want to change your tables, no action is required. These columns will just show up as type DOUBLE. You can safely use the DECIMAL type for new tables/columns.
 
-  Allows performing JOINs with multiple join conditions linked via the “OR” operator
+   * If your table defined with columns as DECIMAL are recreated periodically (by your ELT process), new columns will be defined as DECIMAL(38,0) – default precision and scale. If you don’t want to switch to the DECIMAL data type for the existing data flows, you can change your ELT flows and replace the DECIMAL keyword with DOUBLE.
 
-* #### <!--- FIR-15683 —-->Updated syntax to generate an aggregating index 
-**(DB version 3.11.0)**
+   * If you are using a function with a DECIMAL type in your ELT process, ensure that function is [supported for the DECIMAL data type](decimal-data-type.md#supported-functions-beta-release).  
 
-  The [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md) command will now generate the aggregating index, without using the additional AND GENERATE clause. 
+   * To change the data type of columns defined as DECIMAL but stored as DOUBLE, you will need to recreate the table with the new definition (column defined as DECIMAL(p,s)). To avoid precision loss, we highly recommend re-ingesting the data from the source (i.e., via external table) rather than casting values to decimal from the existing table (i.e., `INSERT INTO new_table(d) SELECT CAST(d as DECIMAL(38,9)) FROM old_table;`).
+   
+   * To avoid any downtime for the end-users in scenarios involving re-creating and re-ingesting the table, we suggest creating a view that reads from the existing table (`old_table`). After the new table (`new_table`) is created and data is ingested, repoint the view to the new table name (`new_table`) using the `CREATE OR REPLACE VIEW` command. 
+ 
+  **Examples of changes in behavior**
+ 
+  * Comparing two values that differ by a small offset yields different results when stored as DECIMAL vs. DOUBLE, because DOUBLE is a variable-precision data type, whereas DECIMAL is exact with fixed precision:
+  ```sql
+      SELECT '1.00000000000000000000000005'::DECIMAL(38,30) = '1.00000000000000000000000004999'::DECIMAL(38,30); -- false
+      SELECT '1.00000000000000000000000005'::DOUBLE = '1.00000000000000000000000004999'::DOUBLE;  --true
+  ```
 
-* #### <!--- FIR-15452 —-->Added support for window function frame definitions
-**(DB version 3.11.0)**
+  * Expressions involving DECIMAL data types with different precision and scale will yield an error:
+  ```sql
+    SELECT 3::DECIMAL + 2::DECIMAL(3,1); -- Invalid operation error: Operations between decimals with different precision and scale is not supported at the moment. Explicitly cast one of the decimals to other decimal precision and scale.
+  ```
 
-  Adds support for UNBOUNDED PRECEDING, n PRECEDING, CURRENT ROW, n FOLLOWING, and UNBOUNDED FOLLOWING [frame definitions](../sql-reference/functions-reference/index.md#window-functions) for the frame start and end in window functions, and frame specification modes (ROWS, RANGE), as well as resolving some of the out-of-memory cases present in the previous implementation.
-
-* #### <!--- FIR-15022 —-->VERSION() function now available
-**(DB version 3.8.0)**
-
-  Query the engine version using the new [VERSION()](../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information\_schema.engines](../general-reference/information-schema/engines.md) view. 
-
-* #### <!--- FIR-15152 —--> Information schema updated
-**(DB version 3.8.0)**
-
-  System-defined tables metadata can now be queried via the [information\_schema.tables](../general-reference/information-schema/tables.md) view.
-
-
-
+  * Functions `ROUND`, `TO_STRING`, and `TO_TEXT` applied on DECIMAL will return the data type matching the input data type. 

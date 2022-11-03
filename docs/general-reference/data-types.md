@@ -21,8 +21,8 @@ This topic lists the data types available in Firebolt.
 A whole number ranging from -2,147,483,648 to 2,147,483,647. `INT` data types require 4 bytes of storage.
 Synonyms: `INTEGER`, `INT4`.
 
-### DECIMAL (Alpha)
-An exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). For more information, see [DECIMAL data type (Alpha)](decimal-data-type.md).
+### DECIMAL
+An exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). For more information, see [DECIMAL data type](decimal-data-type.md).
 
 ### BIGINT
 A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage.

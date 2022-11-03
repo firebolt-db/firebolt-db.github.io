@@ -16,6 +16,46 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
+
+## October 2022
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+
+### New features
+
+* <!--- FIR-15853 —-->**Added support for functions REGEXP\_REPLACE and REGEXP\_REPLACE\_ALL**
+**(DB version 3.11.0)**
+
+  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
+
+### Enhancements, changes, and new integrations
+
+* <!--- FIR-14886 —-->**Added support for “OR” operator for JOIN**
+**(DB version 3.11.0)**
+
+  Allows performing JOINs with multiple join conditions linked via the “OR” operator
+
+* <!--- FIR-15683 —-->**Updated syntax to generate an aggregating index**
+**(DB version 3.11.0)**
+
+  The [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md) command will now generate the aggregating index, without using the additional AND GENERATE clause. 
+
+* <!--- FIR-15452 —-->**Added support for window function frame definitions**
+**(DB version 3.11.0)**
+
+  Add support for n PRECEDING, n FOLLOWING, and CURRENT ROW when defining the frame start and end in window functions.
+
+* <!--- FIR-15022 —-->**VERSION() function now available**
+**(DB version 3.8.0)**
+
+  Query the engine version using the new [VERSION()](../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information\_schema.engines](../general-reference/information-schema/engines.md) view. 
+
+* <!--- FIR-15152 —--> **Information schema updated**
+**(DB version 3.8.0)**
+
+  System-defined tables metadata can now be queried via the [information\_schema.tables](../general-reference/information-schema/tables.md) view.
+
 ## August 2022
 
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
