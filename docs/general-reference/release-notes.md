@@ -19,6 +19,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
 
 ### New features
 
@@ -83,3 +84,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 **(DB version 3.13.0)**
 
   Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../general-reference/information-schema/query-history-view.md) view.
+  
+### Resolved issues
+
+* Fixed an issue that caused performance issues in the cache evictor. (DB version 3.13.0)
