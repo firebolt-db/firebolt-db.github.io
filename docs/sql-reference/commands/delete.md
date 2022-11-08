@@ -112,6 +112,7 @@ product
 Below are some known limitations of the `DELETE` command in the alpha release. 
 
 * `DELETE` cannot be used on tables that have aggregating or join indexes.
+
   In the alpha phase, `DELETE` can’t be used on tables that have an aggregating or join index defined. An attempt to issue a `DELETE` statement on a table with an aggregating or join index defined fails. In order for `DELETE`s to succeed, table level aggregating or join indexes need to be dropped.
 
 * Rows marked for deletion are not able to be cleaned up.
