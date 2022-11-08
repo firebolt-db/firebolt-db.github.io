@@ -105,3 +105,23 @@ product
 | cauldron   |     25 |
 +------------+--------+
 ```
+
+
+### Known limitations
+
+Below are some known limitations of the `DELETE` command in the alpha release. 
+
+* `DELETE` cannot be used on tables that have aggregating or join indexes.
+  In the alpha phase, `DELETE` can’t be used on tables that have an aggregating or join index defined. An attempt to issue a `DELETE` statement on a table with an aggregating or join index defined fails. In order for `DELETE`s to succeed, table level aggregating or join indexes need to be dropped.
+
+* Rows marked for deletion are not able to be cleaned up.
+    * `DELETE` command marks rows for deletion for performance and cost reasons.
+    * Query performance is not materially impacted by delete marks.
+    * You can monitor fragmentation in `information_schema.tables` to understand how many rows are marked for deletion out of total rows - Fragmentation = (rows marked for deletion / total rows)
+    * Total row count in `information_schema.tables` includes the number of rows marked for deletion
+
+* Only one `DELETE` will be executed against a table at once.
+
+* Queries against tables with deleted rows are supported and can be run. However, expect slower performance during alpha phase.
+
+* `DELETE` marks are always loaded during engine warm-up, regardless of engine policy. This can increase engine start time if there are significant number of deletions.
