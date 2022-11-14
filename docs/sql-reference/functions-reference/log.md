@@ -7,7 +7,7 @@ parent: SQL functions
 
 # LOG
 
-Returns the natural logarithm of a numeric expression based on the desired base.
+Returns the common (base 10) logarithm of a numerical expression, or the logarithm to an arbitrary base if specified as the first argument.
 
 ## Syntax
 {: .no_toc}
@@ -24,7 +24,7 @@ LOG([<base>,] <num>);
 ## Example
 {: .no_toc}
 
-This example below returns the logarithm of 64.0 with base 2.&#x20;
+This example below returns the logarithm of 64.0 to base 2.
 
 ```sql
 SELECT
@@ -33,11 +33,11 @@ SELECT
 
 **Returns**: `6`
 
-This example below returns the logarithm of 64.0 with the default base 10.
+This example below returns the logarithm of 100.0 to the default base 10.
 
 ```sql
 SELECT
-    LOG(64.0);
+    LOG(100.0);
 ```
 
-**Returns**: `1.8061799739838869`
+**Returns**: `2`
