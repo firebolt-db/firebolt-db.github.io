@@ -71,7 +71,7 @@ DELETE FROM product WHERE
   name NOT IN (SELECT name FROM inventory)
 ```
 
-Tables before
+Table before
 
 ```
 product
@@ -95,7 +95,7 @@ inventory
 +------------+--------+
 ```
 
-Tables after
+Table after
 ```
 product
 +------------+--------+
