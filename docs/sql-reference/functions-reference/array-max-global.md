@@ -31,7 +31,7 @@ The example below uses the following table `T`:
 | :-------- | :----------- |
 | a        | \[1,3,4]    |
 | b        | \[3,5,6,7]  |
-| a        | \[30,50,60] |
+| c        | \[30,50,60] |
 
 
 ```sql
