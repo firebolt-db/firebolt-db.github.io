@@ -142,6 +142,9 @@ Firebolt creates the fact table. When finished, the table `lineitem` appears on 
 ### Use INSERT INTO to ingest data
 You can now use the `INSERT INTO` command to copy the data from the external table into the fact table. During the INSERT INTO operation, Firebolt ingests the data from your source into Firebolt.
 
+{: .note}
+Use `source_file_name` in the `WHERE` clause to specify which records to load from Amazon S3 and improve the performance of the read from S3. 
+
 **To run an `INSERT INTO` command that ingests data**
 1. Create a new script tab.
 2. Copy and paste the query below into the script tab.  
