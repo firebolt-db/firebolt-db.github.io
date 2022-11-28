@@ -194,15 +194,49 @@ Following are some common use cases for URL and object pattern combinations:
 
 Specifies the type of the files in S3. The following types and type options are supported.
 
-* `TYPE = (CSV [SKIP_HEADER_ROWS = {1|0}])`  
+#### CSV Types
+
+* `TYPE = (CSV [ <type option> ])`
+
+The following type options allow configuration for ingesting different CSV file formats.
+
+* `[ALLOW_DOUBLE_QUOTES = {TRUE|FALSE}]`  
+  `[ALLOW_SINGLE_QUOTES = {TRUE|FALSE}]`  
+With `TYPE = (CSV ALLOW_DOUBLE_QUOTES = TRUE)` or `TYPE = (CSV ALLOW_SINGLE_QUOTES = TRUE)` you define that unescaped double or single quotes in CSV input file will not cause an error to be generated on ingest. By default `ALLOW_DOUBLE_QUOTES` and `ALLOW_SINGLE_QUOTES` are set to `TRUE`.
+
+* `[ALLOW_COLUMN_MISMATCH = {TRUE|FALSE}]`  
+With `TYPE = (CSV ALLOW_COLUMN_MISMATCH = TRUE)` the number of delimited columns in a CSV input file can be fewer than the number of columns in the corresponding table. By default, `ALLOW_COLUMN_MISMATCH` is set to `FALSE`, and an error is generated if the number of columns is fewer than the number of columns defined in the external table. If set to `TRUE`, and an input file record contains fewer columns than defined in the external table, the non-matching columns in the table are loaded with `NULL` values.
+
+* `[ALLOW_UNKNOWN_FIELDS = {TRUE|FALSE}]`  
+With `TYPE = (CSV ALLOW_UNKNOWN_FIELDS = TRUE)` the number of delimited columns in a CSV input file can be more than the number of columns in the corresponding table. By default, `ALLOW_UNKNOWN_FIELDS` is set to `FALSE`, and an error is generated if the number of columns is more than the number of columns defined in the external table. If set to `TRUE`, and an input file record contains more columns than defined in the external table, the non-matching columns in the table are loaded with `NULL` values.
+
+* `[ESCAPE_CHARACTER = {‘<character>’|NONE}`  
+With `TYPE = (CSV ESCAPE_CHARACTER = '<character>'` you can define which character is used to escape, to change interpretations from the original. By default, the `ESCAPE_CHARACTER` value is set to `\`. If, for example, you want to use `"` as a value and not as delimiter for string, you can escape like `\"`, with the default escape character.
+
+* `[FIELD_DELIMITER = '<field_delimeter>']`  
+With `TYPE = (CSV FIELD_CHARACTER = '<field_delimeter>')`, you can define a custom field delimiter to separate fields for ingest. By default, the `FIELD_DELIMITER` is set as `,`.
+
+* `[NEW_LINE_CHARACTER = '<new_line_character>']`  
+With `TYPE = (CSV NEW_LINE_CHARACTER = '<new_line_character>')`, you can define a custom new line delimiter to separate entries for ingest. By default, the `NEW_LINE_CHARACTER` is set as the end of line character `\n`, but also supports other end of line conventions, such as `\r\n`, `\n\r`, and `\r`, as well as multi-character delimiters, such as `#*~`.
+
+* `[NULL_CHARACTER = '<null_character>']`  
+With `TYPE = (CSV NULL_CHARACTER = '<null_character>'` you can define which character is interpreted as `NULL`. By default, the `NULL_CHARACTER` value is set to `\\N`. 
+
+* `[SKIP_BLANK_LINES {TRUE|FALSE}]`  
+With `TYPE = (CSV SKIP_BLANK_LINES = TRUE)` any blank lines encountered in the CSV input file will be skipped. By default, `SKIP_BLANK_LINES` is set to `FALSE`, and an error is generated if blank lines are enountered on ingest.
+
+* `[SKIP_HEADER_ROWS = {1|0}]`  
 With `TYPE = (CSV SKIP_HEADER_ROWS = 1)`, Firebolt assumes that the first row in each file read from S3 is a header row and skips it when ingesting data. When set to `0`, which is the default if not specified, Firebolt ingests the first row as data.  
 
+#### JSON Types
 * `TYPE = (JSON [PARSE_AS_TEXT = {'TRUE'|'FALSE'}])`  
 With `TYPE = (JSON PARSE_AS_TEXT = 'TRUE')`, Firebolt ingests each JSON object literal in its entirety into a single column of type `TEXT`. With `TYPE = (JSON PARSE_AS_TEXT = 'FALSE')`, Firebolt expects each key in a JSON object literal to map to a column in the table definition. During ingestion, Firebolt inserts the key's value into the corresponding column.  
 
+#### Other Types
 * `TYPE = (ORC)`
 * `TYPE = (PARQUET)`
 * `TYPE = (TSV)`
+* `TYPE = (AVRO)`
 
 #### Example
 {: .no_toc}

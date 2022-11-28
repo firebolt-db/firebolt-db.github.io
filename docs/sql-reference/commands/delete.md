@@ -12,6 +12,11 @@ parent: SQL commands
 
 Deletes rows from the specified table.
 
+{: .caution}
+>**Alpha Release** 
+>
+>As we learn more from you, we may change the behavior and add new features. We will communicate any such changes. Your engagement and feedback are vital. 
+
 * Topic ToC
 {:toc}
 
