@@ -31,5 +31,10 @@ SELECT CAST('1' AS INT) as res;
 
 **Returns**: `1`
 
+`CAST` can also be done by writing the format before the object, for example - `select date '2022-01-01'` , `select timestamp '2022-01-01 01:02:03'.`
+
 {: .note}
 `CAST` can also be done by using the `::` operator. For more information, see [:: operator for CAST](../../general-reference/operators.md#-operator-for-cast).
+
+
+
