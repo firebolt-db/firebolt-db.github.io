@@ -25,7 +25,7 @@ CREATE EXTERNAL TABLE [IF NOT EXISTS] <external_table_name>
 [CREDENTIALS = (<awsCredentials>)]
 URL = 's3://<bucket_name>[/<folder>][/...]/'
 OBJECT_PATTERN = '<object_pattern>'[, '<object_pattern>'[, ...n]]]
-TYPE = (<type> [typeOptions])
+TYPE = (<type> [ <type option> ])
 [COMPRESSION = <compression_type>]
 ```
 
