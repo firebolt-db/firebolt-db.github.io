@@ -26,7 +26,7 @@ When you create an account with Firebolt, you must provide an email address with
 
 Your *customer AWS account* is the AWS account that you use to create the subscription request in the AWS Marketplace. After your Firebolt account is created, Firebolt uses this AWS account to send your company invoices and collect payments through the AWS Marketplace. This account must be in good standing with AWS and error free, or you may encounter issues accessing Firebolt.
 
-Before you make changes to your customer AWS account&mdash;for example, linking your Firebolt account to a different customer AWS account&mdash;contact [Firebolt Customer Support](mailto:support@firebolt.io) 📧.
+Before you make changes to your customer AWS account&mdash;for example, linking your Firebolt account to a different customer AWS account&mdash;contact Firebolt Support through the Help menu support form. 
 
 If you have issues with your existing customer AWS account, contact [AWS Support](https://console.aws.amazon.com/support/).
 
