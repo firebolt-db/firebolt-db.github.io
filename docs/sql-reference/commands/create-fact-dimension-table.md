@@ -1,14 +1,14 @@
 ---
 layout: default
-title: CREATE FACT or DIMENSION TABLE
-description: Reference and syntax for the CREATE FACT TABLE and CREATE DIMENSION TABLE commands.
+title: CREATE TABLE
+description: Reference and syntax for the CREATE TABLE statement.
 parent: SQL commands
 ---
 
-# CREATE FACT or DIMENSION TABLE
+# CREATE TABLE
 {: .no_toc}
 
-Creates a new fact or Dimension table in the current database.
+Creates a new table in the current database.
 
 Firebolt supports create table as select (CTAS). For more information, see [CREATE TABLE AS SELECT(CTAS)](create-fact-dimension-table-as-select.md).
 
@@ -16,30 +16,17 @@ Firebolt supports create table as select (CTAS). For more information, see [CREA
 {:toc}
 
 
-## Syntax&ndash;fact table
+## Syntax
 
 ```sql
-CREATE FACT TABLE [IF NOT EXISTS] <table_name>
+CREATE [FACT|DIMENSION] TABLE [IF NOT EXISTS] <table_name>
 (
     <column_name> <column_type> [constraints]
-    [, <column_name2> <column_type2> [constraints]
+    [, <column_name> <column_type> [constraints]
     [, ...n]]
 )
-PRIMARY INDEX <column_name>[, <column_name>[, ...n]]
-[PARTITION BY <column_name>[, <column_name>[, ...n]]]
-```
-
-## Syntax&ndash;dimension table
-
-```sql
-CREATE DIMENSION TABLE [IF NOT EXISTS] <table_name>
-(
-    <column_name> <column_type> [constraints]
-    [, <column_name2> <column_type2> [constraints]
-    [, ...n]]
-)
-[PRIMARY INDEX <column_name>[, <column_name>[, ...n]]]
-[PARTITION BY <column_name>[, <column_name>[, ...n]]]
+[PRIMARY INDEX <column_name>[, <column_name>[, ...k]]]
+[PARTITION BY <column_name>[, <column_name>[, ...m]]]
 ```
 
 | Parameter                                       | Description                                                                                            |
@@ -53,6 +40,7 @@ All identifiers are case insensitive unless double-quotes are used. For more inf
 * [Column constraints & default expression](#column-constraints--default-expression)
 * [PRIMARY INDEX specifier](#primary-index)
 * [PARTITION BY specifier](#partition-by)
+* [Table type](#table-type)
 
 ## Column constraints & default expression
 
@@ -133,3 +121,11 @@ PARTITION BY <column_name>[, <column_name>[, ...n]]
 ```
 
 For more information, see [Working with partitions](../../working-with-partitions.md).
+
+### Table type
+
+Firebolt supports two types of tables:
+    
+* `FACT` table - the data is distributed across all nodes of the engine.
+* `DIMENSION` table - entire table is replicated in every node of the engine. `DIMENSION` tables are useful, when the table is relatively small (up to tens of gigabytes), and used in joins with `FACT` tables.
+    
