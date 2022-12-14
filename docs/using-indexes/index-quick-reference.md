@@ -26,7 +26,7 @@ For more information and examples, see [Using primary indexes](using-primary-ind
 
 * Accelerate queries with aggregate functions&mdash;used by query analyzer instead of scanning table to calculate results, like a materialized view but integrated with F3 format.
 * Defined by you on fact tables with `CREATE AGGREGATING INDEX`, as many as you want. Built with columns first, like a primary index for pruning, followed by aggregations exactly as they are used in analytics queries.
-* Best created on an empty fact table, before first `INSERT`. You can use `CREATE AND GENERATE` on populated fact table (memory-intensive).
+* Best created on an empty fact table, before first `INSERT`. You can use `CREATE` on populated fact table (memory-intensive).
 * To be used at query runtime, all columns, measures (and aggregations), and join key columns in the query aggregations must in your index definition.
 
 For more information and examples, see [Using aggregating indexes](using-aggregating-indexes.md).
