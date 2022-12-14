@@ -111,8 +111,16 @@ product
 
 Below are some known limitations of the `UPDATE` command in the alpha release. 
 
-* `UPDATE` cannot be used on tables that have aggregating or join indexes.
-
-  In the alpha phase, `UPDATE` can’t be used on tables that have an aggregating or join index defined. An attempt to issue a `UPDATE` statement on a table with an aggregating or join index defined fails. In order for `UPDATE`s to succeed, table level aggregating or join indexes need to be dropped.
-
 * Only one `UPDATE` will be executed against a table at once.
+
+* `UPDATE` cannot be used on tables that have certain aggregating indexes, or join indexes. It can be used on tables that have aggregating indexes containing the following aggregating functions, starting in **DB version 3.16.0:**
+  * [COUNT and COUNT(DISTINCT)](../sql-reference/functions-reference/count.md)
+  * [SUM](../sql-reference/functions-reference/sum.md)
+  * [AVG](../sql-reference/functions-reference/avg.md)
+  * [PERCENTILE_CONT](../sql-reference/functions-reference/percentile-cont.md)
+  * [PERCENTILE_DIST](../sql-reference/functions-reference/percentile-dist.md)
+  * [NEST/ARRAY_AGG]((../sql-reference/functions-reference/nest.md))
+
+* `UPDATE` cannot be used on tables that have aggregating indexes containing other aggregating functions than the ones listed above. An attempt to issue a `UPDATE` statement on a table with a join index or aggregating index outside of the above defined fails. In order for `UPDATE` to succeed, table level aggregating or join indexes need to be dropped.
+
+* `DISTINCT` only works with `COUNT` – i.e. `COUNT(DISTINCT)`, but not `SUM(DISTINCT)` currently.
