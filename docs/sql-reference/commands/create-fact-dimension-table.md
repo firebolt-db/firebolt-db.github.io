@@ -127,7 +127,5 @@ For more information, see [Working with partitions](../../working-with-partition
 Firebolt supports two types of tables:
     
 * `FACT` table - the data is distributed across all nodes of the engine.
-* `DIMENSION` table - entire table is replicated in every node of the engine.
-    
-The default is `FACT` table. `DIMENSION` tables are useful, when the table is relatively small (up to tens of gigabytes), and used in joins with `FACT` tables.
+* `DIMENSION` table - entire table is replicated in every node of the engine. `DIMENSION` tables are useful, when the table is relatively small (up to tens of gigabytes), and used in joins with `FACT` tables.
     
