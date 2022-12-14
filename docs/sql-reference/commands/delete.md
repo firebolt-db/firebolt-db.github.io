@@ -123,7 +123,7 @@ Below are some known limitations of the `DELETE` command in the alpha release.
   * [AVG](../sql-reference/functions-reference/avg.md)
   In **DB version 3.15.0**
   * [PERCENTILE_CONT](../sql-reference/functions-reference/percentile-cont.md)
-  * [PERCENTILE_DIST](../sql-reference/functions-reference/percentile-dist.md)
+  * [PERCENTILE_DISC](../sql-reference/functions-reference/percentile-disc.md)
   * [NEST/ARRAY_AGG]((../sql-reference/functions-reference/nest.md))
 
 * `DELETE` cannot be used on tables that have aggregating indexes containing other aggregating functions than the ones listed above. An attempt to issue a `DELETE` statement on a table with a join index or aggregating index outside of the above defined fails. In order for `DELETE` to succeed, table level aggregating or join indexes need to be dropped.
