@@ -8,7 +8,7 @@ parent: General reference
 
 # Available AWS Regions
 
-Firebolt is available in the AWS Regions listed below. To request additional regions, contact [Firebolt Support](mailto:support@firebolt.io) 📧.
+Firebolt is available in the AWS Regions listed below. To request additional regions, contact Firebolt Support through the Help menu support form. 
 
 | Region name          | Region ID      |
 | :------------------- | :----------- --|
