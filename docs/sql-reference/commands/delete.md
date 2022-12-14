@@ -116,9 +116,19 @@ product
 
 Below are some known limitations of the `DELETE` command in the alpha release. 
 
-* `DELETE` cannot be used on tables that have aggregating or join indexes.
+* `DELETE` cannot be used on tables that have certain aggregating indexes, or join indexes. It can be used on tables that have aggregating indexes containing the following aggregating functions:
+  In **DB version 3.14.0**
+  * [COUNT and COUNT(DISTINCT)](../sql-reference/functions-reference/count.md)
+  * [SUM](../sql-reference/functions-reference/sum.md)
+  * [AVG](../sql-reference/functions-reference/avg.md)
+  In **DB version 3.15.0**
+  * [PERCENTILE_CONT](../sql-reference/functions-reference/percentile-cont.md)
+  * [PERCENTILE_DIST](../sql-reference/functions-reference/percentile-dist.md)
+  * [NEST/ARRAY_AGG]((../sql-reference/functions-reference/nest.md))
 
-  In the alpha phase, `DELETE` can’t be used on tables that have an aggregating or join index defined. An attempt to issue a `DELETE` statement on a table with an aggregating or join index defined fails. In order for `DELETE`s to succeed, table level aggregating or join indexes need to be dropped.
+* `DELETE` cannot be used on tables that have aggregating indexes containing other aggregating functions than the ones listed above. An attempt to issue a `DELETE` statement on a table with a join index or aggregating index outside of the above defined fails. In order for `DELETE` to succeed, table level aggregating or join indexes need to be dropped.
+
+* `DISTINCT` only works with `COUNT` – i.e. `COUNT(DISTINCT)`, but not `SUM(DISTINCT)` currently.
 
 * Rows marked for deletion are not able to be cleaned up.
     * `DELETE` command marks rows for deletion for performance and cost reasons.
