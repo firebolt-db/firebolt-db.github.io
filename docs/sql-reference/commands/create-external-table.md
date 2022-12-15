@@ -214,7 +214,7 @@ With `TYPE = (CSV ALLOW_UNKNOWN_FIELDS = TRUE)` the number of delimited columns 
 With `TYPE = (CSV ESCAPE_CHARACTER = '<character>'` you can define which character is used to escape, to change interpretations from the original. By default, the `ESCAPE_CHARACTER` value is set to `\`. If, for example, you want to use `"` as a value and not as delimiter for string, you can escape like `\"`, with the default escape character.
 
 * `[FIELD_DELIMITER = '<field_delimeter>']`  
-With `TYPE = (CSV FIELD_CHARACTER = '<field_delimeter>')`, you can define a custom field delimiter to separate fields for ingest. By default, the `FIELD_DELIMITER` is set as `,`.
+With `TYPE = (CSV FIELD_DELIMITER = '<field_delimeter>')`, you can define a custom field delimiter to separate fields for ingest. By default, the `FIELD_DELIMITER` is set as `,`.
 
 * `[NEW_LINE_CHARACTER = '<new_line_character>']`  
 With `TYPE = (CSV NEW_LINE_CHARACTER = '<new_line_character>')`, you can define a custom new line delimiter to separate entries for ingest. By default, the `NEW_LINE_CHARACTER` is set as the end of line character `\n`, but also supports other end of line conventions, such as `\r\n`, `\n\r`, and `\r`, as well as multi-character delimiters, such as `#*~`.
