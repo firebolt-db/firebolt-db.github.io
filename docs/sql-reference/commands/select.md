@@ -17,17 +17,60 @@ Firebolt supports running `SELECT` statements with the syntax described in this 
 
 ```sql
 [ WITH <with_query> [, ...n] ]
-SELECT [ DISTINCT ] {<select_expr> [, ...]}
+SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
     [ FROM <from_item> [, ...] ]
     [ WHERE <condition> ]
     [ GROUP BY <grouping_element> [, ...] ]
     [ HAVING <condition> [, ...] ]
-    [ UNION <select_expr> [ ...n]
+    [ UNION [ ALL ] <select_expr> [ ...n]
     [ ORDER BY <expression> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
     [ LIMIT <count> ]
     [ OFFSET <start> ]
 ```
 
+
+## SELECT
+
+```sql
+SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
+```
+
+The SELECT list defines the columns that it returns. Each `<select_expr>` in the SELECT list can be either expression, or wildcards.
+
+### SELECT expression
+
+```sql
+<expression> [ AS <alias> ]
+```
+
+Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
+The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return single element.
+
+#### Example
+
+```sql
+SELECT price, quantity, price * quantity AS sales_amount FROM Sales
+```
+
+### SELECT wildcard
+
+```sql
+[ <table_name>. ] * [ EXCLUDE { <column_name> | ( <column_name>, ... ) } ]
+```
+
+Widlcards are expanded to multiple output columns using the following rules:
+
+* `*` is expanded to all columns in the `FROM` clause
+* `<table_name>.*` is expanded to all columns in the `FROM` clause for the table named `<table_name>`
+* `EXCLUDE` defines columns which are removed from the above-expansion
+
+### SELECT DISTINCT
+
+`SELECT DISTINCT` statement removes duplicate rows.
+
+### SELECT ALL
+
+`SELECT ALL` statement returns all rows. `SELECT ALL` is the default behavior.
 
 
 ## WITH
@@ -36,11 +79,7 @@ The `WITH` clause is used for subquery refactoring so that you can specify subqu
 
 In order to reference the data from the `WITH` clause, a name must be specified for it. This name is then treated as a temporary relation table during query execution.
 
-Each subquery can comprise a `SELECT`, `TABLE`, `VALUES`, `INSERT`, `UPDATE`, or `DELETE `statement. The `WITH `clause is the only clause that precedes the main query.
-
 The primary query and the queries included in the `WITH` clause are all executed at the same time; `WITH` queries are evaluated only once every time the main query is executed, even if the clause is referred to by the main query more than once.
-
-When using the `WITH `clause as part of a DML command, it must include a `RETURNING` clause as well, without which the main query cannot reference the WITH clause.
 
 ### Materialized common table expressions (Beta)
 {: .no_toc}
