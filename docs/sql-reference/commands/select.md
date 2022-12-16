@@ -32,7 +32,7 @@ SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
 ## SELECT
 
 ```sql
-SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
+SELECT [ DISTINCT ] {<select_expr> [, ...]}
 ```
 
 The SELECT list defines the columns that it returns. Each `<select_expr>` in the SELECT list can be either expression, or wildcards.
@@ -55,22 +55,17 @@ SELECT price, quantity, price * quantity AS sales_amount FROM Sales
 ### SELECT wildcard
 
 ```sql
-[ <table_name>. ] * [ EXCLUDE { <column_name> | ( <column_name>, ... ) } ]
+[ <table_name>. ] *
 ```
 
 Widlcards are expanded to multiple output columns using the following rules:
 
 * `*` is expanded to all columns in the `FROM` clause
 * `<table_name>.*` is expanded to all columns in the `FROM` clause for the table named `<table_name>`
-* `EXCLUDE` defines columns which are removed from the above-expansion
 
 ### SELECT DISTINCT
 
 `SELECT DISTINCT` statement removes duplicate rows.
-
-### SELECT ALL
-
-`SELECT ALL` statement returns all rows. `SELECT ALL` is the default behavior.
 
 
 ## WITH
