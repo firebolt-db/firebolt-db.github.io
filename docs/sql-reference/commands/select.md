@@ -37,36 +37,41 @@ SELECT [ DISTINCT ] {<select_expr> [, ...]}
 
 The SELECT list defines the columns that it returns. Each `<select_expr>` in the SELECT list can be either expression, or wildcards.
 
-### SELECT expression
+Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
+The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return a single element.
+
+### Syntax
+{: .no_toc}
 
 ```sql
-<expression> [ AS <alias> ]
+SELECT <select_expr> [ AS <alias> ]
 ```
 
-Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
-The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return single element.
-
-#### Example
+### Example
+{: .no_toc}
 
 ```sql
 SELECT price, quantity, price * quantity AS sales_amount FROM Sales
 ```
 
 ### SELECT wildcard
+{: .no_toc}
 
-```sql
-[ <table_name>. ] *
-```
-
-Widlcards are expanded to multiple output columns using the following rules:
+Wildcards are expanded to multiple output columns using the following rules:
 
 * `*` is expanded to all columns in the `FROM` clause
 * `<table_name>.*` is expanded to all columns in the `FROM` clause for the table named `<table_name>`
 
+### Syntax
+{: .no_toc}
+```sql
+SELECT [ <table_name>. ] *
+```
+
 ### SELECT DISTINCT
+{: .no_toc}
 
 `SELECT DISTINCT` statement removes duplicate rows.
-
 
 ## WITH
 
