@@ -111,7 +111,7 @@ Conversely, on the dimension table side, there is no benefit to including the jo
 
 In most cases, partitioning isn’t necessary because of the efficiency of primary indexes (and aggregating indexes). If you use partitions, the partition column is the first stage of sorting. Firebolt divides the table data into file segments according to the `PARTITION BY` definition. Then, within each of those segments, Firebolt applies the primary index to prune and sort the data into even smaller data ranges as described above.
 
-For more information, see [Using partitions](../working-with-partitions.html).
+For more information, see [Working with partitions](../working-with-partitions.html).
 
 ## Primary index examples
 
