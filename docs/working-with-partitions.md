@@ -11,7 +11,7 @@ nav_order: 9
 * Topic ToC
 {: toc}
 
-Partitions are smaller physical parts of large fact and dimension tables. When used with fact tables, partitions provide the first layer of sorting when you ingest data. Data is sorted in storage by partition first, and then pruned and sorted by the primary index definition next. When new data is ingested into a fact table, Firebolt saves rows automatically in the appropriate partition.
+Partitions are smaller physical parts of large fact and dimension tables. Partitions provide the first layer of sorting when you ingest data. Data is sorted in storage by partition first, and then pruned and sorted by the primary index definition next. When new data is ingested into a table, Firebolt saves rows automatically in the appropriate partition.
 
 ## When to use partitions
 
