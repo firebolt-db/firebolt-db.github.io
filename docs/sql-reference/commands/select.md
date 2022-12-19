@@ -682,3 +682,19 @@ LIMIT <count>
 | Component | Description                                          | Valid values and syntax |
 | :--------- | :---------------------------------------------------- | :----------------------- |
 | `<count>` | Indicates the number of rows that should be returned | An integer              |
+
+
+## OFFSET
+
+The `OFFSET` clause specifies a non-negative number of rows that are skipped before returning results from the query. 
+
+### Syntax
+{: .no_toc}
+
+```sql
+OFFSET <start>
+```
+
+| Component | Description                                          | Valid values and syntax |
+| :--------- | :---------------------------------------------------- | :----------------------- |
+| `<start>` | Indicates the number of rows that should be skipped | An integer              |
