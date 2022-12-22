@@ -36,7 +36,7 @@ curl --request POST 'https://api.app.firebolt.io/auth/v1/login' \
 
 **Response**
 
-```javascript
+```json
 {  
   "access_token": "YOUR_ACCESS_TOKEN_VALUE",  
   "expires_in": 43200,  
@@ -60,7 +60,7 @@ curl --request POST 'https://api.app.firebolt.io/auth/v1/refresh' \
 
 **Response**
 
-```javascript
+```json
 {
     "access_token": "YOUR_REFRESHED_ACCESS_TOKEN_VALUE",
     "scope": "offline_access",
@@ -86,9 +86,9 @@ curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines:getIdByN
 
 **Response**
 
-```bash
+```json
 {
-    "engine_id" {
+    "engine_id": {
         "account_id": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "engine_id": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
@@ -108,7 +108,7 @@ curl --request POST 'https://api.app.firebolt.io/core/v1/account/engines/ENGINE_
 
 **Response**
 
-```javascript
+```json
 {
     "engine": {
         "id": {
@@ -164,7 +164,7 @@ curl --request POST 'https://api.app.firebolt.io/core/v1/account/engines/ENGINE_
 
 **Response**
 
-```javascript
+```json
 {
     "engine": {
         "id": {
@@ -220,7 +220,7 @@ curl --request POST 'https://api.app.firebolt.io/core/v1/account/engines/ENGINE_
 
 **Response**
 
-```javascript
+```json
 {
     "engine": {
         "id": {
@@ -280,7 +280,7 @@ curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines:getURLBy
 
 This returns:
 
-```javascript
+```json
 {"engine_url": "YOUR_DATABASES_DEFAULT_ENGINE_URL"}
 ```
 
@@ -295,7 +295,7 @@ curl --request GET 'https://api.app.firebolt.io/core/v1/account/engines?filter.n
 
 This returns (`...` indicates areas of JSON omitted from this example):
 
-```javascript
+```json
 {
   "page": {
     ...
