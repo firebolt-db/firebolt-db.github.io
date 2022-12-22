@@ -60,6 +60,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [ANY_VALUE](any_value.md)  
 
+* [APPROX_COUNT_DISTINCT](approx-count-distinct.md)  
+
 * [APPROX_PERCENTILE](approx-percentile.md)  
 
 * [AVG](avg.md)
@@ -67,6 +69,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 * [CHECKSUM](checksum.md)  
 
 * [COUNT](count.md)  
+
+* [HLL_COUNT_DISTINCT](hll-count-distinct.md)  
 
 * [MAX](max.md)  
 
