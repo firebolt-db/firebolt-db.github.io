@@ -27,6 +27,4 @@ The returned table has the following columns.
 | scale                       | INT         | The number of nodes in the engine. |
 | status                      | STRING      | The engine status. For more information, see [Viewing and understanding engine status](../../working-with-engines/understanding-engine-fundamentals.md#viewing-and-understanding-engine-status). |
 | attached_to                 | STRING      | The name of the database to which the engine is attached. |
-| type                        | STRING      | One of `ANALYTICS` or `GENERAL PURPOSE`. |
-| auto_stop                   | INT         | The auto-stop interval in minutes, which is the amount of inactive time after which the engine will automatically stop. |
-| warmup_policy               | STRING      | One of `MINIMAL`, `PRELOAD_INDEXES`, or `PRELOAD_ALL_DATA`. For more information about warmup methods, see [Warmup method](../../working-with-engines/understanding-engine-fundamentals.md#warmup-method). |
+| version                     | STRING      | The engine version. |
