@@ -72,3 +72,26 @@ FROM
 ```
 
 **Returns**: `5`
+
+To understand the difference between `COUNT(DISTINCT pk)` with exact precision enabled and using default approximation, consider a table, `count_test` with 8,388,608 unique `pk` values. The `APPROX_COUNT_DISTINCT` function returns the same approximate results as the `COUNT(DISTINCT)` function with exact precision disabled, so we can see the difference between these methods with the following example. 
+
+```sql
+SELECT
+	COUNT(DISTINCT pk) as count_distinct,
+	APPROX_COUNT_DISTINCT(pk) as approx_count
+FROM
+	count_test;
+```
+
+**Returns**: 
+
+Assuming 8,388,608 unique pk values, we will see results like: 
+
+
+```sql
+' +----------------+--------------+
+' | count_distinct | approx_count |
+' +----------------+--------------+
+' |      8,388,608 |    8,427,387 |
+' +----------------+--------------+
+```
