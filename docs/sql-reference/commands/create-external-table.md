@@ -235,8 +235,10 @@ With `TYPE = (JSON PARSE_AS_TEXT = 'TRUE')`, Firebolt ingests each JSON object l
 #### Other Types
 * `TYPE = (ORC)`
 * `TYPE = (PARQUET)`
-* `TYPE = (TSV)`
 * `TYPE = (AVRO)`
+* `TYPE = (TSV)`
+
+All type options for CSV above, except for `FIELD_DELIMITER`, are also supported for the TSV file type.
 
 #### Example
 {: .no_toc}
