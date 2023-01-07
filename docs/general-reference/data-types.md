@@ -117,7 +117,7 @@ Synonyms: `BOOL`
 ## Composite
 
 ### ARRAY
-Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array with arrays).
+Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array of arrays).
 
 #### Example
 
