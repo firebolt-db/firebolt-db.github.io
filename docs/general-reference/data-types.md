@@ -121,7 +121,8 @@ Represents an array of values. All elements of the array must have same data typ
 
 #### Example
 
-The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities
+The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities.
+
 ```sql
 CREATE DIMENSION TABLE demo (
   a_t ARRAY(TEXT NULL) NULL,
@@ -131,7 +132,8 @@ CREATE DIMENSION TABLE demo (
   a_a ARRAY(ARRAY(INT NULL) NULL) NULL
 );
 ```
-And the following `INSERT INTO` statement demonstrates examples of values for these arrays:
+
+The following `INSERT INTO` statement demonstrates examples of values for these arrays.
 
 ```sql
 INSERT INTO demo VALUES
