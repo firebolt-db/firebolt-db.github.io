@@ -28,4 +28,4 @@ SELECT
 	ARRAY_DISTINCT([ 1, 1, 2, 2, 3, 4 ]) AS res;
 ```
 
-**Returns**: `1,2,3,4`
+**Returns**: `[1,2,3,4]`
