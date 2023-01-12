@@ -30,4 +30,4 @@ SELECT
 	SLICE([ 1, 2, NULL, 4, 5 ], 2, 3) AS res;
 ```
 
-**Returns**: `2, null, 4`
+**Returns**: `[2, null, 4]`

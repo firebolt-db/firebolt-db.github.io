@@ -28,4 +28,4 @@ SELECT
 	ARRAY_REVERSE([ 1, 2, 3, 6 ]) AS res;
 ```
 
-**Returns**: `6,3,2,1`
+**Returns**: `[6,3,2,1]`
