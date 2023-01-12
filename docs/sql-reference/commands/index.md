@@ -79,7 +79,7 @@ Use the functional list below to find commands for a specific task area that you
 * [SHOW INDEXES](show-indexes.md)
 * [COPY TO](copy-to.md)
 
-## Information schema
+## Metadata
 
 * [DESCRIBE](describe.md)
 * [SHOW CACHE](show-cache.md)
