@@ -6,7 +6,7 @@ nav_exclude: true
 search_exclude: false
 ---
 
-# DECIMAL data type (Beta)
+# DECIMAL data type
 {:.no_toc}
 
 This topic describes the Firebolt implementation of the `DECIMAL` data type.
@@ -74,7 +74,7 @@ If the scale of a value to be stored is greater than the declared scale of the c
   AVG(DECIMAL(P1, S1)) = AVG(DECIMAL(38, max(6, S1)))
   ```
  
-### Supported functions (Beta release)
+### Supported functions
 
 **Operators:**
 
