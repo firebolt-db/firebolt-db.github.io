@@ -212,9 +212,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [TO_QUARTER](to-quarter.md)  
 
-* [TO_SECOND](to-second.md)  
-
-* [TO_STRING](to-string.md)  
+* [TO_SECOND](to-second.md)   
 
 * [TO_WEEK](to-week.md)  
 
@@ -433,8 +431,6 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 * [TO_FLOAT](to-float.md)  
 
 * [TO_INT](to-int.md)  
-
-* [TO_LONG](to-long.md)  
 
 * [TO_TIMESTAMP](to-timestamp.md)  
 
