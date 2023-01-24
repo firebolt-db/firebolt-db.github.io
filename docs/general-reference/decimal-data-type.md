@@ -108,7 +108,5 @@ If the scale of a value to be stored is greater than the declared scale of the c
 * [TO\_DOUBLE](../sql-reference/functions-reference/to-double.md) 
 * [TO\_FLOAT](../sql-reference/functions-reference/to-float.md) 
 * [TO\_INT](../sql-reference/functions-reference/to-int.md)
-* [TO\_LONG](../sql-reference/functions-reference/to-long.md)
-* [TO\_STRING](../sql-reference/functions-reference/to-string.md)
 * [TRY\_CAST](../sql-reference/functions-reference/try-cast.md)
 * [ZEROIFNULL](../sql-reference/functions-reference/zeroifnull.md)
