@@ -16,7 +16,7 @@ This section covers querying and manipulating arrays in Firebolt.
 
 ## Declaring ARRAY data types in table definitions
 
-Array types are declared using `ARRAY(<type>)` where `<type>` can be any data type that Firebolt supports. This includes the `ARRAY` data type, so arrays can be arbitrarily nested. The innermost type (the scalar) can be nullable, but `ARRAY`-typed columns cannot be nullable.
+Array types are declared using `ARRAY(<type>)` where `<type>` can be any data type that Firebolt supports. This includes the `ARRAY` data type, so arrays can be arbitrarily nested.
 
 Array literals are also supported. For example, the `SELECT` statement shown below is valid.
 
