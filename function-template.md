@@ -18,7 +18,7 @@ Function description
 
 <Syntax>
 
-## Arguments
+## Parameters
 {: .no_toc}
 
 | Parameter | Description                         | Supported input types |
