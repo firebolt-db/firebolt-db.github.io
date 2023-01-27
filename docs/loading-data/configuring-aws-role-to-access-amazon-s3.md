@@ -86,9 +86,6 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Roles**, and then choose **Create role**.
-
-   ![](../assets/images/create_role.png)
-
 3. Select **Another AWS account** as the trusted entity type.
 4. In the **Account ID** field, enter your Firebolt **AWS Account ID**. Users with Account Admin privileges can view this value in the [Account & Billing window](https://app.firebolt.io/account-info).
 5. If you select **Require external ID**, enter a value of your choosing and make a note of it.
@@ -107,8 +104,6 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 3. Begin typing the name of the role that you created in [Step 2: Create the IAM role](#create-the-iam-role), and then select it from the list.
 4. In the summary section, locate the **Maximum session duration** field. Click **Edit**
 5. Choose _12 hours_ from the list, and then click **Save changes.**
-
-![](../assets/images/set_max_session_duration.png)
 
 ## Specify the IAM role in the external table definition
 Specify the role ARN in the [CREDENTIALS](../sql-reference/commands/create-external-table.md#syntaxauthenticating-using-an-iam-role) of the `CREATE EXTERNAL TABLE` statement. If you specified an external ID, make sure to specify it in addition to the role ARN. When you use an INSERT INTO statement to ingest data from your source to a fact or dimension table, Firebolt assumes the IAM role for permissions to read from the location specified in the external table definition.
