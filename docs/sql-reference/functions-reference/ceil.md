@@ -17,9 +17,9 @@ CEIL(<val>);
 CEILING(<val>);
 ```
 
-| Parameter | Description                                                                                                                               | Supported input types                       |
-| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------------|
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | `FLOAT`, `DOUBLE`, `DECIMAL`, `INT`, `LONG` |
+| Parameter | Description                                                                                                                               | Supported input types                                                          |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------|
+| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | Any of the [numeric data types](../../general-reference/data-types.md#numeric) |
 
 ## Return Types
 
