@@ -7,7 +7,7 @@ parent: SQL functions
 
 # CEIL, CEILING
 
-Returns the smallest integral value that is not less than `<val>`.
+Returns the smallest integer value that is greater than or equal to `<val>`.
 
 ## Syntax
 {: .no_toc}
@@ -29,6 +29,18 @@ Same as the input datatype (`<val>`).
 {: .no_toc}
 
 This function can throw overflow error in case of `DECIMAL` as input.
+
+**eg**:
+```sql
+SELECT
+    CEIL('99.99'::DECIMAL(4,2));
+```
+
+**Returns**: OVERFLOW ERROR
+
+**Explain**: ceil will produce the value 100,
+but it can not fit into decimal with only 2 whole digits.
+
 
 ## Examples
 {: .no_toc}
