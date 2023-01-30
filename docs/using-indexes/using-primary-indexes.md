@@ -43,10 +43,6 @@ After you create a table, you can’t modify the primary index. To change the in
 
 The columns that you choose for the primary index and the order in which you specify them are important. Use the following recommendations to guide your choices. To see these guidelines in action, see [Primary index examples](#primary-index-examples).
 
-### Use columns without NULLs
-
-Columns that you specify in a primary index must not contain `NULL`. Consider defining columns that you use in a primary index with the `NOT NULL` constraint as a preventive measure. Columns in Firebolt are `NOT NULL` by default.
-
 ### Include columns used in WHERE clauses
 
 Include all columns that are used in query `WHERE` clauses to filter query results.
