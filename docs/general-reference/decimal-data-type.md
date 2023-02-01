@@ -99,7 +99,6 @@ If the scale of a value to be stored is greater than the declared scale of the c
 * [IFNULL](../sql-reference/functions-reference/ifnull.md) 
 * [MAX](../sql-reference/functions-reference/max.md) 
 * [MAX\_BY](../sql-reference/functions-reference/max-by.md) 
-* [MEDIAN](../sql-reference/functions-reference/median.md) 
 * [MIN](../sql-reference/functions-reference/min.md) 
 * [MIN\_BY](../sql-reference/functions-reference/min-by.md) 
 * [NULLIF](../sql-reference/functions-reference/nullif.md)
@@ -108,5 +107,3 @@ If the scale of a value to be stored is greater than the declared scale of the c
 * [TO\_DOUBLE](../sql-reference/functions-reference/to-double.md) 
 * [TO\_FLOAT](../sql-reference/functions-reference/to-float.md) 
 * [TO\_INT](../sql-reference/functions-reference/to-int.md)
-* [TRY\_CAST](../sql-reference/functions-reference/try-cast.md)
-* [ZEROIFNULL](../sql-reference/functions-reference/zeroifnull.md)
