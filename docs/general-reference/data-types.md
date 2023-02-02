@@ -44,8 +44,37 @@ Synonyms: `STRING`, `VARCHAR`
 
 ## Date and time
 
-### DATE
-A year, month and day in the format *YYYY-MM-DD*. The minimum `DATE` value is `1970-01-01`. The maximum `DATE` value is `2105-12-31`. It does not specify a time zone.
+Firebolt supports five date- and time-related data types:
+
+| Name                 | Size    | Minimum                          | Maximum                          | Resolution    |
+| :------------------- | :------ | :------------------------------- | :------------------------------- | :------------ |
+| `PGDATE`             | 4 bytes | `0001-01-01`                     | `9999-12-31`                     | 1 day         |
+| `TIMESTAMPNTZ`       | 8 bytes | `0001-01-01 00:00:00.000000`     | `9999-12-31 23:59:59.999999`     | 1 microsecond |
+| `TIMESTAMPTZ`        | 8 bytes | `0001-01-01 00:00:00.000000 UTC` | `9999-12-31 23:59:59.999999 UTC` | 1 microsecond |
+| `DATE` (legacy)      | 2 bytes | `1970-01-01`                     | `2105-12-31`                     | 1 day         |
+| `TIMESTAMP` (legacy) | 4 bytes | `1970-01-01 00:00:00`            | `2105-12-31 23:59.59`            | 1 second      |
+
+Dates are counted according to the [proleptic Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).
+Each year consists of 365 days, with leap days added to February in leap years.
+
+### PGDATE
+
+A year, month, and day calendar date independent of a time zone. For more information, see [PGDATE data type](date-data-type.md).
+
+### TIMESTAMPNTZ
+
+A year, month, day, hour, minute, second, and microsecond timestamp independent of a time zone. For more information, see [TIMESTAMPNTZ data type](timestampntz-data-type.md).
+
+### TIMESTAMPTZ
+
+A year, month, day, hour, minute, second, and microsecond timestamp associated with a time zone. For more information, see [TIMESTAMPTZ data type](timestamptz-data-type.md).
+
+### DATE (legacy)
+
+A year, month and day in the format *YYYY-MM-DD*. `DATE` is independent of a time zone. 
+
+{: .caution}
+`DATE` (legacy) is planned for deprecation. Using the `PGDATE` type is recommended.
 
 Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.
 
@@ -54,11 +83,12 @@ Arithmetic operations can be executed on `DATE` values. The examples below show 
 Returns: `2019-08-04`
 
 `CAST(‘2019-07-31' AS DATE) - 4`
+
 Returns: `2019-07-27`
 
 #### Working with dates outside the allowed range
 {:.no_toc}
-Arithmetic, conditional, and comparative operations are not supported for date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned.  
+Arithmetic, conditional, and comparative operations are not supported for date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned. `PGDATE` data type has a much wider range, and we recommend using this type instead. 
 
 The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.  
 
@@ -100,9 +130,12 @@ FROM
 GROUP BY
   SUBSTR(date_as_text,6,2);
 ```
-### TIMESTAMP
+### TIMESTAMP (legacy)
 
 A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*.
+
+{: .caution}
+`TIMESTAMP` (legacy) is planned for deprecation. Using the `TIMESTAMPNTZ` type is recommended.
 
 The minimum `TIMESTAMP` value is `1970-01-01 00:00:00`. The maximum `TIMESTAMP` value is `2105-12-31 23:59.59`
 
