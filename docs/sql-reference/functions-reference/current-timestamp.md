@@ -13,7 +13,7 @@ Returns the current year, month, day and time as a `TIMESTAMP` value, formatted 
 {: .no_toc}
 
 ```sql
-CURRENT_TIMESTAMP()
+CURRENT_TIMESTAMP
 ```
 
 ## Example
@@ -21,7 +21,7 @@ CURRENT_TIMESTAMP()
 
 ```
 SELECT
-    CURRENT_TIMESTAMP();
+    CURRENT_TIMESTAMP;
 ```
 
 **Returns**: `2022-10-12 19:39:22`
