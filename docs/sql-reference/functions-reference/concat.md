@@ -13,7 +13,7 @@ Concatenates the strings listed in the arguments without a separator.
 {: .no_toc}
 
 ```sql
-CONCAT( <string>, <string2>[, ...n] );
+CONCAT( <string>[, ...n] );
 ```
 **&mdash;OR&mdash;**
 
