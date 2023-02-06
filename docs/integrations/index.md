@@ -2,7 +2,7 @@
 layout: default
 title: Integrations
 description: Learn about options for connecting data services and tools to Firebolt to build your data stack.
-nav_order: 3.1
+nav_order: 4.1
 has_children: true
 has_toc: false
 ---

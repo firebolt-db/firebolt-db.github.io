@@ -28,11 +28,10 @@ The `NUMERIC` data type is a synonym to the `DECIMAL` data type.
 
 ### Default values for precision and scale
 
-If both the precision and scale are not specified, then it defaults to
-`DECIMAL(38, 9)`
+If the scale is not specified when declaring a column of `DECIMAL` data type, then it defaults to `DECIMAL(precision, 0)`
 
-If only the scale is not specified when declaring a column of `DECIMAL(precision)` data type, then it defaults to `DECIMAL(precision, min(precision, 9))`
-
+If both the precision and scale are not specified, then it defaults to 
+`DECIMAL(38, 0)`
 
 ### Precision vs. scale
 
@@ -89,6 +88,7 @@ If the scale of a value to be stored is greater than the declared scale of the c
 * [ABS](../sql-reference/functions-reference/abs.md)
 * [ANY](../sql-reference/functions-reference/any.md)
 * [ANY\_VALUE](../sql-reference/functions-reference/any_value.md)
+* [ARRAY\_SORT](../sql-reference/functions-reference/array-sort.md)
 * [AVG](../sql-reference/functions-reference/avg.md)
 * [CHECKSUM](../sql-reference/functions-reference/checksum.md)
 * [COUNT](../sql-reference/functions-reference/count.md)
@@ -104,8 +104,10 @@ If the scale of a value to be stored is greater than the declared scale of the c
 * [MIN\_BY](../sql-reference/functions-reference/min-by.md) 
 * [NULLIF](../sql-reference/functions-reference/nullif.md)
 * [ROUND](../sql-reference/functions-reference/round.md)
-* [CEIL](../sql-reference/functions-reference/ceil.md)
 * [SUM](../sql-reference/functions-reference/sum.md)
 * [TO\_DOUBLE](../sql-reference/functions-reference/to-double.md) 
 * [TO\_FLOAT](../sql-reference/functions-reference/to-float.md) 
 * [TO\_INT](../sql-reference/functions-reference/to-int.md)
+* [TO\_LONG](../sql-reference/functions-reference/to-long.md)
+* [TO\_STRING](../sql-reference/functions-reference/to-string.md)
+* [TRY\_CAST](../sql-reference/functions-reference/try-cast.md)

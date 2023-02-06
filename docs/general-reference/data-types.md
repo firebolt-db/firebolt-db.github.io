@@ -117,38 +117,20 @@ Synonyms: `BOOL`
 ## Composite
 
 ### ARRAY
-Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array of arrays).
+Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array with arrays).
 
-#### Example
+A column whose type is `ARRAY` can't be nullable, but the elements of an `ARRAY` can be nullable.
 
-The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities.
+For example, the following is an illegal type definition:
 
-```sql
-CREATE DIMENSION TABLE demo (
-  a_t ARRAY(TEXT NULL) NULL,
-  a_i ARRAY(INT NULL) NOT NULL,
-  a_d ARRAY(DATE NOT NULL) NULL,
-  a_f ARRAY(FLOAT NOT NULL) NOT NULL,
-  a_a ARRAY(ARRAY(INT NULL) NULL) NULL
-);
-```
+`array_with_null ARRAY(INT) NULL`
 
-The following `INSERT INTO` statement demonstrates examples of values for these arrays.
+This, on the other hand, is a valid definition:
 
-```sql
-INSERT INTO demo VALUES
-  (
-    ['Hello', NULL, 'world'],
-    [1, 42, NULL],
-    [DATE '2000-01-01'],
-    [3.14, 2.71, 9.8],
-    [ [1, 2], [NULL], NULL]
-  ),
-  (
-    NULL,
-    [],
-    NULL,
-    [],
-    NULL
-  )
-```
+`nullElements ARRAY(INT NULL)`
+
+## Binary
+
+### BYTEA
+Represents variable size binary data. A binary string is a sequence of bytes - unlike TEXT, there is no character set. The `BYTEA` data type is nullable.
+For more information, see [BYTEA data type](bytea-data-type.md).
