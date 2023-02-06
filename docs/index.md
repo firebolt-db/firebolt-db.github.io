@@ -8,11 +8,11 @@ nav_order: 1
 has_toc: true
 
 feature_rows:
-  - title: "Schedule a call"
-    excerpt: "Get a Firebolt account"
-    url: "https:///www.firebolt.io/getting-started-now?utm_source=referral&utm_medium=docs&utm-campaign=docs-demo"
+  - title: "Release Notes"
+    excerpt: "See what's new"
+    url: "/release-notes/release-notes.html"
     img_path: "docs_shedule_call_illustration.svg" 
-    img_alt: "Schedule a call"
+    img_alt: "Release Notes"
   - title: "Getting started"
     excerpt: "Take a test drive"
     url: "/getting-started"

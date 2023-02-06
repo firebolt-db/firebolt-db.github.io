@@ -97,7 +97,7 @@ Once we've created the table, we can manipulate the values with different INSERT
 
 ### PRIMARY INDEX
 
-The `PRIMARY INDEX` is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance. A `PRIMARY INDEX` is required for `FACT` tables and optional for `DIMENSION` tables. For more information, see [Using primary indexes](../../using-indexes/using-primary-indexes.md).
+The `PRIMARY INDEX` is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance. A `PRIMARY INDEX` is  optional. For more information, see [Using primary indexes](../../using-indexes/using-primary-indexes.md).
 
 #### Syntax&ndash;primary index
 {: .no_toc}
@@ -127,5 +127,7 @@ For more information, see [Working with partitions](../../working-with-partition
 Firebolt supports two types of tables:
     
 * `FACT` table - the data is distributed across all nodes of the engine.
-* `DIMENSION` table - entire table is replicated in every node of the engine. `DIMENSION` tables are useful, when the table is relatively small (up to tens of gigabytes), and used in joins with `FACT` tables.
+* `DIMENSION` table - entire table is replicated in every node of the engine.
+
+The default is `FACT` table. `DIMENSION` tables are useful, when the table is relatively small (up to tens of gigabytes), and used in joins with `FACT` tables.
     

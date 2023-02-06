@@ -20,7 +20,7 @@ Firebolt supports running `SELECT` statements with the syntax described in this 
 SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
     [ FROM <from_item> [, ...] ]
     [ WHERE <condition> ]
-    [ GROUP BY <grouping_element> [, ...] ]
+    [ GROUP BY [ <grouping_element> [, ...] | ALL ] ]
     [ HAVING <condition> [, ...] ]
     [ UNION [ ALL ] <select_expr> [ ...n]
     [ ORDER BY <expression> [ ASC | DESC ] [ NULLS FIRST | NULLS LAST] [, ...] ]
@@ -32,46 +32,46 @@ SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
 ## SELECT
 
 ```sql
-SELECT [ DISTINCT ] {<select_expr> [, ...]}
+SELECT [ ALL | DISTINCT ] {<select_expr> [, ...]}
 ```
 
 The SELECT list defines the columns that it returns. Each `<select_expr>` in the SELECT list can be either expression, or wildcards.
 
-Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
-The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return a single element.
-
-### Syntax
-{: .no_toc}
+### SELECT expression
 
 ```sql
-SELECT <select_expr> [ AS <alias> ]
+<expression> [ AS <alias> ]
 ```
 
-### Example
-{: .no_toc}
+Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
+The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return single element.
+
+#### Example
 
 ```sql
 SELECT price, quantity, price * quantity AS sales_amount FROM Sales
 ```
 
 ### SELECT wildcard
-{: .no_toc}
 
-Wildcards are expanded to multiple output columns using the following rules:
+```sql
+[ <table_name>. ] * [ EXCLUDE { <column_name> | ( <column_name>, ... ) } ]
+```
+
+Widlcards are expanded to multiple output columns using the following rules:
 
 * `*` is expanded to all columns in the `FROM` clause
 * `<table_name>.*` is expanded to all columns in the `FROM` clause for the table named `<table_name>`
-
-### Syntax
-{: .no_toc}
-```sql
-SELECT [ <table_name>. ] *
-```
+* `EXCLUDE` defines columns which are removed from the above expansion
 
 ### SELECT DISTINCT
-{: .no_toc}
 
 `SELECT DISTINCT` statement removes duplicate rows.
+
+### SELECT ALL
+
+`SELECT ALL` statement returns all rows. `SELECT ALL` is the default behavior.
+
 
 ## WITH
 
@@ -552,18 +552,15 @@ WHERE
 
 ## GROUP BY
 
-The `GROUP BY` clause indicates by what column or columns the results of the query should be grouped. `GROUP BY` is usually used in conjunction with aggregations, such as `SUM`, `COUNT`, `MIN`, etc. Grouping elements can include column names, the position of columns as specified in the `SELECT` expression, or other expressions used in the query.
+The `GROUP BY` clause groups together input rows. Multiple input rows which have same values of expressions in the `GROUP BY` clause become a single row in the output. `GROUP BY` is typically used in conjunction with aggregate functions (such as `SUM`, `MIN`, etc). Query with `GROUP BY` clause and without aggregate functions is equivalent to `SELECT DISTINCT`. 
+
 
 ### Syntax
 {: .no_toc}
 
 ```sql
-GROUP BY <grouping_element> [, ...n]
+GROUP BY [ <grouping_element> [, ...n] | ALL ]
 ```
-
-| Component            | Description                                                                                                                                                                                                                                  |
-| :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<grouping_element>` | Indicates the condition by which the results should be grouped. <br><br> The number of `<grouping_elements>` must match the number of columns specified in the `SELECT` statement, not counting aggregations. |
 
 ### Example
 {: .no_toc}
@@ -573,21 +570,21 @@ In the following example, the results that are retrieved are grouped by the `pro
 ```sql
 SELECT
 	product_name,
-	product_id,
+	country,
 	sum(total_sales)
 FROM
 	purchases
 GROUP BY
 	product_name,
-	product_id
+	country
 ```
 
-You can get similar results by specifying the column positions.
+If the expression in `GROUP BY` clause is exactly the same as in the `SELECT` list, then its position can be used instead
 
 ```sql
 SELECT
 	product_name,
-	product_id,
+	country,
 	SUM(total_sales)
 FROM
 	purchases
@@ -596,21 +593,30 @@ GROUP BY
 	2
 ```
 
-Other expressions can also be used, such as a `CASE` statement:
+`GROUP BY` clause must include all expressions in the `SELECT` list which are not involving aggregate functions. It may include expressions which are not part of `SELECT` list.
+
+```sql
+SELECT SUM(total_sales) FROM purchases GROUP BY product_name
+```
+
+However, the following will cause an error, since `SELECT` list has an expression which is not an aggregate function and it is not listed in `GROUP BY` clause.
+
+```sql 
+SELECT product_name, country, SUM(total_sales) FROM purchases GROUP BY product_name
+```
+
+#### GROUP BY ALL
+
+For the common case of `GROUP BY` clause repeating all the non aggregate function expressions in the `SELECT` list, it is possible to use `GROUP BY ALL` syntax. It will automatically group by all non aggregate functions expressions from the `SELECT` list.
 
 ```sql
 SELECT
 	product_name,
-	SUM(price),
-	CASE
-		WHEN price > 500 THEN "High value"
-		WHEN price < 500 THEN "Low value"
-	END AS price_text
+	country,
+	SUM(total_sales)
 FROM
 	purchases
-GROUP BY
-	product_name,
-	price_text;
+GROUP BY ALL
 ```
 
 ## HAVING

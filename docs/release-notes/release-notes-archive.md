@@ -3,7 +3,6 @@ layout: default
 title: Release notes archive
 description: Release notes archive for the Firebolt data warehouse.
 parent: Release notes
-grand_parent: General reference
 nav_order: 1
 sitemap: false
 ---
@@ -16,7 +15,7 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
-## December 1, 2022
+## December 2022
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
