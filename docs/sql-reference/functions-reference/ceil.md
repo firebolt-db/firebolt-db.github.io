@@ -7,27 +7,54 @@ parent: SQL functions
 
 # CEIL, CEILING
 
-Returns the smallest number that is greater than or equal to a specified value `<val>`. The value is rounded to a decimal range defined by `<dec>`.
+Returns the smallest integer value that is greater than or equal to `<value>`.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-CEIL(<val>[, <dec>]);
-CEILING(<val>[, <dec>]);
+CEIL(<value>); 
+```
+OR 
+```sql
+CEILING(<value>);
 ```
 
-| Parameter | Description                                                                                                                               |
-| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       |
-| `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `CEIL `and `CEILING` return whole numbers.  |
+| Parameter | Description                                                                                                                               | Supported input types                                                          |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------|
+| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | Any of the [numeric data types](../../general-reference/data-types.md#numeric) |
 
-## Example
+## Return Types
+
+Same as the input datatype (`<value>`).
+
+## Remarks
+{: .no_toc}
+
+When the input is of type `DECIMAL`, this function throws an overflow error if the result does not fit into the return type.
+
+For example:
+```sql
+SELECT
+    CEIL('99.99'::DECIMAL(4,2));
+```
+
+returns: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `DECIMAL` type with only 2 whole digits.
+
+
+## Examples
 {: .no_toc}
 
 ```sql
 SELECT
-    CEIL(2.5549900, 3);
+    CEIL(2.5549900);
 ```
 
-**Returns**: `2.555`
+**Returns**: `3`
+
+```sql
+SELECT
+    CEIL('213.1549'::DECIMAL(20,4));
+```
+
+**Returns**: `214.0000`
