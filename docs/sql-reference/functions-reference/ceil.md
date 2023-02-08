@@ -54,7 +54,7 @@ SELECT
 
 ```sql
 SELECT
-    CEIL('213.1549'::decimal(20,4));
+    CEIL('213.1549'::DECIMAL(20,4));
 ```
 
 **Returns**: `214.0000`
