@@ -78,7 +78,7 @@ This determines the behavior of the engine on startup. You have three options:
 
 * **Minimal –** The engine loads only join indexes at startup. Other indexes and data are loaded from Firebolt when a query that uses them first runs. This results in faster engine start times, but slower first queries.
 * **Preload indexes –** Default. The engine loads primary indexes and join indexes at startup, before the first queries run. First queries are faster than they are with minimal warmup, but engines take longer to start.
-* **Preload all data** – The engine loads all indexes and data at startup, before the first queries run. This results in the fastest queries with the slowest engine start times. Only use this option if the size of the database \(as shown using the `SHOW DATABASES` SQL statement or in the Firebolt Manager\) will not exceed the total amount of SSD storage available on the engine.
+* **Preload all data** – The engine loads all indexes and data at startup, before the first queries run. This results in the fastest queries with the slowest engine start times. Only use this option if the size of the database \(as shown using the `SHOW TABLES` SQL statement or in the Firebolt Manager\) will not exceed the total amount of SSD storage available on the engine.
 
 ### Auto-stop duration
 
