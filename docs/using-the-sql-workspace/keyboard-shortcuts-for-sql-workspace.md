@@ -64,4 +64,6 @@ Firebolt supports the following keyboard shortcuts in the SQL workspace.
 | Close all but current script | Ctrl + Alt + o | ⌘ + Option + o |
 | Save script | Ctrl + Alt + s | ⌘ + Option + s |
 | Expand/collapse results | Ctrl + Alt + e | ⌘ + Option + e |
+| Go to line | Ctrl + l | ⌘ + l |
+| Cancel query | Ctrl + Alt + k | ⌘ + Option + k |
 
