@@ -68,7 +68,7 @@ SELECT 'a b\230a'::BYTEA; -> '\x6120629861'
 
 ### Output format
 
-The output format for BYTEA is the hexadecimal representation of the bytes in lower case prefixed by `\x` (Note: in JSON `\` is escaped).
+The output format for `BYTEA` is the hexadecimal representation of the bytes in lower case prefixed by `\x` (Note: in JSON `\` is escaped).
 
 **Example:**
 
@@ -84,4 +84,48 @@ SELECT 'a'::BYTEA;
         ["\\x61"]
     ]
 }
+```
+
+### Importing `BYTEA` from external source
+
+The input format is splited between file formats:
+
+**orc, parquet:** 
+specific field type without annotation (utf-8 for example): BYTE_ARRAY (binary) - will import the bytes exactly as they are in the source.
+all the other types will be imported to the corresponding datatype (byte array with utf-8 annotation will be imported to text datatype)
+and then will be cast as if they will be used by SQL function cast (example `cast('abcd' as bytea)`)
+
+**csv, tsv, json:**
+read the input exactly as it is then runs the SQL function cast (example `cast('abcd' as bytea)`)
+
+note: json files must be utf-8 encoded however csv/tsv files are not, in that case there are two options: 
+one is that the data starts with `\x` in that case it will throw error.
+second is that it is not starting with `\x` then it will just copy those bytes to the `BYTEA` column.
+
+**CSV File Example:**
+
+*file*
+```csv
+'row1'
+'a�a'
+'\xaabf'
+```
+*sql*
+```sql
+CREATE EXTERNAL TABLE e
+(
+    s1 bytea
+) URL = 's3://...'
+  OBJECT_PATTERN = '...'
+  TYPE = (CSV);
+
+select * from e;
+```
+**Returns:**
+```table
+| s1         |
+| ---------- |
+| \x726f7731 |   
+| \x61ff61   |   
+| \xaabf     |   
 ```
