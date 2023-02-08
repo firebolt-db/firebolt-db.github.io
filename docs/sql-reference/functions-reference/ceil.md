@@ -7,39 +7,39 @@ parent: SQL functions
 
 # CEIL, CEILING
 
-Returns the smallest integer value that is greater than or equal to `<val>`.
+Returns the smallest integer value that is greater than or equal to `<value>`.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-CEIL(<val>);
-CEILING(<val>);
+CEIL(<value>); 
+```
+OR 
+```sql
+CEILING(<value>);
 ```
 
 | Parameter | Description                                                                                                                               | Supported input types                                                          |
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------|
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | Any of the [numeric data types](../../general-reference/data-types.md#numeric) |
+| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | Any of the [numeric data types](../../general-reference/data-types.md#numeric) |
 
 ## Return Types
 
-Same as the input datatype (`<val>`).
+Same as the input datatype (`<value>`).
 
 ## Remarks
 {: .no_toc}
 
-This function can throw overflow error in case of `DECIMAL` as input.
+When the input is of type `DECIMAL`, this function throws an overflow error if the result does not fit into the return type.
 
-**eg**:
+For example:
 ```sql
 SELECT
     CEIL('99.99'::DECIMAL(4,2));
 ```
 
-**Returns**: OVERFLOW ERROR
-
-**Explain**: ceil will produce the value 100,
-but it can not fit into decimal with only 2 whole digits.
+returns: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `DECIMAL` type with only 2 whole digits.
 
 
 ## Examples
