@@ -109,6 +109,8 @@ second is that it is not starting with `\x` then it will just copy those bytes t
 'row1'
 'a�a'
 '\xaabf'
+15
+'15'
 ```
 *sql*
 ```sql
@@ -125,7 +127,9 @@ select * from e;
 ```table
 | s1         |
 | ---------- |
-| \x726f7731 |   
-| \x61ff61   |   
-| \xaabf     |   
+| \x726f7731 |
+| \x61ff61   |
+| \xaabf     |
+| \x3135     |
+| \x3135     |
 ```
