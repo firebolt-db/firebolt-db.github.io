@@ -179,7 +179,7 @@ We provide an archive of release notes for your historical reference.
 
   query\_history and running\_queries views can now be queried via the information\_schema.
 
-  For more information, see [Information schema for query history](information-schema/query-history-view.html) and [Information schema for running queries](information-schema/running-queries.md).
+  For more information, see [Information schema for query history](../general-reference/information-schema/query-history-view.md) and [Information schema for running queries](../general-reference/information-schema/running-queries.md).
 
 * **Added support for Multi-factor authentication (MFA)**
   **(Beta)**
