@@ -41,4 +41,4 @@ SIGN(-1.35E-10)
 SIGN(0)
 ```
 
-**Returns**: `-1`
+**Returns**: `0`
