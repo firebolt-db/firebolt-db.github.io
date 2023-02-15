@@ -28,10 +28,10 @@ The `NUMERIC` data type is a synonym to the `DECIMAL` data type.
 
 ### Default values for precision and scale
 
-If the scale is not specified when declaring a column of `DECIMAL` data type, then it defaults to `DECIMAL(precision, 0)`
+If the scale is not specified when declaring a column of `DECIMAL` data type, then it defaults to `DECIMAL(precision, min(9, precision))`
 
 If both the precision and scale are not specified, then it defaults to 
-`DECIMAL(38, 0)`
+`DECIMAL(38, 9)`
 
 ### Precision vs. scale
 
@@ -46,12 +46,13 @@ If the scale of a value to be stored is greater than the declared scale of the c
 
 1. **P1≠P2 or S1≠S2** (casting required)
 
-    Any operation between two decimals with different precision and/or scale requires explicit casting of the result to the desired precision and scale. 
+    Any operation between two decimals with different precision and/or scale requires explicit casting of the input to the desired precision and scale. 
 
     ```sql
-    f(DECIMAL(P1, S1), DECIMAL(P2, S2)) -> CAST(result as DECIMAL(P3, S3))* 
+    f(DECIMAL(P1, S1), DECIMAL(P2, S2)) -> ERROR (P1≠P2 or S1≠S2) 
     ```
     where P1≠P2 or S1≠S2
+
 
 2. **P1=P2 and S1=S2** (casting optional)
 
@@ -60,19 +61,6 @@ If the scale of a value to be stored is greater than the declared scale of the c
     ```sql
     f(DECIMAL(P1, S1), DECIMAL(P1, S1)) -> DECIMAL(P1, S1))**
     ```
-**Exceptions**
-
- * SUM:
-    
-  ```sql
-  SUM(DECIMAL(P1, S1)) = SUM(DECIMAL(38, S1))
-  ```
-
-* AVG:
-
-  ```sql
-  AVG(DECIMAL(P1, S1)) = AVG(DECIMAL(38, max(6, S1)))
-  ```
  
 ### Supported functions (Beta release)
 
