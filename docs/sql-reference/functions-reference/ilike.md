@@ -7,57 +7,44 @@ parent: SQL functions
 
 # ILIKE
 
-Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause.
+Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause. `ILIKE` is case-insensitive; use [LIKE](ilike.md) for case-sensitive pattern matching.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-<expr> ILIKE '<pattern>'
+<expression> ILIKE '<pattern>'
 ```
 
-| Parameter   | Description                                                                                                                                                                                                                                                                              |
-| :----------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr>`    | Any expression that evaluates to a `TEXT`, `STRING`, or `VARCHAR` data type.                                                                                                                                                                                                             |
-| `<pattern>` | Specifies the pattern to match and is case-insensitive. SQL wildcards are supported: <br> <br>* Use an underscore (`_`) to match any single character<br>* Use a percent sign (`%`) to match any number of any characters, including no characters. |
+| Parameter | Description |Supported input types |
+| :-------- | :---------- | :---------------------|
+| `<expression>` | Any expression that evaluates to `TEXT` | `TEXT` |
+| `<pattern>` | Specifies the pattern to match (case-insensitive). | Any string. SQL wildcards are supported: <br> <br>* Use an underscore (`_`) to match any single character<br>* Use a percent sign (`%`) to match any number of any characters, including no characters. |
 
 **Example**
 
-For this example, we will create and load data into a demonstration table `match_test`:
-
-```sql
-CREATE DIMENSION TABLE match_test (first_name TEXT, last_name TEXT);
-
-INSERT INTO
-	match_test
-VALUES
-	('Sammy', 'Sardine'),
-	('Franco', 'Fishmonger'),
-	('Carol', 'Catnip'),
-	('Thomas', 'Tinderbox'),
-	('Deborah', 'Donut'),
-	('Humphrey', 'Hoagie'),
-	('Frank', 'Falafel');
-```
-
-We can match first names that partially match the string "Fran" and any following characters as follows:
+Find nicknames from the `players` table that partially match the string "Joe" and any following characters as follows:
 
 ```sql
 SELECT
-	*
+	playerid, nickname, email
 FROM
-	match_test
+	players
 WHERE
-	first_name ILIKE 'Fran%';
+	nickname ILIKE 'Joe%';
 ```
 
 **Returns**:
 
 ```
-+------------+------------+
-| first_name | last_name  |
-+------------+------------+
-| Frank      | Falafel    |
-| Franco     | Fishmonger |
-+------------+------------+
++----------+----------+-------------------------+
+| playerid | nickname | email                   |
++----------+----------+-------------------------+
+| 160      | joedavis | cgarcia@example.org     |
+| 519 	   | joe79 	  | jennifer10@example.net  |
+| 3692 	   | joeli 	  | cperez@example.net      |
+| 3891	   | joel11   | joanncain@example.net   |
+| 4233 	   | joellong | millerholly@example.net |
+| 4627 	   | joebowen | amandalewis@example.net |
++----------+----------+-------------------------+
 ```
