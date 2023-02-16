@@ -21,8 +21,8 @@ Function description
 ## Parameters
 {: .no_toc}
 
-| Parameter | Description                         | Supported input types |
-| :--------- | :----------------------------------- | ---------------------|
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
 | `<expression>`   | <description> | <data_type(s)> |
 
 
