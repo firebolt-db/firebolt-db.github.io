@@ -396,6 +396,8 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [LENGTH](length.md)  
 
+* [LIKE](like.md)
+
 * [LOWER](lower.md)  
 
 * [LPAD](lpad.md)  
