@@ -49,7 +49,7 @@ WHERE
 +----------+----------+-------------------------+
 ```
 
-Note that the following would return no results, as `LIKE` match case-sensitively, unlike `ILIKE`:
+Note that the following would return no results, as `LIKE` matches case-sensitively, unlike `ILIKE`:
 
 ```sql
 SELECT
