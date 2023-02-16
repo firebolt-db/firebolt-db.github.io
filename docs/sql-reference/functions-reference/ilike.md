@@ -41,8 +41,8 @@ WHERE
 | playerid | nickname | email                   |
 +----------+----------+-------------------------+
 | 160      | joedavis | cgarcia@example.org     |
-| 519 	   | joe79 	  | jennifer10@example.net  |
-| 3692 	   | joeli 	  | cperez@example.net      |
+| 519 	   | joe79    | jennifer10@example.net  |
+| 3692 	   | joeli    | cperez@example.net      |
 | 3891	   | joel11   | joanncain@example.net   |
 | 4233 	   | joellong | millerholly@example.net |
 | 4627 	   | joebowen | amandalewis@example.net |
