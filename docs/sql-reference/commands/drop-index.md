@@ -11,7 +11,7 @@ Deletes an index.
 ## Syntax
 
 ```sql
-DROP [AGGREGATING | JOIN] INDEX [IF EXISTS] <index_name>
+DROP AGGREGATING INDEX [IF EXISTS] <index_name>
 ```
 
 | Parameter      | Description                          |

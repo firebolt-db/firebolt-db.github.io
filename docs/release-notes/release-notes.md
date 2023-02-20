@@ -56,7 +56,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-16389 —-->Improved join index performance
 
-  Join indexes just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually `REFRESH` – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
+  [Join indexes](../using-indexes/using-join-indexes.md) just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually create or refresh – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
 
   To see how this works, let’s look at an example. Say we have the following query pattern which is run hundreds of times per second with different values for `l.player_id` and `l.date`:
 
@@ -74,7 +74,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   **Requirements for query optimization**
     * The right side of the join in the query must be directly a table. Subselects are not supported.
     * Restrictions on fields from the right side of the join need to be applied in an `OUTER SELECT`, wrapping the query.
-    * Since the data-structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
+    * Since the join index data structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
     * All types of joins (INNER, LEFT, RIGHT, …) are supported.
     * The right table in the join can be a FACT or DIMENSION table.  
 
