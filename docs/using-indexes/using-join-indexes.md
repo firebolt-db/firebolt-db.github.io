@@ -36,7 +36,7 @@ However, on subsequent runs of the query pattern, the cached data structure can 
 Not all join queries create (and use) join indexes. Here is a set of requirements that must be met:
 * The right side of the join in the query must be directly a table. Subselects or views are not supported.
 * Restrictions on fields from the right side of the join need to be applied in an `OUTER SELECT`, wrapping the query.
-* Since the join-index data structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
+* Since the join index data structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
 * All types of joins (INNER, LEFT, RIGHT, …) are supported.
 * The right table in the join can be a FACT or DIMENSION table.  
 

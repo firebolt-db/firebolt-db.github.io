@@ -20,7 +20,7 @@ Not all functions support the `BYTEA` data type currently. For more information,
 
 The `BYTEA` data type is a variable length binary string data type, commonly used to store binary data, like images, other multimedia files, or raw bytes of information. A binary string is a sequence of bytes - unlike `TEXT`, there is no character set. The `BYTEA` data type is nullable.
 
-### Casting
+### Type conversions
 
 The `BYTEA` type can be cast to and from the `TEXT` data type. A cast from `BYTEA` to `TEXT` will interpret the binary string to a hexadecimal representation with `\x` as a prefix. For example `SELECT 'a'::BYTEA::TEXT` returns `\x61`.
 

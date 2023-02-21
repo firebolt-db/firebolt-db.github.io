@@ -28,28 +28,27 @@ The `NUMERIC` data type is a synonym to the `DECIMAL` data type.
 
 ### Default values for precision and scale
 
-If the scale is not specified when declaring a column of `DECIMAL` data type, then it defaults to `DECIMAL(precision, 0)`
+If the scale is not specified when declaring a column of `DECIMAL` data type, then it defaults to `DECIMAL(precision, 9)`.
 
-If both the precision and scale are not specified, then it defaults to 
-`DECIMAL(38, 0)`
+If both the precision and scale are not specified, then it defaults to `DECIMAL(38, 9)`.
 
 ### Precision vs. scale
 
 If the scale of a value to be stored is greater than the declared scale of the column, the system will round the value to the specified number of fractional digits. If the number of digits to the left of the decimal point exceeds the declared precision, minus the declared scale, an error results.
 
   ```sql
-  select cast(100.76 as decimal(5,2)); -- 100.76
-  select cast(100.76 as decimal(5,1)); -- 100.8
-  select cast(100.76 as decimal(3,1)); -- error
+  SELECT CAST(100.76 AS DECIMAL(5,2)); -- 100.76
+  SELECT CAST(100.76 AS DECIMAL(5,1)); -- 100.8
+  SELECT(100.76 AS DECIMAL(3,1)); -- error
   ```
-### Two options for type coercion between `DECIMAL` data types
+### Type conversion
 
 1. **P1≠P2 or S1≠S2** (casting required)
 
     Any operation between two decimals with different precision and/or scale requires explicit casting of the result to the desired precision and scale. 
 
     ```sql
-    f(DECIMAL(P1, S1), DECIMAL(P2, S2)) -> CAST(result as DECIMAL(P3, S3))* 
+    f(DECIMAL(P1, S1), DECIMAL(P2, S2)) -> CAST(result AS DECIMAL(P3, S3))* 
     ```
     where P1≠P2 or S1≠S2
 

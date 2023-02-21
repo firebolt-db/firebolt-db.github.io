@@ -49,15 +49,15 @@ aux_links:
 ga_tracking: UA-142599515-1
 ga_tracking_anonymize_ip: true
 
-footer_content: "<a href=\"mailto:docs@firebolt.io\">Send feedback</a>"
+# footer_content: "<a href=\"mailto:docs@firebolt.io\">Send feedback</a>"
 
-# Footer "Edit this page on GitHub" link text
-gh_edit_link: true
-gh_edit_link_text: "Edit on GitHub"
-gh_edit_repository: "https://github.com/firebolt-db/firebolt-db.github.io" # the github URL for your repo
-gh_edit_branch: "gh-pages"
-gh_edit_source: docs
-gh_edit_view_mode: "edit"
+# # Footer "Edit this page on GitHub" link text
+# gh_edit_link: true
+# gh_edit_link_text: "Edit on GitHub"
+# gh_edit_repository: "https://github.com/firebolt-db/firebolt-db.github.io" # the github URL for your repo
+# gh_edit_branch: "gh-pages"
+# gh_edit_source: docs
+# gh_edit_view_mode: "edit"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
