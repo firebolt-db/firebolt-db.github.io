@@ -33,9 +33,8 @@ For more information and examples, see [Using aggregating indexes](using-aggrega
 
 ## Join indexes
 
-* Accelerate joins&mdash;stored in RAM and used by query optimizer instead of performing the actual join at runtime.
-* Defined by you on dimension tables with `CREATE JOIN INDEX`, as many as you want. Specify join key column first, and then other dimension columns used in analytics queries.
-* Most effective in schema with many-fact-to-one-dimension table relationship, large dimension tables, and small subset of available dimension columns used in join.
-* Must have dimension join key column defined with `UNIQUE` attribute.  Join key column must have unique values for accurate results.
+* Accelerate joins&mdash;stored in RAM and used by query execution instead of performing the actual join at runtime.
+* This optimization is applied automatically to any join queries for which the right-hand side is directly a table (not a view or a subselect). Note that this does not apply to queries which contain restrictions to right-hand table fields.
+* The first run of an eligible query still does the full join computation, but subsequent runs of queries of the same pattern (e.g., may have different restrictions on the left-side) profit from the previously computed "join index" held in RAM.
 
 For more information, see [Using join indexes](using-join-indexes.md). For examples, see *Join indexes* in the [Firebolt indexes in action](https://www.firebolt.io/blog/firebolt-indexes-in-action) blog post.
