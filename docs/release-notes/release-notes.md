@@ -34,7 +34,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   The previously supported `DATE` and `TIMESTAMP` data types are planned for deprecation in the future. New features and functionality will be built to support the new date and timestamp data types, rather than these legacy types. 
   
-  **To use the new data types:**
+  **To use the new data types, new external and dimension/fact tables must be created. Reingest will be required to recognize new precision.**
   * To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type `TIMESTAMP` to `TIMESTAMPNTZ`. 
   * To ingest into a new table using the new types from external data, create an external table with the new types.
 
