@@ -19,7 +19,7 @@ EXTRACT(<time_unit> FROM <expression>)
 ## Parameters
 {: .no_toc}
 
-| Parameter | Description                                  | Supported input types                                            |
+| Parameter | Description                                  | Supported input types |
 | :-------- | :------------------------------------------- | ---------------------------------------------------------------- |
 | `<time_unit>`   | The time unit to extract from the expression.       | `microseconds`, `milliseconds`, `second`, `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`, `decade`, `century`, `millennium` (unquoted)             |
 | `<expression>`  | The expression from which the time unit is extracted. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` |
@@ -31,7 +31,7 @@ Furthermore, the return type depends on the `time_unit`.
 ### Time Units
 
 | Unit      | Description                              |Supported input types  | Return type  | Example |
-| :-------- | :--------------------------------------- | :---------------------- | :------------ | :-------- |
+| :-------- | :--------------------------------------- | :---------------------- | :------------ |:-------- |
 | `century` | Extract the century. The first century starts on `0001-01-01` and ends on `0100-12-31` (inclusive). | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(century FROM TIMESTAMPNTZ '0100-12-31');  --> 1` |
 | `day` | Extract the day (of the month) field. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(day FROM PGDATE '2001-02-16');  --> 16` |
 |`decade` | Extract the year field divided by 10. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(decade FROM PGDATE '0009-12-31');  --> 0` |
