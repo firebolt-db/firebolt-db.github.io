@@ -19,8 +19,8 @@ EXTRACT(<time_unit> FROM <expression>)
 ## Parameters
 {: .no_toc}
 
-| Parameter | Description                                  | Supported input types                                            |
-| :-------- | :------------------------------------------- | ---------------------------------------------------------------- |
+| Parameter | Description                                  |Supported input types |
+| :-------- | :------------------------------------------- | :---------------------------------------------------------------- |
 | `<time_unit>`   | The time unit to extract from the expression.       | `microseconds`, `milliseconds`, `second`, `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`, `decade`, `century`, `millennium` (unquoted)             |
 | `<expression>`  | The expression from which the time unit is extracted. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` |
 
@@ -30,8 +30,8 @@ Furthermore, the return type depends on the `time_unit`.
 
 ### Time Units
 
-| Unit      | Description                              |Supported input types  | Return type  | Example |
-| :-------- | :--------------------------------------- | :---------------------- | :------------ | :-------- |
+| Unit      | Description                            | Supported input types  | Return type  | Example |
+| -------- | --------------------------------------- | ---------------------- | ------------ | ------- |
 | `century` | Extract the century. The first century starts on `0001-01-01` and ends on `0100-12-31` (inclusive). | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(century FROM TIMESTAMPNTZ '0100-12-31');  --> 1` |
 | `day` | Extract the day (of the month) field. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(day FROM PGDATE '2001-02-16');  --> 16` |
 |`decade` | Extract the year field divided by 10. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(decade FROM PGDATE '0009-12-31');  --> 0` |
@@ -46,13 +46,13 @@ Furthermore, the return type depends on the `time_unit`.
 | `milliseconds` | Extract the seconds field, including fractional parts, multiplied by 1,000. | `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `DECIMAL(8, 3)` | `SELECT EXTRACT(milliseconds FROM TIMESTAMPNTZ '2001-02-16 20:38:40.12');  --> 40120.000` |
 | `minute` | Extract the minutes field (0–59). | `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(minute FROM TIMESTAMPNTZ '1000-12-31 23:42:59');  --> 42` |
 | `month` | Extract the number of the month within the year (1–12). | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(month FROM PGDATE '1000-12-31');  --> 12` |
-| `quarter` | Extract the quarter of the year (1–4) that the date is in:<br>`[01, 03] -> 1`<br>`[04, 06] -> 2`<br>`[07, 09] -> 3`<br>`[10, 12] -> 4` | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | ` SELECT EXTRACT(quarter FROM PGDATE '1000-10-31');  --> 4` |
+| `quarter` | Extract the quarter of the year (1–4) that the date is in:<br>`[01, 03] -> 1`<br>`[04, 06] -> 2`<br>`[07, 09] -> 3`<br>`[10, 12] -> 4` | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(quarter FROM PGDATE '1000-10-31');  --> 4` |
 | `second` | Extract the second's field, including fractional parts. | `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `DECIMAL(8, 6)` | `SELECT EXTRACT(second FROM TIMESTAMPNTZ '2001-02-16 20:38:40.12');  --> 40.120000` |
 | `timezone` | Extract the time zone offset from UTC, measured in seconds, with a positive sign for zones east of Greenwich. | `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(timezone FROM TIMESTAMPTZ '2022-11-29 13:58:23 Europe/Berlin');  --> -28800` (assumes set time zone is 'US/Pacific') |
 | `timezone_hour` | Extract the hour component of the time zone offset. | `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(timezone_hour FROM TIMESTAMPTZ '2022-11-29 13:58:23 Europe/Berlin');  --> -8` (assumes set time zone is 'US/Pacific') |
 | `timezone_minute` | Extract the minute component of the time zone offset. | `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(timezone_minute FROM TIMESTAMPTZ '2022-11-29 13:58:23 Europe/Berlin');  --> 0` (assumes set time zone is 'US/Pacific') |
 | `week` | Extract the number of the ISO 8601 week-numbering week of the year. By definition, ISO weeks start on Mondays and the first week of a year contains January 4 of that year. It is possible for early-January dates to be part of the 52nd or 53rd week of the previous year, and for late-December dates to be part of the first week of the next year. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ`. | `INT` | `SELECT EXTRACT(week FROM PGDATE '2005-01-01');  --> 53`<br>`SELECT EXTRACT(week from PGDATE '2006-01-01');  --> 52` |
-| `year` | Extract the year field. | PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(year FROM TIMESTAMP '2001-02-16');  --> 2001`
+| `year` | Extract the year field. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` | `INT` | `SELECT EXTRACT(year FROM TIMESTAMP '2001-02-16');  --> 2001`
 
 ## Remarks
 {: .no_toc}
