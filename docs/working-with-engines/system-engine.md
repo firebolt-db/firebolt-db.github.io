@@ -20,6 +20,17 @@ The system engine supports running the following queries:
 * SHOW DATABASES/ENGINES
 * CREATE/DROP/GRANT/REVOKE ROLE
 
+Firebolt's system engine enables running information_schema queries to retrieve the specific database schema without having to start an engine.
+The system engine supports running the following queries:
+* SHOW TABLES/INDEXES/VIEWS/COLUMNS
+* select * from information_schema.tables/indexes/views/columns
+notes:
+1. one can select any column of course and make more complex queries, as long as he doesn't use user-defined tables(regular tables).
+2.  on system engine we don’t store any actual data(tablet), thus every data related field in the I_S table will be shown as 0. (number_of_rows, size, size_uncompressed, compression_ratio, number_of_segments)
+3.	a.  a precondition for having the metadata available on system engine is to make the database to be Pensieve compatible which internally means weare doing migration of the metadata from metaservice to pensieve (please phrase it as you think)
+	b. to make the database compatible one we need to set FF pensieve.write_schema_on_legacy=true and RESTART a GP engine.
+ non migrated accounts will still be able to run I_S queries but will receive empty results.
+
 {: .caution}
 >**Alpha Release** 
 >
