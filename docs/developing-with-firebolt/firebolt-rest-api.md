@@ -75,7 +75,7 @@ An engine in Firebolt is a cluster of nodes that do the work when you run SQL qu
 
 ### Get an engine ID
 
-Replace `YOUR_ENGINE_NAME` in the example below with the name of your engine.
+Replace `YOUR_ENGINE_NAME` and `YOUR_ACCOUNT` in the example below with the name of your engine.
 
 **Request**
 
