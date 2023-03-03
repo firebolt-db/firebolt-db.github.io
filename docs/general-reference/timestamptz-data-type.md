@@ -106,19 +106,19 @@ SELECT TIMESTAMPTZ '2022-10-30 03:00:00 Europe/Berlin';  --> 2022-10-30 02:00:00
 
 The `TIMESTAMPTZ` data type can be cast to and from types as follows (assuming `SET time_zone = 'UTC';`): 
 
-| To `TIMESTAMPTZ`    | Example   | Note     | 
-| :------- | :------ | :----------- | 
-| `TIMESTAMPTZ` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPTZ); --> 2023-02-13 09:19:42+00` | |
-| `PGDATE` | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPTZ);  --> 2023-02-13 00:00:00+00` | Interprets the timestamp to be midnight in the time zone specified by the session's `time_zone` setting. |
-| `TIMESTAMPNTZ` | `SELECT CAST(TIMESTAMPNTZ '2023-02-13 11:19:42' as TIMESTAMPTZ);  --> 2023-02-13 11:19:42+00` | Interprets the timestamp to be local time in the time zone specified by the session's `time_zone` setting. |
-| `NULL` | `SELECT CAST(null as TIMESTAMPTZ);  --> NULL` | | 
-| `DATE` (legacy) | `SELECT CAST(DATE '2023-02-13' as TIMESTAMPTZ);  --> 2023-02-13 00:00:00+00` | Converts from the legacy `DATE` type by interpreting the timestamp to be midnight in the time zone specified by the session's `time_zone` setting. |
-| `TIMESTAMP` (legacy) | `SELECT CAST(TIMESTAMP '2023-02-13 11:19:42' as TIMESTAMPTZ);  --> 2023-02-13 11:19:42+00` | Converts from the legacy `TIMESTAMP` type by interpreting the timestamp to be local time in the time zone specified by the session's `time_zone` setting. |
+| To `TIMESTAMPTZ`     | Example                                                                                                   | Note                                                                                                                                                      |
+| :------------------- | :-------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TIMESTAMPTZ`        | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPTZ); --> 2023-02-13 09:19:42+00` |                                                                                                                                                           |
+| `PGDATE`             | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPTZ);  --> 2023-02-13 00:00:00+00`                            | Interprets the timestamp to be midnight in the time zone specified by the session's `time_zone` setting.                                                  |
+| `TIMESTAMPNTZ`       | `SELECT CAST(TIMESTAMPNTZ '2023-02-13 11:19:42' as TIMESTAMPTZ);  --> 2023-02-13 11:19:42+00`             | Interprets the timestamp to be local time in the time zone specified by the session's `time_zone` setting.                                                |
+| `NULL`               | `SELECT CAST(null as TIMESTAMPTZ);  --> NULL`                                                             |                                                                                                                                                           |
+| `DATE` (legacy)      | `SELECT CAST(DATE '2023-02-13' as TIMESTAMPTZ);  --> 2023-02-13 00:00:00+00`                              | Converts from the legacy `DATE` type by interpreting the timestamp to be midnight in the time zone specified by the session's `time_zone` setting.        |
+| `TIMESTAMP` (legacy) | `SELECT CAST(TIMESTAMP '2023-02-13 11:19:42' as TIMESTAMPTZ);  --> 2023-02-13 11:19:42+00`                | Converts from the legacy `TIMESTAMP` type by interpreting the timestamp to be local time in the time zone specified by the session's `time_zone` setting. |
 
-| From `TIMESTAMPTZ` | Example   | Note     | 
-| :------- | :------ | :----------- | 
-| `PGDATE` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as PGDATE);  --> 2023-02-13` | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting and then truncates the timestamp to the date. |
-| `TIMESTAMPNTZ` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPNTZ );  --> 2023-02-13 11:19:42+00` | Convert from Unix time to local time in the time zone specified by the session's `time_zone` setting. |
+| From `TIMESTAMPTZ` | Example                                                                                                      | Note                                                                                                                                                |
+| :----------------- | :----------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PGDATE`           | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as PGDATE);  --> 2023-02-13`                    | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting and then truncates the timestamp to the date. |
+| `TIMESTAMPNTZ`     | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPNTZ );  --> 2023-02-13 11:19:42+00` | Convert from Unix time to local time in the time zone specified by the session's `time_zone` setting.                                               |
 
 #### AT TIME ZONE
 
@@ -195,12 +195,21 @@ Input is accepted in one of the literal formats described above.
 ### Parquet
 {:.no_toc}
 
-`TIMESTAMPTZ` maps to Parquet's 64-bit signed integer `TIMESTAMP` type with the parameter `isAdjustedToUTC` set to `true` and `unit` set to `MICROS`, also representing the number of microseconds before or after `1970-01-01 00:00:00.000000 UTC`.
+`TIMESTAMPTZ` maps to Parquet's 64-bit signed integer `TIMESTAMP` type with the parameter `isAdjustedToUTC` set to `true` and `unit` set to `MICROS`, representing the number of microseconds before or after `1970-01-01 00:00:00.000000 UTC`.
+It's also possible to import into a `TIMESTAMPTZ` column from Parquet's 64-bit signed integer `TIMESTAMP` type with the parameter `isAdjustedToUTC` set to `true` and the `unit` set to `MILLIS` or `NANOS`.
+In this case, Firebolt implicitly extends or truncates to microsecond resolution.
 
 ### Avro
 {:.no_toc}
 
-`TIMESTAMPTZ` maps to Avro's 64-bit signed integer `timestamp-micros` type, also representing the number of microseconds before or after `1970-01-01 00:00:00.000000 UTC`.
+`TIMESTAMPTZ` maps to Avro's 64-bit signed integer "timestamp-micros" type, representing the number of microseconds before or after `1970-01-01 00:00:00.000000 UTC`.
+It's also possible to import into a `TIMESTAMPTZ` column from Avro's "timestamp-millis" type.
+
+### ORC
+
+It's not possible to directly import from ORC into a `TIMESTAMPTZ` column.
+The reason is that ORC's logical "TIMESTAMP" type is independent of a time zone requiring a possibly unintended time zone conversion for the import.
+Instead, you should first import into a `TIMESTAMPNTZ` column and then use the `AT TIME ZONE` expression to convert to `TIMESTAMPTZ`.
 
 ## Data pruning
 
