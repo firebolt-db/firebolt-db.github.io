@@ -113,6 +113,8 @@ For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 * [EXTRACT](../sql-reference/functions-reference/extract-new.md)
 * [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
 
+You can get the current timestamp with the [LOCALTIMESTAMPNTZ](../sql-reference/functions-reference/localtimestampntz.md) function.
+
 ## Serialization and deserialization
 
 ### Text, CSV, JSON

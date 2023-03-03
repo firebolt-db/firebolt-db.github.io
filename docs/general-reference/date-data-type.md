@@ -90,6 +90,19 @@ For more information, see [type conversions](#type-conversions).
 
 ### Arithmetic operators
 
+The `+` operators described below come in commutative pairs (for example both `PGDATE + INTEGER` and `INTEGER + PGDATE`).
+Although the arithmetic operators check that the resulting `PGDATE` value is in the supported range, they don't check for integer overflow.
+
+| Operator                            | Description                                          | Example                                                                                                           |
+| :---------------------------------- | :--------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `PGDATE + INTEGER -> PGDATE`        | Add a number of days to a date                       | `SELECT PGDATE '2023-03-03' + 42;  --> 2023-04-14`                                                                |
+| `PGDATE - INTEGER -> PGDATE`        | Subtract a number of days from a date                | `SELECT PGDATE '2023-03-03' - 42;  --> 2023-01-20`                                                                |
+| `PGDATE - PGDATE -> INTEGER`        | Subtract dates, producing the number of elapsed days | `SELECT PGDATE '2023-03-03' - PGDATE '1996-09-03';  --> 9677`                                                     |
+| `PGDATE + INTERVAL -> TIMESTAMPNTZ` | Add an interval to a date                            | `SELECT PGDATE '1996-09-03' + INTERVAL '42' YEAR;  --> 2038-09-03 00:00:00`                                       |
+| `PGDATE - INTERVAL -> TIMESTAMPNTZ` | Subtract an interval from a date                     | `SELECT PGDATE '2023-03-18' - INTERVAL '26 years 5 months 44 days 12 hours 41 minutes';  --> 1996-09-03 11:19:00` |
+
+#### Interval arithmetic
+
 Arithmetic with intervals can be used to add or subtract a duration to or from a date.
 The result is of type `TIMESTAMPNTZ`.
 
@@ -106,6 +119,8 @@ For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 
 * [EXTRACT](../sql-reference/functions-reference/extract-new.md)
 * [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
+
+You can get the current date with the [CURRENT_PGDATE](../sql-reference/functions-reference/current_pgdate.md) function.
 
 ## Serialization and deserialization
 

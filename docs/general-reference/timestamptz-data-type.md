@@ -120,6 +120,8 @@ The `TIMESTAMPTZ` data type can be cast to and from types as follows (assuming `
 | `PGDATE` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as PGDATE);  --> 2023-02-13` | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting and then truncates the timestamp to the date. |
 | `TIMESTAMPNTZ` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPNTZ );  --> 2023-02-13 11:19:42+00` | Convert from Unix time to local time in the time zone specified by the session's `time_zone` setting. |
 
+Use the function [TO_TIMESTAMPTZ](../sql-reference/functions-reference/to_timestamptz.md) to convert from the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
+
 #### AT TIME ZONE
 
 The dependence on the session's `time_zone` setting for type conversions is especially problematic for automatic conversions, which, for example, might be required when reading from an external table.
@@ -180,6 +182,8 @@ For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 
 * [EXTRACT](../sql-reference/functions-reference/extract-new.md)
 * [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
+
+You can get the current timestamp with the [CURRENT_TIMESTAMPTZ](../sql-reference/functions-reference/current_timestamptz.md) function.
 
 ## Serialization and deserialization
 
