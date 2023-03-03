@@ -20,7 +20,7 @@ Not all functions support the `BYTEA` data type currently. For more information,
 
 The `BYTEA` data type is a variable length binary string data type, commonly used to store binary data, like images, other multimedia files, or raw bytes of information. A binary string is a sequence of bytes - unlike `TEXT`, there is no character set. The `BYTEA` data type is nullable.
 
-### Casting
+### Type conversions
 
 The `BYTEA` type can be cast to and from the `TEXT` data type. A cast from `BYTEA` to `TEXT` will interpret the binary string to a hexadecimal representation with `\x` as a prefix. For example `SELECT 'a'::BYTEA::TEXT` returns `\x61`.
 
@@ -88,17 +88,18 @@ SELECT 'a'::BYTEA;
 
 ### Importing `BYTEA` from external source
 
-The input format is splited between file formats:
+The input format for importing binary data from an external source depends on the external file format.
 
-**orc, parquet:** 
-specific field type without annotation (utf-8 for example): BYTE_ARRAY (binary) - will import the bytes exactly as they are in the source.
-all the other types will be imported to the corresponding datatype (byte array with utf-8 annotation will be imported to text datatype)
-and then will be cast as if they will be used by SQL function cast (example `cast('abcd' as bytea)`)
+**For ORC or PARQUET files:** 
+For a specific field type without annotation (utf-8 for example): BYTE_ARRAY (binary), bytes will be imported exactly as they are in the source.
+All the other types will be imported to the corresponding datatype (for example, BYTE_ARRAY with utf-8 annotation will be imported to `TEXT` data type)
+and then cast to type `BYTEA`.
 
-**csv, tsv, json:**
-read the input exactly as it is then runs the SQL function cast (example `cast('abcd' as bytea)`)
+**For CSV, TSV, or JSON files:**
+The input data are read exactly as they are in the source, and then cast to data type `BYTEA`.
 
-note: json files must be utf-8 encoded however csv/tsv files are not, in that case there are two options: 
+{: .note}
+JSON files must be utf-8 encoded; however CSV and TSV files are not, in that case there are two options: 
 one is that the data starts with `\x` in that case it will throw error.
 second is that it is not starting with `\x` then it will just copy those bytes to the `BYTEA` column.
 
@@ -112,20 +113,20 @@ second is that it is not starting with `\x` then it will just copy those bytes t
 15
 '15'
 ```
-*sql*
+**SQL**
 ```sql
-CREATE EXTERNAL TABLE e
+CREATE EXTERNAL TABLE ex_table
 (
-    s1 bytea
+    column1 BYTEA
 ) URL = 's3://...'
   OBJECT_PATTERN = '...'
   TYPE = (CSV);
 
-select * from e;
+SELECT * FROM ex_table;
 ```
 **Returns:**
 ```table
-| s1         |
+| column1    |
 | ---------- |
 | \x726f7731 |
 | \x61ff61   |
