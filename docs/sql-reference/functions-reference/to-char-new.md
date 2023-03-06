@@ -15,10 +15,10 @@ Converts a value of type `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` to a formatt
 TO_CHAR(<expression>, '<format>')
 ```
 
-| Parameter      | Description                                        |Supported input types |
-| :------------- | :------------------------------------------------- | :-------------------------------------- |
-| `<expression>` | A date or time expression to be converted to text. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` |
-| `<format>`     | A string literal that specifies the format of the `<expression>` to convert.              | See below |
+| Parameter      | Description                                                                  | Supported input types                   |
+| :------------- | :--------------------------------------------------------------------------- | :-------------------------------------- |
+| `<expression>` | A date or time expression to be converted to text.                           | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` |
+| `<format>`     | A string literal that specifies the format of the `<expression>` to convert. | See below                               |
 
 Accepted `<format>` patterns include:
 
@@ -98,6 +98,7 @@ Patterns are matched in lower and upper case if there is no other behavior descr
 The example below outputs the current local time in a formatted string. Note that the `"` around the words `Date` and `Time` are required, otherwise the characters `D` and `I` would be interpreted as valid patterns which would result in the output `6ate` and `T3me`.
 
 ```sql
+SET time_zone = 'America/Vancouver';
 SELECT
     TO_CHAR(
         CURRENT_TIMESTAMPTZ,
@@ -105,4 +106,16 @@ SELECT
     );
 ```
 
-**Returns**: `'Date: March 3rd, 2023 Time: 6am (33:26.466511) -08:00 (PST)`
+**Returns**: `'Date: March 3rd, 2023 Time: 6am (33:26.466511) -08:00 (PST)'`
+
+The example below outputs the current date in a formatted string with any time field set to `0` which indicates midnight. Note the quotation marks again that are required to prevent unintended replacements.
+
+```sql
+SELECT
+    TO_CHAR(
+        current_pgdate,
+        '"The" fmDDDth "day in" YY "is a" fmDay "at midnight" hh24:mi:ss.us'
+    );
+```
+
+**Returns**: `'The 62th day in 23 is a Friday at midnight 00:00:00.000000'`
