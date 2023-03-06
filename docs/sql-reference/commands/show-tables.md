@@ -32,4 +32,4 @@ The returned table has the following columns.
 | size                        | DOUBLE      | The compressed size of the table. |
 | size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
 | compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
-| number_of_tablets           | INT         | The number of tablest comprising the table. |
+| number_of_tablets           | INT         | The number of tablets comprising the table. |
