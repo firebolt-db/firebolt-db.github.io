@@ -13,23 +13,22 @@ parent: Working with engines
 
 Firebolt's system engine enables running various metadata-related queries without having to start an engine. The system engine is always available for you in all databases to select and use. 
 
-The system engine supports running the following queries:
+The system engine supports running the following commands:
 * CREATE/ALTER/DROP DATABASE
 * CREATE/ALTER/DROP/ATTACH ENGINE
 * START/RESTART/STOP ENGINE  
 * SHOW DATABASES/ENGINES
 * CREATE/DROP/GRANT/REVOKE ROLE
-
-Firebolt's system engine enables running information_schema queries to retrieve the specific database schema without having to start an engine.
-The system engine supports running the following queries:
 * SHOW TABLES/INDEXES/VIEWS/COLUMNS
-* select * from information_schema.tables/indexes/views/columns
-notes:
-1. one can select any column of course and make more complex queries, as long as he doesn't use user-defined tables(regular tables).
-2.  on system engine we don’t store any actual data(tablet), thus every data related field in the I_S table will be shown as 0. (number_of_rows, size, size_uncompressed, compression_ratio, number_of_segments)
-3.	a.  a precondition for having the metadata available on system engine is to make the database to be Pensieve compatible which internally means weare doing migration of the metadata from metaservice to pensieve (please phrase it as you think)
-	b. to make the database compatible one we need to set FF pensieve.write_schema_on_legacy=true and RESTART a GP engine.
- non migrated accounts will still be able to run I_S queries but will receive empty results.
+
+In addition, you can query the following information schema tables from the system engine:
+* information_schema.tables
+* information_schema.indexes
+* information_schema.views
+* information_schema.columns
+
+No data are stored on the system engine, so data-related field in the information_schema tables will be shown with a value of 0 (fields number_of_rows, size, size_uncompressed, compression_ratio, and number_of_tablets).
+A migration of the metadata from metaservice to pensieve is required to make metadata available on the system engine, which requires restarting general purpose engines. 
 
 {: .caution}
 >**Alpha Release** 
@@ -78,4 +77,4 @@ Any other Firebolt connector can also be used similarly, as long as the engine n
 
 **Supported queries for system engine**
 
-At this time, the system engine only supports running several metadata-related queries. Additional queries will be supported in future versions.
+At this time, the system engine only supports running the metadata-related queries listed above. Additional queries will be supported in future versions.
