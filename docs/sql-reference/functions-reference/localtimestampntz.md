@@ -5,14 +5,14 @@ description: Reference material for LOCALTIMESTAMPNTZ function
 parent: SQL functions
 ---
 
-# FUNCTION
+# LOCALTIMESTAMPNTZ
 
-The `LOCALTIMESTAMPNTZ` function returns the current local timestamp in the time zone specified in the session's `time_zone` setting.
+Returns the current local timestamp in the time zone specified in the session's [`time_zone` setting](../../general-reference/system-settings.md#set-time-zone).
 
 ## Syntax
 {: .no_toc}
 
-The function can be called with and without parentheses:
+The function can be called with or without parentheses:
 
 ```sql
 LOCALTIMESTAMPNTZ
@@ -27,13 +27,13 @@ LOCALTIMESTAMPNTZ()
 {: .no_toc}
 
 The function takes the current Unix timestamp (in the UTC time zone), converts it to the time zone specified in the `time_zone` setting, and returns it as a `TIMESTAMPNTZ` value.
-Therefore, two simultaneous calls of the function can return a different timestamp because of the time zone conversion.
+Two simultaneous calls of the function can return different timestamps, due to time zone conversion.
 
 ## Example
 {: .no_toc}
 
 The following example assumes that the current timestamp is `2023-03-03 14:42:31.123456 UTC`.
-Observe how we get different `TIMESTAMPNTZ` values for different time zones:
+Observe how we return different `TIMESTAMPNTZ` values with different time zone settings:
 
 ```sql
 SET time_zone = 'Europe/Berlin';
