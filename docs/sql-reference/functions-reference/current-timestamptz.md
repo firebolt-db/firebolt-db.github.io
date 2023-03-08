@@ -7,7 +7,7 @@ parent: SQL functions
 
 # CURRENT_TIMESTAMPTZ
 
-Returns the current timestamp in the UTC time zone.
+Returns the current timestamp as a `TIMESTAMPTZ` value.
 
 ## Syntax
 {: .no_toc}
