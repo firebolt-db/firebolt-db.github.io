@@ -100,38 +100,37 @@ Materialized results can be accessed more quickly in some circumstances. By usin
 {: .no_toc}
 
 ```sql
-WITH <subquery_table_name> [ <column_name> [, ...n] ] AS [MATERIALIZED|NOT MATERIALIZED] <subquery>
+WITH <subquery_table_name> AS [MATERIALIZED|NOT MATERIALIZED] <subquery>
 ```
 
 | Component               | Description                                                                          |
 | :----------------------- | :------------------------------------------------------------------------------------ |
 | `<subquery_table_name>` | A unique name for a temporary table.                                                       |
-| `<column_name>`         | An optional list of one or more column names. Columns should be separated by commas. |
 | `<subquery>`            | Any query statement.                                                                  |
 
 ### Example
 {: .no_toc}
 
-The following example retrieves all customers from the "EMEA" region, having the results of the `WITH` query in the temporary table `emea_customrs`.
+The following example retrieves all players who have subscribed to receive the game newsletter, having the results of the `WITH` query in the temporary table `nl_subscribers`.
 
-The results of the main query then list the `customer_name` and `contact_details `for those customers, sorted by name.
+The results of the main query then list the `nickname` and `email` for those customers, sorted by nickname.
 
 ```sql
-WITH emea_customrs AS (
+WITH nl_subscribers AS (
 	SELECT
 		*
 	FROM
-		customers
+		players
 	WHERE
-		region = 'EMEA'
+		issubscribedtonewsletter=TRUE
 )
 SELECT
-	customer_name,
-	contact_details
+	nickname,
+	email
 FROM
-	emea_customrs
+	players
 ORDER BY
-	customer_name
+	nickname
 ```
 
 ## FROM
@@ -152,15 +151,15 @@ FROM <from_item> [, ...n]
 ### Example
 {: .no_toc}
 
-In the following example, the query retrieves all entries from the `customers` table for which the `region` value is "EMEA".
+In the following example, the query retrieves all entries from the `players` table for which the `agecategory` value is "56+".
 
 ```sql
 SELECT
 	*
 FROM
-	customers
+	players
 WHERE
-	region = 'EMEA'
+	agecategory='56+'
 ```
 
 ## JOIN
