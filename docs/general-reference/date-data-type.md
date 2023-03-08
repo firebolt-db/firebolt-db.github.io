@@ -88,7 +88,7 @@ A `PGDATE` value is also comparable with a `TIMESTAMPNTZ` or `TIMESTAMPTZ` value
 
 For more information, see [type conversions](#type-conversions).
 
-### Arithmetic operators
+### Date-specific arithmetic operators
 
 The `+` operators described below come in commutative pairs (for example both `PGDATE + INTEGER` and `INTEGER + PGDATE`).
 Although the arithmetic operators check that the resulting `PGDATE` value is in the supported range, they don't check for integer overflow.
@@ -114,13 +114,6 @@ SELECT PGDATE '2023-03-18' - INTERVAL '26 years 5 months 44 days 12 hours 41 min
 ```
 
 For more information, see [Arithmetic with intervals](interval-arithmetic.md).
-
-### Processing functions
-
-* [EXTRACT](../sql-reference/functions-reference/extract-new.md)
-* [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
-
-You can get the current date with the [CURRENT_PGDATE](../sql-reference/functions-reference/current_pgdate.md) function.
 
 ## Serialization and deserialization
 
