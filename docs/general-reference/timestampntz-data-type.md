@@ -108,13 +108,6 @@ SELECT TIMESTAMPNTZ '2023-03-18' - INTERVAL '26 years 5 months 44 days 12 hours 
 
 For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 
-### Processing functions
-
-* [EXTRACT](../sql-reference/functions-reference/extract-new.md)
-* [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
-
-You can get the current timestamp with the [LOCALTIMESTAMPNTZ](../sql-reference/functions-reference/localtimestampntz.md) function.
-
 ## Serialization and deserialization
 
 ### Text, CSV, JSON
