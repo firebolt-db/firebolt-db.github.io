@@ -178,13 +178,6 @@ SELECT TIMESTAMPTZ '2022-10-30 Europe/Berlin' + interval '24' hour;  --> 2022-10
 
 For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 
-### Processing functions
-
-* [EXTRACT](../sql-reference/functions-reference/extract-new.md)
-* [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
-
-You can get the current timestamp with the [CURRENT_TIMESTAMPTZ](../sql-reference/functions-reference/current_timestamptz.md) function.
-
 ## Serialization and deserialization
 
 ### Text, CSV, JSON
