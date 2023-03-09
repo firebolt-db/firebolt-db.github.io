@@ -7,7 +7,10 @@ parent: SQL functions
 
 # EXTRACT
 
-The `EXTRACT` function retrieves the time unit, such as `year` or `hour`, from a `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` value.
+Retrieves the time unit, such as `year` or `hour`, from a `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` value.
+
+{: .note}
+The functions works with new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types. If you are using legacy `DATE` and `TIMESTAMP` data types, see [EXTRACT (legacy)](../functions-reference/extract.md).
 
 ## Syntax
 {: .no_toc}

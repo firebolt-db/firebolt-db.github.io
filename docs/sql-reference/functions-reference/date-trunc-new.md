@@ -7,7 +7,10 @@ parent: SQL functions
 
 # DATE_TRUNC
 
-The `DATE_TRUNC` function truncates a value (`<expression>`) of type `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` to the selected precision (`<time_unit>`).
+Truncates a value (`<expression>`) of type `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` to the selected precision (`<time_unit>`).
+
+{: .note}
+The functions works with new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types. If you are using legacy `DATE` and `TIMESTAMP` data types, see [DATE_TRUNC (legacy)](../functions-reference/date-trunc.md).
 
 ## Syntax
 {: .no_toc}

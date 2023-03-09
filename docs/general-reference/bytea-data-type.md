@@ -68,7 +68,7 @@ SELECT 'a b\230a'::BYTEA; -> '\x6120629861'
 
 ### Output format
 
-The output format for BYTEA is the hexadecimal representation of the bytes in lower case prefixed by `\x` (Note: in JSON `\` is escaped).
+The output format for `BYTEA` is the hexadecimal representation of the bytes in lower case prefixed by `\x` (Note: in JSON `\` is escaped).
 
 **Example:**
 
@@ -84,4 +84,51 @@ SELECT 'a'::BYTEA;
         ["\\x61"]
     ]
 }
+```
+
+### Importing `BYTEA` from external source
+
+The input format for importing binary data from an external source depends on the external file format.
+
+**For ORC or PARQUET files:** 
+For a specific field type without annotation (UTF-8 for example): BYTE_ARRAY (binary), bytes will be imported exactly as they are in the source.
+All the other types will be imported to the corresponding datatype (for example, BYTE_ARRAY with UTF-8 annotation will be imported to `TEXT` data type)
+and then cast to type `BYTEA`.
+
+**For CSV, TSV, or JSON files:**
+The input data are read exactly as they are in the source, and then cast to data type `BYTEA`.
+
+{: .note}
+JSON files must be UTF-8 encoded; however this is not required for CSV and TSV files. In the case that these files are not UTF-8 encoded, field values must not start with `\x` - data starting with the characters `\x` will throw an error on ingest. Any data not starting with the characters `\x` will be copied as bytes to the column of data type `BYTEA`.
+
+**CSV File Example:**
+
+*file*
+```csv
+'row1'
+'a�a'
+'\xaabf'
+15
+'15'
+```
+**SQL**
+```sql
+CREATE EXTERNAL TABLE ex_table
+(
+    column1 BYTEA
+) URL = 's3://...'
+  OBJECT_PATTERN = '...'
+  TYPE = (CSV);
+
+SELECT * FROM ex_table;
+```
+**Returns:**
+```table
+| column1    |
+| ---------- |
+| \x726f7731 |
+| \x61ff61   |
+| \xaabf     |
+| \x3135     |
+| \x3135     |
 ```

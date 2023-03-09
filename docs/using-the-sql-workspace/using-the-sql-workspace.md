@@ -207,3 +207,5 @@ You can export up to 10,000 rows of query results to your local hard drive after
 2. Choose **Export table as CSV** or **Export table as JSON**.  
 Firebolt downloads the file type that you chose to the default download location for your browser.  
 ![](../assets/images/download_icon.png)
+
+It is possible to export the results of a single query alongside the results summary of all queries run in your script (with the statistics).
