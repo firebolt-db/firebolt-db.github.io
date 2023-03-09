@@ -14,100 +14,86 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## DB version 3.19.0 
-**February 2023**
+## DB version 3.20.0 
+**March 2023**
 
-* [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
-
-### New features
-
-* #### <!--- FIR-16297 —-->New date and time data types
-
-  Added support for new date and timestamp data types:
-
-  * [PGDATE](../general-reference/date-data-type.md)
-  * [TIMESTAMPNTZ](../general-reference/timestampntz-data-type.md)
-  * [TIMESTAMPTZ](../general-reference/timestamptz-data-type.md)
-
-  The new data types use an improved memory layout providing a much higher supported range, now extending from `0001-01-01[ 00:00:00.000000]` to `9999-12-31[ 23:59:59.999999]`. This change also extends the syntax for specifying intervals used for arithmetic with dates and timestamps. In addition to the previously supported interval syntax, you can now also write `interval 'N' unit`, where `N` is a possibly signed integer, and `unit` is one of `year`, `month`, `day`, `hour`, `minute`, or `second`, matched case-insensitively.
-
-  The previously supported `DATE` and `TIMESTAMP` data types are planned for deprecation in the future. New features and functionality will be built to support the new date and timestamp data types, rather than these legacy types. 
-  
-  **To use the new data types, new external and dimension/fact tables must be created. Reingest will be required to recognize new precision.**
-  * To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type `TIMESTAMP` to `TIMESTAMPNTZ`. 
-  * To ingest into a new table using the new types from external data, create an external table with the new types.
-
-  {: .warning}
-  The new syntax can break the semantics of existing SQL queries. Previously, the `unit` part of the expression was treated as a column alias, and now it's treated as part of the interval literal. For example, if you wrote `SELECT DATE '2023-01-10' + interval '42' day;`, you would get back a table with one column called `day` and the value `2023-01-10 00:00:42`. Now, you will get a back a table with one column (unspecified name) and the value `2023-02-21 00:00:00`.<br>If you want to retain the old behavior, use `AS`, for example: `SELECT DATE '2023-01-10' + interval '42' AS day;`.
-
-* #### <!--- --->New setting for time zone
-
-  [New setting](../general-reference/system-settings.md#set-time-zone) `time_zone` controls the session time zone. The default value of the `time_zone` setting is UTC.
-
-* #### <!--- FIR-13488, FIR-20666 --->New keyboard shortcuts (UI release)
-
-  Use new [keyboard shortcuts](../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to cancel a query, or go to a specific line in your script.  
-
-    * Cancel a running script with **Ctrl + Alt + k** for Windows & Linux, or **⌘ + Option + k** for Mac
-    * Go to a desired line with **Ctrl + l** for Windows & Linux, or **⌘ + l** for Mac
+* [Resolved issues](#resolved-issues)
   
 ### Enhancements, changes, and new integrations
 
-* #### <!--- FIR-16389 —-->Improved join index performance
+* #### <!--- FIR-20900 —--> Function support added for new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types
 
-  [Join indexes](../using-indexes/using-join-indexes.md) just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually create or refresh – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
+  The following new and updated functions can now be used with new data types `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ`.
 
-  To see how this works, let’s look at an example. Say we have the following query pattern which is run hundreds of times per second with different values for `l.player_id` and `l.date`:
+  * [TO_CHAR](../sql-reference/functions-reference/to-char-new.md)
+  * [CURRENT_PGDATE](../sql-reference/functions-reference/current-pgdate.md)
+  * [LOCALTIMESTAMPNTZ](../sql-reference/functions-reference/localtimestampntz.md)
+  * [CURRENT_TIMESTAMPTZ](../sql-reference/functions-reference/current-timestamptz.md)
+  * [TO_TIMESTAMPTZ](../sql-reference/functions-reference/to-timestamptz.md)
 
-  ```sql
-  SELECT r.name, SUM(l.score) 
-  FROM   game_plays as l
-  JOIN   player_info as r 
-  ON     l.player_id = r.player_id
-  WHERE  l.player_id = XXX AND l.date = YYY
-  GROUP  BY r.name;
-  ```
+{: .warning}
+  >**To use the new data types, new external and dimension/fact tables must be created. Reingest will be required to recognize new precision.**
+  >* To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type >`TIMESTAMP` to `TIMESTAMPNTZ`. 
+  >* To ingest into a new table using the new types from external data, create an external table with the new types.
+  >
+  >Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. Please raise any questions or concerns with your Customer Success team. 
 
-  On the first run of this query, the relevant data from the right-hand side table `player_info` is read and stored in a specialized data structure, which is cached in RAM. This can take tens of seconds if the `player_info` table is large (e.g., contains millions of rows). However, on subsequent runs of the query pattern, the cached data structure can be reused - so all subsequent queries will only take a few milliseconds (if the left-hand side with potential field restrictions is small, as here).
+* #### <!--- FIR-18850 —--> Changed NULL behavior of `CONCAT` function
 
-  **Requirements for query optimization**
-    * The right side of the join in the query must be directly a table. Subselects are not supported.
-    * Restrictions on fields from the right side of the join need to be applied in an `OUTER SELECT`, wrapping the query.
-    * Since the join index data structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
-    * All types of joins (INNER, LEFT, RIGHT, …) are supported.
-    * The right table in the join can be a FACT or DIMENSION table.  
+  NULL inputs to [the `CONCAT` function](../sql-reference/functions-reference/concat.md) are now treated as empty strings, therefore any NULL inputs are ignored. When all inputs are NULL, the result will be an empty string. When using `||`, any NULL input still results in a NULL output.
 
-
-* #### <!--- FIR-11922 —-->Improved cache eviction
-
-  Cache eviction process and stability has been improved. Tablet eviction is now managed by a Least Recently Used (LRU) algorithm, which provides smarter eviction and keeps the data that is most likely to be accessed in the engine cache.
-
-* #### <!--- FIR-17198 —-->Added syntax option for setting TYPE options in CREATE EXTERNAL TABLE
+{: .warning}
+  >If you are using the `CONCAT` function on strings with NULL inputs and you don't want NULL values to be ignored, you will need to use the `||` function instead.
   
-  Added the option to set type options for S3 source files at the same level as `TYPE` is set. [Type option](../sql-reference/commands/create-external-table.md#type) can now be defined as in the example below:
+* #### <!--- FIR-21015 —--> Additional syntax for ARRAY data type names
+
+  Syntax options for defining columns with [the `ARRAY` data type](../general-reference/data-types.md#array) have been updated to include `<data-type>[]` and `<data-type> ARRAY`. Array element type is nullable when using the new syntax options. 
+
+  For example, the following three queries will create tables with the same `demo_array` column of type `ARRAY` of nullable `TEXT`.
 
   ```sql
-  CREATE EXTERNAL TABLE ex_table( ... )
-  TYPE=(CSV)
-  ALLOW_COLUMN_MISMATCH=true
-  ...
-  ```
+  CREATE DIMENSION TABLE demo1 (
+  demo_array ARRAY(TEXT NULL)
+  );
+  
+  CREATE DIMENSION TABLE demo2 (
+  demo_array TEXT[]
+  );
 
-  as well as with the original syntax: 
+  CREATE DIMENSION TABLE demo3 (
+  demo_array TEXT ARRAY
+  );
+  ```
+ To specify the constraint for an array element to be not nullable, you must then use `ARRAY(<data-type> NOT NULL)` syntax.
+
+* #### <!--- FIR-20822 —--> Added flag support for `REGEXP_LIKE`
+
+  The [`REGEXP_LIKE` function](../sql-reference/functions-reference/regexp-like.md) now supports an optional `<flag>` input, to allow additional controls over the regular's expression matching behavior.
+
+  For example, the `i` flag causes the regular expression matching in the following query to be case-insensitive. Without this flag, the query would not find a match and would return `0`.
 
   ```sql
-  CREATE EXTERNAL TABLE ex_table(...)
-  TYPE=(CSV ALLOW_COLUMN_MISMATCH=true)
-  ...
+  SELECT
+	  REGEXP_LIKE('ABC', '[a-z]', 'i'); ---> 1
   ```
 
-* #### <!--- FIR-20566 —-->Default DECIMAL scale changed
+* #### <!--- FIR-20808 —--> Parquet and ORC support added for binary data type
 
-  The default scale for the `DECIMAL` [data type](../general-reference/decimal-data-type.md) has been updated from 0 to 9. 
+  Binary type data from external Parquet or ORC file types will now be ingested directly with [the data type `BYTEA`](../general-reference/bytea-data-type.md#importing-bytea-from-external-source). Previously, data were ingested as type `TEXT` and then converted to data type `BYTEA`. 
 
+* #### <!--- FIR-21179 —--> Export all results from the SQL Workspace
 
+  [Exporting the entire results section](../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
 
+* #### <!--- FIR-19287 —-->Renamed column from `information_schema.tables`
 
+  Renamed the `number_of_segments` column from `information_schema.tables` to `number_of_tablets` to better reflect Firebolt's data structure.
 
+* #### <!--- FIR-21118 —--> Added support for empty statements
 
+  Empty statements containing comments only are now supported and will run without error. 
+
+### Resolved issues
+
+* <!--- FIR-20808 —-->Fixed an issue where `AVG` and `SUM` functions performed on large `DECIMAL` columns produced an error; results now use the same precision and scale as the input type. 

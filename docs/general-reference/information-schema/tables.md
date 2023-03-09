@@ -33,7 +33,7 @@ Each row has the following columns with information about each table.
 | size                        | DOUBLE      | The compressed size of the table. |
 | size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
 | compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
-| number_of_segments          | INT         | The number of segments comprising the table. |
+| number_of_tablets           | INT         | The number of tablets comprising the table. |
 | self_referencing_column_name| NULL        | Not applicable for Firebolt. |
 | reference_generation        | NULL        | Not applicable for Firebolt. |
 | user_defined_type_catalog   | NULL        | Not applicable for Firebolt. |
