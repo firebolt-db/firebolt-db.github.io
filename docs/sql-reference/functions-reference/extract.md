@@ -1,13 +1,16 @@
 ---
 layout: default
-title: EXTRACT
+title: EXTRACT (legacy)
 description: Reference material for EXTRACT function
 parent: SQL functions
 ---
 
-# EXTRACT
+# EXTRACT (legacy)
 
 Retrieves subfields such as year or hour from date/time values.
+
+{: .note}
+The functions works with legacy `DATE` and `TIMESTAMP` data types. If you are using new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types, see [EXTRACT (new)](../functions-reference/extract-new.md).
 
 ## Syntax
 {: .no_toc}

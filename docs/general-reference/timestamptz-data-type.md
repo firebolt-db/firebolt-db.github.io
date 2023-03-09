@@ -120,7 +120,7 @@ The `TIMESTAMPTZ` data type can be cast to and from types as follows (assuming `
 | `PGDATE` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as PGDATE);  --> 2023-02-13` | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting and then truncates the timestamp to the date. |
 | `TIMESTAMPNTZ` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 11:19:42 Europe/Berlin' as TIMESTAMPNTZ );  --> 2023-02-13 11:19:42+00` | Convert from Unix time to local time in the time zone specified by the session's `time_zone` setting. |
 
-Use the function [TO_TIMESTAMPTZ](../sql-reference/functions-reference/to_timestamptz.md) to convert from the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
+Use the function [TO_TIMESTAMPTZ](../sql-reference/functions-reference/to_timestamptz.md) to convert the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
 
 #### AT TIME ZONE
 
@@ -128,13 +128,13 @@ The dependence on the session's `time_zone` setting for type conversions is espe
 Therefore, we recommend using the `AT TIME ZONE` construct to avoid the implicit dependence on the `time_zone` setting, to be explicit about which time zone to use.
 
 * `TIMESTAMPNTZ AT TIME ZONE time_zone_str -> TIMESTAMPTZ` <br>
- Converts the given `TIMESTAMPNTZ` to `TIMESTAMPTZ` by interpreting it as local time in the time zone `time_zone_str`
+ Converts the given `TIMESTAMPNTZ` to `TIMESTAMPTZ` by interpreting it as local time in the time zone `time_zone_str`.
 
 **Example:**
 `SELECT TIMESTAMPNTZ '1996-09-03' at time zone 'Europe/Berlin' = TIMESTAMPTZ '1996-09-03 Europe/Berlin';  --> 1`
 
 * `TIMESTAMPTZ AT TIME ZONE time_zone_str -> TIMESTAMPNTZ`:<br>
- Converts the given `TIMESTAMPTZ` to `TIMESTAMPNTZ` by transforming it from Unix time to local time in the time zone `time_zone_str`
+ Converts the given `TIMESTAMPTZ` to `TIMESTAMPNTZ` by transforming it from Unix time to local time in the time zone `time_zone_str`.
  
 **Example:**
 `SELECT TIMESTAMPTZ '1996-09-03 Europe/Berlin' at time zone 'US/Pacific';  --> 1996-09-02 15:00:00`

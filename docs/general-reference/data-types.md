@@ -152,15 +152,62 @@ Synonyms: `BOOL`
 ### ARRAY
 Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array with arrays).
 
-A column whose type is `ARRAY` can't be nullable, but the elements of an `ARRAY` can be nullable.
+Array columns must be defined with the data type of the array elements, and optionally whether or not those elements are nullable. The following syntax options are supported: 
 
-For example, the following is an illegal type definition:
+* `ARRAY(<data-type> [NULL | NOT NULL])`
+* `<data-type> ARRAY`
+* `<data-type>[]`
 
-`array_with_null ARRAY(INT) NULL`
+For example, the following three queries will create tables with the same nullable `demo_array` column of `TEXT` elements: 
 
-This, on the other hand, is a valid definition:
+  ```sql
+  CREATE DIMENSION TABLE demo1 (
+  demo_array ARRAY(TEXT NULL) 
+  );
+  
+  CREATE DIMENSION TABLE demo2 (
+  demo_array TEXT[]
+  );
 
-`nullElements ARRAY(INT NULL)`
+  CREATE DIMENSION TABLE demo3 (
+  demo_array TEXT ARRAY 
+  );
+  ```
+
+  You can also specify that an array be NOT NULL, but you must then use the `ARRAY(<data-type> NOT NULL)` syntax.
+
+#### Example
+{: .no_toc}
+
+The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities.
+```sql
+CREATE DIMENSION TABLE demo (
+  a_t ARRAY(TEXT NULL) NULL,
+  a_i ARRAY(INT NULL) NOT NULL,
+  a_d ARRAY(DATE NOT NULL) NULL,
+  a_f ARRAY(FLOAT NOT NULL) NOT NULL,
+  a_a ARRAY(ARRAY(INT NULL) NULL) NULL
+);
+```
+And the following `INSERT INTO` statement demonstrates examples of values for these arrays:
+
+```sql
+INSERT INTO demo VALUES
+  (
+    ['Hello', NULL, 'world'],
+    [1, 42, NULL],
+    [DATE '2000-01-01'],
+    [3.14, 2.71, 9.8],
+    [ [1, 2], [NULL], NULL]
+  ),
+  (
+    NULL,
+    [],
+    NULL,
+    [],
+    NULL
+  )
+```
 
 ## Binary
 
