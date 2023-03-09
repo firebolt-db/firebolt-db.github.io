@@ -82,7 +82,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   Binary type data from external Parquet or ORC file types will now be ingested directly with [the data type `BYTEA`](../general-reference/bytea-data-type.md#importing-bytea-from-external-source). Previously, data were ingested as type `TEXT` and then converted to data type `BYTEA`. 
 
-* #### <!--- FIR-21179 —--> Export all results from the SQL Workspace
+* #### <!--- FIR-21179 —--> Export all results from the SQL Workspace  (UI release)
 
   [Exporting the entire results section](../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
 
