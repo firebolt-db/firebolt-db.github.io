@@ -1,13 +1,16 @@
 ---
 layout: default
-title: TO_CHAR
+title: TO_CHAR (legacy)
 description: Reference material for TO_CHAR function
 parent: SQL functions
 ---
 
-# TO_CHAR
+# TO_CHAR (legacy)
 
 Converts a `TIMESTAMP` or a `NUMERIC` data type to a formatted string.
+
+{: .note}
+The functions works with legacy `DATE` and `TIMESTAMP` data types. If you are using new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types, see [TO_CHAR (new)](../functions-reference/to-char-new.md).
 
 ## Syntax
 
