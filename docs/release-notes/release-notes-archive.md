@@ -15,6 +15,99 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
+## DB version 3.19.0 
+**February 2023**
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+
+### New features
+
+* <!--- FIR-16297 —--> **New date and time data types**
+
+  Added support for new date and timestamp data types:
+
+  * [PGDATE](../general-reference/date-data-type.md)
+  * [TIMESTAMPNTZ](../general-reference/timestampntz-data-type.md)
+  * [TIMESTAMPTZ](../general-reference/timestamptz-data-type.md)
+
+  The new data types use an improved memory layout providing a much higher supported range, now extending from `0001-01-01[ 00:00:00.000000]` to `9999-12-31[ 23:59:59.999999]`. This change also extends the syntax for specifying intervals used for arithmetic with dates and timestamps. In addition to the previously supported interval syntax, you can now also write `interval 'N' unit`, where `N` is a possibly signed integer, and `unit` is one of `year`, `month`, `day`, `hour`, `minute`, or `second`, matched case-insensitively.
+
+  The previously supported `DATE` and `TIMESTAMP` data types are planned for deprecation in the future. New features and functionality will be built to support the new date and timestamp data types, rather than these legacy types. 
+  
+  **To use the new data types, new external and dimension/fact tables must be created. Reingest will be required to recognize new precision.**
+  * To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type `TIMESTAMP` to `TIMESTAMPNTZ`. 
+  * To ingest into a new table using the new types from external data, create an external table with the new types.
+
+  {: .warning}
+  The new syntax can break the semantics of existing SQL queries. Previously, the `unit` part of the expression was treated as a column alias, and now it's treated as part of the interval literal. For example, if you wrote `SELECT DATE '2023-01-10' + interval '42' day;`, you would get back a table with one column called `day` and the value `2023-01-10 00:00:42`. Now, you will get a back a table with one column (unspecified name) and the value `2023-02-21 00:00:00`.<br>If you want to retain the old behavior, use `AS`, for example: `SELECT DATE '2023-01-10' + interval '42' AS day;`.
+
+* <!--- ---> **New setting for time zone**
+
+  [New setting](../general-reference/system-settings.md#set-time-zone) `time_zone` controls the session time zone. The default value of the `time_zone` setting is UTC.
+
+* <!--- FIR-13488, FIR-20666 ---> **New keyboard shortcuts** (UI release)
+
+  Use new [keyboard shortcuts](../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to cancel a query, or go to a specific line in your script.  
+
+    * Cancel a running script with **Ctrl + Alt + k** for Windows & Linux, or **⌘ + Option + k** for Mac
+    * Go to a desired line with **Ctrl + l** for Windows & Linux, or **⌘ + l** for Mac
+  
+### Enhancements, changes, and new integrations
+
+* <!--- FIR-16389 —--> **Improved join index performance**
+
+  [Join indexes](../using-indexes/using-join-indexes.md) just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually create or refresh – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
+
+  To see how this works, let’s look at an example. Say we have the following query pattern which is run hundreds of times per second with different values for `l.player_id` and `l.date`:
+
+  ```sql
+  SELECT r.name, SUM(l.score) 
+  FROM   game_plays as l
+  JOIN   player_info as r 
+  ON     l.player_id = r.player_id
+  WHERE  l.player_id = XXX AND l.date = YYY
+  GROUP  BY r.name;
+  ```
+
+  On the first run of this query, the relevant data from the right-hand side table `player_info` is read and stored in a specialized data structure, which is cached in RAM. This can take tens of seconds if the `player_info` table is large (e.g., contains millions of rows). However, on subsequent runs of the query pattern, the cached data structure can be reused - so all subsequent queries will only take a few milliseconds (if the left-hand side with potential field restrictions is small, as here).
+
+  **Requirements for query optimization**
+    * The right side of the join in the query must be directly a table. Subselects are not supported.
+    * Restrictions on fields from the right side of the join need to be applied in an `OUTER SELECT`, wrapping the query.
+    * Since the join index data structure is cached in RAM, the right side table may not be too large (by default the size of the cache is limited to 20% of the RAM).
+    * All types of joins (INNER, LEFT, RIGHT, …) are supported.
+    * The right table in the join can be a FACT or DIMENSION table.  
+
+
+* <!--- FIR-11922 —-->**Improved cache eviction**
+
+  Cache eviction process and stability has been improved. Tablet eviction is now managed by a Least Recently Used (LRU) algorithm, which provides smarter eviction and keeps the data that is most likely to be accessed in the engine cache.
+
+* <!--- FIR-17198 —-->**Added syntax option for setting TYPE options in CREATE EXTERNAL TABLE**
+  
+  Added the option to set type options for S3 source files at the same level as `TYPE` is set. [Type option](../sql-reference/commands/create-external-table.md#type) can now be defined as in the example below:
+
+  ```sql
+  CREATE EXTERNAL TABLE ex_table( ... )
+  TYPE=(CSV)
+  ALLOW_COLUMN_MISMATCH=true
+  ...
+  ```
+
+  as well as with the original syntax: 
+
+  ```sql
+  CREATE EXTERNAL TABLE ex_table(...)
+  TYPE=(CSV ALLOW_COLUMN_MISMATCH=true)
+  ...
+  ```
+
+* <!--- FIR-20566 —-->**Default DECIMAL scale changed**
+
+  The default scale for the `DECIMAL` [data type](../general-reference/decimal-data-type.md) has been updated from 0 to 9. 
+
+
 ## DB version 3.17.0
 February 2023
 
@@ -24,27 +117,27 @@ February 2023
 
 ### New features
 
-* <!--- FIR--17030 --->Added support for GROUP BY ALL
+* <!--- FIR--17030 --->**Added support for GROUP BY ALL**
 
   Instead of explicitly listing all grouping elements in the `GROUP BY` clause, [use `GROUP BY ALL`](../sql-reference/commands/select.md#group-by-all) to automatically infer them from the `SELECT` list.
 
-* <!--- FIR-16795 —-->New BYTEA data type
+* <!--- FIR-16795 —-->**New BYTEA data type**
 
   Use the new [`BYTEA` data type](../general-reference/bytea-data-type.md) to store binary data, like images, other multimedia files, or raw bytes of information.
 
-* <!--- FIR-16922 —-->New functions [ENCODE](../sql-reference/functions-reference/encode.md) and [DECODE](../sql-reference/functions-reference/decode.md)
+* <!--- FIR-16922 —-->**New functions [ENCODE](../sql-reference/functions-reference/encode.md) and [DECODE](../sql-reference/functions-reference/decode.md)**
 
   Use [these functions](../sql-reference/functions-reference/index.md#bytea-functions) with the new `BYTEA` data type to encode binary data into a SQL expression of type `TEXT`, and decode from type `TEXT` to type `BYTEA`.
 
-* <!--- FIR-17196 --->Added support for EXCLUDE columns in SELECT *
+* <!--- FIR-17196 --->**Added support for EXCLUDE columns in `SELECT *`**
 
   [Added support for `EXCLUDE` columns in SELECT *](../sql-reference/commands/select.md#select-wildcard) to define which columns to exclude from a SELECT wildcard expansion. 
 
-* <!--- FIR-16745 --->New setting for parsing literal strings
+* <!--- FIR-16745 --->**New setting for parsing literal strings**
 
   [New setting](../general-reference/system-settings.md#enable-parsing-for-literal-strings) `standard_conforming_strings` controls whether strings are parsed without escaping, treating backslashes literally.
 
-* <!--- FIR-13489 --->New keyboard shortcuts (UI release)
+* <!--- FIR-13489 --->**New keyboard shortcuts** (UI release)
 
   Use new [keyboard shortcuts](../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to save and close scripts, and expand or collapse the results pane. 
 
@@ -56,21 +149,21 @@ February 2023
 
 ### Enhancements, changes, and new integrations
 
-* <!--- FIR-12244 —-->Added support for CREATE TABLE as an alias for CREATE FACT TABLE
+* <!--- FIR-12244 —-->**Added support for CREATE TABLE as an alias for CREATE FACT TABLE**
 
   [Added support for `CREATE TABLE` syntax](../sql-reference/commands/create-fact-dimension-table.md), with the default as fact table. `PRIMARY INDEX` is now also optional for fact tables.
 
-* <!--- FIR-17189 --->Added support for the DECIMAL data type with the ARRAY\_SORT function
+* <!--- FIR-17189 --->**Added support for the DECIMAL data type with the ARRAY\_SORT function**
 
   [ARRAY_SORT](../sql-reference/functions-reference/array-sort.md) has been added as a function supporting the [DECIMAL data type](../general-reference/decimal-data-type.md#supported-functions-beta-release).
 
-* <!--- FIR-11888 --->Minimize results in the SQL workspace (UI release)
+* <!--- FIR-11888 --->**Minimize results in the SQL workspace** (UI release)
 
   The results pane in the SQL workspace can now be minimized. Expand or collapse by double-clicking on the "Results" pane header, using the height control button to drag and change the size of the pane as desired, or using the keyboard shortcut **Ctrl + Alt + e**  for Windows & Linux, or **⌘ + Option + e** for Mac.
 
   ![](../assets/images/release-notes/expandcollapse.gif)
 
-* <!--- FIR-10855 --->Primary index columns highlighted in columns object viewer (UI release)
+* <!--- FIR-10855 --->**Primary index columns highlighted in columns object viewer** (UI release)
 
   The columns pane in the object viewer now highlights columns that are part of a table's primary index, making it easier to identify primary indexes and the order of the columns in the primary index. 
 
@@ -91,7 +184,7 @@ February 2023
 
 ### New features
 
-*  <!--- FIR-3917 —-->Added support for CSV TYPE options on ingest (DB version 3.14.0)
+*  <!--- FIR-3917 —-->**Added support for CSV TYPE options on ingest** (DB version 3.14.0)
 
   Added support for additional TYPE options for the [CREATE EXTERNAL TABLE command](../sql-reference/commands/create-external-table.md#type), to allow configuration for ingesting different CSV file formats. Some of these options may be available in previous versions. 
 
@@ -113,7 +206,7 @@ February 2023
 
 ### Enhancements, changes, and new integrations
 
-* <!--- FIR-16182 —-->Added support for nullable arrays (DB version 3.11.0)
+* <!--- FIR-16182 —--> **Added support for nullable arrays** (DB version 3.11.0)
 
   Nullable type is now generally available for arrays, enabled for DB version 3.11 and above. 
 
@@ -125,7 +218,7 @@ February 2023
 
 ### New features
 
-* <!--- FIR-15968, FIR-15744 —-->Added support for functions (DB version 3.13.0)
+* <!--- FIR-15968, FIR-15744 —-->**Added support for functions** (DB version 3.13.0)
 
   * [FIRST_VALUE](../sql-reference/functions-reference/first-value.md): Returns the first value evaluated in the specified window frame.
   * [NTH_VALUE](../sql-reference/functions-reference/nth-value.md): Returns the value evaluated of the nth row of the specified window frame (starting at the first row).
@@ -138,11 +231,11 @@ February 2023
   * [PERCENTILE\_DISC (window function)](../sql-reference/functions-reference/percentile-disc-window.md): Returns a percentile over a partition for an ordered data set, equal to a specific column value.
 
 
-* <!--- FIR-15007 —-->Added support for TRUNCATE TABLE command (DB version 3.11.0)
+* <!--- FIR-15007 —-->**Added support for TRUNCATE TABLE command** (DB version 3.11.0)
   
   Use the [TRUNCATE TABLE](../sql-reference/commands/truncate-table.md) command to remove all rows from a table. 
 
-* <!--- FIR-12587 —-->Added support for DECIMAL data type (DB version 3.13.0)
+* <!--- FIR-12587 —-->**Added support for DECIMAL data type** (DB version 3.13.0)
 
   Beta support for the [DECIMAL](decimal-data-type.md) data type is coming in version 3.13. 
 

@@ -152,9 +152,34 @@ Synonyms: `BOOL`
 ### ARRAY
 Represents an array of values. All elements of the array must have same data type. Elements of the array can be of any supported data type including nested arrays (array with arrays).
 
-#### Example
+Array columns must be defined with the data type of the array elements, and optionally whether or not those elements are nullable. The following syntax options are supported: 
 
-The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities
+* `ARRAY(<data-type> [NULL | NOT NULL])`
+* `<data-type> ARRAY`
+* `<data-type>[]`
+
+For example, the following three queries will create tables with the same nullable `demo_array` column of `TEXT` elements: 
+
+  ```sql
+  CREATE DIMENSION TABLE demo1 (
+  demo_array ARRAY(TEXT NULL) 
+  );
+  
+  CREATE DIMENSION TABLE demo2 (
+  demo_array TEXT[]
+  );
+
+  CREATE DIMENSION TABLE demo3 (
+  demo_array TEXT ARRAY 
+  );
+  ```
+
+  You can also specify that an array be NOT NULL, but you must then use the `ARRAY(<data-type> NOT NULL)` syntax.
+
+#### Example
+{: .no_toc}
+
+The following `CREATE TABLE` statement shows arrays of different element types and different nullabilities.
 ```sql
 CREATE DIMENSION TABLE demo (
   a_t ARRAY(TEXT NULL) NULL,
