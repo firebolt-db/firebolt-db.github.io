@@ -37,7 +37,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   >* To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type >`TIMESTAMP` to `TIMESTAMPNTZ`. 
   >* To ingest into a new table using the new types from external data, create an external table with the new types.
   >
-  >Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. Please raise any questions or concerns with your Customer Success team. 
+  >Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. Please raise any questions or feedback with your Customer Success team.
 
 * #### <!--- FIR-18850 —--> Changed NULL behavior of `CONCAT` function
 
