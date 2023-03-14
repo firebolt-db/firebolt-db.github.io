@@ -185,7 +185,7 @@ An aggregating index enables you to take a subset of table columns and predefine
 From the `lineitem` fact table that you created in the previous step, assume you typically run queries to look at the `SUM(l_quantity)`, `SUM(l_extendedprice)`, and `AVG(l_discount)`, grouped by different combinations of `l_suppkey` and `l_partkey`. You can create an aggregating index to speed up these queries by running the statement below.
 
 ```sql
-CREATE AND GENERATE AGGREGATING INDEX
+CREATE INDEX
   agg_lineitem
 ON lineitem (
   l_suppkey,
