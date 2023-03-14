@@ -108,11 +108,6 @@ SELECT TIMESTAMPNTZ '2023-03-18' - INTERVAL '26 years 5 months 44 days 12 hours 
 
 For more information, see [Arithmetic with intervals](interval-arithmetic.md).
 
-### Processing functions
-
-* [EXTRACT](../sql-reference/functions-reference/extract-new.md)
-* [DATE_TRUNC](../sql-reference/functions-reference/date-trunc-new.md)
-
 ## Serialization and deserialization
 
 ### Text, CSV, JSON
@@ -127,23 +122,23 @@ Input is accepted in the literal format described above: `YYYY-[M]M-[D]D[( |T)[h
 
 `TIMESTAMPNTZ` maps to Parquet's 64-bit signed integer `TIMESTAMP` type with the parameter `isAdjustedToUTC` set to `false` and `unit` set to `MICROS`, representing the number of microseconds before or after `1970-01-01 00:00:00.000000`.
 It's also possible to import into a `TIMESTAMPNTZ` column from Parquet's 64-bit signed integer `TIMESTAMP` type with the parameter `isAdjustedToUTC` set to `false` and the `unit` set to `MILLIS` or `NANOS`.
-In this case, Firebolt implicitly extends or truncates to microseconds resolution.
+In this case, Firebolt implicitly extends or truncates data to resolve in microseconds.
 
 ### Avro
 {:.no_toc}
 
-The Avro version used by Firebolt supports the logical types "timestamp-millis" and "timestamp-micros".
+The Avro version used by Firebolt supports the logical types `timestamp-millis` and `timestamp-micros`.
 Those types represent absolute points in time, similar to Firebolt's `TIMESTAMPTZ` type.
-To prevent unintended time zone conversions, it is not allowed to directly import data from Avro into a `TIMESTAMPNTZ` column.
-Instead, you have to first import into a `TIMESTAMPTZ` column and then, e.g., use the `AT TIME ZONE` expression to convert into `TIMESTAMPNTZ` column.
+To prevent unintended time zone conversions, directly importing data from Avro into a `TIMESTAMPNTZ` column is not supported. 
+Instead, first import using a `TIMESTAMPTZ` data type column and then convert into `TIMESTAMPNTZ` column, for example using the `AT TIME ZONE` expression.
 
 Similarly, it's not possible to export a `TIMESTAMPNTZ` column to the Avro format, as this would require a possibly unintended time zone conversion.
-You first have to use the `AT TIME ZONE` expression to convert a `TIMESTAMPNTZ` column to `TIMESTAMPTZ`.
+Instead, use the `AT TIME ZONE` expression to convert a `TIMESTAMPNTZ` column to `TIMESTAMPTZ`.
 
 ### ORC
 
-`TIMESTAMPNTZ` maps to ORC's logical type "TIMESTAMP" using up to 128 bits and a resolution of nanoseconds.
-During imports, Firebolt truncates to microseconds resolution.
+`TIMESTAMPNTZ` maps to ORC's logical type `TIMESTAMP` using up to 128 bits and a resolution of nanoseconds.
+During imports, Firebolt truncates data to resolve in microseconds.
 
 ## Data pruning
 
