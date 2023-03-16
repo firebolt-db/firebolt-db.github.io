@@ -37,6 +37,8 @@ Each row has the following columns with information about each query in query hi
 | status                      | STRING    | Can be one of the following values:<br>`STARTED_EXECUTION`&ndash;Successful start of query execution.<br>`ENDED_SUCCESSFULLY`&ndash;Successful end of query execution. <br>`CANCELED_EXECUTION`&ndash;Query cancelled during execution. <br>`PARSE_ERROR`&ndash;Exception before the start of query execution.<br>`EXECUTION_ERROR`&ndash;Exception during query execution. |
 | query_id                    | STRING    | The unique identifier of the SQL query. |
 | query_text                  | STRING    | Text of the SQL statement. |
+| query_text_normalized       | STRING    | Text of the SQL statement but with sanitized values of literals. |
+| query_text_normalized_hash  | STRING    | Hash value of `query_text_normalized`. |
 | error_message               | STRING    | The error message that was returned. |
 | scanned_rows                | LONG      | The total number of rows scanned. |
 | scanned_bytes               | LONG      | The total number of bytes scanned (both from cache and storage). |
