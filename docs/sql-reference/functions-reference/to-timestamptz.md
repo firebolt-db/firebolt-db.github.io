@@ -19,7 +19,7 @@ Converts the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
 
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
-| `<value>`   | A numeric expression to convert. The number left of the decimal separator is interpreted as the number of seconds before or after the Unix epoch `1970-01-01 00:00:00 UTC`. The fractional part (if present) is interpreted as subseconds. | `INT`, `BIGINT`, `DECIMAL`, `DOUBLE` |
+| `<value>`   | A numeric expression to convert. The number left of the decimal separator is interpreted as the number of seconds before or after the Unix epoch `1970-01-01 00:00:00 UTC`. The fractional part (if present) is interpreted as subseconds. | `INTEGER`, `BIGINT`, `NUMERIC`, `DOUBLE PRECISION` |
 
 ## Return Types
 
@@ -40,8 +40,8 @@ SELECT TO_TIMESTAMPTZ(EXTRACT(EPOCH FROM CURRENT_TIMESTAMPTZ)) = CURRENT_TIMESTA
 
 SET time_zone = 'Europe/Berlin';
 
-SELECT TO_TIMESTAMPTZ(42::INT);  --> 1970-01-01 01:00:42+01
+SELECT TO_TIMESTAMPTZ(42::INTEGER);  --> 1970-01-01 01:00:42+01
 SELECT TO_TIMESTAMPTZ(-9876543210::BIGINT);  --> 1657-01-09 04:39:58+00:53:28
-SELECT TO_TIMESTAMPTZ(42.123456::DOUBLE);  --> 1970-01-01 01:00:42.123456+01
-SELECT TO_TIMESTAMPTZ(42.123456::DECIMAL(38, 9));  --> 1970-01-01 01:00:42.123456+01
+SELECT TO_TIMESTAMPTZ(42.123456::DOUBLE PRECISION);  --> 1970-01-01 01:00:42.123456+01
+SELECT TO_TIMESTAMPTZ(42.123456::NUMERIC(38, 9));  --> 1970-01-01 01:00:42.123456+01
 ```

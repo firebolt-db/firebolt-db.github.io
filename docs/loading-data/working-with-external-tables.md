@@ -47,7 +47,7 @@ The query example below creates an external table that references an AWS S3 buck
 ```sql
 CREATE EXTERNAL TABLE my_external_table
   (
-    c_id    INT,
+    c_id    INTEGER,
     c_name  TEXT
   )
   CREDENTIALS = (AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
@@ -61,7 +61,7 @@ The query example below creates a dimension table, which will be the target for 
 ```sql
 CREATE DIMENSION TABLE my_dim_table_with_metadata
 (
-   c_id INT UNIQUE
+   c_id INTEGER UNIQUE
    c_name TEXT,
    source_file_name TEXT,
    source_file_timestamp TIMESTAMP,

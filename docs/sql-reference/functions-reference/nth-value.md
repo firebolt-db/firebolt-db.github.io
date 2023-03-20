@@ -21,7 +21,7 @@ NTH_VALUE( <expr>, <n> ) OVER ( [ PARTITION BY <expr0> ] ORDER BY <expr1> [ASC|D
 | Parameter | Description                                                                                        |
 | :--------- | :-------------------------------------------------------------------------------------------------- |
 | `<expr>`   | A SQL expression of any type to evaluate.                                                |
-| `<n>`     | A constant integer in range [1, max of datatype long] to indicate the row number to evaluate. |
+| `<n>`     | A constant integer in range [1, max of datatype `INT`] to indicate the row number to evaluate. |
 | `<expr0>` | An expression used for the PARTITION clause. |
 | `<expr1>` | An expression used for the order by clause. |
 

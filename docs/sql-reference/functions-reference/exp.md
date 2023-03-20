@@ -7,18 +7,18 @@ parent: SQL functions
 
 # EXP
 
-Returns the FLOAT value of the constant _e_ raised to the power of a specified number.
+Returns the `REAL` value of the constant _e_ raised to the power of a specified number.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-EXP(<val>)
+EXP(<value>)
 ```
 
 | Parameter | Description                                                                                                         |
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 ## Example
 {: .no_toc}

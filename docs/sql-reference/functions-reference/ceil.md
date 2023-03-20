@@ -31,15 +31,15 @@ Same as the input datatype (`<value>`).
 ## Remarks
 {: .no_toc}
 
-When the input is of type `DECIMAL`, this function throws an overflow error if the result does not fit into the return type.
+When the input is of type `NUMERIC`, this function throws an overflow error if the result does not fit into the return type.
 
 For example:
 ```sql
 SELECT
-    CEIL('99.99'::DECIMAL(4,2));
+    CEIL('99.99'::NUMERIC(4,2));
 ```
 
-returns: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `DECIMAL` type with only 2 whole digits.
+returns: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `NUMERIC` type with only 2 whole digits.
 
 
 ## Examples
@@ -54,7 +54,7 @@ SELECT
 
 ```sql
 SELECT
-    CEIL('213.1549'::DECIMAL(20,4));
+    CEIL('213.1549'::NUMERIC(20,4));
 ```
 
 **Returns**: `214.0000`

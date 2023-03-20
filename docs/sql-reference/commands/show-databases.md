@@ -21,9 +21,9 @@ The returned table has the following columns.
 
 | Column name      | Data Type   | Description |
 | :----------------| :-----------| :-----------|
-| database_name    | STRING      | The name of the database. |
-| region           | STRING      | The AWS Region in which the database was created. |
-| attached_engines | STRING      | A comma separated list of engine names that are attached to the database. |
+| database_name    | TEXT      | The name of the database. |
+| region           | TEXT      | The AWS Region in which the database was created. |
+| attached_engines | TEXT      | A comma separated list of engine names that are attached to the database. |
 | created_on       | TIMESTAMP   | The date and time that the database was created (UTC). |
-| created_by       | STRING      | The user name of the Firebolt user who created the database. |
-| errors           | STRING      | Any error messages associated with the database. |
+| created_by       | TEXT      | The user name of the Firebolt user who created the database. |
+| errors           | TEXT      | Any error messages associated with the database. |

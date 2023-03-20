@@ -42,13 +42,13 @@ Consider the Parquet schema example below. The following elements define an arra
 * A single, optional group field, `hashtags`, contains any number of another group, `bag`. This is the top grouping element.
 * The `bag` groups each contain a single, optional group, `array_element`.
 * The`array_element` group contains a single, optional field, `s`.
-* The field `some_value` contains a value that is a `STRING` type \(in binary primitive format\).
+* The field `some_value` contains a value that is a `TEXT` type \(in binary primitive format\).
 
 ```
 optional group hashtags (LIST) {
   repeated group bag {
     optional group array_element {
-      optional binary some_value (STRING);
+      optional binary some_value (TEXT);
     }
 ```
 
@@ -62,7 +62,7 @@ The `CREATE EXTERNAL TABLE` example below creates a column in an external table 
 CREATE EXTERNAL TABLE IF NOT EXISTS my_parquet_array_ext_tbl
 (
   [...,] --additional columns possible, not shown
-  "hashtags.some_value" ARRAY(STRING)
+  "hashtags.some_value" ARRAY(TEXT)
   [,...]
 )
 CREDENTIALS = (AWS_KEY_ID = '****' AWS_SECRET_KEY = '*****')
@@ -77,13 +77,13 @@ When connecting your external table to AWS Glue, we create the columns automatic
 
 ### Step 2&ndash;create a fact or dimension table
 
-Create a fact or dimension table that defines a column of the same `ARRAY(STRING)` type that you defined in the external table in step 1. The example below demonstrates this for a fact table.
+Create a fact or dimension table that defines a column of the same `ARRAY(TEXT)` type that you defined in the external table in step 1. The example below demonstrates this for a fact table.
 
 ```sql
 CREATE FACT TABLE IF NOT EXISTS my_parquet_array_fact_tbl
 (
   [...,] --additional columns possible, not shown
-  some_value ARRAY(STRING)
+  some_value ARRAY(TEXT)
   [,...]
 )
 [...]
@@ -115,13 +115,13 @@ External tables connected to AWS Glue currently do not support reading maps from
 Map keys and values in Parquet appear within a group similar to arrays. Consider the Parquet schema example below. The following define the key-value elements of the map:
 
 * A single, optional group, `context`, is a group of mappings that contains any number of the group `key_value`.
-* The `key_value` groups each contain a required field, `key`, which contains the key name as a `STRING`. Each group also contains an optional field `value`, which contains the value as a `STRING` corresponding to the key name in the same `key_value` group.
+* The `key_value` groups each contain a required field, `key`, which contains the key name as a `TEXT`. Each group also contains an optional field `value`, which contains the value as a `TEXT` corresponding to the key name in the same `key_value` group.
 
 ```
 optional group context (MAP) {
     repeated group key_value {
-      required binary key (STRING);
-      optional binary value (STRING);
+      required binary key (TEXT);
+      optional binary value (TEXT);
     }
   }
 ```
@@ -135,8 +135,8 @@ When you create an external table for a Parquet map, you use the same syntax tha
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS my_parquet_map_ext_tbl
 (
-  "context.keys" ARRAY(STRING),
-  "context.values" ARRAY(STRING)
+  "context.keys" ARRAY(TEXT),
+  "context.values" ARRAY(TEXT)
 )
 CREDENTIALS = (AWS_KEY_ID = '****' AWS_SECRET_KEY = '*****')
 URL = 's3://my_bucket_of_parquet/'
@@ -146,14 +146,14 @@ TYPE = (PARQUET);
 
 ### Step 2&ndash;create a fact or dimension table
 
-Create a Firebolt fact or dimension table that defines columns of the same `ARRAY(STRING)` types that you defined in the external table in step 1. The example below demonstrates this for a fact table.
+Create a Firebolt fact or dimension table that defines columns of the same `ARRAY(TEXT)` types that you defined in the external table in step 1. The example below demonstrates this for a fact table.
 
 ```sql
 CREATE FACT TABLE IF NOT EXISTS my_parquet_map_fact_tbl
 (
   [...,] --additional columns possible, not shown
-  my_parquet_array_keys ARRAY(STRING)
-  my_parquet_array_values ARRAY(STRING)
+  my_parquet_array_keys ARRAY(TEXT)
+  my_parquet_array_values ARRAY(TEXT)
   [,...]
 )
 [...] --required primary index for fact table not shown

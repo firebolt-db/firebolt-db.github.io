@@ -32,7 +32,7 @@ Use the functional list below to find commands for a specific task area that you
   These functions extract and transform JSON into Firebolt native types, or JSON sub-objects. They are used either during the ELT process or applied to columns storing JSON objects as plain `TEXT`.
 
 * [Numeric functions](#numeric-functions)  
-  Functions for manipulating data types including `INT`, `LONG`, `DOUBLE`, and other numeric types.
+  Functions for manipulating data types including `INTEGER`, `BIGINT`, `DOUBLE PRECISION`, and other numeric types.
 
 * [String functions](#string-functions)  
   Functions for manipulating string data types

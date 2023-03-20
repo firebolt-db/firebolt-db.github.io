@@ -7,18 +7,18 @@ parent: SQL functions
 
 # TO\_FLOAT
 
-Converts a string to a numeric `FLOAT` data type.
+Converts a string to a numeric `REAL` data type.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-TO_FLOAT(<expr>)
+TO_FLOAT(<expression>)
 ```
 
 | Parameter | Description                                                                                              |
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
+| `<expression>`  | A numeric data type or numeric characters that resolve to a `TEXT` data type. |
 
 ## Example
 {: .no_toc}

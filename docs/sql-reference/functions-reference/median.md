@@ -19,7 +19,7 @@ MEDIAN(<col>)
 
 | Parameter | Description                                                                                                        |
 | :--------- | :------------------------------------------------------------------------------------------------------------------ |
-| `<col>`   | The column used to calculate the median value. This column can consist of numeric data types or DATE and DATETIME. |
+| `<col>`   | The column used to calculate the median value. This column can consist of numeric data types or DATE and TIMESTAMP. |
 
 ## Example
 {: .no_toc}
@@ -29,7 +29,7 @@ For this example, we'll create a new table `num_test `as shown below:
 ```sql
 CREATE DIMENSION TABLE IF NOT EXISTS num_test
 	(
-		num int
+		num INT
 	);
 
 INSERT INTO

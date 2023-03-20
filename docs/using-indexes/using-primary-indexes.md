@@ -69,7 +69,7 @@ The primary index isn’t effective if Firebolt can’t determine the values in 
   PRIMARY INDEX asset_id
 ```
 
-In the example analytics query over the `events_log` table, Firebolt can’t use the primary index with the `WHERE` clause. This is because the function with `assset_id` is on the left side of the comparison. To satisfy the conditions of comparison, Firebolt must read all values of `asset_id` to apply the `UPPER` function.
+In the example analytics query over the `events_log` table, Firebolt can’t use the primary index with the `WHERE` clause. This is because the function with `asset_id` is on the left side of the comparison. To satisfy the conditions of comparison, Firebolt must read all values of `asset_id` to apply the `UPPER` function.
 
 ![](../assets/images/Red_X_resized.png)  
 
@@ -127,7 +127,7 @@ CREATE FACT TABLE events_log (
   asset_id TEXT,
   customer_id TEXT NOT NULL,
   event_type TEXT,
-  event_count INT NOT NULL
+  event_count INTEGER NOT NULL
 )
 PRIMARY INDEX <see examples below>;
 ```
@@ -270,7 +270,7 @@ CREATE FACT TABLE events_log (
   asset_id TEXT,
   customer_id TEXT NOT NULL,
   event_type TEXT,
-  event_count INT NOT NULL,
+  event_count INTEGER NOT NULL,
   uppder_customer_id TEXT NOT NULL
 )
 PRIMARY INDEX visit_date, upper _customer_id;

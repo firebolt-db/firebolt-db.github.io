@@ -24,7 +24,7 @@ LAG ( <exp> [, <offset> [, <default> ]] )
 | `<val>`     | Any valid expression that will be returned based on the `LAG` `<offset>.`                                                    |
 | `<expr>`    | The expression used for the `PARTITION BY` clause.                                                                           |
 | `<offset>`  | The number of rows backward from the current row from which to obtain a value. A negative number will act as `LEAD()`        |
-| `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INT`. The default is `NULL`. |
+| `<default>` | The expression to return when the offset goes out of the bounds of the window. Must be a literal `INTEGER`. The default is `NULL`. |
 
 ## Example
 {: .no_toc}
