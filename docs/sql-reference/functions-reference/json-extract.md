@@ -20,7 +20,7 @@ JSON_EXTRACT(<json>, '<json_pointer_expression>', '<expected_type>')
 | :--------------------------- | :-------------- | :------------------------------------------------------------------------------------------------- |
 | `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.                                        |
 | `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).                                 |
-| `<expected_type>`           | Literal string | The expected data type of the key indicated by `<json_pointer_expression>`, such as `STRING` or `INT`. For more information, see [supported type parameters](index.md#supported-type-parameters). |
+| `<expected_type>`           | Literal string | The expected data type of the key indicated by `<json_pointer_expression>`, such as `TEXT` or `INTEGER`. For more information, see [supported type parameters](index.md#supported-type-parameters). |
 
 ## Example
 {: .no_toc}
@@ -29,7 +29,7 @@ For the JSON document indicated by `<json_common_example>` below, see [JSON comm
 
 ```sql
 SELECT
-    JSON_EXTRACT(< json_common_example >, '/value/dyid', 'INT')
+    JSON_EXTRACT(< json_common_example >, '/value/dyid', 'INTEGER')
 ```
 
 **Returns**: `987`
@@ -43,7 +43,7 @@ SELECT
 
 ```sql
 SELECT
-    JSON_EXTRACT(<json_common_example>, '/value/uid', 'INT')
+    JSON_EXTRACT(<json_common_example>, '/value/uid', 'INTEGER')
 ```
 
 **Returns**: `NULL` since the JSON type under that key is a string.

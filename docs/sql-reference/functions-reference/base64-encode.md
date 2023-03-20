@@ -13,12 +13,12 @@ Encodes a string into Base64 notation.
 {: .no_toc}
 
 ```sql
-BASE64_ENCODE(<expr>)
+BASE64_ENCODE(<expression>)
 ```
 
 | Parameter | Description                                                                 |
 | :--------- | :--------------------------------------------------------------------------- |
-| `<expr>`  | Any expression that evaluates to a `STRING`, `TEXT`, or `VARCHAR` data type |
+| `<expression>`  | Any expression that evaluates to a `TEXT` data type |
 
 ## Example
 {: .no_toc}

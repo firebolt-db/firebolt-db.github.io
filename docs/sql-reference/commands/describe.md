@@ -30,7 +30,7 @@ DESCRIBE prices
 +------------+-------------+-----------+----------+
 | table_name | column_name | data_type | nullable |
 +------------+-------------+-----------+----------+
-| prices     | item        | text      |        0 |
-| prices     | num         | int       |        0 |
+| prices     | item        | TEXT      |        0 |
+| prices     | num         | INTEGER   |        0 |
 +------------+-------------+-----------+----------+
 ```

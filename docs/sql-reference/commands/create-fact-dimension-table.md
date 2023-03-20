@@ -72,10 +72,10 @@ The example uses a fact table in which to insert different values. The example b
 ```sql
 CREATE FACT TABLE t1
 (
-    col1 INT  NULL ,
-    col2 INT  NOT NULL UNIQUE,
-    col3 INT  NULL DEFAULT 1,
-    col4 INT  NOT NULL DEFAULT 1,
+    col1 INTEGER  NULL ,
+    col2 INTEGER  NOT NULL UNIQUE,
+    col3 INTEGER  NULL DEFAULT 1,
+    col4 INTEGER  NOT NULL DEFAULT 1,
     col5 TEXT
 )
 PRIMARY INDEX col2;

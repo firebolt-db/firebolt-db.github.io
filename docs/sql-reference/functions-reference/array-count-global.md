@@ -13,12 +13,12 @@ Returns the number of elements in the array typed column accumulated over all ro
 {: .no_toc}
 
 ```sql
-ARRAY_COUNT_GLOBAL(<arr_col>)
+ARRAY_COUNT_GLOBAL(<array>)
 ```
 
 | Parameter   | Description                                                      |
 | :----------- | :---------------------------------------------------------------- |
-| `<arr_col>` | The array column over which the function will count the elements |
+| `<array>` | The array column over which the function will count the elements. |
 
 ## Example
 {: .no_toc}
@@ -26,7 +26,7 @@ ARRAY_COUNT_GLOBAL(<arr_col>)
 For this example, we will create a table `array_test` as shown below.
 
 ```sql
-CREATE DIMENSION TABLE array_test(array_1 ARRAY(INT));
+CREATE DIMENSION TABLE array_test(array_1 ARRAY(INTEGER));
 
 INSERT INTO
 	array_test

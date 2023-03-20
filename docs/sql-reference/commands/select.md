@@ -217,8 +217,8 @@ The `JOIN` examples below use two tables, `num_test` and `num_test2`. These tabl
 
 ```sql
 CREATE DIMENSION TABLE num_test (
-    firstname varchar,
-    score integer);
+    firstname TEXT,
+    score INTEGER);
 
 INSERT INTO num_test VALUES
     ('Carol', 11),
@@ -231,8 +231,8 @@ INSERT INTO num_test VALUES
     ('Humphrey', 56);
 
 CREATE DIMENSION TABLE num_test2 (
-    firstname varchar,
-    score integer);
+    firstname TEXT,
+    score INTEGER);
 
 INSERT INTO num_test2 VALUES
     ('Sammy', 90),
@@ -454,7 +454,7 @@ The example is based on the following table:
 CREATE FACT TABLE table_with_arrays
 (
     product TEXT,
-    cost ARRAY(INT)
+    cost ARRAY(INTEGER)
 ) PRIMARY INDEX product;
 ```
 

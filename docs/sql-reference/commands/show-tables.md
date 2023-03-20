@@ -22,14 +22,14 @@ The returned table has the following columns.
 
 | Column name                 | Data Type   | Description |
 | :---------------------------| :-----------| :-----------|
-| table_name                  | STRING      | The name of the table. |
-| state                       | STRING      | The current table state. |
-| table_type                  | STRING      | One of `FACT`, `DIMENSION`, or `EXTERNAL`. |
-| column_count                | INT         | The number of columns in the table. |
-| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
-| schema                      | STRING      | The text of the SQL statement that created the table. |
-| number_of_rows              | INT         | The number of rows in the table. |
-| size                        | DOUBLE      | The compressed size of the table. |
-| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
-| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
-| number_of_tablets           | INT         | The number of tablets comprising the table. |
+| table_name                  | TEXT      | The name of the table. |
+| state                       | TEXT      | The current table state. |
+| table_type                  | TEXT      | One of `FACT`, `DIMENSION`, or `EXTERNAL`. |
+| column_count                | INTEGER         | The number of columns in the table. |
+| primary_index               | TEXT      | An ordered array of the column names comprising the primary index definition, if applicable. |
+| schema                      | TEXT      | The text of the SQL statement that created the table. |
+| number_of_rows              | INTEGER         | The number of rows in the table. |
+| size                        | DOUBLE PRECISION | The compressed size of the table. |
+| size_uncompressed           | DOUBLE PRECISION | The uncompressed size of the table. |
+| compression_ratio           | DOUBLE PRECISION | The compression ratio (`<size_uncompressed>`/`<size>`). |
+| number_of_tablets           | INTEGER         | The number of tablets comprising the table. |

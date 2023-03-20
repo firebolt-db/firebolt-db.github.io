@@ -115,13 +115,13 @@ The example in this section are based on a fact table, `fact_orders`, created wi
 
 ```sql
 CREATE FACT TABLE fact_orders (
-  order_id LONG,
-  product_id LONG,
-  store_id LONG,
-  client_id LONG,
+  order_id BIGINT,
+  product_id BIGINT,
+  store_id BIGINT,
+  client_id BIGINT,
   order_date DATE,
-  order_total DOUBLE,
-  order_item_count INT
+  order_total DOUBLE PRECISION,
+  order_item_count INTEGER
 )
 PRIMARY INDEX
   store_id,

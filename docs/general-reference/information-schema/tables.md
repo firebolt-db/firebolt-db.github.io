@@ -24,16 +24,16 @@ Each row has the following columns with information about each table.
 
 | Name                        | Data Type   | Description |
 | :---------------------------| :-----------| :-----------|
-| table_catalog               | STRING      | Name of the catalog. Firebolt offers a single ‘default’ catalog. |
-| table_schema                | STRING      | The name of the database. |
-| table_name                  | STRING      | The name of the table. |
-| table_type                  | STRING      | One of `FACT TABLE`, `DIMENSION TABLE`, `EXTERNAL TABLE`, or `VIEW`. |
-| primary_index               | STRING      | An ordered array of the column names comprising the primary index definition, if applicable. |
+| table_catalog               | TEXT      | Name of the catalog. Firebolt offers a single ‘default’ catalog. |
+| table_schema                | TEXT      | The name of the database. |
+| table_name                  | TEXT      | The name of the table. |
+| table_type                  | TEXT      | One of `FACT TABLE`, `DIMENSION TABLE`, `EXTERNAL TABLE`, or `VIEW`. |
+| primary_index               | TEXT      | An ordered array of the column names comprising the primary index definition, if applicable. |
 | number_of_rows              | BIGINT      | The number of rows in the table. |
-| size                        | DOUBLE      | The compressed size of the table. |
-| size_uncompressed           | DOUBLE      | The uncompressed size of the table. |
-| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size>`). |
-| number_of_tablets           | INT         | The number of tablets comprising the table. |
+| size                        | DOUBLE PRECISION | The compressed size of the table. |
+| size_uncompressed           | DOUBLE PRECISION | The uncompressed size of the table. |
+| compression_ratio           | DOUBLE PRECISION | The compression ratio (`<size_uncompressed>`/`<size>`). |
+| number_of_tablets           | INTEGER        | The number of tablets comprising the table. |
 | self_referencing_column_name| NULL        | Not applicable for Firebolt. |
 | reference_generation        | NULL        | Not applicable for Firebolt. |
 | user_defined_type_catalog   | NULL        | Not applicable for Firebolt. |

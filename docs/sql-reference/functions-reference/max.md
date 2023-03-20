@@ -14,12 +14,12 @@ Calculates the maximum value of an expression across all input values.
 {: .no_toc}
 
 ```sql
-MAX(<expr>)
+MAX(<expression>)
 ```
 
 | Parameter | Description                                                                                                                                        |
 | :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
+| `<expression>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
 
 ## Example
 {: .no_toc}
@@ -30,7 +30,7 @@ For this example, we'll create a new table `prices` as shown below.
 CREATE DIMENSION TABLE IF NOT EXISTS prices
     (
         item TEXT,
-        price INT
+        price INTEGER
     );
 
 INSERT INTO

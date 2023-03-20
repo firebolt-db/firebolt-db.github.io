@@ -36,14 +36,14 @@ Create a fact table using the `CREATE TABLE` statement shown below.
 
 ```sql
 CREATE FACT TABLE IF NOT EXISTS lineitem_detailed
-(       l_orderkey              LONG,
-        l_partkey               LONG,
-        l_suppkey               LONG,
-        l_linenumber            INT,
-        l_quantity              LONG,
-        l_extendedprice         LONG,
-        l_discount              LONG,
-        l_tax                   LONG,
+(       l_orderkey              BIGINT,
+        l_partkey               BIGINT,
+        l_suppkey               BIGINT,
+        l_linenumber            INTEGER,
+        l_quantity              BIGINT,
+        l_extendedprice         BIGINT,
+        l_discount              BIGINT,
+        l_tax                   BIGINT,
         l_returnflag            TEXT,
         l_linestatus            TEXT,
         l_shipdate              TEXT,

@@ -23,7 +23,7 @@ PERCENTILE_CONT( <val> ) WITHIN GROUP ( ORDER BY <expr> [ { ASC | DESC } ] )
 |            |                                                 |
 | :--------- | :----------------------------------------------- |
 | Parameter | Description                                     |
-| `<val>`   | A double/float literal between 0.0 and 1.0.  |
+| `<val>`   | A `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0.  |
 | `<expr>`  | A numeric expression used for the order by clause. |
 
 The expression used for the order by clause must be of numeric or time data types. The return type of the function will be the same as the expression type.

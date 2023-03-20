@@ -216,25 +216,25 @@ The contents of the SQL scripts that DAG tasks run are shown below.
 Creates a fact table, `ex_trip_data`, to connect to a public Amazon S3 data store.
 
 ```sql
-create external table if not exists ex_trip_data(
-   vendorid int,
-   lpep_pickup_datetime timestamp,
-   lpep_dropoff_datetime timestamp,
-   passenger_count int,
-   trip_distance float,
-   ratecodeid int,
-   store_and_fwd_flag varchar,
-   pu_location_id int,
-   do_location_id int,
-   payment_type int,
-   fare_amount float,
-   extra float,
-   mta_tax float,
-   tip_amount float,
-   tolls_amount float,
-   improvement_surcharge float,
-   total_amount float,
-   congestion_surcharge float
+CREATE EXTERNAL TABLE IF NOT EXISTS ex_trip_data(
+   vendorid INTEGER,
+   lpep_pickup_datetime TIMESTAMP,
+   lpep_dropoff_datetime TIMESTAMP,
+   passenger_count INTEGER,
+   trip_distance REAL,
+   ratecodeid INTEGER,
+   store_and_fwd_flag TEXT,
+   pu_location_id INTEGER,
+   do_location_id INTEGER,
+   payment_type INTEGER,
+   fare_amount REAL,
+   extra REAL,
+   mta_tax REAL,
+   tip_amount REAL,
+   tolls_amount REAL,
+   improvement_surcharge REAL,
+   total_amount REAL,
+   congestion_surcharge REAL
 )
 url = 's3://firebolt-publishing-public/samples/taxi/'
 object_pattern = '*yellow*2020*.csv'
@@ -247,29 +247,29 @@ type = (CSV SKIP_HEADER_ROWS = 1);
 Creates a fact table, `my_taxi_trip_data`, to receive ingested data.
 
 ```sql
-drop table if exists my_taxi_trip_data;
-create fact table if not exists my_taxi_trip_data(
-   vendorid int,
-   lpep_pickup_datetime timestamp,
-   lpep_dropoff_datetime timestamp,
-   passenger_count int,
-   trip_distance float,
-   ratecodeid int,
-   store_and_fwd_flag varchar,
-   pu_location_id int,
-   do_location_id int,
-   payment_type int,
-   fare_amount float,
-   extra float,
-   mta_tax float,
-   tip_amount float,
-   tolls_amount float,
-   improvement_surcharge float,
-   total_amount float,
-   congestion_surcharge float,
-   source_file_name varchar,
-   source_file_timestamp timestamp
-) primary index vendorid;
+DROP TABLE IF EXISTS my_taxi_trip_data;
+CREATE FACT TABLE IF NOT EXISTS my_taxi_trip_data(
+   vendorid INTEGER,
+   lpep_pickup_datetime TIMESTAMP,
+   lpep_dropoff_datetime TIMESTAMP,
+   passenger_count INTEGER,
+   trip_distance REAL,
+   ratecodeid INTEGER,
+   store_and_fwd_flag TEXT,
+   pu_location_id INTEGER,
+   do_location_id INTEGER,
+   payment_type INTEGER,
+   fare_amount REAL,
+   extra REAL,
+   mta_tax REAL,
+   tip_amount REAL,
+   tolls_amount REAL,
+   improvement_surcharge REAL,
+   total_amount REAL,
+   congestion_surcharge REAL
+   source_file_name TEXT,
+   source_file_timestamp TIMESTAMP
+) PRIMARY INDEX vendorid;
 ```
 
 #### trip_data__process.sql
@@ -278,8 +278,8 @@ create fact table if not exists my_taxi_trip_data(
 An `INSERT INTO` operation that ingests data into the `my_taxi_trip_data` fact table using the `ex_trip_data` external table. The example uses the external table metadata column, `source_file_timestamp`, to retrieve records only from the latest file.
 
 ```sql
-insert into my_taxi_trip_data
-select
+INSERT INTO my_taxi_trip_data
+SELECT
    vendorid,
    lpep_pickup_datetime,
    lpep_dropoff_datetime,
@@ -300,6 +300,6 @@ select
    congestion_surcharge,
    source_file_name,
    source_file_timestamp
-from ex_trip_data
-where source_file_timestamp > (select max(source_file_timestamp) from my_taxi_trip_data);
+FROM ex_trip_data
+WHERE source_file_timestamp > (SELECT MAX(source_file_timestamp) FROM my_taxi_trip_data);
 ```

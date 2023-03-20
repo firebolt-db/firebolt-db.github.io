@@ -26,16 +26,16 @@ Each row has the following columns with information about each running query.
 
 | Column Name                 | Data type | Description |
 | :---------------------------| :---------| :---------- |
-| engine_id                   | STRING    | The ID of the engine that was used to execute the query. |
-| engine_name                 | STRING    | The name of the engine that was used to execute the query. |
-| account_id                  | STRING    | The ID of the account in which the query was executed. |
-| user_id                     | STRING    | The user ID that was used to execute the query. |
+| engine_id                   | TEXT    | The ID of the engine that was used to execute the query. |
+| engine_name                 | TEXT    | The name of the engine that was used to execute the query. |
+| account_id                  | TEXT    | The ID of the account in which the query was executed. |
+| user_id                     | TEXT    | The user ID that was used to execute the query. |
 | start_time                  | TIMESTAMP | The query execution start time (UTC). |
-| status                      | STRING    | The status of the query. Always contains the value 'RUNNING'. |
+| status                      | TEXT    | The status of the query. Always contains the value 'RUNNING'. |
 | duration_usec               | BIGINT    | The elapsed time in microseconds between `<START_TIME>` and the time that the query over ` information_schema.running_queries` returns results. |
-| query_id                    | STRING    | The unique identifier of the SQL query. |
-| query_text                  | STRING    | Text of the SQL statement. |
-| scanned_rows                | LONG      | The number of rows scanned to return query results. |
-| scanned_bytes               | LONG      | The number of bytes scanned from cache and storage. |
-| inserted_rows               | LONG      | The number of rows written. |
-| inserted_bytes              | LONG      | The number of bytes written. |
+| query_id                    | TEXT    | The unique identifier of the SQL query. |
+| query_text                  | TEXT    | Text of the SQL statement. |
+| scanned_rows                | BIGINT      | The number of rows scanned to return query results. |
+| scanned_bytes               | BIGINT      | The number of bytes scanned from cache and storage. |
+| inserted_rows               | BIGINT      | The number of rows written. |
+| inserted_bytes              | BIGINT     | The number of bytes written. |

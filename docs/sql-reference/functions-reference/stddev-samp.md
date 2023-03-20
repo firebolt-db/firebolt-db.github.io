@@ -13,12 +13,12 @@ Computes the standard deviation of a sample consisting of a numeric expression.
 {: .no_toc}
 
 ```sql
-STDDEV_SAMP(<expr>)
+STDDEV_SAMP(<expression>)
 ```
 
 | Parameter | Description                                                                                |
 | :--------- | :------------------------------------------------------------------------------------------ |
-| `<expr>`  | Any column with numeric values or an expression that returns a column with numeric values. |
+| `<expression>`  | Any column with numeric values or an expression that returns a column with numeric values. |
 
 ## Example
 {: .no_toc}
@@ -26,7 +26,7 @@ STDDEV_SAMP(<expr>)
 For this example, we'll create a new table `num_test `as shown below:
 
 ```
-CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INT);
+CREATE DIMENSION TABLE IF NOT EXISTS num_test (num INTEGER);
 
 
 INSERT INTO
