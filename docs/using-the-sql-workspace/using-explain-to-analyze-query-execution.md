@@ -42,6 +42,7 @@ Firebolt has three different views that you can use to analyze explain output:
 To switch between views or copy output, choose the icons in the upper right of the query results pane.  
 
 ![](../assets/images/explain_view_icons.png)
+Note: In some database versions, only the text view is supported.
 
 ### List view (default)
 
