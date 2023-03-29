@@ -24,8 +24,8 @@ Each row has the following columns with information about the database.
 
 | Name                          | Data Type | Description |
 | :-----------------------------| :-------- | :---------- |
-| catalog_name                  | TEXT    | Name of the catalog. Firebolt provides a single ‘default’ catalog. |
-| schema_name                   | TEXT    | Name of the database. |
+| catalog_name                  | TEXT      | Name of the catalog. Firebolt provides a single ‘default’ catalog. |
+| database_name                 | TEXT      | Name of the database. |
 | default_character_set_catalog | NULL      | Not applicable for Firebolt. |
 | default_character_set_schema  | NULL      | Not applicable for Firebolt. |
 | default_character_set_name    | NULL      | Not applicable for Firebolt. |
