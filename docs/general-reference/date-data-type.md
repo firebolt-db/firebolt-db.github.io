@@ -21,7 +21,7 @@ This topic describes the Firebolt implementation of the `PGDATE` data type.
 | `PGDATE` | 4 bytes | `0001-01-01` | `9999-12-31` | 1 day      |
 
 The `PGDATE` type represents a calendar date, independent of time zone. 
-The `PGDATE` value can be interpreted differently within different time zones; it usually corresponds to some 24 hour time period, but it may also correspond to longer or shorter time period, depending on time zone daylight saving time rules. 
+The `PGDATE` value can be interpreted differently within different time zones; it usually corresponds to some 24 hour time period, but it may also correspond to a longer or shorter time period, depending on time zone daylight saving time rules. 
 To represent an absolute point in time, use [TIMESTAMPTZ](timestamptz-data-type.md).
 
 ## Literal string interpretation
@@ -53,20 +53,20 @@ SELECT PGDATE '1996-09-03' BETWEEN '1991-12-31' AND '2022-12-31';  --> true
 
 The `PGDATE` data type can be cast to and from types as follows: 
 
-| To `PGDATE`    | Example   | Note     | 
-| :------- | :------ | :----------- | 
-| `PGDATE` | `SELECT CAST(PGDATE '2023-02-13' as PGDATE); --> 2023-02-13` | |
-| `TIMESTAMPNTZ` | `SELECT CAST(TIMESTAMPNTZ '2023-02-13 11:19:42' as PGDATE);  --> 2023-02-13` | Truncates the timestamp to the date. |
-| `TIMESTAMPTZ` | `SELECT CAST(TIMESTAMPTZ '2023-02-13 Europe/Berlin' as PGDATE);  --> 2023-02-13` | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting, and then truncates the timestamp to the date. This example assumes `set time_zone = 'UTC';`. |
-| `NULL` | `SELECT CAST(null as PGDATE);  --> NULL` | | 
-| `DATE` (legacy) | `SELECT CAST(DATE '2023-02-13' as PGDATE);  --> 2023-02-13` | Converts from the legacy `DATE` type. |
-| `TIMESTAMP` (legacy) | `SELECT CAST(TIMESTAMP '2023-02-13' as PGDATE);  --> 2023-02-13` | Converts from the legacy `TIMESTAMP` type. |
+| To `PGDATE`          | Example                                                                          | Note                                                                                                                                                                                                |
+| :------------------- | :------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PGDATE`             | `SELECT CAST(PGDATE '2023-02-13' as PGDATE); --> 2023-02-13`                     |                                                                                                                                                                                                     |
+| `TIMESTAMPNTZ`       | `SELECT CAST(TIMESTAMPNTZ '2023-02-13 11:19:42' as PGDATE);  --> 2023-02-13`     | Truncates the timestamp to the date.                                                                                                                                                                |
+| `TIMESTAMPTZ`        | `SELECT CAST(TIMESTAMPTZ '2023-02-13 Europe/Berlin' as PGDATE);  --> 2023-02-13` | Converts from Unix time to local time in the time zone specified by the session's `time_zone` setting, and then truncates the timestamp to the date. This example assumes `set time_zone = 'UTC';`. |
+| `NULL`               | `SELECT CAST(null as PGDATE);  --> NULL`                                         |                                                                                                                                                                                                     |
+| `DATE` (legacy)      | `SELECT CAST(DATE '2023-02-13' as PGDATE);  --> 2023-02-13`                      | Converts from the legacy `DATE` type.                                                                                                                                                               |
+| `TIMESTAMP` (legacy) | `SELECT CAST(TIMESTAMP '2023-02-13' as PGDATE);  --> 2023-02-13`                 | Converts from the legacy `TIMESTAMP` type.                                                                                                                                                          |
 
-| From `PGDATE`  | Example   | Note     | 
-| :------- | :------ | :----------- | 
-| `TIMESTAMPNTZ` | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPNTZ );  --> 2023-02-1 00:00:00` | Extends the date with `00:00:00`. |
-| `TIMESTAMPTZ` | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPTZ );  --> 2023-02-13` | Interprets the date to be midnight in the time zone specified by the session's `time_zone` setting. This example assumes `set time_zone = 'UTC';`. |
-| `DATE` (legacy) | `SELECT CAST(PGDATE '2023-02-13' as DATE);  --> 2023-02-13` | Converts to the legacy `DATE` type, and throws an exception if the `PGDATE` value is outside of the supported range of a legacy `DATE` type. |
+| From `PGDATE`   | Example                                                                      | Note                                                                                                                                               |
+| :-------------- | :--------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `TIMESTAMPNTZ`  | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPNTZ );  --> 2023-02-1 00:00:00` | Extends the date with `00:00:00`.                                                                                                                  |
+| `TIMESTAMPTZ`   | `SELECT CAST(PGDATE '2023-02-13' as TIMESTAMPTZ );  --> 2023-02-13`          | Interprets the date to be midnight in the time zone specified by the session's `time_zone` setting. This example assumes `set time_zone = 'UTC';`. |
+| `DATE` (legacy) | `SELECT CAST(PGDATE '2023-02-13' as DATE);  --> 2023-02-13`                  | Converts to the legacy `DATE` type, and throws an exception if the `PGDATE` value is outside of the supported range of a legacy `DATE` type.       |
 
 ### Comparison operators
 
@@ -89,6 +89,19 @@ A `PGDATE` value is also comparable with a `TIMESTAMPNTZ` or `TIMESTAMPTZ` value
 For more information, see [type conversions](#type-conversions).
 
 ### Date-specific arithmetic operators
+
+The `+` operators described below come in commutative pairs (for example both `PGDATE + INTEGER` and `INTEGER + PGDATE`).
+Although the arithmetic operators check that the resulting `PGDATE` value is in the supported range, they don't check for integer overflow.
+
+| Operator                            | Description                                          | Example                                                                                                           |
+| :---------------------------------- | :--------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| `PGDATE + INTEGER -> PGDATE`        | Add a number of days to a date                       | `SELECT PGDATE '2023-03-03' + 42;  --> 2023-04-14`                                                                |
+| `PGDATE - INTEGER -> PGDATE`        | Subtract a number of days from a date                | `SELECT PGDATE '2023-03-03' - 42;  --> 2023-01-20`                                                                |
+| `PGDATE - PGDATE -> INTEGER`        | Subtract dates, producing the number of elapsed days | `SELECT PGDATE '2023-03-03' - PGDATE '1996-09-03';  --> 9677`                                                     |
+| `PGDATE + INTERVAL -> TIMESTAMPNTZ` | Add an interval to a date                            | `SELECT PGDATE '1996-09-03' + INTERVAL '42' YEAR;  --> 2038-09-03 00:00:00`                                       |
+| `PGDATE - INTERVAL -> TIMESTAMPNTZ` | Subtract an interval from a date                     | `SELECT PGDATE '2023-03-18' - INTERVAL '26 years 5 months 44 days 12 hours 41 minutes';  --> 1996-09-03 11:19:00` |
+
+#### Interval arithmetic
 
 The `+` operators described below come in commutative pairs (for example both `PGDATE + INTEGER` and `INTEGER + PGDATE`).
 Although the arithmetic operators check that the resulting `PGDATE` value is in the supported range, they don't check for integer overflow.
@@ -131,6 +144,11 @@ In the text, CSV, and JSON format, a `PGDATE` value is output as a `YYYY-MM-DD` 
 {:.no_toc}
 
 `PGDATE` maps to Avro's 32-bit signed integer `DATE` type, also representing the number of days before or after `1970-01-01`.
+
+### ORC
+{:.no_toc}
+
+`PGDATE` maps to ORC's signed integer `DATE` type, also representing the number of days before or after `1970-01-01`.
 
 ## Data pruning
 

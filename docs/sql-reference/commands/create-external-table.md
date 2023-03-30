@@ -85,7 +85,7 @@ In the example `CREATE EXTERNAL TABLE` statement below, the `PARTITION` keyword 
 
 ```sql
 CREATE EXTERNAL TABLE my_ext_table (
-  c_id    INT,
+  c_id    INTEGER,
   c_name  TEXT,
   c_type  TEXT PARTITION('[^\/]+\/c_type=([^\/]+)\/[^\/]+\/[^\/]+')
 )
@@ -133,8 +133,8 @@ CREDENTIALS = (AWS_ROLE_ARN = '<role_arn>' [AWS_ROLE_EXTERNAL_ID = '<external_id
 
 | Parameter         | Description                                                                                                                                   | Data type |
 | :----------------- |: --------------------------------------------------------------------------------------------------------------------------------------------- |: --------- |
-| `'<role_arn>'`    | The arn\_role you created in order to enable access to the required bucket.                                                                   | TEXT      |
-| `'<external_id>'` | Optional. This is an optional external ID that you can configure in AWS when creating the role. Specify this only if you use the external ID. | TEXT      |
+| `'<role_arn>'`    | The arn\_role you created in order to enable access to the required bucket.                                                                   | `TEXT`      |
+| `'<external_id>'` | Optional. This is an optional external ID that you can configure in AWS when creating the role. Specify this only if you use the external ID. | `TEXT`      |
 
 ### URL and OBJECT_PATTERN
 
@@ -150,8 +150,8 @@ OBJECT_PATTERN = '<object_pattern>'
 
 | Parameters       | Description                                                                                                                          | Data type |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------ | :--------- |
-| `URL`            | This is the URL of the specific bucket and path within the bucket where the relevant files are located (common path prefix).         | TEXT      |
-| `OBJECT_PATTERN` | Specify the data pattern to be found in your data source. For example, \*.parquet indicates that all parquet files should be found. | TEXT      |
+| `URL`            | This is the URL of the specific bucket and path within the bucket where the relevant files are located (common path prefix).         | `TEXT`      |
+| `OBJECT_PATTERN` | Specify the data pattern to be found in your data source. For example, \*.parquet indicates that all parquet files should be found. | `TEXT`      |
 
 The following wildcards are supported:
 
@@ -258,7 +258,7 @@ Creating an external table that reads parquet files from S3 is being done with t
 ```sql
 CREATE EXTERNAL TABLE my_external_table
 (
-    c_id INT,
+    c_id INTEGER,
     c_name TEXT
 )
 CREDENTIALS = (AWS_KEY_ID = '*****' AWS_SECRET_KEY = '******')
@@ -290,7 +290,7 @@ The example below creates an external table to ingest CSV files from S3 that are
 ```sql
 CREATE EXTERNAL TABLE my_external_table
 (
-    c_id INT,
+    c_id INTEGER,
     c_name TEXT
 )
 CREDENTIALS = (AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')

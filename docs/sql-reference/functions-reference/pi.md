@@ -7,7 +7,7 @@ parent: SQL functions
 
 # PI
 
-Calculates π as a FLOAT value.
+Calculates π as a `REAL` value.
 
 ## Syntax
 {: .no_toc}

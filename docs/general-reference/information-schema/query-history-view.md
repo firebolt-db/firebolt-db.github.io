@@ -27,10 +27,10 @@ Each row has the following columns with information about each query in query hi
 
 | Column Name                 | Data type | Description |
 | :---------------------------| :---------| :---------- |
-| engine_id                   | STRING    | The ID of the engine that was used to execute the query. |
-| engine_name                 | STRING    | The name of the engine that was used to execute the query. |
-| account_id                  | STRING    | The ID of the account in which the query was executed. |
-| user_id                     | STRING    | The user ID that was used to execute the query. |
+| engine_id                   | TEXT    | The ID of the engine that was used to execute the query. |
+| engine_name                 | TEXT    | The name of the engine that was used to execute the query. |
+| account_id                  | TEXT    | The ID of the account in which the query was executed. |
+| user_id                     | TEXT    | The user ID that was used to execute the query. |
 | start_time                  | TIMESTAMP | The query execution start time (UTC). |
 | end_time                    | TIMESTAMP | The query execution end time (UTC). |
 | duration_usec               | BIGINT    | Duration of query execution (in microseconds). |
@@ -55,3 +55,4 @@ Each row has the following columns with information about each query in query hi
 | cpu_usage_us                | LONG      | The query time spent on the CPU as reported by Linux kernel scheduler |
 | cpu_delay_us                | LONG      | The query time spent on the runqueue as reported by Linux kernel scheduler - The value may be greater than overall execution time of the query because query’s execution is parallelized and CPU times across all threads and nodes is summarized. |
 | time_in_queue_ms            | LONG      | The number of milliseconds the query spent in queue. |
+

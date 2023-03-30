@@ -14,7 +14,7 @@ Calculates a hash value known as a checksum operation on a list of arguments. Wh
 {: .no_toc}
 
 ```sql
-CHECKSUM( <expr1> [, <expr2>] [, <expr3>] [, ...<exprN>] )
+CHECKSUM( <expression1> [, <expression2>] [, <expression3>] [, ...<expressionN>] )
 CHECKSUM(*)
 ```
 
@@ -24,7 +24,7 @@ CHECKSUM(*)
 For this example, we'll create a new table `albums` as shown below.&#x20;
 
 ```sql
-CREATE DIMENSION TABLE albums (year INT, artist TEXT, title TEXT);
+CREATE DIMENSION TABLE albums (year INTEGER, artist TEXT, title TEXT);
 
 INSERT INTO
 	albums

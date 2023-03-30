@@ -21,7 +21,7 @@ SIGN(<value>)
 
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
-| `value` | Any expression that evaluates to a numeric data type. | `INT`, `DECIMAL`, `BIGINT`, `FLOAT`, `DOUBLE` |
+| `value` | Any expression that evaluates to a numeric data type. | `INTEGER`, `NUMERIC`, `BIGINT`, `REAL`, `DOUBLE PRECISION` |
 
 ## Return Types
 Same as the input number type (`<value>`).

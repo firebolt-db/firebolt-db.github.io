@@ -24,7 +24,7 @@ parent: General reference
 | ^        | exponentiation                                   | `SELECT 2.0 ^ 3.0;` | 8      |
 
 {: .note}
-> Precision means that the representation of a number is accurate up to a certain number of digits. In Firebolt, `FLOAT` data types have 6-digit precision and `DOUBLE PRECISION` have 16-digit precision. This means that calculations have a precision of 6 or 16 respectively, and numbers are truncated to that precision. For example, if a number is stored as 1.234567, it is automatically truncated to 1.23456 for `FLOAT`.
+> Precision means that the representation of a number is accurate up to a certain number of digits. In Firebolt, `REAL` data types have 6-digit precision and `DOUBLE PRECISION` have 16-digit precision. This means that calculations have a precision of 6 or 16 respectively, and numbers are truncated to that precision. For example, if a number is stored as 1.234567, it is automatically truncated to 1.23456 for `REAL`.
 >
 > When performing arithmetic, the number of leading digits in the output is the product of the leading digits in both inputs. This means that if either or both of the input numbers are larger than 6, those numbers are the first truncated, and then the arithmetic is performed.
 
@@ -126,7 +126,7 @@ Use can use the `::` operator instead of the [CAST](../sql-reference/functions-r
 
 ```sql
 SELECT '2021-12-31'::DATE;
-SELECT 8.5::FLOAT;
+SELECT 8.5::REAL;
 SELECT col_a::BIGINT;
 ```
 
@@ -170,7 +170,7 @@ WHERE
   customer_address IN ('Mannheim','London');
 ```
 
-### Example&ndash;using a correlated subquery to retrieve all the products that cost more than the avg(price)
+### Example&ndash;using a correlated subquery to retrieve all the products that cost more than the avgerage price
 {: .no_toc}
 
 ```sql
@@ -200,7 +200,7 @@ FROM
   products
 WHERE (
   SELECT CASE WHEN
-    min(list_price) > 100
+    MIN(list_price) > 100
   THEN
     true
   ELSE

@@ -7,18 +7,18 @@ parent: SQL functions
 
 # TO\_INT
 
-Converts a string to a numeric `INT` data type.
+Converts a string to a numeric `INTEGER` data type.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-TO_INT(<exp>)
+TO_INT(<expression>)
 ```
 
 | Parameter | Description                                                                                              |
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
+| `<expression>`  | A numeric data type expression that resolves to a `TEXT` data type. |
 
 ## Example
 {: .no_toc}

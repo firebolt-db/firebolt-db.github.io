@@ -7,18 +7,18 @@ parent: SQL functions
 
 # RADIANS
 
-Converts degrees to radians as a `FLOAT` value.
+Converts degrees to radians as a `REAL` value.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-RADIANS(<val>) 
+RADIANS(<value>) 
 ```
 
 | Parameter | Description                                                                                                         |
 | :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
 
 ## Example
 {: .no_toc}

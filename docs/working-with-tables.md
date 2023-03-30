@@ -30,24 +30,24 @@ Below is a simple example of a script that creates one fact table and two dimens
 CREATE FACT TABLE transactions
 (
     transaction_id    BIGINT,
-    sale_date         DATETIME,
-    store_id          INT,
-    product_id        INT,
-    units_sold        INT
+    sale_date         TIMESTAMP,
+    store_id          INTEGER,
+    product_id        INTEGER,
+    units_sold        INTEGER
 )
 PRIMARY INDEX store_id, product_id;
 
 CREATE DIMENSION TABLE dim_store
 (
-    store_id      INT,
-    store_number  INT,
+    store_id      INTEGER,
+    store_number  INTEGER,
     state         TEXT,
     country       TEXT
 );
 
 CREATE DIMENSION TABLE dim_product
 (
-    product_id        INT,
+    product_id        INTEGER,
     product_name      TEXT,
     product_category  TEXT,
     brand             TEXT

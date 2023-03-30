@@ -25,14 +25,14 @@ Each row has the following columns with information about each column.
 
 | Column Name               | Data Type | Description|
 |:--------------------------|:----------|:-----------|
-| table_catalog             | STRING    | Name of the catalog. Firebolt provides a single `default` catalog. |
-| table_schema              | STRING    | Name of the database containing the table. |
-| table_name                | STRING    | Name of the table containing the column. |
-| column_name               | STRING    | Name of the column. |
-| is_nullable               | STRING    | `YES` if the column may contain NULL, `NO` otherwise. |
-| data_type                 | STRING    | The data type of the column. |
-| is_in_partition_expr      | STRING    | `YES` if the column is included in the table's `PARTITION BY` clause, `NO` otherwise. |
-| is_in_primary_index       | STRING    | `YES` if the column is included in the tables's `PRIMARY INDEX` clause, `NO` otherwise. |
+| table_catalog             | TEXT    | Name of the catalog. Firebolt provides a single `default` catalog. |
+| table_schema              | TEXT    | Name of the database containing the table. |
+| table_name                | TEXT    | Name of the table containing the column. |
+| column_name               | TEXT    | Name of the column. |
+| is_nullable               | TEXT    | `YES` if the column may contain NULL, `NO` otherwise. |
+| data_type                 | TEXT    | The data type of the column. |
+| is_in_partition_expr      | TEXT    | `YES` if the column is included in the table's `PARTITION BY` clause, `NO` otherwise. |
+| is_in_primary_index       | TEXT    | `YES` if the column is included in the tables's `PRIMARY INDEX` clause, `NO` otherwise. |
 | character_maximum_length  | NULL      | Not applicable for Firebolt. |
 | character_octet_length    | NULL      | Not applicable for Firebolt. |
 | numeric_precision_radix   | NULL      | Not applicable for Firebolt. |

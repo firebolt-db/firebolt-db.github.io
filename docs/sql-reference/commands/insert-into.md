@@ -19,15 +19,15 @@ The `INSERT INTO` operation is not atomic. If the operation is interrupted, part
 ## Syntax
 
 ```sql
-INSERT INTO <table_name> [(<col1>[, <col2>][, ...])]
-{ <select_statement> | VALUES ([<val1>[, <val2>][, ...]) }
+INSERT INTO <table_name> [(<column1>[, <column2>][, ...])]
+{ <select_statement> | VALUES ([<value1>[, <value2>][, ...]) }
 ```
 
 | Parameter | Description|
 | :---------| :----------|
 | `<table_name>`| The target table where values are to be inserted. |
-| `(<col1>[, <col2>][, ...])]`| A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
-| `<select_statement>`<br>--OR--<br> `VALUES ([<val1>[, <val2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.|
+| `(<column1>[, <column2>][, ...])]`| A list of column names from `<table_name>` for the insertion. If not defined, the columns are deduced from the `<select_statement>`. |
+| `<select_statement>`<br>--OR--<br> `VALUES ([<value1>[, <value2>][, ...])]` | You can specify either a `SELECT` query that determines values to or an explicit list of `VALUES` to insert.|
 
 
 ## Extracting partition values using INSERT INTO
@@ -55,7 +55,7 @@ In this example, the DDL statement below defines the external table that is used
 
 ```sql
 CREATE EXTERNAL TABLE my_ext_table (
-  c_id    INT,
+  c_id    INTEGER,
   c_name  TEXT,
 )
 CREDENTIALS = (AWS_ROLE_ARN = 'arn:aws:iam::123456789012:role/MyRoleForFireboltS3Access1')
@@ -69,7 +69,7 @@ To use `source_file_name` to extract a portion of the folder name. The first ste
 ```sql
 CREATE FACT TABLE my_table
 (
-    c_id    INT,
+    c_id    INTEGER,
     c_name  TEXT,
     c_type  TEXT
 ) PRIMARY INDEX c_id

@@ -38,7 +38,7 @@ CREATE DIMENSION TABLE my_cstmr_dim (
   cstmr_id BIGINT UNIQUE,
   name TEXT,
   email TEXT,
-  hs_nm INT,
+  hs_nm INTEGER,
   street TEXT,
   city TEXT,
   st_pvnc TEXT,

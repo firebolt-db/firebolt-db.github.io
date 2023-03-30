@@ -21,11 +21,11 @@ The returned table has the following columns.
 
 | Column name                 | Data Type   | Description |
 | :---------------------------| :-----------| :-----------|
-| index_name                  | STRING      | The name of the index. |
-| table_name                  | STRING      | The name of the table associated with the index. |
-| type                        | STRING      | One of `primary`, `aggregating`, or `join`. |
+| index_name                  | TEXT      | The name of the index. |
+| table_name                  | TEXT      | The name of the table associated with the index. |
+| type                        | TEXT      | One of `primary`, `aggregating`, or `join`. |
 | expression                  | ARRAY (TEXT)| An ordered array of the expression in SQL that defined the index. |
-| size_compressed             | DOUBLE      | The size of the index in bytes. |
-| size_uncompressed           | DOUBLE      | The uncompressed size of the index in bytes. |
-| compression_ratio           | DOUBLE      | The compression ratio (`<size_uncompressed>`/`<size_compressed>`).
-| number_of_segments          | INT         | The number of segments comprising the table. |
+| size_compressed             | DOUBLE PRECISION | The size of the index in bytes. |
+| size_uncompressed           | DOUBLE PRECISION  | The uncompressed size of the index in bytes. |
+| compression_ratio           | DOUBLE PRECISION  | The compression ratio (`<size_uncompressed>`/`<size_compressed>`).
+| number_of_segments          | INTEGER      | The number of segments comprising the table. |

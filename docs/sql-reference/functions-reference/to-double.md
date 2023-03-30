@@ -7,18 +7,18 @@ parent: SQL functions
 
 # TO\_DOUBLE
 
-Converts a string to a numeric `DOUBLE` data type.
+Converts a string to a numeric `DOUBLE PRECISION` data type.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-TO_DOUBLE(<exp>)
+TO_DOUBLE(<expression>)
 ```
 
 | Parameter | Description                                                                                              |
 | :--------- | :-------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Any numeric data types or numeric characters that resolve to a `VARCHAR`, `TEXT`, or `STRING` data type. |
+| `<expression>`  | A numeric data type or numeric characters that resolve to a `TEXT` data type. |
 
 ## Example
 {: .no_toc}

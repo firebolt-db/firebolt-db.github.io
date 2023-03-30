@@ -13,13 +13,13 @@ Rounds a value to a specified number of decimal places.
 {: .no_toc}
 
 ```sql
-ROUND(<val> [, <dec>])
+ROUND(<value> [, <decimal>])
 ```
 
 | Parameter | Description                                                                                                                   |
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
-| `<dec>`   | Optional. An `INT` constant that defines the decimal range of the returned value. By default, `ROUND` returns whole numbers.  |
+| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.           |
+| `<decimal>`   | Optional. An `INTEGER` constant that defines the decimal range of the returned value. By default, `ROUND` returns whole numbers.  |
 
 ## Example
 {: .no_toc}

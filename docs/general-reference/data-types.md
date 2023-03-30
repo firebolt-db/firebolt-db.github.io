@@ -17,24 +17,25 @@ This topic lists the data types available in Firebolt.
 
 ## Numeric
 
-### INT
-A whole number ranging from -2,147,483,648 to 2,147,483,647. `INT` data types require 4 bytes of storage.
-Synonyms: `INTEGER`, `INT4`.
+### INTEGER
+A whole number ranging from -2,147,483,648 to 2,147,483,647. `INTEGER` data types require 4 bytes of storage.
+Synonyms: `INT`, `INT4`.
 
-### DECIMAL
-An exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). For more information, see [DECIMAL data type](decimal-data-type.md).
+### NUMERIC
+An exact numeric data type defined by its precision (total number of digits) and scale (number of digits to the right of the decimal point). For more information, see [NUMERIC data type](numeric-data-type.md). 
+Synonyms: `DECIMAL`.
 
 ### BIGINT
 A whole number ranging from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. `BIGINT` data types require 8 bytes of storage.
 Synonyms: `LONG`, `INT8`.
 
-### FLOAT
-A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. `FLOAT` data types require 4 bytes of storage.
-Synonyms: `REAL`, `FLOAT4`, `FLOAT(p)` where 1 <= p <= 24.
+### REAL
+A floating-point number that has six decimal-digit precision. Decimal (fixed point) types are not supported. `REAL` data types require 4 bytes of storage.
+Synonyms: `FLOAT`, `FLOAT4`.
 
-### DOUBLE
+### DOUBLE PRECISION
 A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes.
-Synonyms: `DOUBLE PRECISION`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
+Synonyms: `DOUBLE`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
 
 ## String
 

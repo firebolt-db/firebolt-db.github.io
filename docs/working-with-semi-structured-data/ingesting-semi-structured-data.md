@@ -46,7 +46,7 @@ Assume that each JSON record is stored as plain text in the column `raw_json` of
 
 Recall that we want the target Firebolt table named `visits` to have columns and values similar to the table shown below.
 
-| id (INT) | start_time (DATETIME) | duration (INT) | tags (ARRAY(TEXT)) | agent_props_keys | agent_props_vals |
+| id (INTEGER) | start_time (DATETIME) | duration (INTEGER) | tags (ARRAY(TEXT)) | agent_props_keys | agent_props_vals |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 2020-01-06 17:00:00 | 450 | \["summer-sale","sports"\] | \["agent", "platform", "resolution"\] | \["Mozilla/5.0", "Windows NT 6.1", "1024x4069"\] |
 | 2 | 2020-01-05 12:00:00 | 959 | \["gadgets","audio"\] | \["agent", "platform"\] | \["Safari", "iOS 14"\] |
@@ -67,8 +67,8 @@ The query example shown below combines these element to return the desired tabul
 
 ```sql
 SELECT
-  JSON_EXTRACT(raw_json, '/id','INT') as id,
-  JSON_EXTRACT(raw_json, '/Duration','INT') as duration,
+  JSON_EXTRACT(raw_json, '/id','INTEGER') as id,
+  JSON_EXTRACT(raw_json, '/Duration','INTEGER') as duration,
   JSON_EXTRACT(raw_json, '/tags','ARRAY(TEXT)') as tags
 FROM
   source_json;
@@ -107,9 +107,9 @@ The following statement takes the raw JSON input and uses `INSERT INTO` to load 
 INSERT INTO
   visits
 SELECT
-  JSON_EXTRACT(raw_json, '/id','INT') as id,
+  JSON_EXTRACT(raw_json, '/id','INTEGER') as id,
   CAST(JSON_EXTRACT(raw_json, '/StartTime','TEXT') AS DATETIME) as StartTime,
-  JSON_EXTRACT(raw_json, '/Duration','INT') as duration,
+  JSON_EXTRACT(raw_json, '/Duration','INTEGER') as duration,
   JSON_EXTRACT(raw_json, '/tags','ARRAY(TEXT)') as tags,
   JSON_EXTRACT_KEYS(raw_json,'/user_agent') as agent_props_keys,
   JSON_EXTRACT_VALUES(raw_json,'/user_agent') as agent_props_vals
