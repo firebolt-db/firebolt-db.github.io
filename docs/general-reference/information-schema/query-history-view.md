@@ -43,10 +43,10 @@ Each row has the following columns with information about each query in query hi
 | scanned_rows                | LONG      | The total number of rows scanned. |
 | scanned_bytes               | LONG      | The total number of bytes scanned (both from cache and storage). |
 | scanned_bytes_cache         | LONG      | The total number of compressed bytes scanned from the engine's cache. |
-| scanned_bytes_storage       | LONG      | The total number of compressed bytes scanned from F3 storage. |
+| scanned_bytes_storage       | LONG      | The total number of compressed bytes scanned from S3 storage. |
 | inserted_rows               | LONG      | The total number of rows written. |
 | inserted_bytes              | LONG      | The total number of bytes written (both to cache and storage). |
-| inserted_bytes_storage      | LONG      | The total number of compressed bytes written to F3 storage. |
+| inserted_bytes_storage      | LONG      | The total number of compressed bytes written to S3 storage. |
 | spilled_bytes_compressed    | LONG      | The total number of compressed bytes spilled. |
 | spilled_bytes_uncompressed  | LONG      | The total number of uncompressed bytes spilled. |
 | total_ram_consumed          | LONG      | The total number of engine bytes in RAM consumed during query execution. |
