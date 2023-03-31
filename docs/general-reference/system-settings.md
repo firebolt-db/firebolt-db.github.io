@@ -64,7 +64,7 @@ SELECT '\x3132'; -> \x3132
 When set to false (`0`), the [COUNT (DISTINCT)](../sql-reference/functions-reference/count.md) function returns approximate results, using an estimation algorithm with an average deviation under 2%. This is the default to optimize query performance. When set to true (`1`), the function returns an exact count, which can slow query performance.
 
 {: .note}
-This function can be used in [Aggregating Indexes](..using-indexes/using-aggregating-indexes.html#using-aggregating-indexes).  When asking Support to permanenently change the setting, it will be necessary to drop and recreate any aggregating Iidexes that use the the COUNT(DISTINCT) aggregation after the change is made.  That will allow the aggregation values to be calculated with the new setting.
+This function can be used in [Aggregating Indexes](..using-indexes/using-aggregating-indexes.html#using-aggregating-indexes).  When asking Support to permanently change the setting, it will be necessary to drop and recreate any aggregating indexes that use the the COUNT(DISTINCT) aggregation after the change is made.  That will allow the aggregation values to be calculated with the new setting.
 
 ### Syntax  
 {: .no_toc}
