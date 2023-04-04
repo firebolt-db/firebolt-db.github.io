@@ -444,8 +444,6 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [TO_INT](to-int.md)  
 
-* [TO_LONG](to-long.md)  
-
 * [TO_TIMESTAMP](to-timestamp.md)  
 
 * [TO_UNIX_TIMESTAMP](to-unixtime.md)  
