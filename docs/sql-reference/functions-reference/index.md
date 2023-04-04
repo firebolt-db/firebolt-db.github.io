@@ -224,8 +224,6 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [TO_SECOND](to-second.md)  
 
-* [TO_STRING](to-string.md)  
-
 * [TO_WEEK](to-week.md)  
 
 * [TO_WEEKISO](to-weekiso.md)  
