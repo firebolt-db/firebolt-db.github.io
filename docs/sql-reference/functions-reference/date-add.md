@@ -18,7 +18,7 @@ DATE_ADD('<unit>', <interval>, <date_expr>)
 
 | Parameter     | Description                                                                                                                 |
 | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`, `EPOCH`.                                                                  |
+| `<unit>`      | A unit of time. This can be any of the following: `SECOND`, `MINUTE`, `HOUR`, `DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`.                                                                  |
 | `<interval>`  | The number of times to increase the `<date_expr>` by the time unit specified by `<unit>`. This can be a negative number. |
 | `<date_expr>` | An expression that evaluates to a `DATE` or `TIMESTAMP`. value.                                                              |
 
