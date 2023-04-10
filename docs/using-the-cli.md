@@ -48,6 +48,30 @@ This topic covers installation, configuration, and running queries. For a list o
   ```
 
   You can check version history and release notes using the [GitHub repository for the Firebolt CLI](https://github.com/firebolt-db/firebolt-cli/tags).
+  
+* Firebolt provides tab completion for Bash (version 4.4 and later), Zsh, and Fish. Tab completion is based on the `Click` library. For more information, see [Click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/#enabling-completion).
+
+Use the following guidance to enable tab completion for the shell that you use.
+
+  * **Bash**  
+  Add the line shown below to `~/.bashrc`.  
+
+  ```shell
+  eval "$(_FIREBOLT_COMPLETE=bash_source firebolt)"
+  ```
+
+  * **Zsh**  
+  Add the line shown below to `~/.zshrc`.
+
+  ```shell
+  eval "$(_FIREBOLT_COMPLETE=zsh_source firebolt)"
+  ```
+  * **Fish**  
+  Add the line shown below to `~/.config/fish/completions/firebolt.fish`.
+
+  ```shell
+  eval (env _FIREBOLT_COMPLETE=fish_source firebolt)
+  ```
 
 ## Configuring CLI parameters
 
@@ -115,32 +139,6 @@ Then CLI commands can then reference the variables as shown below.
 ```
 $ firebolt query --database-name $FB_DB2 --engine-name $FB_ENG2
 ```
-
-
-## Enabling tab completion
-Firebolt provides tab completion for Bash (version 4.4 and later), Zsh, and Fish. Tab completion is based on the `Click` library. For more information, see [Click documentation](https://click.palletsprojects.com/en/8.1.x/shell-completion/#enabling-completion).
-
-Use the following guidance to enable tab completion for the shell that you use.
-
-* **Bash**  
-  Add the line shown below to `~/.bashrc`.  
-
-  ```shell
-  eval "$(_FIREBOLT_COMPLETE=bash_source firebolt)"
-  ```
-
-* **Zsh**  
-  Add the line shown below to `~/.zshrc`.
-
-  ```shell
-  eval "$(_FIREBOLT_COMPLETE=zsh_source firebolt)"
-  ```
-* **Fish**  
-  Add the line shown below to `~/.config/fish/completions/firebolt.fish`.
-
-  ```shell
-  eval (env _FIREBOLT_COMPLETE=fish_source firebolt)
-  ```
 
 ## Running queries
 
