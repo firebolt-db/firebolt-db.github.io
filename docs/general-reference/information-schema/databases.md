@@ -24,9 +24,9 @@ Each row has the following columns with information about the database.
 
 | Name                          | Data Type | Description |
 | :-----------------------------| :-------- | :---------- |
-| catalog_name                  | TEXT      | Name of the catalog. Firebolt provides a single ‘default’ catalog. |
 | database_name                 | TEXT      | Name of the database. |
-| default_character_set_catalog | NULL      | Not applicable for Firebolt. |
-| default_character_set_schema  | NULL      | Not applicable for Firebolt. |
-| default_character_set_name    | NULL      | Not applicable for Firebolt. |
-| sql_path                      | NULL      | Not applicable for Firebolt. |
+| region                        | TEXT      | The AWS region in which the database is configured. |
+| attached_engines              | TEXT      | A list of engine names attached to the database. |
+| created_on                    | TEXT      | The time the database was created. |
+| created_by                    | TEXT      | The user who created the database. |
+| errors                        | TEXT      | Not applicable for Firebolt. |
