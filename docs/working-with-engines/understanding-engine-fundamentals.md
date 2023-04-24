@@ -92,7 +92,8 @@ The table below lists the statuses returned by the `SHOW ENGINES` command and th
 
 | `SHOW ENGINES` and UI | API Enum                         | Description                     |
 | :-------------------- | :------------------------------- | :------------------------------ |
-| Started         | `ENGINE_STATUS_SUMMARY_STARTING` | The engine was started. It is provisioning resources, warming up, and will be ready to use soon. |
+| Starting         | `ENGINE_STATUS_SUMMARY_STARTING` | The engine start has been initialized. |
+| Started          | `ENGINE_STATUS_SUMMARY_STARTING_INITIALIZING` | The engine is starting. It is provisioning resources, warming up, and will be ready to use soon. |
 | Running               | `ENGINE_STATUS_SUMMARY_RUNNING`  | The engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine. |
 | Stopping              | `ENGINE_STATUS_SUMMARY_STOPPING` | The engine is shutting down. It is finishing query tasks in process and is not available for new queries. |
 | Stopped               | `ENGINE_STATUS_SUMMARY_STOPPED`  | The engine is stopped. It is not available to run queries. You are able to edit, delete, or attach engines in this state. |
