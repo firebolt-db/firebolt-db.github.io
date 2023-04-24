@@ -92,10 +92,13 @@ The table below lists the statuses returned by the `SHOW ENGINES` command and th
 
 | `SHOW ENGINES` and UI | API Enum                         | Description                     |
 | :-------------------- | :------------------------------- | :------------------------------ |
-| Starting         | `ENGINE_STATUS_SUMMARY_STARTING` | The engine start has been initialized. |
-| Started          | `ENGINE_STATUS_SUMMARY_STARTING_INITIALIZING` | The engine is starting. It is provisioning resources, warming up, and will be ready to use soon. |
-| Running               | `ENGINE_STATUS_SUMMARY_RUNNING`  | The engine is running queries or available to run queries. You cannot edit, delete, or attach a running engine. |
+| Starting         | `ENGINE_STATUS_SUMMARY_STARTING` | The engine is starting. It will be ready to use soon. |
+| Started          | `ENGINE_STATUS_SUMMARY_STARTING_INITIALIZING` | The engine has started. It is provisioning resources, and warming up. |
+| Running               | `ENGINE_STATUS_SUMMARY_RUNNING`  | The engine is available to use. You cannot edit, delete, or attach a running engine. |
 | Stopping              | `ENGINE_STATUS_SUMMARY_STOPPING` | The engine is shutting down. It is finishing query tasks in process and is not available for new queries. |
 | Stopped               | `ENGINE_STATUS_SUMMARY_STOPPED`  | The engine is stopped. It is not available to run queries. You are able to edit, delete, or attach engines in this state. |
 | Dropping              | `ENGINE_STATUS_DELETING`         | The engine configuration is being permanently deleted. |
-| Repairing             | `ENGINE_STATUS_REPAIRING`        | At least one node is out of service because of an infrastructure or software failure. Firebolt is working on replacing nodes. The engine is not available to run queries, and any query actions in progress have stopped.|
+| Repairing             | `ENGINE_STATUS_REPAIRING`        | At least one node is out of service because of an infrastructure or software failure. Firebolt is working on replacing nodes. The engine is not available to run queries, and any query actions in progress have stopped. |
+| Deleting              | `ENGINE_STATUS_SUMMARY_DELETING` | The engine is being deleted. |
+| Failed                | `EMGOME_STATUS_SUMMARY_FAILED`   | The engine failed to start. | 
+
