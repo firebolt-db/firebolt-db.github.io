@@ -38,23 +38,23 @@ SELECT TIMESTAMPTZ '2023-1-29Z';  --> 2023-01-29 02:00:00+02
 
 ## Enable parsing for literal strings
 
-When set to true (`1`), strings are parsed without escaping, treating backslashes literally. By default this is disabled, and the `\` character is recognized as an escape character. 
+When set to `true`, strings are parsed without escaping, treating backslashes literally. By default this is disabled, and the `\` character is recognized as an escape character. 
 
 ### Syntax  
 {: .no_toc}
 
 ```sql
-SET standard_conforming_strings = [0|1]
+SET standard_conforming_strings = [false|true]
 ```
 
 ### Example
 {: .no_toc}
 
 ```sql
-SET standard_conforming_strings = 0;
+SET standard_conforming_strings = false;
 SELECT '\x3132'; -> 132 
 
-SET standard_conforming_strings=1;
+SET standard_conforming_strings = true;
 SELECT '\x3132'; -> \x3132
 ```
 
@@ -70,12 +70,12 @@ This function can be used in [Aggregating Indexes](..using-indexes/using-aggrega
 {: .no_toc}
 
 ```sql
-firebolt_optimization_enable_exact_count_distinct = [0|1]
+firebolt_optimization_enable_exact_count_distinct = [false|true]
 ```
 
 ### Example  
 {: .no_toc}
 
 ```sql
-SET firebolt_optimization_enable_exact_count_distinct = 1;
+SET firebolt_optimization_enable_exact_count_distinct = true;
 ```
