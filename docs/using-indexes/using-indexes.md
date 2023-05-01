@@ -21,7 +21,7 @@ Firebolt offers three types of indexes:
 
 ## You can combine indexes
 
-Each table has only one primary index, which is mandatory for fact tables and optional for dimension tables. You can have as many aggregating indexes and join indexes as your workloads demand. Indexes are highly compressed. The cost of storing them is small when compared to the potential savings in engine runtime, number of nodes, and the engine spec.
+Each table has only one primary index, which is optional. You can have as many aggregating indexes and join indexes as your workloads demand. Indexes are highly compressed. The cost of storing them is small when compared to the potential savings in engine runtime, number of nodes, and the engine spec.
 
 ## Firebolt maintains indexes automatically
 
