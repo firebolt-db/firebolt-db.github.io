@@ -21,7 +21,7 @@ The video below explains sparse indexing. Eldad Farkash is the CEO of Firebolt.
 
 ## How you create a primary index
 
-To define a primary index, you use the `PRIMARY INDEX` clause within a [`CREATE TABLE`](../sql-reference/commands/create-fact-dimension-table.md) statement. A primary index is required for each fact table and optional for each dimension table. Although they are optional for dimension tables, we strongly recommend them.
+To define a primary index, you use the `PRIMARY INDEX` clause within a [`CREATE TABLE`](../sql-reference/commands/create-fact-dimension-table.md) statement. Although they are optional, we strongly recommend them.
 
 The basic syntax of a `PRIMARY INDEX` clause within a `CREATE TABLE` statement is shown in the example below.
 
