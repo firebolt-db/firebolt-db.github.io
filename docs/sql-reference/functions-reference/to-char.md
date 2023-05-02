@@ -1,16 +1,23 @@
 ---
 layout: default
 title: TO_CHAR (legacy)
-description: Reference material for TO_CHAR function
+description: Reference material for TO_CHAR (legacy) function
+nav_exclude: true
 parent: SQL functions
 ---
 
 # TO_CHAR (legacy)
 
-Converts a `TIMESTAMP` or a `NUMERIC` data type to a formatted string.
+{: .warning}
+  >You are looking at legacy documentation for Firebolt's deprecated date and timestamp type functions.
+  >New types were introduced in DB version 3.19 under the names `PGDATE` and `TIMESTAMPNTZ`, and made generally available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns an error, you are still using the legacy date and timestamp types and can continue with this documentation, or find instructions to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
+  >If this query returns a result, you are already using the redesigned date and timestamp types and can use the [TO_CHAR](./to-char-new.md) function instead.
 
-{: .note}
-The functions works with legacy `DATE` and `TIMESTAMP` data types. If you are using new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types, see [TO_CHAR (new)](../functions-reference/to-char-new.md).
+Converts a `TIMESTAMP` data type to a formatted string.
 
 ## Syntax
 
@@ -20,7 +27,7 @@ TO_CHAR(<expression>[, '<format>'])
 
 |   Parameter   |                       Description                          |
 | :-------------| :---------------------------------------------------------|                           
-|  `<expression>`   | An expression that resolves to a value with a `TIMESTAMP` or `NUMERIC` data type, which will be converted to text. |
+|  `<expression>`   | An expression that resolves to a value with a `TIMESTAMP` data type, which will be converted to text. |
 |  `<format>`   | One or more optional format element(s) for datetime values. |                       
 
 For descriptions of the accepted `<format>` options, see below.

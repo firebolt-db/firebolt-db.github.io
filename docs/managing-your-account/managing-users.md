@@ -2,7 +2,7 @@
 layout: default
 title: Managing users
 description: Learn about user permissions and how to add and remove users in a Firebolt account.
-nav_order: 3
+nav_order: 4
 parent: Account and user management
 ---
 

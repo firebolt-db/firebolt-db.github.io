@@ -11,6 +11,15 @@ search_exclude: false
 
 This topic describes the Firebolt implementation of arithmetic with intervals.
 
+{: .warning}
+  >You are looking at the documentation for Firebolt's redesigned date and timestamp types.
+  >These types were introduced in DB version 3.19 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](legacy-date-timestamp.md), or instructions to reingest your data to use the new types [here](../release-notes/release-notes-archive.md#db-version-3190).
+
 * Topic ToC
 {:toc}
 
@@ -19,16 +28,16 @@ This topic describes the Firebolt implementation of arithmetic with intervals.
 An `interval` represents a duration. In Firebolt, values of type `interval` can be used to add or subtract a duration to/from a date or timestamp.
 `Interval` cannot be used as the data type of a column.
 
-The `+` operators shown below come in commutative pairs (e.g., both `PGDATE + interval` and `interval + PGDATE` are accepted). Although the arithmetic operators check that the resulting timestamp is in the supported range, they don't check for integer overflow.
+The `+` operators shown below come in commutative pairs (e.g., both `DATE + interval` and `interval + DATE` are accepted). Although the arithmetic operators check that the resulting timestamp is in the supported range, they don't check for integer overflow.
 
-| Operator                                  | Description                                  |
-| :---------------------------------------- | :------------------------------------------- |
-| `PGDATE + interval -> TIMESTAMPNTZ`       | Add an `interval` to a `PGDATE`              |
-| `PGDATE - interval -> TIMESTAMPNTZ`       | Subtract an `interval` from a `PGDATE`       |
-| `TIMESTAMPNTZ + interval -> TIMESTAMPNTZ` | Add an `interval` to a `TIMESTAMPNTZ`        |
-| `TIMESTAMPNTZ - interval -> TIMESTAMPNTZ` | Subtract an `interval` from a `TIMESTAMPNTZ` |
-| `TIMESTAMPTZ + interval -> TIMESTAMPTZ`   | Add an `interval` to a `TIMESTAMPTZ`         |
-| `TIMESTAMPTZ - interval -> TIMESTAMPTZ`   | Subtract an `interval` from a `TIMESTAMPTZ`  |
+| Operator                                | Description                                 |
+| :-------------------------------------- | :------------------------------------------ |
+| `DATE + interval -> TIMESTAMP`          | Add an `interval` to a `DATE`               |
+| `DATE - interval -> TIMESTAMP`          | Subtract an `interval` from a `DATE`        |
+| `TIMESTAMP + interval -> TIMESTAMP`     | Add an `interval` to a `TIMESTAMP`          |
+| `TIMESTAMP - interval -> TIMESTAMP`     | Subtract an `interval` from a `TIMESTAMP`   |
+| `TIMESTAMPTZ + interval -> TIMESTAMPTZ` | Add an `interval` to a `TIMESTAMPTZ`        |
+| `TIMESTAMPTZ - interval -> TIMESTAMPTZ` | Subtract an `interval` from a `TIMESTAMPTZ` |
 
 ## Literal string interpretation
 
@@ -42,20 +51,20 @@ interval 'quantity unit [quantity unit...] [direction]'
 
 where `direction` can be `ago` or empty (`ago` negates all the quantities), `quantity` is a possibly signed integer, and `unit` is one of the following, matched case-insensitively:
 
-| Unit                 |      Minimum |     Maximum | 
-| :------------------- | -----------: | ----------: | 
-| microsecond[s] / us    | `-999999999` | `999999999` |
-| millisecond[s] / ms    | `-999999999` | `999999999` |
-| second[s] / s          | `-999999999` | `999999999` |
-| minute[s] / m          | `-999999999` | `999999999` |
-| hour[s] / h            | `-999999999` | `999999999` |
-| day[s] / d             | `-999999999` | `999999999` |
-| week[s] / w            | `-999999999` | `999999999` |
-| month[s] / mon[s]      | `-999999999` | `999999999` |
-| year[s] / y            |  `-99999999` |  `99999999` |
-| decade[s] / dec[s]     |   `-9999999` |   `9999999` |
-| century / centuries / c |   `-999999` |    `999999` |
-| millennium[s] / mil[s] |     `-99999` |     `99999` |
+| Unit                    |      Minimum |     Maximum |
+| :---------------------- | -----------: | ----------: |
+| microsecond[s] / us     | `-999999999` | `999999999` |
+| millisecond[s] / ms     | `-999999999` | `999999999` |
+| second[s] / s           | `-999999999` | `999999999` |
+| minute[s] / m           | `-999999999` | `999999999` |
+| hour[s] / h             | `-999999999` | `999999999` |
+| day[s] / d              | `-999999999` | `999999999` |
+| week[s] / w             | `-999999999` | `999999999` |
+| month[s] / mon[s]       | `-999999999` | `999999999` |
+| year[s] / y             |  `-99999999` |  `99999999` |
+| decade[s] / dec[s]      |   `-9999999` |   `9999999` |
+| century / centuries / c |    `-999999` |    `999999` |
+| millennium[s] / mil[s]  |     `-99999` |     `99999` |
 
 Each `unit` can appear only once in an interval literal. 
 Not all months have the same number of days.
@@ -76,7 +85,7 @@ interval 'N' unit
 
 where `N` is a possibly signed integer, and `unit` is one of the following, matched case-insensitively:
 
-| Unit   |  Minimum `N` |  Maximum `N`|
+| Unit   |  Minimum `N` | Maximum `N` |
 | :----- | -----------: | ----------: |
 | second | `-999999999` | `999999999` |
 | minute | `-999999999` | `999999999` |
@@ -101,8 +110,8 @@ Still, the dependence on the session's `time_zone` setting should be kept in min
 ## Examples
 
 ```sql
-SELECT PGDATE '1996-09-03' - interval '1 millennium 5 years 42 day 42 ms';  --> 0991-07-22 23:59:59.958
-SELECT TIMESTAMPNTZ '1996-09-03 11:19:42' + interval '10 years 5 months 42 days 7 seconds';  --> 2007-03-17 11:19:49
+SELECT DATE '1996-09-03' - interval '1 millennium 5 years 42 day 42 ms';  --> 0991-07-22 23:59:59.958
+SELECT TIMESTAMP '1996-09-03 11:19:42' + interval '10 years 5 months 42 days 7 seconds';  --> 2007-03-17 11:19:49
 
 -- The following example shows a daylight savings time change in the time zone 'Europe/Berlin'
 SET time_zone = 'Europe/Berlin';

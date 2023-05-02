@@ -7,10 +7,16 @@ parent: SQL functions
 
 # TO_CHAR
 
-Converts a value of type `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ` to a formatted string.
+{: .warning}
+  >You are looking at the documentation for Firebolt's redesigned date and timestamp types.
+  >These types were introduced in DB version 3.19 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
 
-{: .note}
-The functions works with new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types. If you are using legacy `DATE` and `TIMESTAMP` data types, see [TO_CHAR (legacy)](../functions-reference/to-char.md).
+Converts a value of type `DATE`, `TIMESTAMP`, or `TIMESTAMPTZ` to a formatted string.
 
 ## Syntax
 
@@ -18,63 +24,63 @@ The functions works with new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data ty
 TO_CHAR(<expression>, '<format>')
 ```
 
-| Parameter      | Description                                        |Supported input types |
-| :------------- | :------------------------------------------------- | :-------------------------------------- |
-| `<expression>` | A date or time expression to be converted to text. | `PGDATE`, `TIMESTAMPNTZ`, `TIMESTAMPTZ` |
-| `<format>`     | A string literal that specifies the format of the `<expression>` to convert.              | See below. |
+| Parameter      | Description                                                                  | Supported input types              |
+| :------------- | :--------------------------------------------------------------------------- | :--------------------------------- |
+| `<expression>` | A date or time expression to be converted to text.                           | `DATE`, `TIMESTAMP`, `TIMESTAMPTZ` |
+| `<format>`     | A string literal that specifies the format of the `<expression>` to convert. | See below.                         |
 
 Accepted `<format>` patterns include:
 
-| Format option     | Description                                                                                       | Example                                                                                                          |
-| :---------------- | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------- |
-| `HH12` or `HH`    | Hour of day (01–12)                                                                               | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'hh12 HH'); --> '06 06'`                                      |
-| `HH24`            | Hour of day (00–23)                                                                               | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'HH24'); --> '18'`                                            |
-| `MI`              | Minute (00–59)                                                                                    | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MI'); --> '24'`                                              |
-| `SS`              | Second (00–59)                                                                                    | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'SS'); --> '58'`                                              |
-| `SSSS` or `SSSSS` | Seconds past midnight (0–86399)                                                                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'SSSS'); --> '41098'`                                         |
-| `MS`              | Millisecond (000–999)                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MS'); --> '085'`                                             |
-| `US`              | Microsecond (000000–999999)                                                                       | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'US'); --> '085109'`                                          |
-| `Y,YYY`           | Year (4 or more digits) with comma Y,YYY                                                          | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Y,YYY'); --> '2,023'`                                        |
-| `YYYY`            | Year (4 or more digits)                                                                           | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YYYY'); --> '2023'`                                          |
-| `YYY`             | Last 3 digits of year                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YYY'); --> '023'`                                            |
-| `YY`              | Last 2 digits of year                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YY'); --> '23'`                                              |
-| `Y`               | Last digit of year                                                                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Y'); --> '3'`                                                |
-| `IYYY`            | ISO 8601 week-numbering year (4 or more digits)                                                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IYYY'); --> '2023'`                                          |
-| `IYY`             | Last 3 digits of ISO 8601 week-numbering year                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IYY'); --> '023'`                                            |
-| `IY`              | Last 2 digits of ISO 8601                                                                         | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IY'); --> '23'`                                              |
-| `I`               | Last digit of ISO 8601 week-numbering year                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'I'); --> '3'`                                                |
-| `MM`              | Month number (01–12)                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MM'); --> '03'`                                              |
-| `DDD`             | Day of year (001–366)                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'DDD'); --> '062'`                                            |
-| `DD`              | Day of month (01–31)                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'DD'); --> '03'`                                              |
-| `D`               | Day of the week, Sunday (1) to Saturday (7)                                                       | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'D'); --> '6'`                                                |
-| `ID`              | ISO 8601 day of the week, Monday (1) to Sunday (7)                                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'ID'); --> '5'`                                               |
-| `W`               | Week of month (1–5) (the first week starts on the first day of the month)                         | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'W'); --> '1'`                                                |
-| `WW`              | Week number of year (1–53) (the first week starts on the first day of the year)                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'WW'); --> '09'`                                              |
-| `IW`              | Week number of ISO 8601 week-numbering year (01–53) (the first Thursday of the year is in week 1) | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IW'); --> '09'`                                              |
-| `CC`              | Century (2 digits) (the twenty-first century starts on 2001-01-01)                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'CC'); --> '21'`                                              |
-| `Q`               | Single digit quarter                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Q'); --> '1'`                                                |
-| `AM` or `PM`      | Meridiem indicator upper case without periods                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'hhAM'); --> '6PM'`                                           |
-| `am` or `pm`      | Meridiem indicator lower case without periods                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 09:24:58', 'hhpm'); --> '9am'`                                                  |
-| `A.M.` or `P.M.`  | Meridiem indicator upper case with periods                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58', 'hhP.M.'); --> '6P.M.'`                                              |
-| `a.m.` or `p.m.`  | Meridiem indicator lower case with periods                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 09:24:58', 'hha.m.'); --> '9a.m.'`                                              |
-| `MONTH`           | Full upper case month name (blank-padded to 9 chars)                                              | <code>TO_CHAR(PGDATE '2023-03-03', 'MONTH'); --> 'MARCH&nbsp;&nbsp;&nbsp;&nbsp;'</code>                          | <!--- We explicitly need the <code> tags here to make sure we display the right amount of spaces (&nbsp;) in the example. Multiple spaces are generally removed in inline-code backticks. --> | 
-| `Month`           | Full capitalized month name (blank-padded to 9 chars)                                             | <code>TO_CHAR(PGDATE '2023-08-07', 'Month'); --> 'August&nbsp;&nbsp;&nbsp;'</code>                                |
-| `month`           | Full lower case month name (blank-padded to 9 chars)                                              | `TO_CHAR(PGDATE '2023-09-10', 'month'); --> 'September'`                                                          |
-| `MON`             | Abbreviated upper case month name (3 chars)                                                       | `TO_CHAR(PGDATE '2023-07-03', 'MON'); --> 'JUL'`                                                                  |
-| `Mon`             | Abbreviated capitalized month name (3 chars)                                                      | `TO_CHAR(PGDATE '2023-01-03', 'Mon'); --> 'Jan'`                                                                  |
-| `mon`             | Abbreviated lower case month name (3 chars)                                                       | `TO_CHAR(PGDATE '2023-12-03', 'mon'); --> 'dec'`                                                                  |
-| `DAY`             | Full upper case day name (blank-padded to 9 chars)                                                | <code>TO_CHAR(PGDATE '2023-03-07', 'DAY'); --> 'TUESDAY&nbsp;&nbsp;'                                              |
-| `Day`             | Full capitalized day name (blank-padded to 9 chars)                                               | <code>TO_CHAR(PGDATE '2023-03-08', 'Day'); --> 'Wednesday'</code>                                                 |
-| `day`             | Full lower case day name (blank-padded to 9 chars)                                                | <code>TO_CHAR(PGDATE '2023-03-09', 'day'); --> 'thursday&nbsp;'</code>                                            |
-| `DY`              | Abbreviated upper case day name (3 chars in English)                                              | `TO_CHAR(PGDATE '2023-03-09', 'DY'); --> 'THU'`                                                                   |
-| `Dy`              | Abbreviated capitalized day name (3 chars in English)                                             | `TO_CHAR(PGDATE '2023-03-10', 'Dy'); --> 'Fri'`                                                                   |
-| `dy`              | Abbreviated lower case day name (3 chars in English)                                              | `TO_CHAR(PGDATE '2023-03-11', 'dy'); --> 'sat'`                                                                   |
-| `RM`              | Month in upper case Roman numerals (I–XII; I=January)                                             | `TO_CHAR(PGDATE '2023-03-03', 'RM'); --> 'III'`                                                                   |
-| `rm`              | Month in lower case Roman numerals (i–xii; i=January)                                             | `TO_CHAR(PGDATE '2023-06-03', 'rm'); --> 'vi'`                                                                    |
-| `AD` or `BC`      | Upper case era indicator without periods                                                          | `TO_CHAR(PGDATE '2023-03-03', 'BC'); --> 'AD'`                                                                    |
-| `ad` or `bc`      | lower case era indicator without periods                                                          | `TO_CHAR(PGDATE '2023-03-03', 'ad'); --> 'ad'`                                                                    |
-| `A.D.` or `B.C.`  | Upper case era indicator with periods                                                             | `TO_CHAR(PGDATE '2023-03-03', 'A.D.'); --> 'A.D.'`                                                                |
-| `a.d.` or `b.c.`  | Upper case era indicator with periods                                                             | `TO_CHAR(PGDATE '2023-03-03', 'b.c.'); --> 'a.d.'`                                                                |
+| Format option     | Description                                                                                       | Example                                                                                          |
+| :---------------- | :------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------- |
+| `HH12` or `HH`    | Hour of day (01–12)                                                                               | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'hh12 HH'); --> '06 06'`                      |
+| `HH24`            | Hour of day (00–23)                                                                               | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'HH24'); --> '18'`                            |
+| `MI`              | Minute (00–59)                                                                                    | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MI'); --> '24'`                              |
+| `SS`              | Second (00–59)                                                                                    | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'SS'); --> '58'`                              |
+| `SSSS` or `SSSSS` | Seconds past midnight (0–86399)                                                                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'SSSS'); --> '41098'`                         |
+| `MS`              | Millisecond (000–999)                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MS'); --> '085'`                             |
+| `US`              | Microsecond (000000–999999)                                                                       | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'US'); --> '085109'`                          |
+| `Y,YYY`           | Year (4 or more digits) with comma Y,YYY                                                          | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Y,YYY'); --> '2,023'`                        |
+| `YYYY`            | Year (4 or more digits)                                                                           | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YYYY'); --> '2023'`                          |
+| `YYY`             | Last 3 digits of year                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YYY'); --> '023'`                            |
+| `YY`              | Last 2 digits of year                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'YY'); --> '23'`                              |
+| `Y`               | Last digit of year                                                                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Y'); --> '3'`                                |
+| `IYYY`            | ISO 8601 week-numbering year (4 or more digits)                                                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IYYY'); --> '2023'`                          |
+| `IYY`             | Last 3 digits of ISO 8601 week-numbering year                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IYY'); --> '023'`                            |
+| `IY`              | Last 2 digits of ISO 8601                                                                         | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IY'); --> '23'`                              |
+| `I`               | Last digit of ISO 8601 week-numbering year                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'I'); --> '3'`                                |
+| `MM`              | Month number (01–12)                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'MM'); --> '03'`                              |
+| `DDD`             | Day of year (001–366)                                                                             | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'DDD'); --> '062'`                            |
+| `DD`              | Day of month (01–31)                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'DD'); --> '03'`                              |
+| `D`               | Day of the week, Sunday (1) to Saturday (7)                                                       | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'D'); --> '6'`                                |
+| `ID`              | ISO 8601 day of the week, Monday (1) to Sunday (7)                                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'ID'); --> '5'`                               |
+| `W`               | Week of month (1–5) (the first week starts on the first day of the month)                         | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'W'); --> '1'`                                |
+| `WW`              | Week number of year (1–53) (the first week starts on the first day of the year)                   | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'WW'); --> '09'`                              |
+| `IW`              | Week number of ISO 8601 week-numbering year (01–53) (the first Thursday of the year is in week 1) | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'IW'); --> '09'`                              |
+| `CC`              | Century (2 digits) (the twenty-first century starts on 2001-01-01)                                | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'CC'); --> '21'`                              |
+| `Q`               | Single digit quarter                                                                              | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'Q'); --> '1'`                                |
+| `AM` or `PM`      | Meridiem indicator upper case without periods                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58.085109', 'hhAM'); --> '6PM'`                           |
+| `am` or `pm`      | Meridiem indicator lower case without periods                                                     | `TO_CHAR(TIMESTAMPTZ '2023-03-03 09:24:58', 'hhpm'); --> '9am'`                                  |
+| `A.M.` or `P.M.`  | Meridiem indicator upper case with periods                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 18:24:58', 'hhP.M.'); --> '6P.M.'`                              |
+| `a.m.` or `p.m.`  | Meridiem indicator lower case with periods                                                        | `TO_CHAR(TIMESTAMPTZ '2023-03-03 09:24:58', 'hha.m.'); --> '9a.m.'`                              |
+| `MONTH`           | Full upper case month name (blank-padded to 9 chars)                                              | <code>TO_CHAR(DATE '2023-03-03', 'MONTH'); --> 'MARCH&nbsp;&nbsp;&nbsp;&nbsp;'</code>            | <!--- We explicitly need the <code> tags here to make sure we display the right amount of spaces (&nbsp;) in the example. Multiple spaces are generally removed in inline-code backticks. --> |
+| `Month`           | Full capitalized month name (blank-padded to 9 chars)                                             | <code>TO_CHAR(DATE '2023-08-07', 'Month'); --> 'August&nbsp;&nbsp;&nbsp;'</code>                 |
+| `month`           | Full lower case month name (blank-padded to 9 chars)                                              | `TO_CHAR(DATE '2023-09-10', 'month'); --> 'September'`                                           |
+| `MON`             | Abbreviated upper case month name (3 chars)                                                       | `TO_CHAR(DATE '2023-07-03', 'MON'); --> 'JUL'`                                                   |
+| `Mon`             | Abbreviated capitalized month name (3 chars)                                                      | `TO_CHAR(DATE '2023-01-03', 'Mon'); --> 'Jan'`                                                   |
+| `mon`             | Abbreviated lower case month name (3 chars)                                                       | `TO_CHAR(DATE '2023-12-03', 'mon'); --> 'dec'`                                                   |
+| `DAY`             | Full upper case day name (blank-padded to 9 chars)                                                | <code>TO_CHAR(DATE '2023-03-07', 'DAY'); --> 'TUESDAY&nbsp;&nbsp;'                               |
+| `Day`             | Full capitalized day name (blank-padded to 9 chars)                                               | <code>TO_CHAR(DATE '2023-03-08', 'Day'); --> 'Wednesday'</code>                                  |
+| `day`             | Full lower case day name (blank-padded to 9 chars)                                                | <code>TO_CHAR(DATE '2023-03-09', 'day'); --> 'thursday&nbsp;'</code>                             |
+| `DY`              | Abbreviated upper case day name (3 chars in English)                                              | `TO_CHAR(DATE '2023-03-09', 'DY'); --> 'THU'`                                                    |
+| `Dy`              | Abbreviated capitalized day name (3 chars in English)                                             | `TO_CHAR(DATE '2023-03-10', 'Dy'); --> 'Fri'`                                                    |
+| `dy`              | Abbreviated lower case day name (3 chars in English)                                              | `TO_CHAR(DATE '2023-03-11', 'dy'); --> 'sat'`                                                    |
+| `RM`              | Month in upper case Roman numerals (I–XII; I=January)                                             | `TO_CHAR(DATE '2023-03-03', 'RM'); --> 'III'`                                                    |
+| `rm`              | Month in lower case Roman numerals (i–xii; i=January)                                             | `TO_CHAR(DATE '2023-06-03', 'rm'); --> 'vi'`                                                     |
+| `AD` or `BC`      | Upper case era indicator without periods                                                          | `TO_CHAR(DATE '2023-03-03', 'BC'); --> 'AD'`                                                     |
+| `ad` or `bc`      | lower case era indicator without periods                                                          | `TO_CHAR(DATE '2023-03-03', 'ad'); --> 'ad'`                                                     |
+| `A.D.` or `B.C.`  | Upper case era indicator with periods                                                             | `TO_CHAR(DATE '2023-03-03', 'A.D.'); --> 'A.D.'`                                                 |
+| `a.d.` or `b.c.`  | Upper case era indicator with periods                                                             | `TO_CHAR(DATE '2023-03-03', 'b.c.'); --> 'a.d.'`                                                 |
 | `TZ`              | Upper case time-zone abbreviation                                                                 | `SET time_zone = 'America/Vancouver';`<br>`TO_CHAR(TIMESTAMPTZ '2023-03-03', 'TZ'); --> 'PST'`   |
 | `tz`              | Lower case time-zone abbreviation                                                                 | `SET time_zone = 'Europe/Berlin';`<br>`TO_CHAR(TIMESTAMPTZ '2023-03-03', 'tz'); --> 'cet'`       |
 | `TZH`             | Time zone hours                                                                                   | `SET TIME_ZONE = 'Israel';`<br>`TO_CHAR(TIMESTAMPTZ '2023-03-03', 'TZH'); --> '+02'`             |
@@ -83,11 +89,11 @@ Accepted `<format>` patterns include:
 
 Additionally, modifiers can be applied to the format patterns above to alter their behavior.
 
-| Format option | Description                                | Example                                                                                                                                                            |
-| :------------ | :----------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `FM` prefix   | Surpress leading zeroes and padding blanks | <code>TO_CHAR(CURRENT_PGDATE, 'Month YYYY'); --> 'March&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023'</code> <br> `TO_CHAR(CURRENT_PGDATE, 'FMMonth YYYY'); --> 'March 2023'` |
-| `TH` suffix   | Upper case ordinal number suffix           | `TO_CHAR(CURRENT_TIMESTAMPTZ, 'MMTH'); --> '1ST'`                                                                                                                  |
-| `th` suffix   | Lower case ordinal number suffix           | `TO_CHAR(CURRENT_TIMESTAMPTZ, 'MMth'); --> '3rd'`                                                                                                                  |
+| Format option | Description                                | Example                                                                                                                                                        |
+| :------------ | :----------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `FM` prefix   | Surpress leading zeroes and padding blanks | <code>TO_CHAR(CURRENT_DATE, 'Month YYYY'); --> 'March&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2023'</code> <br> `TO_CHAR(CURRENT_DATE, 'FMMonth YYYY'); --> 'March 2023'` |
+| `TH` suffix   | Upper case ordinal number suffix           | `TO_CHAR(CURRENT_TIMESTAMPTZ, 'MMTH'); --> '1ST'`                                                                                                              |
+| `th` suffix   | Lower case ordinal number suffix           | `TO_CHAR(CURRENT_TIMESTAMPTZ, 'MMth'); --> '3rd'`                                                                                                              |
 
 Any character in the format string that is not recognized as a pattern is simply copied over without being replaced. Parts that are quoted `"` will be copied over independent of possibly valid patterns.
 Patterns are matched in lower and upper case if there is no other behavior described above.
@@ -111,7 +117,7 @@ The example below outputs the current date in a formatted string with any time f
 ```sql
 SELECT
     TO_CHAR(
-        PGDATE '2023-03-02' ,
+        DATE '2023-03-02' ,
         '"The" fmDDDth "day in" YY "is a" fmDay "at midnight" hh24:mi:ss.us'
     );
 ```

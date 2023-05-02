@@ -43,104 +43,39 @@ Synonyms: `DOUBLE`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
 A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns. Firebolt supports UTF-8 escape sequences.
 Synonyms: `STRING`, `VARCHAR`
 
-## Date and time
+## Date and timestamp
 
-Firebolt supports five date- and time-related data types:
+{: .warning}
+  >You are looking at the documentation for Firebolt's redesigned date and timestamp types.
+  >These types were introduced in DB version 3.19 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](legacy-date-timestamp.md), or instructions to reingest your data to use the new types [here](../release-notes/release-notes-archive.md#db-version-3190).
 
-| Name                 | Size    | Minimum                          | Maximum                          | Resolution    |
-| :------------------- | :------ | :------------------------------- | :------------------------------- | :------------ |
-| `PGDATE`             | 4 bytes | `0001-01-01`                     | `9999-12-31`                     | 1 day         |
-| `TIMESTAMPNTZ`       | 8 bytes | `0001-01-01 00:00:00.000000`     | `9999-12-31 23:59:59.999999`     | 1 microsecond |
-| `TIMESTAMPTZ`        | 8 bytes | `0001-01-01 00:00:00.000000 UTC` | `9999-12-31 23:59:59.999999 UTC` | 1 microsecond |
-| `DATE` (legacy)      | 2 bytes | `1970-01-01`                     | `2105-12-31`                     | 1 day         |
-| `TIMESTAMP` (legacy) | 4 bytes | `1970-01-01 00:00:00`            | `2105-12-31 23:59.59`            | 1 second      |
+Firebolt supports three date and timestamp data types:
+
+| Name          | Size    | Minimum                          | Maximum                          | Resolution    |
+| :------------ | :------ | :------------------------------- | :------------------------------- | :------------ |
+| `DATE`        | 4 bytes | `0001-01-01`                     | `9999-12-31`                     | 1 day         |
+| `TIMESTAMP`   | 8 bytes | `0001-01-01 00:00:00.000000`     | `9999-12-31 23:59:59.999999`     | 1 microsecond |
+| `TIMESTAMPTZ` | 8 bytes | `0001-01-01 00:00:00.000000 UTC` | `9999-12-31 23:59:59.999999 UTC` | 1 microsecond |
 
 Dates are counted according to the [proleptic Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar).
 Each year consists of 365 days, with leap days added to February in leap years.
 
-### PGDATE
+### DATE
 
-A year, month, and day calendar date independent of a time zone. For more information, see [PGDATE data type](date-data-type.md).
+A year, month, and day calendar date independent of a time zone. For more information, see [DATE data type](date-data-type.md).
 
-### TIMESTAMPNTZ
+### TIMESTAMP
 
-A year, month, day, hour, minute, second, and microsecond timestamp independent of a time zone. For more information, see [TIMESTAMPNTZ data type](timestampntz-data-type.md).
+A year, month, day, hour, minute, second, and microsecond timestamp independent of a time zone. For more information, see [TIMESTAMP data type](timestampntz-data-type.md).
 
 ### TIMESTAMPTZ
 
 A year, month, day, hour, minute, second, and microsecond timestamp associated with a time zone. For more information, see [TIMESTAMPTZ data type](timestamptz-data-type.md).
-
-### DATE (legacy)
-
-A year, month and day in the format *YYYY-MM-DD*. `DATE` is independent of a time zone. 
-
-{: .caution}
-`DATE` (legacy) is planned for deprecation. Using the `PGDATE` type is recommended.
-
-Arithmetic operations can be executed on `DATE` values. The examples below show the addition and subtraction of integers.
-
-`CAST(‘2019-07-31' AS DATE) + 4`
-
-Returns: `2019-08-04`
-
-`CAST(‘2019-07-31' AS DATE) - 4`
-
-Returns: `2019-07-27`
-
-#### Working with dates outside the allowed range
-{:.no_toc}
-Arithmetic, conditional, and comparative operations are not supported for date values outside the supported range. These operations return inaccurate results because they are based on the minimum and maximum dates in the range rather than the actual dates provided or expected to be returned. `PGDATE` data type has a much wider range, and we recommend using this type instead. 
-
-The arithmetic operations in the examples below return inaccurate results as shown because the dates returned are outside the supported range.  
-
-`CAST ('1970-02-02' AS DATE) - 365`  
-Returns `1970-01-31`  
-
-`CAST ('2105-02-012' AS DATE) + 365`  
-Returns `2105-12-31`  
-
-If you work with dates outside the supported range, we recommend that you use a string datatype such as `TEXT`. For example, the following query returns all rows with the date `1921-12-31`.
-
-```sql
-SELECT
-  *
-FROM
-  tab1text
-WHERE
-  date_as_text = '1921-12-31';
-```
-
-The example below selects all rows where the `date_as_text` column specifies a date after `1921-12-31`.
-
-```sql
-SELECT
-  *
-FROM
-  tab1text
-WHERE
-  date_as_text > '1921-12-31';
-```
-
-The example below generates a count of how many rows in `date_as_text` are from each month of the year. It uses `SUBSTR` to extract the month value from the date string, and then it groups the count by month.
-
-```sql
-SELECT
-  COUNT(), SUBSTR(date_as_text,6,2)
-FROM
-  tab1text
-GROUP BY
-  SUBSTR(date_as_text,6,2);
-```
-### TIMESTAMP (legacy)
-
-A year, month, day, hour, minute and second in the format *YYYY-MM-DD hh:mm:ss*.
-
-{: .caution}
-`TIMESTAMP` (legacy) is planned for deprecation. Using the `TIMESTAMPNTZ` type is recommended.
-
-The minimum `TIMESTAMP` value is `1970-01-01 00:00:00`. The maximum `TIMESTAMP` value is `2105-12-31 23:59.59`
-
-Synonyms: `DATETIME`
 
 ## Boolean
 

@@ -1,17 +1,13 @@
 ---
 layout: default
-title: UPDATE (Beta)
+title: UPDATE
 description: Reference and syntax for the UPDATE command.
 parent: SQL commands
 ---
 
-# UPDATE (Beta)
-{: .no_toc}
+# UPDATE
 
 Updates rows in the specified table.
-
-* Topic ToC
-{:toc}
 
 ## Syntax
 
@@ -109,7 +105,7 @@ product
 
 ### Known limitations
 
-Below are some known limitations of the `UPDATE` command in the beta release. 
+Below are some known limitations of the `UPDATE` command. 
 
 * Only one `UPDATE` will be executed against a table at once.
 

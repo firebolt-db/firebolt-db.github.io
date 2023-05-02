@@ -22,7 +22,7 @@ Use the functional list below to find commands for a specific task area that you
 * [Database objects](#database-objects)  
   DDL. Create, alter, drop, and otherwise manage objects like databases, tables, and views in your Firebolt account.
 
-* [Data manipulation (beta)](#data-manipulation)  
+* [Data manipulation](#data-manipulation)  
   DML. Update data or delete data from tables in your Firebolt account. 
 
 * [Queries and query optimization](#queries-and-query-optimization)  
@@ -72,8 +72,8 @@ Use the functional list below to find commands for a specific task area that you
 
 ## Data manipulation
 
-* [UPDATE (beta)](update.md)
-* [DELETE (beta)](delete.md)
+* [UPDATE](update.md)
+* [DELETE](delete.md)
 
 ## Queries and query optimization
 
@@ -83,7 +83,7 @@ Use the functional list below to find commands for a specific task area that you
 * [SELECT](select.md)
 * [SHOW INDEXES](show-indexes.md)
 * [COPY TO](copy-to.md)
-* [VACUUM (beta)](vacuum.md)
+* [VACUUM (Beta)](vacuum.md)
 
 ## Metadata
 

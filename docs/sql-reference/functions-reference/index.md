@@ -190,45 +190,34 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 ## Date and time functions
 
+{: .warning}
+  >You are looking at functions for Firebolt's redesigned date and timestamp types.
+  >These types were introduced in DB version 3.19 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to reingest your data to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
+
 * [CURRENT_DATE](current-date.md)  
 
-* [CURRENT_TIMESTAMP](current-timestamp.md)  
+* [CURRENT_TIMESTAMP](current-timestamptz.md)  
 
-* [DATE_ADD](date-add.md)  
+* [DATE_ADD](date-add.md)
 
-* [DATE_DIFF](date-diff.md)  
+* [DATE_DIFF](date-diff.md)
 
-* [DATE_FORMAT](date-format.md)  
+* [DATE_TRUNC](date-trunc-new.md)  
 
-* [DATE_TRUNC](date-trunc.md)  
+* [EXTRACT](extract-new.md)  
 
-* [EXTRACT](extract.md)  
+* [LOCALTIMESTAMP](localtimestamp.md)
 
-* [FROM_UNIXTIME](from-unixtime.md)  
+* [TO_CHAR](to-char-new.md)
 
-* [NOW](now.md)  
+* [TO_DATE](to-date-new.md)
 
-* [TIMEZONE](timezone.md)  
-
-* [TO_DAY_OF_WEEK](to-day-of-week.md)  
-
-* [TO_DAY_OF_YEAR](to-day-of-year.md)  
-
-* [TO_HOUR](to-hour.md)  
-
-* [TO_MINUTE](to-minute.md)  
-
-* [TO_MONTH](to-month.md)  
-
-* [TO_QUARTER](to-quarter.md)  
-
-* [TO_SECOND](to-second.md)  
-
-* [TO_WEEK](to-week.md)  
-
-* [TO_WEEKISO](to-weekiso.md)  
-
-* [TO_YEAR](to-year.md)  
+* [TO_TIMESTAMP](to-timestamptz.md)
 
 ## JSON functions
 
@@ -436,7 +425,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [SUBSTR](substr.md)  
 
-* [TO_DATE](to-date.md)  
+* [TO_DATE](to-date-new.md)  
 
 * [TO_DOUBLE](to-double.md)  
 
@@ -444,11 +433,15 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [TO_INT](to-int.md)  
 
+<<<<<<< HEAD
+* [TO_TIMESTAMP](to-timestamptz.md)  
+=======
 * [TO_TIMESTAMP](to-timestamp.md)  
 
 * [TO_UNIX_TIMESTAMP](to-unixtime.md)  
 
 * [TO_UNIXTIME](to-unix-timestamp.md)  
+>>>>>>> c0469340136ccf85b102e30e12682d3937e88489
 
 * [TRIM](trim.md)  
 
