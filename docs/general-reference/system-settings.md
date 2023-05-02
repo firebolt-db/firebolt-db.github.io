@@ -38,23 +38,23 @@ SELECT TIMESTAMPTZ '2023-1-29Z';  --> 2023-01-29 02:00:00+02
 
 ## Enable parsing for literal strings
 
-When set to true (`1`), strings are parsed without escaping, treating backslashes literally. By default this is disabled, and the `\` character is recognized as an escape character. 
+When set to `true`, strings are parsed without escaping, treating backslashes literally. By default this is disabled, and the `\` character is recognized as an escape character. 
 
 ### Syntax  
 {: .no_toc}
 
 ```sql
-SET standard_conforming_strings = [0|1]
+SET standard_conforming_strings = [false|true]
 ```
 
 ### Example
 {: .no_toc}
 
 ```sql
-SET standard_conforming_strings = 0;
+SET standard_conforming_strings = false;
 SELECT '\x3132'; -> 132 
 
-SET standard_conforming_strings=1;
+SET standard_conforming_strings = true;
 SELECT '\x3132'; -> \x3132
 ```
 
@@ -64,18 +64,18 @@ SELECT '\x3132'; -> \x3132
 When set to false (`0`), the [COUNT (DISTINCT)](../sql-reference/functions-reference/count.md) function returns approximate results, using an estimation algorithm with an average deviation under 2%. This is the default to optimize query performance. When set to true (`1`), the function returns an exact count, which can slow query performance.
 
 {: .note}
-This function can be used in [Aggregating Indexes](..using-indexes/using-aggregating-indexes.html#using-aggregating-indexes).  When asking Support to permanenently change the setting, it will be necessary to drop and recreate any aggregating Iidexes that use the the COUNT(DISTINCT) aggregation after the change is made.  That will allow the aggregation values to be calculated with the new setting.
+This function can be used in [Aggregating Indexes](..using-indexes/using-aggregating-indexes.html#using-aggregating-indexes).  When asking Support to permanently change the setting, it will be necessary to drop and recreate any aggregating indexes that use the the COUNT(DISTINCT) aggregation after the change is made.  That will allow the aggregation values to be calculated with the new setting.
 
 ### Syntax  
 {: .no_toc}
 
 ```sql
-firebolt_optimization_enable_exact_count_distinct = [0|1]
+firebolt_optimization_enable_exact_count_distinct = [false|true]
 ```
 
 ### Example  
 {: .no_toc}
 
 ```sql
-SET firebolt_optimization_enable_exact_count_distinct = 1;
+SET firebolt_optimization_enable_exact_count_distinct = true;
 ```
