@@ -1,7 +1,8 @@
 ---
 layout: default
 title: DATE_ADD
-description: Reference material for DATE_ADD function
+nav_exclude: true
+description: Reference material for DATE_ADD (legacy) function
 parent: SQL functions
 ---
 

@@ -6,7 +6,7 @@ nav_exclude: true
 search_exclude: false
 ---
 
-# NUMERIC data type (Beta)
+# NUMERIC data type
 {:.no_toc}
 
 This topic describes the Firebolt implementation of the `NUMERIC` data type.
@@ -30,8 +30,7 @@ The `DECIMAL` data type is a synonym to the `NUMERIC` data type.
 
 If the scale is not specified when declaring a column of `NUMERIC` data type, then it defaults to `NUMERIC(precision, min(9, precision))`
 
-If both the precision and scale are not specified, then it defaults to 
-`NUMERIC(38, 9)`
+If both the precision and scale are not specified, then it defaults to `NUMERIC(38, 9)`
 
 ### Precision vs. scale
 
@@ -62,7 +61,7 @@ If the scale of a value to be stored is greater than the declared scale of the c
     f(NUMERIC(P1, S1), NUMERIC(P1, S1)) -> NUMERIC(P1, S1))**
     ```
  
-### Supported functions (Beta release)
+### Supported functions
 
 **Operators:**
 

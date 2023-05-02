@@ -15,6 +15,46 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
+## DB version 3.21.0 
+**March 2023**
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
+  
+### New features
+
+* **Data manipulation commands now available** (Beta release)
+
+  Beta support is now available for data manipulation commands [UPDATE](../sql-reference/commands/update.md) and [DELETE](../sql-reference/commands/delete.md). A [VACUUM](../sql-reference/commands/vacuum.md) has also been added to optimize frequently updated tables.
+
+  For more information and known limitations in the beta release, please see linked documentation. 
+
+### Enhancements, changes, and new integrations
+
+* <!--- FIR-18674 —--> **Updates to data types**
+
+  Firebolt now uses the following built-in type names in `INFORMATION_SCHEMA.COLUMNS` and in auto-generated aliases for `CAST` operations:
+
+    | Standard type | Synonyms |
+    | :-------------- | :------- | 
+    | `TEXT`          | `STRING`, `VARCHAR` |
+    | `INTEGER`       | `INT`, `INT4` |
+    | `BIGINT`        | `LONG`, `INT8` |
+    | `REAL`          | `FLOAT`, `FLOAT4` |
+    | `DOUBLE PRECISION` | `DOUBLE`, `FLOAT8` |
+    | `NUMERIC`       | `DECIMAL` |
+
+* <!---FIR-21575---> **Parquet, Avro and ORC support added for new data types**
+
+  These file types can now be used to ingest new `PGDATE`, `TIMSTAMPNTZ` and `TIMESTAMPTZ` data types. For more information see [data type documention](../general-reference/data-types.md#date-and-time).
+
+  Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. See [here](release-notes-archive.md#db-version-3200) for instructions to reingest. Please raise any questions or feedback with your Customer Success team. 
+
+### Resolved issues
+
+* <!--- FIR-20551 —-->Fixed an error `Cannot parse input: expected <END OF LINE>` on ingest of large CSV files.
+
 ## DB version 3.20.0 
 **March 2023**
 
@@ -188,6 +228,13 @@ We provide an archive of release notes for your historical reference.
     * All types of joins (INNER, LEFT, RIGHT, …) are supported.
     * The right table in the join can be a FACT or DIMENSION table.  
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> livesite/gh-pages
+=======
+>>>>>>> 2254119 (release notes 3.21)
 * <!--- FIR-11922 —-->**Improved cache eviction**
 
   Cache eviction process and stability has been improved. Tablet eviction is now managed by a Least Recently Used (LRU) algorithm, which provides smarter eviction and keeps the data that is most likely to be accessed in the engine cache.

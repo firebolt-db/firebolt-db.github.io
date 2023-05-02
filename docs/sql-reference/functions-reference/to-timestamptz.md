@@ -7,6 +7,15 @@ parent: SQL functions
 
 # TO_TIMESTAMPTZ
 
+{: .warning}
+  >You are looking at the documentation for Firebolt's redesigned date and timestamp types.
+  >These types were introduced in DB version 3.19 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.
+  >
+  >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
+  >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
+  >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
+
 Converts the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
 
 ## Syntax
@@ -17,9 +26,9 @@ Converts the number of seconds since the Unix epoch to a `TIMESTAMPTZ` value.
 ## Parameters
 {: .no_toc}
 
-| Parameter | Description                         |Supported input types |
-| :--------- | :----------------------------------- | :---------------------|
-| `<value>`   | A numeric expression to convert. The number left of the decimal separator is interpreted as the number of seconds before or after the Unix epoch `1970-01-01 00:00:00 UTC`. The fractional part (if present) is interpreted as subseconds. | `INTEGER`, `BIGINT`, `NUMERIC`, `DOUBLE PRECISION` |
+| Parameter | Description                                                                                                                                                                                                                                | Supported input types                |
+| :-------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------- |
+| `<value>` | A numeric expression to convert. The number left of the decimal separator is interpreted as the number of seconds before or after the Unix epoch `1970-01-01 00:00:00 UTC`. The fractional part (if present) is interpreted as subseconds. | `INTEGER`, `BIGINT`, `NUMERIC`, `DOUBLE PRECISION` |
 
 ## Return Types
 

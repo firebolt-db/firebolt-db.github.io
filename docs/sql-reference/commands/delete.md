@@ -1,17 +1,13 @@
 ---
 layout: default
-title: DELETE (Beta)
+title: DELETE
 description: Reference and syntax for the DELETE command.
 parent: SQL commands
 ---
 
-# DELETE (Beta)
-{: .no_toc}
+# DELETE
 
 Deletes rows from the specified table.
-
-* Topic ToC
-{:toc}
 
 ## Syntax
 
@@ -114,7 +110,7 @@ product
 
 ### Known limitations
 
-Below are some known limitations of the `DELETE` command in the beta release. 
+Below are some known limitations of the `DELETE` command. 
 
 * Only one `DELETE` will be executed against a table at once.
 
@@ -126,6 +122,6 @@ Below are some known limitations of the `DELETE` command in the beta release.
   * [PERCENTILE_DISC](../functions-reference/percentile-disc.md)
   * [ARRAY_AGG/NEST](../functions-reference/array-agg.md)
 
-* Queries against tables with deleted rows are supported and can be run. However, expect slower performance during beta phase.
+* Queries against tables with deleted rows are supported and can be run. However, expect slower performance.
 
 * `DELETE` marks are always loaded during engine warm-up, regardless of engine policy. This can increase engine start time if there are significant number of deletions.
