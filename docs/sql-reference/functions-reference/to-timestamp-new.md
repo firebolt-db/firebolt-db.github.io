@@ -1,7 +1,7 @@
 ---
 layout: default
-title: TO_DATE
-description: Reference material for TO_DATE function
+title: TO_TIMESTAMP
+description: Reference material for TO_TIMESTAMP function
 parent: SQL functions
 ---
 
