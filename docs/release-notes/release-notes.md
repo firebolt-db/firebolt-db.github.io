@@ -86,3 +86,5 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * <!--- FIR-22756 ---> Fixed an issue causing preloaded tablets to merge in an improper order.
 
 * <!--- FIR-23006 ---> Fixed an issue causing a `Sync out` error during delete queries.
+
+* <!--- FIR-16582 ---> Fixed an issue allowing Alter Table Drop Partition to be executed on analytics engine.
