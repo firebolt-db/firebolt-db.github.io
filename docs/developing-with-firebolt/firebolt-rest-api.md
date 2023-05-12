@@ -30,7 +30,6 @@ The access token is a secret string that identifies your user. Submit the reques
 
 ```bash
 curl --request POST 'https://api.app.firebolt.io/auth/v1/login' \
---header 'Content-Type: application/json;charset=UTF-8' \
 --data-binary '{"username":"YOUR_USER_EMAIL","password":"YOUR_PASSWORD"}'
 ```
 
@@ -54,7 +53,6 @@ When an `access_token` expires, you may get 401 HTTP errors when calling the API
 
 ```bash
 curl --request POST 'https://api.app.firebolt.io/auth/v1/refresh' \
---header 'Content-Type: application/json;charset=UTF-8' \
 --data-binary '{"refresh_token":"YOUR_REFRESH_TOKEN_VALUE"}'
 ```
 
