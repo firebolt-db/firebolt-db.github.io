@@ -5,13 +5,13 @@ description: Make the necessary preparations for your Firebolt PoC
 nav_order: 12
 ---
 
-# Firebolt POC Guidelines
+# Firebolt Proof of Concept Guidelines Guidelines
 
-## Thank you for considering Firebolt. We created this document to help both our teams work better together during the POC.
+## This document will help you through the steps to set up for a proof of concept of Firebolt
 
 ### **Accessing data in S3**
 
-The data that will be used in the POC should be made available in an S3 region (any region is fine). Don’t hesitate to make all or a very large portion of the data available – the more data the better.
+The data that will be used in the proof of concept should be made available in an S3 region (any region is fine). It would be great if you could provide most, if not all, of the data. Having more data will ensure that the proof of concept results are more accurate when compared to your production workload.
 
 The following policy should be granted to the S3 bucket:
 
@@ -43,23 +43,19 @@ The following policy should be granted to the S3 bucket:
 
 To alter the S3 bucket policy:
 
+<aside>
+💡 This S3 bucket will be accessed only once by us in order to copy the data into our own S3 bucket. Although this is a one-time operation, you are welcome to follow *[this AWS guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html)*. Firebolt pays for data transfer costs if any are incurred.
+</aside>
+
+
 1. Connect to AWS console and click on the relevant S3 bucket
 2. Go to "Permissions" and then scroll down and edit "Bucket Policy"
 3. Copy the policy mentioned above, make sure you replace "MY-BUCKET"
 with the actual bucket name
 4. Save changes
 
-<aside>
-💡 This S3 bucket will be accessed only once by us in order to copy the data into our own S3 bucket. Although this is a one-time operation, you are welcome to follow *[this AWS guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html)*. Firebolt pays for data transfer costs if any are incurred.
+### Sharing assets for the proof of concept
 
-</aside>
-
-### Schema
-
-Send us the DDL commands that should be used in order to create the POC database schema. You can do so by saving the code into a file and sharing it with us via email or on our Slack channel.
-
-### Sample queries & average durations
-
-In order for us to know what we should benchmark against, please provide a set of queries to be executed over the selected data set. These queries should be a good representation of queries you usually run, and/or queries that are slow and you would like to see improved.
-
-You can  save the query code in a file and send it to us with the schema data. It's important for us to know how long these queries take to run in your current system.
+Please send us the following assets via email or on our Slack channel. Each asset should be sent in a `.sql` file.
+1. **Schema** - This should include the DDL commands used to create the POC database schema.
+2. **Sample queries & average durations** - This should include a set of queries to be executed over your selected dataset, to benchmark against. These queries should be a good representation of queries you usually run, and/or queries that are slow and you would like to see improved. Please also mention in a comment within the file current average duration, if avialble. 
