@@ -46,6 +46,9 @@ To switch between views or copy output, choose the icons in the upper right of t
 
 ![](../assets/images/explain_view_icons.png)
 
+{: .note} 
+For some DB versions, only the text view is supported. 
+
 ### List view (default)
 
 Firebolt shows a list of query execution plan nodes (or steps) in descending order of execution. The last plan node to execute is shown at the top of the list. This view is not available if you run the `EXPLAIN` statement with the `USING TEXT` parameter.
