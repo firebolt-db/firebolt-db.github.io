@@ -8,7 +8,7 @@ parent: SQL functions
 # STRPOS
 
 Returns the position (in bytes) of the substring found in the string, starting from 1. The returned value is for the first matching value, and not for any subsequent valid matches.
-In case the substring does not exists, functions will return 0.
+In case the substring does not exist, functions will return 0.
 
 ## Syntax
 {: .no_toc}
