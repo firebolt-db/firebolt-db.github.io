@@ -16,29 +16,56 @@ The data that will be used in the proof of concept should be made available in a
 The following policy should be granted to the S3 bucket:
 
 ```json
+   ```javascript
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::231290928314:root"
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Effect":"Allow",
+         "Action":[
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+         ],
+         "Resource":"arn:aws:s3:::<bucket>/<prefix>/*"
       },
-      "Action": [
-        "s3:GetObject",
-        "s3:GetObjectTagging",
-        "s3:PutObject",
-        "s3:PutObjectTagging"
-        "s3:ListBucket",
-        "s3:GetBucketLocation"
-      ],
-      "Resource": [
-        "arn:aws:s3:::<MY-BUCKET>",
-        "arn:aws:s3:::<MY-BUCKET>/*"
-      ]
-    }
-  ]
+      {
+         "Effect":"Allow",
+         "Action":"s3:GetBucketLocation",
+         "Resource":"arn:aws:s3:::<bucket>"
+      },
+      {
+         "Effect":"Allow",
+         "Action":"s3:ListBucket",
+         "Resource":"arn:aws:s3:::<bucket>",
+         "Condition":{
+            "StringLike":{
+               "s3:prefix":[
+                  "<prefix>/*"
+               ]
+            }
+         }
+      },
+      {
+         "Effect":"Allow",
+         "Principal":{
+            "AWS":"arn:aws:iam::231290928314:root"
+         },
+         "Action":[
+            "s3:GetObject",
+            "s3:GetObjectTagging",
+            "s3:PutObject",
+            "s3:PutObjectTagging",
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+         ],
+         "Resource":[
+            "arn:aws:s3:::<bucket>",
+            "arn:aws:s3:::<bucket>/*"
+         ]
+      }
+   ]
 }
+```
 ```
 
 To alter the S3 bucket policy:
@@ -50,7 +77,7 @@ To alter the S3 bucket policy:
 
 1. Connect to AWS console and click on the relevant S3 bucket
 2. Go to "Permissions" and then scroll down and edit "Bucket Policy"
-3. Copy the policy mentioned above, make sure you replace "MY-BUCKET"
+3. Copy the policy mentioned above, make sure you replace "bucket"
 with the actual bucket name
 4. Save changes
 
