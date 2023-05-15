@@ -28,6 +28,7 @@ You can also open visual explain after you run a query statement.
 <br>![](../assets/images/explain_expand_to_see.png)
 
 4. If your script has a single statement, you can choose to explain your query from the results panel by clicking on the **Explain query icon**.
+ ![](../assets/images/explain_query_icon.png). 
 
 5. If your script runs more than one query statement, repeat steps 1&ndash;3 for each query statement.  
   <br>After you choose to explain a query, an explain icon appears in addition to the results-table icon. Choose the explain icon to view explain output.  

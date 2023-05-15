@@ -1,6 +1,7 @@
 ---
 layout: default
 title: DATE_DIFF
+nav_exclude: true
 description: Reference material for DATE_DIFF function
 parent: SQL functions
 ---

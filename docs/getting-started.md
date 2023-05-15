@@ -7,7 +7,7 @@ has_toc: true
 ---
 # Getting started tutorial
 {:.no_toc}
-This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. If you don't have one, [Schedule a call](https://www.firebolt.io/getting-started-now) to get set up.
+This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. If you don't have one, [Schedule a call](https://www.firebolt.io/getting-started-now) to get set up, and [register for our hands-on Firebolt workshop](https://hi.firebolt.io/lp/hands-on-firebolt-workshop) to get an interactive, instructor-led tutorial on Firebolt. 
 
 1. Topic toC
 {:toc}
@@ -103,7 +103,7 @@ Firebolt creates the external table. When finished, the external table `ex_linei
 ### Create a fact table
 In this step, you create a Firebolt fact table called `lineitem`, which you use in the next step as the target for an `INSERT INTO` command.
 
-Every fact table in Firebolt must have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. For more information, see [Using primary indexes](/using-indexes/using-primary-indexes.md). The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [How to choose primary index columns](/using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
+Every fact table in Firebolt can have a *primary index* specified when you create it. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. For more information, see [Using primary indexes](/using-indexes/using-primary-indexes.md). The fact table that we create in this step specifies the `l_orderkey` and `l_linenumber` columns for the primary index. For more information about choosing columns for a primary index, see [How to choose primary index columns](/using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
 
 **To create a fact table**
 1. Create a new script tab.  

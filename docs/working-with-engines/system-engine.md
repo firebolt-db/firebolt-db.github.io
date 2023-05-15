@@ -33,7 +33,6 @@ In addition, you can query the following information schema tables from the syst
 * information_schema.columns
 
 No data are stored on the system engine, so data-related field in the information_schema tables will be shown with a value of 0 (fields number_of_rows, size, size_uncompressed, compression_ratio, and number_of_tablets).
-A migration of the metadata from metaservice is required to make metadata available on the system engine, which requires restarting general purpose engines.
 
 ## Using the system engine via the Firebolt manager 
 1. In the Firebolt manager, choose the Databases icon in the navigation pane.
