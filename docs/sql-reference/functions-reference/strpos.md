@@ -37,6 +37,8 @@ SELECT
 	STRPOS('hello world','world') AS res;
 ```
 
+**Returns**: `7`
+
 ```sql
 SELECT
 	STRPOS('hello world','work') AS res;
