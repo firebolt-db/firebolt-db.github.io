@@ -31,54 +31,36 @@ This topic provides instructions for setting up an IAM role and an AWS IAM permi
    The following policy \(in JSON format\) provides Firebolt with the required permissions to unload data using a single bucket and folder path. Copy and paste the text into the policy editor \(make sure to replace `<bucket>` and `<prefix>` with the actual bucket name and path prefix\).
 
    ```javascript
-{
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "s3:GetObject",
-            "s3:GetObjectVersion"
-         ],
-         "Resource":"arn:aws:s3:::<bucket>/<prefix>/*"
-      },
-      {
-         "Effect":"Allow",
-         "Action":"s3:GetBucketLocation",
-         "Resource":"arn:aws:s3:::<bucket>"
-      },
-      {
-         "Effect":"Allow",
-         "Action":"s3:ListBucket",
-         "Resource":"arn:aws:s3:::<bucket>",
-         "Condition":{
-            "StringLike":{
-               "s3:prefix":[
-                  "<prefix>/*"
-               ]
-            }
-         }
-      },
-      {
-         "Effect":"Allow",
-         "Principal":{
-            "AWS":"arn:aws:iam::231290928314:root"
-         },
-         "Action":[
-            "s3:GetObject",
-            "s3:GetObjectTagging",
-            "s3:PutObject",
-            "s3:PutObjectTagging",
-            "s3:ListBucket",
-            "s3:GetBucketLocation"
-         ],
-         "Resource":[
-            "arn:aws:s3:::<bucket>",
-            "arn:aws:s3:::<bucket>/*"
-         ]
-      }
-   ]
-}
+   {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Effect": "Allow",
+              "Action": [
+                  "s3:GetObject",
+                  "s3:GetObjectVersion"
+              ],
+              "Resource": "arn:aws:s3:::<bucket>/<prefix>/*"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "s3:GetBucketLocation",
+              "Resource": "arn:aws:s3:::<bucket>"
+          },
+          {
+              "Effect": "Allow",
+              "Action": "s3:ListBucket",
+              "Resource": "arn:aws:s3:::<bucket>",
+              "Condition": {
+                  "StringLike": {
+                      "s3:prefix": [
+                          "<prefix>/*"
+                      ]
+                  }
+              }
+          }
+      ]
+   }
    ```
 
    * If you encounter the following error: `Access Denied (Status Code: 403; Error Code: AccessDenied)` - try to remove the following condition from the IAM policy:
