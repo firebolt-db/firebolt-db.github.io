@@ -99,8 +99,8 @@ In the AWS Management Console, create an AWS IAM role. The IAM role will assume 
 
 ## Increase the max session duration for your AWS role
 
-{: .warning}
-Increasing the max session duration is unnecessary for versions >= 3.23.
+{: .note}
+Starting in DB version 3.23, increasing the max session duration is no longer necessary. 
 
 1. Log in to the [AWS Identity and Access Management \(IAM\) Console](https://console.aws.amazon.com/iam/home#/home).
 2. From the left navigation panel, choose **Roles**.
