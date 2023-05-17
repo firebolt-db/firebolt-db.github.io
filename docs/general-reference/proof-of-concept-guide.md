@@ -22,7 +22,7 @@ Firebolt pays for data transfer costs if such occurs. You can find additional in
 AWS guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html). 
 </aside>
 
-Please go through the following steps to grant us access to the relevant S3 bucket:
+Please go through the following steps to grant us access to the relevant S3 bucket. You can find additional information in [this AWS guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html)
 
 1. Connect to the AWS console and click on the relevant S3 bucket
 2. Go to *Permissions* and then scroll down and edit *Bucket Policy*
