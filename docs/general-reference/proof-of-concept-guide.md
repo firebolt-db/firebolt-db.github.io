@@ -29,25 +29,29 @@ Please go through the following steps to grant us access to the relevant S3 buck
 3. Copy the following policy. make sure you replace `<bucket>` with the actual bucket name
     ```json
     {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Effect": "Allow",
-          "Principal": {
-            "AWS": "arn:aws:iam::231290928314:root"
-          },
-          "Action": [
-            "s3:GetObject",
-            "s3:ListBucket",
-            "s3:GetBucketLocation"
-          ],
-          "Resource": [
-            "arn:aws:s3:::<bucket>",
-            "arn:aws:s3:::<bucket>/*"
-          ]
-        }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::231290928314:root"
+      },
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectTagging",
+        "s3:PutObject",
+        "s3:PutObjectTagging",
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<bucket>",
+        "arn:aws:s3:::<bucket>/*"
       ]
     }
+  ]
+}
+
     ```
 4. Save changes
 
