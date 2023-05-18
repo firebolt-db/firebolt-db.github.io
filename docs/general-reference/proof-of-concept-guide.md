@@ -26,7 +26,7 @@ Please go through the following steps to grant us access to the relevant S3 buck
 
 1. Connect to the AWS console and click on the relevant S3 bucket
 2. Go to *Permissions* and then scroll down and edit *Bucket Policy*
-3. Copy the following policy. make sure you replace `<bucket>` with the actual bucket name
+3. Copy the following policy. Make sure you replace `<bucket>` with the actual bucket name
     ```json
     {
   "Version": "2012-10-17",
