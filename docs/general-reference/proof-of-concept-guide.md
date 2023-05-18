@@ -8,6 +8,7 @@ search_exclude: true
 
 # Firebolt Proof of Concept Technical Guidelines
 
+
 <aside>
 This guide should be used after you have met with your Firebolt designated sales team.
 * If you were trying to get to the Firebolt documentation homepage, please go to https://docs.firebolt.io
@@ -15,7 +16,7 @@ This guide should be used after you have met with your Firebolt designated sales
 </aside>
 
 ## Step 1 - Provide access to S3
-The data used in the POC should be made available in an S3 region (any region is fine). To ensure the Proof of Concept accurately reflects your production workload, it's recommended to have all or a significant portion of the data available.
+The data used in the POC should be made available in an S3 region supported by Firebolt. You can find a list of regions supported by Firebolt in this [link](https://docs.firebolt.io/general-reference/available-regions.html). To ensure the Proof of Concept accurately reflects your production workload, it's recommended to have all or a significant portion of the data available.
 
 <aside>
 Firebolt pays for data transfer costs if such occurs. You can find additional information in [this
@@ -26,7 +27,7 @@ Please go through the following steps to grant us access to the relevant S3 buck
 
 1. Connect to the AWS console and click on the relevant S3 bucket
 2. Go to *Permissions* and then scroll down and edit *Bucket Policy*
-3. Copy the following policy. Make sure you replace `<bucket>` with the actual bucket name
+3. Copy the following policy. make sure you replace `<bucket>` with the actual bucket name
     ```json
     {
   "Version": "2012-10-17",
