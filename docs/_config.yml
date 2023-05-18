@@ -42,7 +42,7 @@ search:
 # Link in upper right
 
 aux_links:
-  "SCHEDULE A CALL":
+  "GET STARTED":
     - "https:///www.firebolt.io/getting-started-now"
 
 # Google Analytics tracking
