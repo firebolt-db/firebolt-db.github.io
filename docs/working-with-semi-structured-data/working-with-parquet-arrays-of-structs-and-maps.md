@@ -19,7 +19,7 @@ When you set up an external table to ingest Parquet data files, you use a hierar
 
 ## Prerequisite
 
-To run queries and DML commands on external tables that use this notation, you must run the `SET` command shown in the example below. You cannot run the `SET` clause within another statement. In other words, it must be on its own and terminated by a semi-colon. This also applies to external tables connected to AWS Glue.
+To run queries and DML commands on external tables that use this notation, you must run the `SET` command shown in the example below. You cannot run the `SET` clause within another statement. In other words, it must be on its own and terminated by a semi-colon.
 
 ```sql
 SET use_short_column_path_parquet = 1;
@@ -71,10 +71,6 @@ OBJECT_PATTERN = '*.parquet'
 TYPE = (PARQUET);
 ```
 
-
-When connecting your external table to AWS Glue, we create the columns automatically using the same logic as described above.
-
-
 ### Step 2&ndash;create a fact or dimension table
 
 Create a fact or dimension table that defines a column of the same `ARRAY(TEXT)` type that you defined in the external table in step 1. The example below demonstrates this for a fact table.
@@ -109,8 +105,6 @@ INSERT INTO my_parquet_array_fact_tbl
 After you ingest array values into the fact table, you can query and manipulate the array using array functions and Lambda functions. For more information, see [Working with arrays](working-with-arrays.md).
 
 ## Example&ndash;ingest and work with maps
-
-External tables connected to AWS Glue currently do not support reading maps from Parquet files.
 
 Map keys and values in Parquet appear within a group similar to arrays. Consider the Parquet schema example below. The following define the key-value elements of the map:
 
