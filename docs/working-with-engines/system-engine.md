@@ -1,9 +1,6 @@
 ---
 layout: default
 title: System Engine (Beta)
-nav_exclude: true
-search_exclude: true
-toc_exclude: true
 description: System engine documentation
 parent: Working with engines
 ---
@@ -11,12 +8,7 @@ parent: Working with engines
 # System Engine (Beta)
 {: .no_toc}
 
-Firebolt's system engine enables running various metadata-related queries without having to start an engine. The system engine is always available for you in all databases to select and use. 
-
-{: .caution}
->**Beta Release** 
->
->As we learn more from you, we may change the behavior and add new features. We will communicate any such changes. Your engagement and feedback are vital. 
+Firebolt's system engine enables running various metadata-related queries without having to start an engine. The system engine is always available for you in all databases to select and use.  
 
 The system engine supports running the following commands:
 * CREATE/ALTER/DROP DATABASE
@@ -38,7 +30,7 @@ In addition, you can query the following information schema tables from the syst
 ### Python SDK
 Connect via the connector and specify engine_name = ‘system’ and database = ‘dummy’.
 
-System Engine does not need a database defined, but for the Python SDK - the `database` parameter is required, so any string here will work (except an empty string). If you wish to connect to an existing database and run metadata queries with the system engine, just specify the name of your database.
+System engine does not need a database defined, but for the Python SDK - the `database` parameter is required, so any string here will work (except an empty string). If you wish to connect to an existing database and run metadata queries with the system engine, just specify the name of your database.
 
 **Example**
 ```json
