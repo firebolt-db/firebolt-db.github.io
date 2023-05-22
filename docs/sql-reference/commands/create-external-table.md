@@ -299,3 +299,45 @@ OBJECT_PATTERN= '*.csv.gz'
 TYPE = (CSV)
 COMPRESSION = GZIP
 ```
+
+### CREATE EXTERNAL TABLE based on an AWS Glue table
+In addition to other `CREATE EXTERNAL TABLE` clauses, the `META_STORE` clause provides information to connect to an AWS Glue database and table.
+
+#### Syntax
+{: .no_toc}
+
+```sql
+META_STORE = (TYPE='Glue' DATABASE_NAME=<db_name> TABLE_NAME=<table_name>)
+```
+
+| Parameter |Description| Data type |
+|:--------- | :-------- | :--------- |
+| `<db_name>`| The name of the database in AWS Glue. | TEXT      |
+| `<table_name>` | The name of the table in AWS Glue. | TEXT      |
+
+#### Additional AWS permissions
+{: .no_toc}
+To access AWS Glue, make sure that the principal that Firebolt uses to access the specified S3 location and Glue metastore is allowed the following actions in the AWS permissions Policy.
+
+* `"s3:GetObject"`
+* `"s3:GetObjectVersion"`
+* `"s3:GetBucketLocation"`
+* `"s3:ListBucket"`
+* `"glue:GetTables"`
+
+A [policy template](https://firebolt-publishing-public.s3.amazonaws.com/documentationAssets/templated_glue_policy.txt) is available to download.
+
+* Replace `<bucket>`and`<prefix>`with the actual AWS S3 bucket name path and prefix where the AWS Glue data is stored.
+* `<db_name>`with the name of the AWS Glue database.
+
+#### Example
+{: .no_toc}
+
+An external table based on an AWS Glue table `'glue_table'` in `'glue_db'` database:
+
+```sql
+CREATE EXTERNAL TABLE IF NOT EXISTS
+  my_external_table
+CREDENTIALS = ( AWS_KEY_ID = 'AKIAIOSFODNN7EXAMPLE' AWS_SECRET_KEY = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY' )
+META_STORE = (TYPE='Glue' DATABASE_NAME='glue_db' TABLE_NAME='glue_table')
+```
