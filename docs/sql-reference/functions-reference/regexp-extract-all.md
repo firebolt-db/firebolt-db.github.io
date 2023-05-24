@@ -23,29 +23,31 @@ REGEXP_EXTRACT_ALL(<expression>, <pattern>[,'<flag>[...]',[<index>]])
 | `<index>`| Optional. Indicates which subgroup of the expression match should be returned. Default value is `0` which means the whole match is returned, independent of any number of given subgroups. | An `INTEGER` between `0` and `N` where `N` is the number subgroups in the `<pattern>`.|
 
 ## Return Types
-`TEXT`
+`[TEXT]`
 
 ## Example
 {: .no_toc}
 
 ```sql
 SELECT
-	REGEXP_EXTRACT_ALL('ABC 2023', '^[A-Z]+');
+	REGEXP_EXTRACT_ALL('Hello Year 2023 DEF', '[A-Za-z]+');
 ```
-**Returns**: `"ABC"`
+**Returns**: `["Hello","Year","DEF"]`
 
-Despite using subgroups in the regular expression, the full match will be returned as the optional `<index>` argument is not set (the default value `0` is used instead).
+Despite using subgroups in the regular expression, the each full match will be returned as the optional `<index>` argument is not set (the default value `0` is used instead).
 
 ```sql
 SELECT
-	REGEXP_EXTRACT_ALL('Learning about #REGEX in #Firebolt 2023', '#([A-Za-z]+) (\\d+)');
+	REGEXP_EXTRACT_ALL('Learning about #REGEX in #Firebolt 2023', '([A-Z])[a-z]+');
 ```
-**Returns**: `"Firebolt 2023"`
+**Returns**: `["Learning","Firebolt"]`
 
-The regular expression contains two subgroups which allows us to set the `<index>` argument to something between `0` and `2`. Every other value will cause an exception to be thrown. Setting `<index>` to `0` would cause the whole match `"Firebolt 2023"` to be returned (same behavior as not setting this value, see the example above), while a `2` would return the second subgroup `"2023"`.
+The regular expression contains two subgroups which allows us to set the `<index>` argument to something between `0` and `2`. Every other value will cause an exception to be thrown. Setting `<index>` to `0` would cause the all full matches `["Learning", "Firebolt"]` to be returned (same behavior as not setting this value, see the example above), while a `2` would return the second subgroup of each match `["earning", "irebolt"]`.
+
+
 
 ```sql
 SELECT
-	REGEXP_EXTRACT_ALL('Learning about #REGEX in #Firebolt 2023', '#([a-z]+) (\\d+), 'i', '1');
+	REGEXP_EXTRACT_ALL('Learning about #REGEX in #Firebolt 2023', '([A-Z])[a-z]+', '', 1);
 ```
-**Returns**: `"Firebolt"`
+**Returns**: `["L","F"]`
