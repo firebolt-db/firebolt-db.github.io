@@ -2,7 +2,7 @@
 layout: default
 title: Firebolt Help
 description: Describes the options of the Firebolt "Help" button
-nav_exclude: true
+nav_exclude: false
 search_exclude: false
 ---
 
