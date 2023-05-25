@@ -433,15 +433,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [TO_INT](to-int.md)  
 
-<<<<<<< HEAD
 * [TO_TIMESTAMP](to-timestamptz.md)  
-=======
-* [TO_TIMESTAMP](to-timestamp.md)  
-
-* [TO_UNIX_TIMESTAMP](to-unixtime.md)  
-
-* [TO_UNIXTIME](to-unix-timestamp.md)  
->>>>>>> c0469340136ccf85b102e30e12682d3937e88489
 
 * [TRIM](trim.md)  
 
