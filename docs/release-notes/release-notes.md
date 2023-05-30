@@ -14,8 +14,9 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
-## DB version 3.22
-**April 2023**
+
+## DB version 3.23
+**May 2023**
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
@@ -23,66 +24,43 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
 ### New features
 
-* #### DATE and TIMESTAMP names available for new data types
+* #### <!--- FIR-18691 —--> **Added support for functions REGEXP\_EXTRACT and REGEXP\_EXTRACT\_ALL**
 
-  A new option enables the use of familiar type names `DATE` and `TIMESTAMP` as default for the new expanded date and timestamp data types, with synonyms `PGDATE` and `TIMESTAMPNTZ`. `TIMESTAMPTZ` remains the same as a new type added. If you are a new customer starting on DB version 3.22, these new date and timestamp type names will be enabled by default. For more information, see [Date and timestamp data types](../general-reference/data-types.md/#date-and-timestamp).
+  Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
 
-  {: .warning}
-  >For existing customers before DB version 3.22:
-  >
-  >**To use the new data types, new external and dimension/fact tables must be created and scripts updated to use functions that support these new types. Reingest will be required to recognize new precision.**
-  >* To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type >`TIMESTAMP` to `TIMESTAMPNTZ`. 
-  >* To ingest into a new table using the new types from external data, create an external table with the new types.
-  >
-  >See [Date and timestamp (legacy)](../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions) for information about how to adjust scripts for supported functions.
+* #### <!--- FIR-22914 ---> **System Engine (Beta)**
 
-  For existing customers before DB version 3.22, data must be reingested using the new types and scripts updated to use supported functions **before this option is enabled**. Please contact your Customer Success team to enable the `DATE` and `TIMESTAMP` synonymns for new types once you have reingested and adjusted scripts.
+  Use the new [system engine](../working-with-engines/system-engine.md) to run metadata-related queries without having to start a separate engine. The system engine is always available in all databases to select and use. 
 
-* #### <!--- FIR-22348 ---> Schema changes instantly available on analytics engines
+  {: .note}
+  System engine is currently only available for accounts that have a single region enabled.
 
-  Running engines no longer require a restart for schema changes to be reflected on analytics engines, and changes to the schema are available instantly. Schema changes include: 
+### Enhancements, changes and new integrations
 
-    * `DROP/CREATE TABLE`
-    * `DROP/CREATE AGGREGATING INDEX`
-    * `DROP/CREATE JOIN INDEX`
-    * `DROP/CREATE VIEW`
+* #### <!--- FIR-22195 ---> Support for AWS Glue with external tables has been removed. 
 
+  Using AWS Glue with external tables has been deprecated. Support for this feature may be added back in the future, once optimizations to supporting architecture have been added. 
 
+* #### <!--- FIR-22036 ---> Increasing max session duration is no longer required when setting up AWS roles to access Amazon S3
 
-* #### Added support for `UPDATE` and `DELETE` commands
+  Roles are now assumed with a default expiration time of 1 hour, and re-assumed every 30 minutes during ingest so ingests can take longer than 12 hours.
 
-  Data manipulation commands [`UPDATE`](../sql-reference/commands/update.md) and [`DELETE`](../sql-reference/commands/delete.md) are generally available, for use in production workflows. 
+* #### <!--- FIR-22036 --->  Increased validation for CREATE TABLE parameters
 
-* #### Added support for `NUMERIC` data type
+  Unknown parameters in a `CREATE TABLE` statement will now cause the statement to be rejected. 
 
-  The [`NUMERIC` data type](../general-reference/numeric-data-type.md) (synonym: `DECIMAL`) is now generally available, for use in production workflows. 
+* #### <!--- FIR-23446 --->  Update to non-explicit column names
 
-### Enhancements, changes, and new integrations
+  Final result column names may be different compared to previous versions; specifically, for any select list item that does not have an explicit alias assigned, the final name of that column may be "?column?". Please assign explicit aliases to any select list expression which you want to refer to either in the same query or in other queries.
 
-* #### <!--- FIR-14538 ---> Support for OR operator added to all JOIN types
+* #### Join index improvements
 
-  The `OR` operator can now be used within the join condition for all types of joins. 
-
-* #### <!--- FIR-21206 —--> UI option to explain queries (UI release)
-
-  A new option in the UI supports [explaining statements](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) for single and multi-statement scripts.  
-  ![](../assets/images/explain_query_icon.png)
-
-* #### <!--- FIR-21206 —--> Visual explain temporarily limited to text view
-
-  Text view for [visual explain](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) will be the only supported view temporarily while improvements to visual explain are developed. Other views will be added back in the future. 
-
+  Starting in version 3.23, manually creating and refreshing join indexes will no longer be necessary -  with Auto join indexes, results are now always up to date even if the underlying data changed.
 
 ### Resolved issues
 
-* <!--- FIR-17251 —--> Improved error message when casting between data types.
+* <!--- FIR-19227 ---> Fixed an issue causing a discrepancy in results of the `SHOW CACHE` command.
 
-* <!--- FIR-14904 ---> Fixed the `NOT` operator to work with all expressions.
+* <!--- FIR-16262 ---> Fixed multiple planner bugs where queries would not compile.
 
-* <!--- FIR-14326 ---> Fixed incorrect `source_file_name` metadata generated when an S3 bucket included empty files.
-
-* <!--- FIR-21963 ---> Fixed an issue preventing the flattening of a list of structs when nested structs are included. 
-
-* <!--- FIR-22756 ---> Fixed an issue causing preloaded tablets to merge in an improper order.
-
-* <!--- FIR-23006 ---> Fixed an issue causing a `Sync out` error during delete queries.
+* <!--- FIR-22968 ---> Improved ingest stability, fixed an issue causing failed ingests on a general purpose engine.
