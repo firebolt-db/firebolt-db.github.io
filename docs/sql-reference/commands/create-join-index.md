@@ -10,7 +10,7 @@ parent: SQL commands
 Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements to perform a join at query runtime. For more information, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 
 {: .note}
-Following release of DB version 3.19.0, you no longer need to manually create join indexes. 
+Following release of DB version 3.19, you no longer need to manually create join indexes. This command is deprecated as of version 3.23. 
 
 ## Syntax
 
