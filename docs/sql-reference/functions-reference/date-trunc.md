@@ -6,7 +6,7 @@ description: Reference material for the DATE_TRUNC (legacy) function
 parent: SQL functions
 ---
 
-# DATE_TRUNC (legacy)
+# DATE\_TRUNC (legacy)
 
 {: .warning}
   >You are looking at legacy documentation for Firebolt's deprecated date and timestamp type functions.
@@ -14,7 +14,7 @@ parent: SQL functions
   >
   >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
   >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
-  >If this query returns an error, you are still using the legacy date and timestamp types and can continue with this documentation, or find instructions to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
+  >If this query returns an error, you are still using the legacy date and timestamp types and can continue with this documentation, or find instructions to use the new types [here](../../release-notes/release-notes-archive.html#db-version-322).
   >If this query returns a result, you are already using the redesigned date and timestamp types and can use the [DATE_TRUNC](./date-trunc-new.md) function instead.
 
 Truncates a value (`<expression>`) of type `DATE`, `TIMESTAMP`, or `TIMESTAMPTZ` to the selected precision (`<time_unit>`).
@@ -61,6 +61,15 @@ PARTITION BY DATE_TRUNC('month', d), DATE_TRUNC('hour', t);
 ## Example
 {: .no_toc}
 
+
+The example below uses a table `date_test` with the columns and values below.
+
+| Cat | sale\_datetime      |
+| :-- | :------------------- |
+| a   | 2017-06-15 09:34:21 |
+| b   | 2014-01-15 12:14:46 |
+| c   | 1999-09-15 11:33:21 |
+
 ```sql
 SELECT DATE_TRUNC('century', DATE '1996-09-03');  --> 1901-01-01
 SELECT DATE_TRUNC('hour', TIMESTAMP '1996-09-03 11:19:42.123');  --> 1996-09-03 11:00:00
@@ -68,4 +77,11 @@ SELECT DATE_TRUNC('hour', TIMESTAMP '1996-09-03 11:19:42.123');  --> 1996-09-03 
 SET time_zone = 'US/Pacific';
 SELECT DATE_TRUNC('week', TIMESTAMPTZ '1996-09-03 11:19:42.123 Europe/Berlin');  --> 1996-09-02 00:00:00-07
 SELECT DATE_TRUNC('week', TIMESTAMPTZ '1996-09-03 11:19:42.123 Europe/Berlin', 'Europe/Berlin');  --> 1996-09-01 15:00:00-07
+```
++----------+---------------------+---------------------+---------------------+---------------------+
+| category | sale_datetime       | MINUTE              | HOUR                | DAY                 |
+| a        | 2017-06-15 09:34:21 | 2017-06-15 09:34:00 | 2017-06-15 09:00:00 | 2017-06-15 00:00:00 |
+| b        | 2014-01-15 12:14:46 | 2014-01-15 12:14:00 | 2014-01-15 12:00:00 | 2014-01-15 00:00:00 |
+| c        | 1999-09-15 11:33:21 | 1999-09-15 11:33:00 | 1999-09-15 11:00:00 | 1999-09-15 00:00:00 |
++----------+---------------------+---------------------+---------------------+---------------------+
 ```

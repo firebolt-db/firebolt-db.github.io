@@ -52,7 +52,7 @@ Synonyms: `STRING`, `VARCHAR`
   >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
   >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
   >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
-  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](legacy-date-timestamp.md), or instructions to reingest your data to use the new types [here](../release-notes/release-notes-archive.md#db-version-3190).
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](legacy-date-timestamp.md), or instructions to reingest your data to use the new types [here](../release-notes/release-notes-archive.html#db-version-322).
 
 Firebolt supports three date and timestamp data types:
 

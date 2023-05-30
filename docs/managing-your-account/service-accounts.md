@@ -1,45 +1,38 @@
 ---
 layout: default
-title: Service accounts (Alpha)
-nav_exclude: true
-search_exclude: true
-toc_exclude: true
+title: Service accounts (Beta)
 description: Learn about creating service account users for Firebolt.
+nav_order: 3
 parent: Account and user management
 ---
 
-# Creating a service account (Alpha)
+# Creating a service account (Beta)
 {: .no_toc}
 
-Service account users can access Firebolt programmatically only - UI access is blocked. 
+A service account user can access Firebolt programmatically **only**.
 
-{: .caution}
->**Alpha Release** 
->
->As we learn more from you, we may change the behavior and add new features. We will communicate any such changes. Your engagement and feedback are vital. 
+## SQL commands for managing service account users
 
-**To create a service account user:**
+To create a service account user, follow these steps:
 
-1. Create a service account user using the [CREATE SERVICE ACCOUNT USER](#create-service-account-user) SQL command. Make a note of the service account ID - you will need that to authenticate later. The ID can always be retrieved by querying the service_account_users view in Firebolt’s information schema as described [below](#service-account-users-in-informationschema).
+1. Create a service account user using the [`CREATE SERVICE ACCOUNT USER` command](#create-a-service-account-user). Make a note of the service account ID - you will need that to authenticate later. The ID can always be retrieved by querying the `service_account_users` view in Firebolt’s information schema - for more information see [Service account users in information schema](#service-account-users-in-informationschema).
 
-2. Generate a secret for it by calling the SQL function described [here](#generate-a-secret-for-the-service-account-user). 
-Make a note of the secret since you cannot retrieve it later.  In case lost (or needs to be rotated), you can always generate a new secret calling the same generate SQL function.
+2. Generate a secret for the service account user with [the generation function described below](#generate-a-secret-for-the-service-account-user). 
+**Make a note of the secret** - it can't be retrieved later.  In case the secret is lost (or needs to be rotated), you can always generate a new secret, calling the same generation function.
 
-3. Use the service account ID and the secret to [access Firebolt programmatically](#authenticate-with-service-account-via-rest-api) via Firebolt’s REST API.
+3. Use the service account ID and the secret to [access Firebolt programmatically](#authenticate-with-a-service-account-via-the-rest-api) via Firebolt’s REST API.
 
-To delete a service account user, use the [DROP SERVICE ACCOUNT](#delete-a-service-account-user) SQL command.
+To delete a service account user, use the [`DROP SERVICE ACCOUNT` command](#delete-a-service-account-user).
 
-Below is a reference for all the available SQL commands for managing service account users.
-
-## Create service account user
+## Create a service account user
 `CREATE SERVICE ACCOUNT <name> ROLE = <role> [DESCRIPTION = <description>]`
 
 Creates a service account user, where:
 
 | Property                          | Data type | Description |
 | :------------------------------   | :-------- | :---------- |
-| name                              | TEXT      | The name of the user.
-| role                              | TEXT      | A role assigned to the user. The following values are possible: ‘Viewer,’ ‘DB Admin,’ and ‘Account Admin.’ The roles can be specified in upper or lower case. |
+| name                              | TEXT      | The name of the user. |
+| role                              | TEXT      | A role assigned to the user. |
 | description                       | TEXT      | The description of the user. |
 
 **Example**
@@ -53,7 +46,7 @@ Generate a secret for the service account user, where:
 
 | Property                          | Data type | Description |
 | :------------------------------   | :-------- | :---------- |
-| name                              | TEXT      | The name of the user.
+| name                              | TEXT      | The name of the user. |
 
 
 **Example**
@@ -62,7 +55,7 @@ Generate a secret for the service account user, where:
 The command returns both the service account ID and secret.
 
 {: .note}
-Note that generating a new secret for your service account user replaces any previous secret (which cannot be used once a new one is generated). Make a note of the secret and keep it in a secured location.
+Generating a new secret for your service account user replaces any previous secret (which cannot be used once a new one is generated). Make a note of the secret and keep it in a secured location.
 
 ## Delete a service account user
 `DROP SERVICE ACCOUNT <name>;`
@@ -72,7 +65,7 @@ Deletes a service account user by its name. The name can be retrieved by running
 
 | Property                          | Data type | Description |
 | :------------------------------   | :-------- | :---------- |
-| name                              | TEXT      | The name of the user |
+| name                              | TEXT      | The name of the user. |
 
 
 **Example**
@@ -89,7 +82,7 @@ The command returns the following properties for each service account user:
 | :------------------------------   | :-------- | :---------- |
 | name                              | TEXT      | The name of the user. |
 | id                                | TEXT      | The ID of the user. |
-| role                              | TEXT      | The role that was assigned to the user. |
+| role                              | TEXT      | The role that was assigned to the user. The following values are possible: ‘Viewer,’ ‘DB admin,’ and ‘Account admin.’ The roles can be specified in upper or lower case. For accounts that support custom roles (DB RBAC), those can also be specified. |
 | description                       | TEXT      | The description of the user. |
 | created_on                        | TIMESTAMP | Time (UTC) that the user was created. |
 | last_altered                      | TIMESTAMP | Time (UTC) that the user was last edited. |
@@ -105,8 +98,8 @@ The command returns the following properties for each service account user:
 | tableau_user | 217-3813-278  | Account Admin | Used for Tableau dasboards | 2021-01-01 12:00:00 | 2021-01-10 13:50:00 |
 
 
-## Authenticate with service account via REST API
-To authenticate Firebolt using service accounts via Firebolt’s REST API - sent the following request in order to receive an authentication token:
+## Authenticate with a service account via the REST API
+To authenticate Firebolt using service accounts via Firebolt’s REST API, send the following request to receive an authentication token:
 
 ```json
 curl --location --request POST 'https://api.app.firebolt.io/auth/v1/token' \
@@ -120,8 +113,8 @@ Where:
 
 | Property                          | Data type | Description |
 | :------------------------------   | :-------- | :---------- |
-| id                                | TEXT      | The user’s ID (from section #1). |
-| secret                            | TEXT      | The user’s secret (from section #2). |
+| id                                | TEXT      | The user’s ID ([created here](#create-a-service-account-user)). |
+| secret                            | TEXT      | The user’s secret ([generated here](#generate-a-secret-for-the-service-account-user)). |
 
 
 Use the returned access_token to authenticate with Firebolt.
@@ -129,14 +122,11 @@ Use the returned access_token to authenticate with Firebolt.
 
 ## Known limitations and future release plans
 
-**Programmatic connectors support for service account**
-At this time, connecting Firebolt using service account users is only supported via Firebolt’s REST API. Additional connectors will be supported in future versions.
-
 **IP allowed/blocked lists**
 At this time, using IP allowed/blocked lists (Beta) with service account users is not supported. This will be supported in the future. 
 
 **Information_schema running queries view**
-At this time, the user_id column in the `information_schema.running_queries` view does not contain the service account ID (it contains an empty TEXT instead). This will be supported in future versions.
+At this time, the `user_id` column in the `information_schema.running_queries` view does not contain the service account ID (it contains an empty `TEXT` instead). This will be supported in future versions.
 
 
 

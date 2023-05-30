@@ -17,3 +17,4 @@ Firebolt _engines_ are compute clusters that do the work when you run SQL jobs o
 * [Working with engines using DDL](./working-with-engines-using-ddl.md)
 * [Working with engines using the Firebolt Manager](./working-with-engines-using-the-firebolt-manager.md)
 * [Working with engines using the REST API](./working-with-engines-using-the-rest-api.md)
+* [System Engine (Beta)](./system-engine.md)
