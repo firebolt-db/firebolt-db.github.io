@@ -1,11 +1,12 @@
 ---
 layout: default
-title: REFRESH JOIN INDEX
-description: Reference and syntax for the REFRESH JOIN INDEX command.
+title: REFRESH JOIN INDEX (deprecated)
+description: Reference and syntax for the REFRESH JOIN INDEX (deprecated) command.
+nav_exclude: true
 parent: SQL commands
 ---
 
-# REFRESH JOIN INDEX
+# REFRESH JOIN INDEX (deprecated)
 
 Recreates a join index or all join indices associated with a dimension table on the engine. You can run this statement to rebuild a join index or indices after data has been ingested into an underlying dimension table or after a partition has been dropped to delete records. For more information about join indexes, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 

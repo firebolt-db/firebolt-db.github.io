@@ -1,11 +1,12 @@
 ---
 layout: default
-title: CREATE JOIN INDEX
-description: Reference and syntax for the CREATE JOIN INDEX command.
+title: CREATE JOIN INDEX (deprecated)
+description: Reference and syntax for the CREATE JOIN INDEX (deprecated) command.
+nav_exclude: true
 parent: SQL commands
 ---
 
-# CREATE JOIN INDEX
+# CREATE JOIN INDEX (deprecated)
 
 Join indexes can accelerate queries that use `JOIN` operations on dimension tables. Under certain circumstances, a join index can significantly reduce the compute requirements to perform a join at query runtime. For more information, see [Using join indexes](../../using-indexes/using-join-indexes.md).
 

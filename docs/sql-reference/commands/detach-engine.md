@@ -2,6 +2,7 @@
 layout: default
 title: DETACH ENGINE (deprecated)
 description: Reference and syntax for the deprecated DETACH ENGINE command.
+nav_exclude: true
 parent: SQL commands
 ---
 
