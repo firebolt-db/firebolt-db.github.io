@@ -2,6 +2,8 @@
 layout: default
 title: Firebolt help menu
 description: Describes the options of the Firebolt "Help" menu
+parent: General reference
+nav_order: 8
 ---
 
 # Firebolt help menu

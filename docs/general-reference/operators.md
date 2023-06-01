@@ -2,7 +2,7 @@
 layout: default
 title: Operators
 description: Reference for SQL operators available in Firebolt.
-nav_order: 3
+nav_order: 2
 parent: General reference
 ---
 

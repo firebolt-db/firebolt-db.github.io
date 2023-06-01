@@ -2,7 +2,7 @@
 layout: default
 title: System settings
 description: Lists Firebolt system settings that you can configure using SQL.
-nav_order: 6
+nav_order: 5
 parent: General reference
 ---
 

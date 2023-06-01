@@ -4,8 +4,6 @@ title: Firebolt proof of concept guidelines
 description: Preliminary technical guidelines for Firebolt's proof of concept process
 nav_exclude: true
 search_exclude: true
-toc_exclude: true
-parent: General reference
 ---
 
 # Firebolt proof of concept technical guidelines
