@@ -70,7 +70,9 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [COUNT](count.md)  
 
-* [HLL_COUNT_DISTINCT](hll-count-distinct.md)  
+* [HLL_COUNT_DISTINCT](hll-count-distinct.md)
+
+* [HLL_COUNT_BUILD](hll-count-build.md)
 
 * [MAX](max.md)  
 
