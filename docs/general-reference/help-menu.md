@@ -30,7 +30,7 @@ You can subscribe to notifications whenever Firebolt **creates**, **update** or 
 *Please note - you can also get maintenance status through Slack* 
 4. **RSS updates** - by connecting via your RSS/Atom application.
 
-### Contact Support
+### Contact Support - Reaching out to Firebolt Support
 Contact Support allows you to create a support case for Firebolt's support team.
 
 To create a case: 
