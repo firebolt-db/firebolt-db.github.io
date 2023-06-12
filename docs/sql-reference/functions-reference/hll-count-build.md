@@ -10,8 +10,8 @@ parent: SQL functions
 
 An aggregate function similar to [`HLL_COUNT_DISTINCT`](hll-count-distinct.md) it counts the approximate number of unique or not NULL values,
 to the precision specified.
-`HLL_COUNT_BUILD` uses the HLL algorithm and allows you to control the sketch size set precision.
-But it aggregates the values to HLL sketches represented as the [BYTEA datatype](../general-reference/bytea-data-type.md).
+`HLL_COUNT_BUILD` uses the HLL++ algorithm and allows you to control the sketch size set precision.
+But it aggregates the values to HLL++ sketches represented as the [BYTEA datatype](../general-reference/bytea-data-type.md).
 Later these sketches can be merged to single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](hll-count-merge-partial.md)
 or they can be exteracted the estimated cardinality (final estimated count distinct value) 
 using the [`HLL_COUNT_EXTRACT`](hll-count-extract.md) scalar function.
@@ -30,33 +30,34 @@ If the input is NULL, this function returns NULL.
 HLL_COUNT_BUILD ( <expr> [, <precision> ] )
 ```
 
-| Parameter | Description                                                                                                            |
-| :--------- |:-----------------------------------------------------------------------------------------------------------------------|
-| `<expr>`  | Valid values for the expression include column names or functions that return a column name.                           |
-| `<precision>` | Optional literal integer value to set precision. If not included, the default precision is 12. Precision range: 12-20. |
+## Parameters
+{: .no_toc}
 
+| Parameter | Description | Supported input types |
+| :--------- |:------------|:-|
+| `<expr>`  | Valid values for the expression include column names or functions that return a column name. | Any type |
+| `<precision>` | Optional literal integer value to set precision. If not included, the default precision is 12. Precision range: 12-20. | Int, Long |
+
+## Return Type
+`BYTEA`
 
 ## Example
 {: .no_toc}
 
 ```sql
 SELECT
-    HLL_COUNT_BUILD(col_a, 12) as hll12_count
+    HLL_COUNT_BUILD(col_a, 12) as hll_sketch
 FROM
-	count_table;
+    count_table;
 ```
 
 **Returns**: 
 
-Assuming 8,388,608 unique pk values, we will see results like: 
-
-
+HLL++ sketch represented as `BYTEA`.
 ```sql
-' +----------------+--------------+-------------+-------------+
-' | count_distinct | approx_count | hll12_count | hll20_count |
-' +----------------+--------------+-------------+-------------+
-' |      8,388,608 |    8,427,387 |   8,667,274 |   8,377,014 |
-' +----------------+--------------+-------------+-------------+
+' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+' |   hll_sketch                                                                                                                                                                               |
+' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+' | '\x2f41676772656761746546756e6374696f6e28312c20756e6971436f6d62696e65643634283132292c20496e743332290a01052ccbc234fcbc56b4e7830665202abf3aced8f809c581510b7518f0a86804904775554cd537d76ad6' |
+' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
-
-where approx_count is using precision 17, hll12_count is using precision 12, and hll20_count is using precision 20, the most precise. 

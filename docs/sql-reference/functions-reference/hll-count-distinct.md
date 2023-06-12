@@ -8,7 +8,7 @@ parent: SQL functions
 
 # HLL_COUNT_DISTINCT
 
-Counts the approximate number of unique or not NULL values, to the precision specified. `HLL_COUNT_DISTINCT` uses the HLL algorithm and allows you to control the sketch size set precision. 
+Counts the approximate number of unique or not NULL values, to the precision specified. `HLL_COUNT_DISTINCT` uses the HLL++ algorithm and allows you to control the sketch size set precision. 
 
 `HLL_COUNT_DISTINCT` requires less memory than exact aggregation functions, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
 

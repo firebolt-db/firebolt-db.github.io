@@ -74,6 +74,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [HLL_COUNT_BUILD](hll-count-build.md)
 
+* [HLL_COUNT_MERGE_PARTIAL](hll-count-merge-partial.md)
+
 * [MAX](max.md)  
 
 * [MAX_BY](max-by.md)  
@@ -188,7 +190,9 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [VERSION](version.md)
 
-* [ZEROIFNULL](zeroifnull.md)  
+* [ZEROIFNULL](zeroifnull.md)
+
+* [HLL_COUNT_EXTRACT](hll-count-extract.md)
 
 ## Date and time functions
 
