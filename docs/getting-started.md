@@ -10,7 +10,7 @@ has_toc: true
 This tutorial teaches you how to create a database, ingest a sample dataset from Amazon S3 into Firebolt, and run fundamental analytics queries over the data. To perform this tutorial, you need an active Firebolt account. If you don't have one, [Schedule a call](https://www.firebolt.io/getting-started-now) to get set up, and [register for our hands-on Firebolt workshop](https://hi.firebolt.io/lp/hands-on-firebolt-workshop) to get an interactive, instructor-led tutorial on Firebolt. 
 
 {: .note}
-This tutorial uses Firebolt's sample dataset, from the fictional gaming company "Ultra Fast Gaming Inc." To recreate this full sample dataset, use the generator and SQL scripts found in the [sample dataset generator GitHub repository](https://github.com/firebolt-analytics/sample-dataset-generator).
+This tutorial uses Firebolt's sample dataset, from the fictional gaming company "Ultra Fast Gaming Inc." This dataset is publicly available with the access credentials shared below.
 
 
 1. Topic toC
