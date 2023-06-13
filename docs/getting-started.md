@@ -141,11 +141,11 @@ PRIMARY INDEX LevelID;
 ```  
 
 3. Choose **Run Script**.  
-Firebolt creates the dimension table. When finished, the table `levels` appears on the object panel of the database.  
+Firebolt creates the fact table. When finished, the table `levels` appears on the object panel of the database.  
 ![](/assets/images/createfacttable.png)
 
 ### Use INSERT INTO to ingest data
-You can now use the `INSERT INTO` command to copy the data from the external table into the dimension table. During this operation, Firebolt ingests the data from your source into Firebolt.
+You can now use the `INSERT INTO` command to copy the data from the external table into the fact table. During this operation, Firebolt ingests the data from your source into Firebolt.
 
 {: .note}
 Use `source_file_name` in the `WHERE` clause to specify which records to load from Amazon S3 and improve the performance of the read from S3. 
