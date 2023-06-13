@@ -8,7 +8,7 @@ parent: SQL functions
 
 # HLL_COUNT_MERGE_PARTIAL
 
-An aggregate function one or more HLL++ sketch inputs and merges them into a new sketch.
+An aggregate function that takes one or more HLL++ sketch inputs and merges them into a new sketch.
 
 Each sketch must be initialized on the same type and the same precision.
 Attempts to merge sketches for different types or precision results in an error.
