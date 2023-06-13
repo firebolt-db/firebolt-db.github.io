@@ -104,19 +104,19 @@ Firebolt creates the external table. When finished, the external table `ex_level
 
 4. Choose the vertical ellipses next to **Script 2**, choose **Save script**, enter a name (for example, *MyExTableScript*) and then press ENTER to save the script.
 
-### Create a dimension table
-In this step, you'll create a Firebolt dimension table called `levels`, which you use in the next step as the target for an `INSERT INTO` command.
+### Create a fact table
+In this step, you'll create a Firebolt fact table called `levels`, which you use in the next step as the target for an `INSERT INTO` command.
 
 When creating a fact or dimension table, you will specify a *primary index*. Firebolt uses the primary index when it ingests data so that it is saved to S3 for highly efficient pruning and sorting when the data is queried. A primary index is required when creating a fact table, and recommended for dimension tables. For more information, see [Using primary indexes](/using-indexes/using-primary-indexes.md). 
 
-The dimension table that we create in this step specifies the `LevelID` column for the primary index. For more information about choosing columns for a primary index, see [How to choose primary index columns](/using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
+The fact table that we create in this step specifies the `LevelID` column for the primary index. For more information about choosing columns for a primary index, see [How to choose primary index columns](/using-indexes/using-primary-indexes.md#how-to-choose-primary-index-columns).
 
-**To create a dimension table**
+**To create a fact table**
 1. Create a new script tab.  
 
 2. Copy and paste the query below into the script tab.  
 ```sql
-CREATE DIMENSION TABLE IF NOT EXISTS levels
+CREATE FACT TABLE IF NOT EXISTS levels
 (
     LevelID INTEGER UNIQUE,
     GameID INTEGER,
@@ -142,7 +142,7 @@ PRIMARY INDEX LevelID;
 
 3. Choose **Run Script**.  
 Firebolt creates the dimension table. When finished, the table `levels` appears on the object panel of the database.  
-![](/assets/images/dimensiontable.png)
+![](/assets/images/createfacttable.png)
 
 ### Use INSERT INTO to ingest data
 You can now use the `INSERT INTO` command to copy the data from the external table into the dimension table. During this operation, Firebolt ingests the data from your source into Firebolt.
