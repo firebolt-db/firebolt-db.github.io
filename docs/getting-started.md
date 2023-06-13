@@ -207,7 +207,7 @@ CREATE AGGREGATING INDEX
   levels_agg_idx
 ON levels (
   LevelType 
-  AVG(NumberOfLaps)
+  , AVG(NumberOfLaps)
   );
 ```
 
