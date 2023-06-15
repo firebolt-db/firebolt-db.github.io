@@ -40,7 +40,7 @@ Function description, starting with a verb, eg. Returns, Counts, Takes, Allows
 {: .no_toc}
 
 Example description
-(uses customer example data set) 
+(uses customer example data set: https://app.firebolt.io/sql-workspace/Firebolt_sample_dataset ) 
 
 ```sql
 ```
