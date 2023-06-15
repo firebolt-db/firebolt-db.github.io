@@ -8,15 +8,14 @@ parent: SQL functions
 
 # HLL_COUNT_BUILD
 
-An aggregate function similar to [`HLL_COUNT_DISTINCT`](hll-count-distinct.md) it counts the approximate number of unique or not NULL values,
-to the precision specified.
-`HLL_COUNT_BUILD` uses the HLL++ algorithm and allows you to control the sketch size set precision.
-But it aggregates the values to HLL++ sketches represented as the [BYTEA datatype](../general-reference/bytea-data-type.md).
-Later these sketches can be merged to single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](hll-count-merge-partial.md)
-or they can be exteracted the estimated cardinality (final estimated count distinct value) 
+Counts the approximate number of unique or not NULL values,
+to the precision specified, similar to [`HLL_COUNT_DISTINCT`](hll-count-distinct.md). 
+`HLL_COUNT_BUILD` uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating the values to HLL++ sketches represented as the [BYTEA data type](../general-reference/bytea-data-type.md).
+Later these sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](hll-count-merge-partial.md), 
+or the estimated cardinality extracted (to get the final estimated distinct count value) 
 using the [`HLL_COUNT_EXTRACT`](hll-count-extract.md) scalar function.
 
-`HLL_COUNT_BUILD` requires less memory than exact aggregation functions, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20.
+`HLL_COUNT_BUILD` requires less memory than exact aggregation functions, but also introduces statistical uncertainty. The default precision is 12, with a maximum of 20 set optionally.
 
 If the input is NULL, this function returns NULL.
 
@@ -27,7 +26,7 @@ If the input is NULL, this function returns NULL.
 {: .no_toc}
 
 ```sql
-HLL_COUNT_BUILD ( <expr> [, <precision> ] )
+HLL_COUNT_BUILD ( <expression> [, <precision> ] )
 ```
 
 ## Parameters
@@ -35,8 +34,8 @@ HLL_COUNT_BUILD ( <expr> [, <precision> ] )
 
 | Parameter | Description | Supported input types |
 | :--------- |:------------|:-|
-| `<expr>`  | Valid values for the expression include column names or functions that return a column name. | Any type |
-| `<precision>` | Optional literal integer value to set precision. If not included, the default precision is 12. Precision range: 12-20. | Int, Long |
+| `<expression>`  | Valid values for the expression include column names or functions that return a column name. | Any type |
+| `<precision>` | Optional literal integer value to set precision. If not included, the default precision is 12. Precision range: 12-20. | `INTEGER`, `BIGINT ` |
 
 ## Return Type
 `BYTEA`
@@ -53,7 +52,7 @@ FROM
 
 **Returns**: 
 
-HLL++ sketch represented as `BYTEA`.
+An HLL++ sketch represented as data type `BYTEA`.
 ```sql
 ' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ' |   hll_sketch                                                                                                                                                                               |

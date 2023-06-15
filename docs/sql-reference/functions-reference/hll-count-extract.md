@@ -8,15 +8,15 @@ parent: SQL functions
 
 # HLL_COUNT_EXTRACT
 
-A scalar function that extracts a cardinality estimate of a single HLL++ sketch.
+Extracts a cardinality estimate of a single HLL++ sketch.
 
-If sketch is NULL, this function returns a cardinality estimate of 0.
+If the sketch is NULL, this function returns a cardinality estimate of 0.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-HLL_COUNT_EXTRACT ( <expr> )
+HLL_COUNT_EXTRACT ( <expression> )
 ```
 
 ## Parameters
@@ -24,10 +24,10 @@ HLL_COUNT_EXTRACT ( <expr> )
 
 | Parameter | Description                                                                                                                | Supported input types |
 | :--------- |:---------------------------------------------------------------------------------------------------------------------------|:----------------------|
-| `<expr>`  | HLL++ sketch should be in a valid format. for example the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
+| `<expression>`  | An HLL++ sketch should be in a valid format, for example the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
 
 ## Return Type
-`LONG`
+`BIGINT`
 
 ## Example
 {: .no_toc}
@@ -41,7 +41,7 @@ FROM
 
 **Returns**: 
 
-HLL++ sketch represented as `BYTEA`.
+The cardinality estimates of HLL++ sketches represented as data type `BYTEA`.
 ```sql
 ' +----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ' | count_distinct | hll_sketches                                                                                                                                                                                               |

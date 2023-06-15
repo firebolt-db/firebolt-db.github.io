@@ -8,20 +8,20 @@ parent: SQL functions
 
 # HLL_COUNT_MERGE_PARTIAL
 
-An aggregate function that takes one or more HLL++ sketch inputs and merges them into a new sketch.
+Takes one or more HLL++ sketch inputs and merges them into a new sketch.
 
 Each sketch must be initialized on the same type and the same precision.
 Attempts to merge sketches for different types or precision results in an error.
-For example, you cannot merge a sketch initialized from `INT` data with one initialized from `TEXT` data,
-or sketch initialized with 13 precision and sketch initialized with 14 precision.
+For example, you cannot merge a sketch initialized from `INTEGER` data with one initialized from `TEXT` data,
+or a sketch initialized with 13 precision and a sketch initialized with 14 precision.
 
-If the input is NULL or empty, this function returns NULL.
+If the input expression is NULL or empty, this function returns NULL.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-HLL_COUNT_MERGE_PARTIAL ( <expr> )
+HLL_COUNT_MERGE_PARTIAL ( <expression> )
 ```
 
 ## Parameters
@@ -29,7 +29,7 @@ HLL_COUNT_MERGE_PARTIAL ( <expr> )
 
 | Parameter | Description                                                                                                               | Supported input types |
 | :--------- |:--------------------------------------------------------------------------------------------------------------------------|:----------------------|
-| `<expr>`  | HLL++ sketch should be in a valid format. for example the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
+| `<expression>`  | HLL++ sketch should be in a valid format. for example the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
 
 ## Return Type
 `BYTEA`
@@ -46,7 +46,7 @@ FROM
 
 **Returns**: 
 
-HLL++ sketch represented as `BYTEA`.
+A merged HLL++ sketch represented in data type `BYTEA`.
 ```sql
 ' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ' |   merged_sketches                                                                                                                                                                               |
