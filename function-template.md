@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 # FUNCTION
-Function description
+Function description, starting with a verb, eg. Returns, Counts, Takes, Allows
 
 **Note**
 <Note>
@@ -24,6 +24,8 @@ Function description
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
 | `<expression>`   | <description> | <data_type(s)> |
+
+//for a full list of parameter labels for different types of inputs, see: https://app.getguru.com/card/cAxkMbki/Function-template-in-docs
 
 
 ## Return Types
