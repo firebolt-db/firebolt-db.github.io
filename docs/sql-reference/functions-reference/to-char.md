@@ -3,7 +3,6 @@ layout: default
 title: TO_CHAR (legacy)
 description: Reference material for TO_CHAR (legacy) function
 nav_exclude: true
-
 parent: SQL functions
 ---
 
@@ -20,8 +19,7 @@ parent: SQL functions
 
 Converts a `TIMESTAMP` data type to a formatted string.
 
-{: .note}
-The functions works with legacy `DATE` and `TIMESTAMP` data types. If you are using new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types, see [TO_CHAR (new)](../functions-reference/to-char-new.md).
+Converts a `TIMESTAMP` data type to a formatted string.
 
 ## Syntax
 
