@@ -15,8 +15,8 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.23
-**May 2023**
+## DB version 3.24
+**June 2023**
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
@@ -24,7 +24,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
 ### New features
 
-* #### <!--- FIR-18691 —--> **Added support for functions REGEXP\_EXTRACT and REGEXP\_EXTRACT\_ALL**
+* #### <!--- FIR-18691 —--> **Added support for functions HLL_COUNT_BUILD, HLL_COUNT_EXTRACT and HLL_COUNT_MERGE_PARTIAL**
 
   Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
 
