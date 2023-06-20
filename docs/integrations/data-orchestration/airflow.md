@@ -43,7 +43,7 @@ After you install the Firebolt provider, **Firebolt** is available as a **Connec
 ### Upgrading to the latest version
 {: .no_toc}
 
-We recommend running the latest version of the provider package. [Release history](https://pypi.org/project/airflow-provider-firebolt/#history) is available on PyPI. To upgrade to the most recent version, use the command below.
+We recommend running the latest version of the provider package. [Release history](https://pypi.org/project/airflow-provider-firebolt/#history) is available on PyPI. To upgrade to the most recent version, use the command below, then restart Airflow for the changes to take effect. 
 
 ```bash
 pip install airflow-provider-firebolt --upgrade
