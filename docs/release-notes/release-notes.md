@@ -26,7 +26,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-18691 —--> **Added support for functions HLL_COUNT_BUILD, HLL_COUNT_EXTRACT and HLL_COUNT_MERGE_PARTIAL**
 
-  Use these functions 
+  [HLL_COUNT_BUILD](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [HLL_COUNT_MERGE_PARTIAL](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [HLL_COUNT_EXTRACT](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
 
 * #### <!--- FIR-21223 ---> **Added support for new function PARAM()**
 
@@ -34,10 +34,18 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### Enhancements, changes and new integrations
 
-* #### <!--- FIR-22195 ---> Added UTF8 validation for text fields
+* #### <!--- FIR-22195 ---> Added UTF-8 validation for text fields
 
-  All text fields (both literals and those from an external source) must be UTF8 encoded to pass validation. To store non-UTF8-encoded strings, use the `BYTEA` data type as an alternative. 
+  All text fields (both literals and those from an external source) must be UTF-8 encoded to pass validation. To store strings that are not UTF-8 encoded, use the `BYTEA` data type as an alternative. 
 
+* #### <!--- FIR-22642 --->  Nullability for CREATE TABLE columns
+
+  All columns in tables created using `CREATE TABLE AS SELECT` are now nullable. In addition, multiple anonymous column names in a `CREATE TABLE` statement will now cause the statement to be rejected.
+
+* #### <!--- FIR-23522 ---> Update to the relationship of floating point NaN to other numbers
+
+  The value of floating point NaN is always the largest when compared to other numeric values, for example: 
+  `-∞ < any number < ∞ < NaN`.
 
 ### Resolved issues
 
