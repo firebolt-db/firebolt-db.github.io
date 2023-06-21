@@ -80,7 +80,7 @@ Use the functional list below to find commands for a specific task area that you
 * [SELECT](select.md)
 * [SHOW INDEXES](show-indexes.md)
 * [COPY TO](copy-to.md)
-* [VACUUM (Beta)](vacuum.md)
+* [VACUUM](vacuum.md)
 
 ## Metadata
 

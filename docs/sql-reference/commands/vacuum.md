@@ -1,11 +1,11 @@
 ---
 layout: default
-title: VACUUM (Beta)
+title: VACUUM
 description: Reference and syntax for the VACUUM command.
 parent: SQL commands
 ---
 
-# VACUUM (Beta)
+# VACUUM
 Performs garbage collection to optimize a table.
 
 `VACUUM` reclaims storage occupied by deleted tuples. In normal SQL operation, tuples that are deleted or made obsolete by an update are not physically removed from their table; they remain present until a `VACUUM` is done. Therefore, it's necessary to do `VACUUM` periodically, especially on frequently updated tables.
@@ -34,7 +34,7 @@ VACUUM games;
 
 ### Known limitations
 
-Below are some known limitations of the `VACUUM` command in the alpha release. 
+Below are some known limitations of the `VACUUM` command.
 
 * **Space and performance considerations**<br>
 The `VACUUM` command consumes considerable memory, CPU resources and disk space. Before running the `VACUUM` command, ensure you have enough free disk space. Each node will process the `VACUUM` job in parallel, and the parallelism level is defined by the number of vCPUs on that node. The amount of free disk space can be estimated by multiplying the number of vCPUs by 40GiB, at most. Less free disk space may work as well, but there will be some risk of getting an “out of free space” error in some circumstances.
