@@ -26,41 +26,23 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-18691 —--> **Added support for functions HLL_COUNT_BUILD, HLL_COUNT_EXTRACT and HLL_COUNT_MERGE_PARTIAL**
 
-  Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
+  Use these functions 
 
-* #### <!--- FIR-22914 ---> **System Engine (Beta)**
+* #### <!--- FIR-21223 ---> **Added support for new function PARAM()**
 
-  Use the new [system engine](../working-with-engines/system-engine.md) to run metadata-related queries without having to start a separate engine. The system engine is always available in all databases to select and use. 
-
-  {: .note}
-  System engine is currently only available for accounts that have a single region enabled.
+  Use the new [PARAM function]() to reference values of query parameters. 
 
 ### Enhancements, changes and new integrations
 
-* #### <!--- FIR-22195 ---> Support for AWS Glue with external tables has been removed. 
+* #### <!--- FIR-22195 ---> Added UTF8 validation for text fields
 
-  Using AWS Glue with external tables has been deprecated. Support for this feature may be added back in the future, once optimizations to supporting architecture have been added. 
+  All text fields (both literals and those from an external source) must be UTF8 encoded to pass validation. To store non-UTF8-encoded strings, use the `BYTEA` data type as an alternative. 
 
-* #### <!--- FIR-22036 ---> Increasing max session duration is no longer required when setting up AWS roles to access Amazon S3
-
-  Roles are now assumed with a default expiration time of 1 hour, and re-assumed every 30 minutes during ingest so ingests can take longer than 12 hours.
-
-* #### <!--- FIR-22036 --->  Increased validation for CREATE TABLE parameters
-
-  Unknown parameters in a `CREATE TABLE` statement will now cause the statement to be rejected. 
-
-* #### <!--- FIR-23446 --->  Update to non-explicit column names
-
-  Final result column names may be different compared to previous versions; specifically, for any select list item that does not have an explicit alias assigned, the final name of that column may be "?column?". Please assign explicit aliases to any select list expression which you want to refer to either in the same query or in other queries.
-
-* #### Join index improvements
-
-  Starting in version 3.23, manually creating and refreshing join indexes will no longer be necessary -  with Auto join indexes, results are now always up to date even if the underlying data changed.
 
 ### Resolved issues
 
-* <!--- FIR-19227 ---> Fixed an issue causing a discrepancy in results of the `SHOW CACHE` command.
+* <!--- FIR-24007 ---> Fixed an issue preventing columns with spaces from being used in the primary index definition.
 
-* <!--- FIR-16262 ---> Fixed multiple planner bugs where queries would not compile.
+* <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
 
-* <!--- FIR-22968 ---> Improved ingest stability, fixed an issue causing failed ingests on a general purpose engine.
+* <!--- FIR-22286 ---> Fixed an issue causing chained UNION/INTERSECT operations to be applied in the wrong order.
