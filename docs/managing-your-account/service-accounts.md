@@ -1,12 +1,14 @@
 ---
 layout: default
-title: Service accounts (Beta)
+title: Service accounts (Alpha)
 description: Learn about creating service account users for Firebolt.
 nav_order: 3
+nav_exclude: true
+search_exclude: true
 parent: Account and user management
 ---
 
-# Creating a service account (Beta)
+# Creating a service account (Alpha)
 {: .no_toc}
 
 A service account user can access Firebolt programmatically **only**.
