@@ -40,7 +40,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-18869 ---> Change to `SUBSTRING` function
 
-  The [SUBSTRING function](../sql-reference/functions-reference/substr.md) with updated behavior is now available and is no longer an alias for the [SUBSTR (legacy)](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
+  The [SUBSTRING function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [SUBSTR (legacy)](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
 
 * #### <!--- FIR-22195 ---> Added UTF-8 validation for text fields
 

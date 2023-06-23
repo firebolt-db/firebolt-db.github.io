@@ -429,7 +429,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [STRPOS](strpos.md)  
 
-* [SUBSTR](substr.md)  
+* [SUBSTRING](substring.md)  
 
 * [TO_DATE](to-date-new.md)  
 
