@@ -7,30 +7,34 @@ parent: SQL functions
 
 # PARAM
 
-Evaluates provided query parameter and returns its value as `TEXT`
+Evaluates a provided query parameter and returns its value as `TEXT`.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-PARAM(<param_name>)
+PARAM(<parameter>)
 ```
 
-| Parameter      | Description                                   |
-| :------------- |:--------------------------------------------- |
-| `<param_name>` | Constant string containing name of the query parameter to evaluate |
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<parameter>` | Constant string containing the name of the query parameter to evaluate | `TEXT` |
+
+## Return Type
+`TEXT`
 
 ## Specifying query parameters
 In order to pass query parameters to the query, the user can specify a new request property named `query_parameters`.
-The param function looks for it, and it expects it to be in JSON format with the following schema:
+The PARAM function looks for this request property and expects a JSON format with the following schema:
 
 ```sql
 query_parameters: json_array | json_object
 json_array: [ json_object, … ]
-json_object: { “name” : param_name, “value” : param_value }
+json_object: { “name” : parameter_name, “value” : parameter_value }
 ```
 
-### Examples
+For example: 
+
 * Single parameter:
 
 { “name”: “country”, “value”: “USA” }
