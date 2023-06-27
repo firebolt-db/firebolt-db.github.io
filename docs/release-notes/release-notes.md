@@ -26,11 +26,11 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-18691 —--> Added support for functions `HLL_COUNT_BUILD`, `HLL_COUNT_EXTRACT` and `HLL_COUNT_MERGE_PARTIAL`
 
-  [HLL_COUNT_BUILD](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [HLL_COUNT_MERGE_PARTIAL](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [HLL_COUNT_EXTRACT](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
+  [`HLL_COUNT_BUILD`](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
 
-* #### <!--- FIR-21223 ---> Added support for new function PARAM()
+* #### <!--- FIR-21223 ---> Added support for new function PARAM
 
-  Use the new [PARAM function]() to reference values of query parameters. 
+  Use the new [`PARAM` function](../sql-reference/functions-reference/param.md) to reference values of query parameters. 
 
 * #### Added support for `VACUUM` command
 
@@ -40,7 +40,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-18869 ---> Change to `SUBSTRING` function
 
-  The [SUBSTRING function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [SUBSTR (legacy)](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
+  The [`SUBSTRING` function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [`SUBSTR (legacy)`](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
 
 * #### <!--- FIR-22195 ---> Added UTF-8 validation for text fields
 
@@ -61,4 +61,4 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
 
-* <!--- FIR-22286 ---> Fixed an issue causing chained UNION/INTERSECT operations to be applied in the wrong order.
+* <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
