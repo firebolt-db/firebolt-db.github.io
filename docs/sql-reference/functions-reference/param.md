@@ -24,8 +24,8 @@ PARAM(<parameter>)
 `TEXT`
 
 ## Specifying query parameters
-In order to pass query parameters to the query, the user can specify a new request property named `query_parameters`.
-The PARAM function looks for this request property and expects a JSON format with the following schema:
+To pass query parameters to the query, you must specify a new request property named `query_parameters`.
+The `PARAM` function looks for this request property and expects a JSON format with the following schema:
 
 ```sql
 query_parameters: json_array | json_object
@@ -33,33 +33,33 @@ json_array: [ json_object, … ]
 json_object: { “name” : parameter_name, “value” : parameter_value }
 ```
 
-For example: 
+You can include a single query parameter in the request properties, for example: 
 
-* Single parameter:
-
-{ “name”: “country”, “value”: “USA” }
+`{ “name”: “country”, “value”: “USA” }`
 
 
-* Multiple parameters
+or multiple query parameters:
 
-[ 
+`[ 
   { “name”: “country”, “value”: “USA” },
   { “name”: “states”, “value”: “WA, OR, CA” },
   { “name”: “max_sales”, “value”: 10000 }
-]
+]`
 
 ## Examples
 {: .no_toc}
 
-Query:
+With query parameters set as: 
 ```sql
-SELECT COUNT(*) FROM Sales WHERE country_name = PARAM('country')
+{ "name": "level", "value": "Drift" }
 ```
 
-Query parameters:
+the query below counts the number of "Drift" type levels:
 ```sql
-{ “name”: “country”, “value”: “USA” }
+SELECT COUNT(*) AS drift_levels FROM levels WHERE leveltype = PARAM('level')
 ```
 
 **Returns**: 
-Count of sales for USA
+| drift_levels   |
+| :------------- |
+| 2              |
