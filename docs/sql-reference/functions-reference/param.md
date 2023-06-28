@@ -18,13 +18,13 @@ PARAM(<parameter>)
 
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
-| `<parameter>` | Constant string containing the name of the query parameter to evaluate | `TEXT` |
+| `<parameter>` | Constant string containing the name of the query parameter to evaluate. | `TEXT` |
 
 ## Return Type
 `TEXT`
 
 ## Specifying query parameters
-To pass query parameters to the query, you must specify a new request property named `query_parameters`.
+To pass query parameters to the query, you must specify a request property named `query_parameters`.
 The `PARAM` function looks for this request property and expects a JSON format with the following schema:
 
 ```sql
@@ -56,10 +56,10 @@ With query parameters set as:
 
 the query below counts the number of "Drift" type levels:
 ```sql
-SELECT COUNT(*) AS drift_levels FROM levels WHERE leveltype = PARAM('level')
+SELECT COUNT(*) AS level_count FROM levels WHERE leveltype = PARAM('level')
 ```
 
 **Returns**: 
-| drift_levels   |
+| level_count   |
 | :------------- |
 | 2              |
