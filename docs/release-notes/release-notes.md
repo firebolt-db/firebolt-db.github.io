@@ -46,10 +46,6 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
   All text fields (both literals and those from an external source) must be UTF-8 encoded to pass validation. To store strings that are not UTF-8 encoded, use the `BYTEA` data type as an alternative. 
 
-* #### <!--- FIR-22642 --->  Nullability for CREATE TABLE columns
-
-  All columns in tables created using `CREATE TABLE AS SELECT` are now nullable. In addition, multiple anonymous column names in a `CREATE TABLE` statement will now cause the statement to be rejected.
-
 * #### <!--- FIR-23522 ---> Update to the relationship of floating point NaN to other numbers
 
   The value of floating point NaN is always the largest when compared to other numeric values, for example: 
@@ -62,3 +58,5 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
 
 * <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
+
+* <!--- FIR-17472 ---> Significant performance improvements made to window functions with PARTITION BY in the frame specification.
