@@ -10,10 +10,10 @@ parent: SQL functions
 
 Takes one or more HLL++ sketch inputs and merges them into a new sketch.
 
-Each sketch must be initialized on the same type and the same precision.
+Each sketch must be built on the same type and the same precision.
 Attempts to merge sketches for different types or precision results in an error.
-For example, you cannot merge a sketch initialized from `INTEGER` data with one initialized from `TEXT` data,
-or a sketch initialized with 13 precision and a sketch initialized with 14 precision.
+For example, you cannot merge a sketch built from `INTEGER` data with one built from `TEXT` data,
+or a sketch built with 13 precision and a sketch built with 14 precision.
 
 If the input expression is NULL or empty, this function returns NULL.
 
@@ -29,7 +29,7 @@ HLL_COUNT_MERGE_PARTIAL ( <expression> )
 
 | Parameter | Description                                                                                                               | Supported input types |
 | :--------- |:--------------------------------------------------------------------------------------------------------------------------|:----------------------|
-| `<expression>`  | HLL++ sketch should be in a valid format. for example the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
+| `<expression>`  | HLL++ sketch in a valid format, e.g. the output of the [`HLL_COUNT_BUILD`](hll-count-build.md) function. | `BYTEA`                |
 
 ## Return Type
 `BYTEA`
@@ -39,7 +39,7 @@ HLL_COUNT_MERGE_PARTIAL ( <expression> )
 
 ```sql
 SELECT
-    HLL_COUNT_MERGE_PARTIAL(hll_sketches) as merged_sketches
+    HLL_COUNT_MERGE_PARTIAL(hll_sketch) as merged_sketches
 FROM
     sketch_table;
 ```
@@ -47,10 +47,7 @@ FROM
 **Returns**: 
 
 A merged HLL++ sketch represented in data type `BYTEA`.
-```sql
-' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-' |   merged_sketches                                                                                                                                                                               |
-' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-' | '\x2f41676772656761746546756e6374696f6e28312c20756e6971436f6d62696e65643634283132292c20496e743332290a01052ccbc234fcbc56b4e7830665202abf3aced8f809c581510b7518f0a86804904775554cd537d76ad6' |
-' +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-```
+
+|  merged_sketches                                                                                           |
+|: ----------------------------------------------------------------------------------------------------------|
+| \x3041676772656761746546756e6374696f6e28312c20756e6971436f6d62696e65643634283132292c20537472696e6729000100 |
