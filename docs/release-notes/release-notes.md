@@ -57,10 +57,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### Resolved issues
 
-* <!--- FIR-24007 ---> Fixed an issue preventing columns with spaces from being used in the primary index definition.
+  * <!--- FIR-24007 ---> Fixed an issue preventing columns with spaces from being used in the primary index definition.
 
-* <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
+  * <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
 
-* <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
+  * <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
 
-* <!--- FIR-17472 ---> Significant performance improvements made to window functions with PARTITION BY in the frame specification.
+  * <!--- FIR-17472 ---> Significant performance improvements made to window functions with PARTITION BY in the frame specification.
