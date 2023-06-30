@@ -53,7 +53,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-10918 ---> Unsupported functions behavior
 
-  Functions not found in the Firebolt SQL reference will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
+  Functions not found in the [Firebolt SQL reference](../sql-reference/functions-reference/index.md) will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
 
 ### Resolved issues
 
