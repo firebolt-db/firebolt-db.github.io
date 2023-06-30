@@ -51,9 +51,9 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   The value of floating point NaN is always the largest when compared to other numeric values, for example: 
   `-∞ < any number < ∞ < NaN`.
 
-* #### <!--- FIR-10918 ---> Enforcing function catalog
+* #### <!--- FIR-10918 ---> Unsupported functions behavior
 
-  Functions not in the Firebolt SQL reference will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
+  Functions not found in the Firebolt SQL reference will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
 
 ### Resolved issues
 
