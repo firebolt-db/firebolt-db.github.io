@@ -34,7 +34,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### Added support for `VACUUM` command
 
-  The [`VACUUM`](../sql-reference/commands/vacuum.md) command is now generally available, for use in production workflows. 
+  The [`VACUUM` command](../sql-reference/commands/vacuum.md) is now generally available, for use in production workflows. 
 
 ### Enhancements, changes and new integrations
 
