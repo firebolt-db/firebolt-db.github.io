@@ -16,7 +16,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 
 ## DB version 3.24
-**June 2023**
+**July 2023**
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
