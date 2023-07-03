@@ -11,6 +11,5 @@ has_children: true
 
 * [Account concepts and terminology](./concepts-and-terminology.md)
 * [Creating a Firebolt account](./creating-an-account.md)
-* [Service accounts (Beta)](service-accounts.md)
 * [Managing users](./managing-users.md)  
 * [Billing](./billing.md)
