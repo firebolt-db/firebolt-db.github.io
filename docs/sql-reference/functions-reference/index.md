@@ -70,7 +70,11 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [COUNT](count.md)  
 
-* [HLL_COUNT_DISTINCT](hll-count-distinct.md)  
+* [HLL_COUNT_BUILD](hll-count-build.md)
+
+* [HLL_COUNT_DISTINCT](hll-count-distinct.md)
+
+* [HLL_COUNT_MERGE_PARTIAL](hll-count-merge-partial.md)
 
 * [MAX](max.md)  
 
@@ -178,6 +182,8 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [COALESCE](coalesce.md)  
 
+* [HLL_COUNT_EXTRACT](hll-count-extract.md)
+
 * [IFNULL](ifnull.md)  
 
 * [NULLIF](nullif.md)  
@@ -186,7 +192,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [VERSION](version.md)
 
-* [ZEROIFNULL](zeroifnull.md)  
+* [ZEROIFNULL](zeroifnull.md)
 
 ## Date and time functions
 
@@ -423,7 +429,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [STRPOS](strpos.md)  
 
-* [SUBSTR](substr.md)  
+* [SUBSTRING](substring.md)  
 
 * [TO_DATE](to-date-new.md)  
 

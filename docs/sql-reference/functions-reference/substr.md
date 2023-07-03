@@ -1,12 +1,15 @@
 ---
 layout: default
-title: SUBSTR
-description: Reference material for SUBSTR function
+title: SUBSTR (legacy)
+description: Reference material for SUBSTR (legacy) function
 parent: SQL functions
 ---
-## SUBSTR
+## SUBSTR (legacy)
 
 Returns a substring starting at the character indicated by the `<offset>` index and including the number of characters defined by the `<length>`. Character indexing starts from index 1. The `<offset>` and `<length>` arguments must be constants.
+
+{: .note} 
+Use the updated [`SUBSTRING`](./substring.md) function instead - this legacy function will be assigned as an alias for the updated behavior in a future release. 
 
 ##### Syntax
 {: .no_toc}

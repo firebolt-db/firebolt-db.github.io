@@ -15,8 +15,8 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.23
-**May 2023**
+## DB version 3.24
+**June 2023**
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
@@ -24,43 +24,43 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   
 ### New features
 
-* #### <!--- FIR-18691 —--> **Added support for functions REGEXP\_EXTRACT and REGEXP\_EXTRACT\_ALL**
+* #### <!--- FIR-18691 —--> Added support for functions `HLL_COUNT_BUILD`, `HLL_COUNT_EXTRACT` and `HLL_COUNT_MERGE_PARTIAL`
 
-  Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
+  [`HLL_COUNT_BUILD`](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
 
-* #### <!--- FIR-22914 ---> **System Engine (Beta)**
+* #### <!--- FIR-21223 ---> Added support for new function PARAM
 
-  Use the new [system engine](../working-with-engines/system-engine.md) to run metadata-related queries without having to start a separate engine. The system engine is always available in all databases to select and use. 
+  Use the new [`PARAM` function](../sql-reference/functions-reference/param.md) to reference values of query parameters. 
 
-  {: .note}
-  System engine is currently only available for accounts that have a single region enabled.
+* #### Added support for `VACUUM` command
+
+  The [`VACUUM` command](../sql-reference/commands/vacuum.md) is now generally available, for use in production workflows. 
 
 ### Enhancements, changes and new integrations
 
-* #### <!--- FIR-22195 ---> Support for AWS Glue with external tables has been removed. 
+* #### <!--- FIR-18869 ---> Change to `SUBSTRING` function
 
-  Using AWS Glue with external tables has been deprecated. Support for this feature may be added back in the future, once optimizations to supporting architecture have been added. 
+  The [`SUBSTRING` function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [`SUBSTR (legacy)`](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
 
-* #### <!--- FIR-22036 ---> Increasing max session duration is no longer required when setting up AWS roles to access Amazon S3
+* #### <!--- FIR-22195 ---> Added UTF-8 validation for text fields
 
-  Roles are now assumed with a default expiration time of 1 hour, and re-assumed every 30 minutes during ingest so ingests can take longer than 12 hours.
+  All text fields (both literals and those from an external source) must be UTF-8 encoded to pass validation. To store strings that are not UTF-8 encoded, use the `BYTEA` data type as an alternative. 
 
-* #### <!--- FIR-22036 --->  Increased validation for CREATE TABLE parameters
+* #### <!--- FIR-23522 ---> Update to the relationship of floating point NaN to other numbers
 
-  Unknown parameters in a `CREATE TABLE` statement will now cause the statement to be rejected. 
+  The value of floating point NaN is always the largest when compared to other numeric values, for example: 
+  `-∞ < any number < ∞ < NaN`.
 
-* #### <!--- FIR-23446 --->  Update to non-explicit column names
+* #### <!--- FIR-10918 ---> Unsupported functions behavior
 
-  Final result column names may be different compared to previous versions; specifically, for any select list item that does not have an explicit alias assigned, the final name of that column may be "?column?". Please assign explicit aliases to any select list expression which you want to refer to either in the same query or in other queries.
-
-* #### Join index improvements
-
-  Starting in version 3.23, manually creating and refreshing join indexes will no longer be necessary -  with Auto join indexes, results are now always up to date even if the underlying data changed.
+  Functions not found in the [Firebolt SQL reference](../sql-reference/functions-reference/index.md) will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
 
 ### Resolved issues
 
-* <!--- FIR-19227 ---> Fixed an issue causing a discrepancy in results of the `SHOW CACHE` command.
+  * <!--- FIR-24007 ---> Fixed an issue preventing columns with spaces from being used in the primary index definition.
 
-* <!--- FIR-16262 ---> Fixed multiple planner bugs where queries would not compile.
+  * <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
 
-* <!--- FIR-22968 ---> Improved ingest stability, fixed an issue causing failed ingests on a general purpose engine.
+  * <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
+
+  * <!--- FIR-17472 ---> Significant performance improvements made to window functions with PARTITION BY in the frame specification.
