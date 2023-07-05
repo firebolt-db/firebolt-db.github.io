@@ -13,4 +13,4 @@ has_children: true
 * [Creating a Firebolt account](./creating-an-account.md)
 * [Managing users](./managing-users.md)  
 * [Billing](./billing.md)
-* [Service accounts](./service-accoounts.md)
+* [Service accounts](./service-accounts.md)
