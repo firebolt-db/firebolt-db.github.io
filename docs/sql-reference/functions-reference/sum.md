@@ -25,9 +25,8 @@ SUM ([DISTINCT] <expr>)
 
 Consider a table `test_scores` with the following columns.
 
-+-----------+-------+
 | firstname | score |
-+-----------+-------+
+|:----------|:------|
 | Deborah   |    90 |
 | Albert    |    50 |
 | Carol     |    11 |
@@ -36,8 +35,6 @@ Consider a table `test_scores` with the following columns.
 | Peter     |    50 |
 | Sammy     |    90 |
 | Humphrey  |    56 |
-+-----------+-------+
-
 
 ```
 SELECT
