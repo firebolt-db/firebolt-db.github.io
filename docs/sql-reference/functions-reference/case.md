@@ -60,15 +60,13 @@ ORDER BY
 
 **Returns**:
 
-```
-+----------------------+--------+----------+
+
 |        Title         | Length | duration |
-+----------------------+--------+----------+
+|:---------------------|:-------|:---------|
 | Citizen Kane         |    114 | Medium   |
 | Happy Gilmore        |     82 | Medium   |
 | Silence of the Lambs |    110 | Medium   |
 | The Godfather        |    150 | Long     |
 | The Jazz Singer      |     40 | Short    |
 | Tropic Thunder       |     90 | Medium   |
-+----------------------+--------+----------+
-```
+
