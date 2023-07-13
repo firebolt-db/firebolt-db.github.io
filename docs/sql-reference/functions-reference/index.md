@@ -56,8 +56,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 ## Aggregation functions
 
-* [ANY](any.md)  
-
 * [ANY_VALUE](any_value.md)  
 
 * [APPROX_COUNT_DISTINCT](approx-count-distinct.md)  
