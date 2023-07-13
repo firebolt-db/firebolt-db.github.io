@@ -1,10 +1,8 @@
 ---
-layout: default
-title: ANY
-description: Reference material for ANY
-parent: SQL functions
+layout: redirects
+sitemap: false
+permalink: /sql-reference/functions-reference/any.html
+redirect_to:  /sql-reference/functions-reference/any_value.html
 ---
 
-# ANY
-
-Synonym for [ANY_VALUE](any_value.md).
+<!--- redirect ANY to ANY_VALUE (synonym) --->

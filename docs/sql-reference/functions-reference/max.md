@@ -17,49 +17,49 @@ Calculates the maximum value of an expression across all input values.
 MAX(<expression>)
 ```
 
-| Parameter | Description                                                                                                                                        |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expression>`  | The expression used to calculate the maximum values. Valid values for the expression include a column name or functions that return a column name. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<expression>`  | The expression used to calculate the maximum value | Any string, numeric or date/timestamp type |
+
+Valid values for the expression include a column name or functions that return a column name.
+
+## Return Types
+
+Same as input type
 
 ## Example
 {: .no_toc}
+For this example, see the following table, `tournaments`:
 
-For this example, we'll create a new table `prices` as shown below.
+| name                          | totalprizedollars |
+| :-----------------------------| :-----------------| 
+| The Drifting Thunderdome      | 24,768             |
+| The Lost Track Showdown       | 5,336              |
+| The Acceleration Championship | 19,274             |
+| The Winter Wilderness Rally   | 21,560             |
+| The Circuit Championship      | 9,739              |
 
-```sql
-CREATE DIMENSION TABLE IF NOT EXISTS prices
-    (
-        item TEXT,
-        price INTEGER
-    );
-
-INSERT INTO
-	prices
-VALUES
-	('apple', 4),
-	('banana', 25),
-	('orange', 11),
-	('kiwi', 20)
-```
-
-When used on the num column, `MAX` will return the largest value.
+When used on the `totalprizedollars` column, `MAX` will return the highest value.
 
 ```sql
 SELECT
-	MAX(price)
+	MAX(totalprizedollars) as maxprize
 FROM
-	prices;
+	tournaments;
 ```
 
-**Returns**: `25`
+**Returns**: `24,768`
 
-MAX can also work on text columns by returning the text row with the characters that are last in the lexicographic order.&#x20;
+`MAX` can also work on text columns by returning the text row with the characters that are last in the lexicographic order. In this example, the function assesses the `name` column in the `tournaments` table.
 
-```
+```sql
 SELECT
-	MAX(item)
+	MAX(name) as maxtournament
 FROM
-	prices;
+	tournaments;
 ```
 
-**Returns:** `orange`
+**Returns**: `The Winter Wilderness Rally`
