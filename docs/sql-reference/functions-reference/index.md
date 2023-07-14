@@ -84,8 +84,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [MIN_BY](min-by.md)  
 
-* [NEST](nest.md)  
-
 * [PERCENTILE_CONT](percentile-cont.md)
 
 * [PERCENTILE_DISC](percentile-disc.md)
