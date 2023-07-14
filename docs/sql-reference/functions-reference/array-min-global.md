@@ -14,14 +14,6 @@ For more information and the sample data used in the example below, please refer
 ## Syntax
 {: .no_toc}
 
-The example below uses the following table `T`:
-
-| Category | vals        |
-| :-------- | :----------- |
-| a        | \[1,3,4]    |
-| b        | \[3,5,6,7]  |
-| a        | \[30,50,60] |
-
 ```sql
 ARRAY_MIN_GLOBAL(<arr>)
 ```
@@ -32,6 +24,13 @@ ARRAY_MIN_GLOBAL(<arr>)
 
 ## Example
 {: .no_toc}
+The example below uses the following table `T`:
+
+| Category | vals        |
+| :-------- | :----------- |
+| a        | \[1,3,4]    |
+| b        | \[3,5,6,7]  |
+| a        | \[30,50,60] |
 
 ```sql
 SELECT
