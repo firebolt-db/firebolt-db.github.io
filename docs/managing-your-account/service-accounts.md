@@ -15,7 +15,7 @@ A service account user can access Firebolt programmatically **only**.
 
 To create a service account user, follow these steps:
 
-1. Create a service account user using the [`CREATE SERVICE ACCOUNT USER` command](#create-a-service-account-user). Make a note of the service account ID - you will need that to authenticate later. The ID can always be retrieved by querying the `service_account_users` view in Firebolt’s information schema - for more information see [Service account users in information schema](#service-account-users-in-informationschema).
+1. Create a service account user using the [`CREATE SERVICE ACCOUNT USER` command](#create-a-service-account-user). Make a note of the service account ID - you will need that to authenticate later. The ID can always be retrieved by querying the `service_account_users` view in Firebolt’s information schema - for more information see [Service account users in information schema](#service-account-users-in-information_schema).
 
 2. Generate a secret for the service account user with [the generation function described below](#generate-a-secret-for-the-service-account-user). 
 **Make a note of the secret** - it can't be retrieved later.  In case the secret is lost (or needs to be rotated), you can always generate a new secret, calling the same generation function.
