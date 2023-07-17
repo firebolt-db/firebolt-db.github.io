@@ -30,7 +30,7 @@ MIN_BY(<expression>, <value>)
 
 ## Return Types
 
-Same as input type of <expression>
+Same as input type of `<expression>`
 
 ## Example
 {: .no_toc}
