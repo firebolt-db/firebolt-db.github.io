@@ -54,5 +54,6 @@ Each row has the following columns with information about each query in query hi
 | returned_bytes              | BIGINT    | The total number of bytes returned from the query. |
 | cpu_usage_us                | BIGINT    | The query time spent on the CPU as reported by Linux kernel scheduler. This value may be greater than overall execution time of the query, because execution is parallelized and CPU times across all threads and nodes is summarized. |
 | cpu_delay_us                | BIGINT    | The query time spent on the runqueue as reported by Linux kernel scheduler - The value may be greater than overall execution time of the query because query’s execution is parallelized and CPU times across all threads and nodes is summarized. |
-| time_in_queue_ms            | BIGINT    | The number of milliseconds the query spent in queue. |
+| time_in_queue_ms            | BIGINT    | The number of milliseconds the query spent in the queue. |
+|rows_total                   | BIGINT    | represents the total number of rows for each table Firebolt scan as part of the query.  Notice that for DIMENSION table this would be replicated by number of nodes in the engine. |
 
