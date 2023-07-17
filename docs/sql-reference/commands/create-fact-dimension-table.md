@@ -119,7 +119,7 @@ The `PARTITION BY` clause specifies a column or columns by which the table will 
 ```sql
 PARTITION BY <column_name>[, <column_name>[, ...n]]
 ```
-The `PARTITION BY` clause also supports limited set of functions which can be applied to the columns. Only the following functions are supported:
+The `PARTITION BY` clause also supports a limited set of functions which can be applied to the columns. The following functions are supported:
 
 * [TO_CHAR](to-char-new.md)
 * [DATE_TRUNC](date-trunc-new.md)  
