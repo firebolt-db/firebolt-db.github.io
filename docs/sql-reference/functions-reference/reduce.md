@@ -3,6 +3,7 @@ layout: default
 title: REDUCE
 description: Reference material for REDUCE function
 parent: SQL functions
+nav_exclude: true
 ---
 
 # REDUCE

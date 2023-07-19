@@ -15,6 +15,63 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
+## DB version 3.24
+**July 2023**
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
+  
+### New features
+{: .no_toc}
+
+* <!--- FIR-18691 —--> **Added support for functions `HLL_COUNT_BUILD`, `HLL_COUNT_EXTRACT` and `HLL_COUNT_MERGE_PARTIAL`**
+
+  [`HLL_COUNT_BUILD`](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
+
+* **Added support for service accounts**
+
+  Service account users (Beta) are now available. Read more about using service accounts [here.](../managing-your-account/service-accounts.md)
+
+* <!--- FIR-21223 ---> **Added support for new function PARAM**
+
+  Use the new [`PARAM` function](../sql-reference/functions-reference/param.md) to reference values of query parameters. 
+
+* **Added support for `VACUUM` command**
+
+  The [`VACUUM` command](../sql-reference/commands/vacuum.md) is now generally available, for use in production workflows. 
+
+### Enhancements, changes and new integrations
+{: .no_toc}
+
+* <!--- FIR-18869 ---> **Change to `SUBSTRING` function**
+
+  The [`SUBSTRING` function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [`SUBSTR (legacy)`](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
+
+* <!--- FIR-22195 ---> **Added UTF-8 validation for text fields**
+
+  All text fields (both literals and those from an external source) must be UTF-8 encoded to pass validation. To store strings that are not UTF-8 encoded, use the `BYTEA` data type as an alternative. 
+
+* <!--- FIR-23522 ---> **Update to the relationship of floating point NaN to other numbers**
+
+  The value of floating point NaN is always the largest when compared to other numeric values, for example: 
+  `-∞ < any number < ∞ < NaN`.
+
+* <!--- FIR-10918 ---> **Unsupported functions behavior**
+
+  Functions not found in the [Firebolt SQL reference](../sql-reference/functions-reference/index.md) will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
+
+### Resolved issues
+{: .no_toc}
+
+  * <!--- FIR-24007 ---> Fixed an issue preventing columns with spaces from being used in the primary index definition.
+
+  * <!--- FIR-23842 ---> Fixed an issue where adding filters on a partition key could affect query performance.
+
+  * <!--- FIR-22286 ---> Fixed an issue causing chained `UNION/INTERSECT` operations to be applied in the wrong order.
+
+  * <!--- FIR-17472 ---> Significant performance improvements made to window functions with PARTITION BY in the frame specification.
+
 ## DB version 3.23
 **May 2023**
 
@@ -23,6 +80,7 @@ We provide an archive of release notes for your historical reference.
 * [Resolved issues](#resolved-issues)
   
 ### New features
+{: .no_toc}
 
 * <!--- FIR-18691 —--> **Added support for functions REGEXP\_EXTRACT and REGEXP\_EXTRACT\_ALL**
 
@@ -36,6 +94,7 @@ We provide an archive of release notes for your historical reference.
   System engine is currently only available for accounts that have a single region enabled.
 
 ### Enhancements, changes and new integrations
+{: .no_toc}
 
 * <!--- FIR-22195 ---> **Support for AWS Glue with external tables has been removed.**
 
@@ -58,6 +117,7 @@ We provide an archive of release notes for your historical reference.
   Starting in version 3.23, manually creating and refreshing join indexes will no longer be necessary -  with Auto join indexes, results are now always up to date even if the underlying data changed.
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-19227 ---> Fixed an issue causing a discrepancy in results of the `SHOW CACHE` command.
 
@@ -73,6 +133,7 @@ We provide an archive of release notes for your historical reference.
 * [Resolved issues](#resolved-issues)
   
 ### New features
+{: .no_toc}
 
 * **DATE and TIMESTAMP names available for new data types**
 
@@ -107,6 +168,7 @@ We provide an archive of release notes for your historical reference.
   The [`NUMERIC` data type](../general-reference/numeric-data-type.md) (synonym: `DECIMAL`) is now generally available, for use in production workflows. 
 
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 * <!--- FIR-14538 ---> **Support for OR operator added to all JOIN types**
 
@@ -122,6 +184,7 @@ We provide an archive of release notes for your historical reference.
   Text view for [visual explain](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) will be the only supported view temporarily while improvements to visual explain are developed. Other views will be added back in the future.
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-17251 —--> Improved error message when casting between data types.
 
@@ -143,6 +206,7 @@ We provide an archive of release notes for your historical reference.
 * [Resolved issues](#resolved-issues)
   
 ### New features
+{: .no_toc}
 
 * **Data manipulation commands now available** (Beta release)
 
@@ -151,6 +215,7 @@ We provide an archive of release notes for your historical reference.
   For more information and known limitations in the beta release, please see linked documentation. 
 
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 * <!--- FIR-18674 —--> **Updates to data types**
 
@@ -172,6 +237,7 @@ We provide an archive of release notes for your historical reference.
   Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. See [here](release-notes-archive.md#db-version-3200) for instructions to reingest. Please raise any questions or feedback with your Customer Success team. 
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-20551 —-->Fixed an error `Cannot parse input: expected <END OF LINE>` on ingest of large CSV files.
 
@@ -182,6 +248,7 @@ We provide an archive of release notes for your historical reference.
 * [Resolved issues](#resolved-issues)
   
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 * <!--- FIR-20900 —--> **Function support added for new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types**
 
@@ -281,6 +348,7 @@ We provide an archive of release notes for your historical reference.
   Empty statements containing comments only are now supported and will run without error. 
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-20808 —-->Fixed an issue where `AVG` and `SUM` functions performed on large `DECIMAL` columns produced an error; results now use the same precision and scale as the input type. 
 
@@ -291,6 +359,7 @@ We provide an archive of release notes for your historical reference.
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 
 ### New features
+{: .no_toc}
 
 * <!--- FIR-16297 —--> **New date and time data types**
 
@@ -323,6 +392,7 @@ We provide an archive of release notes for your historical reference.
     * Go to a desired line with **Ctrl + l** for Windows & Linux, or **⌘ + l** for Mac
   
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 * <!--- FIR-16389 —--> **Improved join index performance**
 
@@ -384,6 +454,7 @@ February 2023
 * [Resolved issues](#resolved-issues)
 
 ### New features
+{: .no_toc}
 
 * <!--- FIR--17030 --->**Added support for GROUP BY ALL**
 
@@ -439,6 +510,7 @@ February 2023
   ![](../assets/images/release-notes/pihighlight.png)
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-9797 —-->Fixed an issue where `COPY TO` export file size was limited to 2GB.
 
@@ -452,6 +524,7 @@ February 2023
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 
 ### New features
+{: .no_toc}
 
 *  <!--- FIR-3917 —-->**Added support for CSV TYPE options on ingest** (DB version 3.14.0)
 
@@ -473,7 +546,8 @@ February 2023
 
   * `[SKIP_BLANK_LINES {TRUE|FALSE}]`: Defines that any blank lines encountered in the CSV input file will be skipped. 
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * <!--- FIR-16182 —--> **Added support for nullable arrays** (DB version 3.11.0)
 
@@ -486,6 +560,7 @@ February 2023
 * [Resolved issues](#resolved-issues)
 
 ### New features
+{: .no_toc}
 
 * <!--- FIR-15968, FIR-15744 —-->**Added support for functions** (DB version 3.13.0)
 
@@ -540,13 +615,15 @@ February 2023
 
   * Functions `ROUND`, `TO_STRING`, and `TO_TEXT` applied on DECIMAL will return the data type matching the input data type. 
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * <!--- FIR-16295 —-->**Information schema updated** (DB version 3.13.0)
 
-  Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../general-reference/information-schema/query-history-view.md) view.
+  Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../general-reference/information-schema/query-history-view.md).
   
 ### Resolved issues
+{: .no_toc}
 
 * Fixed an issue that caused degraded performance of the cache evictor. (DB version 3.13.0)
 
@@ -557,13 +634,15 @@ February 2023
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 
 ### New features
+{: .no_toc}
 
 * <!--- FIR-15853 —-->**Added support for functions REGEXP\_REPLACE and REGEXP\_REPLACE\_ALL**
 **(DB version 3.11.0)**
 
   Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * <!--- FIR-14886 —-->**Added support for “OR” operator for JOIN**
 **(DB version 3.11.0)**
@@ -595,7 +674,8 @@ February 2023
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * **Firebolt .NET SDK now available**
 
@@ -670,6 +750,7 @@ February 2023
   The Firebolt JBDC driver is now open-source under Apache 2. The new release also adds support for view tables in `getTables()`.
   
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-11369 --> An error message is now displayed when too many partitions are added using a single `INSERT` statement.
 
@@ -678,7 +759,8 @@ February 2023
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * **Added support for Airbyte**
  
@@ -697,6 +779,7 @@ February 2023
   The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../sql-reference/functions-reference/to-timestamp.md).
 
 ### Resolved issues
+{: .no_toc}
 
 * Fixed an issue that prevented values from being set properly for a column with a `DEFAULT` constraint when an `INSERT INTO` statement ran without specifying the column value. 
 
@@ -737,6 +820,7 @@ February 2023
 * [Resolved issues](#resolved-issues)
 
 ### New features
+{: .no_toc}
 
 *  You can now use the help menu to check the Firebolt service status page.  
   ![Status Page](../assets/images/firebolt-service-status.png)
@@ -754,7 +838,8 @@ February 2023
 *  An improved approach to Window functions is available for Beta testing by request. For more information, contact Firebolt Support.
 
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * Improved query execution on queries that read table data in Amazon S3. Firebolt now achieves greater read parallelization, which significantly speeds up queries that read many columns.
 
@@ -774,6 +859,7 @@ February 2023
   The dbt-firebolt adapter now supports append-only incremental materializations. For more information, see [Firebolt configurations](https://docs.getdbt.com/reference/resource-configs/firebolt-configs) in dbt documentation.
 
 ### Resolved issues
+{: .no_toc}
 
 * Fixed an issue that caused a `Type mismatch in joinGet` error when using a join index in table joins where columns are of different numeric types&mdash;for example, joining a column in a fact table defined as `DOUBLE` with a column defined as `BIGINT` in a dimension table.
 
@@ -792,6 +878,7 @@ February 2023
 * [Resolved issues](#resolved-issues)
 
 ### New features
+{: .no_toc}
 
 * **Added support for `CREATE OR REPLACE VIEW` statement**  
   The `IF NOT EXISTS` and `OR REPLACE` options are incompatible when creating a view. For more information, see [CREATE VIEW](../sql-reference/commands/create-view.md).
@@ -807,7 +894,8 @@ February 2023
 
 * **Added support for SET statements passed via SQL in the Python SDK**  
 
-### Enhancements, changes, and new integrations
+### Enhancements, changes and new integrations
+{: .no_toc}
 
 * **Engine specs are now Firebolt-specific**  
   Firebolt engine spec names have changed from AWS EC2 names to Firebolt-specific names&mdash;for example, **M4**. This change simplifies engine specs and aligns them with Firebolt usage and deployment. This is the first step toward improving the overall engine selection and usage experience, allowing Firebolt to update underlying hardware more quickly and automatically. For more information, see [Working with engines](../working-with-engines/index.md).
@@ -823,6 +911,7 @@ February 2023
   For more information, see the [Firebolt materialization connector topic](https://docs.estuary.dev/reference/Connectors/materialization-connectors/Firebolt/) in Estuary documentation.
 
 ### Resolved issues
+{: .no_toc}
 
 * Fixed an issue where complex join conditions could fail when evaluating `NULL` values.
 
@@ -856,6 +945,7 @@ In the SQL workspace, you can now select a portion of an error message to copy.
 * [Enhancements, changes, and resolved issues](#enhancements-changes-and-resolved-issues)
 
 ### New features
+{: .no_toc}
 
 * **Visual explain**  
   Use the new visual explain feature to analyze query execution plans. Different display formats and navigation options enhance your ability to quickly analyze and diagnose complex queries. For more information, see [Analyze query execution plans with visual explain](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md).

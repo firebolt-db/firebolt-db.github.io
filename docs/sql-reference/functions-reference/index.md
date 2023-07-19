@@ -124,10 +124,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [LENGTH](length.md)  
 
-* [NEST](nest.md)  
-
-* [REDUCE](reduce.md)  
-
 * [SLICE](slice.md)
 
 ### Lambda functions
