@@ -31,4 +31,8 @@ Each row has the following columns with information about each engine.
 | scale                       | INTEGER         | The number of nodes in the engine. |
 | status                      | TEXT      | The engine status. For more information, see [Viewing and understanding engine status](../../working-with-engines/understanding-engine-fundamentals.md#viewing-and-understanding-engine-status). |
 | attached_to                 | TEXT      | The name of the database to which the engine is attached. |
-| version                 | TEXT      | The engine version.|
+| version                     | TEXT      | The engine version.|
+| url                         | TEXT      | The engine url. |
+| warmup                      | TEXT      | The warmup method of the engine. |
+| auto_stop                   | BIGINT    | The engine auto stop on seconds. |
+| engine_type                 | TEXT      | The type of the engine. |
