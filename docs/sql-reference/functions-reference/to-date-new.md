@@ -15,8 +15,13 @@ parent: SQL functions
   >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
   >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
   >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to use the new types [here](../../release-notes/release-notes-archive.html#db-version-322).
+  >
+  >If you have not yet switched to the new timestamp types, this function is available under the name `TO_PGDATE`.
 
 Converts a string to `DATE` type using format.
+
+{: .note}
+The function returns the new date data type `DATE`, and `PGDATE` if you are using legacy timestamp types. If you seek for the legacy type function, see [TO_DATE (legacy)](../functions-reference/to-date.md).
 
 ## Syntax
 

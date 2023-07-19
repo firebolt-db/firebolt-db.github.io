@@ -8,41 +8,50 @@ parent: SQL functions
 
 # MAX\_BY
 
-The `MAX_BY` function returns a value for the `<arg>` column based on the max value in a separate column, specified by `<val>`.
+The `MAX_BY` function returns the value of the specified `<expression>` column at the row with the maximum value in the specified `<value>` column.
 
-If there is more than one max value in `<val>`, then the first will be used.
+If there is more than one of the same maximum value in `<value>`, then the first occurring will be returned.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-MAX_BY(<arg>, <val>)
+MAX_BY(<expression>, <value>)
 ```
 
-| Parameter | Description                                    |
-| :--------- | :---------------------------------------------- |
-| `<arg>`   | The column from which the value is returned.   |
-| `<val>`   | The column that is search for a maximum value. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<expression>` | The column from which the value is returned | Any type |
+| `<value>` | The column that is search for a maximum value | Any string, numeric or date/timestamp type |
+
+## Return Types
+
+Same as input type of `<expression>`
 
 ## Example
 {: .no_toc}
 
-For this example, we will again use the `prices` table that was created above for the `MAX` function. The values for that table are below:
+For this example, see the following table, `tournaments`:
 
-| item   | price |
-| :------ | :----- |
-| apple  | 4     |
-| banana | 25    |
-| orange | 11    |
-| kiwi   | 20    |
+| name                          | totalprizedollars |
+| :-----------------------------| :-----------------| 
+| The Drifting Thunderdome      | 24,768            |
+| The Lost Track Showdown       | 5,336             |
+| The Acceleration Championship | 19,274            |
+| The French Grand Prix         | 237               |
+| The Circuit Championship      | 9,739             |
 
-In this example below, `MAX_BY` is used to find the item with the largest price.&#x20;
+
+In the example below, `MAX_BY` is used to find the tournament with the highest total prize.
 
 ```sql
 SELECT
-	MAX_BY(item, price)
+	MAX_BY(name, totalprizedollars) as maxprizetournament
 FROM
-	prices;
+	tournaments;
 ```
 
-**Returns**: `banana`
+**Returns:** `The Drifting Thunderdome`

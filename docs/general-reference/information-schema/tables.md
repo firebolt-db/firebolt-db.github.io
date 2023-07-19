@@ -42,3 +42,6 @@ Each row has the following columns with information about each table.
 | is_insertable_into          | NULL        | Not applicable for Firebolt. |
 | is_typed                    | NULL        | Not applicable for Firebolt. |
 | commit_action               | NULL        | Not applicable for Firebolt. |
+| state                       | TEXT        | The state of the table. |
+| ddl                         | TEXT        | The text of the SQL statement that created the table. |
+| fragmentation               | DOUBLE PRECISION | Table fragmentation percentage (between 0-100). |

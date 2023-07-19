@@ -16,7 +16,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 
 ## DB version 3.24
-**June 2023**
+**July 2023**
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
@@ -27,6 +27,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 * #### <!--- FIR-18691 —--> Added support for functions `HLL_COUNT_BUILD`, `HLL_COUNT_EXTRACT` and `HLL_COUNT_MERGE_PARTIAL`
 
   [`HLL_COUNT_BUILD`](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
+
+* #### Added support for service accounts
+
+  Service account users (Beta) are now available. Read more about using service accounts [here.](../managing-your-account/service-accounts.md)
 
 * #### <!--- FIR-21223 ---> Added support for new function PARAM
 
