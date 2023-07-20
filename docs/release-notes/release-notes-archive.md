@@ -468,7 +468,7 @@ February 2023
 
   Use [these functions](../sql-reference/functions-reference/index.md#bytea-functions) with the new `BYTEA` data type to encode binary data into a SQL expression of type `TEXT`, and decode from type `TEXT` to type `BYTEA`.
 
-* <!--- FIR-17196 --->**Added support for EXCLUDE columns in SELECT * **
+* <!--- FIR-17196 --->**Added support for EXCLUDE columns in SELECT **
 
 
   [Added support for `EXCLUDE` columns in SELECT *](../sql-reference/commands/select.md#select-wildcard) to define which columns to exclude from a SELECT wildcard expansion. 

@@ -24,14 +24,14 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### Enhancements, changes and new integrations
 
+* #### Deprecation of `catalog` metadata schema
+
+  Support for the `catalog` schema is being phased out in favor of [information_schema views](../general-reference/information-schema/information-schema-and-usage-views.md). To ensure a smooth transition, please update code to use `information_schema` - for example, any query currently reading from `catalog.query_history` or `catalog.running_queries` should be modified to query from `information_schema.query_history` or `information_schema.running_queries`. **Please note, all column names in `information_schema` views are lowercase** - for example, `START_TIME` from `catalog.query_history` is now named `start_time` in the `information_schema.query_history` view.
+
 * #### <!--- FIR-24427 ---> Information schema updated
 
   Added `compressed_size`, `uncompressed_size` and `description` columns to the [information_schema.databases view](../general-reference/information-schema/databases.md), and columns `engine_type`, `auto-stop`, `url` and `warmup` to the [information_schema.engines view](../general-reference/information-schema/engines.md)
 
-* #### Deprecation of `catalog` metadata schema
-
-  Support for the `catalog` schema is being phased out in favor of [information_schema views](../general-reference/information-schema/information-schema-and-usage-views.md). To ensure a smooth transition, please update code to use `information_schema` - for example, any query currently reading from `catalog.query_history` or `catalog.running_queries` should be modified to query from `information_schema.query_history` or `information_schema.running_queries`. **Please note, all column names in `information_schema` views are lowercase** - for example, `START_TIME` from `catalog.query_history` is now named `start_time` in the `information_schema.query_history` view.
- 
 ### Resolved issues
 
   * <!--- FIR-23929 ---> Fixed an issue preventing certain array type columns being imported from a Parquet file. 
