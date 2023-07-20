@@ -26,8 +26,6 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-24427 ---> Information schema updated
 
- <!--- this one needs help - need to test and get PR questions answered --->
-
   Added `compressed_size`, `uncompressed_size` and `description` columns to the [information_schema.databases view](../general-reference/information-schema/databases.md), and columns `engine_type`, `auto-stop`, `url` and `warmup` to the [information_schema.engines view](../general-reference/information-schema/engines.md)
 
 * #### Deprecation of `catalog` metadata schema
