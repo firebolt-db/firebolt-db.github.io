@@ -35,3 +35,5 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 ### Resolved issues
 
   * <!--- FIR-23929 ---> Fixed an issue preventing certain array type columns being imported from a Parquet file. 
+
+  * <!--- FIR-25059 ---> Fixed an issue causing `inf` and `nan` values to be incorrectly encoded as `NULL` values. 
