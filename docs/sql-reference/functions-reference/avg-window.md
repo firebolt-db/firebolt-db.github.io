@@ -18,9 +18,8 @@ For additional window functions, see [Window Functions](./window-functions.md).
 AVG( <val> ) OVER ( [ PARTITION BY <exp> ] )
 ```
 
-|           |                                                 |
+| Parameter| Description                                 |
 | :--------- | :----------------------------------------------- |
-| Parameter | Description                                     |
 | `<val>`   | An expression used for the `AVG()` function.    |
 | `<expr>`  | An expression used for the partition by clause. |
 
@@ -41,32 +40,31 @@ FROM
 
 **Returns**:
 
-```
-' +------------+-------------+------------+-------------------------+
-' | first_name | grade_level | test_score |    average_for_grade    |
-' +------------+-------------+------------+-------------------------+
-' | Frank      |           9 |         76 | 81.33333333333333       |
-' | Humphrey   |           9 |         90 | 81.33333333333333       |
-' | Iris       |           9 |         79 | 81.33333333333333       |
-' | Sammy      |           9 |         85 | 81.33333333333333       |
-' | Peter      |           9 |         80 | 81.33333333333333       |
-' | Jojo       |           9 |         78 | 81.33333333333333       |
-' | Brunhilda  |          12 |         92 | 89                      |
-' | Franco     |          12 |         94 | 89                      |
-' | Thomas     |          12 |         66 | 89                      |
-' | Gary       |          12 |        100 | 89                      |
-' | Charles    |          12 |         93 | 89                      |
-' | Jesse      |          12 |         89 | 89                      |
-' | Roseanna   |          11 |         94 | 73                      |
-' | Carol      |          11 |         52 | 73                      |
-' | Wanda      |          11 |         73 | 73                      |
-' | Shangxiu   |          11 |         76 | 73                      |
-' | Larry      |          11 |         68 | 73                      |
-' | Otis       |          11 |         75 | 73                      |
-' | Deborah    |          10 |         78 | 68.2                    |
-' | Yolinda    |          10 |         30 | 68.2                    |
-' | Albert     |          10 |         59 | 68.2                    |
-' | Mary       |          10 |         85 | 68.2                    |
-' | Shawn      |          10 |         89 | 68.2                    |
-' +------------+-------------+------------+-------------------------+
-```
+
+| first_name | grade_level | test_score |    average_for_grade    |
+| :----------| :-----------| :------------|:-------------------------|
+| Frank      |           9 |         76 | 81.33333333333333       |
+| Humphrey   |           9 |         90 | 81.33333333333333       |
+| Iris       |           9 |         79 | 81.33333333333333       |
+| Sammy      |           9 |         85 | 81.33333333333333       |
+| Peter      |           9 |         80 | 81.33333333333333       |
+| Jojo       |           9 |         78 | 81.33333333333333       |
+| Brunhilda  |          12 |         92 | 89                      |
+| Franco     |          12 |         94 | 89                      |
+| Thomas     |          12 |         66 | 89                      |
+| Gary       |          12 |        100 | 89                      |
+| Charles    |          12 |         93 | 89                      |
+| Jesse      |          12 |         89 | 89                      |
+| Roseanna   |          11 |         94 | 73                      |
+| Carol      |          11 |         52 | 73                      |
+| Wanda      |          11 |         73 | 73                      |
+| Shangxiu   |          11 |         76 | 73                      |
+| Larry      |          11 |         68 | 73                      |
+| Otis       |          11 |         75 | 73                      |
+| Deborah    |          10 |         78 | 68.2                    |
+| Yolinda    |          10 |         30 | 68.2                    |
+| Albert     |          10 |         59 | 68.2                    |
+| Mary       |          10 |         85 | 68.2                    |
+| Shawn      |          10 |         89 | 68.2                    |
++------------+-------------+------------+-------------------------+
+
