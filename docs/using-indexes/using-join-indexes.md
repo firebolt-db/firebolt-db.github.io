@@ -40,11 +40,5 @@ Not all join queries create (and use) join indexes. Here is a set of requirement
 * All types of joins (INNER, LEFT, RIGHT, …) are supported.
 * The right table in the join can be a FACT or DIMENSION table.  
 
-[//]: # (Comment: perhaps add a reference / remark that a dashboard for observing whether queries profited from the HashJoin Cache / Join Index can be made available?)
-
 ## Examples
 See *Join indexes* in the [Firebolt indexes in action](https://www.firebolt.io/blog/firebolt-indexes-in-action) blog post.
-
-# Legacy index commands
-
-Prior to release of DB version 3.19.0, join indexes needed to be created and manually refreshed. See [legacy index commands](using-join-indexes-legacy.md) for those instructions.  
