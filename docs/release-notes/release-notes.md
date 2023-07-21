@@ -30,7 +30,16 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * #### <!--- FIR-24427 ---> Information schema updated
 
-  Added `compressed_size`, `uncompressed_size` and `description` columns to the [information_schema.databases view](../general-reference/information-schema/databases.md), and columns `engine_type`, `auto-stop`, `url` and `warmup` to the [information_schema.engines view](../general-reference/information-schema/engines.md)
+  Added columns to the [information_schema.databases view](../general-reference/information-schema/databases.md):
+   * `compressed_size`
+   * `uncompressed_size`
+   * `description` 
+
+  Added columns to the [information_schema.engines view](../general-reference/information-schema/engines.md):
+   * `engine_type`
+   * `auto_stop`
+   * `url`
+   * `warmup`
 
 ### Resolved issues
 
