@@ -19,7 +19,7 @@ DECODE(<expression>, <format>)
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :-------------------- |
 | `<expression>`  | A SQL expression of type `TEXT` | `TEXT` |
-| `<format` | Format to use to decode binary data | `HEX`, `ESCAPE`, `BASE64` (case insensitive) |   
+| `<format>` | Format to use to decode binary data | `HEX`, `ESCAPE`, `BASE64` (case insensitive) |   
 
 The `HEX` format represents each 4 bits of data as one hexadecimal digit, 0 through f, writing the higher-order digit of each byte first. The `DECODE` function accepts the a-f characters in either upper or lower case. An error is raised when `DECODE` is given invalid hex data — including when given an odd number of characters.
 
