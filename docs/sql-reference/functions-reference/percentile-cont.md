@@ -20,9 +20,8 @@ See also [PERCENTILE\_DISC](../percentile-disc.md), which returns a percentile e
 PERCENTILE_CONT( <val> ) WITHIN GROUP ( ORDER BY <expr> [ { ASC | DESC } ] )
 ```
 
-|            |                                                 |
+| Parameter |    Description      |
 | :--------- | :----------------------------------------------- |
-| Parameter | Description                                     |
 | `<val>`   | A `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0.  |
 | `<expr>`  | A numeric expression used for the order by clause. |
 
