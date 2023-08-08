@@ -15,12 +15,11 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.25
-**August 2023**
+## DB version 3.26
+**September 2023**
 
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
-  
 
 ### Enhancements, changes and new integrations
 
