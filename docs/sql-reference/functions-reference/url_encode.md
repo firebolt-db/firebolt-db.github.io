@@ -9,7 +9,7 @@ parent: SQL functions
 
 Encodes all characters that are not unreserved using percent-encoding.
 
-Unreserved Characters are defined according to [W3C RFC 3986](https://www.rfc-editor.org/rfc/rfc3986.txt)
+Unreserved Characters are defined according to [W3C RFC 3986](https://www.rfc-editor.org/rfc/rfc3986.html)
 
 ```
 unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
