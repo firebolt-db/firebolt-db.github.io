@@ -7,7 +7,13 @@ parent: SQL functions
 
 # URL\_ENCODE
 
-Encodes all characters that are not "Unreserved Characters" according to RFC 3986 section 2.3 as percent-encoding.
+Encodes all characters that are not unreserved using percent-encoding.
+
+Unreserved Characters are defined according to [W3C RFC 3986](https://www.rfc-editor.org/rfc/rfc3986.txt)
+
+```
+unreserved  = ALPHA / DIGIT / "-" / "." / "_" / "~"
+```
 
 ## Syntax
 {: .no_toc}
@@ -38,3 +44,8 @@ SELECT URL_ENCODE(` !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\
 ```
 
 **Returns**: %20%21%22%23%24%25%26%27%28%29%2A%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~
+
+
+## Related
+
+* [URL_DECODE](url_decode.md)

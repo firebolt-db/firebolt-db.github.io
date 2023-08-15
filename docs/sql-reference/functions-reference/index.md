@@ -437,6 +437,10 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [UPPER](upper.md)  
 
+* [URL_DECODE](url_decode.md)
+
+* [URL_ENCODE](url_encode.md)
+
 ## Window functions
 
 * [AVG](avg-window.md)  
