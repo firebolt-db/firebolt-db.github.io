@@ -488,6 +488,7 @@ February 2023
     * Expand or collapse the results pane in the SQL workspace with **Ctrl + Alt + e** for Windows & Linux, or **⌘ + Option + e** for Mac
 
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 * <!--- FIR-12244 —-->**Added support for CREATE TABLE as an alias for CREATE FACT TABLE**
 
@@ -934,6 +935,7 @@ February 2023
 ## March 30, 2022
 
 ### Improved error message experience
+{: .no_toc}
 
 In the SQL workspace, you can now select a portion of an error message to copy.
 
@@ -973,6 +975,7 @@ In the SQL workspace, you can now select a portion of an error message to copy.
   Added the two-argument arc tangent function [ATAN2](../sql-reference/functions-reference/atan2.md).
 
 ### Enhancements, changes, and resolved issues
+{: .no_toc}
 
 * **Breaking change**  
   * Floating point data type columns are no longer supported in partition key definitions.

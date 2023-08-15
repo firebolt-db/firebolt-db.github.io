@@ -7,25 +7,32 @@ parent: SQL functions
 
 # LOWER
 
-Converts the string to a lowercase format.
+Converts the input string to lowercase characters.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-LOWER(<string>)
+LOWER(<expression>)
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter  | Description                 |
-| :---------- | :--------------------------- |
-| `<string>` | The string to be converted. |
+| Parameter  | Description                 |Supported input types | 
+| :---------- | :--------------------------- | :-----------------|
+| `<expression>` | The string to be converted to lowercase characters. | `TEXT` |
+
+## Return Type
+`TEXT` 
 
 ## Example
 {: .no_toc}
 
-```
+The following example converts a game player's username from uppercase to lowercase characters:
+
+```sql
 SELECT
-	LOWER('ABCD');
+	LOWER('ESIMPSON') as username
 ```
 
-**Returns**: `abcd`
+**Returns**: `esimpson`

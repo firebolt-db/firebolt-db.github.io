@@ -7,25 +7,33 @@ parent: SQL functions
 
 # UPPER
 
-Converts the string to uppercase format.
+Converts the input string to uppercase characters.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-UPPER(<string>)
+UPPER(<expression>)
 ```
 
-| Parameter  | Description                                             |
-| :---------- | :------------------------------------------------------- |
-| `<string>` | The string to be converted to all uppercase characters. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<expression>` | The string to be converted to uppercase characters. | `TEXT` |
+
+## Return Type
+`TEXT` 
 
 ## Example
 {: .no_toc}
 
+The following example converts a game player's username from lowercase to uppercase characters:
+
 ```sql
 SELECT
-	UPPER('hello world')
+	UPPER('esimpson') as username
 ```
 
-**Returns**: `HELLO WORLD`
+**Returns**: `ESIMPSON`

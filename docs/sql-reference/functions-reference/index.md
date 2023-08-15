@@ -154,7 +154,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [TRANSFORM](transform.md)  
 
-## Bytea functions
+## Binary functions
 
 * [CONCAT](concat.md)
 
@@ -162,7 +162,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [ENCODE](encode.md)
 
-* [LENGTH](length.md)
+* [LENGTH](length-string.md)
 
 ## Conditional and miscellaneous functions
 

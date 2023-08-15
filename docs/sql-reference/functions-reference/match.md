@@ -13,7 +13,7 @@ Checks whether the string matches the regular expression `<pattern`>, which is a
 {: .no_toc}
 
 ```sql
-MATCH(<string>, '<pattern>')
+MATCH(<string>, <pattern>)
 ```
 
 | Parameter   | Description                                                           |
@@ -24,7 +24,7 @@ MATCH(<string>, '<pattern>')
 ## Example
 {: .no_toc}
 
-The example below generates `0` as a result because it found no match. It is searching a string of numbers for alphabet characters.\*\* \*\*
+The example below generates `0` as a result because it found no match. It is searching a string of numbers for alphabet characters.
 
 ```sql
 SELECT
