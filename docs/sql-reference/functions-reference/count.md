@@ -2,76 +2,71 @@
 layout: default
 title: COUNT (aggregation function)
 description: Reference material for COUNT
-parent: SQL functions
+parent: SQL reference
 ---
-
 
 # COUNT
 
-Counts the number of rows or not NULL values.
+Counts the number of rows or not `NULL` values.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-COUNT([ DISTINCT ] <expr>)
+COUNT([ DISTINCT ] <expression>)
 ```
 
-| Parameter | Description                                                                                                                                                                                                           |
-| :--------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<expr>`  | Valid values for the expression include column names or functions that return a column name. When `DISTINCT` is being used, counts only the unique number of rows with no `NULL` values. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<expression>`  | The expression to count | Any | 
 
 
-`COUNT(*)` returns a total count of all rows in the table, while `COUNT(<column_name>)` returns a count of non-NULL rows in the specified `<column_name>`.
+Valid values for the input expression include column names or functions that return a column name. When `DISTINCT` is being used, only the unique number of rows with no `NULL` values are counted. `COUNT(*)` returns a total count of all rows in the table, while `COUNT(<column_name>)` returns a count of non-null rows in the specified `<column_name>`.
 
 {: .note}
 > By default, `COUNT(DISTINCT)` returns approximate results. If you require a precise result (with a performance penalty), please contact Firebolt Support through the Help menu support form. 
 
+## Return Types
+`NUMERIC`
+
 ## Example
-{: .no_toc}
+For this example, see the following table `tournaments`: 
 
-For this example, we'll create a new table `number_test` as shown below.&#x20;
+| name                          | totalprizedollars |
+| :-----------------------------| :-----------------| 
+| The Drifting Thunderdome      | 24768             |
+| The Lost Track Showdown       | 5336              |
+| The Acceleration Championship | 19274             |
+| The Winter Wilderness Rally   | 21560             |
+| The Circuit Championship      | 9739              |
+| The Singapore Grand Prix      | 19274             |
 
-```sql
-CREATE DIMENSION TABLE IF NOT EXISTS number_test
-	(
-		num TEXT
-	);
-
-INSERT INTO
-	number_test
-VALUES
-	(1),
-	(1),
-	(2),
-	(3),
-	(3),
-	(3),
-	(4),
-	(5);
-```
-
-Doing a regular `COUNT` returns the total number of rows in the column. We inserted 8 rows earlier, so it should return the same number.
+Doing a regular `COUNT` returns the total number of rows in the column. As the `tournaments` table contains 6 rows, this will be the returned value. 
 
 ```sql
 SELECT
-	COUNT(num)
+	COUNT(name)
 FROM
-	number_test;
+	tournaments;
 ```
 
-**Returns**: `8`
+**Returns**: `6`
 
-A `COUNT(DISTINCT)` function on the same column returns the number of unique rows. There are five unique numbers that we inserted earlier.&#x20;
+A `COUNT(DISTINCT)` function on the same column returns the number of unique rows. When applied to the `totalprizedollars` column, the value returned is `5`, as there is a repeated number in the column. 
 
 ```sql
 SELECT
-	COUNT(DISTINCT num)
+	COUNT(DISTINCT totalprizedollars)
 FROM
-	number_test;
+	tournaments;
 ```
 
 **Returns**: `5`
+
+## Example of COUNT(DISTINCT) vs. APPROX_COUNT_DISTINCT
 
 To understand the difference between `COUNT(DISTINCT pk)` with exact precision enabled and using default approximation, consider a table, `count_test` with 8,388,608 unique `pk` values. The `APPROX_COUNT_DISTINCT` function returns the same approximate results as the `COUNT(DISTINCT)` function with exact precision disabled, so we can see the difference between these methods with the following example. 
 

@@ -1,30 +1,39 @@
 ---
 layout: default
-title: LENGTH (string function)
+title: LENGTH
 description: Reference material for LENGTH function
 parent: SQL functions
 ---
 
 # LENGTH
 
-Calculates the string length.
+Calculates the length of the input string.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-LENGTH(<string>)
+LENGTH(<expression>)
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter  | Description                                |
-| :---------- | :------------------------------------------ |
-| `<string>` | The string for which to return the length. |
+| Parameter      | Description                                  |Supported input types |
+| :--------------| :--------------------------------------------|:----------------------|
+| `<expression>` | The string for which to return the length.   | `TEXT`           |
+
+## Return Type
+`INTEGER` 
 
 ## Example
 {: .no_toc}
 
-```sql
-SELECT LENGTH('abcd')
-```
+Use the `LENGTH` to find the length of any string, such as: 
 
-**Returns**: `4`
+```sql
+SELECT LENGTH('The Accelerator Cup')
+```
+Spaces are included in the calculation of the total length of the string. 
+
+**Returns**: `19`
+

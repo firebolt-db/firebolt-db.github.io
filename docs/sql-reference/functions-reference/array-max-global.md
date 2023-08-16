@@ -9,45 +9,51 @@ parent: SQL functions
 
 Returns the maximum element from all the array elements in each group.
 
-For more information and the sample data used in the example below, please refer to [Aggregate Array Functions](./aggregate-array-functions.md).
-
 ## Syntax
 {: .no_toc}
 
 ```sql
-ARRAY_MAX_GLOBAL(<arr>)
+ARRAY_MAX_GLOBAL(<array>)
 ```
 
-| Parameter | Description                                                               |
-| :--------- | :------------------------------------------------------------------------- |
-| `<arr>`   | The array column over from which the function returns the maximum element |
+| Parameter | Description                                                              | Supported input types   |
+| :--------- | :-----------------------------------------------------------------------|:------------------------|
+| `<array>`  | The array from which to return the maximum element. | Any `ARRAY` type  |
+
+
+## Return Types 
+
+`ARRAY`
 
 ## Example
 {: .no_toc}
 
-The example below uses the following table `T`:
+The example below uses the following table `Scores`:
 
-| Category | vals        |
-| :-------- | :----------- |
-| a        | \[1,3,4]    |
-| b        | \[3,5,6,7]  |
-| c        | \[30,50,60] |
+| nickname        | recent_scores |
+| :---------------| :-------------|
+| steven70        | \[1,3,4]      |
+| sanderserin     | \[3,5,6,7]    |
+| esimpson        | \[30,50,60]   |
 
+In this example, the function calculates the maximum score earned by each player's recent scores. For example, the user `esimpson` received a maximum score of `60`, so this value is returned in the `max_score` column. 
 
 ```sql
 SELECT
-	Category,
-	ARRAY_MAX_GLOBAL(vals) AS mx
+	nickname,
+	ARRAY_MAX_GLOBAL(recent_scores) AS max_score
 FROM
-	T
+	Scores
 GROUP BY
-	Category;
+	nickname;
 ```
 
 **Returns**:
 
-| category | mx |
-| :-------- | :-- |
-| a        | 4  |
-| b        | 7  |
-| c        | 60 |
+| nickname         | max_score     |
+| :----------------| :------------ |
+| steven70         | 4             |
+| sanderserin      | 7             |
+| esimpson         | 60            |
+
+
