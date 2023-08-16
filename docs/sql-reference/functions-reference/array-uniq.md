@@ -7,18 +7,23 @@ parent: SQL functions
 
 # ARRAY\_UNIQ
 
-If one argument is passed, returns the number of different elements in the array. If multiple arguments are passed, returns the number of different tuples of elements at corresponding positions in multiple arrays.
+Returns the number of different elements in the array if one argument is passed. If multiple arguments are passed, returns the number of different tuples of elements at corresponding positions in multiple arrays.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ARRAY_UNIQ(<arr> [, ...n])
+ARRAY_UNIQ(<array> [, ...n])
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter        | Description                         |
-| :---------------- | :----------------------------------- |
-| `<arr> [, ...n]` | The array or arrays to be analyzed. |
+| Parameter        | Description                         | Supported input types 
+| :---------------- | :----------------------------------- | :-------| 
+| `<array> [, ...n]` | The array or arrays to be analyzed. | Any `ARRAY` type | 
+
+## Return Types
+`ARRAY`
 
 ## Example
 {: .no_toc}
@@ -39,24 +44,24 @@ For example, two arrays \[1,1,1,1] and \[1,1,1,2] would be evaluated as individu
 
 ```
 SELECT
-	ARRAY_UNIQ ([ 1, 1, 1, 1 ], [ 1, 1, 1, 2 ]) AS res;
+	ARRAY_UNIQ ([ 1, 1, 1, 1 ], [ 1, 1, 1, 2 ]) AS levels;
 ```
 
 **Returns**: `2`
 
-In the example below, there are three different strings across all of the elements of the given arrays. However, there are only two unique tuples, ('apple', 'pie') and ('apple', 'jack').
+In the example below, there are three differentu sernames across all of the elements of the given arrays. However, there are only two unique tuples, ('tonytaylor', 'ruthgill') and ('tonytaylor', 'ywilson').
 
-```
+```sql
 SELECT
 	ARRAY_UNIQ (
-		[ 'apple',
-		'apple',
-		'apple',
-		'apple' ],
-		[ 'pie',
-		'pie',
-		'jack',
-		'jack' ]
+		[ 'tonytaylor',
+		'tonytaylor',
+		'tonytaylor',
+		'tonytaylor' ],
+		[ 'ruthgill',
+		'ruthgill',
+		'ywilson',
+		'ywilson' ]
 	) AS res;
 ```
 

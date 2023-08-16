@@ -7,7 +7,7 @@ parent: SQL functions
 
 # CEIL, CEILING
 
-Returns the smallest integer value that is greater than or equal to `<value>`.
+Returns the smallest value that is greater than or equal to `<value>`.
 
 ## Syntax
 {: .no_toc}
@@ -19,14 +19,15 @@ OR
 ```sql
 CEILING(<value>);
 ```
+## Parameters
+{: .no_toc}
 
 | Parameter | Description                                                                                                                               | Supported input types                                                          |
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------- |:-------------------------------------------------------------------------------|
-| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.                       | Any of the [numeric data types](../../general-reference/data-types.md#numeric) |
+| `<value>`   | The value that will determine the returned value | `DOUBLE PRECISION` |
 
-## Return Types
-
-Same as the input datatype (`<value>`).
+## Return Type
+`DOUBLE PRECISION`
 
 ## Remarks
 {: .no_toc}
@@ -39,7 +40,7 @@ SELECT
     CEIL('99.99'::NUMERIC(4,2));
 ```
 
-returns: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `NUMERIC` type with only 2 whole digits.
+**Returns**: `OVERFLOW ERROR`, because `CEIL` will produce the value 100, but it can not fit into the `NUMERIC` type with only 2 whole digits.
 
 
 ## Examples

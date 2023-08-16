@@ -7,23 +7,29 @@ parent: SQL functions
 
 # ATAN2
 
-Two-argument arc tangent function. Calculates the angle, in radians, between the specified positive x-axis value and the ray from the origin to the point (y,x), where x is a number of type `DOUBLE` returned by the expression `<x_expr>`, and y is a number of type `DOUBLE` returned by the expression `<y_expr>`. Returns the radians as type `DOUBLE`.
+Two-argument arc tangent function. Calculates the angle, in radians, between the specified positive x-axis value and the ray from the origin to the point `(y,x)`.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ATAN2(<y_expr>,<x_expr>)
+ATAN2(<value_y>,<value_x>)
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter   | Description |
-| :---------- | :-----------|
-| `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
-| `<y_expr>`  | Any expression that evaluates to a number of type `DOUBLE`. |
+| Parameter   | Description | Supported input types | 
+| :---------- | :-----------| :-------| 
+| `<value_y>`  | The `y value` in the arc tangent calculation | `DOUBLE PRECISION` |
+| `<value_x>`  | The `x value` in the arc tangent calculation | `DOUBLE PRECISION` |
+
+## Return Type
+`DOUBLE PRECISION`
 
 ## Example
 {: .no_toc}
 
+The following example returns the arc tangent with the values `(11, 3)`:
 ```sql
 SELECT ATAN2(11,3);
 ```

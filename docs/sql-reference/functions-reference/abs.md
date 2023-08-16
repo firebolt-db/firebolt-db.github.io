@@ -7,21 +7,28 @@ parent: SQL functions
 
 # ABS
 
-Calculates the absolute value of a number `<val>`.
+Calculates the absolute value of a number `<value>`. This means displaying the number's distance from `0`. 
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ABS(<val>)
+ABS(<value>)
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter | Description                                                                                                         |
-| :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| Parameter | Description                                                                                                         | Supported input types |
+| :--------- | :------------------------------------------------------------------------------------------------------------------- | :-------------------|
+| `<numeric_type>`   | The number that the absolute value function is applied to. | Any `NUMERIC` type |
+
+## Return Type
+`NUMERIC`
 
 ## Example
 {: .no_toc}
+
+The following example returns the absolute value of `-200.5`:
 
 ```sql
 SELECT
