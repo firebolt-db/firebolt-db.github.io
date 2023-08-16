@@ -1,11 +1,12 @@
 ---
 layout: default
-title: CEIL, CEILING
+title: CEIL
 description: Reference material for CEIL, CEILING functions
 parent: SQL functions
 ---
 
-# CEIL, CEILING
+# CEIL
+Synonym: `CEILING`
 
 Returns the smallest value that is greater than or equal to `<value>`.
 

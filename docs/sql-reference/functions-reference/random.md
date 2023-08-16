@@ -7,7 +7,7 @@ parent: SQL functions
 
 # RANDOM
 
-Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `DOUBLE`.
+Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `DOUBLE PRECISION`.
 
 ## Syntax
 {: .no_toc}
@@ -15,11 +15,13 @@ Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `D
 ```sql
 RANDOM()
 ```
+## Return Types
+`DOUBLE PRECISION`
 
 ## Example
 {: .no_toc}
 
-The example below demonstrates using `RANDOM` without any other numeric functions. This generates a `DOUBLE` value less than 1.
+The example below demonstrates using `RANDOM` without any other numeric functions. This generates a `DOUBLE PRECISION` value less than 1:
 
 ```sql
 SELECT RANDOM()

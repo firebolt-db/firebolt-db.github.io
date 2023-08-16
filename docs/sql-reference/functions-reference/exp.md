@@ -15,13 +15,19 @@ Returns the `REAL` value of the constant _e_ raised to the power of a specified 
 ```sql
 EXP(<value>)
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter | Description                                                                                                         |
-| :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<value>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| Parameter | Description                                                                                                         | Supported input types | 
+| :--------- | :------------------------------------------------------------------------------------------------------------------- | :--------| 
+| `<value>`   | base value with the power of the constant _e_  | `DOUBLE PRECISION` | 
+
+## Return Type
+`DOUBLE PRECISION`
 
 ## Example
 {: .no_toc}
+The following example takes in the value `2` to the power of _e_: 
 
 ```sql
 SELECT

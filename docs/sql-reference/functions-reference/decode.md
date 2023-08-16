@@ -16,6 +16,9 @@ Decode binary data from a SQL expression of type `TEXT`.
 DECODE(<expression>, <format>)
 ```
 
+## Parameters 
+{: .no_toc}
+
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :-------------------- |
 | `<expression>`  | A SQL expression of type `TEXT` | `TEXT` |
@@ -33,6 +36,8 @@ THE `BASE64` format, per [RFC 2045 Secion 6.8](https://www.rfc-editor.org/rfc/rf
 ## Example
 {: .no_toc}
 
+The following examples decode expressions from the `HEX`, `ESCAPE`, and `BASE64` format:
+
 ```sql
 SELECT
 	DECODE('31323300343536', 'HEX');
@@ -40,12 +45,14 @@ SELECT
 
 **Returns**: `\x31323300343536`
 
+
 ```sql
 SELECT
 	DECODE('123\000456', 'ESCAPE');
 ```
 
 **Returns**: `\x31323300343536`
+
 
 ```sql
 SELECT

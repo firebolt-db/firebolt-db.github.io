@@ -13,16 +13,23 @@ Returns the square root of a non-negative numeric expression.
 {: .no_toc}
 
 ```sql
-SQRT(<val>);
+SQRT(<value>);
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter | Description                                                                                                                                                       |
-| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. Returns `NULL `if a negative value is given.  |
+| Parameter | Description  | Supported input types | 
+|:----------|:-----------------------------------------------|:-----| 
+| `<value>`  | Value that the `SQRT` function is applied to  | `DOUBLE PRECISION` | 
+
+## Return Types 
+* `DOUBLE PRECISION` if value is positive
+* `NULL` if value is negative 
 
 ## Example
 {: .no_toc}
 
+The following example returns the square root of `64`: 
 ```sql
 SELECT
     SQRT(64);

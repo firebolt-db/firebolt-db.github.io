@@ -15,14 +15,20 @@ Calculates the tangent.
 ```sql
 TAN(<val>)
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter | Description                                                                                                          |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values.  |
+| Parameter | Description     | Supported input types | 
+| :--------- | :--------------------------------- | :---------|
+| `<value>`   | The value that determines the returned tangent | `DOUBLE PRECISION` | 
+
+## Return Type
+`DOUBLE PRECISION`
 
 ## Example
 {: .no_toc}
 
+The following example calculates the tangent of `90`: 
 ```sql
 SELECT
     TAN(90);

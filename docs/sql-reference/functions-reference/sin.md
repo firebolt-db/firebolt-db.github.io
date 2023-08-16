@@ -7,22 +7,28 @@ parent: SQL functions
 
 # SIN
 
-Calculates the sinus.
+Trigonometric function that calculates the sine of a provided value.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-SIN(<val>)
+SIN(<value>)
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter | Description                                                                                                         |
-| :--------- | :------------------------------------------------------------------------------------------------------------------- |
-| `<val>`   | Valid values include column names, functions that return a column with numeric values, and constant numeric values. |
+| Parameter | Description     | Supported input types | 
+| :--------- | :---------------------- | :----|
+| `<value>`   | The value that determines the returned sine | `DOUBLE PRECISION` | 
+
+## Return Type
+`DOUBLE PRECISION` 
 
 ## Example
 {: .no_toc}
 
+The following example calculates the sine of `90`: 
 ```sql
 SELECT
     SIN(90);

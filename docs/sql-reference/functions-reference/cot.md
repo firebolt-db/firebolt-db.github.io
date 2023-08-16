@@ -13,15 +13,24 @@ Calculates the cotangent.
 {: .no_toc}
 
 ```sql
-COT(<exp>)
+COT(<value>)
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter | Description                                           |
-| :--------- | :----------------------------------------------------- |
-| `<exp>`   | Any expression that evaluates to a numeric data type. |
+| Parameter | Description                                           | Supported input types | 
+| :--------- | :----------------------------------------------------- | :----------| 
+| `<value>`   | The value which the `COT` function will be applied to | `DOUBLE PRECISION` | 
+
+## Return Types 
+{: .no_toc}
+
+`DOUBLE PRECISION`
 
 ## Example
 {: .no_toc}
+
+The following example returns the cotangent of `180`: 
 
 ```sql
 SELECT

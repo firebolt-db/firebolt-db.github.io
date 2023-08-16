@@ -13,16 +13,22 @@ Converts a value in radians to degrees.
 {: .no_toc}
 
 ```sql
-DEGREES(<exp>)
+DEGREES(<value>)
 ```
+## Parameters
+{: .no_toc}
 
-| Parameter | Description                                           |
-| :--------- | :----------------------------------------------------- |
-| `<exp>`   | Any expression that evaluates to a numeric data type. |
+| Parameter | Description                                           | Supported input types | 
+| :--------- | :----------------------------------------------------- | :------------|
+| `<value>`   | The value to be converted to degrees from radians | `DOUBLE PRECISION` | 
+
+## Return Types
+`DOUBLE PRECISION` 
 
 ## Example
 {: .no_toc}
 
+The following example returns the value `3` in degrees: 
 ```sql
 SELECT
     DEGREES(3);

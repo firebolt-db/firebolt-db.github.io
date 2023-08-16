@@ -21,13 +21,14 @@ SIGN(<value>)
 
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
-| `value` | Any expression that evaluates to a numeric data type. | `INTEGER`, `NUMERIC`, `BIGINT`, `REAL`, `DOUBLE PRECISION` |
+| `value` | Any expression that evaluates to a numeric data type. | `DOUBLE PRECISION` |
 
-## Return Types
-Same as the input number type (`<value>`).
+## Return Type
+`DOUBLE PRECISION` 
 
 ## Examples
 
+The following examples highlight what can be returned with the `SIGN` function: 
 | If               | Returns |
 | :--              | :------ |
 | `<value>` \< `0` | `-1`   |
