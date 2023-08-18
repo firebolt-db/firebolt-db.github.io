@@ -174,7 +174,7 @@ SELECT
     DECODE(REPLACE(LevelIcon,'"',''),'BASE64'),
     SOURCE_FILE_NAME, 
     SOURCE_FILE_TIMESTAMP 
-FROM ex_levels WHERE SOURCE_FILE_TIMESTAMP > (SELECT MAX(SOURCE_FILE_TIMESTAMP) FROM levels);
+FROM ex_levels WHERE SOURCE_FILE_TIMESTAMP > (SELECT coalesce(MAX(SOURCE_FILE_TIMESTAMP), '1980-01-01'::timestamp) FROM levels);
 ```
 3. Choose **Run Script**.  
 The query results pane indicates a **Status** of **Running** as shown below.  
