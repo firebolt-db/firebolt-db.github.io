@@ -440,13 +440,13 @@ An `UNNEST` operator performs join between the table in the left side, and the a
 {: .no_toc}
 
 ```sql
-FROM <from_item> UNNEST(<array_column> [[ AS ] <alias_name>][,<array_column>...])
+FROM <from_item>, UNNEST(<array_column> [[ AS ] <alias_name>][,<array_column>...])
 ```
 
-| Component     | Description                                                                                                               | Valid values and syntax                |
-| :------------- | :------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------- |
-| `<from_item>` | The table containing the array column that you want to use to create a new table                                          |                                        |
-| `<expr>`      | Indicates the array or array column to unnest from.  Can be either an array literal or an array typed column. | Any valid array literal or column name |
+| Component     | Description                                                                                                               |
+| :------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| `<from_item>` | The table containing the array column that you want to use to create a new table                                          | 
+| `<expr>`      | Indicates the array or array column to unnest from.  Can be either any valid array expression                             |
 
 ### Example
 {: .no_toc}
@@ -475,7 +475,7 @@ SELECT
 	product,
 	cost
 FROM
-	table_with_arrays UNNEST(cost);
+	table_with_arrays, UNNEST(cost);
 ```
 
 Returns the following result:
