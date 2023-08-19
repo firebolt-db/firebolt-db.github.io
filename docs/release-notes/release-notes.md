@@ -20,6 +20,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
 
 ### New features
 
@@ -35,3 +36,9 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   `date_time + INTERVAL * d`
   where `date_time` is a constant or column reference of type `DATE`, `TIMESTAMP`, `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ`, and `d` is a constant or column reference of type `DOUBLE PRECISION`. The effect is that the `INTERVAL` is scaled by `d`, and the resulting `INTERVAL` is added to `date_time`. For example: 
   `INTERVAL '1 day' * 3 -> INTERVAL '3 days'`
+
+### Resolved issues
+
+* <!--- FIR-23676 ---> Fixed an issue where query progress was not reflected in the `information_schema.running_queries` table.
+
+* <!--- FIR-25396 ---> Significantly increased performance of the `COPY TO` function.
