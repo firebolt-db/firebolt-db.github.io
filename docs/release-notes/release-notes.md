@@ -37,6 +37,10 @@ Firebolt might roll out releases in phases. New features and changes may not yet
   where `date_time` is a constant or column reference of type `DATE`, `TIMESTAMP`, `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ`, and `d` is a constant or column reference of type `DOUBLE PRECISION`. The effect is that the `INTERVAL` is scaled by `d`, and the resulting `INTERVAL` is added to `date_time`. For example: 
   `INTERVAL '1 day' * 3 -> INTERVAL '3 days'`
 
+* #### <!--- FIR-25547 ---> Added support for `BYTEA` inputs in the `LENGTH` function
+
+  The [`LENGTH`](../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../general-reference/bytea-data-type.md).
+
 ### Resolved issues
 
 * <!--- FIR-23676 ---> Fixed an issue where query progress was not reflected in the `information_schema.running_queries` table.
