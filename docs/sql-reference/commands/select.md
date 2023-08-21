@@ -46,7 +46,7 @@ The SELECT list defines the columns that it returns. Each `<select_expr>` in the
 <expression> [ AS <alias> ]
 ```
 
-Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without expicit alias, the output column name is automatically generated. 
+Expressions in the `SELECT` list evaluate to a single value and produce one output column. The output column names are defined either by an explicit alias in the `AS` clause, or, for expressions without explicit alias, the output column name is automatically generated. 
 The expression can reference any column from the `FROM` clause, but cannot reference other columns produced by the same `SELECT` list. The expressions can use scalar functions, aggregate functions, window functions or subqueries if they return single element.
 
 #### Example
@@ -61,7 +61,7 @@ SELECT price, quantity, price * quantity AS sales_amount FROM Sales
 [ <table_name>. ] * [ EXCLUDE { <column_name> | ( <column_name>, ... ) } ]
 ```
 
-Widlcards are expanded to multiple output columns using the following rules:
+Wildcards are expanded to multiple output columns using the following rules:
 
 * `*` is expanded to all columns in the `FROM` clause
 * `<table_name>.*` is expanded to all columns in the `FROM` clause for the table named `<table_name>`
