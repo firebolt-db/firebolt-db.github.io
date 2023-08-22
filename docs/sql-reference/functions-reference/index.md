@@ -56,8 +56,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 ## Aggregation functions
 
-* [ANY](any.md)  
-
 * [ANY_VALUE](any_value.md)  
 
 * [APPROX_COUNT_DISTINCT](approx-count-distinct.md)  
@@ -70,7 +68,11 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [COUNT](count.md)  
 
-* [HLL_COUNT_DISTINCT](hll-count-distinct.md)  
+* [HLL_COUNT_BUILD](hll-count-build.md)
+
+* [HLL_COUNT_DISTINCT](hll-count-distinct.md)
+
+* [HLL_COUNT_MERGE_PARTIAL](hll-count-merge-partial.md)
 
 * [MAX](max.md)  
 
@@ -81,8 +83,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 * [MIN](min.md)  
 
 * [MIN_BY](min-by.md)  
-
-* [NEST](nest.md)  
 
 * [PERCENTILE_CONT](percentile-cont.md)
 
@@ -124,10 +124,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [LENGTH](length.md)  
 
-* [NEST](nest.md)  
-
-* [REDUCE](reduce.md)  
-
 * [SLICE](slice.md)
 
 ### Lambda functions
@@ -158,7 +154,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [TRANSFORM](transform.md)  
 
-## Bytea functions
+## Binary functions
 
 * [CONCAT](concat.md)
 
@@ -166,17 +162,19 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [ENCODE](encode.md)
 
-* [LENGTH](length.md)
+* [LENGTH](length-string.md)
 
 ## Conditional and miscellaneous functions
 
-* [CASE](case.md)  
+* [CASE](case.md)
 
 * [CAST](cast.md)  
 
 * [CITY_HASH](city-hash.md)  
 
 * [COALESCE](coalesce.md)  
+
+* [HLL_COUNT_EXTRACT](hll-count-extract.md)
 
 * [IFNULL](ifnull.md)  
 
@@ -186,7 +184,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [VERSION](version.md)
 
-* [ZEROIFNULL](zeroifnull.md)  
+* [ZEROIFNULL](zeroifnull.md)
 
 ## Date and time functions
 
@@ -197,7 +195,7 @@ For more information about using Lambda functions, see [Manipulating arrays with
   >If you worked with Firebolt before DB version 3.22, you might still be using the legacy date and timestamp types.
   >Determine which types you are using by executing the query `SELECT EXTRACT(CENTURY FROM DATE '2023-03-16');`.
   >If this query returns a result, you are using the redesigned date and timestamp types and can continue with this documentation.
-  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to reingest your data to use the new types [here](../../release-notes/release-notes.md#date-and-timestamp-names-available-for-new-data-types).
+  >If this query returns an error, you are using the legacy date and timestamp types and can find [legacy documentation here](../../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions), or instructions to reingest your data to use the new types [here](../../release-notes/release-notes-archive.html#db-version-322).
 
 * [CURRENT_DATE](current-date.md)  
 
@@ -423,7 +421,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [STRPOS](strpos.md)  
 
-* [SUBSTR](substr.md)  
+* [SUBSTRING](substring.md)  
 
 * [TO_DATE](to-date-new.md)  
 
@@ -433,15 +431,7 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 
 * [TO_INT](to-int.md)  
 
-<<<<<<< HEAD
 * [TO_TIMESTAMP](to-timestamptz.md)  
-=======
-* [TO_TIMESTAMP](to-timestamp.md)  
-
-* [TO_UNIX_TIMESTAMP](to-unixtime.md)  
-
-* [TO_UNIXTIME](to-unix-timestamp.md)  
->>>>>>> c0469340136ccf85b102e30e12682d3937e88489
 
 * [TRIM](trim.md)  
 

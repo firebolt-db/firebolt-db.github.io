@@ -18,8 +18,7 @@ parent: SQL functions
 
 Converts a value of type `DATE`, `TIMESTAMP`, or `TIMESTAMPTZ` to a formatted string.
 
-{: .note}
-The functions works with new `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ` data types. If you are using legacy `DATE` and `TIMESTAMP` data types, see [TO_CHAR (legacy)](../functions-reference/to-char.md).
+Converts a value of type `DATE`, `TIMESTAMP`, or `TIMESTAMPTZ` to a formatted string.
 
 ## Syntax
 

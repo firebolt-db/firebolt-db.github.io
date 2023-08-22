@@ -15,34 +15,34 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.25
-**August 2023**
+## DB version 3.26
+**September 2023**
 
+* [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
-  
+
+### New features
+
+* #### New setting to limit rows in result
+
+  [A new setting](../general-reference/system-settings.md#limit-the-number-of-result-rows) `max_result_rows` controls the limit of rows in result sets. The default value of the `max_result_rows` setting is 0.
 
 ### Enhancements, changes and new integrations
 
-* #### Deprecation of `catalog` metadata schema
+* #### <!--- FIR-24598 ---> Improved support for interval arithmetic
 
-  Support for the `catalog` schema is being phased out in favor of [information_schema views](../general-reference/information-schema/information-schema-and-usage-views.md). To ensure a smooth transition, please update code to use `information_schema` - for example, any query currently reading from `catalog.query_history` or `catalog.running_queries` should be modified to query from `information_schema.query_history` or `information_schema.running_queries`. **Please note, all column names in `information_schema` views are lowercase** - for example, `START_TIME` from `catalog.query_history` is now named `start_time` in the `information_schema.query_history` view.
+  You can now use the expression:
+  `date_time + INTERVAL * d`
+  where `date_time` is a constant or column reference of type `DATE`, `TIMESTAMP`, `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ`, and `d` is a constant or column reference of type `DOUBLE PRECISION`. The effect is that the `INTERVAL` is scaled by `d`, and the resulting `INTERVAL` is added to `date_time`. For example: 
+  `INTERVAL '1 day' * 3 -> INTERVAL '3 days'`
 
-* #### <!--- FIR-24427 ---> Information schema updated
+* #### <!--- FIR-25547 ---> Added support for `BYTEA` inputs in the `LENGTH` function
 
-  Added columns to the [information_schema.databases view](../general-reference/information-schema/databases.md):
-   * `compressed_size`
-   * `uncompressed_size`
-   * `description` 
-
-  Added columns to the [information_schema.engines view](../general-reference/information-schema/engines.md):
-   * `engine_type`
-   * `auto_stop`
-   * `url`
-   * `warmup`
+  The [`LENGTH`](../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../general-reference/bytea-data-type.md).
 
 ### Resolved issues
 
-  * <!--- FIR-23929 ---> Fixed an issue preventing certain array type columns being imported from a Parquet file. 
+* <!--- FIR-23676 ---> Fixed an issue where query progress was not reflected in the `information_schema.running_queries` table.
 
-  * <!--- FIR-25059 ---> Fixed an issue causing `inf` and `nan` values to be incorrectly encoded as `NULL` values. 
+* <!--- FIR-25396 ---> Significantly increased performance of the `COPY TO` function.

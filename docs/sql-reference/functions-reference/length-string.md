@@ -20,7 +20,7 @@ LENGTH(<expression>)
 
 | Parameter      | Description                                  |Supported input types |
 | :--------------| :--------------------------------------------|:----------------------|
-| `<expression>` | The string for which to return the length.   | `TEXT`           |
+| `<expression>` | The string or binary data for which to return the length.   | `TEXT`, `BYTEA`       |
 
 ## Return Type
 `INTEGER` 
