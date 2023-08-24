@@ -12,7 +12,7 @@ Calculates the relative rank (cumulative distribution) of the current row in rel
 where rank is the current row's rank within the partition, number_of_peers is the number of row values equal to the current row value (including the current row), and total_rows is the total number of rows in the partition.
 The return value ranges from 1/(total_rows) to 1.
 
-See also [PERCENT_RANK](../percent-rank.md), which returns the relative rank of the current row within an ordered data set.
+See also [PERCENT_RANK](./percent-rank.md), which returns the relative rank of the current row within an ordered data set.
 
 ## Syntax
 {: .no_toc}

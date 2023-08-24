@@ -11,7 +11,7 @@ Calculates the relative rank of the current row within an ordered data set, as
 `( rank - 1 ) / ( rows - 1 )`
 where rank is the current row's rank within the partition, and rows is the number of rows in the partition. PERCENT_RANK always returns values from 0 to 1 inclusive. The first row in any set has a `PERCENT_RANK` of 0. 
 
-See also [CUME_DIST](../cume-dist.md), which returns the cumulative distribution of the current row in relation to other rows in the same partition within an ordered data set.
+See also [CUME_DIST](./cume-dist.md), which returns the cumulative distribution of the current row in relation to other rows in the same partition within an ordered data set.
 
 ## Syntax
 {: .no_toc}
