@@ -11,7 +11,7 @@ parent: Account and user management
 # Role-based access control (Alpha)
 {: .no_toc}
 
-{: .note}
+{: .warning}
 In preparation for general availability of role-based access control with enhanced functionality in a future release, this alpha version of the feature has been deprecated in DB version 3.24. 
 
 Database-level, role-based access control provides the ability to control privileges and determine who can access and perform operations on specific objects in Firebolt. Access privileges are assigned to roles that are, in turn, assigned to users. 
