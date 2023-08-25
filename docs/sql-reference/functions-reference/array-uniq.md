@@ -22,8 +22,8 @@ ARRAY_UNIQ(<array> [, ...n])
 | :---------------- | :----------------------------------- | :-------| 
 | `<array> [, ...n]` | The array or arrays to be analyzed. | Any `ARRAY` type | 
 
-## Return Types
-`ARRAY`
+## Return Type
+`INTEGER`
 
 ## Example
 {: .no_toc}
@@ -42,7 +42,7 @@ When using multiple arrays, `ARRAY_UNIQ` evaluates all the elements at a specifi
 
 For example, two arrays \[1,1,1,1] and \[1,1,1,2] would be evaluated as individual tuples (1,1), (1,1), (1,1), and (1,2). There are 2 unique tuples, so `ARRAY_UNIQ` would return a value of 2.
 
-```
+```sql
 SELECT
 	ARRAY_UNIQ ([ 1, 1, 1, 1 ], [ 1, 1, 1, 2 ]) AS levels;
 ```

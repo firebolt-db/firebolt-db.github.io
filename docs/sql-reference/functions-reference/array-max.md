@@ -7,25 +7,32 @@ parent: SQL functions
 
 # ARRAY\_MAX
 
-Returns the maximum element in an array `<arr>`.
+Returns the maximum element in an array.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ARRAY_MAX(<arr>)
+ARRAY_MAX(<array>)
 ```
 
-| Parameter | Description                                  |
-| :--------- | :-------------------------------------------- |
-| `<arr>`   | The array or array-type column to be checked |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<array>`   | The array or array-type column to be checked | `ARRAY` | 
+
+## Return Type
+`NUMERIC` 
 
 ## Example
 {: .no_toc}
 
+The following examples calculates the maximum number in the `levels` array: 
 ```sql
 SELECT
-	ARRAY_MAX([ 1, 2, 3, 4 ]) AS res;
+	ARRAY_MAX([ 1, 2, 3, 4 ]) AS levels;
 ```
 
 **Returns**: `4`

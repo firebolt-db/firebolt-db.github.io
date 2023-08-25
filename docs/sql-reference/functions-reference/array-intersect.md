@@ -13,12 +13,18 @@ Evaluates all arrays that are provided as arguments and returns an array of any 
 {: .no_toc}
 
 ```sql
-ARRAY_INTERSECT(<arr>)
+ARRAY_INTERSECT(<array>)
 ```
 
-| Parameter | Description                                            |
-| :--------- | :------------------------------------------------------ |
-| `<arr>`   | A series of arrays to be analyzed for mutual elements. |
+## Parameters 
+{: .no_toc} 
+
+| Parameter | Description                                            | Supported input types | 
+| :--------- | :------------------------------------------------------ | :-----|
+| `<array>`   | A series of arrays to be analyzed for mutual elements. | `ARRAY`s of the same type |
+
+## Return Type
+`ARRAY` of the same type as the input arrays
 
 ## Examples
 {: .no_toc}

@@ -3,7 +3,6 @@ layout: default
 title: REDUCE
 description: Reference material for REDUCE function
 parent: SQL functions
-nav_exclude: true
 ---
 
 # REDUCE
@@ -14,20 +13,26 @@ Applies an aggregate function on the elements of the array and returns its resul
 {: .no_toc}
 
 ```sql
-REDUCE(<agg_function>, <arr>)
+REDUCE(<function>, <array>)
 ```
 
-| Parameter        | Description                                                                     |
-| :---------------- | :------------------------------------------------------------------------------- |
-| `<agg_function>` | The name of an aggregate function which should be a constant string             |
-| `<arr>`          | Any number of array type columns as the parameters of the aggregation function. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                                       | Supported input types | 
+| :--------- | :------------------------------------------------- | :----------|
+| `<function>` | The name of an aggregation function in the form of a quoted string. | Any [aggregation function](../aggregation/) |
+| `<array>`          | The array to aggregate. | `ARRAY` |
+
+## Return Types
+Same as the element data type of the input array
 
 ## Examples
 {: .no_toc}
 
 ```sql
 SELECT
-	REDUCE('max', [ 1, 2, 3, 6 ]) AS res;
+	REDUCE('max', [ 1, 2, 3, 6 ]) AS levels;
 ```
 
 **Returns**: `6`
@@ -36,6 +41,6 @@ When using aggregation functions that take a constant as a parameter, the parame
 
 ```sql
 SELECT
-	REDUCE('approx_percentile(0.3)', [ 1, 2, 3, 4, 5, 6 ]) AS res;
+	REDUCE('approx_percentile(0.3)', [ 1, 2, 3, 4, 5, 6 ]) AS levels;
 ```
 **Returns**: `2.5`

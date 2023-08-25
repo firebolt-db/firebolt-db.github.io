@@ -13,20 +13,27 @@ Returns the index position of the first occurrence of the element in the array (
 {: .no_toc}
 
 ```sql
-INDEX_OF(<arr>, <x>)
+INDEX_OF(<array>, <value>)
 ```
 
-| Parameter | Description                                       |
-| :--------- | :------------------------------------------------- |
-| `<arr>`   | The array to be analyzed.                         |
-| `<x>`     | The element from the array that is to be matched. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                                       | Supported input types | 
+| :--------- | :------------------------------------------------- | :----------|
+| `<array>`   | The array to be analyzed                         | `ARRAY` | 
+| `<value>`     | The element from the array that is to be matched | Any integer that corresponds to an element in the array | 
+
+## Return Type
+`INTEGER` 
 
 ## Example
 {: .no_toc}
+The following example returns the index position of the 5 in the `levels` array:
 
 ```sql
 SELECT
-	INDEX_OF([ 1, 3, 5, 7 ], 5) AS res;
+	INDEX_OF([ 1, 3, 4, 5, 7 ], 5) AS levels;
 ```
 
-**Returns**: `3`
+**Returns**: `4`
