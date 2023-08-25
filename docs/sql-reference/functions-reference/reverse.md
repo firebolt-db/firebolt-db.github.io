@@ -16,16 +16,23 @@ This function returns a string of the same size as the original string, with the
 REVERSE(<string>)
 ```
 
-| Parameter  | Description                |
-| :---------- | :-------------------------- |
-| `<string>` | The string to be reversed. |
+## Parameters 
+{: .no_toc}
+
+| Parameter  | Description                | Supported Input Types |
+| :---------- | :--------------------------|:---------------------|
+| `<expression>` | The string to be reversed. | `TEXT` | 
+
+## Return Type
+`TEXT`
 
 ## Example
 {: .no_toc}
+The following example returns the player's username with the characters reversed: 
 
 ```sql
 SELECT
-	REVERSE('abcd') AS res
+	REVERSE('esimpson') AS username; 
 ```
 
-**Returns**: `'dcba'`
+**Returns**: `'nospmise'`

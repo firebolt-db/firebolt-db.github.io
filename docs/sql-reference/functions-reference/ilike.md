@@ -7,7 +7,7 @@ parent: SQL functions
 
 # ILIKE
 
-Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause. `ILIKE` is case-insensitive; use [LIKE](ilike.md) for case-sensitive pattern matching.
+Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause. `ILIKE` is case-insensitive; use [LIKE](like.md) for case-sensitive pattern matching.
 
 ## Syntax
 {: .no_toc}
@@ -16,12 +16,19 @@ Allows matching of strings based on comparison to a pattern. `ILIKE` is normally
 <expression> ILIKE '<pattern>'
 ```
 
+## Parameters
+{: .no_toc}
+
 | Parameter | Description |Supported input types |
 | :-------- | :---------- | :---------------------|
-| `<expression>` | Any expression that evaluates to `TEXT` | `TEXT` |
-| `<pattern>` | Specifies the pattern to match (case-insensitive). | Any string. SQL wildcards are supported: <br> <br>* Use an underscore (`_`) to match any single character<br>* Use a percent sign (`%`) to match any number of any characters, including no characters. |
+| `<expression>` | The string to evaluate for matches. | `TEXT` |
+| `<pattern>` | Specifies the pattern to match (case-insensitive). SQL wildcards are supported: <br> <br>* Use an underscore (`_`) to match any single character<br>* Use a percent sign (`%`) to match any number of any characters, including no characters. | `TEXT`  |
 
-**Example**
+
+## Return Type
+`TEXT ARRAY`
+
+## Example
 
 Find nicknames from the `players` table that partially match the string "Joe" and any following characters as follows:
 
@@ -36,15 +43,13 @@ WHERE
 
 **Returns**:
 
-```
-+----------+----------+-------------------------+
 | playerid | nickname | email                   |
-+----------+----------+-------------------------+
+|:---------|:----------|:-----------------------|
 | 160      | joedavis | cgarcia@example.org     |
 | 519 	   | joe79    | jennifer10@example.net  |
 | 3692 	   | joeli    | cperez@example.net      |
 | 3891	   | joel11   | joanncain@example.net   |
 | 4233 	   | joellong | millerholly@example.net |
 | 4627 	   | joebowen | amandalewis@example.net |
-+----------+----------+-------------------------+
-```
+
+

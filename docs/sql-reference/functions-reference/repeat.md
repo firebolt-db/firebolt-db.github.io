@@ -7,26 +7,34 @@ parent: SQL functions
 
 # REPEAT
 
-This function repeats the provided string a requested number of times.
+Repeats the provided string a requested number of times.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-REPEAT(<string>, <repeating_number>)
+REPEAT(<expression>, <value>)
 ```
 
-| Parameter            | Description                                                                                                    |
-| :-------------------- | :-------------------------------------------------------------------------------------------------------------- |
-| `<string>`           | The string to be repeated.                                                                                     |
-| `<repeating_number>` | The number of needed repetitions. The minimum valid repeating number is `0`, which results in an empty string. |
+## Parameters 
+{: .no_toc}
+
+| Parameter            | Description                  | Supported input types | 
+| :-------------------- | :---------------------------|:----------------------|
+| `<expression>`           | The string to be repeated | `TEXT`           |
+| `<value>` | The number of needed repetitions | Any `INTEGER` greater than 0 |
+
+## Return Type
+`TEXT`
 
 ## Example
 {: .no_toc}
 
+The following example returns the author of a game 5 times repeated. 
+
 ```sql
 SELECT
-	REPEAT('repeat 3 times ' , 3);
+	REPEAT('UFG Inc.' , 5);
 ```
 
-**Returns**: `repeat 3 times repeat 3 times repeat 3 times`
+**Returns**: `UFG Inc. UFG Inc. UFG Inc. UFG Inc. UFG Inc.`

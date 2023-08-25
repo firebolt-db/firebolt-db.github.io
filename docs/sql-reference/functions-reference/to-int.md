@@ -7,7 +7,7 @@ parent: SQL functions
 
 # TO\_INT
 
-Converts a string to a numeric `INTEGER` data type.
+Converts a string to an integer.
 
 ## Syntax
 {: .no_toc}
@@ -16,12 +16,20 @@ Converts a string to a numeric `INTEGER` data type.
 TO_INT(<expression>)
 ```
 
-| Parameter | Description                                                                                              |
-| :--------- | :-------------------------------------------------------------------------------------------------------- |
-| `<expression>`  | A numeric data type expression that resolves to a `TEXT` data type. |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `<expression>`  | The string to covert to an integer. | `TEXT` |
+
+## Return Type
+`INTEGER` 
 
 ## Example
 {: .no_toc}
+
+The following example converts the input string to the integer `10`: 
 
 ```sql
 SELECT
