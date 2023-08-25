@@ -31,7 +31,7 @@ Each row has the following columns with information about the database.
 | table_schema                  | TEXT    | Name of the database. |
 | table_name                    | TEXT    | The name of the table for which the index is defined. |
 | index_name                    | TEXT    | The name defined for the index. |
-| index_type                    | TEXT    | One of `primary`, `aggregating`, or `join`. |
+| index_type                    | TEXT    | One of `primary` or `aggregating`. |
 | index_definition              | TEXT    | The portion of the index statement that defines the columns and aggregations (if applicable) for the index. |
 | index_compressed_size         | BIGINT    | The compressed size of the index. |
 | index_uncompressed_size       | BIGINT    | The uncompressed size of the index. |

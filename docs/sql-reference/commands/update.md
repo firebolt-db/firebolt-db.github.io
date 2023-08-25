@@ -109,7 +109,7 @@ Below are some known limitations of the `UPDATE` command.
 
 * Only one `UPDATE` will be executed against a table at once.
 
-* `UPDATE` cannot be used on tables that have certain aggregating indexes, or join indexes. An attempt to issue a `UPDATE` statement on a table with a join index or aggregating index outside of the below defined will fail - these table level aggregating or join indexes need to be dropped first. `UPDATE` can be used on tables that have aggregating indexes containing the following aggregating functions, starting in **DB version 3.16.0:**
+* `UPDATE` cannot be used on tables that have certain aggregating indexes An attempt to issue a `UPDATE` statement on a table with a join index or aggregating index outside of the below defined will fail - these table level aggregating indexes need to be dropped first. `UPDATE` can be used on tables that have aggregating indexes containing the following aggregating functions, starting in **DB version 3.16.0:**
   * [COUNT and COUNT(DISTINCT)](../functions-reference/count.md)
   * [SUM](../functions-reference/sum.md)
   * [AVG](../functions-reference/avg.md)
