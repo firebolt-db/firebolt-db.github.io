@@ -35,3 +35,7 @@ AS <select_query>
 | `<table_name>`                                  | An identifier that specifies the name of the external table. This name should be unique within the database. |
 | `<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
 | `<select_query`>                                | Any valid select query                                                                                          |
+
+## Remarks 
+{. no_toc}
+Unlike a traditional CREATE statement, the primary index and partition definition must come *before* the AS clause.
