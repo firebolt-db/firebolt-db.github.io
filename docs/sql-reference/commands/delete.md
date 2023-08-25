@@ -28,7 +28,7 @@ The `DELETE FROM <table_name>` without `<condition>` will delete *all* rows from
 
 Deleted rows are marked for deletion, but are not automatically cleaned up. You can monitor fragmentation in `information_schema.tables` to understand how many rows are marked for deletion out of total rows; fragmentation = (rows marked for deletion / total rows). Total row count in `information_schema.tables` includes the number of rows marked for deletion. Query performance is not materially impacted by delete marks.
   
-To mitigate fragmentation, use the [`VACUUM` (Beta)](vacuum.md) command to manually clean up deleted rows.
+To mitigate fragmentation, use the [`VACUUM`](vacuum.md) command to manually clean up deleted rows.
 
 ### Example with simple WHERE clause
 

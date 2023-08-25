@@ -13,18 +13,23 @@ Extracts fragments within a string that match a specified regex pattern. String 
 {: .no_toc}
 
 ```sql
-EXTRACT_ALL( <expr>, '<regex_pattern>' )
+EXTRACT_ALL( <expression>, <pattern> )
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter         | Description                                                                 |
-| :----------------- | :--------------------------------------------------------------------------- |
-| `<expr>`          | Any expression that evaluates to a `TEXT` data type |
-| `<regex_pattern>` | An re2 regular expression used for matching.                                |
+| Parameter         | Description                                      | Supported input types | 
+| :----------------- | :---------------------------------------------- |:---------|
+| `<expression>`          | The string to be extracted from. | `TEXT` |
+| `<pattern>` | Regex pattern that is applied to `<expression>` | An re2 regular expression used for matching.  | 
+
+## Return Type
+`ARRAY TEXT` 
 
 ## Example
 {: .no_toc}
 
-In the example below, `EXTRACT_ALL` is used to match variants of "Hello World". The regular expression pattern `'Hello.[Ww]orld!?'` does not match any special characters except for `!`.
+In the example below, `EXTRACT_ALL` is used to match variants of a tournament name, "Hello World". The regular expression pattern `'Hello.[Ww]orld!?'` does not match any special characters except for `!`.
 
 ```sql
 SELECT

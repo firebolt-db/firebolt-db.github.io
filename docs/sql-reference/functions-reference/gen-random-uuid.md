@@ -15,23 +15,22 @@ Returns a version 4 universally unique identifier (UUID) according to [RFC-4122]
 ```sql
 GEN_RANDOM_UUID()
 ```
+## Return Type
+`TEXT`
 
 ## Example
 {: .no_toc}
 
-The example below outputs the result of `GEN_RANDOM_UUID` as `session_id`.
+The example below outputs the result of `GEN_RANDOM_UUID` as `player_id`.
 
 ```sql
 SELECT
-	GEN_RANDOM_UUID() AS session_id;
+	GEN_RANDOM_UUID() AS player_id;
 ```
 
 **Returns**:
 
-```
-+--------------------------------------+
 |              session_id              |
-+--------------------------------------+
+|:-------------------------------------|
 | 08a95d43-2f01-4227-a111-de4f8ad205a0 |
-+--------------------------------------+
-```
+
