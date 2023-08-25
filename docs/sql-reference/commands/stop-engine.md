@@ -2,19 +2,28 @@
 layout: default
 title: STOP ENGINE
 description: Reference and syntax for the STOP ENGINE command.
-parent: SQL commands
+parent:  SQL commands
 ---
 
 # STOP ENGINE
 
-The `STOP ENGINE` statement enables you to stop a running engine.
+Stops a running engine.
 
 ## Syntax
 
 ```sql
 STOP ENGINE <engine_name>
 ```
+## Parameters 
+{: .no_toc}   
 
-| Parameter       | Description                          | Mandatory? Y/N |
-| :--------------- | :------------------------------------ | :-------------- |
-| `<engine_name>` | The name of the engine to be stopped | Y              |
+| Parameter       | Description                          |
+| :--------------- | :------------------------------------ |
+| `<engine_name>` | The name of the engine to be stopped. |
+
+## Example
+The following example stops my_engine:
+
+```sql
+STOP ENGINE my_engine
+```
