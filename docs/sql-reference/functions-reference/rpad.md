@@ -15,14 +15,17 @@ The similar function to pad the start of a string is [`LPAD`](./lpad.md).
 {: .no_toc}
 
 ```sql
-RPAD(<str>, <length>[, <pad>])
+RPAD(<expression>, <value>[, <pad>])
 ```
 
-| Parameter  | Description                                                                                                                                                                                                                 |
-| :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<str>`    | The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string.  `<str>` can be a literal string or the name of a column. |
-| `<length>` | The integer length that the string will be after it has been left-padded.  A negative number returns an empty string.                                                                                                      |
-| `<pad>`    | The string to add to the end of the primary string `<str>`. If left blank, `<pad>` defaults to whitespace characters.                                                                                                       |
+## Parameters 
+{: .no_toc}
+
+| Parameter  | Description                                      |Supported input types | 
+| :---------- | :---------------------------------------------- | :------------|
+| `<expression>`    | The original string. If the length of the original string is larger than the length parameter, this function removes the overflowing characters from the string. |  `TEXT` |
+| `<value>` | The integer length that the string will be after it has been left-padded.  A negative number returns an empty string.  | `INTEGER` |  
+| `<pad>`    | The string to add to the end of the primary string `<expression`. If left blank, `<pad>` defaults to whitespace characters.   |
 
 ## Example
 {: .no_toc}

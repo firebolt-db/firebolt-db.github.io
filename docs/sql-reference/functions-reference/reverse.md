@@ -13,7 +13,7 @@ This function returns a string of the same size as the original string, with the
 {: .no_toc}
 
 ```sql
-REVERSE(<string>)
+REVERSE(<expression>)
 ```
 
 ## Parameters 

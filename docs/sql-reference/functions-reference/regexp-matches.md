@@ -8,22 +8,27 @@ parent: SQL functions
 # REGEXP\_MATCHES
 
 Returns an array that contains either the match or all defined subgroups of the first match of the regular expression pattern. 
-If the pattern does not match, returns an empty array.
+Returns an empty array if the pattern does not match
+
+## Syntax
+{: .no_toc}
 
 ```sql
 REGEXP_MATCHES(<expression>, <pattern>[,'<flag>[...]'])
 ```
+## Parameters 
+{: .no_toc}
 
 | Parameter   | Description |Supported input types |
 | :----------- | :----------------------------------------- | :---------------------|
 | `<expression>`  | The string from which to extract substrings, based on a regular expression. | `TEXT` |
-| `<pattern>` | A [re2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string. | | 
-| `<flag>` | Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character. | Firebolt supports the following re2 flags to override default matching behavior. With `-` in front you can disable the flag.<br>* `i` - Specifies case-insensitive matching.<br>* `m` - Specifies multi-line mode. In this mode, `^` and `$` characters in the regex match the beginning and end of line.<br>* `s` - (Enabled per default) Specifies that the `.` metacharacter in regex matches the newline character in addition to any character in `.`<br>* `U` - Specifies Ungreedy mode. In this mode, the meaning of the metacharacters `*` and `+` in regex `<pattern>` are swapped with `*?` and `+?`, respectively. See the examples using flags below for the difference in how results are returned. |
+| `<pattern>` | A [re2 regular expression](https://github.com/google/re2/wiki/Syntax) for matching with the string. | `TEXT` | 
+| `<flag>` | Optional. Flags allow additional controls over characters used in the regular expression matching. If using multiple flags, you can include them in the same single-quote block without any separator character. | Firebolt supports the following re2 flags to override default matching behavior. With `-` in front you can disable the flag.<br>* `i` - Specifies case-insensitive matching.<br>* `m` - Specifies multi-line mode. In this mode, `^` and `$` characters in the regex match the beginning and end of line.<br>* `s` - (Enabled per default) Specifies that the `.` metacharacter in regex matches the newline character in addition to any character in `.`<br>* `U` - Specifies Ungreedy mode. In this mode, the meaning of the metacharacters `*` and `+` in regex `<pattern>` are swapped with `*?` and `+?`, respectively. See the examples using flags below for the difference in how results are returned. | `TEXT` |
 
-## Return Types
+## Return Type
 `TEXT`
 
-## Example
+## Examples
 {: .no_toc}
 
 ```sql
