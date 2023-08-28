@@ -13,19 +13,27 @@ Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT
 {: .no_toc}
 
 ```sql
-MD5_NUMBER_LOWER64(<string>)
+MD5_NUMBER_LOWER64(<expression>)
 ```
 
-| Parameter  | Description                                                              |
-| :---------- | :------------------------------------------------------------------------ |
-| `<string>` | The string to calculate the MD5 hash value on and represent as `BIGINT.` |
+## Parameters 
+{: .no_toc}
+
+| Parameter  | Description                                                              | Supported input type | 
+| :---------- | :------------------------------------------------------------------------ | :-------|
+| `<expression>` | The string to calculate the MD5 hash value on and represent as `BIGINT` | `TEXT` | 
+
+## Return Type
+`BIGINT`
 
 ## Example
 {: .no_toc}
 
+The following example represents the username `esimpson` as a `BIGINT`: 
+
 ```sql
 SELECT
-	MD5_NUMBER_LOWER64('test') AS res;
+	MD5_NUMBER_LOWER64('esimpson') AS username;
 ```
 
-**Returns**: `14618207765679027446`
+**Returns**: `624,533,696,996,866,075`

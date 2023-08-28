@@ -13,19 +13,28 @@ Calculates the MD5 hash of string, returning the result as a string in hexadecim
 {: .no_toc}
 
 ```sql
-MD5(<string>)
+MD5(<expression>)
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter  | Description                                               |
-| :---------- | :--------------------------------------------------------- |
-| `<string>` | The string to hash. For `NULL`, the function returns `NULL`. |
+| Parameter   | Description |Supported input types |
+| :----------- | :----------------------------------------- | :---------------------|
+| `<expression>` | The string to hash. | `TEXT` |
+
+## Return Types
+
+* Returns `TEXT` with string input
+* Returns `NULL` if input is `NULL`
 
 ## Example
 {: .no_toc}
 
+The following example returns the username `esimpson` in hexadecimal: 
+
 ```sql
 SELECT
-	MD5('text') AS res;
+	MD5('esimpson') AS username;
 ```
 
-**Returns**: `1cb251ec0d568de6a929b520c4aed8d1`
+**Returns**: `c14fa496dfd5ebbb08aaca16a7c2781b`

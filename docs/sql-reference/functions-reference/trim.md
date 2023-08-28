@@ -13,14 +13,20 @@ Removes all specified characters from the start, end, or both sides of a string.
 {: .no_toc}
 
 ```sql
-TRIM( [LEADING | TRAILING | BOTH] <trim_character> FROM <target_string>)
+TRIM( [LEADING | TRAILING | BOTH] <trim_character> FROM <expression>)
 ```
 
-| Parameter                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ```[ LEADING | TRAILING | BOTH ]``` | Specifies which part or parts of the `<target_string>` to remove the defined `<trim_character>`. If unspecified, this defaults to `BOTH`.<br><br>`LEADING` - trims from the beginning of the specified string<br><br>`TRAILING` - trims from the end of the specified string. <br><br>`BOTH` - trims from the beginning and the end of the specified string. |
-| `<trim_character>`                | The characters to be removed.                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `<target_string>`                 | The string to be trimmed.                                                                                                                                                                                                                                                                                                                                                                                                                             |
+## Parameters
+{: .no_toc}
+
+| Parameter | Description                         |Supported input types |
+| :--------- | :----------------------------------- | :---------------------|
+| `LEADING | TRAILING | BOTH` | Specifies which part or parts of the `<expression>` to remove the defined `<trim_character>`. | If unspecified, this defaults to `BOTH`.<br><br>`LEADING` - trims from the beginning of the specified string<br><br>`TRAILING` - trims from the end of the specified string. <br><br>`BOTH` - trims from the beginning and the end of the specified string. |
+| `<trim_character>`                | The characters to be removed.  | 	`TEXT` |
+| `<expression>`                 | The string to be trimmed.        | `TEXT` |
+
+## Return Type
+`TEXT`
 
 ## Example
 {: .no_toc}
@@ -36,7 +42,7 @@ SELECT
 
 This next example trims only from the start of the string because the `LEADING` parameter is specified.
 
-```
+```sql
 SELECT
 	TRIM( LEADING '$' FROM '$Hello world$') AS res;
 ```
