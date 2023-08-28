@@ -2,7 +2,7 @@
 layout: default
 title: ARRAY_MAX_GLOBAL
 description: Reference material for ARRAY_MAX_GLOBAL function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # ARRAY\_MAX\_GLOBAL
@@ -16,12 +16,16 @@ Returns the maximum element from all the array elements in each group.
 ARRAY_MAX_GLOBAL(<array>)
 ```
 
+## Parameters 
+{: .no_toc}
+
 | Parameter | Description                                                              | Supported input types   |
 | :--------- | :-----------------------------------------------------------------------|:------------------------|
 | `<array>`  | The array from which to return the maximum element. | Any `ARRAY` type  |
 
 
 ## Return Types 
+{: .no_toc}
 
 `ARRAY`
 

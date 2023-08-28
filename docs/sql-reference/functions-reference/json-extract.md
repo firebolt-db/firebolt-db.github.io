@@ -2,7 +2,7 @@
 layout: default
 title: JSON_EXTRACT
 description: Reference material for JSON_EXTRACT function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # JSON_EXTRACT
@@ -13,14 +13,20 @@ Takes an expression containing a JSON document, a JSON pointer expression, and a
 {: .no_toc}
 
 ```sql
-JSON_EXTRACT(<json>, '<json_pointer_expression>', '<expected_type>')
+JSON_EXTRACT(<json>, '<json_pointer_expression>', '<data_type>')
 ```
+## Parameters 
+{: .no_toc}
 
-| Parameter                   | Type           | Description                                                                                       |
+| Parameter                   | Description           | Supported input types                                                         |
 | :--------------------------- | :-------------- | :------------------------------------------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.                                        |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).                                 |
-| `<expected_type>`           | Literal string | The expected data type of the key indicated by `<json_pointer_expression>`, such as `TEXT` or `INTEGER`. For more information, see [supported type parameters](index.md#supported-type-parameters). |
+| `<json>`                    | The JSON document from which the value is to be extracted.        |    `TEXT`                                |
+| `<json_pointer_expression>` | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).                                 | `TEXT` |
+| `<data_type>`           | The expected data type of the key indicated by `<json_pointer_expression>`, such as `TEXT` or `INTEGER`. For more information, see [supported type parameters](./index.md#supported-type-parameters). | Any data type | 
+
+# Return Types 
+* If key is provided, returns the value of the data type specified 
+* If no key is provided, returns `NULL`
 
 ## Example
 {: .no_toc}
@@ -29,7 +35,7 @@ For the JSON document indicated by `<json_common_example>` below, see [JSON comm
 
 ```sql
 SELECT
-    JSON_EXTRACT(< json_common_example >, '/value/dyid', 'INTEGER')
+    JSON_EXTRACT(<json_common_example>, '/value/dyid', 'INTEGER')
 ```
 
 **Returns**: `987`

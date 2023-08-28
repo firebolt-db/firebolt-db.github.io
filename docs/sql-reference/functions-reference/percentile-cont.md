@@ -2,30 +2,34 @@
 layout: default
 title: PERCENTILE_CONT (aggregation function)
 description: Reference material for PERCENTILE_CONT aggregate function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # PERCENTILE_CONT
 
 Calculates a percentile, assuming a continuous distribution of values of <expr> defined. Results are interpolated, rather than matching any of the specific column values. 
 
-PERCENTILE\_CONT is available as a [window function](./window-functions.md). 
-See also [PERCENTILE\_DISC](../percentile-disc.md), which returns a percentile equal to a specific column value.
+PERCENTILE\_CONT is available as a [window function](./index.md#window-functions). 
+See also [PERCENTILE\_DISC](./percentile-disc.md), which returns a percentile equal to a specific column value.
 
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-PERCENTILE_CONT( <val> ) WITHIN GROUP ( ORDER BY <expr> [ { ASC | DESC } ] )
+PERCENTILE_CONT( <value> ) WITHIN GROUP ( ORDER BY <expression> [ { ASC | DESC } ] )
 ```
 
-| Parameter |    Description      |
-| :--------- | :----------------------------------------------- |
-| `<val>`   | A `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0.  |
-| `<expr>`  | A numeric expression used for the order by clause. |
+## Parameters 
+{: .no_toc}
 
-The expression used for the order by clause must be of numeric or time data types. The return type of the function will be the same as the expression type.
+| Parameter | Description                                     | Supported input types | 
+| :--------- | :----------------------------------------------- | :---------|
+| `<value>`   | Percentile value for the function | `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0 |
+| `<expression>`  | Expression used for the `ORDER BY` clause | `NUMERIC` or `TIMESTAMP`| 
+
+## Return Types 
+The return type of the function will be the same as the expression type.
 This function ignores `NULL` values.
 
 ## Example

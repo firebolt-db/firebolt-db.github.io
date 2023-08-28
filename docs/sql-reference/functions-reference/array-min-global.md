@@ -2,50 +2,63 @@
 layout: default
 title: ARRAY_MIN_GLOBAL
 description: Reference material for ARRAY_MIN_GLOBAL function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # ARRAY\_MIN\_GLOBAL
 
-Returns the minimal element taken from all the array elements in each group.
-
-For more information and the sample data used in the example below, please refer to [Aggregate Array Functions](./aggregate-array-functions.md).
+Returns the minimum element taken from all the array elements in each group.
 
 ## Syntax
 {: .no_toc}
 
 ```sql
-ARRAY_MIN_GLOBAL(<arr>)
+ARRAY_MIN_GLOBAL(<array>)
 ```
 
-| Parameter | Description                                                              |
-| :--------- | :------------------------------------------------------------------------ |
-| `<arr>`   | The array column from which the function will return the minimal element |
+## Parameters 
+{: .no_toc}
+
+| Parameter | Description                                                              | Supported input types |
+| :--------- | :------------------------------------------------------------------------ |: ------------------|
+| `<array>`   | The array column from which the function will return the minimum element. | Any `ARRAY` type  |
+
+## Return Type
+{: .no_toc}
+
+Same as `ARRAY` element type
 
 ## Example
 {: .no_toc}
-The example below uses the following table `T`:
 
-| Category | vals        |
-| :-------- | :----------- |
-| a        | \[1,3,4]    |
-| b        | \[3,5,6,7]  |
-| a        | \[30,50,60] |
+The example below uses the following table `Scores`:
+
+| nickname        | recent_scores |
+| :---------------| :-------------|
+| steven70        | \[1,3,4]      |
+| sanderserin     | \[3,5,6,7]    |
+| esimpson        | \[30,50,60]   |
+
+
+In this example, the function calculates the minimum score earned by each player's recent scores. For example, the user `esimpson` received a minimum score of `30`, so this value is returned as `min_score`. 
 
 ```sql
 SELECT
-	Category,
-	ARRAY_MIN_GLOBAL(vals) AS mn
+	nickname,
+	ARRAY_MIN_GLOBAL(recent_scores) AS min_score
 FROM
-	T
+	Scores
 GROUP BY
-	Category;
+	nickname;
 ```
 
 **Returns**:
 
-| category | sm |
-| :-------- | :-- |
-| a        | 1  |
-| b        | 3  |
-| c        | 30 |
+| nickname         | min_score     |
+| :----------------| :------------ |
+| steven70         | 1             |
+| sanderserin      | 3             |
+| esimpson         | 30            |
+
+
+

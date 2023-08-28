@@ -2,7 +2,7 @@
 layout: default
 title: JSON_EXTRACT_KEYS
 description: Reference material for JSON_EXTRACT_KEYS function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # JSON_EXTRACT_KEYS
@@ -16,10 +16,18 @@ Returns an array of strings containing the keys at the nesting level indicated b
 JSON_EXTRACT_KEYS(<json>, '<json_pointer_expression>')
 ```
 
-| Parameter                   | Type           | Description                                                     |
-| :--------------------------- | :-------------- | :--------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which keys are to be extracted.                      |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax). |
+# Parameters 
+{: .no_toc}
+
+| Parameter                   | Description                                               | Supported input types | 
+| :--------------------------- | :--------------------------------------------------------- | :----------|
+| `<json>`                    | The JSON document from which the array is to be extracted. | `TEXT` | 
+| `<json_pointer_expression>` | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).    |`TEXT` | 
+
+## Return Types 
+
+* If a key is provided, returns an `ARRAY` of strings
+* If no key is provided, returns `NULL`
 
 ## Example
 {: .no_toc}

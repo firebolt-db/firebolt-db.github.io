@@ -2,7 +2,7 @@
 layout: default
 title: JSON_EXTRACT_RAW
 description: Reference material for JSON_EXTRACT_RAW function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # JSON_EXTRACT_RAW
@@ -16,10 +16,18 @@ Returns a string representation of the scalar or sub-object under the key indica
 JSON_EXTRACT_RAW(<json>, <json_pointer_expression>)
 ```
 
-| Parameter                   | Type           | Description                                                       |
-| :--------------------------- | :-------------- | :----------------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which the value is to be extracted.         |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax). |
+# Parameters 
+{: .no_toc}
+
+| Parameter                   | Description                                               | Supported input types | 
+| :--------------------------- | :--------------------------------------------------------- | :----------|
+| `<json>`                    | The JSON document from which the array is to be extracted. | `TEXT` | 
+| `<json_pointer_expression>` | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).    |    `TEXT` | 
+
+# Return Types 
+
+* If key is provided, returns `TEXT`
+* If no key is provided, returns `NULL`
 
 ## Example
 {: .no_toc}

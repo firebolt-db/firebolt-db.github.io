@@ -2,14 +2,14 @@
 layout: default
 title: JSON_EXTRACT_ARRAY_RAW
 description: Reference material for JSON_EXTRACT_ARRAY_RAW function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # JSON_EXTRACT_ARRAY_RAW
 
 Returns a string representation of a JSON array pointed by the supplied JSON pointer. The returned string represents a Firebolt array with elements that are string representations of the scalars or objects contained in the JSON array under the specified key, if the key exists. If the key does not exist, the function returns an empty array.
 
-This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](/transform.md).
+This function is useful when working with heterogeneously typed arrays and arrays containing JSON objects in which case each object will be further processed by functions such as [TRANSFORM](./transform.md).
 
 ## Syntax
 {: .no_toc}
@@ -18,10 +18,17 @@ This function is useful when working with heterogeneously typed arrays and array
 JSON_EXTRACT_ARRAY_RAW(<json>, '<json_pointer_expression>')
 ```
 
-| Parameter                   | Type           | Description                                               |
-| :--------------------------- | :-------------- | :--------------------------------------------------------- |
-| `<json>`                    | TEXT           | The JSON document from which the array is to be extracted. |
-| `<json_pointer_expression>` | Literal string | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).    |
+## Parameters
+{: .no_toc}
+
+| Parameter                   | Description                                               | Supported input types | 
+| :--------------------------- | :--------------------------------------------------------- | :----------|
+| `<json>`                    | The JSON document from which the array is to be extracted. | `TEXT` | 
+| `<json_pointer_expression>` | A JSON pointer to the location of the array in the JSON. For more information, see [JSON pointer expression syntax](./index.md#json-pointer-expression-syntax).    | `TEXT` | 
+
+## Return Types
+* If the key exists, returns a string representation of a JSON `ARRAY`
+* If the key does not exist, returns an empty `ARRAY`
 
 ## Example
 {: .no_toc}

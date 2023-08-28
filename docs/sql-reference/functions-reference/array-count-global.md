@@ -2,12 +2,12 @@
 layout: default
 title: ARRAY_COUNT_GLOBAL
 description: Reference material for ARRAY_COUNT_GLOBAL function
-parent: SQL functions
+parent:  SQL functions
 ---
 
 # ARRAY\_COUNT\_GLOBAL
 
-Returns the number of elements in the array typed column accumulated over all rows. As such it is an _aggregation function._
+Returns the number of elements in the array column accumulated over all rows. As such it is an _aggregation function._
 
 ## Syntax
 {: .no_toc}
@@ -16,20 +16,26 @@ Returns the number of elements in the array typed column accumulated over all ro
 ARRAY_COUNT_GLOBAL(<array>)
 ```
 
-| Parameter   | Description                                                      |
-| :----------- | :---------------------------------------------------------------- |
-| `<array>` | The array column over which the function will count the elements. |
+## Parameters 
+{: .no_toc}
+
+| Parameter   | Description                                                      | Supported input types 
+| :----------- | :---------------------------------------------------------------- |:-------|
+| `<array>` | The array column over which the function will count the elements. | Any `ARRAY` type |
+
+## Return Type
+`INTEGER`
 
 ## Example
 {: .no_toc}
 
-For this example, we will create a table `array_test` as shown below.
+For this example, we will create a table `levels` as shown below. This table will highlight the levels that a certain player has completed. 
 
 ```sql
-CREATE DIMENSION TABLE array_test(array_1 ARRAY(INTEGER));
+CREATE DIMENSION TABLE levels(esimpson ARRAY(INTEGER));
 
 INSERT INTO
-	array_test
+	levels
 VALUES
 	([ 1, 2, 3, 4 ]),
 	([ 5, 0, 20 ]),
@@ -39,13 +45,13 @@ VALUES
 	([ 1 ]);
 ```
 
-We can use `ARRAY_COUNT_GLOBAL` to learn how many total array elements are in all rows.
+We can use `ARRAY_COUNT_GLOBAL` to learn how many total array elements are in all rows for the user `esimpson`.
 
 ```sql
 SELECT
-	ARRAY_COUNT_GLOBAL(array_1)
+	ARRAY_COUNT_GLOBAL(esimpson)
 FROM
-	array_test;
+	levels;
 ```
 
 **Returns**: `17`
@@ -54,9 +60,9 @@ If you want to count elements based on specific criteria, you can use the [`ARRA
 
 ```sql
 SELECT
-	SUM(ARRAY_COUNT(x -> x > 3, array_1))
+	SUM(ARRAY_COUNT(x -> x > 3, esimpson))
 FROM
-	array_test;
+	levels;
 ```
 
 **Returns**: `11`
