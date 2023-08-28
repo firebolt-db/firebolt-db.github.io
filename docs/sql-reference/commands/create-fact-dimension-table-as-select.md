@@ -2,12 +2,12 @@
 layout: default
 title: CREATE TABLE AS SELECT (CTAS)
 Description: Reference and syntax for the CTAS SQL command.
-parent: SQL commands
+parent:  SQL commands
 ---
 
 # CREATE FACT or DIMENSION TABLE...AS SELECT
 
-Creates a table and loads data into it based on the [SELECT](query-syntax.md) query. The table column names and types are automatically inferred based on the output columns of the [SELECT](query-syntax.md). When specifying explicit column names those override the column names inferred from the [SELECT](query-syntax.md).
+Creates a table and loads data into it based on the [SELECT](./select.md) query. The table column names and types are automatically inferred based on the output columns of the [SELECT](./select.md). When specifying explicit column names those override the column names inferred from the SELECT.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ AS <select_query>
 | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
 | `<table_name>`                                  | An identifier that specifies the name of the external table. This name should be unique within the database. |
 | `<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.               |
-| `<select_query`>                                | Any valid select query                                                                                          |
+| `<select_query`>                                | Any valid select query.                                                                                        |
 
 
 ## Remarks 

@@ -2,18 +2,19 @@
 layout: default
 title: CREATE VIEW
 description: Reference and syntax for the CREATE VIEW command.
-parent: SQL commands
+parent:  SQL commands
 ---
 
 # CREATE VIEW
 
 Creates a view, which is useful to filter, focus, and simplify a data set for querying. Views provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. 
 
-View results are not stored for future usage. Each time a query references a view, the view runs its `SELECT` query. For this reason, views do not provide a performance advantage. Consider using a materialized common table expression (CTE) as an alternative. For more information, see [Materialized common table expressions](select.md#materialized-common-table-expressions-beta).
+View results are not stored for future usage. Each time a query references a view, the view runs its `SELECT` query. For this reason, views do not provide a performance advantage. Consider using a materialized common table expression (CTE) as an alternative. For more information, see [Materialized common table expressions](./select.md#materialized-common-table-expressions-beta).
 
 The optional `IF NOT EXISTS` and `OR REPLACE` clauses are mutually exclusive. They specify behavior if a view with the same name already exists. If neither clause is specified, an error occurs if a view with the same `<view_name>` already exists. 
 
 ## Syntax
+{: .no_toc}
 
 ```sql
 CREATE VIEW [IF NOT EXISTS] <view_name> [(<column_list>)]
@@ -27,6 +28,8 @@ CREATE [OR REPLACE] VIEW <view_name> [(<column_list>)]
 AS SELECT <select_statement>
 ```
 
+## Parameters
+{: .no_toc}
 
 | Parameter              | Description |
 | :----------------------| :---------  |
@@ -37,6 +40,7 @@ AS SELECT <select_statement>
 | `<select_statement>`   | The select statement for creating the view. |
 
 ## Example
+{: .no_toc}
 
 ```sql
 CREATE VIEW fob_shipments

@@ -2,7 +2,7 @@
 layout: default
 title: DROP INDEX
 description: Reference and syntax for the DROP INDEX command.
-parent: SQL commands
+parent:  SQL commands
 ---
 
 # DROP INDEX
@@ -13,6 +13,9 @@ Deletes an index.
 ```sql
 DROP AGGREGATING INDEX [IF EXISTS] <index_name>
 ```
+
+## Parameters
+{: .no_toc}
 
 | Parameter      | Description                          |
 | :-------------- | :------------------------------------ |

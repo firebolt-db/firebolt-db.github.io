@@ -2,17 +2,21 @@
 layout: default
 title: DROP TABLE
 description: Reference and syntax for the DROP TABLE command.
-parent: SQL commands
+parent:  SQL commands
 ---
 
 # DROP TABLE
 Deletes a table.
 
 ## Syntax
+{: .no_toc}
 
 ```sql
 DROP TABLE [IF EXISTS] <table_name> [CASCADE]
 ```
+
+## Parameters
+{: .no_toc}
 
 | Parameter       | Description                          |
 | :-------------- | :------------------------------------ |
