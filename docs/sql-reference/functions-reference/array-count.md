@@ -7,7 +7,7 @@ parent: SQL functions
 
 # ARRAY\_COUNT
 Let arr[0], ..., arr[n-1] be the elements of <array>.
-If <function> is not provided, count how many elements are evaluated to true.
+If <function> is not provided, count the number of elements evaluate to true.
 if <function> is provided, count the number of elements for which ```function(array[i])``` evaluates to true.
 If you want only a count of the elements in an array without any conditions, we recommend using the [LENGTH](./length.md) function instead.
 
