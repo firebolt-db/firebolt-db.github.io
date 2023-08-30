@@ -44,7 +44,7 @@ In this example below, there is no `<function>` criteria provided in the `ARRAY_
 
 ```sql
 SELECT
-	ARRAY_COUNT([true, false, 2::bool, 3 is not null, null is null]) as levels;;
+	ARRAY_COUNT([true, false, 2::bool, 3 is not null, null is null]) as levels;
 ```
 
 **Returns**: `4`
