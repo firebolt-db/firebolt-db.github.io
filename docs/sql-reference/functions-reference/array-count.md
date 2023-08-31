@@ -6,8 +6,9 @@ parent: SQL functions
 ---
 
 # ARRAY\_COUNT
-
-Returns the number of elements in the given array that match a specified function. If you want only a count of the elements in an array without any conditions, we recommend using the [LENGTH](./length.md) function instead.
+Counts the number of elements in a boolean array for which `function(array[i])` evaluates to TRUE, if a function is provided. 
+If `<function>` is not provided, counts the number of elements in the array that evaluate to TRUE.
+To count the elements in an array without any conditions, use the [LENGTH](./length.md) function instead.
 
 ## Syntax
 {: .no_toc}
@@ -21,11 +22,10 @@ ARRAY_COUNT(<function>, <array>)
 | Parameter | Description         | Supported input types | 
 | :--------- | :-------------------------------------------- | :--------| 
 | `<function>`  | Optional. A [Lambda function](../../working-with-semi-structured-data/working-with-arrays.md#manipulating-arrays-with-lambda-functions) used to check elements in the array. If `<function>` is not included, `ARRAY_COUNT` will return a count of all non-false elements in the array. | Any Lambda function | 
-| `<array>`   | An array of elements | Any array | 
+| `<array>`   | An array of elements | `ARRAY BOOLEAN` | 
 
-## Return Types
-* Returns `1` if the conditions are met
-* Returns `0` if the conditions are not met
+## Return Type
+`INTEGER`
 
 ## Examples
 {: .no_toc}
@@ -43,7 +43,7 @@ In this example below, there is no `<function>` criteria provided in the `ARRAY_
 
 ```sql
 SELECT
-	ARRAY_COUNT([ 0, 1, 2, 3 ]) AS levels;
+	ARRAY_COUNT([TRUE, FALSE, 2::BOOLEAN, 3 is not null, null is null]) AS levels;
 ```
 
-**Returns**: `3`
+**Returns**: `4`
