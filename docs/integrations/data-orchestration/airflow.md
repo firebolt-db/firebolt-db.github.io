@@ -93,12 +93,16 @@ The instructions below demonstrate how to use the Airflow UI to create a connect
    | Password        | The password associated with the username provided. | `pass1234` |
    | Advanced Connection Properties | Specifies the Firebolt account name and engine within the specified database to use in the format `{"account_name":"<my_account_name>","engine_name":"<engine_name>"}`. | `{"account_name":"MyFbAccount","engine_name":"MyFireboltDatabase_general_purpose"}` |
 
-6. Choose **Test** to verify that connection parameters are correct.  
+   {: .note}
+   You can also authenticate using [service account](../../managing-your-account/service-accounts.md) credentials. To do so, provide your service account id in the Username field and secret in the Password field.
+   
+
+7. Choose **Test** to verify that connection parameters are correct.  
 
    The engine that you specify in **Advanced Connection Properties** must be running for the test to complete successfully.
    {: .note}
 
-7. After the test is successful, choose **Save**.
+8. After the test is successful, choose **Save**.
 
 ## Example&mdash;creating a DAG for data processing with Firebolt
 
