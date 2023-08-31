@@ -437,6 +437,54 @@ SELECT_QUERY_N;
 {: .note}
 Queries are per request. To run multiple statement queries, separate queries each into one request. 
 
+**Response**
+
+```json
+{  
+  "meta": [
+    {
+    "name": Name of first column,
+      "type": Type of first column 
+    },
+    {
+      "name": Name of second column,
+      "type": Type of second column 
+    },
+    ...
+  ],
+  "data": [
+    {
+      "column_a": column value on 1st row,
+      "column_b": column value on 1st row,
+      "column_c": column value on 1st row,
+      ...
+    },
+    {
+      "column_a": column value on 2nd row,
+      "column_b": column value on 2nd row,
+      "column_c": column value on 2nd row,
+      ...
+    },
+    {
+      "column_a": column value on 3rd row,
+      "column_b": column value on 3rd row,
+      "column_c": column value on 3rd row,
+      ...
+    },
+    ...
+  ],
+
+  "rows": Total rows returned by query(INT),
+
+  "statistics":
+    {
+            "elapsed": time in seconds to execute query(DOUBLE),
+            "rows_read": number of rows read by query(BIGINT),
+            "bytes_read": number of bytes read by query(BIGINT)
+    }
+}
+```
+
 ### Cancel a running query
 
 Use the following request to cancel a running query:
