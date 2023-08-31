@@ -474,11 +474,11 @@ Queries are per request. To run multiple statement queries, separate queries eac
     ...
   ],
 
-  "rows": Total rows returned by query(INT),
+  "rows": Total rows returned by query(INTEGER),
 
   "statistics":
     {
-            "elapsed": time in seconds to execute query(DOUBLE),
+            "elapsed": time in seconds to execute query(DOUBLE PRECISION),
             "rows_read": number of rows read by query(BIGINT),
             "bytes_read": number of bytes read by query(BIGINT)
     }
