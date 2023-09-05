@@ -8,9 +8,7 @@ parent: SQL functions
 # GENERATE_SERIES (Beta)
 Generates a series of values from `start` to `stop`, with a step size of `step`. `step` defaults to 1.
 
-**Note**
-<Note>
-  
+{: .note}  
 `GENERATE_SERIES` is not supported for all the queries.
 
 ## Syntax
@@ -34,8 +32,7 @@ GENERATE_SERIES ( <start>, <stop> [, <step> ] )
 
 ## Return Types
 {: .no_toc}
-
-A table with a single column of type `BIGINT`.
+`BIGINT`
 
 
 ## Example
