@@ -25,14 +25,15 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 ### New features
 
 #### Add `URL_DECODE` and `URL_ENCODE` SQL functions
-- `URL_ENCODE` percent-encodes all non "Unreserved Characters"
-- `URL_DECODE` decodes percent-encoded characters
+- [URL_ENCODE](../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_.
+- [URL_DECODE](../sql-reference/functions-reference/url_decode.md) decodes percent-encoded characters.
 
 #### New GENERATE_SERIES function
-Add GENERATE_SERIES function to generate a list of values based on the start, stop, and optional configurable increment step. Start/Stop can be either numeric or timestamp, while step can be either numeric or interval. 
+
+Support has been added for the [GENERATE_SERIES function](../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
 
 ### Enhancements, changes, and new integrations
 
 #### Updates to CSV ingestion
-Allow `true` and `false` as valid boolean values when ingesting csv files
+Allow `true` and `false` as valid `BOOLEAN` values when ingesting CSV files
 

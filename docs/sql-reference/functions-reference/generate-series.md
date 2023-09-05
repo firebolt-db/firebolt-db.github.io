@@ -25,11 +25,11 @@ GENERATE_SERIES ( <start>, <stop> [, <step> ] )
 | Parameter | Description |Supported input types |
 | :--------- |:------------ |:--------- |
 | `<start>`  | The first value in the interval. | `BIGINT` |
-| `<stop>` | The last value in the interval. <br/>The series stops once the last generated step value exceeds the stop value. |  `BIGINT ` |
-| `<step>` | Optional literal integer value to set step. If not included, the default step is 1. | `BIGINT ` |
+| `<stop>` | The last value in the interval. <br/>The series stops once the last generated step value exceeds the stop value. |  `BIGINT` |
+| `<step>` | Optional literal integer value to set step. If not included, the default step is 1. | `BIGINT` |
 
 
-## Return Types
+## Return Type
 {: .no_toc}
 `BIGINT`
 
@@ -39,7 +39,8 @@ GENERATE_SERIES ( <start>, <stop> [, <step> ] )
 
 
 ```sql
-SELECT n, DATE_ADD('DAY', n, '2023-02-02') result FROM generate_series(1, 10, 2) s(n)
+SELECT n, DATE_ADD('DAY', n, '2023-02-02') result 
+FROM GENERATE_SERIES(1, 10, 2) s(n)
 ```
 
 **Returns**:
