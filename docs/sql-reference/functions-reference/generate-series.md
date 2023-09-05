@@ -8,10 +8,6 @@ parent: SQL functions
 # GENERATE_SERIES (Beta)
 Generates a single rowset of values from `start` to `stop`, with a step size of `step`. `GENERATE_SERIES` is a table-valued function. 
 
-{: .note}  
-`GENERATE_SERIES` is not supported for all the queries.
-
-
 ## Syntax
 {: .no_toc}
 
@@ -53,3 +49,7 @@ FROM GENERATE_SERIES(1, 10, 2) s(n)
 | 7 | 2023-02-09 00:00:00 |
 | 9 | 2023-02-11 00:00:00 |
 
+### Known limitations
+
+`GENERATE_SERIES` is not supported for all queries - unsupported queries will result in the following message: 
+`Planner error: Invalid input error: generate_series() is not supported for this request.`
