@@ -15,7 +15,7 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.26
+## DB version 3.27
 **September 2023**
 
 * [New features](#new-features)
@@ -24,25 +24,15 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 ### New features
 
-* #### New setting to limit rows in result
+#### Add `URL_DECODE` and `URL_ENCODE` SQL functions
+- `URL_ENCODE` percent-encodes all non "Unreserved Characters"
+- `URL_DECODE` decodes percent-encoded characters
 
-  [A new setting](../general-reference/system-settings.md#limit-the-number-of-result-rows) `max_result_rows` controls the limit of rows in result sets. The default value of the `max_result_rows` setting is 0.
+#### New GENERATE_SERIES function
+Add GENERATE_SERIES function to generate a list of values based on the start, stop, and optional configurable increment step. Start/Stop can be either numeric or timestamp, while step can be either numeric or interval. 
 
-### Enhancements, changes and new integrations
+### Enhancements, changes, and new integrations
 
-* #### <!--- FIR-24598 ---> Improved support for interval arithmetic
+#### Updates to CSV ingestion
+Allow `true` and `false` as valid boolean values when ingesting csv files
 
-  You can now use the expression:
-  `date_time + INTERVAL * d`
-  where `date_time` is a constant or column reference of type `DATE`, `TIMESTAMP`, `PGDATE`, `TIMESTAMPNTZ`, or `TIMESTAMPTZ`, and `d` is a constant or column reference of type `DOUBLE PRECISION`. The effect is that the `INTERVAL` is scaled by `d`, and the resulting `INTERVAL` is added to `date_time`. For example: 
-  `INTERVAL '1 day' * 3 -> INTERVAL '3 days'`
-
-* #### <!--- FIR-25547 ---> Added support for `BYTEA` inputs in the `LENGTH` function
-
-  The [`LENGTH`](../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../general-reference/bytea-data-type.md).
-
-### Resolved issues
-
-* <!--- FIR-23676 ---> Fixed an issue where query progress was not reflected in the `information_schema.running_queries` table.
-
-* <!--- FIR-25396 ---> Significantly increased performance of the `COPY TO` function.
