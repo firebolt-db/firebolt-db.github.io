@@ -6,10 +6,11 @@ parent: SQL functions
 ---
 
 # GENERATE_SERIES (Beta)
-A table-valued function that generates a single rowset of values from `start` to `stop`, with a step size of `step`.
+Generates a single rowset of values from `start` to `stop`, with a step size of `step`. `GENERATE_SERIES` is a table-valued function. 
 
 {: .note}  
 `GENERATE_SERIES` is not supported for all the queries.
+
 
 ## Syntax
 {: .no_toc}
@@ -18,15 +19,13 @@ A table-valued function that generates a single rowset of values from `start` to
 GENERATE_SERIES ( <start>, <stop> [, <step> ] )
 ```
 
-<Syntax>
-
 ## Parameters
 {: .no_toc}
 
-| Parameter | Description | Supported input types |
-| :--------- |:------------|:-|
+| Parameter | Description |Supported input types |
+| :--------- |:------------ |:--------- |
 | `<start>`  | The first value in the interval. | `BIGINT` |
-| `<stop>` | The last value in the interval. <br/> The series stops once the last generated step value exceeds the stop value. |  `BIGINT ` |
+| `<stop>` | The last value in the interval. <br/>The series stops once the last generated step value exceeds the stop value. |  `BIGINT ` |
 | `<step>` | Optional literal integer value to set step. If not included, the default step is 1. | `BIGINT ` |
 
 
