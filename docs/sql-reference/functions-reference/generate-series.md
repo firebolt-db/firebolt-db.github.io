@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 # GENERATE_SERIES (Beta)
-Generates a series of values from `start` to `stop`, with a step size of `step`. `step` defaults to 1.
+A table-valued function that generates a single rowset of values from `start` to `stop`, with a step size of `step`. `step` defaults to 1.
 
 {: .note}  
 `GENERATE_SERIES` is not supported for all the queries.
@@ -26,7 +26,7 @@ GENERATE_SERIES ( <start>, <stop> [, <step> ] )
 | Parameter | Description | Supported input types |
 | :--------- |:------------|:-|
 | `<start>`  | The first value in the interval. | `BIGINT` |
-| `<stop>` | The last value in the interval. |  `BIGINT ` |
+| `<stop>` | The last value in the interval. <br/> The series stops once the last generated step value exceeds the stop value. |  `BIGINT ` |
 | `<step>` | Optional literal integer value to set step. If not included, the default step is 1. | `BIGINT ` |
 
 
