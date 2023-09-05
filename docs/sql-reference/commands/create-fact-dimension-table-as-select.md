@@ -41,6 +41,6 @@ AS <select_query>
 
 
 ## Remarks 
-{. no_toc}
+{: .no_toc}
 
 Unlike a traditional CREATE statement, the primary index and partition definition must come *before* the AS clause.
