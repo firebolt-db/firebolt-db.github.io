@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 # GENERATE_SERIES (Beta)
-A table-valued function that generates a single rowset of values from `start` to `stop`, with a step size of `step`. `step` defaults to 1.
+A table-valued function that generates a single rowset of values from `start` to `stop`, with a step size of `step`.
 
 {: .note}  
 `GENERATE_SERIES` is not supported for all the queries.
