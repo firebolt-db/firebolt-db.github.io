@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 # ARRAY\_COUNT
-Counts the number of elements in a boolean array for which `function(array[i])` evaluates to TRUE, if a function is provided. 
+Counts the number of elements in the specified array for which `function(array[i])` evaluates to TRUE, if a function is provided. 
 If `<function>` is not provided, counts the number of elements in the array that evaluate to TRUE.
 To count the elements in an array without any conditions, use the [LENGTH](./length.md) function instead.
 
@@ -43,7 +43,7 @@ In this example below, there is no `<function>` criteria provided in the `ARRAY_
 
 ```sql
 SELECT
-	ARRAY_COUNT([TRUE, FALSE, 2::BOOLEAN, 3 is not null, null is null]) AS levels;
+	ARRAY_COUNT([TRUE, '0', 1::BOOLEAN, 3 is not null, null is null]) AS levels;
 ```
 
 **Returns**: `4`
