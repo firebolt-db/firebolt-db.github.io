@@ -7,7 +7,7 @@ parent: SQL functions
 
 # URL\_ENCODE
 
-Encodes all characters that are not unreserved using percent-encoding.
+Encodes all characters that are not unreserved using [percent-encoding](https://en.wikipedia.org/wiki/Percent-encoding).
 
 Unreserved characters are defined according to [W3C RFC 3986](https://www.rfc-editor.org/rfc/rfc3986.html).
 

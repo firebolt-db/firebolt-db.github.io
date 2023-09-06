@@ -7,7 +7,7 @@ parent: SQL functions
 
 # URL\_DECODE
 
-Decodes percent-encoded characters and replaces them with their binary value.
+Decodes [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding) characters and replaces them with their binary value.
 
 ## Syntax
 {: .no_toc}
