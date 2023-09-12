@@ -174,6 +174,8 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [COALESCE](coalesce.md)  
 
+* [GENERATE_SERIES](generate-series.md)
+
 * [HLL_COUNT_EXTRACT](hll-count-extract.md)
 
 * [IFNULL](ifnull.md)  
@@ -436,6 +438,10 @@ Usage examples for JSON functions in this reference are based on the JSON docume
 * [TRIM](trim.md)  
 
 * [UPPER](upper.md)  
+
+* [URL_DECODE](url_decode.md)
+
+* [URL_ENCODE](url_encode.md)
 
 ## Window functions
 
