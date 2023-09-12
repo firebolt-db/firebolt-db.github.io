@@ -50,7 +50,7 @@ TYPE = (<type>)
 
 In some applications, such as Hive partitioning, table partitions are stored in S3 folders and files using a folder naming convention that identifies the partition. The `PARTITION` keyword allows you to specify a regular expression, `<regex>`, to extract a portion of the file path and store it in the specified column when Firebolt uses the external table to ingest partitioned data.
 
-Using `PARTITION` in this way is one method of extracting partition data from file paths. Another method is to use the table metadata column, `source_file_name`, during the `INSERT` operation. For more information, see [Example&ndash;extracting partition values using INSERT](../data-management/insert.md#extracting-partition-values-using-insert-into) --> broken link.
+Using `PARTITION` in this way is one method of extracting partition data from file paths. Another method is to use the table metadata column, `source_file_name`, during the `INSERT` operation. For more information, see [Example&ndash;extracting partition values using INSERT](./insert-into.md#extracting-partition-values-using-insert-into)
 
 #### Guidelines for creating the regex
 {: .no_toc}
