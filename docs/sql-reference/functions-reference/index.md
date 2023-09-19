@@ -110,6 +110,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [ARRAY_REVERSE](array-reverse.md)
 
+* [ARRAY_SLICE](slice.md)
+
 * [ARRAY_UNIQ](array-uniq.md)  
 
 * [ARRAY_UNNEST](array_unnest.md)  
@@ -124,7 +126,6 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [LENGTH](length.md)  
 
-* [SLICE](slice.md)
 
 ### Lambda functions
 
