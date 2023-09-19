@@ -1,11 +1,11 @@
 ---
 layout: default
-title: ARRAY-SLICE
-description: Reference material for ARRAY-SLICE function
+title: ARRAY_SLICE
+description: Reference material for ARRAY_SLICE function
 parent: SQL functions
 ---
 
-# ARRAY-SLICE
+# ARRAY_SLICE
 
 Returns a slice of the array based on the indicated offset and length.
 
