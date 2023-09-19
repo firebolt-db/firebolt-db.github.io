@@ -124,7 +124,7 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [LENGTH](length.md)  
 
-* [SLICE](slice.md)
+* [ARRAY_SLICE](slice.md)
 
 ### Lambda functions
 
