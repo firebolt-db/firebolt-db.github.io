@@ -31,5 +31,7 @@ Users with the **Account Admin** role can monitor the cost history of an account
 
 The **Accounts & Billing** page shows accrued charges for **Storage** and **Compute** for the most recent month to date. Choose the month for which you want to view billing history. To view a summary of daily charges, choose **Day in month** from the list. Choose **Month in year** to view a summary of monthly charges.
 
+Firebolt billing is reported to the AWS Marketplace at the beginning of the next day. By default, the **Accounts & Billing** page displays the engine usage breakdown based on billing time. If you prefer to see the engine usage by actual usage day, you can click the **Engines breakdown** selector under the **Usage cost by engine** table and click **Actual running time**. 
+
 {: .caution}
 The **AWS account id** on this page is your *Firebolt AWS account* ID. It is **not** the *customer AWS account* under which you are billed.
