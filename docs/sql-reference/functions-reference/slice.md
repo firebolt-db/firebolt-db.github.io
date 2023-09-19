@@ -1,11 +1,11 @@
 ---
 layout: default
-title: SLICE
-description: Reference material for SLICE function
+title: ARRAY-SLICE
+description: Reference material for ARRAY-SLICE function
 parent: SQL functions
 ---
 
-# SLICE
+# ARRAY-SLICE
 
 Returns a slice of the array based on the indicated offset and length.
 
@@ -13,7 +13,7 @@ Returns a slice of the array based on the indicated offset and length.
 {: .no_toc}
 
 ```sql
-SLICE(<array>, <start>[, <length>])
+ARRAY_SLICE(<array>, <start>[, <length>])
 ```
 ## Parameters
 {: .no_toc}
@@ -33,7 +33,7 @@ SLICE(<array>, <start>[, <length>])
 The following example slices the `levels` array to a different length: 
 ```sql
 SELECT
-	SLICE([ 1, 2, 3, 4, 5 ], 1, 3) AS levels;
+	ARRAY_SLICE([ 1, 2, 3, 4, 5 ], 1, 3) AS levels;
 ```
 
 **Returns**: `[1, 2, 3]`
