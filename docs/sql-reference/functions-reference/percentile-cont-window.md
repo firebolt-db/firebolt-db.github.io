@@ -26,7 +26,7 @@ PERCENTILE_CONT( <val> ) WITHIN GROUP ( ORDER BY <expr0> [ { ASC | DESC } ] ) [ 
 | `<expr0>` | An expression used for the order by clause. |
 | `<expr1>` | An expression used for the partition by clause. |
 
-The expression used for the order by clause must be of numeric data type. The return type of the function will be the same as the expression type.
+The expression used for the order by clause must be of numeric data type. The return type of the function is DOUBLE.
 
 ## Example
 {: .no_toc}
