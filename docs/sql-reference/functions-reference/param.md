@@ -60,7 +60,6 @@ SELECT COUNT(*) AS level_count FROM levels WHERE leveltype = PARAM('level')
 ```
 
 **Returns**: 
-
 | level_count   |
 | :------------- |
 | 2              |
