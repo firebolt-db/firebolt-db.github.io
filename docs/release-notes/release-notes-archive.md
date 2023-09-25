@@ -15,7 +15,7 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
-## DB version 3.26
+## DB version 3.27
 **September 2023**
 
 * [New features](#new-features)
@@ -24,11 +24,37 @@ We provide an archive of release notes for your historical reference.
 
 ### New features
 
+* **Add `URL_DECODE` and `URL_ENCODE` SQL functions**
+- [URL_ENCODE](../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_; for example, ```SELECT CONCAT('https://www.firebolt.io/?', URL_ENCODE('example_id=1&hl=en'));``` returns: `https://www.firebolt.io/?example_id%3D1%26hl%3Den`
+- [URL_DECODE](../sql-reference/functions-reference/url_decode.md) decodes percent-encoded characters; for example, ```SELECT URL_DECODE('https://www.firebolt.io/?example_id%3D1%26hl%3Den');```
+returns: `https://www.firebolt.io/?example_id=1&hl=en`
+
+* **New GENERATE_SERIES function**
+
+Support has been added for the [GENERATE_SERIES function](../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
+
+### Enhancements, changes, and new integrations
+
+*  **Updates to CSV ingestion**
+TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV files.
+
+
+## DB version 3.26
+**September 2023**
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
+
+### New features
+{: .no_toc}
+
 * **New setting to limit rows in result**
 
   [A new setting](../general-reference/system-settings.md#limit-the-number-of-result-rows) `max_result_rows` controls the limit of rows in result sets. The default value of the `max_result_rows` setting is 0.
 
 ### Enhancements, changes and new integrations
+{: .no_toc}
 
 * <!--- FIR-24598 ---> **Improved support for interval arithmetic**
 
@@ -42,6 +68,7 @@ We provide an archive of release notes for your historical reference.
   The [`LENGTH`](../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../general-reference/bytea-data-type.md).
 
 ### Resolved issues
+{: .no_toc}
 
 * <!--- FIR-23676 ---> Fixed an issue where query progress was not reflected in the `information_schema.running_queries` table.
 

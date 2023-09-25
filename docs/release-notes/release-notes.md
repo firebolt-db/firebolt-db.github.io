@@ -15,26 +15,17 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.27
+## DB version 3.28
 **September 2023**
 
-* [New features](#new-features)
-* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
-### New features
 
-#### Add `URL_DECODE` and `URL_ENCODE` SQL functions
-- [URL_ENCODE](../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_; for example, ```SELECT CONCAT('https://www.firebolt.io/?', URL_ENCODE('example_id=1&hl=en'));``` returns: `https://www.firebolt.io/?example_id%3D1%26hl%3Den`
-- [URL_DECODE](../sql-reference/functions-reference/url_decode.md) decodes percent-encoded characters; for example, ```SELECT URL_DECODE('https://www.firebolt.io/?example_id%3D1%26hl%3Den');```
-returns: `https://www.firebolt.io/?example_id=1&hl=en`
+### Resolved issues
 
-#### New GENERATE_SERIES function
+* <!--- FIR-17240 ---> `IN` expressions with scalar arguments now return Postgres-compliant results if there are `NULL`s in the `IN` list. 
 
-Support has been added for the [GENERATE_SERIES function](../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
+* <!--- FIR-26293 ---> information_schema.running_queries returns ID of a user that issued the running query, not the current user.
 
-### Enhancements, changes, and new integrations
-
-#### Updates to CSV ingestion
-TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV files.
+* <!--- FIR-26187 ---> Update error message to explain upper case behavior 
 
