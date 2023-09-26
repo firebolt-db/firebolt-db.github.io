@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /sql-reference/commands/delete.html
-Disallow: /docs/sql-reference/commands/delete.html
+Disallow: /
