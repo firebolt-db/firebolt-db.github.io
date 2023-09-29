@@ -61,8 +61,6 @@ PARTITION BY DATE_TRUNC('month', d), DATE_TRUNC('hour', t);
 ## Example
 {: .no_toc}
 
-<<<<<<< HEAD
-
 The example below uses a table `date_test` with the columns and values below.
 
 | Cat | sale\_datetime      |
@@ -71,8 +69,6 @@ The example below uses a table `date_test` with the columns and values below.
 | b   | 2014-01-15 12:14:46 |
 | c   | 1999-09-15 11:33:21 |
 
-=======
->>>>>>> cntbr/kfir/hll-functions
 ```sql
 SELECT DATE_TRUNC('century', DATE '1996-09-03');  --> 1901-01-01
 SELECT DATE_TRUNC('hour', TIMESTAMP '1996-09-03 11:19:42.123');  --> 1996-09-03 11:00:00
@@ -80,7 +76,6 @@ SELECT DATE_TRUNC('hour', TIMESTAMP '1996-09-03 11:19:42.123');  --> 1996-09-03 
 SET time_zone = 'US/Pacific';
 SELECT DATE_TRUNC('week', TIMESTAMPTZ '1996-09-03 11:19:42.123 Europe/Berlin');  --> 1996-09-02 00:00:00-07
 SELECT DATE_TRUNC('week', TIMESTAMPTZ '1996-09-03 11:19:42.123 Europe/Berlin', 'Europe/Berlin');  --> 1996-09-01 15:00:00-07
-<<<<<<< HEAD
 ```
 +----------+---------------------+---------------------+---------------------+---------------------+
 | category | sale_datetime       | MINUTE              | HOUR                | DAY                 |
@@ -88,6 +83,4 @@ SELECT DATE_TRUNC('week', TIMESTAMPTZ '1996-09-03 11:19:42.123 Europe/Berlin', '
 | b        | 2014-01-15 12:14:46 | 2014-01-15 12:14:00 | 2014-01-15 12:00:00 | 2014-01-15 00:00:00 |
 | c        | 1999-09-15 11:33:21 | 1999-09-15 11:33:00 | 1999-09-15 11:00:00 | 1999-09-15 00:00:00 |
 +----------+---------------------+---------------------+---------------------+---------------------+
-=======
->>>>>>> cntbr/kfir/hll-functions
 ```
