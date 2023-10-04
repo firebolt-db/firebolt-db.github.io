@@ -15,7 +15,7 @@ For more information on usage, please refer to [Window Functions](./window-funct
 {: .no_toc}
 
 ```sql
-RANK() OVER ([PARTITION BY <exp>] ORDER BY <exp> [ASC|DESC] )
+RANK() OVER ([PARTITION BY <val>] ORDER BY <exp> [ASC|DESC] )
 ```
 
 | Parameter | Description                                                                                        |
