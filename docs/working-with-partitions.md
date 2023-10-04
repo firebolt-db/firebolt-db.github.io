@@ -121,7 +121,7 @@ The example below uses `EXTRACT` to create a partition for each group of records
 PARTITION BY EXTRACT(YEAR FROM transaction_date), EXTRACT(MONTH FROM transaction_date);
 ```
 
-The example below drops the partition for records where `transaction_date` is `3`, which corresponds to the month of March. The month is specified as an integer in the command.
+The example below drops the partition for records where `transaction_date` is in the month of April 2022. The year and month are specified as integers in the command.
 
 ```sql
 ALTER TABLE fct_tbl_transactions DROP PARTITION 2022,04;
