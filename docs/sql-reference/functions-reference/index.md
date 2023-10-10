@@ -112,6 +112,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [ARRAY_SLICE](slice.md)
 
+* [ARRAY_TO_STRING](array-to-string.md)  
+
 * [ARRAY_UNIQ](array-uniq.md)  
 
 * [ARRAY_UNNEST](array_unnest.md)  
