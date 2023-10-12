@@ -123,7 +123,8 @@ PARTITION BY EXTRACT(YEAR FROM transaction_date), EXTRACT(MONTH FROM transaction
 
 The example below drops the partition for records where `transaction_date` is in the month of April 2022. The year and month are specified as integers in the command.
 
-```SQL
+```sql
+
 ALTER TABLE fct_tbl_transactions DROP PARTITION 2022,04;
 ```
 
