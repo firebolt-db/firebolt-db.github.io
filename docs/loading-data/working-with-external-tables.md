@@ -36,7 +36,7 @@ The metadata virtual columns listed below are available in external tables.
 | Metadata column name | Description | Data type |
 | :--- | :--- | :--- |
 | `source_file_name` | The full path of the row data's source file in Amazon S3, without the bucket. For example, with a source file of `s3://my_bucket/xyz/year=2018/month=01/part-00001.parquet`, the `source_file_name` is `xyz/year=2018/month=01/part-00001.parquet`. | TEXT |
-| `source_file_timestamp` | The creation timestamp of the row's source file in S3. | TIMESTAMP |
+| `source_file_timestamp` | The UTC creation timestamp in second resolution of the row's source file in S3. | TIMESTAMPTZ |
 
 For examples of metadata virtual column usage, see [Extracting partition values using INSERT INTO](../sql-reference/commands/insert-into.md#extracting-partition-values-using-insert-into) and [Incrementally loading data with Airflow](../loading-data/incrementally-loading-data.md).
 
@@ -64,7 +64,7 @@ CREATE DIMENSION TABLE my_dim_table_with_metadata
    c_id INTEGER UNIQUE
    c_name TEXT,
    source_file_name TEXT,
-   source_file_timestamp TIMESTAMP,
+   source_file_timestamp TIMESTAMPTZ,
 );
 ```
 
@@ -88,14 +88,14 @@ SELECT * FROM my_dim_table_with_metadata;
 ```
 
 ```bash
-+-----------+---------------------+------------------------ +-----------------------+
-| c_id      | c_name              | source_file_name        | source_file_timestamp |
-+-----------+---------------------+-------------------------+-----------------------+
-| 11385     | ClevelandDC8933     | central/cle.parquet     | 2021-09-10 10:32:03   |
-| 12386     | PortlandXfer9483    | west/pdx.parquet        | 2021-09-10 10:32:04   |
-| 12387     | PortlandXfer9449    | west/pdx.parquet        | 2021-09-10 10:32:04   |
-| 12388     | PortlandXfer9462    | west/pdx.parquet        | 2021-09-10 10:32:04   |
-| 12387     | NashvilleXfer9987   | south/bna.parquet       | 2021-09-10 10:33:01   |
-| 12499     | ClevelandXfer8998   | central/cle.parquet     | 2021-09-10 10:32:03   |
++-----------+---------------------+------------------------ +------------------------+
+| c_id      | c_name              | source_file_name        | source_file_timestamp  |
++-----------+---------------------+-------------------------+------------------------+
+| 11385     | ClevelandDC8933     | central/cle.parquet     | 2021-09-10 10:32:03+00 |
+| 12386     | PortlandXfer9483    | west/pdx.parquet        | 2021-09-10 10:32:04+00 |
+| 12387     | PortlandXfer9449    | west/pdx.parquet        | 2021-09-10 10:32:04+00 |
+| 12388     | PortlandXfer9462    | west/pdx.parquet        | 2021-09-10 10:32:04+00 |
+| 12387     | NashvilleXfer9987   | south/bna.parquet       | 2021-09-10 10:33:01+00 |
+| 12499     | ClevelandXfer8998   | central/cle.parquet     | 2021-09-10 10:32:03+00 |
 [...]
 ```
