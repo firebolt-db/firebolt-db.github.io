@@ -21,6 +21,7 @@ PERCENTILE_DISC( <value> ) WITHIN GROUP ( ORDER BY <expression> [ { ASC | DESC }
 
 ## Parameters 
 {: .no_toc}
+
 | Parameter | Description                                     | Supported input types |
 | :--------- | :----------------------------------------------- | :---------|
 | `<value>`   | Percentile value for the function | `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0 |
