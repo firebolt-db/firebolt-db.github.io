@@ -15,17 +15,30 @@ Firebolt continuously releases updates so that you can benefit from the latest a
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
 
 
-## DB version 3.28
-**September 2023**
+## DB version 3.29
+**October 2023**
 
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
 * [Resolved issues](#resolved-issues)
 
+### New features
 
-### Resolved issues
+<!--- FIR-25082 ---> **EXPLAIN ANALYZE now available for detailed query metrics**
 
-* <!--- FIR-17240 ---> `IN` expressions with scalar arguments now return Postgres-compliant results if there are `NULL`s in the `IN` list. 
+You can now use the [EXPLAIN command](../sql-reference/commands/explain.md) to execute `EXPLAIN (ANALYZE) <select statement>` and get detailed metrics about how much time is spent on each operator in the query plan, and how much data it processes. The query plan shown there is the physical query plan, which you can inspect using `EXPLAIN (PHYSICAL) <select statement>` without executing the query. It shows how query processing is distributed over the nodes of an engine.
 
-* <!--- FIR-26293 ---> information_schema.running_queries returns ID of a user that issued the running query, not the current user.
 
-* <!--- FIR-26187 ---> Update error message to explain upper case behavior 
+### Enhancements, changes and new integrations
 
+<!--- FIR-25636 ---> **PERCENTILE_CONT and PERCENTILE_DISC now return PG-compliant results**
+
+[PERCENTILE_CONT](../sql-reference/functions-reference/percentile-cont.md) for decimal input now returns DOUBLE instead of DECIMAL 
+
+<!--- FIR-24362 ---> **Virtual column 'source_file_timestamp' uses new data-type**
+
+The virtual column `source_file_timstamp` has been migrated from the data type `DateTime/Timestamp` (legacy timestamp type without time zone) to the type `TimestampTz` (new timestamp type with time zone)
+
+<!--- FIR-10514 ---> **New function added**
+
+A new function [ARRAY_TO_STRING](../sql-reference/functions-reference/array-to-string.md) has been added as an alias to [ARRAY_JOIN](../sql-reference/functions-reference/array-join.md)

@@ -15,6 +15,22 @@ We provide an archive of release notes for your historical reference.
 * Topic ToC
 {:toc}
 
+## DB version 3.28
+**September 2023**
+
+* [Resolved issues](#resolved-issues)
+
+
+### Resolved issues
+{: .no_toc}
+
+* <!--- FIR-17240 ---> `IN` expressions with scalar arguments now return Postgres-compliant results if there are `NULL`s in the `IN` list. 
+
+* <!--- FIR-26293 ---> information_schema.running_queries returns ID of a user that issued the running query, not the current user.
+
+* <!--- FIR-26187 ---> Update error message to explain upper case behavior 
+
+
 ## DB version 3.27
 **September 2023**
 
@@ -23,6 +39,7 @@ We provide an archive of release notes for your historical reference.
 * [Resolved issues](#resolved-issues)
 
 ### New features
+{: .no_toc}
 
 * **Add `URL_DECODE` and `URL_ENCODE` SQL functions**
 - [URL_ENCODE](../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_; for example, ```SELECT CONCAT('https://www.firebolt.io/?', URL_ENCODE('example_id=1&hl=en'));``` returns: `https://www.firebolt.io/?example_id%3D1%26hl%3Den`
@@ -34,6 +51,7 @@ returns: `https://www.firebolt.io/?example_id=1&hl=en`
 Support has been added for the [GENERATE_SERIES function](../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
 
 ### Enhancements, changes, and new integrations
+{: .no_toc}
 
 *  **Updates to CSV ingestion**
 TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV files.
