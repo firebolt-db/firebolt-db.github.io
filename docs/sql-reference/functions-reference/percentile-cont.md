@@ -26,10 +26,10 @@ PERCENTILE_CONT( <value> ) WITHIN GROUP ( ORDER BY <expression> [ { ASC | DESC }
 | Parameter | Description                                     | Supported input types | 
 | :--------- | :----------------------------------------------- | :---------|
 | `<value>`   | Percentile value for the function | `DOUBLE PRECISION`/`REAL` literal between 0.0 and 1.0 |
-| `<expression>`  | Expression used for the `ORDER BY` clause | `NUMERIC` or `TIMESTAMP`| 
+| `<expression>`  | Expression used for the `ORDER BY` clause | `NUMERIC` | 
 
 ## Return Types 
-The return type of the function will be the same as the expression type.
+The return type of the function is DOUBLE.
 This function ignores `NULL` values.
 
 ## Example

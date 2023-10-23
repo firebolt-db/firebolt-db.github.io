@@ -100,6 +100,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [ARRAY_DISTINCT](array-distinct.md)
 
+* [ARRAY_ENUMERATE](array-enumerate.md)
+
 * [ARRAY_INTERSECT](array-intersect.md)
 
 * [ARRAY_JOIN](array-join.md)  
@@ -111,6 +113,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 * [ARRAY_REVERSE](array-reverse.md)
 
 * [ARRAY_SLICE](slice.md)
+
+* [ARRAY_TO_STRING](array-to-string.md)  
 
 * [ARRAY_UNIQ](array-uniq.md)  
 
