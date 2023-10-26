@@ -42,7 +42,7 @@ In the example below, the third index is returned because it is the first that e
 
 ```sql
 SELECT
-    ARRAY_FIRST(x, y -> y = 'esimpson', [ steven70, sabrina21, esimpson, kennethpark ]) AS usernames;
+    ARRAY_FIRST(x, y -> y = 'esimpson', [ 1, 2, 3, 9 ], [ 'steven70', 'sabrina21', 'esimpson', 'kennethpark' ]) AS usernames;
 ```
 
 **Returns**: `3`
