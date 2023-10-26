@@ -1,13 +1,13 @@
 ---
 layout: default
 title: CONTAINS
-description: Reference material for CONTAINS function
+description: Reference material for the CONTAINS function
 parent: SQL functions
 ---
 
 # CONTAINS
 
-Returns `1` if a specified argument is present in the array, or `0` otherwise.
+Returns whether the array passed as the first argument contains the value passed as the second argument.
 
 ## Syntax
 {: .no_toc}
@@ -21,30 +21,28 @@ CONTAINS(<array>, <value>)
 | Parameter | Description                                      | Supported input types | 
 | :--------- | :------------------------------------------------ | :--------|
 | `<array>`   | The array to be checked for the given element.   | `ARRAY` | 
-| `<value>`   | The element to be searched for within the array | Any integer that corresponds to an element in the array | 
+| `<value>`   | The element to be searched for within the array | The array elements' type | 
 
-## Return Types
-* Returns `1` if the element to be searched in present in the array
-* Returns `0` if the element is not present in the array
+## Return Type
+`BOOLEAN`
+* Returns `true` if the element to be searched is present in the array
+* Returns `false` if the element is not present in the array
 
 ## Example
 {: .no_toc}
 
 ```sql
 SELECT
-	CONTAINS([ 'sabrina21', 'rileyjon', 'ywilson', 'danielle53'], 'danielle53') AS players;
+	CONTAINS(['sabrina21', 'rileyjon', 'ywilson', 'danielle53'], 'danielle53');
 ```
 
-**Returns**: `1`
-`1` is returned as "danielle53" is part of the `players` array.
+**Returns**: `true` as "danielle53" is part of the array.
 
-`CONTAINS` returns a `0` result when single character or substring matches only part of a longer string.
+`CONTAINS` returns `false` when the value is not contained in the array:
 
 ```sql
 SELECT
-	CONTAINS([ 'sabrina21', 'rileyjon', 'ywilson'] , 'danielle53') AS players;
+	CONTAINS(['sabrina21', 'rileyjon', 'ywilson'] , 'danielle53');
 ```
 
-**Returns**: `0` 
-
-`0` is returned as "danielle53" is not part of the `players` array.
+**Returns**: `false` as "danielle53" is not part of the array.
