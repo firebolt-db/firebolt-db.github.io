@@ -26,7 +26,7 @@ This topic covers installation, configuration, and running queries. For a list o
 * You can use `pip` to install the CLI from the command line as shown in the example below.  
 
   ```
-  $ pip install firebolt-cli
+  $ pip install firebolt-cli==0.*
   ```
 
 * After you run `pip`, verify the installation by checking the `firebolt` version, as shown in the example below.  
