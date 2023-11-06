@@ -49,7 +49,7 @@ SELECT
 
 **Returns**: `2`
 
-In the example below, there are three differentu sernames across all of the elements of the given arrays. However, there are only two unique tuples, ('tonytaylor', 'ruthgill') and ('tonytaylor', 'ywilson').
+In the example below, there are three different usernames across all of the elements of the given arrays. However, there are only two unique tuples, ('tonytaylor', 'ruthgill') and ('tonytaylor', 'ywilson').
 
 ```sql
 SELECT
