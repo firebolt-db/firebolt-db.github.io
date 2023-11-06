@@ -40,7 +40,7 @@ Synonyms: `DOUBLE`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
 ## String
 
 ### TEXT
-A string of an arbitrary length that can contain any number of bytes, including null bytes. Useful for arbitrary-length string columns. Firebolt supports UTF-8 escape sequences.
+A string of an arbitrary length that can contain any number of bytes. Useful for arbitrary-length string columns. Note that null bytes are not supported in TEXT literals, but are supported when importing from an external table. Firebolt supports UTF-8 escape sequences.
 Synonyms: `STRING`, `VARCHAR`
 
 ## Date and timestamp
