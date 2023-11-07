@@ -3,8 +3,9 @@ layout: default
 title: Release notes archive
 description: Release notes archive for the Firebolt data warehouse.
 parent: Release notes
-nav_order: 1
+nav_order: 2
 sitemap: false
+has_children: false
 ---
 
 # Release notes archive

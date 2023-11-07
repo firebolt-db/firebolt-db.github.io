@@ -12,7 +12,7 @@ has_children: false
 
 Firebolt continuously releases updates so that you can benefit from the latest and most stable service. These updates might happen daily, but we aggregate release notes to cover a longer time period for easier reference. The most recent release notes from the latest version are below. 
 
-<!--- See the [Release notes archive](../release-notes/release-notes-archive.md) for earlier-version release notes. -->
+- See the [Release notes archive](../release-notes/release-notes-archive.md) for earlier-version release notes.
 
 {: .note}
 Firebolt might roll out releases in phases. New features and changes may not yet be available to all accounts on the release date shown.
@@ -28,13 +28,13 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 <!--- FIR-27590 ---> **New comparison operators**
 
-[New comparison operators](../general-reference/operators.md) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
+[New comparison operators](../general-reference/operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
 
 ### Enhancements, changes and new integrations
 
 <!--- FIR-27355 ---> **Support for nullable arrays**
 
-Support has been added to allow the [ANY_MATCH](../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays
+Support has been added to allow the [ANY_MATCH](../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
 
 ### Resolved issues
 
