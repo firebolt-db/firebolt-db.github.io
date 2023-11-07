@@ -21,7 +21,7 @@ REDUCE(<function>, <array>)
 
 | Parameter | Description                                       | Supported input types | 
 | :--------- | :------------------------------------------------- | :----------|
-| `<function>` | The name of an aggregation function in the form of a quoted string. | Any [aggregation function](../aggregation/) |
+| `<function>` | The name of an aggregation function in the form of a quoted string. | Any [aggregation function](../functions-reference/aggregation-functions.md) |
 | `<array>`          | The array to aggregate. | `ARRAY` |
 
 ## Return Types
