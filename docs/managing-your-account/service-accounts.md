@@ -99,13 +99,19 @@ The command returns the following properties for each service account user:
 
 
 ## Authenticate with a service account via the REST API
-To authenticate Firebolt using service accounts via Firebolt’s REST API, send the following request to receive an authentication token:
+- Create a service account with organization admin privilege set to true.
+- Create a user with roles that will allow the service account to perform desired operations.  Associate the user with the service account.
+- Generate a secret for the service account.
+- Generate an access token using the service account secret. 
+
+
+Finally, use the obtained service account ID and secret to authenticate with Firebolt via Firebolt’s REST API, send the following request to receive an authentication token:
 
 ```json
 curl --location --request POST 'https://api.app.firebolt.io/auth/v1/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'client_id=<id>' \
---data-urlencode 'client_secret=<secret>' \
+--data-urlencode 'client_id=<service account id>' \
+--data-urlencode 'client_secret=<service account secret>' \
 --data-urlencode 'grant_type=client_credentials'
 ```
 
