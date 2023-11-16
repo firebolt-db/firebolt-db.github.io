@@ -62,6 +62,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 
 * [APPROX_PERCENTILE](approx-percentile.md)  
 
+* [ARRAY_AGG](array-agg.md)
+
 * [AVG](avg.md)
 
 * [CHECKSUM](checksum.md)  
@@ -93,6 +95,8 @@ When combined with a `GROUP BY` clause, these operations will be performed on al
 * [SUM](sum.md)  
 
 ## Array functions
+
+* [ARRAY_AGG](array-agg.md)
 
 * [ARRAY_CONCAT](array-concat.md)
 
