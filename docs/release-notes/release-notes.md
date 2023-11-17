@@ -27,7 +27,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 <!--- FIR-25082 ---> **EXPLAIN ANALYZE now available for detailed query metrics**
 
-You can now use the [EXPLAIN command](../../sql-reference/commands/explain.md) to execute `EXPLAIN (ANALYZE) <select statement>` and get detailed metrics about how much time is spent on each operator in the query plan, and how much data is processed. The query plan shown there is the physical query plan, which you can inspect using `EXPLAIN (PHYSICAL) <select statement>` without executing the query. It shows how query processing is distributed over the nodes of an engine.
+You can now use the [EXPLAIN command](../sql-reference/commands/explain.md) to execute `EXPLAIN (ANALYZE) <select statement>` and get detailed metrics about how much time is spent on each operator in the query plan, and how much data is processed. The query plan shown there is the physical query plan, which you can inspect using `EXPLAIN (PHYSICAL) <select statement>` without executing the query. It shows how query processing is distributed over the nodes of an engine.
 
 
 ### Enhancements, changes and new integrations
