@@ -24,7 +24,9 @@ To run queries and DML commands on external tables that use this notation, you m
 ```sql
 SET use_short_column_path_parquet = 1;
 ```
-Notice this setting might destroy the original structure of the input in an irrecoverable way, and can lead to name conflicts.
+
+{: .caution}
+This setting deleted the original structure of the input, and can lead to name conflicts.
 
 ## Syntax for defining a Parquet nested structure
 
