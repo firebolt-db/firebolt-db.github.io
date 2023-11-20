@@ -22,6 +22,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 * [New features](#new-features)
 * [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
 
 ### New features
 
