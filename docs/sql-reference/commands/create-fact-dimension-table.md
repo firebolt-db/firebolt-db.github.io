@@ -47,7 +47,7 @@ All identifiers are case insensitive unless double-quotes are used. For more inf
 Firebolt supports the column constraints shown below.
 
 ```sql
-<column_name> <column_type> [UNIQUE] [NULL | NOT NULL] [DEFAULT <expression>]
+<column_name> <column_type> [NULL | NOT NULL] [DEFAULT <expression>]
 ```
 
 
@@ -55,7 +55,6 @@ Firebolt supports the column constraints shown below.
 | :-------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------- |
 | `DEFAULT <expression>`     | Determines the default value that is used instead of NULL value is inserted.                                                                                                                                               |               |
 | `NULL` \| `NOT NULL` | Determines if the column may or may not contain NULLs.                                                                                                                                                                     | `NOT NULL`    |
-| `UNIQUE`             | This is an optimization hint to tell Firebolt that this column will be queried for unique values, such as through a `COUNT(DISTINCT)` function. This will not raise an error if a non-unique value is added to the column.  However, if the column contains non-unique values, joins on that column can return incorrect results.  This attribute should not be applied to columns that do not have non-unique values.  |               |
 
 {: .note}
 Note that nullable columns can not be used in Firebolt indexes (Primary, or Aggregating indexes).
@@ -73,7 +72,7 @@ The example uses a fact table in which to insert different values. The example b
 CREATE FACT TABLE t1
 (
     col1 INTEGER  NULL ,
-    col2 INTEGER  NOT NULL UNIQUE,
+    col2 INTEGER  NOT NULL,
     col3 INTEGER  NULL DEFAULT 1,
     col4 INTEGER  NOT NULL DEFAULT 1,
     col5 TEXT

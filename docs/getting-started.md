@@ -118,7 +118,7 @@ The fact table that we create in this step specifies the `LevelID` column for th
 ```sql
 CREATE FACT TABLE IF NOT EXISTS levels
 (
-    LevelID INTEGER UNIQUE,
+    LevelID INTEGER,
     GameID INTEGER,
     Level INTEGER,
     Name TEXT,

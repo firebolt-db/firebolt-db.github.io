@@ -61,7 +61,7 @@ The query example below creates a dimension table, which will be the target for 
 ```sql
 CREATE DIMENSION TABLE my_dim_table_with_metadata
 (
-   c_id INTEGER UNIQUE
+   c_id INTEGER,
    c_name TEXT,
    source_file_name TEXT,
    source_file_timestamp TIMESTAMPTZ,
