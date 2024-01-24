@@ -47,8 +47,7 @@ Each row has the following columns with information about each query in query hi
 | inserted_rows               | BIGINT    | The total number of rows written. |
 | inserted_bytes              | BIGINT    | The total number of bytes written (both to cache and storage). |
 | inserted_bytes_storage      | BIGINT    | The total number of compressed bytes written to S3 storage. |
-| spilled_bytes_compressed    | BIGINT    | The total number of compressed bytes spilled. |
-| spilled_bytes_uncompressed  | BIGINT    | The total number of uncompressed bytes spilled. |
+| spilled_bytes               | BIGINT    | The total number of bytes spilled to disk temporarily during query execution. |
 | total_ram_consumed          | BIGINT    | The total number of engine bytes in RAM consumed during query execution. |
 | returned_rows               | BIGINT    | The total number of rows returned from the query. |
 | returned_bytes              | BIGINT    | The total number of bytes returned from the query. |
