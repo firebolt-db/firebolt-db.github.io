@@ -77,7 +77,8 @@ The instructions below demonstrate how to use the Airflow UI to create a connect
 2. From the **Admin** menu, choose **Connections**.
 
 3. Choose the **+** button to add a new connection.
-  ![Airflow add connector](../../assets/images/airflow_add_connection.png)
+
+    ![Airflow add connector](../../assets/images/airflow_add_connection.png)
 
 4. From the **Connection Type** list, choose **Firebolt**.
 
