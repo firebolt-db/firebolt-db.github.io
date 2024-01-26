@@ -43,7 +43,7 @@ After you install the Firebolt provider, **Firebolt** is available as a **Connec
 ### Upgrading to the latest version
 {: .no_toc}
 
-We recommend running the latest version of the provider package. [Release history](https://pypi.org/project/airflow-provider-firebolt/#history) is available on PyPI. To upgrade to the most recent version, use the command below, then restart Airflow for the changes to take effect. 
+We recommend running the latest version of the provider package. [Release history](https://pypi.org/project/airflow-provider-firebolt/#history) is available on PyPI. To upgrade to the most recent version, use the command below, then restart Airflow for the changes to take effect.
 
 ```bash
 pip install airflow-provider-firebolt --upgrade
@@ -76,28 +76,26 @@ The instructions below demonstrate how to use the Airflow UI to create a connect
 
 2. From the **Admin** menu, choose **Connections**.
 
-3. Choose the **+** button to add a new connection.  
+3. Choose the **+** button to add a new connection.
   ![Airflow add connector](../../assets/images/airflow_add_connection.png)
 
 4. From the **Connection Type** list, choose **Firebolt**.
 
-5. Provide connection parameters for Firebolt according to the following guidelines. These connection parameters correspond to built-in Airflow variables.  
-   
+5. Provide connection parameters for Firebolt according to the following guidelines. These connection parameters correspond to built-in Airflow variables.
+
    |   Parameter     |Description |Example value |
    |:--------------  |:---------- |:------------ |
    | Connection id   | The name of the connection. This appears in the list of connections in the Airflow UI. | `My_Firebolt_Connection` |
    | Description     | Self-explanatory. | `Connection to Firebolt database MyDatabase using engine MyFireboltDatabase_general_purpose.`|
-   | Host            | Optional. The API hostname for Firebolt. Always `api.app.firebolt.io`. | `api.app.firebolt.io` |
    | Database        | The name of the Firebolt database to connect to. | `MyFireboltDatabase` |
-   | Username        | The username (email address) associated with the Firebolt user that Airflow will use to connect. | `me@mycompany.com` |
-   | Password        | The password associated with the username provided. | `pass1234` |
-   | Advanced Connection Properties | Specifies the Firebolt account name and engine within the specified database to use in the format `{"account_name":"<my_account_name>","engine_name":"<engine_name>"}`. | `{"account_name":"MyFbAccount","engine_name":"MyFireboltDatabase_general_purpose"}` |
+   | Engine          | The name of the engine you want to run your queries. | `MyFireboltEngine` |
+   | Client ID       | Your email address you use to connect to Firebolt. | `my@company.com` |
+   | Client Secret   | Your password. | `yy7h&993))29&%j` |
+   | Account         | (optional) The name of your account. | `myCompany` |
+   | Extra           | (optional) Extra properties that you may need to set. Most users would not need any. | `{"property1": "value1", "property2": "value2"}` |
 
-   {: .note}
-   You can also authenticate using [service account](../../managing-your-account/service-accounts.md) credentials. To do so, provide your service account id in the Username field and secret in the Password field.
-   
 
-7. Choose **Test** to verify that connection parameters are correct.  
+7. Choose **Test** to verify that connection parameters are correct.
 
    The engine that you specify in **Advanced Connection Properties** must be running for the test to complete successfully.
    {: .note}
