@@ -26,12 +26,14 @@ EXPLAIN [( <option_name> [<option_value>] [, ...] )] <select_statement>
 
 The output of `EXPLAIN` can be augmented by specifying options. The following table lists all available options:
 
-| Option Name | Option Values   | Description                                                                                                                                                                                                                                                                   |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `LOGICAL`   | `TRUE`, `FALSE` | Returns the optimized logical query plan in the column `explain_logical`. Its default value is `TRUE` if neither the `PHYSICAL` nor the `ANALYZE` option is enabled. Otherwise, it is `FALSE`.                                                                                |
-| `PHYSICAL`  | `TRUE`, `FALSE` | Returns the optimized physical query plan containing shuffle operators for queries on distributed engines. This gives insights how work is distributed between the nodes of an engine. The result is returned in the column `explain_physical`. Its default value is `FALSE`. |
-| `ANALYZE`   | `TRUE`, `FALSE` | Executes the query and returns the optimized physical query plan annotated with metrics from query execution in the column `explain_analyze`. The metrics are explained in [Example with ANALYZE](#example-with-analyze). Its default value is `FALSE`.                       |
-| `ALL`       | `TRUE`, `FALSE` | Changes the default value of `LOGICAL`, `PHYSICAL`, and `ANALYZE`. Its default value is `FALSE`. Executing `EXPLAIN (ALL) <select statement>` set the value of the `ALL` option to `TRUE`, and thus enables the `LOGICAL`, `PHYSICAL`, and `ANALYZE` options.                 |
+| Option Name | Option Values   | Description                                                                                                                                                                               |
+| :---------- | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `LOGICAL`   | `TRUE`, `FALSE` | Returns the optimized logical query plan. This plan is returned by default.                                                                                                               |
+| `PHYSICAL`  | `TRUE`, `FALSE` | Returns the optimized physical query plan containing shuffle operators for queries on distributed engines. This gives insights how work is distributed between the nodes of an engine.    |
+| `ANALYZE`   | `TRUE`, `FALSE` | Executes the query and returns the optimized physical query plan annotated with metrics from query execution. The metrics are explained in [Example with ANALYZE](#example-with-analyze). |
+| `ALL`       | `TRUE`, `FALSE` | Executing `EXPLAIN (ALL) <select statement>` returns the `LOGICAL`, `PHYSICAL`, and `ANALYZE` plans.                                                                                      |
+
+You many only specify one of the options `LOGICAL`, `PHYSICAL`, `ANALYZE`. If you need to view several plans at once, please use the `ALL` option.
 
 ## Example
 
