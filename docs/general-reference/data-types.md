@@ -37,9 +37,11 @@ Synonyms: `FLOAT`, `FLOAT4`.
 A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes.
 Synonyms: `DOUBLE`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
 
-## TEXT
+## String
 
-The TEXT type can be used to store character strings of any length using the UTF-8 encoding standard.
+### TEXT
+
+The `TEXT` type can be used to store character strings of any length using the UTF-8 encoding standard.
 Only the ASCII letters "A" through "Z" and "a" through "z" are classified as letters (e.g., `UPPER('aäuü')` returns `'AäUü'`).
 The sort order of two strings is determined using the collation `ucs_basic`, which sorts strings by Unicode code point (e.g., `'Ab' < 'ab'` is true as `A` (`U+0041`) is less than `a` (`U+0061`)).
 The character with code zero cannot be in a string.
