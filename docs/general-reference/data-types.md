@@ -37,11 +37,33 @@ Synonyms: `FLOAT`, `FLOAT4`.
 A floating-point number that has 15 decimal-digit precision. Decimal (fixed point) types are not supported. `DOUBLE` data types require 8 bytes.
 Synonyms: `DOUBLE`, `FLOAT8`, `FLOAT(p)` where 25 <= p <= 53.
 
-## String
+## TEXT
 
-### TEXT
-A string of an arbitrary length that can contain any number of bytes. Useful for arbitrary-length string columns. Note that null bytes are not supported in TEXT literals, but are supported when importing from an external table. Firebolt supports UTF-8 escape sequences.
-Synonyms: `STRING`, `VARCHAR`
+The TEXT type can be used to store character strings of any length using the UTF-8 encoding standard.
+Only the ASCII letters "A" through "Z" and "a" through "z" are classified as letters (e.g., `UPPER('aäuü')` returns `'AäUü'`).
+The sort order of two strings is determined using the collation `ucs_basic`, which sorts strings by Unicode code point (e.g., `'Ab' < 'ab'` is true as `A` (`U+0041`) is less than `a` (`U+0061`)).
+The character with code zero cannot be in a string.
+
+Regular string literals are enclosed in single quotes and don't recognize escape sequences.
+Write two adjacent single quotes to include a single-quote character within a string literal (e.g., `'Leonard''s bicycle'`).
+
+Escape string literals are specified by writing the letter `E` (upper or lower case) before the opening single quote, e.g., `E'Firebolt 🔥\U0001F680'`.
+Use backslash escape sequences within an escape string literal to represent special byte values:
+
+| Backslash escape sequence             | Interpretation                                             |
+| ------------------------------------- | ---------------------------------------------------------- |
+| `\b`                                  | backspace                                                  |
+| `\f`                                  | form feed                                                  |
+| `\n`                                  | newline                                                    |
+| `\r`                                  | carriage return                                            |
+| `\t`                                  | tab                                                        |
+| `\o`, `\oo`, `\ooo` (o = 0–7)         | octal byte value (decimal value must be between 1 and 255) |
+| `\xh`, `\xhh` (h = 0–9, A–F)          | hexadecimal byte value                                     |
+| `\uxxxx`, `\Uxxxxxxxx` (x = 0–9, A–F) | 16 or 32-bit hexadecimal Unicode character value           |
+
+Any other character following a backslash is taken literally (e.g., write two backslashes `\\` to include one backslash character).
+The byte sequences you create must be valid UTF-8.
+For historic reasons, if you set the setting `standard_conforming_strings` to `false`, regular string literals will also recognize backslash escape sequences.
 
 ## Date and timestamp
 
