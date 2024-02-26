@@ -7,21 +7,8 @@ parent:  SQL commands
 
 # CREATE AGGREGATING INDEX
 
-Different syntax is used when creating an aggregating index on an empty table or a table populated with data. After an aggregating index is created, Firebolt automatically updates the index as new data is ingested. For more information, see [Using aggregating indexes](/using-indexes/using-aggregating-indexes.md).
+After an aggregating index is created, Firebolt automatically updates the index as new data is ingested. For more information, see [Using aggregating indexes](/using-indexes/using-aggregating-indexes.md).
 ## Syntax&ndash;aggregating index on an empty table
-
-```sql
-CREATE AGGREGATING INDEX <agg_index_name> ON <fact_table_name> (
-  <key_column>[,...<key_columnN>],
-  <aggregation>[,...<key_columnN>]
-);
-```
-
-{: .note}
-The index is populated automatically as data is loaded into the table.
-
-## Syntax&ndash;aggregating index on a populated table
-{: .no_toc}
 
 ```sql
 CREATE AGGREGATING INDEX [IF NOT EXISTS] <agg_index_name> ON <fact_table_name> (
@@ -29,6 +16,11 @@ CREATE AGGREGATING INDEX [IF NOT EXISTS] <agg_index_name> ON <fact_table_name> (
   <aggregation>[,...<aggregationN>]
 );
 ```
+
+{: .note}
+The index is populated automatically as data is loaded into the table.
+
+
 ## Parameters 
 {: .no_toc} 
 
