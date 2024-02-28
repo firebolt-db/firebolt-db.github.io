@@ -173,6 +173,8 @@ For more information about using Lambda functions, see [Manipulating arrays with
 
 * [LENGTH](length-string.md)
 
+* [OCTET_LENGTH](octet_length.md)
+
 ## Conditional and miscellaneous functions
 
 * [CASE](case.md)
