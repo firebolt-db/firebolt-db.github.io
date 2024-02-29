@@ -15,6 +15,31 @@ We provide an archive of release notes for your historical reference.
 
 * Topic ToC
 {:toc}
+## DB version 3.30
+**November 2023**
+
+* [New features](#new-features)
+* [Enhancements, changes, and new integrations](#enhancements-changes-and-new-integrations)
+* [Resolved issues](#resolved-issues)
+
+### New features
+{: .no_toc}
+
+<!--- FIR-27590 ---> **New comparison operators**
+
+[New comparison operators](../general-reference/operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
+
+### Enhancements, changes and new integrations
+{: .no_toc}
+<!--- FIR-27355 ---> **Support for nullable arrays**
+
+Support has been added to allow the [ANY_MATCH](../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
+
+### Resolved issues
+
+* Indirectly granted privileges have been removed from the `information_schema.object_privileges` view. 
+
+* Fixed an issue where `ARRAY_FIRST` and `ARRAY_FIRST_INDEX` returned an error if the given input was nullable.
 
 ## DB version 3.29
 **October 2023**
