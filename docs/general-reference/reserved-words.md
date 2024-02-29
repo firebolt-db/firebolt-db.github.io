@@ -69,7 +69,6 @@ Reserved words have special meanings to the Firebolt SQL engine. We recommend th
 * ISNULL
 * JOIN
 * JOIN\_TYPE
-* LATERAL
 * LEADING
 * LEFT
 * LIKE
