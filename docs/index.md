@@ -10,7 +10,7 @@ has_toc: true
 feature_rows:
   - title: "Release Notes"
     excerpt: "See what's new"
-    url: "/release-notes/release-notes.html"
+    url: "/general-reference/release-notes/release-notes.html"
     img_path: "docs_shedule_call_illustration.svg" 
     img_alt: "Release Notes"
   - title: "Getting started"
