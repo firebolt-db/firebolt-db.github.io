@@ -45,6 +45,10 @@ Reading of Parquet/ORC integer columns will now not be allowed if the external t
 
 [LATERAL](../reserved-words.md) is now a reserved keyword. It must now be used within double-quotes when using it as an object identifier
 
+<!--- FIR-25080 --->**Spilling Joins Processing**
+
+Firebolt can now process inner and outer joins that exceed the available main memory of the engine by spilling to the the SSD cache when needed. This happens transparently to the user. A query that made use of this capability will populate the `spilled_bytes` column in `information_schema.query_history`.
+
 ### Resolved issues
 
 * <!--- FIR-28623 --->Fixed a bug where floating point values `-0.0` and `+0.0`, as well as `-nan` and `+nan` were not considered equal in distributed queries.
