@@ -661,7 +661,7 @@ When including multiple clauses, the same number of columns must be selected by 
 
 The `ORDER BY` clause sorts a result set by one or more output expressions. `ORDER BY` is evaluated as the last step after any `GROUP BY` or `HAVING` clause. `ASC` and `DESC` determine whether results are sorted in ascending or descending order. When the clause contains multiple expressions, the result set is sorted according to the first expression. Then the second expression is applied to rows that have matching values from the first expression, and so on.
 
-The default null ordering is `NULLS LAST`, regardless of ascending or descending sort order.
+By default, NULL values sort as if larger than any non-null value; that is, NULLS FIRST is the default for DESC order, and NULLS LAST otherwise.
 
 ### Syntax
 {: .no_toc}
