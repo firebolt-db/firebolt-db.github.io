@@ -39,11 +39,11 @@ For [`EXPLAIN`](../sql-reference/commands/explain.md) queries, we now allow only
 
 <!--- FIR-29660 --->**Range violation implement for import of parquet INT columns into PDGATE columns**
 
-Reading of Parquet/ORC integer columns will now not be allowed if the external table specifies the types of those columns to be one of the new DATE, TIMESTAMP, TIMESTAMPTZ types.
+Reading of Parquet/ORC integer columns will now not be allowed if the external table specifies the types of those columns to be one of the new DATE, TIMESTAMP, TIMESTAMPTZ types. This is a breaking change. 
 
 <!--- FIR-29225 --->**Syntax and planner support for LATERAL scoping**
 
-[LATERAL](../reserved-words.md) is now a reserved keyword. It must now be used within double-quotes when using it as an object identifier
+[LATERAL](../reserved-words.md) is now a reserved keyword. It must now be used within double-quotes when using it as an object identifier. This is a breaking change. 
 
 <!--- FIR-25080 --->**Spilling Joins Processing**
 
