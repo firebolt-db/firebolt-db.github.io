@@ -39,7 +39,13 @@ For [`EXPLAIN`](../sql-reference/commands/explain.md) queries, we now allow only
 
 <!--- FIR-29660 --->**Range violation implement for import of parquet INT columns into PDGATE columns**
 
-Reading of Parquet/ORC integer columns will now not be allowed if the external table specifies the types of those columns to be one of the new DATE, TIMESTAMP, TIMESTAMPTZ types. This is a breaking change. 
+Reading of Parquet/ORC integer columns will now not be allowed if the external table specifies the types of those columns to be one of the new DATE, TIMESTAMP, TIMESTAMPTZ types. The examples below assume that the new DATE and TIMESTAMP types are already enforced for you. If not, use PGDATE instead of DATE, TIMESTAMPNTZ instead of TIMESTAMP and to_timestamptz() instead of to_timestamp().
+
+If you want to cast integer 42 to a date, you should use: `SELECT '1970-01-01'::DATE + 42;  --> '1970-02-12'::DATE`
+If you want to cast integer 42 to a TIMESTAMP, you should use: `SELECT to_timestamp(42) AT TIME ZONE 'UTC';  --> 1970-01-01 00:00:42`
+If you want to cast integer 42 to a TIMESTAMPTZ, you should use: `SELECT to_timestamp(42);  --> 1970-01-01 00:00:42+00`
+
+This is a breaking change. 
 
 <!--- FIR-29225 --->**Syntax and planner support for LATERAL scoping**
 
