@@ -55,6 +55,12 @@ This is a breaking change.
 
 Firebolt can now process inner and outer joins that exceed the available main memory of the engine by spilling to the the SSD cache when needed. This happens transparently to the user. A query that made use of this capability will populate the `spilled_bytes` column in `information_schema.query_history`.
 
+<!--- FIR-30843 --->**Nullable Tuples Query Speed**
+
+Fixed a correctness issue when using anti joins with nullable tuples. Firebolt now returns correct results for such queries. However, this can lead to less efficient query plans, causing queries with anti joins on tuples to become slower. If the tuples are not nullable, the plans remain the same as before.
+
+If you know that the values cannot be null when performing an anti join on nullable tuples, you can wrap all nullable columns involved in the NOT IN comparison with COALESCE to make them non-nullable, using some default value for the null case. This ensures that Firebolt can still choose an efficient plan while retaining correctness.
+
 ### Resolved issues
 
 * <!--- FIR-28623 --->Fixed a bug where floating point values `-0.0` and `+0.0`, as well as `-nan` and `+nan` were not considered equal in distributed queries.
