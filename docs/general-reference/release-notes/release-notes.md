@@ -27,7 +27,7 @@ Firebolt might roll out releases in phases. New features and changes may not yet
 
 <!--- FIR-27548 --->**Simplified table protobuf representation**
 
-Unique constraints in tables will be blocked for new accounts. Creating tables with unique constraints over any column (ex. create table t(a int unique)) will not succeed anymore, and instead will throw the following result:
+Unique constraints in tables will be blocked for new accounts. Creating tables with unique constraints over any column (ex. `create table t(a int unique)`) will not succeed anymore, and instead will throw the following result:
 `Invalid create table. Unique constraint is not supported. Remove it from the statement and retry.`
 
 <!--- FIR-29729 --->**Renamed spilled metrics columns**
