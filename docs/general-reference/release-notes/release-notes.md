@@ -38,7 +38,7 @@ The columns `spilled_bytes_uncompressed` and `spilled_bytes_compressed` of `info
 
 For [`EXPLAIN`](../sql-reference/commands/explain.md) queries, we now allow only one of the following options at the same time: `ALL`, `LOGICAL`, `PHYSICAL`, `ANALYZE`.`EXPLAIN (ALL)` now returns the plans in multiple rows instead of multiple columns.
 
-<!--- FIR-29660 --->**Range violation implement for import of parquet INT columns into PDGATE columns**
+<!--- FIR-29660 --->**Range violation implement for import of parquet INT columns into DATE columns**
 
 Reading of Parquet/ORC integer columns will now not be allowed if the external table specifies the types of those columns to be one of the new `DATE`, `TIMESTAMP`, `TIMESTAMPTZ` types. The examples below assume that the new `DATE` and `TIMESTAMP` types are already enforced for you. If not, use `PGDATE` instead of `DATE`, `TIMESTAMPTZ` instead of `TIMESTAMP`, and `to_timestamptz()` instead of `to_timestamp()`.
 
