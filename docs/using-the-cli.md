@@ -17,7 +17,7 @@ This topic covers installation, configuration, and running queries. For a list o
 
 ## Prerequisites
 
-* The CLI requires Python version 3.7 or later along with the pip package installer. For more information, see the [Python](https://www.python.org/downloads/) web page.
+* The CLI requires Python version 3.8 or later along with the pip package installer. For more information, see the [Python](https://www.python.org/downloads/) web page.
 
 * You need a Firebolt account and login credentials.
 
