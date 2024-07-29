@@ -35,12 +35,16 @@ CREATE [FACT|DIMENSION] TABLE [IF NOT EXISTS] <table_name>
 | `<column_name>` | An identifier that specifies the name of the column. This name should be unique within the table.      |
 | `<column_type>`                                 | Specifies the data type for the column.                                                                |
 
-All identifiers are case insensitive unless double-quotes are used. For more information, please see the [Object identifiers page](../../../Reference/object-identifiers.md).
+All identifiers are case insensitive unless double-quotes are used. For more information, please see the [Object identifiers page](../../general-reference/identifier-requirements.md)
 
-* [Column constraints & default expression](#column-constraints--default-expression)
-* [PRIMARY INDEX specifier](#primary-index)
-* [PARTITION BY specifier](#partition-by)
-* [Table type](#table-type)
+- [CREATE TABLE](#create-table)
+  - [Syntax](#syntax)
+  - [Column constraints \& default expression](#column-constraints--default-expression)
+    - [Example–Creating a table with nulls and not nulls](#examplecreating-a-table-with-nulls-and-not-nulls)
+    - [PRIMARY INDEX](#primary-index)
+      - [Syntax–primary index](#syntaxprimary-index)
+    - [PARTITION BY](#partition-by)
+    - [Table type](#table-type)
 
 ## Column constraints & default expression
 
@@ -96,7 +100,7 @@ Once we've created the table, we can manipulate the values with different INSERT
 
 ### PRIMARY INDEX
 
-The `PRIMARY INDEX` is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance. A `PRIMARY INDEX` is  optional. For more information, see [Primary indexes](../../../Guides/working-with-indexes/using-primary-indexes.md).
+The `PRIMARY INDEX` is a sparse index containing sorted data based on the indexed field. This index clusters and sorts data as it is ingested, without affecting data scan performance. A `PRIMARY INDEX` is  optional. For more information, see [Primary indexes](../../using-indexes/using-primary-indexes.md)
 
 #### Syntax&ndash;primary index
 {: .no_toc}
@@ -119,7 +123,7 @@ The `PARTITION BY` clause specifies a column or columns by which the table will 
 PARTITION BY <column_name>[, <column_name>[, ...n]]
 ```
 
-For more information, see [Working with partitions](../../../Overview/working-with-tables/working-with-partitions.md)).
+For more information, see [Working with partitions](./../../working-with-partitions.md)
 
 ### Table type
 
