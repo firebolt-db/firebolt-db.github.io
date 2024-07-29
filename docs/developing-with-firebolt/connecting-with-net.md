@@ -8,4 +8,4 @@ parent: Developing with Firebolt
 
 # .NET
 
-Firebolt provides a .NET Core driver (.NET 6) for developing .NET applications on Firebolt. For installation and usage instructions, see the [firebolt-net-sdk](https://github.com/firebolt-db/firebolt-net-sdk) repository on GitHub.
+Firebolt provides a .NET Core driver (.NET 6) for developing .NET applications on Firebolt. For installation and usage instructions, see the [firebolt-net-sdk](https://github.com/firebolt-db/firebolt-net-sdk/tree/0.x) repository on GitHub.

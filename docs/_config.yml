@@ -43,7 +43,7 @@ search:
 
 aux_links:
   "GET STARTED":
-    - "https:///www.firebolt.io/getting-started-now"
+    - "https://www.firebolt.io/getting-started-now"
 
 # Google Analytics tracking
 ga_tracking: UA-142599515-1
