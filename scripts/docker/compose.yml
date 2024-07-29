@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  docs-server:
+    labels:
+      log-filter: firebolt-docs-staging
+    build: &build-firebolt-docs
+      context: .
+      args: &build-args-firebolt-docs
+        host: docs-server
+        port: 80
+        user_id: "${USER_ID}"
+        user_name: "${USER_NAME}"
+        repo_url: git@github.com/firebolt-analytics/firebolt-docs-staging.git
+      dockerfile: ./scripts/docker/Dockerfile
+    healthcheck:
+      test: "curl -f http://localhost >/dev/null || exit 1"
+      interval: 15s
+      retries: 40
+    extra_hosts:
+      - "docs-server:0.0.0.0"
+
+  link-check:
+    image: raviqqe/muffet:2.10.2
+    command: ["--color=never", "--max-response-body-size=100000000", "--include=http://docs-server", "http://docs-server"]
+    depends_on:
+      docs-server:
+        condition: service_healthy
+
+  localhost-firebolt-docs:
+    build:
+      <<: *build-firebolt-docs
+      args:
+        <<: *build-args-firebolt-docs
+        host: 0.0.0.0
+        port: 8080
+    ports:
+      - "8080:8080"
+    extra_hosts:
+      - "localhost:127.0.0.1"
+
