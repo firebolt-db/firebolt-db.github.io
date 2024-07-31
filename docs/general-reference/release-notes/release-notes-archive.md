@@ -60,13 +60,13 @@ Reading of Parquet/ORC integer columns will now not be allowed if the external t
 
 <!--- FIR-27590 ---> **New comparison operators**
 
-[New comparison operators](../general-reference/operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
+[New comparison operators](../operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
 
 ### Enhancements, changes and new integrations
 {: .no_toc}
 <!--- FIR-27355 ---> **Support for nullable arrays**
 
-Support has been added to allow the [ANY_MATCH](../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
+Support has been added to allow the [ANY_MATCH](../../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
 
 ### Resolved issues
 
@@ -86,13 +86,13 @@ Support has been added to allow the [ANY_MATCH](../sql-reference/functions-refer
 
 <!--- FIR-27590 ---> **New comparison operators**
 
-[New comparison operators](../general-reference/operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
+[New comparison operators](../operators.md#comparison) `IS DISTINCT FROM` and `IS NOT DISTINCT FROM` have been added.
 
 ### Enhancements, changes and new integrations
 {: .no_toc}
 <!--- FIR-27355 ---> **Support for nullable arrays**
 
-Support has been added to allow the [ANY_MATCH](../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
+Support has been added to allow the [ANY_MATCH](../../sql-reference/functions-reference/any-match.md) lambda function to work with nullable arrays.
 
 ### Resolved issues
 
@@ -111,7 +111,7 @@ Support has been added to allow the [ANY_MATCH](../sql-reference/functions-refer
 
 <!--- FIR-25082 ---> **EXPLAIN ANALYZE now available for detailed query metrics**
 
-You can now use the [EXPLAIN command](../sql-reference/commands/explain.md) to execute `EXPLAIN (ANALYZE) <select statement>` and get detailed metrics about how much time is spent on each operator in the query plan, and how much data is processed. The query plan shown there is the physical query plan, which you can inspect using `EXPLAIN (PHYSICAL) <select statement>` without executing the query. It shows how query processing is distributed over the nodes of an engine.
+You can now use the [EXPLAIN command](../../sql-reference/commands/explain.md) to execute `EXPLAIN (ANALYZE) <select statement>` and get detailed metrics about how much time is spent on each operator in the query plan, and how much data is processed. The query plan shown there is the physical query plan, which you can inspect using `EXPLAIN (PHYSICAL) <select statement>` without executing the query. It shows how query processing is distributed over the nodes of an engine.
 
 
 ### Enhancements, changes and new integrations
@@ -119,7 +119,7 @@ You can now use the [EXPLAIN command](../sql-reference/commands/explain.md) to e
 
 <!--- FIR-25636 ---> **PERCENTILE_CONT and PERCENTILE_DISC now return Postgres-compliant results**
 
-[PERCENTILE_CONT](../../sql_reference/functions-reference/window/percentile-cont-window.md) for decimal input now returns DOUBLE PRECISION instead of NUMERIC data type. 
+[PERCENTILE_CONT](../../sql-reference/functions-reference/percentile-cont-window.md) for decimal input now returns DOUBLE PRECISION instead of NUMERIC data type. 
 
 <!--- FIR-24362 ---> **Virtual column 'source_file_timestamp' uses new data type**
 
@@ -131,7 +131,7 @@ Use `source_file_timestamp - NOW()` instead of `DATE_DIFF('second', source_file_
 
 <!--- FIR-10514 ---> **New function added**
 
-A new alias `ARRAY_TO_STRING` has been added to function [ARRAY_JOIN](../sql-reference/functions-reference/array-join.md).
+A new alias `ARRAY_TO_STRING` has been added to function [ARRAY_JOIN](../../sql-reference/functions-reference/array-join.md).
 
 ## DB version 3.28
 **September 2023**
@@ -160,13 +160,13 @@ A new alias `ARRAY_TO_STRING` has been added to function [ARRAY_JOIN](../sql-ref
 {: .no_toc}
 
 * **Add `URL_DECODE` and `URL_ENCODE` SQL functions**
-- [URL_ENCODE](../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_; for example, ```SELECT CONCAT('https://www.firebolt.io/?', URL_ENCODE('example_id=1&hl=en'));``` returns: `https://www.firebolt.io/?example_id%3D1%26hl%3Den`
-- [URL_DECODE](../sql-reference/functions-reference/url_decode.md) decodes percent-encoded characters; for example, ```SELECT URL_DECODE('https://www.firebolt.io/?example_id%3D1%26hl%3Den');```
+- [URL_ENCODE](../../sql-reference/functions-reference/url_encode.md) percent-encodes all non _unreserved characters_; for example, ```SELECT CONCAT('https://www.firebolt.io/?', URL_ENCODE('example_id=1&hl=en'));``` returns: `https://www.firebolt.io/?example_id%3D1%26hl%3Den`
+- [URL_DECODE](../../sql-reference/functions-reference/url_decode.md) decodes percent-encoded characters; for example, ```SELECT URL_DECODE('https://www.firebolt.io/?example_id%3D1%26hl%3Den');```
 returns: `https://www.firebolt.io/?example_id=1&hl=en`
 
 * **New GENERATE_SERIES function**
 
-Support has been added for the [GENERATE_SERIES function](../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
+Support has been added for the [GENERATE_SERIES function](../../sql-reference/functions-reference/generate-series.md) to generate a list of values based on the start, stop, and optional configurable increment step. 
 
 ### Enhancements, changes, and new integrations
 {: .no_toc}
@@ -187,7 +187,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * **New setting to limit rows in result**
 
-  [A new setting](../general-reference/system-settings.md#limit-the-number-of-result-rows) `max_result_rows` controls the limit of rows in result sets. The default value of the `max_result_rows` setting is 0.
+  [A new setting](../system-settings.md#limit-the-number-of-result-rows) `max_result_rows` controls the limit of rows in result sets. The default value of the `max_result_rows` setting is 0.
 
 ### Enhancements, changes and new integrations
 {: .no_toc}
@@ -201,7 +201,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 *  <!--- FIR-25547 ---> **Added support for `BYTEA` inputs in the `LENGTH` function**
 
-  The [`LENGTH`](../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../general-reference/bytea-data-type.md).
+  The [`LENGTH`](../../sql-reference/functions-reference/length-string.md) function now accepts an input of `BYTEA` type. The function returns the number of bytes of an input byte array. For behaviors of converting `TEXT` strings to `BYTEA`, please refer to [BYTEA data type](../bytea-data-type.md).
 
 ### Resolved issues
 {: .no_toc}
@@ -221,16 +221,16 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * **Deprecation of `catalog` metadata schema**
 
-  Support for the `catalog` schema is being phased out in favor of [information_schema views](../general-reference/information-schema/information-schema-and-usage-views.md). To ensure a smooth transition, please update code to use `information_schema` - for example, any query currently reading from `catalog.query_history` or `catalog.running_queries` should be modified to query from `information_schema.query_history` or `information_schema.running_queries`. **Please note, all column names in `information_schema` views are lowercase** - for example, `START_TIME` from `catalog.query_history` is now named `start_time` in the `information_schema.query_history` view.
+  Support for the `catalog` schema is being phased out in favor of [information_schema views](../information-schema/information-schema-and-usage-views.md). To ensure a smooth transition, please update code to use `information_schema` - for example, any query currently reading from `catalog.query_history` or `catalog.running_queries` should be modified to query from `information_schema.query_history` or `information_schema.running_queries`. **Please note, all column names in `information_schema` views are lowercase** - for example, `START_TIME` from `catalog.query_history` is now named `start_time` in the `information_schema.query_history` view.
 
 * <!--- FIR-24427 ---> **Information schema updated**
 
-  Added columns to the [information_schema.databases view](../general-reference/information-schema/databases.md):
+  Added columns to the [information_schema.databases view](../information-schema/databases.md):
    * `compressed_size`
    * `uncompressed_size`
    * `description` 
 
-  Added columns to the [information_schema.engines view](../general-reference/information-schema/engines.md):
+  Added columns to the [information_schema.engines view](../information-schema/engines.md):
    * `engine_type`
    * `auto_stop`
    * `url`
@@ -256,26 +256,26 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-18691 —--> **Added support for functions `HLL_COUNT_BUILD`, `HLL_COUNT_EXTRACT` and `HLL_COUNT_MERGE_PARTIAL`**
 
-  [`HLL_COUNT_BUILD`](../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../sql-reference/functions-reference/hll-count-extract.md) scalar function.
+  [`HLL_COUNT_BUILD`](../../sql-reference/functions-reference/hll-count-build.md) uses the HLL++ algorithm and allows you to control the set sketch size precision, aggregating input values to an HLL++ sketch represented as the `BYTEA` data type. Later individual sketches can be merged to a single sketch using the aggregate function [`HLL_COUNT_MERGE_PARTIAL`](../../sql-reference/functions-reference/hll-count-merge-partial.md), or the estimated cardinality extracted (to get the final estimated distinct count value) using the [`HLL_COUNT_EXTRACT`](../../sql-reference/functions-reference/hll-count-extract.md) scalar function.
 
 * **Added support for service accounts**
 
-  Service account users (Beta) are now available. Read more about using service accounts [here.](../managing-your-account/service-accounts.md)
+  Service account users (Beta) are now available. Read more about using service accounts [here.](../../managing-your-account/service-accounts.md)
 
 * <!--- FIR-21223 ---> **Added support for new function PARAM**
 
-  Use the new [`PARAM` function](../sql-reference/functions-reference/param.md) to reference values of query parameters. 
+  Use the new [`PARAM` function](../../sql-reference/functions-reference/param.md) to reference values of query parameters. 
 
 * **Added support for `VACUUM` command**
 
-  The [`VACUUM` command](../sql-reference/commands/vacuum.md) is now generally available, for use in production workflows. 
+  The [`VACUUM` command](../../sql-reference/commands/vacuum.md) is now generally available, for use in production workflows. 
 
 ### Enhancements, changes and new integrations
 {: .no_toc}
 
 * <!--- FIR-18869 ---> **Change to `SUBSTRING` function**
 
-  The [`SUBSTRING` function](../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [`SUBSTR (legacy)`](../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
+  The [`SUBSTRING` function](../../sql-reference/functions-reference/substring.md) with updated behavior is now available and is no longer an alias for the [`SUBSTR (legacy)`](../../sql-reference/functions-reference/substr.md) function. With the `SUBSTRING` function, negative offsets are treated as offset 1, thus starting at the beginning of the input string. With the `SUBSTR (legacy)` function, negative `offset` values indicate an offset from the end of the input string. With the new `SUBSTRING` function, for index values less than 1, the length is decreased by the difference between 1 and the index value. Negative `length` values are no longer allowed, and indexing is now 1-based, rather than 0-based as with the `SUBSTR (legacy)` function.
 
 * <!--- FIR-22195 ---> **Added UTF-8 validation for text fields**
 
@@ -288,7 +288,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-10918 ---> **Unsupported functions behavior**
 
-  Functions not found in the [Firebolt SQL reference](../sql-reference/functions-reference/index.md) will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
+  Functions not found in the [Firebolt SQL reference](../../sql-reference/functions-reference/index.md) will be blocked. If you have scripts using these functions, please work with your Customer Success team to implement supported functions.
 
 ### Resolved issues
 {: .no_toc}
@@ -313,11 +313,11 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-18691 —--> **Added support for functions REGEXP\_EXTRACT and REGEXP\_EXTRACT\_ALL**
 
-  Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
+  Use these functions to extract matching patterns within an input expression. The [REGEXP\_EXTRACT](../../sql-reference/functions-reference/regexp-extract.md) function extracts the first match only (from the left), [REGEXP\_EXTRACT\_ALL](../../sql-reference/functions-reference/regexp-extract-all.md) function extracts all the matches.
 
 * <!--- FIR-22914 ---> **System Engine (Beta)**
 
-  Use the new [system engine](../working-with-engines/system-engine.md) to run metadata-related queries without having to start a separate engine. The system engine is always available in all databases to select and use. 
+  Use the new [system engine](../../working-with-engines/system-engine.md) to run metadata-related queries without having to start a separate engine. The system engine is always available in all databases to select and use. 
 
   {: .note}
   System engine is currently only available for accounts that have a single region enabled.
@@ -366,7 +366,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * **DATE and TIMESTAMP names available for new data types**
 
-  A new option enables the use of familiar type names `DATE` and `TIMESTAMP` as default for the new expanded date and timestamp data types, with synonyms `PGDATE` and `TIMESTAMPNTZ`. `TIMESTAMPTZ` remains the same as a new type added. If you are a new customer starting on DB version 3.22, these new date and timestamp type names will be enabled by default. For more information, see [Date and timestamp data types](../general-reference/data-types.md/#date-and-timestamp).
+  A new option enables the use of familiar type names `DATE` and `TIMESTAMP` as default for the new expanded date and timestamp data types, with synonyms `PGDATE` and `TIMESTAMPNTZ`. `TIMESTAMPTZ` remains the same as a new type added. If you are a new customer starting on DB version 3.22, these new date and timestamp type names will be enabled by default. For more information, see [Date and timestamp data types](../data-types.md/#date-and-timestamp).
 
   {: .warning}
   >For existing customers before DB version 3.22:
@@ -375,7 +375,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
   >* To ingest from an existing table into a new table using the new types, simply cast a column of type `DATE` to `PGDATE` and a column of type >`TIMESTAMP` to `TIMESTAMPNTZ`. 
   >* To ingest into a new table using the new types from external data, create an external table with the new types.
   >
-  >See [Date and timestamp (legacy)](../general-reference/legacy-date-timestamp.md#legacy-date-and-timestamp-functions) for information about how to adjust scripts for supported functions.
+  >See [Date and timestamp (legacy)](../legacy-date-timestamp.md#legacy-date-and-timestamp-functions) for information about how to adjust scripts for supported functions.
 
   For existing customers before DB version 3.22, data must be reingested using the new types and scripts updated to use supported functions **before this option is enabled**. Please contact your Customer Success team to enable the `DATE` and `TIMESTAMP` synonymns for new types once you have reingested and adjusted scripts.
 
@@ -390,11 +390,11 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * **Added support for `UPDATE` and `DELETE` commands**
 
-  Data manipulation commands [`UPDATE`](../sql-reference/commands/update.md) and [`DELETE`](../sql-reference/commands/delete.md) are generally available, for use in production workflows. 
+  Data manipulation commands [`UPDATE`](../../sql-reference/commands/update.md) and [`DELETE`](../../sql-reference/commands/delete.md) are generally available, for use in production workflows. 
 
 * **Added support for `NUMERIC` data type**
 
-  The [`NUMERIC` data type](../general-reference/numeric-data-type.md) (synonym: `DECIMAL`) is now generally available, for use in production workflows. 
+  The [`NUMERIC` data type](../numeric-data-type.md) (synonym: `DECIMAL`) is now generally available, for use in production workflows. 
 
 ### Enhancements, changes, and new integrations
 {: .no_toc}
@@ -405,12 +405,12 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-21206 —--> **UI option to explain queries (UI release)**
 
-  A new option in the UI supports [explaining statements](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) for single and multi-statement scripts.  
-  ![](../assets/images/explain_query_icon.png)
+  A new option in the UI supports [explaining statements](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) for single and multi-statement scripts.  
+  ![](../../assets/images/explain_query_icon.png)
 
 * <!--- FIR-21206 —--> **Visual explain temporarily limited to text view**
 
-  Text view for [visual explain](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) will be the only supported view temporarily while improvements to visual explain are developed. Other views will be added back in the future.
+  Text view for [visual explain](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md#opening-visual-explain-after-you-run-a-query) will be the only supported view temporarily while improvements to visual explain are developed. Other views will be added back in the future.
 
 ### Resolved issues
 {: .no_toc}
@@ -439,7 +439,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * **Data manipulation commands now available** (Beta release)
 
-  Beta support is now available for data manipulation commands [UPDATE](../sql-reference/commands/update.md) and [DELETE](../sql-reference/commands/delete.md). A [VACUUM](../sql-reference/commands/vacuum.md) has also been added to optimize frequently updated tables.
+  Beta support is now available for data manipulation commands [UPDATE](../../sql-reference/commands/update.md) and [DELETE](../../sql-reference/commands/delete.md). A [VACUUM](../../sql-reference/commands/vacuum.md) has also been added to optimize frequently updated tables.
 
   For more information and known limitations in the beta release, please see linked documentation. 
 
@@ -461,7 +461,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!---FIR-21575---> **Parquet, Avro and ORC support added for new data types**
 
-  These file types can now be used to ingest new `PGDATE`, `TIMSTAMPNTZ` and `TIMESTAMPTZ` data types. For more information see [data type documention](../general-reference/data-types.md#date-and-time).
+  These file types can now be used to ingest new `PGDATE`, `TIMSTAMPNTZ` and `TIMESTAMPTZ` data types. For more information see [data type documention](../data-types.md#date-and-time).
 
   Starting in the next version, you will have the option to use the type names `DATE` and `TIMESTAMP` instead of new type names `PGDATE` and `TIMESTAMPNTZ`, but data must be reingested using the new types before this option is enabled. `TIMESTAMPTZ` will remain the same, as that is a new type added. See [here](release-notes-archive.md#db-version-3200) for instructions to reingest. Please raise any questions or feedback with your Customer Success team. 
 
@@ -483,11 +483,11 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
   The following new and updated functions can now be used with new data types `PGDATE`, `TIMESTAMPTZ`, and `TIMESTAMPNTZ`.
 
-  * [TO_CHAR](../sql-reference/functions-reference/to-char-new.md)
-  * [CURRENT_PGDATE](../sql-reference/functions-reference/current-pgdate.md)
-  * [LOCALTIMESTAMPNTZ](../sql-reference/functions-reference/localtimestampntz.md)
-  * [CURRENT_TIMESTAMPTZ](../sql-reference/functions-reference/current-timestamptz.md)
-  * [TO_TIMESTAMPTZ](../sql-reference/functions-reference/to-timestamptz.md)
+  * [TO_CHAR](../../sql-reference/functions-reference/to-char-new.md)
+  * [CURRENT_PGDATE](../../sql-reference/functions-reference/current-pgdate.md)
+  * [LOCALTIMESTAMPNTZ](../../sql-reference/functions-reference/localtimestampntz.md)
+  * [CURRENT_TIMESTAMPTZ](../../sql-reference/functions-reference/current-timestamptz.md)
+  * [TO_TIMESTAMPTZ](../../sql-reference/functions-reference/to-timestamptz.md)
 
 {: .warning}
   >**To use the new data types, new external and dimension/fact tables must be created. Reingest will be required to recognize new precision.**
@@ -498,14 +498,14 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-18850 —--> **Changed NULL behavior of `CONCAT` function**
 
-  NULL inputs to [the `CONCAT` function](../sql-reference/functions-reference/concat.md) are now treated as empty strings, therefore any NULL inputs are ignored. When all inputs are NULL, the result will be an empty string. When using `||`, any NULL input still results in a NULL output.
+  NULL inputs to [the `CONCAT` function](../../sql-reference/functions-reference/concat.md) are now treated as empty strings, therefore any NULL inputs are ignored. When all inputs are NULL, the result will be an empty string. When using `||`, any NULL input still results in a NULL output.
 
 {: .warning}
   >If you are using the `CONCAT` function on strings with NULL inputs and you don't want NULL values to be ignored, you will need to use the `||` function instead.
   
 * <!--- FIR-21015 —--> **Additional syntax for ARRAY data type names**
 
-  Syntax options for defining columns with [the `ARRAY` data type](../general-reference/data-types.md#array) have been updated to include `<data-type>[]` and `<data-type> ARRAY`. Array element type is nullable when using the new syntax options. 
+  Syntax options for defining columns with [the `ARRAY` data type](../data-types.md#array) have been updated to include `<data-type>[]` and `<data-type> ARRAY`. Array element type is nullable when using the new syntax options. 
 
   For example, the following three queries will create tables with the same `demo_array` column of type `ARRAY` of nullable `TEXT`.
 
@@ -526,7 +526,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-20822 —--> **Added flag support for `REGEXP_LIKE`**
 
-  The [`REGEXP_LIKE` function](../sql-reference/functions-reference/regexp-like.md) now supports an optional `<flag>` input, to allow additional controls over the regular's expression matching behavior.
+  The [`REGEXP_LIKE` function](../../sql-reference/functions-reference/regexp-like.md) now supports an optional `<flag>` input, to allow additional controls over the regular's expression matching behavior.
 
   For example, the `i` flag causes the regular expression matching in the following query to be case-insensitive. Without this flag, the query would not find a match and would return `0`.
 
@@ -537,11 +537,11 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-20808 —--> **Parquet and ORC support added for binary data type**
 
-  Binary type data from external Parquet or ORC file types will now be ingested directly with [the data type `BYTEA`](../general-reference/bytea-data-type.md#importing-bytea-from-external-source). Previously, data were ingested as type `TEXT` and then converted to data type `BYTEA`. 
+  Binary type data from external Parquet or ORC file types will now be ingested directly with [the data type `BYTEA`](../bytea-data-type.md#importing-bytea-from-external-source). Previously, data were ingested as type `TEXT` and then converted to data type `BYTEA`. 
 
 * <!--- FIR-21179 —--> **Export all results from the SQL Workspace**  (UI release)
 
-  [Exporting the entire results section](../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
+  [Exporting the entire results section](../../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
 
 * <!--- FIR-19287 —--> **Renamed column from `information_schema.tables`**
 
@@ -566,7 +566,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-21179 —--> **Export all results from the SQL Workspace**
 
-  [Exporting the entire results section](../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
+  [Exporting the entire results section](../../using-the-sql-workspace/using-the-sql-workspace.md#exporting-results-to-a-local-hard-drive) from the SQL Workspace in CSV or JSON format is now supported.
 
 * <!--- FIR-19287 —--> **Renamed column from `information_schema.tables`**
 
@@ -594,9 +594,9 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
   Added support for new date and timestamp data types:
 
-  * [PGDATE](../general-reference/date-data-type.md)
-  * [TIMESTAMPNTZ](../general-reference/timestampntz-data-type.md)
-  * [TIMESTAMPTZ](../general-reference/timestamptz-data-type.md)
+  * [PGDATE](../date-data-type.md)
+  * [TIMESTAMPNTZ](../timestampntz-data-type.md)
+  * [TIMESTAMPTZ](../timestamptz-data-type.md)
 
   The new data types use an improved memory layout providing a much higher supported range, now extending from `0001-01-01[ 00:00:00.000000]` to `9999-12-31[ 23:59:59.999999]`. This change also extends the syntax for specifying intervals used for arithmetic with dates and timestamps. In addition to the previously supported interval syntax, you can now also write `interval 'N' unit`, where `N` is a possibly signed integer, and `unit` is one of `year`, `month`, `day`, `hour`, `minute`, or `second`, matched case-insensitively.
 
@@ -611,11 +611,11 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- ---> **New setting for time zone**
 
-  [New setting](../general-reference/system-settings.md#set-time-zone) `time_zone` controls the session time zone. The default value of the `time_zone` setting is UTC.
+  [New setting](../system-settings.md#set-time-zone) `time_zone` controls the session time zone. The default value of the `time_zone` setting is UTC.
 
 * <!--- FIR-13488, FIR-20666 ---> **New keyboard shortcuts** (UI release)
 
-  Use new [keyboard shortcuts](../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to cancel a query, or go to a specific line in your script.  
+  Use new [keyboard shortcuts](../../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to cancel a query, or go to a specific line in your script.  
 
     * Cancel a running script with **Ctrl + Alt + k** for Windows & Linux, or **⌘ + Option + k** for Mac
     * Go to a desired line with **Ctrl + l** for Windows & Linux, or **⌘ + l** for Mac
@@ -625,7 +625,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-16389 —--> **Improved join index performance**
 
-  [Join indexes](../using-indexes/using-join-indexes.md) just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually create or refresh – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
+  [Join indexes](../../using-indexes/using-indexes.md) just got better: profit from their extreme performance benefits without any configuration. Moreover, there is no more need to manually create or refresh – the results are always up to date even if the underlying data changed.  With this optimization, we've seen real-world, production queries run 200x faster.
 
   To see how this works, let’s look at an example. Say we have the following query pattern which is run hundreds of times per second with different values for `l.player_id` and `l.date`:
 
@@ -653,7 +653,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-17198 —-->**Added syntax option for setting TYPE options in CREATE EXTERNAL TABLE**
   
-  Added the option to set type options for S3 source files at the same level as `TYPE` is set. [Type option](../sql-reference/commands/create-external-table.md#type) can now be defined as in the example below:
+  Added the option to set type options for S3 source files at the same level as `TYPE` is set. [Type option](../../sql-reference/commands/create-external-table.md#type) can now be defined as in the example below:
 
   ```sql
   CREATE EXTERNAL TABLE ex_table( ... )
@@ -672,7 +672,7 @@ TRUE and FALSE are now accepted as valid `BOOLEAN` values when ingesting CSV fil
 
 * <!--- FIR-20566 —-->**Default DECIMAL scale changed**
 
-  The default scale for the `DECIMAL` [data type](../general-reference/decimal-data-type.md) has been updated from 0 to 9. 
+  The default scale for the `DECIMAL` [data type](../decimal-data-type.md) has been updated from 0 to 9. 
 
 
 ## DB version 3.17.0
@@ -687,28 +687,28 @@ February 2023
 
 * <!--- FIR--17030 --->**Added support for GROUP BY ALL**
 
-  Instead of explicitly listing all grouping elements in the `GROUP BY` clause, [use `GROUP BY ALL`](../sql-reference/commands/select.md#group-by-all) to automatically infer them from the `SELECT` list.
+  Instead of explicitly listing all grouping elements in the `GROUP BY` clause, [use `GROUP BY ALL`](../../sql-reference/commands/select.md#group-by-all) to automatically infer them from the `SELECT` list.
 
 * <!--- FIR-16795 —-->**New BYTEA data type**
 
-  Use the new [`BYTEA` data type](../general-reference/bytea-data-type.md) to store binary data, like images, other multimedia files, or raw bytes of information.
+  Use the new [`BYTEA` data type](../bytea-data-type.md) to store binary data, like images, other multimedia files, or raw bytes of information.
 
-* <!--- FIR-16922 —-->**New functions [ENCODE](../sql-reference/functions-reference/encode.md) and [DECODE](../sql-reference/functions-reference/decode.md)**
+* <!--- FIR-16922 —-->**New functions [ENCODE](../../sql-reference/functions-reference/encode.md) and [DECODE](../../sql-reference/functions-reference/decode.md)**
 
-  Use [these functions](../sql-reference/functions-reference/index.md#bytea-functions) with the new `BYTEA` data type to encode binary data into a SQL expression of type `TEXT`, and decode from type `TEXT` to type `BYTEA`.
+  Use [these functions](../../sql-reference/functions-reference/index.md#bytea-functions) with the new `BYTEA` data type to encode binary data into a SQL expression of type `TEXT`, and decode from type `TEXT` to type `BYTEA`.
 
 * <!--- FIR-17196 --->**Added support for EXCLUDE columns in SELECT **
 
 
-  [Added support for `EXCLUDE` columns in SELECT *](../sql-reference/commands/select.md#select-wildcard) to define which columns to exclude from a SELECT wildcard expansion. 
+  [Added support for `EXCLUDE` columns in SELECT *](../../sql-reference/commands/select.md#select-wildcard) to define which columns to exclude from a SELECT wildcard expansion. 
 
 * <!--- FIR-16745 --->**New setting for parsing literal strings**
 
-  [New setting](../general-reference/system-settings.md#enable-parsing-for-literal-strings) `standard_conforming_strings` controls whether strings are parsed without escaping, treating backslashes literally.
+  [New setting](../system-settings.md#enable-parsing-for-literal-strings) `standard_conforming_strings` controls whether strings are parsed without escaping, treating backslashes literally.
 
 * <!--- FIR-13489 --->**New keyboard shortcuts** (UI release)
 
-  Use new [keyboard shortcuts](../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to save and close scripts, and expand or collapse the results pane. 
+  Use new [keyboard shortcuts](../../using-the-sql-workspace/keyboard-shortcuts-for-sql-workspace.md) in the SQL workspace to save and close scripts, and expand or collapse the results pane. 
 
     * Close the current script in the SQL workspace with **Ctrl + Alt + x** for Windows & Linux, or **⌘ + Option + x** for Mac
     * Close all scripts in the SQL workspace with **Ctrl + Alt + g** for Windows & Linux, or **⌘ + Option + g** for Mac
@@ -721,23 +721,23 @@ February 2023
 
 * <!--- FIR-12244 —-->**Added support for CREATE TABLE as an alias for CREATE FACT TABLE**
 
-  [Added support for `CREATE TABLE` syntax](../sql-reference/commands/create-fact-dimension-table.md), with the default as fact table. `PRIMARY INDEX` is now also optional for fact tables.
+  [Added support for `CREATE TABLE` syntax](../../sql-reference/commands/create-fact-dimension-table.md), with the default as fact table. `PRIMARY INDEX` is now also optional for fact tables.
 
 * <!--- FIR-17189 --->**Added support for the DECIMAL data type with the ARRAY\_SORT function**
 
-  [ARRAY_SORT](../sql-reference/functions-reference/array-sort.md) has been added as a function supporting the [DECIMAL data type](../general-reference/decimal-data-type.md#supported-functions-beta-release).
+  [ARRAY_SORT](../../sql-reference/functions-reference/array-sort.md) has been added as a function supporting the [DECIMAL data type](../decimal-data-type.md#supported-functions-beta-release).
 
 * <!--- FIR-11888 --->**Minimize results in the SQL workspace** (UI release)
 
   The results pane in the SQL workspace can now be minimized. Expand or collapse by double-clicking on the "Results" pane header, using the height control button to drag and change the size of the pane as desired, or using the keyboard shortcut **Ctrl + Alt + e**  for Windows & Linux, or **⌘ + Option + e** for Mac.
 
-  ![](../assets/images/release-notes/expandcollapse.gif)
+  ![](../../assets/images/release-notes/expandcollapse.gif)
 
 * <!--- FIR-10855 --->**Primary index columns highlighted in columns object viewer** (UI release)
 
   The columns pane in the object viewer now highlights columns that are part of a table's primary index, making it easier to identify primary indexes and the order of the columns in the primary index. 
 
-  ![](../assets/images/release-notes/pihighlight.png)
+  ![](../../assets/images/release-notes/pihighlight.png)
 
 ### Resolved issues
 {: .no_toc}
@@ -758,7 +758,7 @@ February 2023
 
 *  <!--- FIR-3917 —-->**Added support for CSV TYPE options on ingest** (DB version 3.14.0)
 
-  Added support for additional TYPE options for the [CREATE EXTERNAL TABLE command](../sql-reference/commands/create-external-table.md#type), to allow configuration for ingesting different CSV file formats. Some of these options may be available in previous versions. 
+  Added support for additional TYPE options for the [CREATE EXTERNAL TABLE command](../../sql-reference/commands/create-external-table.md#type), to allow configuration for ingesting different CSV file formats. Some of these options may be available in previous versions. 
 
   * `[ALLOW_DOUBLE_QUOTES = {TRUE|FALSE}]`, `[ALLOW_SINGLE_QUOTES = {TRUE|FALSE}]`: Define that unescaped double or single quotes in CSV input file will not cause an error to be generated on ingest. 
 
@@ -794,24 +794,24 @@ February 2023
 
 * <!--- FIR-15968, FIR-15744 —-->**Added support for functions** (DB version 3.13.0)
 
-  * [FIRST_VALUE](../sql-reference/functions-reference/first-value.md): Returns the first value evaluated in the specified window frame.
-  * [NTH_VALUE](../sql-reference/functions-reference/nth-value.md): Returns the value evaluated of the nth row of the specified window frame (starting at the first row).
-  * [NTILE](../sql-reference/functions-reference/ntile.md): Divides an ordered data set equally into a specified number of buckets.
-  * [CUME\_DIST](../sql-reference/functions-reference/cume-dist.md): Calculates the relative rank (cumulative distribution) of the current row in relation to other rows in the same partition within an ordered data set.
-  * [PERCENT\_RANK](../sql-reference/functions-reference/percent-rank.md): Calculates the relative rank of the current row within an ordered data set.
-  * [PERCENTILE\_CONT (aggregation function)](../sql-reference/functions-reference/percentile-cont.md): Calculates a percentile, assuming a continuous distribution of values.
-  * [PERCENTILE\_CONT (window function)](../sql-reference/functions-reference/percentile-cont-window.md): Calculates a percentile over a partition, assuming a continuous distribution of values.
-  * [PERCENTILE\_DISC (aggregation function)](../sql-reference/functions-reference/percentile-disc.md): Returns a percentile for an ordered data set, equal to a specific column value.
-  * [PERCENTILE\_DISC (window function)](../sql-reference/functions-reference/percentile-disc-window.md): Returns a percentile over a partition for an ordered data set, equal to a specific column value.
+  * [FIRST_VALUE](../../sql-reference/functions-reference/first-value.md): Returns the first value evaluated in the specified window frame.
+  * [NTH_VALUE](../../sql-reference/functions-reference/nth-value.md): Returns the value evaluated of the nth row of the specified window frame (starting at the first row).
+  * [NTILE](../../sql-reference/functions-reference/ntile.md): Divides an ordered data set equally into a specified number of buckets.
+  * [CUME\_DIST](../../sql-reference/functions-reference/cume-dist.md): Calculates the relative rank (cumulative distribution) of the current row in relation to other rows in the same partition within an ordered data set.
+  * [PERCENT\_RANK](../../sql-reference/functions-reference/percent-rank.md): Calculates the relative rank of the current row within an ordered data set.
+  * [PERCENTILE\_CONT (aggregation function)](../../sql-reference/functions-reference/percentile-cont.md): Calculates a percentile, assuming a continuous distribution of values.
+  * [PERCENTILE\_CONT (window function)](../../sql-reference/functions-reference/percentile-cont-window.md): Calculates a percentile over a partition, assuming a continuous distribution of values.
+  * [PERCENTILE\_DISC (aggregation function)](../../sql-reference/functions-reference/percentile-disc.md): Returns a percentile for an ordered data set, equal to a specific column value.
+  * [PERCENTILE\_DISC (window function)](../../sql-reference/functions-reference/percentile-disc-window.md): Returns a percentile over a partition for an ordered data set, equal to a specific column value.
 
 
 * <!--- FIR-15007 —-->**Added support for TRUNCATE TABLE command** (DB version 3.11.0)
   
-  Use the [TRUNCATE TABLE](../sql-reference/commands/truncate-table.md) command to remove all rows from a table. 
+  Use the [TRUNCATE TABLE](../../sql-reference/commands/truncate-table.md) command to remove all rows from a table. 
 
 * <!--- FIR-12587 —-->**Added support for DECIMAL data type** (DB version 3.13.0)
 
-  Beta support for the [DECIMAL](decimal-data-type.md) data type is coming in version 3.13. 
+  Beta support for the [DECIMAL](../decimal-data-type.md) data type is coming in version 3.13. 
 
   {: .warning}
   In previous versions, DECIMAL type columns are stored as DOUBLE type. Therefore, this change may require your action. Restart analytics engines before general purpose engines to use this new feature, and see below for additional actions. 
@@ -824,7 +824,7 @@ February 2023
 
    * If your table defined with columns as DECIMAL are recreated periodically (by your ELT process), new columns will be defined as DECIMAL(38,0) – default precision and scale. If you don’t want to switch to the DECIMAL data type for the existing data flows, you can change your ELT flows and replace the DECIMAL keyword with DOUBLE.
 
-   * If you are using a function with a DECIMAL type in your ELT process, ensure that function is [supported for the DECIMAL data type](decimal-data-type.md#supported-functions-beta-release).  
+   * If you are using a function with a DECIMAL type in your ELT process, ensure that function is [supported for the DECIMAL data type](../decimal-data-type.md#supported-functions-beta-release).  
 
    * To change the data type of columns defined as DECIMAL but stored as DOUBLE, you will need to recreate the table with the new definition (column defined as DECIMAL(p,s)). To avoid precision loss, we highly recommend re-ingesting the data from the source (i.e., via external table) rather than casting values to decimal from the existing table (i.e., `INSERT INTO new_table(d) SELECT CAST(d as DECIMAL(38,9)) FROM old_table;`).
    
@@ -850,7 +850,7 @@ February 2023
 
 * <!--- FIR-16295 —-->**Information schema updated** (DB version 3.13.0)
 
-  Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../general-reference/information-schema/query-history-view.md).
+  Added `cpu_usage_us` and `cpu_delay_us` columns to the [information_schema.query_history view](../information-schema/query-history-view.md).
   
 ### Resolved issues
 {: .no_toc}
@@ -869,7 +869,7 @@ February 2023
 * <!--- FIR-15853 —-->**Added support for functions REGEXP\_REPLACE and REGEXP\_REPLACE\_ALL**
 **(DB version 3.11.0)**
 
-  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
+  Use these functions to replace matching patterns in the input with a replacement. The [REGEXP\_REPLACE](../../sql-reference/functions-reference/regexp-replace.md) function replaces the first match only (from the left), [REGEXP\_REPLACE\_ALL](../../sql-reference/functions-reference/regexp-replace.md) function replaces all the matches.
 
 ### Enhancements, changes and new integrations
 {: .no_toc}
@@ -882,7 +882,7 @@ February 2023
 * <!--- FIR-15683 —-->**Updated syntax to generate an aggregating index**
 **(DB version 3.11.0)**
 
-  The [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md) command will now generate the aggregating index, without using the additional AND GENERATE clause. 
+  The [CREATE AGGREGATING INDEX](../../sql-reference/commands/create-aggregating-index.md) command will now generate the aggregating index, without using the additional AND GENERATE clause. 
 
 * <!--- FIR-15452 —-->**Added support for window function frame definitions**
 **(DB version 3.11.0)**
@@ -892,12 +892,12 @@ February 2023
 * <!--- FIR-15022 —-->**VERSION() function now available**
 **(DB version 3.8.0)**
 
-  Query the engine version using the new [VERSION()](../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information\_schema.engines](../general-reference/information-schema/engines.md) view. 
+  Query the engine version using the new [VERSION()](../../sql-reference/functions-reference/version.md) function. Engine version is also now available as a column in the [information\_schema.engines](../information-schema/engines.md) view. 
 
 * <!--- FIR-15152 —--> **Information schema updated**
 **(DB version 3.8.0)**
 
-  System-defined tables metadata can now be queried via the [information\_schema.tables](../general-reference/information-schema/tables.md) view.
+  System-defined tables metadata can now be queried via the [information\_schema.tables](../information-schema/tables.md) view.
 
 ## August 2022
 
@@ -920,7 +920,7 @@ February 2023
 
   query\_history and running\_queries views can now be queried via the information\_schema.
 
-  For more information, see [Information schema for query history](../general-reference/information-schema/query-history-view.md) and [Information schema for running queries](../general-reference/information-schema/running-queries.md).
+  For more information, see [Information schema for query history](../information-schema/query-history-view.md) and [Information schema for running queries](../information-schema/running-queries.md).
 
 * **Added support for Multi-factor authentication (MFA)**
   **(Beta)**
@@ -931,9 +931,9 @@ February 2023
 
   **To enable MFA for a Firebolt user or group of users** choose the **User Management** icon in the navigation pane. If the icon isn't available, you don't have Account Admin permissions. 
     
-  ![User management icon](../assets/images/user-management.png)
+  ![User management icon](../../assets/images/user-management.png)
   
-  For more information, see [Configuring MFA for users (Beta)](../managing-your-account/managing-users.md#configuring-mfa-for-users-beta).
+  For more information, see [Configuring MFA for users (Beta)](../../managing-your-account/managing-users.md#configuring-mfa-for-users-beta).
 
 * **Added support for the hll\_count\_distinct(input, [, precision]) function**
   **(DB version 3.7.0)**
@@ -945,7 +945,7 @@ February 2023
 * **Added new data type aliases**
   **(DB version 3.7.0)**
 
-  Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](data-types.md).
+  Data type aliases have been added for `REAL`, `FLOAT4`, `FLOAT8`, `INT4`, `INT8`, and `FLOAT(p)`. For more information on data types and their aliases (synonyms), see [Data types](../data-types.md).
 
 * **Updated INFORMATION_SCHEMA.COLUMNS**
   **(DB version 3.8.0)** 
@@ -956,20 +956,20 @@ February 2023
 
   Added a status indicator in the browser tab so when multiple tabs are open in the browser, you can switch to a different tab and still track the status of your running script. The status adds a color coded indicator dot to the Firebolt icon in the tab. A green dot indicates the script completed successfully. The status remains in the tab for one minute after the script completes running. 
   
-  For more information about this new status indicator, and running scripts, see [Running scripts and working with results](../using-the-sql-workspace/using-the-sql-workspace.md#running-scripts-and-working-with-results).
+  For more information about this new status indicator, and running scripts, see [Running scripts and working with results](../../using-the-sql-workspace/using-the-sql-workspace.md#running-scripts-and-working-with-results).
 
-  ![](../assets/images/release-notes/script-status.gif)
+  ![](../../assets/images/release-notes/script-status.gif)
 
 * **Added dark mode**
 
   Firebolt now supports an additional color theme - dark mode. You can toggle between light and dark modes in the UI. Select the toggle at the bottom of the left navigation pane to turn dark mode on and off.   
  
-  ![](../assets/images/release-notes/dark-mode-toggle.gif)
+  ![](../../assets/images/release-notes/dark-mode-toggle.gif)
 
 * **Added support for IP allowed & blocked lists**
   **(Beta)**
 
-  Allows access to your Firebolt account from specific IP addresses. For more information, see [Allowing and blocking source IP addresses for users (Beta)](../managing-your-account/managing-users.md#allowing-and-blocking-source-ip-addresses-for-users-beta)
+  Allows access to your Firebolt account from specific IP addresses. For more information, see [Allowing and blocking source IP addresses for users (Beta)](../../managing-your-account/managing-users.md#allowing-and-blocking-source-ip-addresses-for-users-beta)
   
 * **Added support for server-side asynchronous querying on the Python SDK**
 
@@ -1002,11 +1002,11 @@ February 2023
   
   The billing breakdown in the engine dashboard can now show billing or running time.
 
-  ![Billing time](../assets/images/release-notes/billing-time.png)
+  ![Billing time](../../assets/images/release-notes/billing-time.png)
  
 * **Added an optional `<format>` parameter to the `TO_DATE` and `TO_TIMESTAMP` functions**
   
-  The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../sql-reference/functions-reference/to-timestamp.md).
+  The `<format>` parameter allows you to use a string literal, as shown in [DATE_FORMAT](../../sql-reference/functions-reference/date-format.md), to specify the format of the string to convert. This hint helps the date-time parser to improve performance. For more information, see [TO_DATE](../../sql-reference/functions-reference/to-date.md) and [TO_TIMESTAMP](../../sql-reference/functions-reference/to-timestamp.md).
 
 ### Resolved issues
 {: .no_toc}
@@ -1053,17 +1053,17 @@ February 2023
 {: .no_toc}
 
 *  You can now use the help menu to check the Firebolt service status page.  
-  ![Status Page](../assets/images/firebolt-service-status.png)
+  ![Status Page](../../assets/images/firebolt-service-status.png)
 
-* Added support for `CREATE AND GENERATE AGGREGATING INDEX IF NOT EXISTS`. For more information, see [CREATE AGGREGATING INDEX](../sql-reference/commands/create-aggregating-index.md).
+* Added support for `CREATE AND GENERATE AGGREGATING INDEX IF NOT EXISTS`. For more information, see [CREATE AGGREGATING INDEX](../../sql-reference/commands/create-aggregating-index.md).
 
-* Added an information schema view for indexes. The view is available for each database and contains one row for each index. For more information, see [Information schema for indexes](../general-reference/information-schema/indexes.md).
+* Added an information schema view for indexes. The view is available for each database and contains one row for each index. For more information, see [Information schema for indexes](../information-schema/indexes.md).
 
-* Added `ARRAY_AGG` as an alias of `NEST`. For more information, see [NEST](../sql-reference/functions-reference/nest.md).
+* Added `ARRAY_AGG` as an alias of `NEST`. For more information, see [NEST](../../sql-reference/functions-reference/nest.md).
 
 * You can now concatenate strings, numbers, and arrays using the `||` operator without exlicitly casting elements.
 
-* Added `TO_TEXT` as an alias of `TO_STRING`. For more information, see [TO_STRING](../sql-reference/functions-reference/to-string.md).
+* Added `TO_TEXT` as an alias of `TO_STRING`. For more information, see [TO_STRING](../../sql-reference/functions-reference/to-string.md).
 
 *  An improved approach to Window functions is available for Beta testing by request. For more information, contact Firebolt Support.
 
@@ -1111,16 +1111,16 @@ February 2023
 {: .no_toc}
 
 * **Added support for `CREATE OR REPLACE VIEW` statement**  
-  The `IF NOT EXISTS` and `OR REPLACE` options are incompatible when creating a view. For more information, see [CREATE VIEW](../sql-reference/commands/create-view.md).
+  The `IF NOT EXISTS` and `OR REPLACE` options are incompatible when creating a view. For more information, see [CREATE VIEW](../../sql-reference/commands/create-view.md).
 
 * **Added `ALTER DATABASE` statement**  
-  Allows you to change the engine configuration and the database description. For more information, see [ALTER DATABASE](../sql-reference/commands/alter-database.md).
+  Allows you to change the engine configuration and the database description. For more information, see [ALTER DATABASE](../../sql-reference/commands/alter-database.md).
 
 * **Added `TO_CHAR` function**   
-  Converts a timestamp or a numeric type to strings in a format that you specify. For more information, see [TO_CHAR](../sql-reference/functions-reference/to-char.md).
+  Converts a timestamp or a numeric type to strings in a format that you specify. For more information, see [TO_CHAR](../../sql-reference/functions-reference/to-char.md).
 
 * **Materialized CTEs (Beta)**  
-  Added an optimization hint to support caching large, computationally expensive CTE results in memory for reuse to increase query performance. For more information, see [SELECT](../sql-reference/commands/select.md#materialized-common-table-expressions-beta).
+  Added an optimization hint to support caching large, computationally expensive CTE results in memory for reuse to increase query performance. For more information, see [SELECT](../../sql-reference/commands/select.md#materialized-common-table-expressions-beta).
 
 * **Added support for SET statements passed via SQL in the Python SDK**  
 
@@ -1128,7 +1128,7 @@ February 2023
 {: .no_toc}
 
 * **Engine specs are now Firebolt-specific**  
-  Firebolt engine spec names have changed from AWS EC2 names to Firebolt-specific names&mdash;for example, **M4**. This change simplifies engine specs and aligns them with Firebolt usage and deployment. This is the first step toward improving the overall engine selection and usage experience, allowing Firebolt to update underlying hardware more quickly and automatically. For more information, see [Working with engines](../working-with-engines/index.md).
+  Firebolt engine spec names have changed from AWS EC2 names to Firebolt-specific names&mdash;for example, **M4**. This change simplifies engine specs and aligns them with Firebolt usage and deployment. This is the first step toward improving the overall engine selection and usage experience, allowing Firebolt to update underlying hardware more quickly and automatically. For more information, see [Working with engines](../../working-with-engines/index.md).
 
 * **Expanded application of aggregating indexes**  
   The query optimizer now uses aggregating indexes in more cases to improve performance.
@@ -1145,7 +1145,7 @@ February 2023
 
 * Fixed an issue where complex join conditions could fail when evaluating `NULL` values.
 
-* Fixed an issue that caused [dropping partitions by date extraction](../working-with-partitions.md#partition-and-drop-by-date-extraction) to fail.
+* Fixed an issue that caused [dropping partitions by date extraction](../../working-with-partitions.md#partition-and-drop-by-date-extraction) to fail.
 
 * Fixed an issue that caused `DROP AGGREGATING INDEX` to run slower than expected.
 
@@ -1168,7 +1168,7 @@ February 2023
 
 In the SQL workspace, you can now select a portion of an error message to copy.
 
-![Select partial error message](../assets/images/relnote_select_partial_error.png)
+![Select partial error message](../../assets/images/relnote_select_partial_error.png)
 
 ## March 15, 2022
 
@@ -1179,10 +1179,10 @@ In the SQL workspace, you can now select a portion of an error message to copy.
 {: .no_toc}
 
 * **Visual explain**  
-  Use the new visual explain feature to analyze query execution plans. Different display formats and navigation options enhance your ability to quickly analyze and diagnose complex queries. For more information, see [Analyze query execution plans with visual explain](../using-the-sql-workspace/using-explain-to-analyze-query-execution.md).
+  Use the new visual explain feature to analyze query execution plans. Different display formats and navigation options enhance your ability to quickly analyze and diagnose complex queries. For more information, see [Analyze query execution plans with visual explain](../../using-the-sql-workspace/using-explain-to-analyze-query-execution.md).
 
 * **COPY TO statement (Beta)**  
-  Use the new `COPY TO (Beta)` statement to export query results to an Amazon S3 location in CSV, TSV, JSON, or Parquet file formats. Configuration options allow you to choose file output options. For more information, see [COPY TO (Beta)](../sql-reference/commands/copy-to.md).
+  Use the new `COPY TO (Beta)` statement to export query results to an Amazon S3 location in CSV, TSV, JSON, or Parquet file formats. Configuration options allow you to choose file output options. For more information, see [COPY TO (Beta)](../../sql-reference/commands/copy-to.md).
 
 * **Firebolt CLI now available**  
   Run SQL and manage databases and engines in Firebolt directly from the command line. Use interactive mode or invoke commands from scripts. For more information, see [firebolt-cli](https://pypi.org/project/firebolt-cli/) on PyPI.
@@ -1195,13 +1195,13 @@ In the SQL workspace, you can now select a portion of an error message to copy.
   Provides a database driver for Node.js applications to connect to Firebolt and run queries more easily. For more information, see [Firebolt Node.js SDK](https://www.npmjs.com/package/firebolt-sdk) on npm.
 
 * **Information schema for views**  
-  For more information, see [Information schema for views](/information-schema/views.md).
+  For more information, see [Information schema for views](../information-schema/views.md).
 
 * **Information schema for engines**  
-  For more information, see [Information schema for engines](/information-schema/engines.md).
+  For more information, see [Information schema for engines](../information-schema/engines.md).
 
 * **Added `ATAN2(<y_expr>,<x_expr>)`**  
-  Added the two-argument arc tangent function [ATAN2](../sql-reference/functions-reference/atan2.md).
+  Added the two-argument arc tangent function [ATAN2](../../sql-reference/functions-reference/atan2.md).
 
 ### Enhancements, changes, and resolved issues
 {: .no_toc}
@@ -1213,7 +1213,7 @@ In the SQL workspace, you can now select a portion of an error message to copy.
   Firebolt now supports Parquet list fields with a period (`.`) in the name. In addition, Parquet nested lists are now supported.
 
 * **catalog.query_history limited to 14 days**  
-  Queries older than 14 days are no longer available when querying [catalog.query_history](/information-schema/query-history-view.md).
+  Queries older than 14 days are no longer available when querying [catalog.query_history](../information-schema/query-history-view.md).
 
 * **Firebolt dbt adapter**  
   * **Improved connection method** &ndash; The Firebolt dbt adapter now connects to Firebolt using the Python SDK instead of JDBC. JDBC and the JRE are no longer required.
@@ -1381,7 +1381,7 @@ You can now use a keyboard shortcut to create a new script in the SQL workspace
 ### What’s new
 {: .no_toc}
 
-* You can now quickly investigate statistics for query results in the SQL Workspace. Statistics such as the number of unique values, number of empty values, min/max/median and other quartiles, data ranges, top/bottom numbers, and more are available. Click the expansion arrow to the left of the header row to see statistics. For more information, see [Viewing query statistics with results](../using-the-sql-workspace/using-the-sql-workspace.md#viewing-query-statistics-with-results) in Firebolt documentation.
+* You can now quickly investigate statistics for query results in the SQL Workspace. Statistics such as the number of unique values, number of empty values, min/max/median and other quartiles, data ranges, top/bottom numbers, and more are available. Click the expansion arrow to the left of the header row to see statistics. For more information, see [Viewing query statistics with results](../../using-the-sql-workspace/using-the-sql-workspace.md#viewing-query-statistics-with-results) in Firebolt documentation.
 
 * You can now sort and filter data values on any column in your query result-set in the SQL Workspace.
 
