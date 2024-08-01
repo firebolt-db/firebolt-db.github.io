@@ -313,8 +313,8 @@ This returns (`...` indicates areas of JSON omitted from this example):
 
 Ingesting data using the Firebolt REST API requires the following steps:
 
-1. [Create an external table](./firebolt-rest-api.html/#create-an-external-table)
-2. [Create a fact table and import data](./firebolt-rest-api.html/#create-a-fact-table-and-import-data)
+1. [Create an external table](#create-an-external-table)
+2. [Create a fact table and import data](#create-a-fact-table-and-import-data)
 
 ### Create an external table
 

@@ -1,0 +1,75 @@
+name: Check PR before merge
+on:
+  pull_request:
+    branches:
+    - gh-pages
+
+jobs:
+  check-links:
+    # The check is advisory. It won't prevent merge even if it's broken
+    continue-on-error: true
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+      issues: read
+      # permission needed to post a comment on the PR
+      pull-requests: write
+
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332  # v4.1.7
+
+      - name: Check there are no 404 links
+        id: check404
+        run: |
+          set -xeuo pipefail
+          result_file=$(mktemp)
+          set +e
+          scripts/check-links.sh > "$result_file"
+          rv=$?
+          set -e
+          if [[ "$rv" != 0 ]]; then
+            cat "$result_file"
+            {
+              # Abusing the unique name of the file as an EOF marker
+              echo "output<<$result_file"
+              cat "$result_file"
+              echo "$result_file"
+            } >> $GITHUB_OUTPUT
+          fi
+          exit "$rv"
+
+      - name: Find Comment
+        id: fc
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e  # v3.1.0
+        if: always()
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: "Link Check Status:"
+
+      - name: Post a comment on failure
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043  # v4.0.0
+        if: failure()
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            # $\color{red}{\text{🧨 Link Check Status: FAILURE}}$
+            ```
+            ${{ steps.check404.outputs.output }}
+            ```
+          edit-mode: replace
+
+      - name: Post a comment on success
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043  # v4.0.0
+        if: success()
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            # $\color{green}{\text{👍 Link Check Status: SUCCESS}}$
+            thumbs up guy meme
+          edit-mode: replace
