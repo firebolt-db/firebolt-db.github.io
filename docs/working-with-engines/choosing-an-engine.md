@@ -5,7 +5,8 @@ description: Choosing an engine configuration based on your data type and query 
 nav_order: 2
 parent: Working with engines
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Choosing an engine
 {: .no_toc}
 

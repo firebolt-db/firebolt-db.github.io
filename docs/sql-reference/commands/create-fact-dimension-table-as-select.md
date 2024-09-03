@@ -5,6 +5,9 @@ Description: Reference and syntax for the CTAS SQL command.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # CREATE FACT or DIMENSION TABLE...AS SELECT
 
 Creates a table and loads data into it based on the [SELECT](./select.md) query. The table column names and types are automatically inferred based on the output columns of the [SELECT](./select.md). When specifying explicit column names those override the column names inferred from the SELECT.

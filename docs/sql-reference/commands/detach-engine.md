@@ -6,6 +6,9 @@ nav_exclude: true
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # DETACH ENGINE (deprecated)
 
 Deprecated. Avoid using this statement and use `DROP ENGINE` instead. Allows you to detach an engine from a database.

@@ -4,6 +4,8 @@ title: CASE
 description: Reference material for CASE function
 parent: SQL functions
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # CASE
 
 The CASE expression is a conditional expression similar to if-then-else statements.\

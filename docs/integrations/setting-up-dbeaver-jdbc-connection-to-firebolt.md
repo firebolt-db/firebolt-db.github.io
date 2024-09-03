@@ -4,6 +4,9 @@ title: DBeaver
 nav_exclude: true
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to DBeaver
 {: .no_toc}
 

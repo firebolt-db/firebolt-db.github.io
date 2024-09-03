@@ -5,6 +5,9 @@ description: Reference material for ACOS function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ACOS
 
 Calculates the arc cosine of a value `<value>`. `ACOS` returns `NULL` if `<value>` is higher than 1.

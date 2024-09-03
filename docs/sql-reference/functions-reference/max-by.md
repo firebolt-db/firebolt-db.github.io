@@ -4,7 +4,8 @@ title: MAX_BY
 description: Reference material for MAX_BY
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # MAX\_BY
 

@@ -7,6 +7,9 @@ has_children: true
 has_toc: false
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SQL commands
 
 Use the alphabetical list in the navigation pane to find the syntax for commands that you already know.

@@ -5,6 +5,9 @@ description: Reference material for VERSION function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # VERSION
 
 Returns the version number information for the Firebolt engine. 

@@ -5,6 +5,9 @@ description: Reference material for ARRAY_ENUMERATE function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_ENUMERATE
 
 This function takes an array of arbitrary type as input, and produces an integer array of the same length containing increasing numbers.

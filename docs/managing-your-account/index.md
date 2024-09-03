@@ -7,6 +7,9 @@ has_toc: false
 has_children: true
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Account and user management
 
 * [Account concepts and terminology](./concepts-and-terminology.md)

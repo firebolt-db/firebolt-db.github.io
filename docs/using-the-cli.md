@@ -4,7 +4,8 @@ title: Using the CLI
 description: Learn to install, configure, and use the Firebolt CLI.
 nav_order: 4.1
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Using the Firebolt CLI  
 {: .no_toc}
 

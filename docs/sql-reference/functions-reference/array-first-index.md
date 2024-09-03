@@ -4,7 +4,8 @@ title: ARRAY_FIRST_INDEX
 description: Reference material for ARRAY_FIRST_INDEX function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY\_FIRST\_INDEX
 
 Returns the index of the first element in the indicated array for which the given function returns something other than `0`. Index counting starts at 1.

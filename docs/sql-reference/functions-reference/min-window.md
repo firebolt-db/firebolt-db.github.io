@@ -4,7 +4,8 @@ title: MIN (window function)
 description: Reference material for MIN function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # MIN
 
 Returns the minimum value within the requested window.

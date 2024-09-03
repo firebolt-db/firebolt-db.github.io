@@ -5,7 +5,8 @@ description: Referece material for TO_DAY_OF_WEEK (legacy) function
 nav_exclude: true
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # TO\_DAY\_OF\_WEEK (legacy)
 
 {: .warning}

@@ -4,7 +4,8 @@ title: GENERATE_SERIES (Beta)
 description: Reference material for GENERATE_SERIES function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # GENERATE_SERIES (Beta)
 Generates a single rowset of values from `start` to `stop`, with a step size of `step`. `GENERATE_SERIES` is a table-valued function. 
 

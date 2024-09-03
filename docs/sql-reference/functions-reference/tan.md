@@ -4,7 +4,8 @@ title: TAN
 description: Reference material for TAN function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # TAN
 
 Calculates the tangent.

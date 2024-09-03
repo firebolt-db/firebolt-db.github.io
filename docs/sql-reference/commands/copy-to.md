@@ -5,6 +5,9 @@ description: Reference and syntax for the COPY TO command that exports or unload
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # COPY TO (Beta)
 {: .no_toc}
 

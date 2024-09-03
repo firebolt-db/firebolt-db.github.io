@@ -4,6 +4,8 @@ title: SUBSTRING
 description: Reference material for SUBSTRING function
 parent: SQL functions
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 ## SUBSTRING
 
 Returns a substring starting at the character indicated by the `<start>` index and including the number of characters defined by `<count>`. Character indexing starts at index 1.

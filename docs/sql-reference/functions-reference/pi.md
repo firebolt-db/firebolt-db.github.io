@@ -4,7 +4,8 @@ title: PI
 description: Reference material for PI function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # PI
 
 Calculates π as a `REAL` value.

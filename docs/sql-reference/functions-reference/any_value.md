@@ -5,6 +5,9 @@ description: Reference material for ANY_VALUE
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ANY_VALUE
 
 Returns a single arbitrary value from the specified column. 

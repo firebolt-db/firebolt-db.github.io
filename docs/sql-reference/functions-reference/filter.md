@@ -4,7 +4,8 @@ title: FILTER
 description: Reference material for FILTER function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # FILTER
 
 Returns an array containing the elements from `<array>` for which the given Lambda function `<function>` returns something other than `0`.

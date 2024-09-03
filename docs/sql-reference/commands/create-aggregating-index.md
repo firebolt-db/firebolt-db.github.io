@@ -5,6 +5,9 @@ description: Reference and syntax for the CREATE AGGREGATING INDEX command.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # CREATE AGGREGATING INDEX
 
 After an aggregating index is created, Firebolt automatically updates the index as new data is ingested. For more information, see [Using aggregating indexes](/using-indexes/using-aggregating-indexes.md).

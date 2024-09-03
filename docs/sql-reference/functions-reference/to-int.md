@@ -4,7 +4,8 @@ title: TO_INT
 description: Reference material for TO_INT function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # TO\_INT
 
 Converts a string to an integer.

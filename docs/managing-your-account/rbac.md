@@ -8,6 +8,9 @@ description: Learn about managing database level roles for Firebolt users.
 parent: Account and user management
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Role-based access control (Alpha)
 {: .no_toc}
 

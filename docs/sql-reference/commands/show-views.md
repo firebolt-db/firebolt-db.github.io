@@ -5,6 +5,9 @@ description: Reference and syntax for the SHOW VIEWS command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SHOW VIEWS
 
 Lists the views defined in the current database and the `CREATE VIEW` statement (`schema`) that defines each view.

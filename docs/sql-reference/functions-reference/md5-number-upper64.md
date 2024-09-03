@@ -4,7 +4,8 @@ title: MD5_NUMBER_UPPER64
 description: Reference material for MD5_NUMBER_UPPER64 function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # MD5\_NUMBER\_UPPER64
 
 Represent the upper 64 bits of the MD5 hash value of the input string as `BIGINT`.

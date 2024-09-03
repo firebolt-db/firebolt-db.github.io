@@ -5,6 +5,8 @@ description: Learn how to ingest (load) Parquet data into Firebolt and work with
 nav_order: 4
 parent: Working with semi-structured data
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Working with Parquet arrays and maps
 {: .no_toc}
 

@@ -5,6 +5,9 @@ description: Reference and syntax for the SHOW COLUMNS command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SHOW COLUMNS
 
 Lists columns and their properties for a specified table. Returns `<table_name>`, `<column_name>`, `<data_type>`, and `nullable` (`1` if nullable, `0` if not) for each column.

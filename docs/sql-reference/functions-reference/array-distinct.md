@@ -5,6 +5,9 @@ description: Reference material for ARRAY_DISTINCT function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_DISTINCT
 
 Returns an array containing only the _unique_ elements of the given array. If the given array contains multiple identical members, the returned array will include only a single member of that value.

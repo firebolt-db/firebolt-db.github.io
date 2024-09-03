@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Hightouch
 
 Hightouch is a reverse ETL platform used to sync data warehouses to various business tools without the need for custom integrations. At a high level, Hightouch uses SQL queries to build data pipelines from sources to end-user destinations.

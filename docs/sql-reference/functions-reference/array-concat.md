@@ -5,6 +5,9 @@ description: Reference material for ARRAY_CONCAT function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_CONCAT
 
 Combines one or more arrays that are passed as arguments.

@@ -4,7 +4,8 @@ title: INDEX_OF
 description: Reference material for INDEX_OF function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # INDEX\_OF
 
 Returns the index position of the first occurrence of the element in the array (or `0` if not found).

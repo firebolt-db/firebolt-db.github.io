@@ -4,7 +4,8 @@ title: PERCENT_RANK
 description: Reference material for PERCENT_RANK window function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # PERCENT_RANK
 
 Calculates the relative rank of the current row within an ordered data set, as

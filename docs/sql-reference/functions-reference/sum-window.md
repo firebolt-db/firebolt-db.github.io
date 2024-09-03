@@ -4,7 +4,8 @@ title: SUM (window function)
 description: Reference material for SUM function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # SUM (window function)
 
 Calculate the sum of the values within the requested window.

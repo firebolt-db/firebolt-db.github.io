@@ -4,7 +4,8 @@ title: LIKE
 description: Reference material for LIKE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # LIKE
 
 Allows matching of strings based on comparison to a pattern. `LIKE` is normally used as part of a `WHERE` clause. `LIKE` is case-sensitive; use [ILIKE](ilike.md) for case-insensitive pattern matching.

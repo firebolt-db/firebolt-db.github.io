@@ -6,6 +6,9 @@ nav_order: 5
 parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Firebolt system settings
 
 {: .no_toc}

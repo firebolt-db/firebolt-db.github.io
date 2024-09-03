@@ -6,7 +6,8 @@ nav_order: 6
 has_toc: true
 ---
 # Working with tables
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 Tables in Firebolt have a few unique characteristics that are designed to optimize performance. This topic covers table concepts.
 
 ## Fact and dimension tables

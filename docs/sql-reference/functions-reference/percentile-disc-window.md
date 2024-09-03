@@ -4,7 +4,8 @@ title: PERCENTILE_DISC (window function)
 description: Reference material for PERCENTILE_DISC window function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # PERCENTILE\_DISC
 
 Returns a percentile over a partition for an ordered data set. The result is equal to a specific column value, the smallest distributed value that is greater than or equal to the percentile <val>. 

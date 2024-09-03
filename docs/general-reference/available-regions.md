@@ -6,6 +6,9 @@ nav_order: 7
 parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Available AWS Regions
 
 Firebolt is available in the AWS Regions listed below. To request additional regions, contact Firebolt Support through the Help menu support form. 

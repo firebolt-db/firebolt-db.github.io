@@ -3,7 +3,8 @@ layout: default
 title: Exporting query results
 nav_order: 11.1
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Exporting query results
 
 Firebolt has two ways to save query data to use and analyze outside of Firebolt.

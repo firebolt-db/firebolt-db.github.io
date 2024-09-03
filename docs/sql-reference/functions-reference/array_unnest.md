@@ -5,6 +5,9 @@ description: Reference material for the deprecated ARRAY_UNNEST function.
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY_UNNEST (deprecated)
 
 `ARRAY_UNNEST` is deprecated. Instead, we recommend using the `UNNEST` clause in a `SELECT` statement. For more information and examples, see [SELECT](../commands/select.md#unnest).

@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Keboola
 
 Keboola is a cloud ETL / ELT platform for interconnecting diverse data sets. It is used to extract and manipulate varied data sets and write the results to a destination system.

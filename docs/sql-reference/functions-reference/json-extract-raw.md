@@ -4,7 +4,8 @@ title: JSON_EXTRACT_RAW
 description: Reference material for JSON_EXTRACT_RAW function
 parent:  SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # JSON_EXTRACT_RAW
 
 Returns a string representation of the scalar or sub-object under the key indicated by `<json_pointer_expression>` if the key exists. If the key does not exist, returns `NULL`.

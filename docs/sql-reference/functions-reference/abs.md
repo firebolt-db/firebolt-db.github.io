@@ -5,6 +5,9 @@ description: Reference material for ABS function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ABS
 
 Calculates the absolute value of a number `<value>`. This means displaying the number's distance from `0`. 

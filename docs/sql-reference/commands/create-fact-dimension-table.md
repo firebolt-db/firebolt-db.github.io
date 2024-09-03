@@ -5,6 +5,9 @@ description: Reference and syntax for the CREATE TABLE statement.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # CREATE TABLE
 
 Creates a new table in the current database.

@@ -4,7 +4,8 @@ title: LPAD
 description: Reference material for LPAD function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # LPAD
 
 Adds a specified pad string to the end of the string repetitively up until the length of the resulting string is equivalent to an indicated length.

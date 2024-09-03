@@ -5,6 +5,10 @@ description: Reference and syntax for the CREATE DATABASE command.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
+
 # CREATE DATABASE
 Creates a new database.
 

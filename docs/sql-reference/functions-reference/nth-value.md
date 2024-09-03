@@ -4,7 +4,8 @@ title: NTH_VALUE
 description: Reference material for NTH_VALUE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # NTH_VALUE
 
 Returns the value evaluated of the nth row of the specified window frame (starting at the first row). If the specified row does not exist, NTH_VALUE returns NULL.

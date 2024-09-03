@@ -4,7 +4,8 @@ title: REPEAT
 description: Reference material for REPEAT function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # REPEAT
 
 Repeats the provided string a requested number of times.

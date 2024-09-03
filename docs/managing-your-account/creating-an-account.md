@@ -6,6 +6,9 @@ nav_order: 2
 parent: Account and user management
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Subscribing to Firebolt and creating an account
 
 You create a Firebolt account by subscribing to Firebolt using the AWS Marketplace. This topic guides you through that process and explains important choices you make during account setup.

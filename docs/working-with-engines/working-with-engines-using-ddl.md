@@ -5,7 +5,8 @@ description: Learn about using SQL DDL to work with Firebolt engines, which prov
 nav_order: 2
 parent: Working with engines
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Working with engines using DDL
 {:.no_toc}
 

@@ -5,7 +5,8 @@ description: Learn about using the Firebolt manager (web application) to work wi
 nav_order: 4
 parent: Working with engines
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Working with engines using the Firebolt Manager
 
 You can create, edit, and delete an engine using the Firebolt Manager. Keep in mind that an engine must be stopped for you to perform these tasks.

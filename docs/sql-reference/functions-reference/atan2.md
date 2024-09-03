@@ -4,7 +4,8 @@ title: ATAN2
 description: Reference material for ATAN2 function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ATAN2
 
 Two-argument arc tangent function. Calculates the angle, in radians, between the specified positive x-axis value and the ray from the origin to the point `(y,x)`.

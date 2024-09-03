@@ -4,7 +4,8 @@ title: JSON_EXTRACT_KEYS
 description: Reference material for JSON_EXTRACT_KEYS function
 parent:  SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # JSON_EXTRACT_KEYS
 
 Returns an array of strings containing the keys at the nesting level indicated by the specified `<json_pointer_expression>`. If keys do not exist, returns `NULL`.

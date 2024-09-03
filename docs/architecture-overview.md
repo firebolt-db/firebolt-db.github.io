@@ -4,6 +4,8 @@ title: Architecture overview
 description: Discover how the decoupled compute and storage architecture of the Firebolt data warehouse enables sub-second query performance on terabyte-scale data sets.
 nav_order: 3
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # Firebolt architecture overview
 

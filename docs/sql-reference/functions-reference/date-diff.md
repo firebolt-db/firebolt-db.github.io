@@ -5,7 +5,8 @@ nav_exclude: true
 description: Reference material for DATE_DIFF function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # DATE\_DIFF
 
 Calculates the difference between `start_date` and `end_date` by the indicated unit.

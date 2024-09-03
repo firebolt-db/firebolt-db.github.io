@@ -5,7 +5,8 @@ description: Learn techniques to manipulate and transform arrays in Firebolt.
 nav_order: 3
 parent: Working with semi-structured data
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Working with arrays
 {: .no_toc}
 

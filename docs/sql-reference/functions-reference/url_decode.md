@@ -5,6 +5,9 @@ description: Reference material for URL_DECODE function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # URL\_DECODE
 
 Decodes [percent-encoded](https://en.wikipedia.org/wiki/Percent-encoding) characters and replaces them with their binary value.

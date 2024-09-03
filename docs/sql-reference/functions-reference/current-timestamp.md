@@ -5,7 +5,8 @@ description: Reference material for CURRENT_TIMESTAMP (legacy) function
 nav_exclude: true
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # CURRENT\_TIMESTAMP (legacy)
 
 {: .warning}

@@ -4,7 +4,8 @@ title: REVERSE
 description: Reference material for REVERSE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # REVERSE
 
 This function returns a string of the same size as the original string, with the elements in reverse order.

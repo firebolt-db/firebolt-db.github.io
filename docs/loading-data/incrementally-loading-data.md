@@ -6,6 +6,9 @@ nav_order: 3
 parent: Loading data
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Incrementally loading data using Airflow
 {: .no_toc}
 

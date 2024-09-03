@@ -6,6 +6,9 @@ nav_order: 1
 parent: Loading data
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Working with external tables
 
 Loading data into Firebolt is done using *external tables*. External tables are different from [fact and dimension tables](../working-with-tables.md). Firebolt uses an external table as a connector to your data source. No data is stored in Firebolt.

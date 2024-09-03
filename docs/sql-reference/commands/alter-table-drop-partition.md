@@ -5,6 +5,9 @@ description: Reference and syntax for the ALTER TABLE...DROP PARTITION command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ALTER TABLE...DROP PARTITION
 
 Use `ALTER TABLE...DROP PARTITION` to delete a partition from a fact or dimension table.

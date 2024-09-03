@@ -4,7 +4,8 @@ title: LOCALTIMESTAMP
 description: Reference material for LOCALTIMESTAMP function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 {: .warning}
   >You are looking at the documentation for Firebolt's redesigned date and timestamp types.
   >These types were introduced in DB version 3.19.0 under the names `PGDATE`, `TIMESTAMPNTZ` and `TIMESTAMPTZ`, and synonyms `DATE`, `TIMESTAMP` and `TIMESTAMPTZ` made available in DB version 3.22.0.

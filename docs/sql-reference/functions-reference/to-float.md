@@ -4,7 +4,8 @@ title: TO_FLOAT
 description: Reference material for TO_FLOAT function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # TO\_FLOAT
 
 Converts a string to a numeric `REAL` data type.

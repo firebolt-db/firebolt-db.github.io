@@ -6,7 +6,8 @@ nav_order: 4
 has_children: true
 has_toc: false
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Using the SQL workspace
 {: .no_toc}
 

@@ -4,6 +4,9 @@ title: EXPLAIN
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # EXPLAIN
 
 The `EXPLAIN` feature in Firebolt is a powerful tool that helps you understand how the system executes a query. It provides insight into the execution plan that Firebolt will use to compute the result of your query. This information is crucial for query optimization and understanding the performance of your SQL queries.

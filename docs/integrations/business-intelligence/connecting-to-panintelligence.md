@@ -6,6 +6,9 @@ parent: Business intelligence
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Panintelligence
 
 [Panintelligence](https://www.panintelligence.com/)(pi) is a self-service business intelligence platform focused on creating reports, visualization dashboards, and predictive analytics. The Panintelligence platform embeds into existing data stacks, allowing you to run queries and analytics without deep technical expertise.
