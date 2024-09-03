@@ -4,7 +4,8 @@ title: COUNT (window function)
 description: Reference material for COUNT function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # COUNT
 
 Count the number of values within the requested window.

@@ -4,7 +4,8 @@ title: COUNT (aggregation function)
 description: Reference material for COUNT
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # COUNT
 
 Counts the number of rows or not `NULL` values.

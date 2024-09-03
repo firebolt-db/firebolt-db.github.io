@@ -4,7 +4,8 @@ title: CHECKSUM
 description: Reference material for CHECKSUM
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # CHECKSUM
 

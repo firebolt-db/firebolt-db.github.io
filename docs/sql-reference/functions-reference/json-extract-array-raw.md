@@ -4,7 +4,8 @@ title: JSON_EXTRACT_ARRAY_RAW
 description: Reference material for JSON_EXTRACT_ARRAY_RAW function
 parent:  SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # JSON_EXTRACT_ARRAY_RAW
 
 Returns a string representation of a JSON array pointed by the supplied JSON pointer. The returned string represents a Firebolt array with elements that are string representations of the scalars or objects contained in the JSON array under the specified key, if the key exists. If the key does not exist, the function returns an empty array.

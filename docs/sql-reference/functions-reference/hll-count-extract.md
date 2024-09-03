@@ -4,7 +4,8 @@ title: HLL_COUNT_EXTRACT
 description: Reference material for HLL_COUNT_EXTRACT
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # HLL_COUNT_EXTRACT
 

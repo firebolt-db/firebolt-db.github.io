@@ -5,7 +5,8 @@ description: Reference material for HLL_COUNT_DISTINCT
 parent: SQL functions
 ---
 
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # HLL_COUNT_DISTINCT
 
 Counts the approximate number of unique or not NULL values, to the precision specified. `HLL_COUNT_DISTINCT` uses the HLL++ algorithm and allows you to control the sketch size set precision. 

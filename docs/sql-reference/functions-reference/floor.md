@@ -4,7 +4,8 @@ title: FLOOR
 description: Reference material for FLOOR function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # FLOOR
 
 Returns the largest round number that is less than or equal to `<value>`. The value is rounded to a decimal range defined by the second `<value>`.

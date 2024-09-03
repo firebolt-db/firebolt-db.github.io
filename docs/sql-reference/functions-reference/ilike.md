@@ -4,7 +4,8 @@ title: ILIKE
 description: Reference material for ILIKE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ILIKE
 
 Allows matching of strings based on comparison to a pattern. `ILIKE` is normally used as part of a `WHERE` clause. `ILIKE` is case-insensitive; use [LIKE](like.md) for case-sensitive pattern matching.

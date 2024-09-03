@@ -5,7 +5,8 @@ description: Learn about primary indexes in Firebolt and how to configure and us
 nav_order: 2
 parent: Using indexes
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Using primary indexes
 {: .no_toc}
 

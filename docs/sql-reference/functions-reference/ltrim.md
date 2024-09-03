@@ -4,7 +4,8 @@ title: LTRIM
 description: Reference material for LTRIM function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # LTRIM
 
 Removes all occurrences of optionally specified characters, `<trimchars_expr>`, from the left side of a source string `<srcstr_expr>`. If no `<trimchars_expr>` are specified, removes all occurrences of common whitespace (ASCII Decimal 32) characters from the left side of the specified source string.

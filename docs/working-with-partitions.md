@@ -4,7 +4,8 @@ title: Working with partitions
 description: Learn when and how to partition Firebolt tables to accelerate query performance and simplify table maintenance.
 nav_order: 9
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Working with partitions
 {: .no_toc}
 

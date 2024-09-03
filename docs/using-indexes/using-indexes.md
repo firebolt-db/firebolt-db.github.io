@@ -6,7 +6,8 @@ nav_order: 7
 has_children: true
 has_toc: false
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Using Firebolt indexes
 
 Firebolt indexes are designed to improve query performance and increase compute efficiency when executing various query patterns. Unlike other systems, Firebolt uses indexes to minimize the amount of data scanned by fetching only small data ranges needed to satisfy the query being executed. Firebolt indexes work together with the Firebolt File Format (F3) and are being automatically maintained - as data are ingested, Firebolt automatically sorts and compresses, and incrementally updates each index. Data and indexes are committed as tablets, which are automatically merged and optimized as data evolves. 

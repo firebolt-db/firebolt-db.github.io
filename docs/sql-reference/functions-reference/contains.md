@@ -4,7 +4,8 @@ title: CONTAINS
 description: Reference material for the CONTAINS function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # CONTAINS
 
 Returns whether the array passed as the first argument contains the value passed as the second argument.

@@ -5,7 +5,8 @@ description: Learn how to map data from a JSON document to rows and columns in a
 nav_order: 1
 parent: Working with semi-structured data
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Mapping data from JSON records to rows in a Firebolt table
 
 Throughout this section, we use a common example set of JSON records that can result from a website's logs or web-analytics platform, and the Firebolt table into which that JSON record is ingested. We start with a simple example that becomes more involved and realistic as we present new concepts.

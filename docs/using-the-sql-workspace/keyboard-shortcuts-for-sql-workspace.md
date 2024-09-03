@@ -5,7 +5,8 @@ description: Reference for efficient keyboard shortcuts when working in the Fire
 nav_order: 1
 parent: Using the SQL workspace
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Keyboard shortcuts for SQL workspace
 
 Firebolt supports the following keyboard shortcuts in the SQL workspace.
