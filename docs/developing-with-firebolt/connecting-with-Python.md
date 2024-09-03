@@ -5,7 +5,8 @@ description: Learn about using the Python SDK for Firebolt.
 nav_order: 2
 parent: Developing with Firebolt
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Python
 
 You can use the Python SDK to work with Firebolt. See the resources below for more information.

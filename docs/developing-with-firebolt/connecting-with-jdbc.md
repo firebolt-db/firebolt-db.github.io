@@ -5,7 +5,8 @@ description: How to use the Firebolt JDBC driver
 nav_order: 5
 parent: Developing with Firebolt
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Using the JDBC driver
 {:.no_toc}
 

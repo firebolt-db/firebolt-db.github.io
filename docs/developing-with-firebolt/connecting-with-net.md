@@ -5,6 +5,8 @@ description: Learn about using the .NET SDK for Firebolt.
 nav_order: 6
 parent: Developing with Firebolt
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # .NET
 

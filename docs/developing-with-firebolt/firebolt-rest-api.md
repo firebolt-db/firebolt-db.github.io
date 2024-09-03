@@ -5,7 +5,8 @@ description: Learn about using the Firebolt REST API to interact with Firebolt.
 nav_order: 3
 parent: Developing with Firebolt
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # Firebolt REST API
 
 The Firebolt REST API provides endpoints that enable you to interact with Firebolt programmatically. This topic provides commands for common tasks using the REST API, including authentication, working with engines, and executing queries.
