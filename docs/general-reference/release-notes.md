@@ -6,4 +6,7 @@ redirect_to:  /release-notes/release-notes.html
 published: false
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 <!-- Make this a redirect topic -->

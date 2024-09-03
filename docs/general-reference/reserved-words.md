@@ -6,6 +6,9 @@ nav_order: 4
 parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Reserved words
 
 Reserved words have special meanings to the Firebolt SQL engine. We recommend that you do not use these words for naming databases, tables, columns, variables, or other objects that you define. If you must use a reserved word in this way, enclose it in quotation marks.

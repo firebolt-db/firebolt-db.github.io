@@ -6,6 +6,9 @@ nav_exclude: true
 search_exclude: false
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # TIMESTAMP data type
 {:.no_toc}
 
