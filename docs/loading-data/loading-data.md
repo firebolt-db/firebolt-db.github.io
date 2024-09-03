@@ -7,6 +7,9 @@ has_children: true
 has_toc: false
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Loading data
 
 Loading data into Firebolt is described in the [Getting started tutorial](../getting-started.md) and consists of three steps.

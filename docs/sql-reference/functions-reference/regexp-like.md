@@ -4,7 +4,8 @@ title: REGEXP_LIKE
 description: Reference material for REGEXP_LIKE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # REGEXP_LIKE
 
 This check whether a text pattern matches a regular expression string. Returns `0` if it doesn’t match, or `1` if it matches. This is a RE2 regular expression.

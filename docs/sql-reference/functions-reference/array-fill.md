@@ -5,6 +5,9 @@ description: Reference material for ARRAY_FILL function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_FILL
 
 This function scans through the given array from the first to the last element and replaces `array[i]` with `array[i - 1]` if the `<function>` returns `0`. The first element of the given array is not replaced.

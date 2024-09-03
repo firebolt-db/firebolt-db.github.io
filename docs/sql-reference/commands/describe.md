@@ -5,6 +5,9 @@ description: Reference and syntax for the DESCRIBE table command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # DESCRIBE
 
 Lists all columns and data types for the table. Once the results are displayed, you can also export them to CSV or JSON.

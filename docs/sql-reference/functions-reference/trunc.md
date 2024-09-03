@@ -5,6 +5,9 @@ description: Reference material for TRUNC function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # TRUNC
 
 Returns the rounded absolute value of a numeric value. The returned value will always be rounded to less than the original value.

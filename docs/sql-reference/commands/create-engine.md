@@ -5,6 +5,9 @@ description: Reference and syntax for the CREATE ENGINE command.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # CREATE ENGINE
 Creates an engine (compute cluster).
 

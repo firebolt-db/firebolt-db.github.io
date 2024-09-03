@@ -5,6 +5,9 @@ description: Reference and syntax for the SHOW INDEXES command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SHOW INDEXES
 
 Returns a table with a row for each Firebolt index defined in the current database, with columns containing information about each index as listed below.

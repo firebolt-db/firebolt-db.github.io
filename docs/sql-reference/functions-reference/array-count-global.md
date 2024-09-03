@@ -5,6 +5,9 @@ description: Reference material for ARRAY_COUNT_GLOBAL function
 parent:  SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_COUNT\_GLOBAL
 
 Returns the number of elements in the array column accumulated over all rows. As such it is an _aggregation function._

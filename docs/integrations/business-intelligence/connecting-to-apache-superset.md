@@ -6,6 +6,10 @@ parent: Business intelligence
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
+
 # Connecting to Apache Superset / Preset
 
 [Apache Superset](https://superset.apache.org) is a business intelligence web application that makes it easy for users of all skill sets to explore and visualize their data, from simple pie charts to highly detailed deck.gl geospatial charts.&#x20;

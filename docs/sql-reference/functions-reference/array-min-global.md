@@ -4,7 +4,8 @@ title: ARRAY_MIN_GLOBAL
 description: Reference material for ARRAY_MIN_GLOBAL function
 parent:  SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY\_MIN\_GLOBAL
 
 Returns the minimum element taken from all the array elements in each group.

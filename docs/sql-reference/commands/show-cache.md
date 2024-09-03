@@ -4,6 +4,10 @@ title: SHOW CACHE
 description: Reference and syntax for the SHOW CACHE command.
 parent: SQL commands
 ---
+
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SHOW CACHE
 
 Returns the current SSD usage (`ssd_usage`) for the current engine. `SHOW CACHE` returns values at the engine level, not by each node.

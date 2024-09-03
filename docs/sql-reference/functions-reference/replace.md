@@ -4,7 +4,8 @@ title: REPLACE
 description: Reference material for REPLACE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # REPLACE
 
 Replaces all occurrences of the `<pattern>` substring within the `<string>` with the `<replacement>` substring.

@@ -5,6 +5,9 @@ description: Reference and syntax for the SHOW DATABASES command.
 parent: SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # SHOW DATABASES
 
 Returns a table with a row for each database defined in the current Firebolt account, with columns containing information as listed below.

@@ -5,7 +5,8 @@ description: Reference material for NOW (legacy)
 nav_exclude: true
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # NOW (legacy)
 
 {: .warning}

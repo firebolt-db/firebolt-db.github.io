@@ -5,6 +5,9 @@ description: Reference material for TRANSFORM function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # TRANSFORM
 
 Returns an array by applying `<function>` on each element of `<array>`.

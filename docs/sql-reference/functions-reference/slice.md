@@ -4,7 +4,8 @@ title: ARRAY_SLICE
 description: Reference material for ARRAY_SLICE function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY_SLICE
 
 Returns a slice of the array based on the indicated offset and length.

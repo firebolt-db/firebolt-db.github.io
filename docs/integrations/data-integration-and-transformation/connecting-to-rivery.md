@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Rivery
 
 [Rivery](https://rivery.io) is a SaaS platform that provides data ingestion, tranformation, orchestration, and reverse ETL for enterprise data operations and deployment workflows. The Rivery connector for Firebolt allows you to add a Firebolt database as a Rivery [target](https://docs.rivery.io/docs/targets-overview).

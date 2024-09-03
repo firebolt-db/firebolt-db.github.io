@@ -4,7 +4,8 @@ title: SUM (aggregation function)
 description: Reference material for SUM
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # SUM
 
 Calculates the sum of an expression.

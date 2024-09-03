@@ -5,6 +5,9 @@ description: Reference material for ARRAY_AGG function
 parent:  SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY_AGG
 
 Concatenates input values into an array.

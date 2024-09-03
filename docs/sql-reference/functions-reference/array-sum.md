@@ -4,7 +4,8 @@ title: ARRAY_SUM
 description: Reference material for ARRAY_SUM function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY\_SUM
 
 Returns the sum of elements of `<array>`. If the argument `<function>` is provided, the values of the array elements are converted by this function before summing.

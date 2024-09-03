@@ -5,6 +5,9 @@ description: Reference material for ARRAY_CUMULATIVE_SUM function ( cumulative )
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ARRAY\_CUMULATIVE\_SUM
 
 Returns an array of partial sums of elements from the source array (a cumulative sum). If the parameter `<function>` is provided, the values of the array elements are converted by this function before summing.

@@ -6,6 +6,9 @@ nav_order: 3
 parent: Account and user management
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Creating a service account (Beta)
 {: .no_toc}
 

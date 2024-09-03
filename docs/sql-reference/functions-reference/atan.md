@@ -4,7 +4,8 @@ title: ATAN
 description: Reference material for ATAN function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ATAN
 
 Calculates the arc tangent of the real number returned by the specified expression `<expression>`.

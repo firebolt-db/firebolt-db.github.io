@@ -5,6 +5,9 @@ description: Reference material for APPROX_PERCENTILE
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # APPROX\_PERCENTILE
 
 Returns an approximate value for the specified percentile based on the range of numbers returned by the expression.&#x20;

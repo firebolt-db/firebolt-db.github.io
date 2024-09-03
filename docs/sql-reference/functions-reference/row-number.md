@@ -4,6 +4,8 @@ title: ROW_NUMBER
 description: Reference material for ROW_NUMBER function
 parent: SQL functions
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # ROW\_NUMBER
 

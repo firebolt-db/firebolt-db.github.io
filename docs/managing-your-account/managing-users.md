@@ -6,6 +6,9 @@ nav_order: 4
 parent: Account and user management
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Managing Firebolt users
 {: .no_toc}
 

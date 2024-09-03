@@ -5,7 +5,8 @@ description: Reference material for MEDIAN
 parent: SQL functions
 ---
 
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # MEDIAN
 
 Calculates an approximate median for a given column.

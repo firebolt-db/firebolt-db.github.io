@@ -4,7 +4,8 @@ title: ARRAY_MAX
 description: Reference material for ARRAY_MAX function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY\_MAX
 
 Returns the maximum element in an array.

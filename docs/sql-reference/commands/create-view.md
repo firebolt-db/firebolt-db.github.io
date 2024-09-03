@@ -5,6 +5,9 @@ description: Reference and syntax for the CREATE VIEW command.
 parent:  SQL commands
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # CREATE VIEW
 
 Creates a view, which is useful to filter, focus, and simplify a data set for querying. Views provide a level of abstraction that can make subqueries easier to write, especially for commonly referenced subsets of data. 

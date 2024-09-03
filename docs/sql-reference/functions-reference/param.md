@@ -4,7 +4,8 @@ title: PARAM
 description: Reference material for PARAM function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # PARAM
 
 Evaluates a provided query parameter and returns its value as `TEXT`.

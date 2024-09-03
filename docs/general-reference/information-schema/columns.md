@@ -7,6 +7,9 @@ parent: Information schema and usage views
 grand_parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Information schema for columns
 
 You can use the `information_schema.columns` view to return information about all columns in any table in a database. The view is available in each database and contains one row for each column. You can use a `SELECT` query to return information about each column as shown in the example below.

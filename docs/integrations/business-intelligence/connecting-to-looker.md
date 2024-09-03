@@ -6,6 +6,9 @@ parent: Business intelligence
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Looker
 
 You can connect Firebolt and Looker version 21.10 or later by setting up a database connection in Looker. For more information, including supported features, see [Firebolt ](https://docs.looker.com/setup-and-management/database-config/firebolt) in the Looker documentation.

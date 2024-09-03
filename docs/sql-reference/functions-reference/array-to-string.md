@@ -4,7 +4,8 @@ title: ARRAY_TO_STRING
 description: Reference material for ARRAY_TO_STRING function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # ARRAY\_TO\_STRING
 
 Concatenates an array of `TEXT` elements using an optional delimiter. If no delimiter is provided, an empty string is used instead.

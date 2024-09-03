@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting to Adverity  
 
 [Adverity](https://www.adverity.com/) is an end-to-end data analytics platform tailored for marketing, sales and eCommerce. The Adverity platform automates data integration from various sources to produce visualizations and insights for the performance of marketing campaigns.

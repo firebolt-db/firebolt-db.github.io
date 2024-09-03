@@ -7,6 +7,9 @@ has_children: true
 has_toc: false
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Integrations
 
 Firebolt is working with an expanding roster of services and applications to utilize our optimized performance speed.

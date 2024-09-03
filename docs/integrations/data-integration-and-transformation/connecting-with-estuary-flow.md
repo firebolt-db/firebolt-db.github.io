@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting with Estuary Flow
 
 Estuary Flow is an ELT and data operations platform tool for building and testing data pipelines to continuously capture, transform, and materialize data. 

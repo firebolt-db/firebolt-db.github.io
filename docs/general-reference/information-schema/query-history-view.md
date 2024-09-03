@@ -7,6 +7,9 @@ parent: Information schema and usage views
 grand_parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Information schema for query history
 
 You can use the `information_schema.query_history` view to return information about queries saved to query history. The view is available in each database and contains one row for each historical query in the database. You can use a `SELECT` query to return information about each query as shown in the example below.

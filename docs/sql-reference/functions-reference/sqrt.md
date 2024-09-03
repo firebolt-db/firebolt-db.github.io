@@ -4,6 +4,8 @@ title: SQRT
 description: Reference material for SQRT function
 parent: SQL functions
 ---
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 
 # SQRT
 

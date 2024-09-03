@@ -5,6 +5,9 @@ description: Reference material for ALL_MATCH function
 parent: SQL functions
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # ALL_MATCH
 
 Returns `1` (true) when the Boolean expression `<condition>` performed on all elements of an array evaluate to true. Returns `0` (false) when any one comparison evaluates to false.

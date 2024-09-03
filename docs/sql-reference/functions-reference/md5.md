@@ -4,7 +4,8 @@ title: MD5
 description: Reference material for MD5 function
 parent: SQL functions
 ---
-
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
 # MD5
 
 Calculates the MD5 hash of string, returning the result as a string in hexadecimal.

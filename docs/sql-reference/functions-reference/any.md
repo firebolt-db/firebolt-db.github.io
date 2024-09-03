@@ -7,4 +7,7 @@ nav_exclude: true
 toc_exclude: true
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 <!--- redirect ANY to ANY_VALUE (synonym) --->

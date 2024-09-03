@@ -7,6 +7,9 @@ parent: Data integration and transformation
 grand_parent: Integrations
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
 # Connecting with Hevo
 
 [Hevo](https://hevodata.com/) is an ETL platform designed for integrating a wide array of data sources for manipulation and analysis before sending it to a data warehouse. Hevo specializes working with real-time data and automating various data transformation steps without requiring technical expertise.
