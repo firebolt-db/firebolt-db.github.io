@@ -6,6 +6,10 @@ nav_order: 6
 parent: General reference
 ---
 
+{: .note}
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+
+
 # Available Firebolt engine specs
 
 The engine specs listed below are available in Firebolt. For more information, see [Working with engines](../working-with-engines/index.md).
