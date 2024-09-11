@@ -6,7 +6,7 @@ nav_order: 2
 parent: Working with semi-structured data
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # Ingesting semi-structured data
 
 There are three major approaches to ingest and handle semi-structured data as shown below. All approaches can be combined depending on the nature of the input data and the queries to run over the data.

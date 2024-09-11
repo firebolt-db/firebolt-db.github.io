@@ -5,7 +5,7 @@ description: Reference material for RANDOM function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # RANDOM
 
 Returns a pseudo-random unsigned value greater than 0 and less than 1 of type `DOUBLE PRECISION`.

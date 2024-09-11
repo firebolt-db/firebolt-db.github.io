@@ -5,7 +5,7 @@ description: Reference material for RADIANS function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # RADIANS
 
 Converts degrees to radians as a `REAL` value.

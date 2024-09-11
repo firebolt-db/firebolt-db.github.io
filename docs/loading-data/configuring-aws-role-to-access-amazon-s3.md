@@ -7,7 +7,7 @@ parent: Loading data
 ---
 
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 
 # Using AWS roles to access Amazon S3
 {: .no_toc}

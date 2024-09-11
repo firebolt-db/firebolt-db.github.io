@@ -5,7 +5,7 @@ description: Reference material for PERCENTILE_CONT window function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # PERCENTILE_CONT
 
 Calculates a percentile over a partition, assuming a continuous distribution of values of <expr0> defined. Results are interpolated, rather than matching any of the specific column values. 

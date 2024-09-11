@@ -5,7 +5,7 @@ description: Reference material for ASIN function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ASIN
 
 Calculates the arcsine. `ASIN` returns `NULL` if `<value>` is higher than 1.

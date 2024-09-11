@@ -5,7 +5,7 @@ description: Reference material for JSON_EXTRACT_VALUES function
 parent:  SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # JSON_EXTRACT_VALUES
 
 Returns an array of string values from a JSON document using the key location specified by the `<json_pointer_expression>.` If no such key exists, returns `NULL.`

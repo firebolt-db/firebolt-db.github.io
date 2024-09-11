@@ -5,7 +5,7 @@ description: Reference material for REGEXP_EXTRACT function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # REGEXP_EXTRACT
  
 Returns the first match of `<pattern>` within the `<expression>`. If the pattern does not match, returns `NULL`. If you want to extract all matches, use [REGEXP_EXTRACT_ALL](./regexp-extract-all.md).

@@ -5,7 +5,7 @@ description: Reference material for EXP function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # EXP
 
 Returns the `REAL` value of the constant _e_ raised to the power of a specified number.

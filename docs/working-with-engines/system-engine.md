@@ -5,7 +5,7 @@ description: System engine documentation
 parent: Working with engines
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # System Engine (Beta)
 {: .no_toc}
 

@@ -5,7 +5,7 @@ description: Reference material for MATCH function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # MATCH
 
 Checks whether the `<expression>` matches the regular expression `<pattern>`, which is a RE2 regular expression.  Returns `0` if it doesn’t match, or `1` if it matches.

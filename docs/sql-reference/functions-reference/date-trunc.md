@@ -6,7 +6,7 @@ description: Reference material for the DATE_TRUNC (legacy) function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # DATE_TRUNC (legacy)
 
 {: .warning}

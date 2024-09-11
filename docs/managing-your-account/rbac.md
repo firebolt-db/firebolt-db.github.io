@@ -9,7 +9,7 @@ parent: Account and user management
 ---
 
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 
 # Role-based access control (Alpha)
 {: .no_toc}

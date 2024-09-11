@@ -7,5 +7,5 @@ toc_exclude: true
 nav_excude: true
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 <!--- redirect NEST to ARRAY_AGG (synonym) --->

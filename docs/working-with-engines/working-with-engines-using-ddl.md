@@ -6,7 +6,7 @@ nav_order: 2
 parent: Working with engines
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # Working with engines using DDL
 {:.no_toc}
 

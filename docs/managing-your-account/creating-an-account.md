@@ -7,7 +7,7 @@ parent: Account and user management
 ---
 
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 
 # Subscribing to Firebolt and creating an account
 

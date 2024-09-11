@@ -5,7 +5,7 @@ description: Reference material for JSON_EXTRACT function
 parent:  SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # JSON_EXTRACT
 
 Takes an expression containing a JSON document, a JSON pointer expression, and an expected data type parameter. If the key specified using the JSON pointer expression exists, and its type conforms with the expected data type parameter, `JSON_EXTRACT` returns the value of the data type specified. Otherwise, returns `NULL`.

@@ -5,7 +5,7 @@ description: Reference material for REGEXP_REPLACE functions
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # REGEXP\_REPLACE
 
 Matches a pattern in the input string and replaces the first matched portion (from the left) with the specified replacement. 

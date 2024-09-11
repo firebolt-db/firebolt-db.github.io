@@ -5,7 +5,7 @@ description: Reference material for PERCENTILE_CONT aggregate function
 parent:  SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # PERCENTILE_CONT
 
 Calculates a percentile, assuming a continuous distribution of values of <expr> defined. Results are interpolated, rather than matching any of the specific column values. 

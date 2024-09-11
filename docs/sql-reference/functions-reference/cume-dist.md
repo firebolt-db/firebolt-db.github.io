@@ -5,7 +5,7 @@ description: Reference material for CUME_DIST window function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # CUME_DIST
 
 Calculates the relative rank (cumulative distribution) of the current row in relation to other rows in the same partition within an ordered data set, as 

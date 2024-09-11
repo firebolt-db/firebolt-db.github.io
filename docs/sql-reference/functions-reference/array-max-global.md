@@ -5,7 +5,7 @@ description: Reference material for ARRAY_MAX_GLOBAL function
 parent:  SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ARRAY\_MAX\_GLOBAL
 
 Returns the maximum element from all the array elements in each group.

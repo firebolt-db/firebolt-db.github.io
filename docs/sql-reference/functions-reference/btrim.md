@@ -5,7 +5,7 @@ description: Reference material for BTRIM function.
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # BTRIM
 
 Removes all occurrences of optionally specified characters, `<trim>`, from both sides of a source string `<expression>`. If no `<trim>` parameter is specified, all occurrences of common whitespace (ASCII Decimal 32) characters from both sides of the specified source string are removed.

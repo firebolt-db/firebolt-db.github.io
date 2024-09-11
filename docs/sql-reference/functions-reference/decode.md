@@ -5,7 +5,7 @@ description: Reference material for DECODE function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # DECODE
 
 Decode binary data from a SQL expression of type `TEXT`.

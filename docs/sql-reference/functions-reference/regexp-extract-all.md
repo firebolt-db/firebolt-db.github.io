@@ -5,7 +5,7 @@ description: Reference material for REGEXP_EXTRACT_ALL function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # REGEXP_EXTRACT_ALL
  
 Returns an array that contains all matches of a `<pattern>` within the given `<expression>`. 

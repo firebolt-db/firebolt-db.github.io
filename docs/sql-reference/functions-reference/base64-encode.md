@@ -5,7 +5,7 @@ description: Reference material for BASE64_ENCODE function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # BASE64\_ENCODE
 
 Encodes a string into Base64 notation.

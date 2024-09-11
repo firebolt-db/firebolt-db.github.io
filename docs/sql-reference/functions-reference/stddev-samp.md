@@ -5,7 +5,7 @@ description: Reference material for STDDEV_SAMP
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # STDDEV\_SAMP
 
 Computes the standard deviation of a sample consisting of a numeric expression.

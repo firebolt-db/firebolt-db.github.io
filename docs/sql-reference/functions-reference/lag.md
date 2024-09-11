@@ -5,7 +5,7 @@ description: Reference material for LAG function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # LAG
 
 Returns the value of the input expression at the given offset before the current row within the requested window.

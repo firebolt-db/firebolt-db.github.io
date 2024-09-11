@@ -5,7 +5,7 @@ description: Reference material for ARRAY_REPLACE_BACKWARDS function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ARRAY\_REPLACE\_BACKWARDS
 
 Scans an array `<array>` from the last to the first element and replaces each of the elements in that array with `array[i + 1]` if the `<function>` returns `0`. The last element of `<array>` is not replaced.

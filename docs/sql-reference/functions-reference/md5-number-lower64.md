@@ -5,7 +5,7 @@ description: Reference material for MD5_NUMBER_LOWER64 function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # MD5\_NUMBER\_LOWER64
 
 Represent the lower 64 bits of the MD5 hash value of the input string as `BIGINT`.

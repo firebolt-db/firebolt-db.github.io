@@ -5,7 +5,7 @@ description: Reference material for EXTRACT_ALL function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # EXTRACT\_ALL
 
 Extracts fragments within a string that match a specified regex pattern. String fragments that match are returned as an array of `TEXT` types.

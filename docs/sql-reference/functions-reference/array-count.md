@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 
 # ARRAY\_COUNT
 Counts the number of elements in the specified array for which `function(array[i])` evaluates to TRUE, if a function is provided. 

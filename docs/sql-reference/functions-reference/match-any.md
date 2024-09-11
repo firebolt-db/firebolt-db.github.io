@@ -5,7 +5,7 @@ description: Reference material for MATCH_ANY function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # MATCH\_ANY
 
 The same as [MATCH](./match.md), but it searches for a match with one or more more regular expression patterns. Returns `0` if none of the regular expressions match and `1` if any of the patterns match.

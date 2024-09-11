@@ -5,7 +5,7 @@ description: Reference material for FLATTEN function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # FLATTEN
 
 Converts an array of arrays into a flat array. This means for every element that is an array, this function extracts its elements into the new array. The resulting flattened array contains all the elements from all source arrays.

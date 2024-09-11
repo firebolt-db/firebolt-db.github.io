@@ -5,7 +5,7 @@ description: Reference material for ARRAY_SUM_GLOBAL function
 parent:  SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ARRAY\_SUM\_GLOBAL
 
 Returns the sum of elements in the array column accumulated over the rows in each group.

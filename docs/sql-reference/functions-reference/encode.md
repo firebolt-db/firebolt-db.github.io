@@ -5,7 +5,7 @@ description: Reference material for ENCODE function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ENCODE
 
 Encode binary data into a SQL expression of type `TEXT`.

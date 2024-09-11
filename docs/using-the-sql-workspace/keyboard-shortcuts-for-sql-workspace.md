@@ -6,7 +6,7 @@ nav_order: 1
 parent: Using the SQL workspace
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # Keyboard shortcuts for SQL workspace
 
 Firebolt supports the following keyboard shortcuts in the SQL workspace.

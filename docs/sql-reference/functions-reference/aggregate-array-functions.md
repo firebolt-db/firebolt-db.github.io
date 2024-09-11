@@ -6,4 +6,4 @@ permalink: /sql-reference/functions-reference/semi-structured-functions/aggregat
 redirect_to:  /sql-reference/functions-reference/#aggregate-array-functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).

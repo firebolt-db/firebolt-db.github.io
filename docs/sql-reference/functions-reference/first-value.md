@@ -5,7 +5,7 @@ description: Reference material for FIRST_VALUE function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # FIRST_VALUE
 
 Returns the first value evaluated in the specified window frame. If there are no rows in the window frame, `FIRST_VALUE` returns `NULL`.

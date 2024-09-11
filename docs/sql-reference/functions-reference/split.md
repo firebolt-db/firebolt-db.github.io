@@ -5,7 +5,7 @@ description: Reference material for SPLIT function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # SPLIT
 
 This function splits a given string by a given separator and returns the result in an array of strings.

@@ -5,7 +5,7 @@ description: Reference material for ELEMENT_AT function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # ELEMENT\_AT
 
 Returns the element at a location `<index>` from the given array. `<index>` can be any integer type. Indexes in an array begin at position `1`.

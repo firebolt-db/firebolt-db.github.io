@@ -6,7 +6,7 @@ nav_order: 4
 parent: Developing with Firebolt
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # Connecting with SQLAlchemy
 
 SQLAlchemy is an open-source SQL toolkit and object-relational mapper for the Python programming language.

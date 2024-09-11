@@ -6,7 +6,7 @@ parent: SQL functions
 ---
 
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # HLL_COUNT_MERGE_PARTIAL
 
 Takes one or more HLL++ sketch inputs and merges them into a new sketch.

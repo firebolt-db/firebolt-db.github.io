@@ -5,7 +5,7 @@ description: Reference material for REGEXP_MATCHES function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # REGEXP\_MATCHES
 
 Returns an array that contains either the match or all defined subgroups of the first match of the regular expression pattern. 

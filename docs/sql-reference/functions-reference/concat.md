@@ -5,7 +5,7 @@ description: Reference material for CONCAT function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # CONCAT
 
 Concatenates the strings listed in the input without a separator.

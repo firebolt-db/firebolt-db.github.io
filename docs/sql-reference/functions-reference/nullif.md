@@ -5,7 +5,7 @@ description: Reference material for NULLIF function
 parent: SQL functions
 ---
 {: .note}
-This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/godocs/).
+This documentation is related to an older version of Firebolt. For the most current documentation, see [Firebolt documentation](https://docs.firebolt.io/).
 # NULLIF
 
 Compares two expressions. Returns `NULL` if the expressions evaluate to equal values. Returns the result of `<expr1>` if they are not equal. To return `<expr2>` instead, use `IFNULL`.
