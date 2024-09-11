@@ -55,6 +55,6 @@ You are now ready to run Metabase with your Firebolt databases.
 | **Password**                   | The password associated with the username above.                             |
 | **Account name**               | The Firebolt account to log in to.                                           |
 | **Engine name**                | The Firebolt engine to run queries with.                                     |
-| **Additional JDBC options**    | Any additional JDBC parameters to pass along with the connection, such as `connection_timeout_millis=10000`. See [here](https://docs.firebolt.io/developing-with-firebolt/connecting-with-jdbc.html#available-connection-parameters) for a list of all available JDBC connection parameters. |
+| **Additional JDBC options**    | Any additional JDBC parameters to pass along with the connection, such as `connection_timeout_millis=10000`. See [here](https://old.docs.firebolt.io/developing-with-firebolt/connecting-with-jdbc.html#available-connection-parameters) for a list of all available JDBC connection parameters. |
 
 Be sure to select **Save** after entering all your information. After saving, you should get a message saying your Firebolt database was successfully added.

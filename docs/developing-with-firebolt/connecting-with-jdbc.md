@@ -10,7 +10,7 @@ This documentation is related to an older version of Firebolt. For the most curr
 # Using the JDBC driver
 {:.no_toc}
 
-Firebolt provides a [type 4](https://en.wikipedia.org/wiki/JDBC_driver#Type_4_driver_%E2%80%93_Database-Protocol_driver/Thin_Driver(Pure_Java_driver)){:target="_blank"} JDBC driver to connect to Firebolt from Java applications such as [Tableau](https://docs.firebolt.io/integrations/business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.html){:target="_blank"}, [DBeaver](https://docs.firebolt.io/integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.html){:target="_blank"}, and others. The driver is released as open source software using a permissive Apache 2 license and can be browsed, forked, downloaded, and contributed to through its [GitHub repository](https://github.com/firebolt-db/jdbc){:target="_blank"}.
+Firebolt provides a [type 4](https://en.wikipedia.org/wiki/JDBC_driver#Type_4_driver_%E2%80%93_Database-Protocol_driver/Thin_Driver(Pure_Java_driver)){:target="_blank"} JDBC driver to connect to Firebolt from Java applications such as [Tableau](https://old.docs.firebolt.io/integrations/business-intelligence/setting-up-tableau-desktop-jdbc-to-firebolt.html){:target="_blank"}, [DBeaver](https://old.docs.firebolt.io/integrations/setting-up-dbeaver-jdbc-connection-to-firebolt.html){:target="_blank"}, and others. The driver is released as open source software using a permissive Apache 2 license and can be browsed, forked, downloaded, and contributed to through its [GitHub repository](https://github.com/firebolt-db/jdbc){:target="_blank"}.
 
 * Topic toC
 {:toc}
@@ -110,4 +110,4 @@ In addition to passing system settings as connection string parameters, any [sys
 
 ## Full reference documentation
 
-Complete reference documentation for the classes and methods implemented in the Firebolt JDBC driver can be found [here](https://docs.firebolt.io/jdbc/javadoc/).
+Complete reference documentation for the classes and methods implemented in the Firebolt JDBC driver can be found [here](https://old.docs.firebolt.io/jdbc/javadoc/).
