@@ -499,3 +499,11 @@ Provide values for placeholders according to the following guidance.
 
 * `YOUR_ENGINE_URL` is the value of `engine_url` returned by the command shown in [Get the URL of an engine](#get-the-url-of-an-engine).
 * `YOUR_QUERY_ID` is the ID of the query you need to cancel. You can get a query ID using the [running queries view](../general-reference/information-schema/running-queries.md).
+
+> [!WARNING]  
+> If you see an error `Unknown setting cancel_query_id` consider the following workaround:
+```bash
+curl --request POST 'https://YOUR_ENGINE_URL/query_id=YOUR_QUERY_ID?database=YOUR_DATABASE_NAME&use_standard_sql=0' \
+--data-raw "KILL QUERY ON CLUSTER sql_cluster WHERE initial_query_id = 'YOUR_QUERY_ID';" \
+--header 'Authorization: Bearer YOUR_ACCESS_TOKEN_VALUE'
+```
