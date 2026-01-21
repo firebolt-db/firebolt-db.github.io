@@ -23,8 +23,8 @@ SUBSTRING(<expression> [FROM <start>] [FOR <count>])
 | Parameter | Description                         |Supported input types |
 | :--------- | :----------------------------------- | :---------------------|
 | `<expression>`  | The input string.   	| `TEXT` |
-| `<start>`   | Optional. The starting position for the substring. 1 is the first character. | `INTEGER` |
-| `<count>`   | Optional. The number of characters to be returned by the `SUBSTRING` function. Must be positive or 0. If not specified, `count` by default returns all of the string not specified by the `start` parameter. | `INTEGER` |
+| `<start>`   | Optional. The starting position for the substring. 1 is the first character. | `BIGINT` |
+| `<count>`   | Optional. The number of characters to be returned by the `SUBSTRING` function. Must be positive or 0. If not specified, `count` by default returns all of the string not specified by the `start` parameter. | `BIGINT` |
 
 At least one of the optional arguments `<start>` and `<count>` must be given.
 
